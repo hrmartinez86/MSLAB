@@ -1,0 +1,92 @@
+<!--conf
+<sample>
+               <product version="1.4" edition="std"/>
+                       <modifications>
+                               <modified date="070101"/>
+                       </modifications>
+               </sample>
+ --> 
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<title>Initialize object on page</title>
+	<link rel="STYLESHEET" type="text/css" href="../../codebase/dhtmlxgrid.css">
+	
+	<script  src="../../codebase/dhtmlxcommon.js"></script>
+	<script  src="../../codebase/dhtmlxgrid.js"></script>		
+	<script  src="../../codebase/dhtmlxgridcell.js"></script>	
+</head>
+
+<body>
+<link rel='STYLESHEET' type='text/css' href='../common/style.css'>
+<table cellspacing="0" cellpadding="0" class="sample_header" border="0">
+	<tr valign="middle">
+		<!-- COMPONENT ICON -->
+		<td width="40" align="center"><img src="../common/dhtmlxgrid_icon.gif" border="0"></td>
+		<!-- COMPONENT NAME -->
+		<td width="120" align="left">Sample: dhtmlxGrid</td>
+		<!-- SAMPLE TITLE -->
+		<td width="0" align="left"><b>Initialize object on page</b></td>
+		<!-- LINK TO COMPONENT PAGE -->
+		<td width="0" align="right"><a href="http://www.dhtmlx.com/docs/products/dhtmlxGrid/index.shtml">dhtmlxGrid main page</a></td>
+		<!-- CLOSE BUTTON -->
+		<td width="50"><div class="sample_close"><a href="javascript:void(0);" onclick="self.close();"><img src="../common/sample_close.gif" width="14" height="14" border="0" alt="X"></a></div></td>
+	</tr>
+</table>
+	
+	
+	<p>You can place this JavaScript grid anywhere on your web page, attaching the grid 
+	to any object.<br>
+	 Set up grid parameters to determine the look of the grid. 
+	 Specify whether the grid items will be loaded from XML. dhtmlxGrid uses
+	 AJAX for fast and flexible data loading.</p>
+	
+				<div id="gridbox" width="350px" height="250px" style="background-color:white;overflow:hidden"></div>
+	<br>	
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">gridbox</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">width</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">100%</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">height</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">250px</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">style</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">background-color:white;overflow:hidden</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">div</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code"><div class="hl-main"><pre><span class="hl-code"> 
+        </span><span class="hl-identifier">mygrid</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlXGridObject</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">gridbox</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">;
+        </span><span class="hl-identifier">mygrid</span><span class="hl-code">.</span><span class="hl-identifier">setImagePath</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../codebase/imgs/</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+        </span><span class="hl-identifier">mygrid</span><span class="hl-code">.</span><span class="hl-identifier">setHeader</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">Column A, Column B</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+        </span><span class="hl-identifier">mygrid</span><span class="hl-code">.</span><span class="hl-identifier">setInitWidths</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">100,*</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">
+        </span><span class="hl-identifier">mygrid</span><span class="hl-code">.</span><span class="hl-identifier">setColAlign</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">right,left</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">
+        </span><span class="hl-identifier">mygrid</span><span class="hl-code">.</span><span class="hl-identifier">setColTypes</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">ro,ed</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+        </span><span class="hl-identifier">mygrid</span><span class="hl-code">.</span><span class="hl-identifier">setColSorting</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">int,str</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+        </span><span class="hl-identifier">mygrid</span><span class="hl-code">.</span><span class="hl-identifier">enableMultiselect</span><span class="hl-brackets">(</span><span class="hl-reserved">true</span><span class="hl-brackets">)</span><span class="hl-code">
+        </span><span class="hl-identifier">mygrid</span><span class="hl-code">.</span><span class="hl-identifier">init</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+        </span><span class="hl-identifier">mygrid</span><span class="hl-code">.</span><span class="hl-identifier">loadXML</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">grid.xml</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;</span></pre></div></span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span></pre></div></div>
+<br>
+		<strong>Parameters passed to the constructor are:</strong>
+			<li>object to attach grid to (should be loaded before calling constructor)</li>
+			<br>
+		<strong>Specify additional parameters of the grid:</strong>
+			<li>imgURL - specifies the path to the folder with grid images</li>
+			<li>setHeader("Column A, Column B") - set column header labels</li>
+			<li>setInitWidths("100,150") - set column width in pixels</li>
+			<li>setColTypes("ro,ed") - set column types (with editor codes. See documentation for details)</li>
+			<li>setColAlign("right,left") - set column text align</li>
+			<li>setColSorting("int,str") - set column sorting type</li>
+			<li>enableMultiselect(true) - enables multiselection support</li>
+			<li>loadXML("grid.xml") - load grid data from XML</li>
+<script>
+	mygrid = new dhtmlXGridObject('gridbox');
+	mygrid.setImagePath("../../codebase/imgs/");
+	mygrid.setHeader("Column A, Column B");
+	mygrid.setInitWidths("100,250")
+	mygrid.setColAlign("right,left")
+	mygrid.setColTypes("ro,ed");
+	mygrid.setColSorting("int,str")
+	mygrid.enableMultiselect(true)
+	mygrid.init();
+	mygrid.loadXML("grid.xml");
+</script>
+
+<!-- FOOTER -->
+<table callspacing="0" cellpadding="0" border="0" class="sample_footer"><tr><td style="padding-left: 8px;">&copy; <a href="http://www.dhtmlx.com">DHTMLX LTD</a>. All rights reserved</td></tr></table>
+<!-- FOOTER -->
+
+</body>
+</html>

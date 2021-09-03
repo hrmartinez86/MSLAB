@@ -1,0 +1,144 @@
+<!--conf
+<sample in_favorites="true">
+              <product version="1.0" edition="std"/>
+                     <modifications>
+                            <modified date="070101"/>
+                     </modifications>
+               <sampledescription><![CDATA[Use dhtmlxMenu as context menu, generating items on the fly with script]]></sampledescription></sample>
+ --> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+ "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	<title>Building Context Menu with script</title>
+	<link rel="STYLESHEET" type="text/css" href="../../codebase/dhtmlxmenu.css">
+	<link rel="STYLESHEET" type="text/css" href="../../codebase/context.css">
+	
+	<script language="JavaScript" src="../../codebase/dhtmlxprotobar.js"></script>
+	<script language="JavaScript" src="../../codebase/dhtmlxmenubar.js"></script>
+	<script language="JavaScript" src="../../codebase/dhtmlxmenubar_cp.js"></script>
+	<script language="JavaScript" src="../../codebase/dhtmlxcommon.js"></script>
+</head>
+
+<body>
+<link rel='STYLESHEET' type='text/css' href='../common/style.css'>
+<table cellspacing="0" cellpadding="0" class="sample_header" border="0">
+	<tr valign="middle">
+		<!-- COMPONENT ICON -->
+		<td width="40" align="center"><img src="../common/dhtmlxmenu_icon.gif" border="0"></td>
+		<!-- COMPONENT NAME -->
+		<td width="120" align="left">Sample: dhtmlxMenu</td>
+		<!-- SAMPLE TITLE -->
+		<td width="0" align="left"><b>Building Context Menu with script</b></td>
+		<!-- LINK TO COMPONENT PAGE -->
+		<td width="0" align="right"><a href="http://www.dhtmlx.com/docs/products/dhtmlxMenu/index.shtml">dhtmlxMenu main page</a></td>
+		<!-- CLOSE BUTTON -->
+		<td width="50"><div class="sample_close"><a href="javascript:void(0);" onclick="self.close();"><img src="../common/sample_close.gif" width="14" height="14" border="0" alt="X"></a></div></td>
+	</tr>
+</table>
+	
+	<table style="cursor:default;">
+		<tr>
+			<td>
+			<div style="width:150; border-bottom:1px solid black;" id="alfa1">Test zone 1</div>
+			<div style="width:150; border-bottom:1px solid black;" id="alfa2">Test zone 2</div>
+			<div style="width:150; border-bottom:1px solid black;" id="alfa3">Test zone 3</div>
+			</td>
+
+		</tr>
+		<tr>
+			<td colspan="2">
+			Press right mouse button on one of test zones.			
+			</td>
+		</tr>
+
+	</table>
+<br>
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code"><div class="hl-main"><pre><span class="hl-code"> 
+        </span><span class="hl-comment">//</span><span class="hl-comment">init context menu</span><span class="hl-comment"></span><span class="hl-code">
+        </span><span class="hl-identifier">aMenu</span><span class="hl-code">=</span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlXContextMenuObject</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">120</span><span class="hl-quotes">'</span><span class="hl-code">,</span><span class="hl-number">0</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../codebase/imgs/</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+        
+        </span><span class="hl-comment">//</span><span class="hl-comment">set css</span><span class="hl-comment"></span><span class="hl-code">
+        </span><span class="hl-identifier">aMenu</span><span class="hl-code">.</span><span class="hl-identifier">menu</span><span class="hl-code">.</span><span class="hl-identifier">tableCSS</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">menuTable</span><span class="hl-quotes">&quot;</span><span class="hl-code">;
+                        
+        </span><span class="hl-comment">//</span><span class="hl-comment">create menu item</span><span class="hl-comment"></span><span class="hl-code">
+        </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">item</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlXMenuItemObject</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">edit_Red</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">Red</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../codebase/red.gif</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">contextMenu</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+        </span><span class="hl-identifier">aMenu</span><span class="hl-code">.</span><span class="hl-identifier">menu</span><span class="hl-code">.</span><span class="hl-identifier">addItem</span><span class="hl-brackets">(</span><span class="hl-identifier">aMenu</span><span class="hl-code">.</span><span class="hl-identifier">menu</span><span class="hl-code">,</span><span class="hl-identifier">item</span><span class="hl-brackets">)</span><span class="hl-code">;
+        </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">item</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlXMenuItemObject</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">edit_Green</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">Green</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../codebase/green.gif</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">contextMenu</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+        </span><span class="hl-identifier">aMenu</span><span class="hl-code">.</span><span class="hl-identifier">menu</span><span class="hl-code">.</span><span class="hl-identifier">addItem</span><span class="hl-brackets">(</span><span class="hl-identifier">aMenu</span><span class="hl-code">.</span><span class="hl-identifier">menu</span><span class="hl-code">,</span><span class="hl-identifier">item</span><span class="hl-brackets">)</span><span class="hl-code">;
+        </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">item</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlXMenuItemObject</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">edit_Blue</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">Blue</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../codebase/blue.gif</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">contextMenu</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+        </span><span class="hl-identifier">aMenu</span><span class="hl-code">.</span><span class="hl-identifier">menu</span><span class="hl-code">.</span><span class="hl-identifier">addItem</span><span class="hl-brackets">(</span><span class="hl-identifier">aMenu</span><span class="hl-code">.</span><span class="hl-identifier">menu</span><span class="hl-code">,</span><span class="hl-identifier">item</span><span class="hl-brackets">)</span><span class="hl-code">;
+        </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">item</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlXMenuItemObject</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">outher</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">Other...</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">120</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">contextMenu</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+        </span><span class="hl-identifier">aMenu</span><span class="hl-code">.</span><span class="hl-identifier">menu</span><span class="hl-code">.</span><span class="hl-identifier">addItem</span><span class="hl-brackets">(</span><span class="hl-identifier">aMenu</span><span class="hl-code">.</span><span class="hl-identifier">menu</span><span class="hl-code">,</span><span class="hl-identifier">item</span><span class="hl-brackets">)</span><span class="hl-code">;                        
+        </span><span class="hl-comment">//</span><span class="hl-comment">create submenu</span><span class="hl-comment"></span><span class="hl-code">
+        </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">subMenu</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlXMenuBarPanelObject</span><span class="hl-brackets">(</span><span class="hl-identifier">aMenu</span><span class="hl-code">.</span><span class="hl-identifier">menu</span><span class="hl-code">,</span><span class="hl-identifier">item</span><span class="hl-code">,</span><span class="hl-reserved">false</span><span class="hl-code">,</span><span class="hl-number">120</span><span class="hl-code">,</span><span class="hl-reserved">true</span><span class="hl-brackets">)</span><span class="hl-code">;        
+ 
+        </span><span class="hl-comment">//</span><span class="hl-comment">add item to submenu</span><span class="hl-comment"></span><span class="hl-code">
+        </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">item</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlXMenuItemObject</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">edit_Yellow</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">Yellow</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">120</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../codebase/yellow.gif</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">contextMenu</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+        </span><span class="hl-identifier">aMenu</span><span class="hl-code">.</span><span class="hl-identifier">menu</span><span class="hl-code">.</span><span class="hl-identifier">addItem</span><span class="hl-brackets">(</span><span class="hl-identifier">subMenu</span><span class="hl-code">,</span><span class="hl-identifier">item</span><span class="hl-brackets">)</span><span class="hl-code">;
+        </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">item</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlXMenuItemObject</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">edit_White</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">White</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">120</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../codebase/white.gif</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">contextMenu</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+        </span><span class="hl-identifier">aMenu</span><span class="hl-code">.</span><span class="hl-identifier">menu</span><span class="hl-code">.</span><span class="hl-identifier">addItem</span><span class="hl-brackets">(</span><span class="hl-identifier">subMenu</span><span class="hl-code">,</span><span class="hl-identifier">item</span><span class="hl-brackets">)</span><span class="hl-code">;        
+        
+        </span><span class="hl-identifier">aMenu</span><span class="hl-code">.</span><span class="hl-identifier">setContextMenuHandler</span><span class="hl-brackets">(</span><span class="hl-identifier">onButtonClick</span><span class="hl-brackets">)</span><span class="hl-code">;
+        
+        </span><span class="hl-comment">//</span><span class="hl-comment">set context zones</span><span class="hl-comment"></span><span class="hl-code">
+        </span><span class="hl-identifier">aMenu</span><span class="hl-code">.</span><span class="hl-identifier">setContextZone</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">alfa1</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-number">1</span><span class="hl-brackets">)</span><span class="hl-code">;
+        </span><span class="hl-identifier">aMenu</span><span class="hl-code">.</span><span class="hl-identifier">setContextZone</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">alfa2</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-number">2</span><span class="hl-brackets">)</span><span class="hl-code">;
+        </span><span class="hl-identifier">aMenu</span><span class="hl-code">.</span><span class="hl-identifier">setContextZone</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">alfa3</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-number">3</span><span class="hl-brackets">)</span><span class="hl-code">;</span></pre></div></span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span></pre></div></div>
+
+
+	<script>
+
+		
+		function onButtonClick(itemId,itemValue)
+		{
+			var z=itemId.split("_");
+			if (z.length>1)
+			document.getElementById("alfa"+itemValue).style.backgroundColor=z[1];
+		};
+		
+		
+		aMenu=new dhtmlXContextMenuObject('120',0,"../../codebase/imgs/");
+
+		//set css
+		aMenu.menu.tableCSS="menuTable";
+						
+		//create menu item
+		var item = new dhtmlXMenuItemObject("edit_Red","Red","","../images/red.gif","contextMenu");
+		aMenu.menu.addItem(aMenu.menu,item);
+		var item = new dhtmlXMenuItemObject("edit_Green","Green","","../images/green.gif","contextMenu");
+		aMenu.menu.addItem(aMenu.menu,item);
+		var item = new dhtmlXMenuItemObject("edit_Blue","Blue","","../images/blue.gif","contextMenu");
+		aMenu.menu.addItem(aMenu.menu,item);
+		
+		//add separator
+		var item = new dhtmlXMenuDividerYObject("id_0");				
+		aMenu.menu.addItem(aMenu.menu,item);
+				
+		var item = new dhtmlXMenuItemObject("outher","Other...","120","","contextMenu");
+		aMenu.menu.addItem(aMenu.menu,item);						
+		
+		//create submenu
+		var subMenu = new dhtmlXMenuBarPanelObject(aMenu.menu,item,false,120,true);		
+
+		//add item to submenu
+		var item = new dhtmlXMenuItemObject("edit_Yellow","Yellow","120","../images/yellow.gif","contextMenu");
+		aMenu.menu.addItem(subMenu,item);
+		var item = new dhtmlXMenuItemObject("edit_White","White","120","../images/white.gif","contextMenu");
+		aMenu.menu.addItem(subMenu,item);		
+		
+		aMenu.setContextMenuHandler(onButtonClick);
+		aMenu.setContextZone("alfa1",1);
+		aMenu.setContextZone("alfa2",2);
+		aMenu.setContextZone("alfa3",3);				
+
+		
+	</script>
+<!-- FOOTER -->
+<table callspacing="0" cellpadding="0" border="0" class="sample_footer"><tr><td style="padding-left: 8px;">&copy; <a href="http://www.dhtmlx.com">DHTMLX LTD</a>. All rights reserved</td></tr></table>
+<!-- FOOTER -->
+
+</body>
+</html>

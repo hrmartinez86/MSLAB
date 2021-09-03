@@ -1,0 +1,90 @@
+<!--conf
+<sample>
+               <product version="1.6" edition="std"/>
+                       <modifications>
+                               <modified date="070101"/>
+                       </modifications>
+               </sample>
+ --> 
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<title>Tab Order and Readonly Cells</title>
+	<link rel="STYLESHEET" type="text/css" href="../../codebase/dhtmlxgrid.css">
+	<script  src="../../codebase/dhtmlxcommon.js"></script>
+	<script  src="../../codebase/dhtmlxgrid.js"></script>		
+	<script  src="../../codebase/dhtmlxgridcell.js"></script>	
+</head>
+
+<body>
+<link rel='STYLESHEET' type='text/css' href='../common/style.css'>
+<table cellspacing="0" cellpadding="0" class="sample_header" border="0">
+	<tr valign="middle">
+		<!-- COMPONENT ICON -->
+		<td width="40" align="center"><img src="../common/dhtmlxgrid_icon.gif" border="0"></td>
+		<!-- COMPONENT NAME -->
+		<td width="120" align="left">Sample: dhtmlxGrid</td>
+		<!-- SAMPLE TITLE -->
+		<td width="0" align="left"><b>Tab Order and Readonly Cells</b></td>
+		<!-- LINK TO COMPONENT PAGE -->
+		<td width="0" align="right"><a href="http://www.dhtmlx.com/docs/products/dhtmlxGrid/index.shtml">dhtmlxGrid main page</a></td>
+		<!-- CLOSE BUTTON -->
+		<td width="50"><div class="sample_close"><a href="javascript:void(0);" onclick="self.close();"><img src="../common/sample_close.gif" width="14" height="14" border="0" alt="X"></a></div></td>
+	</tr>
+</table>
+	
+	
+	<p>enableEditTabOnly method allows to navigate only between editable cells.<br/>And by setExternalTabOrder method you can set external elements, which get focus when tab|tab+shift is pressed in the last|first cell.</p>
+	<table><tr><td>
+	<input type="text" id="elem1" value="start" size="20">   </td></tr>
+	<tr><td><div id="gridbox" width="400px" height="250px" style="background-color:white;overflow:hidden;"></div></td></tr>
+	<tr><td><input type="text" id="elem2" value="end" size="20"> </td></tr>	
+<tr><td>
+	<a href="javascript:void(0)" onclick="mygrid.enableEditTabOnly(1);;">enable</a>  |   <a href="javascript:void(0)" onclick="mygrid.enableEditTabOnly(0);">disable</a>  EditTabOnly
+	</td></tr>	
+	</table>
+	
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">input</span><span class="hl-code"> </span><span class="hl-var">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">text</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">elem1</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">value</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">start</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">size</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">20</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">gridbox</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">width</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">400px</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">height</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">250px</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">style</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">background-color:white;overflow:hidden;</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">div</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">input</span><span class="hl-code"> </span><span class="hl-var">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">text</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">elem2</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">value</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">end</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">size</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">20</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+ 
+ 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    mygrid = new dhtmlXGridObject('gridbox');
+    mygrid.setHeader(&quot;Column A, Column B, column c&quot;);
+    mygrid.setColTypes(&quot;ro,ed,ed&quot;);
+ 
+    mygrid.enableEditTabOnly(1);
+ 
+    mygrid.setExternalTabOrder(&quot;elem1&quot;,&quot;elem2&quot;)
+    ....
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span></pre></div></div>
+
+<script>
+
+	mygrid = new dhtmlXGridObject('gridbox');
+	mygrid.setImagePath("../../codebase/imgs/");
+	mygrid.setHeader("Column A, Column B, column c");
+	mygrid.setInitWidths("100,150,*")
+	mygrid.setColAlign("right,left,left,left")
+	mygrid.setColTypes("ro,ed,ed");
+	mygrid.setColSorting("int,str,str")
+	mygrid.enableMultiselect(true)
+	mygrid.enableEditTabOnly(1);
+	mygrid.setExternalTabOrder("elem1","elem2")
+	mygrid.init();
+	mygrid.setSkin("light");
+	mygrid.loadXML("grid.xml");
+	
+
+</script>
+
+<!-- FOOTER -->
+<table callspacing="0" cellpadding="0" border="0" class="sample_footer"><tr><td style="padding-left: 8px;">&copy; <a href="http://www.dhtmlx.com">DHTMLX LTD</a>. All rights reserved</td></tr></table>
+<!-- FOOTER -->
+
+</body>
+</html>

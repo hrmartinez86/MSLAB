@@ -1,0 +1,119 @@
+<html>
+
+<head>
+
+
+<link rel="STYLESHEET" type="text/css" href="../common/styles.css">
+</head>
+<body>
+	<table border="0" cellpadding="0" cellspacing="0" class="sample_header" zid="71">
+		<tbody zid="3">
+			<tr valign="center" zid="4">
+				<td align="center" width="10" zid="5">&nbsp;</td>
+				<td align="left" zid="6">
+					<p zid="224">
+						<a href="http://www.dhtmlx.com/" zid="7">DHTMLX</a> Documentation
+					</p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<!--- CONTENT. Starts --->
+	        <H1 id=m401>Custom statistics counter (automatically calculated values)<BR id=aew6>
+</H1>
+<H2 id=wulw><BR id=kggr>
+Implementing new types of statistics counters<BR id=yd7l>
+</H2>
+<BR id=yzgq>
+Statistics Counters are sub-sets of header|footer shortcuts which are used to show aggregated values inside header|footer cells. They are created in the way similar to that of <A id=imii title="normal shortcuts" href="View?docid=dhhqnnw2_0fd88cwg4">normal shortcuts</A> creation but have some specific features.<BR id=t33b>
+<BR id=r6lz>
+The simplest statistics counter can be created by using the code snippet similar to the following one:<BR id=lvsf>
+<BLOCKQUOTE id=otmb>grid._in_header_stat_count=function(tag,index,c){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//shortcut for statistics counter <BR id=kgzv>
+&nbsp;&nbsp;&nbsp;&nbsp;var calck=function(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// define the function which will be used for calculations<BR id=yv62>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return this.getRowsNum();<BR id=o4uk>
+&nbsp;&nbsp;&nbsp;&nbsp;}<BR id=vd0t>
+&nbsp;&nbsp;&nbsp;&nbsp;this._stat_in_header(tag,calck,index,c); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//call default statistics handler processor<BR id=eqc5>
+}<BR id=rite>
+</BLOCKQUOTE>
+There are some differences between default shortcats and statistics counters:<BR id=snzx>
+<OL id=dlg5>
+<LI id=z8on>Instead of setting some predefined value, statistics value is defined as an inner function. As for the normal content, we define a function, which will be called each time when the data&nbsp; is changed in the grid. The result of such function will be used as a header|footer value.<BR id=bvzw>
+<LI id=w9_x>_stat_in_header method is used to register a new statistics counter. It is possible to attach all the necessary events manually, but it is much simpler to call the predefined&nbsp;method&nbsp;which&nbsp;will&nbsp;do&nbsp;it&nbsp;automatically;
+<LI id=eq1c>The third&nbsp;argument&nbsp;of the function is the array&nbsp;of the surrounding&nbsp;content&nbsp;(if you have "about {#stat_sum}$"&nbsp;as&nbsp;header&nbsp;value,&nbsp;then c&nbsp;==&nbsp;["above","$"]); it&nbsp;will&nbsp;be&nbsp;processed&nbsp;automatically, there is no need to take any additional steps to process it.</LI>
+</OL>
+<BR id=gypx>
+The previous snippet is pretty simple - it always returns the current number of rows. Lets look at the more advanced case: <BR id=l3.1>
+<BLOCKQUOTE id=l:50>grid._in_header_stat_summ=function(tag,index,c){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// shortcut for statistics counter<BR id=n-25>
+&nbsp;&nbsp;&nbsp;&nbsp;var calck=function(){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // define the function which will be used for calculations<BR id=ouel>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var summ=0; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// set initial&nbsp;counter&nbsp;value <BR id=n0.2>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.forEachRow(function(id){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// for each row<BR id=lr4w>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;summ+=this.cells(id,index).getValue(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// add row_value<BR id=e4zq>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;})<BR id=kmwp>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return summ;<BR id=tg8o>
+&nbsp;&nbsp;&nbsp;&nbsp;}<BR id=nttg>
+this._stat_in_header(tag,calck,index,c); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//call default statistics handler processor<BR id=zpku>
+}<BR id=mczl>
+</BLOCKQUOTE>
+This snippet uses a slightly&nbsp;more&nbsp;complex&nbsp;approach: each&nbsp;time&nbsp;when any changes&nbsp;in the grid&nbsp;occur and the calculation&nbsp;function is called, the code&nbsp;iterates&nbsp;through&nbsp;all the rows&nbsp;and&nbsp;calculates the sum of&nbsp;value&nbsp;in the related&nbsp;cells.<BR id=aw8:>
+Be sure you checked the <A id=q32v title="itteration through grid" href="View?docid=dhhqnnw2_3d89qvwd7">iteration through grid</A> article.<BR id=j53w>
+<BR id=j.g:>
+Basically you can use the above mentioned snippet, as it is&nbsp;pretty&nbsp;universal and you just need to change the name and the math function&nbsp;inside it.<BR id=lkx_>
+For example, the following code can be used to calculate the mean square deviation: <BR id=ak-n>
+<BLOCKQUOTE id=uvk8>grid._in_header_stat_deviation=function(tag,index,c){ //the marker for statistics counter<BR id=t_oc>
+&nbsp;&nbsp;&nbsp;&nbsp;var calck=function(){ // define the function which will be used for calculations<BR id=i1_v>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var summ=0; //set initial<BR id=ku8n>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.forEachRow(function(id){<BR id=you0>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;summ+=Math.pow(this.cells(id,index).getValue,2);<BR id=ojn3>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;})<BR id=d:5l>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return summ/this.getRowsCount();<BR id=v-cf>
+&nbsp;&nbsp;&nbsp;&nbsp;}<BR id=qicu>
+this._stat_in_header(tag,calck,index,c); //call the default statistics handler processor<BR id=c2rn>
+}<BR id=c2f:>
+<BR id=hakw>
+</BLOCKQUOTE>
+As you can see the changes are minimal - we&nbsp;just&nbsp;added&nbsp;some&nbsp;math&nbsp;to the calculations.<BR id=vgfo>
+The given above code has one problem - the result of the divisions can be the fractional value (such as 0.33333333). But in most cases we want the result to be neatly formated. <BR id=lhpn>
+The simplest way to fix this issue directly is as follows:<BR id=of8c>
+<BLOCKQUOTE id=ata:>return Math.round(summ/this.getRowsCount()*100)/100;<BR id=a726>
+</BLOCKQUOTE>
+This will round the value to 2 digits in a simple and fast way. <BR id=f_.a>
+To apply a more complex formatting it is possible to use the grid built-in formatting (set by grid.setNumberFormat) command:<BR id=piq1>
+<BLOCKQUOTE id=mvkn>return&nbsp;this._aplNF(summ,index); <BR id=jvr.>
+</BLOCKQUOTE>
+<P id=y1_p>The confusing <SPAN id=uo7-><B id=b7i2>_aplNF</B></SPAN> stands for the name of the inner grid function which is used for <B id=r1qs>edn </B>excells and can be reused to apply the same formating to autocalculated values.<BR id=hybu>
+<BR id=k8md>
+As with the normal&nbsp;shortcuts,&nbsp;statistics counters&nbsp;can&nbsp;be&nbsp;defined&nbsp;on&nbsp;prototype&nbsp;level,&nbsp;so&nbsp;all the instances&nbsp;of the grid&nbsp;will&nbsp;be&nbsp;affected: <BR id=cnqi>
+</P>
+<BLOCKQUOTE id=bkmv><B id=dzq7>dhtmlXGridObject.prototype</B>._in_header_SOME=function(tag,index){<BR id=tn5m>
+....<BR id=kq1w>
+}</BLOCKQUOTE>
+<P id=dk5g></P>
+<BR id=eexm>
+<H2 id=an5l>Attaching statistics counters to external objects<BR id=j:g:>
+</H2>
+<BR id=wjk->
+While the main purpose of statistics counters is to show data inside the headers|footers of the grid, it is pretty easy to use them to fill some custom area on the page with the related data.<BR id=tglj>
+<BR id=iu3m>
+For example, if you have the following code:<BR id=qwj7>
+<BLOCKQUOTE id=n8mx>grid._in_header_stat_count=function(tag,index,c){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//shortcut for statistics counter<BR id=r-nv>
+&nbsp;&nbsp;&nbsp;&nbsp;var calck=function(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// define the function which will be used for calculations<BR id=y8ek>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return this.getRowsNum();<BR id=sbgf>
+&nbsp;&nbsp;&nbsp;&nbsp;}<BR id=ivrz>
+&nbsp;&nbsp;&nbsp;&nbsp;this._stat_in_header(tag,calck,index,c); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//call the default statistics handler processor<BR id=rxzk>
+}<BR id=l5hw>
+</BLOCKQUOTE>
+And somewhere on the page you have: <BR id=afp6>
+<BLOCKQUOTE id=o5r_>there are &lt;span id="grid_count"&gt;&lt;/span&gt; rows in my grid<BR id=glk:>
+</BLOCKQUOTE>
+You can link stat_count to the span element in the following way:<BR id=r28f>
+<BLOCKQUOTE id=xwwt>grid._in_header_stat_count(document.getElementById('grid_count'),1);<BR id=cijn>
+</BLOCKQUOTE>
+After such command the content of grid_count element will&nbsp;be&nbsp;always&nbsp;equal&nbsp;to&nbsp;the number of&nbsp;rows&nbsp;in the grid.<BR id=ueak>
+One cool detail should be noted here: if you add|delete the rows or reload the grid, the content&nbsp;of&nbsp;html&nbsp;tag&nbsp;will be correctly updated after each operation.<BR id=m000>
+<BR id=sis9>
+The same trick can be used with any "in header shortcut", but there is no much sense in it for the static ones. <BR id=ueej>
+
+	<!--- CONTENT. Ends --->
+	<div class="copyright" zid="223">&copy; DHTMLX, 2008</div>
+</body>
+</html>

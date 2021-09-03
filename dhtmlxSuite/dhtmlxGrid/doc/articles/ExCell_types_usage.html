@@ -1,0 +1,575 @@
+<html>
+
+<head>
+
+
+
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<link href="common/styles.css" rel="STYLESHEET" type="text/css">
+
+<link href="/styles/editor.css" id="stylesheetforeditor" rel="stylesheet">
+
+<link href="/styles/print.css" id="stylesheetforpreview" media="print" rel="stylesheet">
+
+<link href="/styles/print_preview.css" id="stylesheetforprintpreview" media="screen" rel="stylesheet">
+
+<style id="styletagforeditor">body { border: 0px; font-family:verdana; font-size :10pt; direction :ltr; background-color :#ffffff; line-height :1.2; margin:0% 10% 0% 10%;}</style>
+
+<style id="styletagtwoforeditor">table { font-size: 10pt;} p { margin-top:0px; margin-bottom:0px; }</style>
+
+<style type="text/css">body{
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	margin: 10px 10px 10px 10px;
+	padding: 0 0 0 0;
+	color:#000000;
+	background:#ffffff;
+}
+
+table{
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+
+a:link, a:visited{
+	font: 11px Tahoma, Arial, Helvetica, sans-serif;
+	color:#0379A1;
+	text-decoration: underline;
+}
+
+a:active{
+	font: 11px Tahoma, Arial, Helvetica, sans-serif;
+	color:#0482AD;
+	text-decoration: underline;
+}
+
+a:hover{
+	text-decoration: none;
+}
+
+.sample_close{
+	width: 14px;
+	height: 14px;
+	float: right;
+	margin-right: 4px;
+}
+
+table.sample_header{
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	width: 100%;
+	height: 24px;
+	background: #9BD7EB;
+	border 0;
+}
+
+.sample_code{
+    background-color: #EBEBEB;
+    background: url(../);
+    padding: 5px;
+    margin: 20px 0 20px 0;
+    border-left: 20px solid #cecece;
+}
+
+
+
+xmp, blockquote, pre{
+	font-size:11px;
+	margin: 5px 0 15px 0;
+	padding: 5px 5px 20px 5px;
+	font-family: Courier;
+	background-color: #EBEBEB;
+	border-left: 20px solid #cecece;
+}
+
+
+
+h1{
+	font: bold 28px Times;
+	color: #383838;
+	width: 100%;
+	height: 24px;
+	text-decoration:underline;
+	xbackground: #9BD7EB;
+}
+
+h2{
+	font: bold 20px Arial, Tahoma;
+	margin: 18px 0px 10px 0;
+	color: #525252;
+}
+
+h2 a:link, h2 a:visited{
+	font: bold 20px Arial, Tahoma;
+	color:#0379A1;
+	text-decoration: none;
+}
+
+h2 a:active{
+	font: bold 20px Arial, Tahoma;
+	color:#0482AD;
+	text-decoration: none;
+}
+
+h2 a:hover{
+	text-decoration: none;
+	border-bottom: 2px dotted;
+}
+
+h3{
+	font: bold 16px/16px Arial, Helvetica, sans-serif;
+}
+
+h4{
+	font: bold 16px/16px Arial, Helvetica, sans-serif;
+	color: #0482AD;
+	padding: 20px 0 0 0;
+}
+
+h5{
+	font: bold 13px/12px Arial, Helvetica, sans-serif;
+	color: #0482AD;
+	padding: 14px 0 4px 0;
+	margin: 0;
+}
+
+h6{
+	font: bold 11px/11px Arial, Helvetica, sans-serif;
+	padding: 5px 0 5px 20px;
+	margin: 5px;
+	color: #3C3C3C;
+}
+
+.op{
+	cursor:pointer;
+}
+
+div.block{
+	margin-left: 0;
+}
+
+li{
+	margin-top:2px;
+}
+
+span.important{
+	font-weight:bold;
+	color:maroon;
+}
+
+.div_drop{
+	display:none;
+	margin: 0px 0 10px 10px;
+	padding-left: 10px;
+	font-size:12px;
+	border-left: 2px solid #777777;
+}
+
+.professional{
+	font: bold 11px/11px Tahoma, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #fff;
+	background: #ff800f;
+	padding: 1px 1px 2px 3px;
+}
+
+.experimental{
+	font: bold 11px/11px Tahoma, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #fff;
+	background: #76b130;
+	padding: 1px 1px 2px 3px;
+}
+
+.depricated{
+	font: bold 11px/11px Tahoma, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #fff;
+	background: #ff0000;
+	padding: 1px 1px 2px 3px;
+}
+
+.div_method{
+	margin:20px 0 20px 0;
+	padding-left: 10px;
+	font-weight:bold;
+	cursor:pointer;
+}
+
+.div_strong_method{
+	font: bold 12px/18px Tahoma, Arial, Helvetica, sans-serif;
+	color: #7c7c7c;
+	border-bottom: 1px dotted #cecece;\
+}
+
+.exem{
+	font: bold 11px/11px Tahoma, Arial, Helvetica, sans-serif;
+	color: #1da6d3;
+	padding-right: 10px;
+}
+.tdh{
+	background-color:#f4f4f4;
+	padding:2px;
+}
+
+div.copyright{
+	margin-top:20px;
+	font-size:12px;
+	font-family:arial, tahoma;
+	color:gray;
+}
+
+</style>
+
+<meta content="pagewise" id="fntype">
+
+<meta content="1-1" id="fnstyle">
+
+<meta content="125" name="zid">
+
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type" id="metaid">
+
+</head>
+
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" class="sample_header" zid="1">
+
+<tbody zid="2">
+
+<tr valign="middle" zid="3">
+<!-- COMPONENT ICON -->
+
+<td align="center" width="10" zid="4">&nbsp;</td>
+<!-- COMPONENT NAME --><td align="left" width="" zid="5"><a href="http://www.dhtmlx.com" zid="6">DHTMLX</a> Documentation</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+<h1 zid="7">dhtmlxGrid. Cell Editor (eXcell) Types</h1>
+
+<div class="block" zid="8">
+
+<h2 zid="9">
+    Base types<br zid="10">
+
+</h2>
+
+<h3 zid="11">
+    ro<br zid="12">
+
+</h3>
+  Simple readonly cell without edit possibility<br zid="13">
+  Variations:<br zid="14">
+
+<ul zid="15">
+
+<li zid="16">
+      ron - Readonly eXcell with formatting capabilities (see "edn" for details)
+    </li>
+
+<li zid="17">
+      rotxt - Simple readonly cell without edit possibility, threat values as
+      pure text, so no HTML allowed and all special chars can be set without
+      escaping
+    </li>
+
+</ul>
+
+<br zid="18">
+
+<h3 zid="19">
+    ed
+  </h3>
+  Simple single line editor<br zid="20">
+  Variations:<br zid="21">
+
+<ul zid="22">
+
+<li zid="23">
+      edn - Simple single line editor, allows specific formatting through
+      grid.setNumberFormat(...
+    </li>
+
+<li zid="24">
+      edtxt - Simple single line editor, threat values as pure text, so no HTML
+      allowed and all special chars can be set without escaping
+    </li>
+
+</ul>
+
+<br zid="25">
+
+<h3 zid="26">
+    txt
+  </h3>
+  Simple multi-line editor ( small textarea )<br zid="27">
+  Variations:<br zid="28">
+
+<ul zid="29">
+
+<li zid="30">
+      txttxt - Simple multi-line editor ( small textarea ) threats values as
+      pure text, so no HTML allowed and all special chars can be set without
+      escaping
+    </li>
+
+</ul>
+
+<h3 zid="31">
+
+<br zid="32">
+
+</h3>
+
+<h3 zid="33">
+    ch
+  </h3>
+  Checkbox eXcell. Treats 1 as checked, 0 as not checked
+  <h3 zid="34">
+
+<br zid="35">
+
+</h3>
+
+<h3 zid="36">
+    ra
+  </h3>
+  Radiobutton (column oriented)<br zid="37">
+  Variations:<br zid="38">
+
+<ul zid="39">
+
+<li zid="40">
+      ra_str - row oriented radiobutton
+    </li>
+
+</ul>
+
+<h3 zid="41">
+
+<br zid="42">
+
+</h3>
+
+<h3 zid="43">
+    co
+  </h3>
+  Simple combobox<br zid="44">
+  Variations<br zid="45">
+
+<ul zid="46">
+
+<li zid="47">
+      coro - selectbox
+    </li>
+
+</ul>
+
+<h3 zid="48">
+
+<br zid="49">
+
+</h3>
+
+<br zid="50">
+
+<h2 zid="51">
+    Formatting excells
+  </h2>
+
+<h3 zid="52">
+
+<br zid="53">
+
+</h3>
+
+<h3 zid="54">
+    link
+  </h3>
+  Threat value as link source, renders as link (A tag)<br zid="55">
+  The corresponding&nbsp; cell value in XML should be a "^" delimited list of
+  following values:<br zid="56">
+  1st - Link Text<br zid="57">
+  2nd - URL (optional)<br zid="58">
+  3rd - target (optional, default is _blank)<br zid="59">
+
+<blockquote zid="60">
+    Dummy link<br zid="61">
+    Real link^http://dhtmlx.com<br zid="62">
+    Real link^http://dhtmlx.com^_blank<br zid="63">
+    Real link^javascript:doSomething()^_self<br zid="64">
+
+</blockquote>
+
+<br zid="65">
+
+<br zid="66">
+
+<h3 zid="67">
+    img
+  </h3>
+  Threat value as image source, renders as image (IMG tag)<br zid="68">
+  The corresponding&nbsp; cell value in XML should be a "^" delimited list of
+  following values:<br zid="69">
+  &nbsp;&nbsp;&nbsp; 1st - image src<br zid="70">
+  &nbsp;&nbsp;&nbsp; 2nd - image alt text (optional)<br zid="71">
+  &nbsp;&nbsp;&nbsp; 3rd - link (optional)<br zid="72">
+  &nbsp;&nbsp;&nbsp; 4rd - target (optional, default is _self)<br zid="73">
+
+<blockquote zid="74">
+    some.gif<br zid="75">
+    some.gif^alte text<br zid="76">
+    some.gif^alt text^http://dhtmlx.com^_blank<br zid="77">
+    some.gif^alt text^javascript:doSomething()^_self<br zid="78">
+
+</blockquote>
+
+<h3 zid="79">
+
+<br zid="80">
+
+</h3>
+
+<h3 zid="81">
+    price
+  </h3>
+  renders value as price amount ( prepeniding $ sign, value &gt;0 rendered in
+  green, other values rendered in red )<br zid="82">
+
+<h3 zid="83">
+
+<br zid="84">
+
+</h3>
+
+<h3 zid="85">
+    dyn
+  </h3>
+  different coloring and marking based on value ( sales dynamic oriented )<br zid="86">
+
+<br zid="87">
+
+<br zid="88">
+
+<br zid="89">
+
+<h2 zid="90">
+    Excell with complex editors
+  </h2>
+
+<br zid="91">
+
+<h3 zid="92">
+    cp
+  </h3>
+  Simple popup colorpicker
+  <h3 zid="93">
+    calck
+  </h3>
+  Popup calculator control, allows specific formatting through
+  grid.setNumberFormat(...
+  <h3 zid="94">
+    dhxCalendar
+  </h3>
+  Popup calendar control, dhxCalendar used, date format can be set by
+  grid.setDateFormat(...<br zid="95">
+
+<br zid="96">
+
+<h3 zid="97">
+    dhxCalendarA
+  </h3>
+
+<p zid="98">
+    Popup calendar control, dhxCalendar used, date format can be set by
+    grid.setDateFormat(...
+  </p>
+
+<p zid="99">
+    In addition to popup calendar, cell in grid switched to edit mode, which
+    allows to type date directly<br zid="100">
+
+</p>
+
+<h3 zid="101">
+    calendar
+  </h3>
+  Popup calendar control, YUI Calendar used<br zid="102">
+
+<h3 zid="103">
+    clist
+  </h3>
+  Multiselect control, which mimic multiselect combobox behaviour, but has
+  alternative visual implementation<br zid="104">
+
+<br zid="105">
+
+<br zid="106">
+
+<h2 zid="107">
+    Using other dhtmlxgrid controls as editors
+  </h2>
+
+<h3 zid="108">
+    grid
+  </h3>
+  Use dhtmlxgrid as editor for cells
+  <h3 zid="109">
+    stree
+  </h3>
+  Use dhtmlxtree as editor for cells
+  <h3 zid="110">
+    context
+  </h3>
+  Use dhtmlxmenu as editor for cells<br zid="111">
+
+<h3 zid="112">
+    combo
+  </h3>
+  Complex selectbox/combobox based on dhtmlxCombo, can work in autocomplete mode<br zid="113">
+
+<br zid="114">
+
+<br zid="115">
+
+<h2 zid="116">
+    Excells with specila purpose
+  </h2>
+
+<h3 zid="117">
+    sub_row
+  </h3>
+  Show cell as expandable subrow of grid row ( allow to implement "expandable
+  details" pattern )<br zid="118">
+  Variation:<br zid="119">
+
+<ul zid="120">
+
+<li zid="121">
+      sub_row_ajax - data in cell considered to be an URL for ajax request
+    </li>
+
+<li zid="122">
+      sub_row_grid - allow to create nested subgrid as content of sub_row
+    </li>
+
+<br zid="123">
+
+</ul>
+
+<br zid="124">
+
+</div>
+
+<div class="copyright" zid="125">&copy; DHTMLX, 2008</div>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!--conf
+<sample in_favorites="true">
+	<product version="1.0" edition="std"/>
+	<modifications>
+		<modified date="080418"/>
+	</modifications>
+</sample>
+ -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+   <title>Initialization of Slider from input</title>
+</head>
+   <script>
+      window.dhx_globalImgPath="../../codebase/imgs/";
+   </script>
+	<script  src="../../codebase/dhtmlxcommon.js"></script>
+	<script  src="../../codebase/dhtmlxslider.js"></script>
+	<script  src="../../codebase/ext/dhtmlxslider_start.js"></script>
+	<link rel="STYLESHEET" type="text/css" href="../../codebase/dhtmlxslider.css">
+<body>
+<link rel='STYLESHEET' type='text/css' href='../common/style.css'>
+<table cellspacing="0" cellpadding="0" class="sample_header" border="0">
+	<tr valign="middle">
+		<!-- COMPONENT ICON -->
+		<td width="40" align="center"><img src="../common/dhtmlxslider_icon.gif" border="0"></td>
+		<!-- COMPONENT NAME -->
+		<td width="120" align="left">Sample: dhtmlxSlider</td>
+		<!-- SAMPLE TITLE -->
+		<td width="0" align="left"><b>Initialization of Slider from input</b></td>
+		<!-- LINK TO COMPONENT PAGE -->
+		<td width="0" align="right"><a href="http://www.dhtmlx.com/docs/products/dhtmlxSlider/index.shtml">dhtmlxSlider main page</a></td>
+		<!-- CLOSE BUTTON -->
+		<td width="50"><div class="sample_close"><a href="javascript:void(0);" onclick="self.close();"><img src="../common/sample_close.gif" width="14" height="14" border="0" alt="X"></a></div></td>
+	</tr>
+</table>
+   <div class="hdr">DHTML JavaScript Slider samples</div>
+   
+
+
+
+<pre>
+	Slider can be initialized from input
+</pre>
+<br><br>
+<table>
+	<tr><td>
+	<form method="POST" target="a_frame" action="php/dump.php">
+	<input type="text" name="slider1" style="width:200px"><br><br>
+	<input class="dhtmlxSlider" type="text" name="slider2" style="width:200px" value="10"><br>
+	<input class="dhtmlxSlider" skin="ball" type="text" name="slider3" style="width:200px" value="10"><br>
+	<input class="dhtmlxSlider" min="10" max="20" step="0.5" type="text" name="slider4" style="width:200px" value="20"><br>
+	<input type="submit">
+	</form>
+	</td><td>
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+    &lt;</span><span class="hl-identifier">form</span><span class="hl-code"> </span><span class="hl-identifier">method</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">POST</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-identifier">target</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">a_frame</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-identifier">action</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">dump.php</span><span class="hl-quotes">&quot;</span><span class="hl-code">&gt;
+    &lt;</span><span class="hl-identifier">input</span><span class="hl-code"> </span><span class="hl-reserved">class</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">dhtmlxSlider</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-identifier">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">text</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-identifier">name</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">slider1</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-identifier">style</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">width:200px</span><span class="hl-quotes">&quot;</span><span class="hl-code">&gt;&lt;</span><span class="hl-identifier">br</span><span class="hl-code">&gt;&lt;</span><span class="hl-identifier">br</span><span class="hl-code">&gt;
+    &lt;</span><span class="hl-identifier">input</span><span class="hl-code"> </span><span class="hl-reserved">class</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">dhtmlxSlider</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-identifier">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">text</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-identifier">name</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">slider2</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-identifier">style</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">width:200px</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-identifier">value</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">10</span><span class="hl-quotes">&quot;</span><span class="hl-code">&gt;&lt;</span><span class="hl-identifier">br</span><span class="hl-code">&gt;
+    &lt;</span><span class="hl-identifier">input</span><span class="hl-code"> </span><span class="hl-reserved">class</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">dhtmlxSlider</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-identifier">skin</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">ball</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-identifier">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">text</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-identifier">name</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">slider3</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-identifier">style</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">width:200px</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-identifier">value</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">10</span><span class="hl-quotes">&quot;</span><span class="hl-code">&gt;&lt;</span><span class="hl-identifier">br</span><span class="hl-code">&gt;
+    &lt;</span><span class="hl-identifier">input</span><span class="hl-code"> </span><span class="hl-reserved">class</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">dhtmlxSlider</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-identifier">min</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">10</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-identifier">max</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">20</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-identifier">step</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">0.5</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-identifier">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">text</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-identifier">name</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">slider4</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-identifier">style</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">width:200px</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-identifier">value</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">20</span><span class="hl-quotes">&quot;</span><span class="hl-code">&gt;&lt;</span><span class="hl-identifier">br</span><span class="hl-code">&gt;
+    &lt;</span><span class="hl-identifier">input</span><span class="hl-code"> </span><span class="hl-identifier">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">submit</span><span class="hl-quotes">&quot;</span><span class="hl-code">&gt;
+    &lt;/</span><span class="hl-identifier">form</span><span class="hl-code">&gt;</span></pre></div></div>
+	</td></tr>
+</table>
+
+<iframe id="a_frame" name="a_frame" style="width:300px; height:200px;"></iframe>
+<!-- FOOTER -->
+<table callspacing="0" cellpadding="0" border="0" class="sample_footer"><tr><td style="padding-left: 8px;">&copy; <a href="http://www.dhtmlx.com">DHTMLX LTD</a>. All rights reserved</td></tr></table>
+<!-- FOOTER -->
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!--conf
+<sample in_favorites="true">
+	<product version="1.0" edition="std"/>
+	<modifications>
+		<modified date="080418"/>
+	</modifications>
+<sampledescription><![CDATA[Javascript API allows you to control slider parameters dynamically.]]></sampledescription></sample>
+ -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+   <title>Controlling values</title>
+</head>
+  <script>
+      window.dhx_globalImgPath="../../codebase/imgs/";
+   </script>
+	<script  src="../../codebase/dhtmlxcommon.js"></script>
+	<script  src="../../codebase/dhtmlxslider.js"></script>
+	<script  src="../../codebase/ext/dhtmlxslider_start.js"></script>
+	<link rel="STYLESHEET" type="text/css" href="../../codebase/dhtmlxslider.css">
+
+
+<body>
+<link rel='STYLESHEET' type='text/css' href='../common/style.css'>
+<table cellspacing="0" cellpadding="0" class="sample_header" border="0">
+	<tr valign="middle">
+		<!-- COMPONENT ICON -->
+		<td width="40" align="center"><img src="../common/dhtmlxslider_icon.gif" border="0"></td>
+		<!-- COMPONENT NAME -->
+		<td width="120" align="left">Sample: dhtmlxSlider</td>
+		<!-- SAMPLE TITLE -->
+		<td width="0" align="left"><b>Controlling values</b></td>
+		<!-- LINK TO COMPONENT PAGE -->
+		<td width="0" align="right"><a href="http://www.dhtmlx.com/docs/products/dhtmlxSlider/index.shtml">dhtmlxSlider main page</a></td>
+		<!-- CLOSE BUTTON -->
+		<td width="50"><div class="sample_close"><a href="javascript:void(0);" onclick="self.close();"><img src="../common/sample_close.gif" width="14" height="14" border="0" alt="X"></a></div></td>
+	</tr>
+</table>
+   <div class="hdr">DHTML JavaScript Slider samples</div>
+   
+
+<pre>
+	There are 3 values which define output value of slider
+		a) Limit - maximum value - 100
+		b) Step - size of shifting - 1 by default
+		c) Shift - this value added to current slider position, so you can define sliders which starts not from 0
+</pre>
+<br><br>
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">input</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">input1</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">text</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code"><div class="hl-main"><pre><span class="hl-code"> 
+    </span><span class="hl-comment">//</span><span class="hl-comment">slider 0-100, step 1</span><span class="hl-comment"></span><span class="hl-code">
+    </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">slider1</span><span class="hl-code">=</span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlxSlider</span><span class="hl-brackets">(</span><span class="hl-reserved">null</span><span class="hl-code">, </span><span class="hl-number">500</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">slider1</span><span class="hl-code">.</span><span class="hl-identifier">linkTo</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">input1</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">slider1</span><span class="hl-code">.</span><span class="hl-identifier">init</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;</span></pre></div></span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span></pre></div></div>
+<input id="input1" type="text">
+<script>
+	//slider 0-100, step 1
+	var slider1=new dhtmlxSlider(null, 500);
+	slider1.linkTo('input1');
+	slider1.init();
+</script>
+
+<br><br>
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">input</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">input2</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">text</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code"><div class="hl-main"><pre><span class="hl-code"> 
+    </span><span class="hl-comment">//</span><span class="hl-comment">slider 100-300, step 1</span><span class="hl-comment"></span><span class="hl-code">
+    </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">slider2</span><span class="hl-code">=</span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlxSlider</span><span class="hl-brackets">(</span><span class="hl-reserved">null</span><span class="hl-code">, </span><span class="hl-number">500</span><span class="hl-code">,</span><span class="hl-reserved">null</span><span class="hl-code">,</span><span class="hl-reserved">null</span><span class="hl-code">,</span><span class="hl-number">100</span><span class="hl-code">,</span><span class="hl-number">300</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">slider2</span><span class="hl-code">.</span><span class="hl-identifier">linkTo</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">input2</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">slider2</span><span class="hl-code">.</span><span class="hl-identifier">init</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;</span></pre></div></span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span></pre></div></div>
+<input id="input2" type="text">
+<script>
+	//slider 100-300, step 1
+	var slider2=new dhtmlxSlider(null, 500,null,null,100,300);
+	slider2.linkTo('input2');
+	slider2.init();
+</script>
+
+<br><br>
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">input</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">input3</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">text</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code"><div class="hl-main"><pre><span class="hl-code"> 
+    </span><span class="hl-comment">//</span><span class="hl-comment">slider 0-100, step 5</span><span class="hl-comment"></span><span class="hl-code">
+    </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">slider3</span><span class="hl-code">=</span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlxSlider</span><span class="hl-brackets">(</span><span class="hl-reserved">null</span><span class="hl-code">, </span><span class="hl-number">500</span><span class="hl-code">, </span><span class="hl-reserved">null</span><span class="hl-code">, </span><span class="hl-reserved">null</span><span class="hl-code">, </span><span class="hl-reserved">null</span><span class="hl-code">,</span><span class="hl-number">100</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">slider3</span><span class="hl-code">.</span><span class="hl-identifier">linkTo</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">input3</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">slider3</span><span class="hl-code">.</span><span class="hl-identifier">init</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;</span></pre></div></span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span></pre></div></div>
+<input id="input3" type="text">
+<script>
+	//slider 0-100, step 5
+	var slider3=new dhtmlxSlider(null, 500, null, null, null,100);
+	slider3.linkTo('input3');
+	slider3.init();
+</script>
+
+<br><br>
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">input</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">input4</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">text</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code"><div class="hl-main"><pre><span class="hl-code"> 
+    </span><span class="hl-comment">//</span><span class="hl-comment">slider 0-1, step 0.02</span><span class="hl-comment"></span><span class="hl-code">
+    </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">slider4</span><span class="hl-code">=</span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlxSlider</span><span class="hl-brackets">(</span><span class="hl-reserved">null</span><span class="hl-code">, </span><span class="hl-number">500</span><span class="hl-code">,</span><span class="hl-reserved">null</span><span class="hl-code">,</span><span class="hl-reserved">null</span><span class="hl-code">,</span><span class="hl-number">0</span><span class="hl-code">,</span><span class="hl-number">1</span><span class="hl-code">,</span><span class="hl-number">0.5</span><span class="hl-code">,</span><span class="hl-number">0.02</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">slider4</span><span class="hl-code">.</span><span class="hl-identifier">linkTo</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">input4</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">slider4</span><span class="hl-code">.</span><span class="hl-identifier">init</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;</span></pre></div></span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span></pre></div></div>
+<input id="input4" type="text">
+<script>
+	//slider 0-1, step 0.02
+	var slider4=new dhtmlxSlider(null, 500,null,null,0,1,0.5,0.02);
+	slider4.linkTo('input4');
+	slider4.init();
+</script>
+
+
+<!-- FOOTER -->
+<table callspacing="0" cellpadding="0" border="0" class="sample_footer"><tr><td style="padding-left: 8px;">&copy; <a href="http://www.dhtmlx.com">DHTMLX LTD</a>. All rights reserved</td></tr></table>
+<!-- FOOTER -->
+
+</body>
+</html>

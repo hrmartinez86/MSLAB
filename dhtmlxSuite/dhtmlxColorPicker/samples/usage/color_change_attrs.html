@@ -1,0 +1,114 @@
+<!--conf
+<sample in_favorites="true">
+	<product version="1.0" edition="std"/>
+	<modifications>
+		<modified date="080310"/>
+	</modifications>
+<sampledescription><![CDATA[Demonstartes how you can use dhtmlxCOlorPicker to define colors for various HTML elements.]]></sampledescription></sample>
+ --> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+   <title>Using dhtmlxColorPicker to set element properties</title>
+</head>
+     <link rel="STYLESHEET" type="text/css" href="../../codebase/dhtmlxcolorpicker.css">
+   <script>
+      window.dhx_globalImgPath="../../codebase/imgs/";
+   </script>
+   <script  src="../../codebase/dhtmlxcolorpicker.js"></script>
+<body>
+<link rel='STYLESHEET' type='text/css' href='../common/style.css'>
+<table cellspacing="0" cellpadding="0" class="sample_header" border="0">
+	<tr valign="middle">
+		<!-- COMPONENT ICON -->
+		<td width="40" align="center"><img src="../common/dhtmlxcolorpicker_icon.gif" border="0"></td>
+		<!-- COMPONENT NAME -->
+		<td width="120" align="left">Sample: dhtmlxColorPicker</td>
+		<!-- SAMPLE TITLE -->
+		<td width="0" align="left"><b>Using dhtmlxColorPicker to set element properties</b></td>
+		<!-- LINK TO COMPONENT PAGE -->
+		<td width="0" align="right"><a href="http://www.dhtmlx.com/docs/products/dhtmlxColorPicker/index.shtml">dhtmlxColorPicker main page</a></td>
+		<!-- CLOSE BUTTON -->
+		<td width="50"><div class="sample_close"><a href="javascript:void(0);" onclick="self.close();"><img src="../common/sample_close.gif" width="14" height="14" border="0" alt="X"></a></div></td>
+	</tr>
+</table>
+
+<table><tr><td>
+Select attribute : 
+<select id="colorType">
+<option value="text">Text color</option>
+<option value="bg">Background color</option>
+<option value="border">Border color</option>
+</select>
+<div id="testInput" style="border:2px black solid;width:300px;height:420px;";>
+<h3 style="font-family:tahoma;margin:10px;">Change attributes with dhtmlxColorPicker</h3>
+<p style="margin:10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can change any color-attribute of any html element on page with dhtmlxColorPicker using setOnSelectHandler event and your function.</p>
+</div>
+</td><td>
+<div id="CPcont"></div>
+</td></tr></table>
+
+<script>
+	var z=new dhtmlXColorPicker("CPcont",false,true);
+	z.init();
+	z.setCustomColors("#ff00ff,#00aabb,#6633ff");
+	z.setOnSelectHandler(setColor);
+	z.hideOnSelect(false);
+
+	function setColor(color) {
+		var ct = document.getElementById("colorType");
+		var inp = document.getElementById("testInput");
+		switch (ct.value) {
+		  	case "text":
+		  		inp.style.color =  color;
+		  		break;
+		  	case "bg":
+		  		inp.style.backgroundColor =  color;
+		  		break;
+		  	case "border":
+		  		inp.style.borderColor =  color;
+		  		break;				  		  		
+		}
+	}
+</script>
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+ 
+Select attribute : 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">select</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">colorType</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">option</span><span class="hl-code"> </span><span class="hl-var">value</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">text</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-code">Text color</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">option</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">option</span><span class="hl-code"> </span><span class="hl-var">value</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">bg</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-code">Background color</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">option</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">option</span><span class="hl-code"> </span><span class="hl-var">value</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">border</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-code">Border color</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">option</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">select</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+ 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">testInput</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">style</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">border:2px black solid;width:300px;height:420px;</span><span class="hl-quotes">&quot;</span><span class="hl-code">;</span><span class="hl-brackets">&gt;</span><span class="hl-code">...</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">div</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">CPcont</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">div</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+ 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code"><div class="hl-main"><pre><span class="hl-code"> 
+</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">z</span><span class="hl-code">=</span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlXColorPicker</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">CPcont</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-reserved">false</span><span class="hl-code">,</span><span class="hl-reserved">true</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">z</span><span class="hl-code">.</span><span class="hl-identifier">setCustomColors</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">#ff00ff,#00aabb,#6633ff</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;</span><span class="hl-comment">//</span><span class="hl-comment">set predefined custom colors</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-identifier">z</span><span class="hl-code">.</span><span class="hl-identifier">setOnSelectHandler</span><span class="hl-brackets">(</span><span class="hl-identifier">setColor</span><span class="hl-brackets">)</span><span class="hl-code">; </span><span class="hl-comment">//</span><span class="hl-comment">set on select handler function</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-identifier">z</span><span class="hl-code">.</span><span class="hl-identifier">hideOnSelect</span><span class="hl-brackets">(</span><span class="hl-reserved">false</span><span class="hl-brackets">)</span><span class="hl-code">; </span><span class="hl-comment">//</span><span class="hl-comment">colorpicker will will be kept visible when color selected</span><span class="hl-comment"></span><span class="hl-code">
+ 
+</span><span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-identifier">setColor</span><span class="hl-brackets">(</span><span class="hl-identifier">color</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">ct</span><span class="hl-code"> = </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">colorType</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">inp</span><span class="hl-code"> = </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">testInput</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-reserved">switch</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">ct</span><span class="hl-code">.</span><span class="hl-identifier">value</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+      </span><span class="hl-reserved">case</span><span class="hl-code"> </span><span class="hl-quotes">&quot;</span><span class="hl-string">text</span><span class="hl-quotes">&quot;</span><span class="hl-code">:
+          </span><span class="hl-identifier">inp</span><span class="hl-code">.</span><span class="hl-identifier">style</span><span class="hl-code">.</span><span class="hl-identifier">color</span><span class="hl-code"> =  </span><span class="hl-quotes">'</span><span class="hl-string">#</span><span class="hl-quotes">'</span><span class="hl-code">+</span><span class="hl-identifier">color</span><span class="hl-code">;
+          </span><span class="hl-reserved">break</span><span class="hl-code">;
+      </span><span class="hl-reserved">case</span><span class="hl-code"> </span><span class="hl-quotes">&quot;</span><span class="hl-string">bg</span><span class="hl-quotes">&quot;</span><span class="hl-code">:
+          </span><span class="hl-identifier">inp</span><span class="hl-code">.</span><span class="hl-identifier">style</span><span class="hl-code">.</span><span class="hl-identifier">backgroundColor</span><span class="hl-code"> =  </span><span class="hl-quotes">'</span><span class="hl-string">#</span><span class="hl-quotes">'</span><span class="hl-code">+</span><span class="hl-identifier">color</span><span class="hl-code">;
+          </span><span class="hl-reserved">break</span><span class="hl-code">;
+      </span><span class="hl-reserved">case</span><span class="hl-code"> </span><span class="hl-quotes">&quot;</span><span class="hl-string">border</span><span class="hl-quotes">&quot;</span><span class="hl-code">:
+          </span><span class="hl-identifier">inp</span><span class="hl-code">.</span><span class="hl-identifier">style</span><span class="hl-code">.</span><span class="hl-identifier">borderColor</span><span class="hl-code"> =  </span><span class="hl-quotes">'</span><span class="hl-string">#</span><span class="hl-quotes">'</span><span class="hl-code">+</span><span class="hl-identifier">color</span><span class="hl-code">;
+          </span><span class="hl-reserved">break</span><span class="hl-code">;                                    
+    </span><span class="hl-brackets">}</span><span class="hl-code">
+</span><span class="hl-brackets">}</span></pre></div></span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span></pre></div></div>
+
+<!-- FOOTER -->
+<table callspacing="0" cellpadding="0" border="0" class="sample_footer"><tr><td style="padding-left: 8px;">&copy; <a href="http://www.dhtmlx.com">DHTMLX LTD</a>. All rights reserved</td></tr></table>
+<!-- FOOTER -->
+
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!--conf
+<sample>
+              <product version="1.0" edition="std"/>
+                     <modifications>
+                            <modified date="070101"/>
+                     </modifications>
+               </sample>
+ --> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<title>Vertical layout</title>
+	
+	<link rel="STYLESHEET" type="text/css" href="../../codebase/dhtmlxmenu.css">
+	
+	<script language="JavaScript" src="../../codebase/dhtmlxprotobar.js"></script>
+	<script language="JavaScript" src="../../codebase/dhtmlxmenubar.js"></script>
+	<script language="JavaScript" src="../../codebase/dhtmlxcommon.js"></script>
+</head>
+
+<body>
+<link rel='STYLESHEET' type='text/css' href='../common/style.css'>
+<table cellspacing="0" cellpadding="0" class="sample_header" border="0">
+	<tr valign="middle">
+		<!-- COMPONENT ICON -->
+		<td width="40" align="center"><img src="../common/dhtmlxmenu_icon.gif" border="0"></td>
+		<!-- COMPONENT NAME -->
+		<td width="120" align="left">Sample: dhtmlxMenu</td>
+		<!-- SAMPLE TITLE -->
+		<td width="0" align="left"><b>Vertical layout</b></td>
+		<!-- LINK TO COMPONENT PAGE -->
+		<td width="0" align="right"><a href="http://www.dhtmlx.com/docs/products/dhtmlxMenu/index.shtml">dhtmlxMenu main page</a></td>
+		<!-- CLOSE BUTTON -->
+		<td width="50"><div class="sample_close"><a href="javascript:void(0);" onclick="self.close();"><img src="../common/sample_close.gif" width="14" height="14" border="0" alt="X"></a></div></td>
+	</tr>
+</table>
+	
+	
+	<table>
+		<tr>
+			<td colspan="2">
+			Classic
+				<div id="menu_zone" style="width:600;border :1px solid Silver;"/>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+			Alpha
+				<div id="menu_zone2" style="width:600;border :1px solid Silver;"/>
+			</td>
+		</tr>
+
+		<tr>
+			<td >
+			Popup
+				<div id="menu_zone3" style="width:300;"/>
+			</td>
+			<td >
+			Betta
+				<div id="menu_zone4" style="width:300;"/>
+			</td>
+		</tr>
+		
+	</table>
+	
+<br>
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code"><div class="hl-main"><pre><span class="hl-code"> 
+    </span><span class="hl-identifier">aMenuBar</span><span class="hl-code">=</span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlXMenuBarObject</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">menu_zone</span><span class="hl-quotes">'</span><span class="hl-code">,</span><span class="hl-number">600</span><span class="hl-code">,</span><span class="hl-number">20</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">Demo menu</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-number">0</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">aMenuBar</span><span class="hl-code">.</span><span class="hl-identifier">setOnClickHandler</span><span class="hl-brackets">(</span><span class="hl-identifier">onButtonClick</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">aMenuBar</span><span class="hl-code">.</span><span class="hl-identifier">setGfxPath</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../codebase/imgs/</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;        
+    </span><span class="hl-identifier">aMenuBar</span><span class="hl-code">.</span><span class="hl-identifier">loadXML</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">_menu.xml</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">
+    </span><span class="hl-identifier">aMenuBar</span><span class="hl-code">.</span><span class="hl-identifier">showBar</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+    
+    </span><span class="hl-identifier">aMenuBar2</span><span class="hl-code">=</span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlXMenuBarObject</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">menu_zone2</span><span class="hl-quotes">'</span><span class="hl-code">,</span><span class="hl-number">600</span><span class="hl-code">,</span><span class="hl-number">20</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-number">0</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">aMenuBar2</span><span class="hl-code">.</span><span class="hl-identifier">setOnClickHandler</span><span class="hl-brackets">(</span><span class="hl-identifier">onButtonClick</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">aMenuBar2</span><span class="hl-code">.</span><span class="hl-identifier">setGfxPath</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../codebase/imgs/</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">aMenuBar2</span><span class="hl-code">.</span><span class="hl-identifier">loadXML</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">_menuH2.xml</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">
+    </span><span class="hl-identifier">aMenuBar2</span><span class="hl-code">.</span><span class="hl-identifier">showBar</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+ 
+    </span><span class="hl-identifier">aMenuBar3</span><span class="hl-code">=</span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlXMenuBarObject</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">menu_zone3</span><span class="hl-quotes">'</span><span class="hl-code">,</span><span class="hl-number">120</span><span class="hl-code">,</span><span class="hl-number">200</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-number">1</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">aMenuBar3</span><span class="hl-code">.</span><span class="hl-identifier">setOnClickHandler</span><span class="hl-brackets">(</span><span class="hl-identifier">onButtonClick</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">aMenuBar3</span><span class="hl-code">.</span><span class="hl-identifier">setGfxPath</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../codebase/imgs/</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">aMenuBar3</span><span class="hl-code">.</span><span class="hl-identifier">loadXML</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">_menuV1.xml</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">
+    </span><span class="hl-identifier">aMenuBar3</span><span class="hl-code">.</span><span class="hl-identifier">showBar</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+    </span><span class="hl-identifier">aMenuBar4</span><span class="hl-code">=</span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlXMenuBarObject</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">menu_zone4</span><span class="hl-quotes">'</span><span class="hl-code">,</span><span class="hl-number">120</span><span class="hl-code">,</span><span class="hl-number">200</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-number">1</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">aMenuBar4</span><span class="hl-code">.</span><span class="hl-identifier">setOnClickHandler</span><span class="hl-brackets">(</span><span class="hl-identifier">onButtonClick</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">aMenuBar4</span><span class="hl-code">.</span><span class="hl-identifier">setGfxPath</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../codebase/imgs/</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">aMenuBar4</span><span class="hl-code">.</span><span class="hl-identifier">loadXML</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">_menuV2.xml</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">
+    </span><span class="hl-identifier">aMenuBar4</span><span class="hl-code">.</span><span class="hl-identifier">showBar</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;</span></pre></div></span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span></pre></div></div>
+
+
+	<script>
+	
+		function onButtonClick(itemId,itemValue)
+		{
+			alert("Button "+itemId+" was pressed"+(itemValue?("\n select value : "+itemValue):""));
+		};
+		
+		
+		aMenuBar=new dhtmlXMenuBarObject('menu_zone',600,20,"Demo menu",0);
+		aMenuBar.setGfxPath("../../codebase/imgs/");		
+		aMenuBar.setOnClickHandler(onButtonClick);
+		aMenuBar.loadXML("_menu.xml")
+		aMenuBar.showBar();
+		
+		aMenuBar2=new dhtmlXMenuBarObject('menu_zone2',600,20,"",0);
+		aMenuBar2.setGfxPath("../../codebase/imgs/");
+		aMenuBar2.setOnClickHandler(onButtonClick);
+		aMenuBar2.loadXML("_menuH2.xml")
+		aMenuBar2.showBar();
+
+
+		aMenuBar3=new dhtmlXMenuBarObject('menu_zone3',120,200,"",1);
+		aMenuBar3.setGfxPath("../../codebase/imgs/");
+		aMenuBar3.setOnClickHandler(onButtonClick);
+		aMenuBar3.loadXML("_menuV1.xml")
+		aMenuBar3.showBar();
+
+		aMenuBar4=new dhtmlXMenuBarObject('menu_zone4',120,200,"",1);
+		aMenuBar4.setGfxPath("../../codebase/imgs/");
+		aMenuBar4.setOnClickHandler(onButtonClick);
+		aMenuBar4.loadXML("_menuV2.xml")
+		aMenuBar4.showBar();				
+		
+	</script>
+
+
+<!-- FOOTER -->
+<table callspacing="0" cellpadding="0" border="0" class="sample_footer"><tr><td style="padding-left: 8px;">&copy; <a href="http://www.dhtmlx.com">DHTMLX LTD</a>. All rights reserved</td></tr></table>
+<!-- FOOTER -->
+
+</body>
+</html>

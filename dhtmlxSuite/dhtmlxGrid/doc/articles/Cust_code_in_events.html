@@ -1,0 +1,67 @@
+<html>
+
+<head>
+
+
+<link rel="STYLESHEET" type="text/css" href="../common/styles.css">
+</head>
+<body>
+	<table border="0" cellpadding="0" cellspacing="0" class="sample_header" zid="71">
+		<tbody zid="3">
+			<tr valign="center" zid="4">
+				<td align="center" width="10" zid="5">&nbsp;</td>
+				<td align="left" zid="6">
+					<p zid="224">
+						<a href="http://www.dhtmlx.com/" zid="7">DHTMLX</a> Documentation
+					</p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<!--- CONTENT. Starts --->
+	<H1 id=j8:n>Attaching custom code to events</H1>
+<BR id=iql4>
+The grid provides a rich set of events, you can attach any kind of custom code to them using the following syntax:<BR id=vweg>
+<BLOCKQUOTE id=p6w->grid.attachEvent(eventName, code);<BR id=oo24>
+</BLOCKQUOTE>
+<BR id=miim>
+For example:<BR id=oj9r>
+<BLOCKQUOTE id=y-8:>function myHandler(id) { alert(id); }<BR id=vwov>
+grid.attachEvent("onRowSelect",myHandler);<BR id=xhlr>
+</BLOCKQUOTE>
+<BR id=qbso>
+Or simpler syntax:<BR id=efi1>
+<BLOCKQUOTE id=cnz4>grid.attachEvent("onRowSelect",function(id){<BR id=eeq4>
+&nbsp;&nbsp;&nbsp; alert(id);<BR id=myh8>
+});<BR id=q1q->
+</BLOCKQUOTE>
+<BR id=ropo>
+<BR id=x95x>
+<BR id=bbjx>
+You can attach multiple handlers to one and the same event: <BR id=n3f2>
+<BLOCKQUOTE id=t_c:>grid.attachEvent("onRowSelect",myHandler);<BR id=jntt>
+grid.attachEvent("onRowSelect",myHandler2);<BR id=cx3k>
+</BLOCKQUOTE>
+<BR id=zaxp>
+In case of row selection both the attached functions will be called.<BR id=s-g9>
+<BR id=xx-v>
+If it is necessary, the custom code can be detached from an event:<BR id=fa2l>
+<BLOCKQUOTE id=qbxz>var id1=grid.attachEvent("onRowSelect",myHandler);<BR id=jntt>
+var id2=grid.attachEvent("onRowSelect",myHandler2);<BR id=mdt:>
+grid.detachEvent(id2);&nbsp;&nbsp;&nbsp; // detach myHandler2 from onRowSelect event<BR id=ledl>
+</BLOCKQUOTE>
+<BR id=alsf>
+Some of the events can be blocked. So based on the return value, the grid will react differently: <BR id=s..->
+&nbsp;&nbsp;&nbsp; return "true"; -&nbsp;&nbsp;&nbsp;&nbsp; confirm action<BR id=vn1w>
+&nbsp;&nbsp;&nbsp; return "false"; - deny action<BR id=s3bx>
+&nbsp;&nbsp;&nbsp; no return command - treated as return "false"<BR id=mmbs>
+<BR id=mskp>
+<BLOCKQUOTE id=hm2e>grid.attachEvent("onEditCell",function(){<BR id=oo4f>
+&nbsp;&nbsp;&nbsp; return false; &nbsp;&nbsp;&nbsp; // will block any edit operation<BR id=dm7t>
+})<BR id=tf5t>
+</BLOCKQUOTE>
+
+	<!--- CONTENT. Ends --->
+	<div class="copyright" zid="223">&copy; DHTMLX, 2008</div>
+</body>
+</html>

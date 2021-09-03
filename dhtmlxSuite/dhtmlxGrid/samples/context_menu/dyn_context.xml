@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu absolutePosition="auto" mode="popup" maxItems="8"  withoutImages="1" globalCss="contextMenu" globalSecondCss="contextMenu" globalTextCss="contextMenuItem">
+		<MenuItem name="Add row" src=""  id="add"/>	
+		<MenuItem name="Delete row" src=""  id="delete"/>
+		<MenuItem name="Increase value on 100"  src=""  id="inc"/>	
+		<MenuItem name="Decrease value on 200" src=""  id="dec"/>
+		<MenuItem name='&lt;div style="color:#ff3300;text-decoration:underline;" &gt;Author page&lt;/div&gt;' id='link'/>	
+		<MenuItem name="Edit price" src=""  id="edit"/>
+		<MenuItem name="Set available" src=""  id="set_avail"/>	
+		<MenuItem name="Set unavailable" src=""  id="set_unavail"/>
+		<MenuItem name="Delete from bestsellers" src=""  id="del_best"/>	
+		<MenuItem name="Add to bestsellers" src=""  id="add_best"/>
+		
+		
+</menu>

@@ -1,0 +1,106 @@
+<html>
+
+<head>
+
+
+<link rel="STYLESHEET" type="text/css" href="../common/styles.css">
+</head>
+<body>
+	<table border="0" cellpadding="0" cellspacing="0" class="sample_header" zid="71">
+		<tbody zid="3">
+			<tr valign="center" zid="4">
+				<td align="center" width="10" zid="5">&nbsp;</td>
+				<td align="left" zid="6">
+					<p zid="224">
+						<a href="http://www.dhtmlx.com/" zid="7">DHTMLX</a> Documentation
+					</p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<!--- CONTENT. Starts --->
+	<H1 id=teo60><SPAN id=vf__>Migration to dhtmlxgrid 1.6</SPAN></H1>
+<P id=teo61><SPAN id=teo62></SPAN><BR id=h2g0>
+dhtmlxgrid 1.6 has some serious changes, which may cause problems with the previously written code.<BR id=u3vp>
+<BR id=vzcl>
+</P>
+<DIV id=nrw- style="TEXT-ALIGN: left">
+<UL id=zzvh>
+<LI id=nlmn><B id=rqp7>Event System</B></LI>
+</UL>
+</DIV>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; All direct event setting methods (setOnSome...), which were deprecated in the previous version of grid, are removed from the main code base. Now the only possible way to attach events is to use <SPAN id=tp5c><B id=ib8_>grid.attachEvent</B></SPAN>(...<BR id=o:p.>
+<BR id=a7fy>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if you still need the old methods, you can include the following additional file in your project:<BR id=wif1>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<SPAN id=l_7i><B id=lxjk>&nbsp;&nbsp;&nbsp;&nbsp; </B></SPAN><SPAN id=oi-:><SPAN id=t4.z><B id=wjp5>ext/dhtmlxgrid_deprecated.js</B></SPAN><BR id=p2_j>
+<BR id=kgha>
+</SPAN>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; onMathEnd event is removed as in dhtmlxgrid 1.6 math values are calculated in sync mode, so they are available without delays. <BR id=hr9q>
+<BR id=vyn2>
+<UL id=zzvh>
+<LI id=b77m><SPAN id=c3:o><B id=d0yb>Smart Rendering</B></SPAN><BR id=bc1a>
+<UL id=n4yu>
+<LI id=b77m>The following methods are deprecated: <BR id=flas>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; enableSmartRenderingSorting&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // is allowed by default<BR id=o4oz>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; enableDOMLimit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </LI>
+</UL>
+</LI>
+</UL>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <BR id=iq9a>
+<BR id=tfy->
+<UL id=zzvh>
+<LI id=b77m><B id=e.jb>Paging</B>
+<UL id=qztx>
+<LI id=b77m>In case of dynamical paging the grid uses the same vars, and awaits the same response as in case of dynamical smart rendering (basically you can use the same server side code to organize dynamical paging and dynamical smart rendering); 
+<LI id=b77m>The following methods were deprecated:<BR id=tauh>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; enablePagingWT<BR id=q42m>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setPagingWTMode<BR id=ray6>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setPagingBlockParent<BR id=emim>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setRecordsInfoParent<BR id=vapp>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enableRecordsInfo<BR id=g4ym>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getNoRecordsString<BR id=g6mt>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setNoRecordsString<BR id=nq8i>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getRecordsInfoTemplate<BR id=vtms>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setRecordsInfoTemplatedc<BR id=o4lw>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getPagePrefix<BR id=jrmm>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setPagePrefix 
+<LI id=nffx>Since v.1.6 you can apply skin on paging.&nbsp;At the moment of version 1.6. release&nbsp;there are two&nbsp;skins (in addition to the default view)&nbsp;available: "bricks" (but it has 3 color schemas. Color schema is applied automatically based on the skin you've chosen for the grid itself) and "toolbar" (it uses dhtmlxToolbar to place paging controls).&nbsp;To apply paging skin use the following command:</LI>
+</UL>
+</LI>
+</UL>
+<P id=lh-8>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mygrid.setPagingSkin("bricks");</P>
+<BR id=t_.60>
+<UL id=t_.61>
+<LI id=t_.62><SPAN id=t_.63><B id=n:yv0>Loading from CSV</B></SPAN><BR id=t_.64>
+<UL id=t_.65>
+<LI id=t_.66>auto ID mode is enabled by default.</LI>
+</UL>
+</LI>
+</UL>
+<BR id=mhk60>
+<UL id=t_.61>
+<LI id=t_.66><SPAN id=mhk61><B id=pu_g0>Global modes</B></SPAN>
+<UL id=mhk62>
+<LI id=t_.66><SPAN id=mhk63>enableBuffering is deprecated (there is no sense in it anymore as the grid uses buffering automatically);</SPAN>
+<LI id=t_.66><SPAN id=mhk63>findCell was moved to dhtmlxgrid_filter.js , it returns row IDs instead of row indexes (which are more reliable).</SPAN></LI>
+</UL>
+</LI>
+</UL>
+<BR id=n7c00>
+<UL id=t_.61>
+<LI id=t_.66><SPAN id=z80c0><B id=pu_g1>TreeGrid</B></SPAN>
+<UL id=z80c1>
+<LI id=t_.66><SPAN id=z80c2>smartXMLParsing mode is enabled by default; <BR id=z80c3>
+</SPAN>
+<LI id=t_.66><SPAN id=z80c4>if you are using "=sum" in treeGrid, you need to disable smartXMLParsing by mygrid.enableSmartXMLParsing(false).</SPAN><SPAN id=z80c4><BR id=z80c5>
+</SPAN></LI>
+</UL>
+</LI>
+</UL>
+<BR id=mhk65>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <BR id=jbnb>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <BR id=hgkk>
+
+	<!--- CONTENT. Ends --->
+	<div class="copyright" zid="223">&copy; DHTMLX, 2008</div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>dhtmlx XML bestiary</title>
+		<link rel="stylesheet" href="../common/styles.css" type="text/css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" href="./codebase/dhtmlxtabbar.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	</head>
+	<style>
+		html body {
+			height:100%; padding:0px; margin:0px;
+			}
+		#loading{
+				position:absolute;
+				top:100px; left:100px;
+				height:80px;
+				width:300px;
+				text-align:center;
+				vertical-align:middle;
+				font-family:Tahoma;
+				font-size:50px;
+				
+				background-color:white;
+				border:2px dashed silver;
+			}
+	</style>
+	
+	<script src="./codebase/dhtmlxcommon.js" type="text/javascript" charset="utf-8"></script>
+	<script src="./codebase/dhtmlxtabbar.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" charset="utf-8">
+		function init_tabbar() {
+			var t=document.location.href.split("?");
+			var tmp = /dhtmlx=([^&]+)/.exec(t[1]||"");
+			if(t.length>1 && tmp.length>1)
+				var activetab = tmp[1]
+			else
+				var activetab = "Grid"
+		
+			var tabbar=new dhtmlXTabBar("for_tab","top");
+     		 	tabbar.setImagePath("./codebase/imgs/");
+      			tabbar.setStyle("silver");
+			tabbar.setOffset(50);      
+			tabbar.addTab("Grid","Grid",100);
+			tabbar.addTab("Tree","Tree",100);
+			tabbar.addTab("TreeGrid","TreeGrid",100);
+			tabbar.addTab("Combo","Combo",100);
+			tabbar.addTab("Tabbar","Tabbar",100);
+			tabbar.addTab("Toolbar","Toolbar",100);
+			tabbar.addTab("Menu","Menu",100);
+			tabbar.enableContentZone(false);
+			tabbar.setOnSelectHandler(function(id){
+				show_loader(true);
+				window.frames.details.document.location.href="xml"+id+".html";
+				return true;
+			});
+			tabbar.setTabActive(activetab,true)
+			
+			
+		}
+		function show_loader(mode){
+				var loader=document.getElementById("loading");
+				var details=document.getElementById("details");
+				loader.style.display=(mode?"block":"none");
+				loader.style.left=details.offsetWidth/2-150+"px"
+		}
+	</script>
+	
+	<body id="index" onload="init_tabbar()">
+		<table border="0" cellpadding="0" cellspacing="0" class="sample_header" zid="1">
+
+		<tbody zid="2">
+		
+		<tr valign="middle" zid="3">
+		<!-- COMPONENT ICON -->
+		
+		<td align="center" width="10" zid="4">&nbsp;</td>
+		<!-- COMPONENT NAME --><td align="left" width="" zid="5"><a href="http://www.dhtmlx.com" zid="6">DHTMLX</a> Documentation</td>
+		
+		</tr>
+		
+		</tbody>
+		
+		</table>
+		
+		<h1>dhtmlx Components XML Structure</h1>
+		<table border="0" cellspacing="0" cellpadding="0" width="100%" height="80%">
+			<tr><td style="height:60px;">
+				<div id="for_tab" style="height:25px; width:100%;"></div>
+			</td></tr>
+			<tr><td>
+				<iframe src="xmlGrid.html" style="height:100%; width:100%" frameborder="0" id="details" name="details"></iframe>
+			</td></tr>
+		</table>
+		<div id="loading" style="display:none">
+			Loading...
+		</div>
+		<div class="copyright" zid="65">&copy; DHTMLX, 2008</div>
+
+	</body>
+</html>

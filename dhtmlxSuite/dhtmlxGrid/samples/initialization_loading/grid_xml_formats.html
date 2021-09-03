@@ -1,0 +1,120 @@
+<!--conf
+<sample>
+               <product version="1.6" edition="std"/>
+                       <modifications>
+                               <modified date="070101"/>
+                       </modifications>
+               </sample>
+ --> 
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<title>Different XML formats</title>
+	<link rel="STYLESHEET" type="text/css" href="../../codebase/dhtmlxgrid.css">
+	
+	<script  src="../../codebase/dhtmlxcommon.js"></script>
+	<script  src="../../codebase/dhtmlxgrid.js"></script>		
+	<script  src="../../codebase/dhtmlxgridcell.js"></script>	
+	<script  src="../../codebase/ext/dhtmlxgrid_data.js"></script>	
+</head>
+
+<body>
+<link rel='STYLESHEET' type='text/css' href='../common/style.css'>
+<table cellspacing="0" cellpadding="0" class="sample_header" border="0">
+	<tr valign="middle">
+		<!-- COMPONENT ICON -->
+		<td width="40" align="center"><img src="../common/dhtmlxgrid_icon.gif" border="0"></td>
+		<!-- COMPONENT NAME -->
+		<td width="120" align="left">Sample: dhtmlxGrid</td>
+		<!-- SAMPLE TITLE -->
+		<td width="0" align="left"><b>Different XML formats</b></td>
+		<!-- LINK TO COMPONENT PAGE -->
+		<td width="0" align="right"><a href="http://www.dhtmlx.com/docs/products/dhtmlxGrid/index.shtml">dhtmlxGrid main page</a></td>
+		<!-- CLOSE BUTTON -->
+		<td width="50"><div class="sample_close"><a href="javascript:void(0);" onclick="self.close();"><img src="../common/sample_close.gif" width="14" height="14" border="0" alt="X"></a></div></td>
+	</tr>
+</table>
+	
+	
+	<p>The default xml format has following tags: &lt;rows&gt; as a top, &lt;row&gt; to define rows and &lt;cell&gt; to set cells inside specified row. But tag names can be changed like in the sample presented below.</p>
+	
+	<div id="gridbox" width="500px" height="250px" style="background-color:white;overflow:hidden"></div>
+		
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">gridbox</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">width</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">100%</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">height</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">250px</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">style</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">background-color:white;overflow:hidden</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">div</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code"><div class="hl-main"><pre><span class="hl-code"> 
+    </span><span class="hl-identifier">mygrid</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlXGridObject</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">gridbox</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">;
+    ...
+    </span><span class="hl-identifier">mygrid</span><span class="hl-code">.</span><span class="hl-identifier">xml</span><span class="hl-code">.</span><span class="hl-identifier">top</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">mytop</span><span class="hl-quotes">&quot;</span><span class="hl-code">;
+    </span><span class="hl-identifier">mygrid</span><span class="hl-code">.</span><span class="hl-identifier">xml</span><span class="hl-code">.</span><span class="hl-identifier">row</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">./myrow</span><span class="hl-quotes">&quot;</span><span class="hl-code">;
+    </span><span class="hl-identifier">mygrid</span><span class="hl-code">.</span><span class="hl-identifier">xml</span><span class="hl-code">.</span><span class="hl-identifier">cell</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">./mycell</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+    </span><span class="hl-identifier">mygrid</span><span class="hl-code">.</span><span class="hl-identifier">load</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">custom.xml</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">xml</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;</span></pre></div></span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+ 
+XML:
+</span><span class="hl-brackets">&lt;?</span><span class="hl-reserved">xml</span><span class="hl-code"> </span><span class="hl-var">version</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">1.0</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">encoding</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">utf-8</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">?&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">mytop</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">myrow</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">1</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+        </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">mycell</span><span class="hl-brackets">&gt;</span><span class="hl-code">500</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">mycell</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+        </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">mycell</span><span class="hl-brackets">&gt;</span><span class="hl-code">Time to Kill</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">mycell</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+        </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">mycell</span><span class="hl-brackets">&gt;</span><span class="hl-code">John Grisham</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">mycell</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">myrow</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    ...
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">mytop</span><span class="hl-brackets">&gt;</span></pre></div></div>
+<p>Grid supports two additional XML formats, which are based on column IDs:</p>
+<b>"xmlA"</b> format
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code"><div class="hl-main"><pre><span class="hl-code">    
+    ...
+    </span><span class="hl-identifier">mygrid</span><span class="hl-code">.</span><span class="hl-identifier">setColumnIds</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">first,second,third</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">
+    
+    </span><span class="hl-comment">/*</span><span class="hl-comment">loading in &quot;xmlA&quot; format</span><span class="hl-comment">*/</span><span class="hl-code">
+    </span><span class="hl-identifier">mygrid</span><span class="hl-code">.</span><span class="hl-identifier">load</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">xmlA.php</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">xmlA</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;</span></pre></div></span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+XML:
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">rows</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">row</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">r1</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">first</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">index is 1</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">second</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">altermative xml format</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">third</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">xmlA</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-brackets">/&gt;</span><span class="hl-code">
+    ... 
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">rows</span><span class="hl-brackets">&gt;</span></pre></div></div>
+<a href="javascript:void(0)" onclick="mygrid.xml.top='rows';mygrid.xml.row='./row';mygrid.clearAll();mygrid.load('xmlA.php','xmlA');">Reload grid from xml file in xmlA format</a><br/>
+<br/>
+<b>"xmlB"</b> format
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code"><div class="hl-main"><pre><span class="hl-code"> 
+    ...
+    </span><span class="hl-identifier">mygrid</span><span class="hl-code">.</span><span class="hl-identifier">setColumnIds</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">first,second,third</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">
+    </span><span class="hl-comment">/*</span><span class="hl-comment">loading in &quot;xmlB&quot; format</span><span class="hl-comment">*/</span><span class="hl-code">
+    </span><span class="hl-identifier">mygrid</span><span class="hl-code">.</span><span class="hl-identifier">load</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">xmlB.php</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">xmlB</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;</span></pre></div></span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">    
+XML:
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">rows</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">row</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">r1</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+        </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">first</span><span class="hl-brackets">&gt;</span><span class="hl-code">index is 1</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">first</span><span class="hl-brackets">&gt;</span><span class="hl-code"> 
+        </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">second</span><span class="hl-brackets">&gt;</span><span class="hl-code">altermative xml format</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">second</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+        </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">third</span><span class="hl-brackets">&gt;</span><span class="hl-code">xmlB</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">third</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">row</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    ...
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">rows</span><span class="hl-brackets">&gt;</span></pre></div></div>
+
+<a href="javascript:void(0)" onclick="mygrid.xml.top='rows';mygrid.xml.row='./row';mygrid.clearAll();mygrid.load('xmlB.php','xmlB');">Reload grid from xml file in xmlB format</a>	
+<script>
+	mygrid = new dhtmlXGridObject('gridbox');
+	mygrid.setImagePath("../../codebase/imgs/");
+	mygrid.setHeader("Column A, Column B,Column C");
+	mygrid.setInitWidths("80,200,*")
+	mygrid.setColAlign("right,left,left")
+	mygrid.setColTypes("ro,ed,ed");
+	mygrid.setColSorting("int,str,str")
+	mygrid.setColumnIds("first,second,third")
+	mygrid.init();
+	mygrid.setSkin("light");
+	mygrid.xml.top="mytop";
+    mygrid.xml.row="./myrow";
+	mygrid.load("custom.xml","xml");
+</script>
+
+<!-- FOOTER -->
+<table callspacing="0" cellpadding="0" border="0" class="sample_footer"><tr><td style="padding-left: 8px;">&copy; <a href="http://www.dhtmlx.com">DHTMLX LTD</a>. All rights reserved</td></tr></table>
+<!-- FOOTER -->
+
+</body>
+</html>

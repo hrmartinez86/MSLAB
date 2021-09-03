@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<title>DHTML Slider guide</title><link rel="STYLESHEET" type="text/css" href="common/styles.css">
+</head>
+
+<body>
+
+<h2 ><a href="http://www.scbr.com/docs/products/dhtmlxSlider/index.shtml" target="_top" title="Visit javascript slider home page">dhtmlXSlider</a> Guide and Samples</h2>
+<div class="block">
+<!---  --->
+	<a name="slider_mf"><h3>Main features</h3
+	></a><div style="display:show" class="block">
+		<li>wide client side api</li>
+		<li>multibrowser support</li>
+		<li>integration with HTML Form</li>
+		<li>multiple skins</li>
+		<li>horisontal and vertical layout</li>
+	</div>
+	
+	<a name="slider_browsers"><h3>Supported browsers</h3
+	></a><div style="display:show" class="block">
+		<li>IE 5.5 and above</li>
+		<li>Mozilla 1.4 and above</li>
+		<li>FireFox 0.9 and above</li>
+		<li>Safari 1.3 and above</li>
+		<li>Opera 9 and above</li>
+	</div>
+
+	<h3 >Working with dhtmlXSlider</h3
+	><div style="display:show" class="block">
+
+	
+<!--- Initialize object on page --->
+<a name="slider_init"><h4>Initialize object on page</h4
+></a><div class="block">
+<lo>
+<li>With full Javascript constructor.</li><br>
+<XMP>
+	<script>
+		sld1=new dhtmlxSlider('container_id', 200,"ball",false,1,100,50);
+		sld1.setImagePath("../../codebase/imgs/");
+		sld1.init();	
+	</script>
+</XMP>
+		Parameters passed to the constructor are:
+		<ul>
+			<li>container object</li>
+			<li>size</li>
+			<li>skin</li>
+			<li>vertical orientation flag</li>
+			<li>slider step</li>
+			<li>slider's max value</li>
+			<li>slider initial position</li>
+			<li>slider shift value</li>
+		</ul>
+		</div>
+<br><br>
+<li>With short javascript code.</li>You do not need to write all parameters.
+<XMP>
+	<script>
+	   	sld1=new dhtmlxSlider(null,300);
+	   	sld1.setImagePath("../../codebase/imgs/");
+		sld1.init();	
+	</script>
+</XMP>
+<br><br>
+<li>With object notation.</li><br>
+You can init slider by object, it can be useful if you need to change only few of default settings. The name of config object properties the same as names of constructor parametrs
+<XMP>
+	<script>
+	   var sld1 = new dhtmlxSlider("sliderBox", {
+	      skin: "ball",
+	      shift:100,
+	      limit:300,
+	      step:50,
+	      size:600,
+	      vertical:false
+	   });
+	   sld1.init();
+	</script>
+</XMP>
+<li>From HTML</li><br>
+You can init slider from existing HTML input - just add dhtmlxSlider css class to it.
+<XMP>
+	<script>
+	//set path to images (by default it is codebase/imgs folder) for all dhtmlx components 
+	 window.dhx_globalImgPath="../codebase/imgs/";
+	</script>
+	//in addition to standard set of js files for slider, add this one to activate autoinitialization 
+	<script  src="../codebase/ext/dhtmlxslider_start.js"></script>
+	//set class attribute value of input element to "dhtmlxSlider"
+	<input class="dhtmlxSlider" name="slider2" style="width:200px" value="10"><br>
+</XMP>
+</ol>
+</div>
+
+
+<a name="slider_formintegr"><h4>Integration with form</h4></a><div class="block">
+<p>
+dhtmlxSlider integrates itself in surrounding form by default, so no any additional
+command necessary.
+</p>
+</div>
+
+<a name="slider_api"><h4>Control and Configure slider</h4></a><div class="block">
+<ol>
+<li>Set minimum value of slider ( leftmost position ) </li><br>
+<XMP>
+		<script>
+			sld1.setMin(10);
+		</script>
+</XMP>
+<li>Set maximum value of slider ( rightmost position ) </li><br>
+<XMP>
+		<script>
+			sld1.setMin(20);
+		</script>
+</XMP>
+<li>Set minimal allowed difference ( slider step ) </li><br>
+<XMP>
+		<script>
+			sld1.setStep(2);
+		</script>
+</XMP>
+<li>To assign existing control to any HTML zone ( including input/select/textarea ) you can use next command</li>
+<xmp>
+		<script>
+			sld1.linkTo(obj)
+		</script>
+</xmp>
+	<ul>
+		<li>obj - object id, or object itself</li>
+	</ul>
+</div>	
+
+<a name="slider_skins"><h4>Applying Skins</h4></a><div class="block">
+dhtmlxSlider support few predefined skins, and can be easily adjusted to any custom skin.
+<br/>
+Predefined skin can be chosen as third parameter of constructor<br>
+<XMP>
+		<script>
+			var slider1 = new dhtmlxSlider(null, 300, "");
+			slider1.setSkin("bar");
+			slider1.init();
+		</script>
+</XMP>
+Available values are:
+<ul>
+	<li>default</li>
+	<li>ball</li>
+	<li>zipper</li>
+	<li>arrow</li>
+	<li>arrowgreen</li>
+	<li>simplesilver</li>
+	<li>simplegray</li>
+	<li>bar</li>
+</ul>
+<br>
+Skin can be chnaged on the fly - after initialization.
+</div>
+
+<a name="slider_events"><h4>Events System</h4></a><div class="block">
+You can define your own action on the moment user changes position of slider cursor. Use syntax which is common for all dhtmkx components:
+<XMP>
+	slider.attachEvent("onChange",function(newValue,sliderObj){
+		alert("New values is "+newValue);
+	});
+</XMP>
+<p>
+	Incommin parameters of event handler function:
+	<li>new value</li>
+	<li>slider object</li>
+</p>
+</div>
+
+<br><br>
+<!--- <a name="grid_test"><h4>...</h4></a><div class="block">
+...
+<XMP>
+	
+</XMP>
+</div>	 --->
+
+</div>
+<div class="copyr">&copy; DHTMLX LTD.</div>
+</body>
+</html>

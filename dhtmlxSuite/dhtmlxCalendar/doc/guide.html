@@ -1,0 +1,225 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<title>DHTML Calendar guide and samples</title><link rel="STYLESHEET" type="text/css" href="common/styles.css">
+</head>
+   
+<body>
+<a name="calendar_"><h2 onclick="openFull(this)">dhtmlxCalendar Guide and Samples</h2>
+</a><div class="block">
+<!---  --->
+	
+	<a name="calendar_mf"><h3>Main features</h3>
+	</a><div class="block">
+			<li>Multibrowser/Multiplatform support </li>
+			<li>Full controll with JavaScript API</li>
+			<li>Inactive date range</li>
+			<li>Built-in multilingual support</li>
+			<li>Easy connection to text input field</li> 
+			<li>Double calendar</li>
+	</div>
+
+	<a name="calendar_browser"><a name="combo_"><h3>Supported browsers</h3
+	></a></a><div class="block">
+		<li>IE 5.5 and above</li>
+		<li>Mac OS X Safari</li>
+		<li>Mozilla 1.4 and above</li>
+		<li>FireFox 0.9 and above</li>
+		<li>Opera</li>
+	</div>
+
+	<a name="calendar_guide"><h3>Working with dhtmlxCalendar</h3
+	></a><div class="block">
+
+	<a name="calendar_init"><h4>Initialize Calendar object on page</h4
+		></a><div class="block">
+		Calendar can be initialized in next ways
+		<ol>
+		
+		
+		<li>Short declaration</li><br>
+		<XMP>
+			<script>
+				var mCal = new dhtmlxCalendarObject('dhtmlxCalendar_obj',true);
+			</script>
+		</XMP>
+				<ul>
+					<li>dhtmlxCalendar_obj - id of object inside which calendar will be created</li>
+					<li>true - force immediately rendering of calendar</li>
+				</ul>
+		<br><br>
+		<li>Full declaration</li>
+		<XMP>
+				<script>
+					mCal = new dhtmlxCalendarObject('dhtmlxCalendar', false, {isYearEditable: true});
+					mCal.loadUserLanguage('en-us');
+					mCal.draw();
+				</script>
+		</XMP>
+				Third parameter of constructor allows set different options of calendar.
+				<ul>
+					<li>isYearEditable - allow directly input of year from keyboard</li>
+					<li>btnPrev - html used for render prev button</li>
+					<li>btnBgPrev - background of prev button</li>
+					<li>btnNext - html used for render prev button</li>
+					<li>btnBgNext - background of next button</li>
+					<li>yearsRange - selectable years( array [from,to])</li>
+					<li>isMonthEditable - allow directly input of year from keyboard</li>
+					<li>isWinHeader - render header with buttons</li>
+					<li>headerButtons - allowed header buttons</li>
+					<li>isWinDrag - allowed drag of calendar</li>
+				</ul>
+		<br><br>
+		
+		<li>Creating calendar linked to input</li>
+		<XMP>
+			<script>
+				cal1 = new dhtmlxCalendarObject('calInput1');
+			</script>
+			<input type="text" id="calInput1" class="css1" readonly="true">
+		</XMP>
+		If container object points to INPUT tag, instead of rendering calendar in it, it
+		will be automatically attached to target input - it will appear on input select and set selected date
+		as value of input on date selection.
+		</ol>
+	</div>		
+	
+<a name="calendar_dateformat"><h4>Formating date</h4
+		></a><div class="block">
+		Calendar supports rich date formatting
+		It can be used in two ways.
+		<ol><li>Set specified format for all operations</li><br>
+		<XMP>
+			<script>
+				var mCal = new dhtmlxCalendarObject('dhtmlxCalendar_obj',true);
+				mcal.setDateFormat(format_str);
+			</script>
+		</XMP>
+			format_str can include any of next options
+			<pre>
+		%e [g-] Day of the month without leading zeros (1..31)
+		%d [gs] Day of the month, 2 digits with leading zeros (01..31)
+		%j [g-] Day of the year, 3 digits with leading zeros (001..366)
+		%a [g-] A textual representation of a day, three letters
+		%W [g-] A full textual representation of the day of the week
+		%c [g-] Numeric representation of a month, without leading zeros (1..12)
+		%m [gs] Numeric representation of a month, with leading zeros (01..12)
+		%b [gs] A short textual representation of a month, three letters (Jan..Dec)
+		%M [gs] A full textual representation of a month, such as January or March (January..December)
+		%y [g-] A two digit representation of a year (93..03)
+		%Y [gs] A full numeric representation of a year, 4 digits (1993..2003)
+		%% [gs] Char "%"
+			</pre>
+		
+			<li>Use format only in single get/set operation</li>
+		<XMP>
+			<script>
+				var mCal = new dhtmlxCalendarObject('dhtmlxCalendar_obj',true);
+				...
+				mcal.setFormatedDate(format_str,date);
+				mcal.getFormatedDate(format_str);
+			</script>
+		</XMP>
+		</ol>
+	</div>
+
+	<a name="calendar_dbl"><h4>Double calendar</h4
+		></a><div class="block">
+		For selecting of date range double calendar can be used
+		<ol>
+		<XMP>
+			<script>
+				var mDCal = new dhtmlxDblCalendarObject('dhtmlxDblCalendar', true);
+				mDCal.setDateFormat("%d/%m/%Y");
+				mDCal.setDate("10/01/2008","10/02/2008");
+			</script>
+		</XMP>
+				<ul>
+					<li>dhtmlxDblCalendar - id of object inside which calendar will be created</li>
+					<li>true - force immediately rendering of calendar</li>
+				</ul>
+		<br><br>
+		Slightly different range ability can be created in standard calendar with usage of setSensitive
+		<XMP>
+			<script>
+				mCal = new dhtmlxCalendarObject('dhtmlxCalendar', false);
+				mCal.setSensitive(dateFrom, dateTo);
+				mCal.draw();
+			</script>
+		</XMP>
+				Third parameter of constructor allows set different options of calendar.
+				<ul>
+					<li>dateFrom - minimal allowed date</li>
+					<li>dateTo - maximal allowed date</li>
+				</ul>
+		<br><br>
+	</div>
+	
+	<a name="calendar_lang"><h4>Multilingual Calendar</h4
+		></a><div class="block">
+		To add and use different languages in calendar with the ability to switch between them dynamically you need first to define necessary language settings with script 
+		(if no language pack provided with calendar package). Do it this way:
+<xmp>
+	dhtmlxCalendarLangModules = new Array();//create array if it doesn't exist
+	//define settings for the new language
+	dhtmlxCalendarLangModules['ru'] = {
+		langname:	'ru',
+		dateformat:	'%d.%m.%Y',
+		monthesFNames:	["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
+		monthesSNames:	["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
+		daysFNames:	["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"],
+		daysSNames:	["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+		weekend:	[0, 6],
+		weekstart:	1,
+		msgClose:	 "Закрыть",
+		msgMinimize: "Свернуть",
+		msgToday:	 "Сегодня"
+	}
+	
+	//define settings for the new language
+	dhtmlxCalendarLangModules['de'] = {
+		langname:	'de',
+		dateformat:	'%d.%m.%Y',
+		monthesFNames:	["Januar", "Februar", "Mдrz", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"],
+		monthesSNames:	["Jan", "Feb", "Mдr", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"],
+		daysFNames:	["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"],
+		daysSNames:	["So", "Mn", "Dn", "Mt", "Dn", "Fr", "Sa"],
+		weekend:	[0, 6],
+		weekstart:	1,
+		msgClose:	 "SchlieЯen",
+		msgMinimize: "Drehen",
+		msgToday:	 "Heute"
+	}
+</xmp>
+	<p>
+		When you have necessary languages you can switch between them using <em>loadUserLanguage</em> method and code of the language you used for its definition.
+	</p>
+	</div>
+
+	
+	
+	<a name="calendar_event"><h4>Event(s) in calendar</h4
+		></a><div class="block">
+		v.1.0 of dhtmlxCalendar has one event - onclick. You can set event handler using the way common for all dhtmlx components:
+		
+<xmp>
+	yourCalendar.attachEvent("onclick",function(date){
+		alert("Date set to "+date)
+	})
+</xmp>
+	</div>
+	
+	
+	
+	
+</div>
+
+</div>
+
+<!--- <a name="calendar_..."><h4>...</h4
+		></a><div class="block">
+		...
+	</div> --->
+</body>
+</html>

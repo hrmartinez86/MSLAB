@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<title>Images Explorer</title>
+	<script src="../../../codebase/dhtmlxcommon.js" type="text/javascript"></script>
+	<script src="../../../codebase/dhtmlxfolders.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../../../codebase/dhtmlxfolders.css">
+	<style>
+		.title{
+			font-family:tahoma;
+			font-size:14px;
+			color:white;
+		}
+		.toolbar_title{
+			font-family:tahoma;
+			font-size:14px;
+			color:gray;
+			font-weight:bold;
+			margin:8px;
+		}
+		.toolbar span{
+			padding:7px 5px 7px 5px;
+			font-family:verdana;
+			font-size:11px;
+			text-decoration:underline;
+			font-weight:bold;
+			color:#808080;
+			margin-right:10px;
+			height:27px;
+			cursor:pointer;
+			
+		}
+		.toolbar #selectedbutton{
+			background-color:#fed700;
+			text-decoration:none;
+			color:black;
+			cursor:default;
+		}
+		
+		.toolbar input, .toolbar button{
+			font-size:12px;margin-right:10px;
+		}
+		.infoblock div{
+			font-family:verdana;
+			font-size:11px;
+			font-weight:bold;
+			float:left;
+			color:#808080;
+		}
+	</style>
+	<script>
+		var myFolders;
+		function doOnLoad(){
+			myFolders = new dhtmlxFolders("folders_container");
+			myFolders.setImagePath("../../../codebase/imgs/");
+			myFolders.setItemType("fthumbs");
+			//set values to be used in xsl templates
+			myFolders.setUserData("icons_src_dir","./images/");
+			myFolders.setUserData("thumbs_creator_url","./thumbs_creator.php");
+			myFolders.setUserData("photos_rel_dir","./photos/");
+			//load data
+			myFolders.loadXML("photos/getPhotos.php","../../../codebase/types/fthumbs.xsl");
+			myFolders.attachEvent("onclick",function(id){
+				var imgObj = document.getElementById("previewimage");
+				var dataObj = this.getItem(id).data.dataObj;
+				var fileName = dataObj.getAttribute("name");
+				var fileSize = dataObj.getElementsByTagName("filesize")[0].firstChild.nodeValue;
+				var imgSrcFull = "photos/"+fileName;
+				imgObj.src = imgSrcFull;
+				imgObj.style.display = "";
+				//populate file info block
+				document.getElementById("img_name").innerHTML = fileName
+				document.getElementById("img_size").innerHTML = fileSize+"b";
+			});
+		}	
+		
+		function loadType(elem,tName){
+			//chnage type
+			myFolders.setItemType(tName,"../../../codebase/types/"+tName+".xsl");
+			//change style
+			if(elem.id!="selectedbutton")
+				document.getElementById("selectedbutton").id = "";
+			elem.id = "selectedbutton";
+			
+		}
+		
+		
+	</script>
+
+</head>
+
+<body onload="doOnLoad()">
+<div style="position:absolute;top:20px;left:20px;">
+	<img src="images/face.gif" width="722" height="576" alt="" border="0">
+	<!--- title --->
+	<div class="title" style="position:absolute;top:8px;left:15px;">
+		dhtmlx<strong>Folders</strong> based Image Viewer
+	</div>
+	<!--- View toolbar --->
+	<div style="position:absolute;top:32px;left:15px;">
+		<div class="toolbar_title">View</div>
+		<div class="toolbar">
+			<span onclick="loadType(this,'fthumbs')" id="selectedbutton">Thumbnails</span>
+			<span onclick="loadType(this,'ftiles')">Tiles</span>
+			<span onclick="loadType(this,'ficon')">Icons</span>
+			<span onclick="loadType(this,'ftable')">Table</span>
+		</div>
+	</div>
+	
+	<!--- Upload area --->
+	<div style="position:absolute;top:32px;left:335px;">
+		<div class="toolbar_title">Upload your own image</div>
+		<div class="toolbar">
+			<input type="File" disabled name="uploadfile">
+			<button disabled>Upload</button>
+		</div>
+	</div>
+	
+	<!--- Image info area --->
+	<div style="position:absolute;top:111px;left:405px;">
+		<div class="infoblock">
+			<div id="img_name" style="width:245px;">&nbsp;</div>
+			<div id="img_size" style="text-align:right;width:50px;">&nbsp;</div>
+		</div>
+	</div>
+	
+	<!--- Folders --->
+	<div id="folders_container" style="position:absolute;top:105px;left:15px;width:360px;height:450px;overflow:hidden;"></div>
+		
+	<div id="preview_area" style="position:absolute;top:135px;left:398px;width:304px;height:420px;text-align:center;"><img id="previewimage" src="" style="display:none;"></div>
+</div>
+<DIV style="position:relative;top:600px;">
+This Demo Application is based on <a href="http://www.dhtmlx.com/docs/products/dhtmlxFolders/index.shtml" target="_blank">dhtmlxFolders</a>. <br>
+Images thumbnails are produced automatically from original images with PHP routine on the fly. <br>
+List of files is taken from real directory and translated into required XML format using php routine. <br>
+All Item Types used in application consume the same XML formatted data loaded just once.<br><br>
+&copy; dhtmlx ltd.</DIV>
+</body>
+</html>

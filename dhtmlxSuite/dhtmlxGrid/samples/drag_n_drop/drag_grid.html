@@ -1,0 +1,109 @@
+<!--conf
+<sample in_favorites="true">
+               <product version="1.4" edition="std"/>
+                       <modifications>
+                               <modified date="070101"/>
+                       </modifications>
+               <sampledescription><![CDATA[Try dhtmlxGrid drag-n-drop capabilities with this sample. ]]></sampledescription></sample>
+ --> 
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<title>Drag and Drop between Grids</title>
+	
+   	<link rel="STYLESHEET" type="text/css" href="../../codebase/dhtmlxgrid.css">
+	
+	<script  src="../../codebase/dhtmlxcommon.js"></script>
+	<script  src="../../codebase/dhtmlxgrid.js"></script>		
+	<script  src="../../codebase/dhtmlxgridcell.js"></script>	
+	<script  src="../../codebase/ext/dhtmlxgrid_drag.js"></script>
+</head>
+
+<body>
+<link rel='STYLESHEET' type='text/css' href='../common/style.css'>
+<table cellspacing="0" cellpadding="0" class="sample_header" border="0">
+	<tr valign="middle">
+		<!-- COMPONENT ICON -->
+		<td width="40" align="center"><img src="../common/dhtmlxgrid_icon.gif" border="0"></td>
+		<!-- COMPONENT NAME -->
+		<td width="120" align="left">Sample: dhtmlxGrid</td>
+		<!-- SAMPLE TITLE -->
+		<td width="0" align="left"><b>Drag and Drop between Grids</b></td>
+		<!-- LINK TO COMPONENT PAGE -->
+		<td width="0" align="right"><a href="http://www.dhtmlx.com/docs/products/dhtmlxGrid/index.shtml">dhtmlxGrid main page</a></td>
+		<!-- CLOSE BUTTON -->
+		<td width="50"><div class="sample_close"><a href="javascript:void(0);" onclick="self.close();"><img src="../common/sample_close.gif" width="14" height="14" border="0" alt="X"></a></div></td>
+	</tr>
+</table>
+	
+	<p>
+          Drag-n-drop within Grid and between Grids
+	</p>
+
+
+	<table width="800px">
+		<tr>
+            <td>
+				<div id="gridbox2" width="250px" height="250px" style="background-color:white;"></div>
+            </td>
+			<td>
+				<div id="gridbox3" width="500px" height="250px" style="background-color:white;"></div>
+			</td>
+		</tr>
+	</table>
+
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-code">  </span><span class="hl-var">src</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">../js/dhtmlxcommon.js</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-code">  </span><span class="hl-var">src</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">../js/dhtmlxgrid.js</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-code">  </span><span class="hl-var">src</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">../js/dhtmlxgridcell.js</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-code">  </span><span class="hl-var">src</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">../js/dhtmlxgrid_drag.js</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code"><div class="hl-main"><pre><span class="hl-code"> 
+        </span><span class="hl-identifier">mygrid</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">gridbox3</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">;
+        ...
+        </span><span class="hl-identifier">mygrid</span><span class="hl-code">.</span><span class="hl-identifier">enableDragAndDrop</span><span class="hl-brackets">(</span><span class="hl-reserved">true</span><span class="hl-brackets">)</span><span class="hl-code">;</span></pre></div></span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span></pre></div></div>
+
+<script>
+		mygrid3 = new dhtmlXGridObject('gridbox3');
+		mygrid3.selMultiRows = true;
+		mygrid3.setImagePath("../../codebase/imgs/");
+		var flds = "Sales,Book Title,Author,Price";
+		flds += ",In Store,Shipping,Bestseller,Date of Publication";
+		mygrid3.setHeader(flds);
+		mygrid3.setInitWidths("50,150,120,80,80,80,80,200")
+		mygrid3.setColAlign("right,left,left,right,center,left,center,center")
+		mygrid3.setColTypes("dyn,ed,ed,price,ch,coro,ra,ro");
+		mygrid3.setColSorting("int,str,str,int,str,str,str,date")
+		mygrid3.setColumnColor("white,#d5f1ff,#d5f1ff")
+		mygrid3.setMultiLine(false);
+		mygrid3.enableDragAndDrop(true);
+		mygrid3.init();
+	   	mygrid3.loadXML("grid.xml");
+
+
+		mygrid2 = new dhtmlXGridObject('gridbox2');
+		mygrid2.selMultiRows = true;
+		mygrid2.setImagePath("../../codebase/imgs/");
+		var flds = "Alpha,Betta";
+		mygrid2.setHeader(flds);
+		mygrid2.setInitWidths("100,150")
+		mygrid2.setColAlign("right,left")
+		mygrid2.setColTypes("ed,ed");
+		mygrid2.setColSorting("int,str");
+		mygrid2.setColumnColor("white,#d5f1ff");
+		mygrid2.setMultiLine(false);
+		mygrid2.enableDragAndDrop(true);
+		mygrid2.init();
+	   	mygrid2.loadXML("dynscroll.xml");
+
+
+
+</script>
+
+<!-- FOOTER -->
+<table callspacing="0" cellpadding="0" border="0" class="sample_footer"><tr><td style="padding-left: 8px;">&copy; <a href="http://www.dhtmlx.com">DHTMLX LTD</a>. All rights reserved</td></tr></table>
+<!-- FOOTER -->
+
+</body>
+</html>

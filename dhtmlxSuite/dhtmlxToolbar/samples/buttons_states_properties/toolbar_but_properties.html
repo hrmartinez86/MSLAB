@@ -1,0 +1,132 @@
+
+<!--conf
+<sample in_favorites="true">
+              <product version="1.0" edition="std"/>
+                     <modifications>
+                            <modified date="070101"/>
+                     </modifications>
+               <sampledescription><![CDATA[Change toolbar button properties on the fly]]></sampledescription></sample>
+ --> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<title>Button properties</title>
+	<link rel="STYLESHEET" type="text/css" href="../../codebase/dhtmlxtoolbar.css">
+	
+	<script language="JavaScript" src="../../codebase/dhtmlxprotobar.js"></script>
+	<script language="JavaScript" src="../../codebase/dhtmlxtoolbar.js"></script>
+	<script language="JavaScript" src="../../codebase/dhtmlxcommon.js"></script>	
+</head>
+
+<body>
+<link rel='STYLESHEET' type='text/css' href='../common/style.css'>
+<table cellspacing="0" cellpadding="0" class="sample_header" border="0">
+	<tr valign="middle">
+		<!-- COMPONENT ICON -->
+		<td width="40" align="center"><img src="../common/dhtmlxtoolbar_icon.gif" border="0"></td>
+		<!-- COMPONENT NAME -->
+		<td width="120" align="left">Sample: dhtmlxToolbar</td>
+		<!-- SAMPLE TITLE -->
+		<td width="0" align="left"><b>Button properties</b></td>
+		<!-- LINK TO COMPONENT PAGE -->
+		<td width="0" align="right"><a href="http://www.dhtmlx.com/docs/products/dhtmlxToolbar/index.shtml">dhtmlxToolbar main page</a></td>
+		<!-- CLOSE BUTTON -->
+		<td width="50"><div class="sample_close"><a href="javascript:void(0);" onclick="self.close();"><img src="../common/sample_close.gif" width="14" height="14" border="0" alt="X"></a></div></td>
+	</tr>
+</table>
+	
+	<p>Toolbar's functionality allows to change buttons visibility, text, image and state of availability.</p>
+	
+	<table>
+		<tr>
+			<td>
+				<div id="toolbar_zone" style="width:600;border :1px solid Silver;"/>
+			</td>
+		</tr>
+		<tr>
+		<td>
+			<table>
+				<tr>
+				<td valign="top" width="15%">
+					&nbsp;
+				</td>
+				<td>
+			<select id="button_id" style="width:100">
+				<option value="0_save">Save
+				<option value="0_print">Print		
+				<option value="0_new">New
+				<option value="0_form">Config
+				<option value="0_search">Search
+				<option value="0_filter">Filter
+				<option value="0_delete">Delete
+				<option value="0_select">Select
+			</select><br>
+			<a href="javascript:aToolBar.enableItem(document.getElementById('button_id').value)">Enable button</a><br>
+			<a href="javascript:aToolBar.disableItem(document.getElementById('button_id').value)">Disable button</a><br>
+			<a href="javascript:aToolBar.showItem(document.getElementById('button_id').value)">Show button</a><br>
+			<a href="javascript:aToolBar.hideItem(document.getElementById('button_id').value)">Hide button</a><br>
+			<a href="javascript:setNewText(document.getElementById('sample_1').value)">Set button text</a>&nbsp;<input type="text" style="font-size:10px;border:1px solid gray;" id="sample_1"><br>
+			Set button image 
+			<a href="javascript:aToolBar.getItem(document.getElementById('button_id').value).setImage('../images/iconNewNewsEntry.gif','../images/iconNewNewsEntry_dis.gif');"><img src="../images/iconNewNewsEntry.gif" border="0"></a>
+			<a href="javascript:aToolBar.getItem(document.getElementById('button_id').value).setImage('../images/iconSave.gif','../images/iconSave_dis.gif');"><img src="../images/iconSave.gif" border="0"></a>
+			<a href="javascript:aToolBar.getItem(document.getElementById('button_id').value).setImage('../images/iconPrint.gif','../images/iconPrint_dis.gif');"><img src="../images/iconPrint.gif" border="0"></a>
+			<a href="javascript:aToolBar.getItem(document.getElementById('button_id').value).setImage('../images/iconSearch.gif','../images/iconSearch_dis.gif');"><img src="../images/iconSearch.gif" border="0"></a>
+			<a href="javascript:aToolBar.getItem(document.getElementById('button_id').value).setImage('../images/iconFilter.gif','../images/iconFilter_dis.gif');"><img src="../images/iconFilter.gif" border="0"></a><br>
+
+				</td>
+				</tr>
+			</table>
+			
+		</td>
+		</tr>
+	</table>
+<br>
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+ 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code"><div class="hl-main"><pre><span class="hl-code"> 
+    </span><span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-identifier">setNewText</span><span class="hl-brackets">(</span><span class="hl-identifier">newText</span><span class="hl-brackets">)</span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">z</span><span class="hl-code">=</span><span class="hl-identifier">aToolBar</span><span class="hl-code">.</span><span class="hl-identifier">getItem</span><span class="hl-brackets">(</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">button_id</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">value</span><span class="hl-brackets">)</span><span class="hl-code">;
+        </span><span class="hl-reserved">if</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">z</span><span class="hl-code">.</span><span class="hl-identifier">setText</span><span class="hl-brackets">)</span><span class="hl-code"> 
+            </span><span class="hl-identifier">z</span><span class="hl-code">.</span><span class="hl-identifier">setText</span><span class="hl-brackets">(</span><span class="hl-identifier">newText</span><span class="hl-brackets">)</span><span class="hl-code">; 
+    </span><span class="hl-brackets">}</span><span class="hl-code">
+    
+    </span><span class="hl-identifier">aToolBar</span><span class="hl-code">=</span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlXToolbarObject</span><span class="hl-brackets">(</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">toolbar_zone</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">,</span><span class="hl-quotes">'</span><span class="hl-string">100%</span><span class="hl-quotes">'</span><span class="hl-code">,</span><span class="hl-number">16</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">Demo toolbar</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">aToolBar</span><span class="hl-code">.</span><span class="hl-identifier">setOnClickHandler</span><span class="hl-brackets">(</span><span class="hl-identifier">onButtonClick</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">aToolBar</span><span class="hl-code">.</span><span class="hl-identifier">loadXML</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">_toolbar.xml</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">
+    </span><span class="hl-identifier">aToolBar</span><span class="hl-code">.</span><span class="hl-identifier">showBar</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;</span></pre></div></span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span></pre></div></div>
+
+
+	<script>
+	
+		function onButtonClick(itemId,itemValue)
+		{
+			var f=document.getElementById('button_id');
+			for (var i=0; i<f.options.length; i++)
+				if (f.options[i].value==itemId) f.options[i].selected=true;
+		};
+		
+		
+		function setNewText(newText){
+			var z=aToolBar.getItem(document.getElementById('button_id').value);
+			if (z.setText) 
+				z.setText(newText); 
+			else alert("Selected button doesn't support such action"); 
+		}
+		
+		aToolBar=new dhtmlXToolbarObject(document.getElementById('toolbar_zone'),'100%',16,"Demo toolbar");
+		aToolBar.setOnClickHandler(onButtonClick);
+		aToolBar.loadXML("_toolbar.xml")
+		aToolBar.showBar();
+		
+		
+		
+	</script>
+
+
+<!-- FOOTER -->
+<table callspacing="0" cellpadding="0" border="0" class="sample_footer"><tr><td style="padding-left: 8px;">&copy; <a href="http://www.dhtmlx.com">DHTMLX LTD</a>. All rights reserved</td></tr></table>
+<!-- FOOTER -->
+
+</body>
+</html>

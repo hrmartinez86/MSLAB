@@ -1,0 +1,114 @@
+<html>
+
+<head>
+
+
+<link rel="STYLESHEET" type="text/css" href="../common/styles.css">
+</head>
+<body>
+	<table border="0" cellpadding="0" cellspacing="0" class="sample_header" zid="71">
+		<tbody zid="3">
+			<tr valign="center" zid="4">
+				<td align="center" width="10" zid="5">&nbsp;</td>
+				<td align="left" zid="6">
+					<p zid="224">
+						<a href="http://www.dhtmlx.com/" zid="7">DHTMLX</a> Documentation
+					</p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<!--- CONTENT. Starts --->
+	<H1 id=ldh10>Formatting cell values</H1>
+<BR id=x9n51>
+Grid provides built in support for formatting numeric or date values.<BR id=ny:e0>
+<BR id=ldh11>
+<H3 id=ldh12>Formatting numeric values</H3>
+<BR id=ny:e3>
+The formatting can be applied against columns of ron and edn types (the formating is defined for each column separately, so you can have different formatting types for different columns).<BR id=ny:e4>
+The basic syntax is:<BR id=xaun0>
+&nbsp;&nbsp;&nbsp; grid.setNumberFormat(mask,index)<BR id=fnfq0>
+Or in case of initialization from XML:<BR id=fnfq1>
+&nbsp;&nbsp;&nbsp; &lt;column format="mask"...<BR id=ainb0>
+Or when initialization is from HTML:<BR id=ainb1>
+&nbsp;&nbsp;&nbsp; &lt;td ... format="mask"...<BR id=vhsy0>
+<BR id=vhsy1>
+The mask defines how the number will be formatted, basically it is the string of zeros with two separators:<BR id=esin0>
+&nbsp;&nbsp;&nbsp; . - defines where the decimal point will be placed;<BR id=esin1>
+&nbsp;&nbsp;&nbsp; , - defines where the group separator will be placed.<BR id=esin2>
+<BR id=esin3>
+<BLOCKQUOTE id=tihp0>data =&gt; mask =&gt; result<BR id=esin4>
+123456.789&nbsp;&nbsp;&nbsp; =&gt;&nbsp;&nbsp;&nbsp; 0.00&nbsp;&nbsp;&nbsp; =&gt;&nbsp;&nbsp;&nbsp; 123456.78<BR id=aw3w0>
+123456.789&nbsp;&nbsp;&nbsp; =&gt;&nbsp;&nbsp;&nbsp; 0,000.00&nbsp;&nbsp;&nbsp; =&gt;&nbsp;&nbsp;&nbsp; 123,456.78<BR id=aw3w1>
+123456.789&nbsp;&nbsp;&nbsp; =&gt;&nbsp;&nbsp;&nbsp; 00,00&nbsp;&nbsp;&nbsp; =&gt;&nbsp;&nbsp;&nbsp; 12,34,56<BR id=aw3w2>
+</BLOCKQUOTE>
+<BR id=aw3w3>
+The 3rd and 4th parameters can be used to define the group separator and the decimal separator characters.<BR id=tihp1>
+<BR id=tihp2>
+<BLOCKQUOTE id=jwqi0>mygrid.setNumberFormat(index,"0,000.00",",","."); //(US English)<BR id=omvr0>
+1456.789&nbsp;&nbsp;&nbsp; =&gt;&nbsp;&nbsp;&nbsp; 1,456.78<BR id=zbxt0>
+<BR id=zbxt1>
+mygrid.setNumberFormat(index,"0,000.00","","."); //(English)<BR id=omvr0>
+1456.789&nbsp;&nbsp;&nbsp; =&gt;&nbsp;&nbsp;&nbsp; 1456.78<BR id=zbxt2>
+<BR id=zbxt3>
+mygrid.setNumberFormat(index,"0,000.00"," ",","); //(French)<BR id=omvr0>
+1456.789&nbsp;&nbsp;&nbsp; =&gt;&nbsp;&nbsp;&nbsp; 1 456.78<BR id=zbxt4>
+<BR id=zbxt5>
+mygrid.setNumberFormat(index,"0,000.00",".",","); //(Russian)<BR id=omvr0>
+1456.789&nbsp;&nbsp;&nbsp; =&gt;&nbsp;&nbsp;&nbsp; 1.456,78<BR id=zbxt6>
+<BR id=zbxt7>
+mygrid.setNumberFormat(index,"0,000.00"," ","."); //(Greek)<BR id=omvr0>
+1456.789&nbsp;&nbsp;&nbsp; =&gt;&nbsp;&nbsp;&nbsp; 1 456.78<BR id=zbxt8>
+<BR id=zbxt9>
+mygrid.setNumberFormat(index,"0,000.00","'","."); //(Swiss)<BR id=omvr0>
+1456.789&nbsp;&nbsp;&nbsp; =&gt;&nbsp;&nbsp;&nbsp; 1'456.78<BR id=s1t40>
+</BLOCKQUOTE>
+If you want the chars to be used as decimals, groups separators can be set globally as part of grid internationalization.<BR id=jf5t1>
+<BLOCKQUOTE id=nzga0>grid.i18n.decimal_separator=","<BR id=jf5t2>
+grid.i18n.group_separator=".";<BR id=vr2l0>
+mygrid.setNumberFormat(index,"0,000.00");<BR id=omvr0>
+1456.789&nbsp;&nbsp;&nbsp; =&gt;&nbsp;&nbsp;&nbsp; 1.456,78<BR id=s1t41>
+</BLOCKQUOTE>
+<BR id=ny:e5>
+FYI: If you have a statistics counter assigned to the column with defined numeric format, the formatting will be applied to results of the calculation as well.<BR id=k03o0>
+(This will work even if the column type is different from ron|edn - so you can have a column with custom cell types and still have formatting applied to statistics counters)<BR id=k03o1>
+<H3 id=nnml0>Formatting date values </H3>
+<BR id=nnml1>
+Date formatting can be applied to dhxCalendar and dhxCalendarA columns.<BR id=nnml2>
+Date formatting applied to the whole grid (so it will be used in any column of dhxCalendar type) can be set as:<BR id=nnml4>
+&nbsp;&nbsp;&nbsp; grid.setDateFormat(mask)<BR id=p5db1>
+Or in case of initialization from XML:<BR id=fnfq1>
+&nbsp;&nbsp;&nbsp; &lt;column format="mask"...<BR id=ainb0>
+Or when initialization is from HTML:<BR id=ainb1>
+&nbsp;&nbsp;&nbsp; &lt;td ... format="mask"...<BR id=p5db2>
+<BR id=p5db3>
+Please, take into account that while it is possible to define a few formats with initialization from XML or HTML, only the last format will be applied.<BR id=p5db4>
+<BR id=p5db5>
+<BR id=p5db6>
+The mask can contain the following special markers:<BR id=p5db7>
+<BLOCKQUOTE id=fqp40>%e&nbsp;&nbsp;&nbsp; Day of the month without leading zeros (01..31)<BR id=fqp41>
+%d&nbsp;&nbsp;&nbsp; Day of the month, 2 digits with leading zeros (01..31)<BR id=fqp42>
+%j&nbsp;&nbsp;&nbsp;&nbsp; Day of the year, 3 digits with leading zeros (001..366)<BR id=fqp43>
+%a&nbsp;&nbsp;&nbsp; A textual representation of a day, three letters<BR id=fqp44>
+%W&nbsp;&nbsp; A full textual representation of the day of the week<BR id=fqp45>
+<BR id=fqp46>
+%c&nbsp;&nbsp;&nbsp; Numeric representation of a month, without leading zeros (0..12)<BR id=fqp47>
+%m&nbsp;&nbsp; Numeric representation of a month, with leading zeros (00..12)<BR id=fqp48>
+%b&nbsp;&nbsp;&nbsp; A short textual representation of a month, three letters (Jan..Dec)<BR id=fqp49>
+%M&nbsp;&nbsp; A full textual representation of a month, such as January or March (January..December)<BR id=fqp410>
+<BR id=fqp411>
+%y&nbsp;&nbsp;&nbsp; A two digit representation of a year (93..03)<BR id=fqp412>
+%Y&nbsp;&nbsp;&nbsp; A full numeric representation of a year, 4 digits (1993..03)<BR id=vhsy0>
+</BLOCKQUOTE>
+For example:<BR id=fqp413>
+<BLOCKQUOTE id=yyoz0>&nbsp;&nbsp;&nbsp; grid.setDateFormat("%m/%d/%Y");&nbsp;&nbsp; &nbsp; // =&gt;&nbsp;&nbsp; 01/25/1980<BR id=fqp414>
+&nbsp;&nbsp;&nbsp; grid.setDateFormat(%d-%c-%y");&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // =&gt;&nbsp;&nbsp; 25-1-80<BR id=fqp415>
+&nbsp;&nbsp;&nbsp; grid.setDateFormat("%M %e, %W);&nbsp;&nbsp;&nbsp; // =&gt;&nbsp;&nbsp; January 25, Friday<BR id=fqp416>
+</BLOCKQUOTE>
+<H3 id=s1t42>More complex formatting rules</H3>
+More complex formatting rules can be defined by creating custom excells.<BR id=uybv0>
+
+	<!--- CONTENT. Ends --->
+	<div class="copyright" zid="223">&copy; DHTMLX, 2008</div>
+</body>
+</html>

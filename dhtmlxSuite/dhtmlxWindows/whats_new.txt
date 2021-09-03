@@ -1,0 +1,6 @@
+31.03.2008 > add onselect fix for IE (when resize); attach vp to body by the default;
+01.04.2008 > header fixed in firefox 2.0.0.x in Ubuntu;
+14.04.2008 > attach StatusBar ability; integration with dhtmlxWebMenu, dhtmlxWebToolbar;
+
+progressOn/off+demo
+center in viewport+demo

@@ -1,0 +1,117 @@
+<!--conf
+<sample in_favorites="true">
+	<product version="1.0" edition="std"/>
+	<modifications>
+		<modified date="080205"/>
+	</modifications>
+<sampledescription><![CDATA[Sample demonstrates the possibility to filter item based on different parameters. ]]></sampledescription></sample>
+ --> 
+
+<html>
+<head>
+	<title>Filtering items</title>
+	<script src="../../codebase/dhtmlxcommon.js" type="text/javascript"></script>
+	<script src="../../codebase/dhtmlxfolders.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../../codebase/dhtmlxfolders.css">	
+	<style>
+		.links{
+			cursor:pointer;
+			color:blue;
+			text-decoration:underline;
+		}
+	</style>
+	<script>
+		var myFolders;
+		function doOnLoad(){
+			myFolders = new dhtmlxFolders("folders_container");
+			myFolders.setItemType("ficon");
+			myFolders.setUserData("icons_src_dir","../images");
+			myFolders.loadXML("files_ext.xml","../../codebase/types/ficon.xsl");
+		}
+		
+		function changeType(type){
+			myFolders.setItemType(type, "../../codebase/types/"+type+".xsl");
+		}
+		
+		//filter items by attribute "name"
+		function filterItemsByName(obj,mask){
+			var aName = obj.data.dataObj.getAttribute("name");
+			return (aName.toString().toLowerCase().indexOf(mask.toString().toLowerCase())==0 || mask=="");
+		}
+		//filter items by value of subtag "filesize"
+		function filterItemsBySizeGT(obj,mask){
+			try{
+				var objSize = parseInt(obj.data.dataObj.getElementsByTagName("filesize")[0].firstChild.nodeValue);
+			}catch(e){
+				var objSize = 0;
+			}
+				return (objSize>mask);
+		}
+	</script>
+<body onload="doOnLoad()">
+<link rel='STYLESHEET' type='text/css' href='../common/style.css'>
+<table cellspacing="0" cellpadding="0" class="sample_header" border="0">
+	<tr valign="middle">
+		<!-- COMPONENT ICON -->
+		<td width="40" align="center"><img src="../common/dhtmlxfolders_icon.gif" border="0"></td>
+		<!-- COMPONENT NAME -->
+		<td width="120" align="left">Sample: dhtmlxFolders</td>
+		<!-- SAMPLE TITLE -->
+		<td width="0" align="left"><b>Filtering items</b></td>
+		<!-- LINK TO COMPONENT PAGE -->
+		<td width="0" align="right"><a href="http://www.dhtmlx.com/docs/products/dhtmlxFolders/index.shtml">dhtmlxFolders main page</a></td>
+		<!-- CLOSE BUTTON -->
+		<td width="50"><div class="sample_close"><a href="javascript:void(0);" onclick="self.close();"><img src="../common/sample_close.gif" width="14" height="14" border="0" alt="X"></a></div></td>
+	</tr>
+</table>
+	
+	<div style="position:relative;">
+		<img src="../images/samples_frame.gif" width="436" height="513" alt="" border="0">
+		<div id="folders_container" style="width:396px;height:396px;overflow:hidden;position:absolute;top:65px;left:20px;border:0px solid red;"></div>
+	</div>
+	
+	<input type="text"><span class="links" onclick="myFolders.filterItems(filterItemsBySizeGT,parseInt(this.previousSibling.value));">Filter by Size (greater than, bytes) without preserving previous filters</span><br>
+	<input type="text"><span class="links" onclick="myFolders.filterItems(filterItemsByName,this.previousSibling.value,true);">Filter by Name (starts with) preserving previous filters</span><br>
+	<span class="links" onclick="myFolders.filterClear();">Clear All Filters</span><br>
+	
+	
+	
+	<h3>Filtering state remains while changing types</h3>
+	<input type="radio" name="switch" onclick="changeType(this.value)" value="ficon" checked> F-icon<br>
+	<input type="radio" name="switch" onclick="changeType(this.value)" value="ftiles"> F-tiles<br>
+	<input type="radio" name="switch" onclick="changeType(this.value)" value="ftable"> F-table<br>
+
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">folders_container</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">style</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">width:400px;height:300px;overflow:hidden;</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">div</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code"><div class="hl-main"><pre><span class="hl-code"> 
+    </span><span class="hl-comment">//</span><span class="hl-comment">filter items by attribute &quot;name&quot; (name starts with, case insens.)</span><span class="hl-comment"></span><span class="hl-code">
+    </span><span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-identifier">filterItemsByName</span><span class="hl-brackets">(</span><span class="hl-identifier">obj</span><span class="hl-code">,</span><span class="hl-identifier">mask</span><span class="hl-brackets">)</span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">aName</span><span class="hl-code"> = </span><span class="hl-identifier">obj</span><span class="hl-code">.</span><span class="hl-identifier">data</span><span class="hl-code">.</span><span class="hl-identifier">dataObj</span><span class="hl-code">.</span><span class="hl-identifier">getAttribute</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">name</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+        </span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">aName</span><span class="hl-code">.</span><span class="hl-identifier">toString</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">toLowerCase</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">indexOf</span><span class="hl-brackets">(</span><span class="hl-identifier">mask</span><span class="hl-code">.</span><span class="hl-identifier">toString</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">toLowerCase</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-brackets">)</span><span class="hl-code">==</span><span class="hl-number">0</span><span class="hl-code"> || </span><span class="hl-identifier">mask</span><span class="hl-code">==</span><span class="hl-quotes">&quot;</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-brackets">}</span><span class="hl-code">
+    </span><span class="hl-comment">//</span><span class="hl-comment">filter items by value of subtag &quot;filesize&quot; (greater than)</span><span class="hl-comment"></span><span class="hl-code">
+    </span><span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-identifier">filterItemsBySizeGT</span><span class="hl-brackets">(</span><span class="hl-identifier">obj</span><span class="hl-code">,</span><span class="hl-identifier">mask</span><span class="hl-brackets">)</span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-reserved">try</span><span class="hl-brackets">{</span><span class="hl-code">
+            </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">objSize</span><span class="hl-code"> = </span><span class="hl-identifier">parseInt</span><span class="hl-brackets">(</span><span class="hl-identifier">obj</span><span class="hl-code">.</span><span class="hl-identifier">data</span><span class="hl-code">.</span><span class="hl-identifier">dataObj</span><span class="hl-code">.</span><span class="hl-identifier">getElementsByTagName</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">filesize</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-brackets">]</span><span class="hl-code">.</span><span class="hl-identifier">firstChild</span><span class="hl-code">.</span><span class="hl-identifier">nodeValue</span><span class="hl-brackets">)</span><span class="hl-code">;
+        </span><span class="hl-brackets">}</span><span class="hl-reserved">catch</span><span class="hl-brackets">(</span><span class="hl-identifier">e</span><span class="hl-brackets">)</span><span class="hl-brackets">{</span><span class="hl-code">
+            </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">objSize</span><span class="hl-code"> = </span><span class="hl-number">0</span><span class="hl-code">;
+        </span><span class="hl-brackets">}</span><span class="hl-code">
+            </span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-brackets">(</span><span class="hl-identifier">objSize</span><span class="hl-code">&gt;</span><span class="hl-identifier">mask</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-brackets">}</span><span class="hl-code">
+    
+    </span><span class="hl-comment">//</span><span class="hl-comment">filter by size greater than [value]</span><span class="hl-comment"></span><span class="hl-code">
+    </span><span class="hl-identifier">myFolders</span><span class="hl-code">.</span><span class="hl-identifier">filterItems</span><span class="hl-brackets">(</span><span class="hl-identifier">filterItemsBySizeGT</span><span class="hl-code">,</span><span class="hl-identifier">parseInt</span><span class="hl-brackets">(</span><span class="hl-identifier">prompt</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-brackets">)</span><span class="hl-brackets">)</span><span class="hl-code">
+    </span><span class="hl-comment">//</span><span class="hl-comment">add filter by name starts with [value]</span><span class="hl-comment"></span><span class="hl-code">
+    </span><span class="hl-identifier">myFolders</span><span class="hl-code">.</span><span class="hl-identifier">filterItems</span><span class="hl-brackets">(</span><span class="hl-identifier">filterItemsByName</span><span class="hl-code">,</span><span class="hl-identifier">prompt</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">,</span><span class="hl-reserved">true</span><span class="hl-brackets">)</span><span class="hl-code">
+    
+    </span><span class="hl-comment">//</span><span class="hl-comment">clear filters</span><span class="hl-comment"></span><span class="hl-code">
+    </span><span class="hl-identifier">myFolders</span><span class="hl-code">.</span><span class="hl-identifier">filterClear</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;</span></pre></div></span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span></pre></div></div>
+
+<!-- FOOTER -->
+<table callspacing="0" cellpadding="0" border="0" class="sample_footer"><tr><td style="padding-left: 8px;">&copy; <a href="http://www.dhtmlx.com">DHTMLX LTD</a>. All rights reserved</td></tr></table>
+<!-- FOOTER -->
+
+</body>
+</html>
+

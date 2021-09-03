@@ -1,0 +1,131 @@
+﻿<!--conf
+<sample in_favorites="true">
+              <product version="1.0" edition="std"/>
+                     <modifications>
+                            <modified date="071221"/>
+                     </modifications>
+               </sample>
+ --> 
+
+<html>
+<head>
+	<title>Multilingual Calendar</title>
+	<link rel="STYLESHEET" type="text/css" href="../../codebase/dhtmlxcalendar.css">
+	<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+<script>
+      window.dhx_globalImgPath="../../codebase/imgs/";
+</script>
+<script  src="../../codebase/dhtmlxcommon.js"></script>
+<script  src="../../codebase/dhtmlxcalendar.js"></script>
+
+	<script>
+	var mCal;
+	dhtmlxCalendarLangModules = new Array();
+	dhtmlxCalendarLangModules['ru'] = {
+		langname:	'ru',
+		dateformat:	'%d.%m.%Y',
+		monthesFNames:	["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
+		monthesSNames:	["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
+		daysFNames:	["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"],
+		daysSNames:	["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+		weekend:	[0, 6],
+		weekstart:	1,
+		msgClose:	 "Закрыть",
+		msgMinimize: "Свернуть",
+		msgToday:	 "Сегодня"
+	}
+	dhtmlxCalendarLangModules['de'] = {
+		langname:	'de',
+		dateformat:	'%d.%m.%Y',
+		monthesFNames:	["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"],
+		monthesSNames:	["Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"],
+		daysFNames:	["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"],
+		daysSNames:	["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"],
+		weekend:	[0, 6],
+		weekstart:	1,
+		msgClose:	 "Schließen",
+		msgMinimize: "Minimieren",
+		msgToday:	 "Heute"
+	}
+	
+	window.onload = function () {
+		
+		
+		mCal = new dhtmlxCalendarObject('dhtmlxCalendar', false, {isYearEditable: true});
+		mCal.loadUserLanguage('en-us');
+		mCal.setYearsRange(2000, 2500);
+		mCal.draw();
+
+		
+	}
+	
+	function chLang(lang){
+		mCal.loadUserLanguage(lang);
+	}
+	</script>
+	
+	
+
+<body>
+<link rel='STYLESHEET' type='text/css' href='../common/style.css'>
+<table cellspacing="0" cellpadding="0" class="sample_header" border="0">
+	<tr valign="middle">
+		<!-- COMPONENT ICON -->
+		<td width="40" align="center"><img src="../common/dhtmlxcalendar_icon.gif" border="0"></td>
+		<!-- COMPONENT NAME -->
+		<td width="120" align="left">Sample: dhtmlxCalendar</td>
+		<!-- SAMPLE TITLE -->
+		<td width="0" align="left"><b>Multilingual Calendar</b></td>
+		<!-- LINK TO COMPONENT PAGE -->
+		<td width="0" align="right"><a href="http://www.dhtmlx.com/docs/products/dhtmlxCalendar/index.shtml">dhtmlxCalendar main page</a></td>
+		<!-- CLOSE BUTTON -->
+		<td width="50"><div class="sample_close"><a href="javascript:void(0);" onclick="self.close();"><img src="../common/sample_close.gif" width="14" height="14" border="0" alt="X"></a></div></td>
+	</tr>
+</table>
+	
+	<p>
+		You can define any other language for calendar and apply it any time. You can also switch between different languages/regional settings on the fly<br>
+	</p>
+
+<table border="0" cellpadding="5" >
+  
+  <tr>
+    <td ><div id="dhtmlxCalendar"></div></td>
+   </tr>
+  
+</table>
+
+Choose language:
+<select onchange="chLang(this.value)" style="width:150px;">
+	<option value="en-us">English (US)
+	<option value="ru">Russian (Русский)
+	<option value="de">German (Deutsche)
+</select>
+
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+</span><span class="hl-identifier">dhtmlxCalendarLangModules</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-builtin">Array</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+</span><span class="hl-comment">//</span><span class="hl-comment">set new language and date format</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-identifier">dhtmlxCalendarLangModules</span><span class="hl-brackets">[</span><span class="hl-quotes">'</span><span class="hl-string">de</span><span class="hl-quotes">'</span><span class="hl-brackets">]</span><span class="hl-code"> = </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-identifier">langname</span><span class="hl-code">:    </span><span class="hl-quotes">'</span><span class="hl-string">de</span><span class="hl-quotes">'</span><span class="hl-code">,
+    </span><span class="hl-identifier">dateformat</span><span class="hl-code">:    </span><span class="hl-quotes">'</span><span class="hl-string">%d.%m.%Y</span><span class="hl-quotes">'</span><span class="hl-code">,
+    </span><span class="hl-identifier">monthesFNames</span><span class="hl-code">:    </span><span class="hl-brackets">[</span><span class="hl-quotes">&quot;</span><span class="hl-string">Januar</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">Februar</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">März</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">April</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">Mai</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">Juni</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">Juli</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">August</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">September</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">Oktober</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">November</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">Dezember</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">]</span><span class="hl-code">,
+    </span><span class="hl-identifier">monthesSNames</span><span class="hl-code">:    </span><span class="hl-brackets">[</span><span class="hl-quotes">&quot;</span><span class="hl-string">Jan</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">Feb</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">Mär</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">Apr</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">Mai</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">Jun</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">Jul</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">Aug</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">Sep</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">Okt</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">Nov</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">Dez</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">]</span><span class="hl-code">,
+    </span><span class="hl-identifier">daysFNames</span><span class="hl-code">:    </span><span class="hl-brackets">[</span><span class="hl-quotes">&quot;</span><span class="hl-string">Sonntag</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">Montag</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">Dienstag</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">Mittwoch</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">Donnerstag</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">Freitag</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">Samstag</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">]</span><span class="hl-code">,
+    </span><span class="hl-identifier">daysSNames</span><span class="hl-code">:    </span><span class="hl-brackets">[</span><span class="hl-quotes">&quot;</span><span class="hl-string">So</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">Mn</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">Dn</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">Mt</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">Dn</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">Fr</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-quotes">&quot;</span><span class="hl-string">Sa</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">]</span><span class="hl-code">,
+    </span><span class="hl-identifier">weekend</span><span class="hl-code">:    </span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-code">, </span><span class="hl-number">6</span><span class="hl-brackets">]</span><span class="hl-code">,
+    </span><span class="hl-identifier">weekstart</span><span class="hl-code">:    </span><span class="hl-number">1</span><span class="hl-code">,
+    </span><span class="hl-identifier">msgClose</span><span class="hl-code">:     </span><span class="hl-quotes">&quot;</span><span class="hl-string">Schließen</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+    </span><span class="hl-identifier">msgMinimize</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">Drehen</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+    </span><span class="hl-identifier">msgToday</span><span class="hl-code">:     </span><span class="hl-quotes">&quot;</span><span class="hl-string">Heute</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+</span><span class="hl-brackets">}</span><span class="hl-code">
+ 
+</span><span class="hl-comment">//</span><span class="hl-comment">apply any existing language and date format</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-identifier">mCal</span><span class="hl-code">.</span><span class="hl-identifier">loadUserLanguage</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">de</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;</span></pre></div></div>
+
+<!-- FOOTER -->
+<table callspacing="0" cellpadding="0" border="0" class="sample_footer"><tr><td style="padding-left: 8px;">&copy; <a href="http://www.dhtmlx.com">DHTMLX LTD</a>. All rights reserved</td></tr></table>
+<!-- FOOTER -->
+
+</body>
+</html>

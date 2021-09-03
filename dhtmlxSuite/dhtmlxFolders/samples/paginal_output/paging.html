@@ -1,0 +1,145 @@
+<!--conf
+<sample in_favorites="true">
+	<product version="1.0" edition="std"/>
+	<modifications>
+		<modified date="080205"/>
+	</modifications>
+<sampledescription><![CDATA[Paginal output makes it possible to load big number of items into Folders and still have good performance. It also provides the possibility to load additional content from server when it is necessary.]]></sampledescription></sample>
+ --> 
+
+<html>
+<head>
+	<title>Enable paginal output</title>
+	<script src="../../codebase/dhtmlxcommon.js" type="text/javascript"></script>
+	<script src="../../codebase/dhtmlxfolders.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../../codebase/dhtmlxfolders.css">	
+	<style>
+		.pager{
+			top:280px;
+			left:20px;
+			cursor:default;
+			color:gray;
+			background-color:white;
+			padding-left:10px;
+			padding-right:10px;
+		}
+		.pagingInact,.pagingCurrent{
+			cursor:pointer;border:1px solid gray;width:18px;height;25px;text-align:center;padding:2px;margin:2px;
+		}
+		.pagingCurrent{
+			border:1px solid #f7f7f7;
+			background-color:#f7f7f7;
+			font-weight:bold;
+			color:black;
+			cursor:default;
+		}
+	</style>
+	<script>
+		var myFolders;
+		function doOnLoad(){
+			myFolders = new dhtmlxFolders("folders_container");
+			myFolders.setItemType("ficon");
+			myFolders.setUserData("icons_src_dir","../images");
+			myFolders.loadXML("files_ext.xml","../../codebase/types/ficon.xsl");
+		}
+		
+		function changeType(type){
+			myFolders.setItemType(type, "../../codebase/types/"+type+".xsl");
+		}
+		
+		function enablePaging(num,dyn){
+			document.getElementById("pager").style.display = "";
+			myFolders.enablePaging(num,dyn);
+			createPager();
+			//document.getElementById("curpage").innerHTML = myFolders.getCurrentPage()
+		}
+		
+		function disablePaging(){
+			document.getElementById("pager").style.display = "none";
+			myFolders.enablePaging(false);
+		}
+		
+		function goToPage(page){
+			if(page=="-1")
+				page = myFolders.page -1;
+			else if(page ="+1")
+				page = myFolders.page +1;
+			myFolders.goToPage(page);
+			document.getElementById("curpage").innerHTML = myFolders.getCurrentPage()
+		}
+		
+		function createPager(){
+			var pagerCont = document.getElementById("pager");
+			pagerCont.innerHTML="";
+			for(var i=0;i<myFolders.getNumberOfPages();i++){
+				var ins = "";
+				if(i+1==myFolders.getCurrentPage())
+					var className = "pagingCurrent"
+				else
+					var className = "pagingInact"
+				var tmpHTML = "<div style='float:left;' class='"+className+"'  onclick='myFolders.goToPage("+(i+1)+");createPager();'>"+(i+1)+"</div>"
+				pagerCont.innerHTML = pagerCont.innerHTML+tmpHTML;
+			}
+		}
+		
+	</script>
+<body onload="doOnLoad()">
+<link rel='STYLESHEET' type='text/css' href='../common/style.css'>
+<table cellspacing="0" cellpadding="0" class="sample_header" border="0">
+	<tr valign="middle">
+		<!-- COMPONENT ICON -->
+		<td width="40" align="center"><img src="../common/dhtmlxfolders_icon.gif" border="0"></td>
+		<!-- COMPONENT NAME -->
+		<td width="120" align="left">Sample: dhtmlxFolders</td>
+		<!-- SAMPLE TITLE -->
+		<td width="0" align="left"><b>Enable paginal output</b></td>
+		<!-- LINK TO COMPONENT PAGE -->
+		<td width="0" align="right"><a href="http://www.dhtmlx.com/docs/products/dhtmlxFolders/index.shtml">dhtmlxFolders main page</a></td>
+		<!-- CLOSE BUTTON -->
+		<td width="50"><div class="sample_close"><a href="javascript:void(0);" onclick="self.close();"><img src="../common/sample_close.gif" width="14" height="14" border="0" alt="X"></a></div></td>
+	</tr>
+</table>
+	
+	<div style="position:relative;">
+		<img src="../images/samples_frame.gif" width="436" height="513" alt="" border="0">
+		<div id="folders_container" style="width:396px;height:396px;overflow:hidden;position:absolute;top:65px;left:20px;border:0px solid red;"></div>
+		<div id="pager" class="pager" style="position:absolute;top:470px;left:20px;cursor:default;display:none;">
+			
+		</div>
+	</div>
+	
+	<input type="radio" name="switch1" onclick="disablePaging()" checked> Disable Paging<br>
+	<input type="radio" name="switch1" onclick="enablePaging(10)"> Enable Paging with 10 items per page<br>
+	<input type="radio" name="switch1" onclick="enablePaging(5)"> Enable Paging with 5 items per page<br>
+	<input type="radio" name="switch1" onclick="enablePaging(10,true)"> Enable Paging with 10 items per page and dynamical loading*<br>
+	
+	* - as soon as we use static xml file for this sample, dynamical loading will load same content endlessly.
+	
+	<h3>Paging state remains while changing types</h3>
+	<input type="radio" name="switch" onclick="changeType(this.value)" value="ficon" checked> F-icon<br>
+	<input type="radio" name="switch" onclick="changeType(this.value)" value="ftiles"> F-tiles<br>
+	<input type="radio" name="switch" onclick="changeType(this.value)" value="ftable"> F-table<br>
+
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">folders_container</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">style</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">width:400px;height:300px;overflow:hidden;</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">div</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code"><div class="hl-main"><pre><span class="hl-code"> 
+    </span><span class="hl-comment">//</span><span class="hl-comment">enable paging with 10 items per page</span><span class="hl-comment"></span><span class="hl-code">
+    </span><span class="hl-identifier">myFolders</span><span class="hl-code">.</span><span class="hl-identifier">enablePaging</span><span class="hl-brackets">(</span><span class="hl-number">10</span><span class="hl-brackets">)</span><span class="hl-code">;
+    
+    </span><span class="hl-comment">//</span><span class="hl-comment">change number of items per page to 5</span><span class="hl-comment"></span><span class="hl-code">
+    </span><span class="hl-identifier">myFolders</span><span class="hl-code">.</span><span class="hl-identifier">enablePaging</span><span class="hl-brackets">(</span><span class="hl-number">5</span><span class="hl-brackets">)</span><span class="hl-code">;
+    
+    </span><span class="hl-comment">//</span><span class="hl-comment">disable paging</span><span class="hl-comment"></span><span class="hl-code">
+    </span><span class="hl-identifier">myFolders</span><span class="hl-code">.</span><span class="hl-identifier">enablePaging</span><span class="hl-brackets">(</span><span class="hl-reserved">false</span><span class="hl-brackets">)</span><span class="hl-code">;
+    
+    </span><span class="hl-comment">//</span><span class="hl-comment">enable paging with 10 items per page and dynamical loading</span><span class="hl-comment"></span><span class="hl-code">
+    </span><span class="hl-identifier">myFolders</span><span class="hl-code">.</span><span class="hl-identifier">enablePaging</span><span class="hl-brackets">(</span><span class="hl-number">10</span><span class="hl-code">,</span><span class="hl-reserved">true</span><span class="hl-brackets">)</span><span class="hl-code">;</span></pre></div></span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span></pre></div></div>
+
+<!-- FOOTER -->
+<table callspacing="0" cellpadding="0" border="0" class="sample_footer"><tr><td style="padding-left: 8px;">&copy; <a href="http://www.dhtmlx.com">DHTMLX LTD</a>. All rights reserved</td></tr></table>
+<!-- FOOTER -->
+
+</body>
+</html>
+

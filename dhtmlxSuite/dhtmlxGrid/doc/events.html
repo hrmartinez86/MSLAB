@@ -1,0 +1,466 @@
+﻿<div style="position:absolute;right:20"><a href="javascript:void(0)" onclick="expandAll(true)">expand</a><a href="javascript:void(0)" onclick="expandAll(false)">collaps</a></div><script><!--
+		
+			function openFull(el){
+			
+				el.nextSibling.style.display!='block'?el.nextSibling.style.display='block':el.nextSibling.style.display='none'
+
+			}
+			function openSibling(){
+				var t=this.parentNode.parentNode.cells[2].getElementsByTagName("DIV")[0];
+				if (t && t.onclick) t.onclick();
+			}
+			function expandAll(fl){ 
+				var elAr = document.getElementsByTagName("DIV");
+				for(var i=1;i<elAr.length;i++){
+					if(elAr[i].className=="div_drop"){
+					if(elAr[i].style.display!='block' || elAr[i].block_fl){
+						elAr[i].block_fl = true;
+						if(fl)
+							elAr[i].style.display = "block";
+						else
+							elAr[i].style.display = "none";
+					}
+					}
+				}
+			}
+		
+		--></script><style>
+			.{font-family:arial;}
+			h2 {cursor:pointer;font-size:16px;margin-left:10px;line-height:10px}
+			h3 {cursor:pointer;font-weight:normal;color:gray;text-decoration:underline;line-height:10px}
+			.theader{font: bold 14px/14px Tahoma, Arial, Helvetica, sans-serif;cursor:pointer;}
+			.tdh{
+				font: bold 11px/11px Tahoma, Arial, Helvetica, sans-serif;
+				color: #1da6d3;
+				padding-left: 10px;
+			}
+			div.block {margin-left:30px;}
+			.div_method_block{
+				margin:10px 0 10px 0;
+				padding-left: 10px;
+				ont-weight:bold;
+				cursor:pointer;
+			}
+			.pro{
+				font: bold 17px/17px;
+				color : #ff800f;
+			}
+		</style><link rel="STYLESHEET" type="text/css" href="common/styles.css" />
+		<table width="100%">
+			<tr>
+				<td colspan="3" class="theader">
+					Drag-and-Drop
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table>
+						<tr><td width="140" ><div class="tdh">Before</div></td><td width="140" class="tdh"><div>After</div></td><td class="tdh"><div>Description</div></td></tr>
+						
+						<tr><td><div class="div_method">onBeforeDrag</div>
+						</td><td>
+						</td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">Event called when user initiate drag start.</strong><br /><span /></div><div class="div_drop"><li type="circle">ID of draged row</li><br /><font class="exem">Returns:</font>true - confirm drag; false - deny drag; any other text value - value will be used as visual representation of dragged row<span /></div>
+						</td></tr>
+						<tr><td><div class="div_method">onDrag</div>
+						</td><td>
+						</td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">Event occured after item was dragged and droped on another item, but before item moving processed.</strong><br /><span /></div><div class="div_drop"><li type="circle">ID of source item</li><li type="circle">ID of target item</li><li type="circle">source grid object</li><li type="circle">target grid object</li><li type="circle">index of column from which drag started</li><li type="circle">index of column in which drop occurs</li><br /><font class="exem">Returns:</font>true - confirm drag-and-drop; false - deny drag-and-drop;<span /></div>
+						</td></tr>
+						<tr><td>
+						<div class="div_method" >onDragIn<span class="pro">*</span>
+						</div>
+						</td><td>
+						</td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">Event raised if drag moved over potencial landing</strong><br /><span /></div><div class="div_drop"><li type="circle">ID of source item</li><li type="circle">ID of target item</li><li type="circle">source grid object</li><li type="circle">target grid object</li><br /><font class="exem">Returns:</font>true - allow landing; false - deny landing;<span /></div>
+						</td></tr>
+<tr><td>
+						<div class="div_method" >onDragOut<span class="pro">*</span>
+						</div>
+						</td><td>
+						</td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">Event raised if drag moved out from potencial landing</strong><br /><span /></div><div class="div_drop"><li type="circle">ID of source item</li><li type="circle">ID of target item</li><li type="circle">source grid object</li><li type="circle">target grid object</li></div>
+						</td></tr>						
+						<tr><td></td><td>
+						<div class="div_method" >onDrop<span class="pro">*</span></div>
+						</td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">Event raised after drag-and-drop processed.</strong><br /><span /></div><div class="div_drop"><li type="circle">ID of source item</li><li type="circle">ID of target item</li><li type="circle">ID of droped item (has sense for mercy drag-n-drop)</li><li type="circle">source grid object</li><li type="circle">target grid object</li><li type="circle">index of column from which drag started</li><li type="circle">index of column in which drop occurs</li><span /></div>
+						</td></tr>
+					</table>
+				</td>
+			</tr>
+		
+			<tr>
+				<td colspan="3" class="theader">
+					Editing
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table>
+						<tr><td width="140" ><div class="tdh">Before</div></td><td width="140" class="tdh"><div>After</div></td><td class="tdh"><div>Description</div></td></tr>
+						<tr><td><div class="div_method" >onEditCell</div></td>
+						<td><div class="div_method" >onEditCell</div></td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">Event raises 1-3 times depending on cell editibality.</strong><br /><span /></div><div class="div_drop"><li type="circle">stage of editting (0-before start[can be canceled if returns false],1-editor opened,2-editor closed)</li><li type="circle">ID or row</li><li type="circle">index of cell</li><li type="circle">new value ( only for stage 2 )</li><li type="circle">old value ( only for stage 2 )</li><span /></div>
+						</td></tr>
+						<tr>
+						<td><div class="div_method" >onRowDblClicked
+						<span class="pro">*</span></div></td>
+						<td></td>
+						<td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">Event raised right after row was double clicked, before cell editor opened by dbl click. If retuns false, event canceled;</strong><br /><span /></div><div class="div_drop"><li type="circle">ID or row</li><li type="circle">index of column</li><span /></div>
+						</td></tr>
+						<tr><td></td>
+						<td><div class="div_method" >onCellChanged
+						<span class="pro">*</span></div>
+						</td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">event fired after value was changed</strong><br /><span /></div><div class="div_drop"><li type="circle">row ID</li><li type="circle">cell index</li><li type="circle">new value</li><span /></div>
+						</td></tr>
+						
+						<tr><td></td>
+						<td><div class="div_method" >onCheckbox </div>
+						</td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">Deprecated, use onCheck event instead.Event raises after state was changed.</strong><br /><span /></div><div class="div_drop"><li type="circle">ID or row</li><li type="circle">index of cell</li><li type="circle">state of checkbox/radiobutton</li><span /></div>
+						</td></tr>
+						
+						<tr><td></td>
+						<td><div class="div_method" >onCheck</div>
+						</td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">Event raises after checkbox state was changed.</strong><br /><span /></div><div class="div_drop"><li type="circle">ID or row</li><li type="circle">index of cell</li><li type="circle">state of checkbox/radiobutton</li><span /></div>
+						</td></tr>
+						
+						<tr><td></td>
+						<td><div class="div_method" >onRowPaste</div>
+						</td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">event called for each row, which pasted from clipboard ( block selection extension )</strong><br /><span /></div><div class="div_drop"><li type="circle">row id</li><span /></div>
+						</td></tr>
+						
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3" class="theader">
+					Grid reconstruction
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table>
+						<tr><td width="140" ><div class="tdh">Before</div></td><td width="140" class="tdh"><div>After</div></td><td class="tdh"><div>Description</div></td></tr>
+						<tr><td>
+						</td>
+						<td><div class="div_method" >onGridReconstructed</div></td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">Event raised immideatly after row added/deleted or grid reordered.</strong><br /><span /></div><div class="div_drop"><li type="circle">grid object</li><span /></div>
+						</td></tr>
+						<tr><td>
+						</td><td><div class="div_method" >onRowAdded</div></td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">Event raised right after row was added to grid</strong><br /><span /></div><div class="div_drop"><li type="circle">ID or row</li><span /></div>
+						</td></tr>
+						<tr><td></td>
+						<td><div class="div_method" >onRowCreated<span class="pro">*</span></div></td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">event fired after row created in grid, and filled with data</strong><br /><span /></div><div class="div_drop"><li type="circle">row id</li><li type="circle">row object</li><li type="circle">related xml ( if available )</li><span /></div>
+						</td></tr>
+						<tr>
+						<td><div class="div_method" >onBeforeRowDeleted</div>
+						</td><td>
+						</td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">Event raised right before row deleted (if returns false, deletion canceled)</strong><br /><span /></div><div class="div_drop"><li type="circle">ID or row</li><span /></div>
+						</td></tr>
+					</table>
+				</td>
+			</tr>
+			
+			<tr>
+				<td colspan="3" class="theader">
+					Loading 
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table>
+						<tr><td width="140" ><div class="tdh">Before</div></td><td width="140" class="tdh"><div>After</div></td><td class="tdh"><div>Description</div></td></tr>
+						<tr><td>
+						<div class="div_method" >onXLS<span class="pro">*</span></div>
+						</td><td>
+							
+						</td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">event fired before request for new XML sent to server</strong><br /><span /></div><div class="div_drop"><li type="circle">grid object</li><span /></div>
+						</td></tr>
+						<tr><td></td><td>
+						<div class="div_method" >onXLE<span class="pro">*</span></div>
+						</td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">event fired simultaneously with ending XML parsing, new items already available in grid</strong><br /><span /></div><div class="div_drop"><li type="circle">grid object</li><li type="circle">count of rows added</li><span /></div>
+						</td></tr>
+<tr><td>
+						<div class="div_method" >onSubGridCreated<span class="pro">*</span></div>
+						</td><td>
+							
+						</td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">event fired after sub grid creation was initiated</strong><br /><span /></div><div class="div_drop"><li type="circle">sub grid object</li><li type="circle">related row id</li><li type="circle">related row index</li><br /><font class="exem">Returns:</font>true - confirm data loading for sub grid; false - deny data loading for sub grid;<span /></div>
+						</td></tr>
+<tr><td>
+						</td><td>
+<div class="div_method" >onSubGridLoaded<span class="pro">*</span></div>							
+						</td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">event fired after data from subgrid loaded and parsed</strong><br /><span /></div><div class="div_drop"><li type="circle">sub grid object</li><li type="circle">related row id</li><li type="circle">related row index</li><span /></div>
+						</td></tr>												
+						
+					</table>
+				</td>
+			</tr>
+			
+			<tr>
+				<td colspan="3" class="theader">
+					Moving
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table>
+						<tr><td width="140" ><div class="tdh">Before</div></td><td width="140" class="tdh"><div>After</div></td><td class="tdh"><div>Description</div></td></tr>
+						<tr><td><div class="div_method" >onBeforeCMove
+						<span class="pro">*</span></div>
+						</td><td>
+						</td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">event called on start of column moving operation</strong><br /><span /></div><div class="div_drop"><li type="circle">index of moved column</li><li type="circle">index of new position</li><span /></div>
+						</td></tr>
+						<tr><td></td><td><div class="div_method" >onAfterCMove
+						<span class="pro">*</span></div>
+						</td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">event called after  column moved</strong><br /><span /></div><div class="div_drop"><li type="circle">index of moved column</li><li type="circle">index of new position</li><span /></div>
+						</td></tr>
+					</table>
+				</td>
+			</tr>
+			
+			<tr>
+				<td colspan="3" class="theader">
+					Opening 
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table>
+						<tr><td width="140" ><div class="tdh">Before</div></td><td width="140" class="tdh"><div>After</div></td><td class="tdh"><div>Description</div></td></tr>
+						<tr><td>
+							<div class="div_method" >onOpenStart<span class="pro">*</span></div>
+						</td><td>
+						</td><td>
+						<div class="div_method_block" onclick="openFull(this)"><strong class="div_strong_method">Event raised immideatly after item in tree got command to open/close , and before item was opened//closed. Event also raised for unclosable nodes and nodes without open/close functionality - in that case result of function will be ignored.</strong><br /><span /></div><div class="div_drop"><li type="circle">ID of node which will be opened/closed</li><li type="circle">Current open state of tree item. -1 - item closed, 1 - item opened.</li><br /><font class="exem">Returns:</font>true - confirm opening/closing; false - deny opening/closing;<span /></div>
+						</td></tr>
+						<tr><td></td><td>
+						<div class="div_method" >onOpenEnd<span class="pro">*</span></div>
+						</td><td>
+						<div class="div_method_block" onclick="openFull(this)"><strong class="div_strong_method">Event raised immideatly after item in tree got command to open/close , and before item was opened//closed. Event also raised for unclosable nodes and nodes without open/close functionality - in that case result of function will be ignored.</strong><br /><span /></div><div class="div_drop"><li type="circle">ID of node which will be opened/closed</li><li type="circle">Current open state of tree item. -1 - item closed, 1 - item opened.</li><span /></div>
+						</td></tr>
+					</table>
+				</td>
+			</tr>
+			
+			<tr>
+				<td colspan="3" class="theader">
+					Paging
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table>
+						<tr><td width="140" ><div class="tdh">Before</div></td><td width="140" class="tdh"><div>After</div></td><td class="tdh"><div>Description</div></td></tr>
+						<tr><td>
+							<div class="div_method" >onBeforePageChanged
+							<span class="pro">*</span></div>
+						</td><td>
+						</td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">called before changing active page in grid ( paging extension )</strong><br /><span /></div><div class="div_drop"><li type="circle">index of current page</li><li type="circle">count of pages</li><span /></div>
+						</td></tr>
+						<tr><td></td><td>
+						<div class="div_method" >onPageChanged
+						<span class="pro">*</span>
+						</td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">called after changing active page in grid ( paging extension )</strong><br /><span /></div><div class="div_drop"><li type="circle">index of current page</li><li type="circle">index of first row on page</li><li type="circle">index of last row on page</li><span /></div>
+						</td></tr>
+						<tr><td></td><td>
+						<div class="div_method" >onPaging
+						<span class="pro">*</span>
+						</td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">event called each time when paging settings changed ( paging extension )</strong><br /><span /></div><div class="div_drop"><li type="circle">count of pages</li><span /></div>
+						</td></tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3" class="theader">
+					Resizing
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table>
+						<tr><td width="140" ><div class="tdh">Before</div></td><td width="140" class="tdh"><div>After</div></td><td class="tdh"><div>Description</div></td></tr>
+						<tr><td></td>
+						<td><div class="div_method" >onResize</div>
+						</td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">event fired on each resize itteration</strong><br /><span /></div><div class="div_drop"><li type="circle">cell index</li><li type="circle">cell width</li><li type="circle">grid object</li><span /></div>
+						</td></tr>
+						<tr><td>
+						</td><td><div class="div_method" >onResizeEnd</div></td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">event fired after resizing of column finished</strong><br /><span /></div><div class="div_drop"><li type="circle">grid object</li><span /></div>
+						</td></tr>
+						<tr>
+					</table>
+				</td>
+			</tr>
+			
+			
+			<tr>
+				<td colspan="3" class="theader">
+					Selection 
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table>
+						<tr><td width="140" ><div class="tdh">Before</div></td><td width="140" class="tdh"><div>After</div></td><td class="tdh"><div>Description</div></td></tr>
+						<tr><td>
+						<div class="div_method" >onBeforeSelect<span class="pro">*</span></div>
+						</td><td>
+						</td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">event fired moment before row in grid get selection</strong><br /><span /></div><div class="div_drop"><li type="circle">new selected row</li><li type="circle">old selected row</li><span /></div>
+						</td></tr>
+						<tr><td>							
+						</td><td>
+						<div class="div_method" >onRowSelect</div>
+						</td><td>
+						<div class="div_method_block" onclick="openFull(this)"><strong class="div_strong_method">Event raised immideatly after row was clicked.</strong><br /><span /></div><div class="div_drop"><li type="circle">ID of clicked row</li><li type="circle">index of clicked cell</li><span /></div>
+						</td></tr>
+						<tr><td></td>
+						</td><td>
+						<div class="div_method" >onSelectStateChanged</div>
+						</td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">Event raised immideatly after selection state was changed</strong><br /><span /></div><div class="div_drop"><li type="circle">ID or list of IDs of selected row(s)</li><span /></div>
+						</td></tr>
+						<tr><td></td>
+						</td><td>
+						<div class="div_method" >onBlockSeleted<span class="pro">*</span></div>
+						</td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">event called when area selected in grid ( block selection extension )</strong><br /><span /></div><div class="div_drop"><span /></div>
+						</td></tr>					
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3" class="theader">
+					Sotring
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table>
+						<tr><td width="140" ><div class="tdh">Before</div></td><td width="140" class="tdh"><div>After</div></td><td class="tdh"><div>Description</div></td></tr>
+						<tr>
+						<td><div class="div_method" >onBeforeSorting<span class="pro">*</span></div>
+						</td><td>
+						</td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">event called before sorting of data started</strong><br /><span /></div><div class="div_drop"><li type="circle">index of sorted column</li><li type="circle">grid object</li><li type="circle">direction of sorting asc/desc</li><span /></div>
+						</td></tr>
+						<tr><td>
+						</td><td><div class="div_method" >onAfterSorting</div></td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">event called after sorting occurs in grid</strong><br /><span /></div><div class="div_drop"><span /></div>
+						</td></tr>
+						<tr>
+					</table>
+				</td>
+			</tr>
+			
+			<tr>
+				<td colspan="3" class="theader">
+					Context menu
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table>
+						<tr><td width="140" ><div class="tdh">Before</div></td><td width="140" class="tdh"><div>After</div></td><td class="tdh"><div>Description</div></td></tr>
+						<tr>
+						<td><div class="div_method" >onBeforeContextMenu<span class="pro">*</span></div>
+						</td><td>
+						</td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">Event raised immideatly before showing context menu</strong><br /><span /></div><div class="div_drop"><li type="circle">ID of clicked row</li><li type="circle">index of cell column</li><li type="circle">grid object</li><span /></div>
+						</td></tr>
+						<tr><td>
+						</td><td><div class="div_method">onRightClick</div></td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">Event raised immideatly after right mouse button clicked on grid row</strong><br /><span /></div><div class="div_drop"><li type="circle">ID of clicked row</li><li type="circle">index of cell column</li><li type="circle">event object</li><span /></div>
+						</td></tr>
+						<tr>
+					</table>
+				</td>
+			</tr>
+			
+			<tr>
+				<td colspan="3" class="theader">
+					Other
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table>
+						<tr><td width="140" ><div class="tdh">Before</div></td><td width="140" class="tdh"><div>After</div></td><td class="tdh"><div>Description</div></td></tr>
+						<tr><td>
+						</td><td><div class="div_method" >onClearAll</div>
+						</td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">event called when grid cleared ( reloaded )</strong><br /><span /></div><div class="div_drop"><span /></div>
+						</td></tr>
+						<tr><td>
+						</td><td><div class="div_method" >onEnter</div>
+						</td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">Event raised immideatly after Enter pressed.</strong><br /><span /></div><div class="div_drop"><li type="circle">ID or row</li><li type="circle">index of cell</li><span /></div>
+						</td></tr>
+						<tr><td><div class="div_method">onFilterStart</div>
+						</td><td></td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">called when filtering activated but before real filtering started</strong><br /><span /></div><div class="div_drop"><span /></div>
+						</td></tr>
+<tr><td>
+						</td><td><div class="div_method">onFilterEnd</div></td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">called after filtering complit ( filtering extension )</strong><br /><span /></div><div class="div_drop"><span /></div>
+						</td></tr>						
+						<tr><td>
+						</td><td><div class="div_method">onStatReady</div></td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">called after stat values calculated</strong><br /><span /></div><div class="div_drop"><span /></div>
+						</td></tr>						
+						<tr><td>							
+						</td><td><div class="div_method">onHeaderClick<span class="pro">*</span></div></td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">Event raised right after header was clicked, before sorting or any other actions;</strong><br /><span /></div><div class="div_drop"><li type="circle">index of column</li><li type="circle">related javascript event object</li><span /></div>
+						</td></tr>
+						<tr><td>
+						</td><td><div class="div_method">onKeyPress<span class="pro">*</span></div></td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">event fired after key pressed but before default key processing started</strong><br /><span /></div><div class="div_drop"><li type="circle">key code</li><li type="circle">control key flag</li><li type="circle">shift key flag</li><span /></div>
+						</td></tr>
+						<tr><td>
+						</td><td><div class="div_method">onMouseOver</div></td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">event called when mouse moved over cell</strong><br /><span /></div><div class="div_drop"><li type="circle">row id</li><li type="circle">cell index</li><span /></div>
+						</td></tr>
+						<tr><td>
+						</td><td><div class="div_method">onScroll</div></td><td>
+						<div class="div_method" onclick="openFull(this)"><strong class="div_strong_method">Event raised immideatly after scrolling occured</strong><br /><span /></div><div class="div_drop"><li type="circle">scroll left</li><li type="circle">scroll top</li><span /></div>
+						</td></tr>
+					</table>
+				</td>
+			</tr>
+<tr>
+	<td colspan="3">
+		<span class="pro">*</span> - available only in professional version  
+	</td>
+</tr>
+</table>
+<script>
+//fix event names
+var divs=document.body.getElementsByTagName("DIV");
+for (var i=0; i < divs.length; i++) {
+	if (divs[i].className=="div_method" && !divs[i].onclick)
+		divs[i].onclick=openSibling;
+};
+</script>			
+				
+				
+				
+				

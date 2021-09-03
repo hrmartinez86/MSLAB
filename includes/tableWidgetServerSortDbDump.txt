@@ -1,0 +1,22 @@
+DROP TABLE IF EXISTS `dhtmlsuite_tableWidgetData`;
+CREATE TABLE `dhtmlsuite_tableWidgetData` (
+  `ID` int(11) NOT NULL auto_increment,
+  `firstname` varchar(128) default NULL,
+  `lastname` varchar(128) default NULL,
+  `address` text,
+  `zipCode` varchar(10) default NULL,
+  `city` varchar(128) default NULL,
+  `income` varchar(25) default NULL,
+  `position` varchar(255) default NULL,
+  `hired` varchar(32) default NULL,
+  PRIMARY KEY  (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
+
+LOCK TABLES `dhtmlsuite_tableWidgetData` WRITE;
+/*!40000 ALTER TABLE `dhtmlsuite_tableWidgetData` DISABLE KEYS */;
+INSERT INTO `dhtmlsuite_tableWidgetData` VALUES (1,'John','Howard','','4000','Stavanger','65000','Team leader','1999'),(2,'Sarah','Johnson','','4002','Stavanger','72000','Account manager','1997'),(3,'Eva','Hansson','','4003','Stavanger','55000','Graphic artist','2002'),(4,'Peter','Doe','','4300','Sandnes','55000','Graphic artist','2003'),(5,'Anna','Gustafson','','4300','Sandnes','53000','Graphic artist','2005'),(6,'Michael','Benes','','4300','Sandnes','72500','Project leader','2001'),(7,'Julia','Olsen','','4000','Stavanger','73500','Project leader','1997'),(8,'Karen','Smith','','4000','Stavanger','70000','Project leader','1999'),(9,'John','Walsch','','4070','Randaberg','49000','Designer','2004'),(10,'Ally','Walsch','','4070','Randaberg','49500','Designer','2004'),(11,'Santino','Richardsson','','4000','Stavanger','51500','Designer','2000'),(12,'David','Johnnson','','4000','Stavanger','53000','Designer','2000'),(13,'Elaine','Peterman','','4000','Stavanger','71000','Team leder - Designers','2000'),(14,'Cornelia','Smith','','4000','Stavanger','54000','Web designer','2000'),(15,'Adam','Smith','','4000','Stavanger','59000','Web developer','2000'),(16,'Mona','Petersson','','5500','Haugesund','63000','Consultant','2006'),(17,'John','Amundssen','','4300','Sandnes','63500','Consultant','2005'),(18,'Tara','McBeal','','5000','Bergen','70000','Senior Consultant','2002'),(19,'Oscar','Peterman','','4033','Stavanger','95000','CEO','1995'),(20,'Howard','Jenssen','','0234','Oslo','65000','Assistant to the General Manager','2005'),(21,'Lisa','Doe','','7000','Trondheim','63000','Freelancer','2004'),(22,'Arnold','Stallone','','5000','Bergen','62000','Freelancer','2004'),(23,'Mickey','Amundsen','','5002','Bergen','61000','Freelancer','2005'),(24,'Peter','Johnson','','4001','Stavanger','65000','Freelancer','2003'),(25,'Anjelica','Rossi','','0432','Oslo','75000','Senior web developer','2001'),(26,'Karen','Jensen','','0432','Oslo','74000','Senior web developer','2001'),(27,'Amanda','Houston','','4300','Sandndes','65400','System administrator','1999'),(28,'Karl','Cruz','','4003','Stavanger','63000','System administrator','2005'),(29,'Eva','Olson','','4005','Stavanger','61000','System administrator','2006');
+/*!40000 ALTER TABLE `dhtmlsuite_tableWidgetData` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+

@@ -1,0 +1,83 @@
+<!--conf
+<sample in_favorites="true">
+	<product version="1.0" edition="std"/>
+	<modifications>
+		<modified date="080310"/>
+	</modifications>
+</sample>
+ --> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+   <title>Initialization with attachment to input</title>
+</head>
+   <link rel="STYLESHEET" type="text/css" href="../../codebase/dhtmlxcolorpicker.css">
+   <script  src="../../codebase/dhtmlxcolorpicker.js"></script>
+   <script>
+      function initColorPicker(){
+	  	var myCP1 = dhtmlXColorPickerInput('dhtmlxColorPicker1');
+			myCP1.setImagePath("../../codebase/imgs/");
+			myCP1.init();
+		var myCP2 = dhtmlXColorPickerInput('dhtmlxColorPicker2');
+			myCP2.setImagePath("../../codebase/imgs/");
+			myCP2.init();
+		var myCP3 = dhtmlXColorPickerInput('dhtmlxColorPicker3');
+			myCP3.setImagePath("../../codebase/imgs/");
+			myCP3.init();
+	  }
+	  
+   </script>
+<body onload="initColorPicker()">
+<link rel='STYLESHEET' type='text/css' href='../common/style.css'>
+<table cellspacing="0" cellpadding="0" class="sample_header" border="0">
+	<tr valign="middle">
+		<!-- COMPONENT ICON -->
+		<td width="40" align="center"><img src="../common/dhtmlxcolorpicker_icon.gif" border="0"></td>
+		<!-- COMPONENT NAME -->
+		<td width="120" align="left">Sample: dhtmlxColorPicker</td>
+		<!-- SAMPLE TITLE -->
+		<td width="0" align="left"><b>Initialization with attachment to input</b></td>
+		<!-- LINK TO COMPONENT PAGE -->
+		<td width="0" align="right"><a href="http://www.dhtmlx.com/docs/products/dhtmlxColorPicker/index.shtml">dhtmlxColorPicker main page</a></td>
+		<!-- CLOSE BUTTON -->
+		<td width="50"><div class="sample_close"><a href="javascript:void(0);" onclick="self.close();"><img src="../common/sample_close.gif" width="14" height="14" border="0" alt="X"></a></div></td>
+	</tr>
+</table>
+    <p>You can define colorPicker properties right through INPUT element attributes in HTML:
+		<li>colorbox - adds color box before input</li>
+		<li>customcolors - activate Cutom Culors block inside ColorPicker</li>
+		<li>selectonclick - make color selection by clicking in palette, but not while moving over (beter for using on very old computers)</li>
+	</p>
+
+
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">input</span><span class="hl-code"> </span><span class="hl-var">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">text</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">imagepath</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../codebase/imgs/</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">dhtmlxColorPicker1</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code"><div class="hl-main"><pre><span class="hl-code"> 
+        </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">myCP1</span><span class="hl-code"> = </span><span class="hl-identifier">dhtmlXColorPickerInput</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">dhtmlxColorPicker1</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">;
+            </span><span class="hl-identifier">myCP1</span><span class="hl-code">.</span><span class="hl-identifier">setImagePath</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../codebase/imgs/</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+            </span><span class="hl-identifier">myCP1</span><span class="hl-code">.</span><span class="hl-identifier">init</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;</span></pre></div></span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span></pre></div></div>
+<div><input type="text" imagepath="../../codebase/imgs/" id="dhtmlxColorPicker1"></div><br>
+
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">input</span><span class="hl-code"> </span><span class="hl-var">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">text</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">imagepath</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../codebase/imgs/</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">colorbox</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">true</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">dhtmlxColorPicker2</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code"><div class="hl-main"><pre><span class="hl-code"> 
+        </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">myCP2</span><span class="hl-code"> = </span><span class="hl-identifier">dhtmlXColorPickerInput</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">dhtmlxColorPicker2</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">;
+            </span><span class="hl-identifier">myCP2</span><span class="hl-code">.</span><span class="hl-identifier">setImagePath</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../codebase/imgs/</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+            </span><span class="hl-identifier">myCP2</span><span class="hl-code">.</span><span class="hl-identifier">init</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;</span></pre></div></span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span></pre></div></div>
+<div><input type="text"  imagepath="../../codebase/imgs/" colorbox="true" id="dhtmlxColorPicker2"></div><br>
+
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">input</span><span class="hl-code"> </span><span class="hl-var">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">text</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">imagepath</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../codebase/imgs/</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">customcolors</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">true</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">selectonclick</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">true</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">dhtmlxColorPicker3</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code"><div class="hl-main"><pre><span class="hl-code"> 
+        </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">myCP3</span><span class="hl-code"> = </span><span class="hl-identifier">dhtmlXColorPickerInput</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">dhtmlxColorPicker3</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">;
+            </span><span class="hl-identifier">myCP3</span><span class="hl-code">.</span><span class="hl-identifier">setImagePath</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../codebase/imgs/</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+            </span><span class="hl-identifier">myCP3</span><span class="hl-code">.</span><span class="hl-identifier">init</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;</span></pre></div></span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span></pre></div></div>
+<div><input type="text"  imagepath="../../codebase/imgs/" customcolors="true" selectonclick="true" id="dhtmlxColorPicker3"></div>
+
+<!-- FOOTER -->
+<table callspacing="0" cellpadding="0" border="0" class="sample_footer"><tr><td style="padding-left: 8px;">&copy; <a href="http://www.dhtmlx.com">DHTMLX LTD</a>. All rights reserved</td></tr></table>
+<!-- FOOTER -->
+
+</body>
+</html>

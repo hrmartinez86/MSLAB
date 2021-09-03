@@ -1,0 +1,107 @@
+<!--conf
+<sample>
+              <product version="1.0" edition="std"/>
+                     <modifications>
+                            <modified date="070101"/>
+                     </modifications>
+               </sample>
+ --> 
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<title>Easy skinable</title>
+	<link rel="STYLESHEET" type="text/css" href="../../codebase/dhtmlxtoolbar.css">
+	
+	<script language="JavaScript" src="../../codebase/dhtmlxprotobar.js"></script>
+	<script language="JavaScript" src="../../codebase/dhtmlxtoolbar.js"></script>
+	<script language="JavaScript" src="../../codebase/dhtmlxcommon.js"></script>	
+	<style>
+		.toolbar3{ background-image:url(../../codebase/imgs/gradient_bg.gif); table-layout : fixed;}
+		.toolbarText3{ color:white; font-weight:bold; }
+		.defaultButtonText3{ color:white; font-weight:bold; }
+		.defaultButton3 {border:solid 1px #306936; background-image:url(../../codebase/imgs/gradient_bg.gif); }
+		.defaultButton3Over {background-image:url(../../codebase/imgs/gradient_bg.gif);border-right:solid 1px #808080;border-bottom:solid 1px #808080;border-left:solid 1px #FFFFFF;border-top:solid 1px #FFFFFF;cursor:hand;}
+		.defaultButton3Down {background-image:url(../../codebase/imgs/gradient_bg.gif);border-right:solid 1px #FFFFFF;border-bottom:solid 1px #FFFFFF;border-left:solid 1px #808080;border-top:solid 1px #808080;cursor:hand;}
+	</style>
+</head>
+
+<body>
+<link rel='STYLESHEET' type='text/css' href='../common/style.css'>
+<table cellspacing="0" cellpadding="0" class="sample_header" border="0">
+	<tr valign="middle">
+		<!-- COMPONENT ICON -->
+		<td width="40" align="center"><img src="../common/dhtmlxtoolbar_icon.gif" border="0"></td>
+		<!-- COMPONENT NAME -->
+		<td width="120" align="left">Sample: dhtmlxToolbar</td>
+		<!-- SAMPLE TITLE -->
+		<td width="0" align="left"><b>Easy skinable</b></td>
+		<!-- LINK TO COMPONENT PAGE -->
+		<td width="0" align="right"><a href="http://www.dhtmlx.com/docs/products/dhtmlxToolbar/index.shtml">dhtmlxToolbar main page</a></td>
+		<!-- CLOSE BUTTON -->
+		<td width="50"><div class="sample_close"><a href="javascript:void(0);" onclick="self.close();"><img src="../common/sample_close.gif" width="14" height="14" border="0" alt="X"></a></div></td>
+	</tr>
+</table>
+	
+	<p>You can set new skin using setToolbarCSS method</p>
+	<table>
+		<tr>
+			<td>
+				<div id="toolbar_zone" style="width:600;border :1px solid Silver;"/>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div id="toolbar_zone1" style="width:600;border :1px solid Silver;"/>
+			</td>
+		</tr>
+	</table>
+<br>
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">style</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    </span><span class="hl-comment">&lt;!--</span><span class="hl-comment"> css class for toolbar container </span><span class="hl-comment">--&gt;</span><span class="hl-code">
+        .toolbar1{ ...}
+    
+    </span><span class="hl-comment">&lt;!--</span><span class="hl-comment"> css class for toolbar title </span><span class="hl-comment">--&gt;</span><span class="hl-code">
+        .toolbarText1{ ...}
+</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">style</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+ 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code"><div class="hl-main"><pre><span class="hl-code"> 
+    </span><span class="hl-identifier">aToolBar1</span><span class="hl-code">=</span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlXToolbarObject</span><span class="hl-brackets">(</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">toolbar_zone1</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">,</span><span class="hl-quotes">'</span><span class="hl-string">100%</span><span class="hl-quotes">'</span><span class="hl-code">,</span><span class="hl-number">16</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">Demo toolbar</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">aToolBar1</span><span class="hl-code">.</span><span class="hl-identifier">setOnClickHandler</span><span class="hl-brackets">(</span><span class="hl-identifier">onButtonClick</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">aToolBar1</span><span class="hl-code">.</span><span class="hl-identifier">loadXML</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">_toolbar1.xml</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">
+    </span><span class="hl-identifier">aToolBar1</span><span class="hl-code">.</span><span class="hl-identifier">setToolbarCSS</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">toolbar1</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">toolbarText1</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">aToolBar1</span><span class="hl-code">.</span><span class="hl-identifier">showBar</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;</span></pre></div></span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span></pre></div></div>
+
+		
+	<script>
+	
+		function onButtonClick(itemId,itemValue)
+		{
+			alert("Button "+itemId+" was pressed"+(itemValue?("\n select value : "+itemValue):""));
+		};
+		
+		
+		aToolBar=new dhtmlXToolbarObject(document.getElementById('toolbar_zone'),'100%',16,"Demo toolbar");
+		aToolBar.setOnClickHandler(onButtonClick);
+		aToolBar.loadXML("_toolbar.xml")
+		aToolBar.showBar();
+		
+		
+		
+		aToolBar1=new dhtmlXToolbarObject(document.getElementById('toolbar_zone1'),'100%',16,"Demo toolbar");
+		aToolBar1.setOnClickHandler(onButtonClick);
+		aToolBar1.loadXML("_toolbar3.xml")
+		aToolBar1.setToolbarCSS("toolbar3","toolbarText3");
+		aToolBar1.showBar();
+			
+	</script>
+
+
+<!-- FOOTER -->
+<table callspacing="0" cellpadding="0" border="0" class="sample_footer"><tr><td style="padding-left: 8px;">&copy; <a href="http://www.dhtmlx.com">DHTMLX LTD</a>. All rights reserved</td></tr></table>
+<!-- FOOTER -->
+
+</body>
+</html>

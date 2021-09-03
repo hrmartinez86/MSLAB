@@ -1,0 +1,86 @@
+<!--#exclude
+<sample in_favorites="false">
+              <product version="1.0" edition="std"/>
+                     <modifications>
+                            <modified date="071221"/>
+                     </modifications>
+               </sample>
+ --> 
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<title>Draging capabilities in Calendar</title>
+	<link rel="STYLESHEET" type="text/css" href="../../codebase/dhtmlxcalendar.css">
+<script>
+      window.dhx_globalImgPath="../../codebase/imgs/";
+</script>
+<script  src="../../codebase/dhtmlxcommon.js"></script>
+<script  src="../../codebase/dhtmlxcalendar.js"></script>
+	<script>
+	var mCal1, mCal2;
+
+
+
+	window.onload = function () {
+		mCal1 = new dhtmlxCalendarObject(document.getElementById('dhtmlxCalendar1'), false, {isYearEditable: true});
+		mCal1.setYearsRange(2000, 2500);
+		mCal1.setHeader(true, false );
+		mCal1.draw();
+
+		mCal2 = new dhtmlxCalendarObject(document.getElementById('dhtmlxCalendar2'), false, {isMonthEditable: true, isYearEditable: true});
+		mCal2.setYearsRange(1950, 2006)
+		mCal2.setHeader(true, true);
+		mCal2.draw();
+	}
+	
+
+
+	</script>
+
+<body>
+<link rel='STYLESHEET' type='text/css' href='../common/style.css'>
+<table cellspacing="0" cellpadding="0" class="sample_header" border="0">
+	<tr valign="middle">
+		<!-- COMPONENT ICON -->
+		<td width="40" align="center"><img src="../common/dhtmlxcalendar_icon.gif" border="0"></td>
+		<!-- COMPONENT NAME -->
+		<td width="120" align="left">Sample: dhtmlxCalendar</td>
+		<!-- SAMPLE TITLE -->
+		<td width="0" align="left"><b>Draging capabilities in Calendar</b></td>
+		<!-- LINK TO COMPONENT PAGE -->
+		<td width="0" align="right"><a href="http://www.dhtmlx.com/docs/products/dhtmlxCalendar/index.shtml">dhtmlxCalendar main page</a></td>
+		<!-- CLOSE BUTTON -->
+		<td width="50"><div class="sample_close"><a href="javascript:void(0);" onclick="self.close();"><img src="../common/sample_close.gif" width="14" height="14" border="0" alt="X"></a></div></td>
+	</tr>
+</table>
+	
+	<p> This sample illustrates that the calendar can be dragged.</p>
+
+<table >
+ 
+  <tr >
+  	<td align="center">Dragging is disable</td>
+	<td align="center">Dragging is enable</td>
+  </tr> 
+  <tr >
+    <td ><div id="dhtmlxCalendar1"></div></td>
+    
+    <td ><div id="dhtmlxCalendar2"></div></td>
+	
+  </tr>
+</table>
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code"><div class="hl-main"><pre><span class="hl-code"> 
+...
+</span><span class="hl-identifier">mCal1</span><span class="hl-code">.</span><span class="hl-identifier">setHeader</span><span class="hl-brackets">(</span><span class="hl-reserved">true</span><span class="hl-code">, </span><span class="hl-reserved">false</span><span class="hl-brackets">)</span><span class="hl-code">; </span><span class="hl-comment">//</span><span class="hl-comment">header is visible, dragging is disable</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-identifier">mCal2</span><span class="hl-code">.</span><span class="hl-identifier">setHeader</span><span class="hl-brackets">(</span><span class="hl-reserved">true</span><span class="hl-code">, </span><span class="hl-reserved">true</span><span class="hl-brackets">)</span><span class="hl-code">;  </span><span class="hl-comment">//</span><span class="hl-comment">header is visible, dragging is enabled</span><span class="hl-comment"></span><span class="hl-code">
+...</span></pre></div></span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span></pre></div></div>
+<!-- FOOTER -->
+<table callspacing="0" cellpadding="0" border="0" class="sample_footer"><tr><td style="padding-left: 8px;">&copy; <a href="http://www.dhtmlx.com">DHTMLX LTD</a>. All rights reserved</td></tr></table>
+<!-- FOOTER -->
+
+</body>
+</html>
+

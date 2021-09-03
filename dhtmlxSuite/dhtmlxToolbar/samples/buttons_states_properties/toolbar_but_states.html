@@ -1,0 +1,109 @@
+<!--conf
+<sample in_favorites="true">
+              <product version="1.0" edition="std"/>
+                     <modifications>
+                            <modified date="070101"/>
+                     </modifications>
+               </sample>
+ --> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<title>Two state buttons</title>
+	<link rel="STYLESHEET" type="text/css" href="../../codebase/dhtmlxtoolbar.css">
+	
+	<script language="JavaScript" src="../../codebase/dhtmlxprotobar.js"></script>
+	<script language="JavaScript" src="../../codebase/dhtmlxtoolbar.js"></script>
+	<script language="JavaScript" src="../../codebase/dhtmlxcommon.js"></script>	
+</head>
+
+<body>
+<link rel='STYLESHEET' type='text/css' href='../common/style.css'>
+<table cellspacing="0" cellpadding="0" class="sample_header" border="0">
+	<tr valign="middle">
+		<!-- COMPONENT ICON -->
+		<td width="40" align="center"><img src="../common/dhtmlxtoolbar_icon.gif" border="0"></td>
+		<!-- COMPONENT NAME -->
+		<td width="120" align="left">Sample: dhtmlxToolbar</td>
+		<!-- SAMPLE TITLE -->
+		<td width="0" align="left"><b>Two state buttons</b></td>
+		<!-- LINK TO COMPONENT PAGE -->
+		<td width="0" align="right"><a href="http://www.dhtmlx.com/docs/products/dhtmlxToolbar/index.shtml">dhtmlxToolbar main page</a></td>
+		<!-- CLOSE BUTTON -->
+		<td width="50"><div class="sample_close"><a href="javascript:void(0);" onclick="self.close();"><img src="../common/sample_close.gif" width="14" height="14" border="0" alt="X"></a></div></td>
+	</tr>
+</table>
+	
+	<table>
+		<tr>
+			<td>
+				<div id="toolbar_zone" style="width:600;border :1px solid Silver;"/>
+			</td>
+		</tr>
+		<tr>
+		<td>
+			<table>
+				<tr>
+				<td valign="top" width="15%">
+					&nbsp;
+				</td>
+				<td>
+			<select id="button_id" style="width:100">
+				<option value="0_ts">First
+				<option value="1_ts">Second
+				<option value="2_ts">Fird
+				<option value="3_ts">4th
+				<option value="4_ts">5th
+				<option value="5_ts">6th
+			</select><br>
+			<a href="javascript:alert('current state: '+aToolBar.getItem(document.getElementById('button_id').value).getState());">Get button state</a><br>
+			<a href="javascript:aToolBar.getItem(document.getElementById('button_id').value).setState(document.getElementById('zone_1').value);">Set button state</a><select id="zone_1"><option value="0">normal<option value="1">pressed</select><br>
+
+				</td>
+				</tr>
+			</table>
+			
+		</td>
+		</tr>
+	</table>
+<br>
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+ 
+    </span><span class="hl-identifier">state</span><span class="hl-code"> = </span><span class="hl-identifier">aToolBar</span><span class="hl-code">.</span><span class="hl-identifier">getItem</span><span class="hl-brackets">(</span><span class="hl-identifier">button_id</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">getState</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+    
+    </span><span class="hl-identifier">aToolBar</span><span class="hl-code">.</span><span class="hl-identifier">getItem</span><span class="hl-brackets">(</span><span class="hl-identifier">button_id</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">value</span><span class="hl-code">).</span><span class="hl-identifier">setState</span><span class="hl-brackets">(</span><span class="hl-identifier">new_state</span><span class="hl-brackets">)</span><span class="hl-code">;</span></pre></div></div>
+<br>
+	<script>
+	
+		function onButtonClick(itemId,itemValue)
+		{
+			var f=document.getElementById('button_id');
+			for (var i=0; i<f.options.length; i++)
+				if (f.options[i].value==itemId) f.options[i].selected=true;
+			alert("Button - "+itemId+", state: "+itemValue);
+		};
+		
+		function setNewText(newText){
+			var z=aToolBar.getItem(document.getElementById('button_id').value);
+			if (z.setText) 
+				z.setText(newText); 
+			else alert("Selected button doesn't support such action"); 
+		}
+		
+		aToolBar=new dhtmlXToolbarObject(document.getElementById('toolbar_zone'),'100%',16,"Demo toolbar");
+		aToolBar.setOnClickHandler(onButtonClick);
+		aToolBar.loadXML("_toolbar2S.xml")
+		aToolBar.showBar();
+		
+		
+		
+	</script>
+<br><br>
+
+<!-- FOOTER -->
+<table callspacing="0" cellpadding="0" border="0" class="sample_footer"><tr><td style="padding-left: 8px;">&copy; <a href="http://www.dhtmlx.com">DHTMLX LTD</a>. All rights reserved</td></tr></table>
+<!-- FOOTER -->
+
+</body>
+</html>

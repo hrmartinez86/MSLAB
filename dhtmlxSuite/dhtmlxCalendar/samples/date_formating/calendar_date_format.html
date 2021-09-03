@@ -1,0 +1,111 @@
+<!--conf
+<sample in_favorites="true">
+              <product version="1.0" edition="std"/>
+                     <modifications>
+                            <modified date="071221"/>
+                     </modifications>
+               <sampledescription><![CDATA[With dhtmlxCalendar it is simple to define input/output date format. Try it live.]]></sampledescription></sample>
+ --> 
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<title>Date Formating</title>
+	<link rel="STYLESHEET" type="text/css" href="../../codebase/dhtmlxcalendar.css">
+<script>
+      window.dhx_globalImgPath="../../codebase/imgs/";
+</script>
+<script  src="../../codebase/dhtmlxcommon.js"></script>
+<script  src="../../codebase/dhtmlxcalendar.js"></script>
+	<script>
+	var mCal;
+	window.onload = function () {
+		mCal = new dhtmlxCalendarObject('dhtmlxCalendar', false, {isYearEditable: true});
+		mCal.setYearsRange(2000, 2500);
+		mCal.setOnClickHandler(mSelectDate);
+		mCal.draw();
+
+		
+	}
+	
+	function mSelectDate(date) {
+		var dateformat = document.getElementById('dateformat').value;
+		document.getElementById('mCalInput').innerHTML = mCal.getFormatedDate(dateformat, date);
+		return true;
+	}
+
+	function setNewDate() {
+		mCal.setDateFormat(document.getElementById('dateformat').value)
+		var newdateVal = document.getElementById('newdate').value;
+		mCal.setDate(newdateVal);
+		
+	}
+	
+
+	</script>
+
+<body>
+<link rel='STYLESHEET' type='text/css' href='../common/style.css'>
+<table cellspacing="0" cellpadding="0" class="sample_header" border="0">
+	<tr valign="middle">
+		<!-- COMPONENT ICON -->
+		<td width="40" align="center"><img src="../common/dhtmlxcalendar_icon.gif" border="0"></td>
+		<!-- COMPONENT NAME -->
+		<td width="120" align="left">Sample: dhtmlxCalendar</td>
+		<!-- SAMPLE TITLE -->
+		<td width="0" align="left"><b>Date Formating</b></td>
+		<!-- LINK TO COMPONENT PAGE -->
+		<td width="0" align="right"><a href="http://www.dhtmlx.com/docs/products/dhtmlxCalendar/index.shtml">dhtmlxCalendar main page</a></td>
+		<!-- CLOSE BUTTON -->
+		<td width="50"><div class="sample_close"><a href="javascript:void(0);" onclick="self.close();"><img src="../common/sample_close.gif" width="14" height="14" border="0" alt="X"></a></div></td>
+	</tr>
+</table>
+<p> This sample illustrates that the calendar has flexible date format. You can set date format yourselves</p>
+<form action="">
+<table border="0" cellpadding="5" cellspacing="0">
+  <tr>
+    <td valign="top"><div id="dhtmlxCalendar"></div></td>
+    <td valign="top">
+		
+		<strong>Date Format:</strong><br>
+			<input type="text" id="dateformat" style="width: 200px; font-size:14px" value="%d.%m.%Y" />
+			<input type="button" value="set" onClick="mSelectDate(mCal.selDate)" /><br>
+		<strong>Date from String (use format set above)</strong><br>
+			<input type="text" id="newdate" style="width: 200px; font-size:14px" value="24.12.2010" />
+			<input type="button" value="set" onClick="setNewDate()" /><br><br>
+		<span>Result:</span>
+		<div id="mCalInput" style="color: navy; font-size:18px; font-family: Verdana; text-align:center; border: 1px solid navy">&nbsp;</div>
+		</td>
+  </tr>
+  <tr>
+    <td colspan="2">
+<xmp style="color:#999999; font-size: 12px">Date Format Info:
+%e [g-] Day of the month without leading zeros (01..31)
+%d [gs] Day of the month, 2 digits with leading zeros (01..31)
+%j [g-] Day of the year, 3 digits with leading zeros (001..366)
+%a [g-] A textual representation of a day, three letters
+%W [g-] A full textual representation of the day of the week
+%c [g-] Numeric representation of a month, without leading zeros (1..12)
+%m [gs] Numeric representation of a month, with leading zeros (01..12)
+%b [gs] A short textual representation of a month, three letters (Jan..Dec)
+%M [gs] A full textual representation of a month, such as January or March (January..December)
+%y [g-] A two digit representation of a year (93..03)
+%Y [gs] A full numeric representation of a year, 4 digits (1993..2003)
+%% [gs] Char "%"</xmp>
+	</td>
+  </tr>
+ 
+</table>
+
+</form>
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+</span><span class="hl-identifier">mCal</span><span class="hl-code">.</span><span class="hl-identifier">setDateFormat</span><span class="hl-brackets">(</span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">dateformat</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">value</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">newdateVal</span><span class="hl-code"> = </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">newdate</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">value</span><span class="hl-code">;
+</span><span class="hl-identifier">mCal</span><span class="hl-code">.</span><span class="hl-identifier">setDate</span><span class="hl-brackets">(</span><span class="hl-identifier">newdateVal</span><span class="hl-brackets">)</span><span class="hl-code">;</span></pre></div></div>
+<!-- FOOTER -->
+<table callspacing="0" cellpadding="0" border="0" class="sample_footer"><tr><td style="padding-left: 8px;">&copy; <a href="http://www.dhtmlx.com">DHTMLX LTD</a>. All rights reserved</td></tr></table>
+<!-- FOOTER -->
+
+</body>
+</html>
+

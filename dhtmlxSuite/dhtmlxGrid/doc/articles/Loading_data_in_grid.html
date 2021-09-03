@@ -1,0 +1,214 @@
+<html>
+
+<head>
+
+
+<link rel="STYLESHEET" type="text/css" href="../common/styles.css">
+</head>
+<body>
+	<table border="0" cellpadding="0" cellspacing="0" class="sample_header" zid="71">
+		<tbody zid="3">
+			<tr valign="center" zid="4">
+				<td align="center" width="10" zid="5">&nbsp;</td>
+				<td align="left" zid="6">
+					<p zid="224">
+						<a href="http://www.dhtmlx.com/" zid="7">DHTMLX</a> Documentation
+					</p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<!--- CONTENT. Starts --->
+	<H1 id=hhba>Loading data in grid</H1>
+<BR id=j80t>
+dhtmlxGrid supports different types of data sources:<BR id=mpis>
+&nbsp;&nbsp;&nbsp; - xml;<BR id=omk5>
+&nbsp;&nbsp;&nbsp; - csv;<BR id=skxn>
+&nbsp;&nbsp;&nbsp; - json;<BR id=crqf>
+&nbsp;&nbsp;&nbsp; - javascript array.<BR id=t7zr>
+<BR id=ng5r>
+dhtmlxGrid 1.5 supported only loading from XML|CSV, and used the following methods for it:<BR id=qnpf>
+&nbsp;&nbsp;&nbsp; grid.loadXML(url)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -&nbsp;&nbsp;&nbsp; loads data from a remote file;<BR id=ygxy>
+&nbsp;&nbsp;&nbsp; grid.loadXMLString(string);&nbsp;&nbsp;&nbsp; -&nbsp;&nbsp;&nbsp; loads data from a js string;<BR id=p7og>
+&nbsp;&nbsp;&nbsp; grid.parseXML(object);&nbsp;&nbsp;&nbsp; - loads data from an xml object (xmlhttprequest or XML island);<BR id=hnaj>
+<BR id=vduz>
+&nbsp;&nbsp;&nbsp; grid.loadCSV(url)&nbsp;&nbsp;&nbsp; -&nbsp;&nbsp;&nbsp; loads data from a remote file;<BR id=qm0->
+&nbsp;&nbsp;&nbsp; grid.loadCSVString(string);&nbsp;&nbsp;&nbsp; - loads data from a js string.<BR id=p0gd>
+<BR id=e3o4>
+<BR id=vome>
+Starting from dhtmlxGrid 1.6 the new common loaders were implemented (old API is still supported, but it is highly recommended to use the new API):<BR id=k3wp>
+&nbsp;&nbsp;&nbsp; grid.load(url)&nbsp;&nbsp;&nbsp; -&nbsp;&nbsp;&nbsp; loads data from a remote file, xml is expected by default;<BR id=umsn>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; grid.load(url,"csv") - the same for csv format;<BR id=vsum>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; grid.load(url,"json") - the same for json format;<BR id=rnx6>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; grid.load(url,"jsarray") - the same for jsarray format.<BR id=iqvy>
+<BR id=zd-v>
+&nbsp;&nbsp;&nbsp; grid.parse(object) -&nbsp;&nbsp;&nbsp; loads data from a string|object, xml is expected by default;<BR id=m8:4>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; grid.parse(url,"csv") - the same for csv format;<BR id=vsum>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; grid.parse(url,"json") - the same for json format;<BR id=rnx6>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; grid.parse(url,"jsarray") - the same for jsarray format.<BR id=ac:g>
+<BR id=ezox>
+<BR id=xlw:>
+<H2 id=xe_y>Loading from CSV</H2>
+<BR id=r8o6>
+To load data from a remote file (static csv file or any kind of script which will generate csv output):<BR id=oaep>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; grid.load(url,"cvs");<BR id=w_0a>
+or<BR id=hxxw>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; grid.load(url,callback,"csv");&nbsp;&nbsp;&nbsp; // callback is an optional function, which will be called after the data is loaded and processed<BR id=v3zo>
+<BR id=sv10>
+To load data from a CSV string:<BR id=x2ta>
+<BLOCKQUOTE id=xu1t>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var&nbsp; csvstr="11,12,13\n21,22,23\n,31,32,33";<BR id=gvz8>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; grid.parse(csvstr,"csv");<BR id=oucs>
+</BLOCKQUOTE>
+<BR id=xcq_>
+By default the component will use:<BR id=pvmx>
+&nbsp;&nbsp;&nbsp; , - cell delimiter;<BR id=l_x.>
+&nbsp;&nbsp;&nbsp; \n - row delimiter.<BR id=u2c2>
+These values can be changed as:<BR id=lfqz>
+&nbsp;&nbsp;&nbsp; grid.csv.row="any row delimiter";<BR id=zh46>
+&nbsp;&nbsp;&nbsp; grid.csv.cell ="any cell delimiter";<BR id=ge_q>
+<BR id=ub.z>
+<BR id=h255>
+<H2 id=ti53>Loading from JSArray</H2>
+<H2 id=x850><BR id=iay->
+</H2>
+To load data from a remote file (a static js file or any kind of script which will generate jsarray output):<BR id=oaep>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; grid.load(url,"jsarray");<BR id=w_0a>
+or<BR id=hxxw>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; grid.load(url,callback,"jsarray");&nbsp;&nbsp;&nbsp; // a callback is an optional function, which will be called after the data is loaded and processed<BR id=lgve>
+&nbsp;&nbsp;&nbsp;&nbsp;<BR id=yp6a>
+<BR id=xytj>
+To load data from JSArray object:<BR id=nwaa>
+<BLOCKQUOTE id=j5ns>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var ar = [[11,12,13],[21,22,23],[31,32,33]]<BR id=gvz8>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; grid.parse(ar,"jsarray");<BR id=w.qo>
+</BLOCKQUOTE>
+<BR id=uboq>
+<BR id=whzd>
+<H2 id=s7lx>Loading data from JSON</H2>
+<BR id=p1bf>
+To load data from a remote file (a static json file or any kind of script which will generate json output):<BR id=oaep>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; grid.load(url,"json");<BR id=w_0a>
+or<BR id=hxxw>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; grid.load(url,callback,"json");&nbsp;&nbsp;&nbsp; // a callback is an optional function, which will be called after the data is loaded and processed<BR id=lgve>
+&nbsp;&nbsp;&nbsp;&nbsp;<BR id=yp6a>
+<BR id=xytj>
+To load data from JSON object:<BR id=nwaa>
+<BLOCKQUOTE id=pdkf>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var js={<BR id=zx8d>
+rows:[<BR id=ywe2>
+&nbsp;&nbsp;&nbsp; { id:1001, <BR id=qmt4>
+&nbsp;data:[<BR id=cr3->
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "100",<BR id=io6s>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "A Time to Kill",<BR id=oevm>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "John Grisham",<BR id=acpb>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "12.99",<BR id=vvlu>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "1",<BR id=k4_.>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "05/01/1998"] },<BR id=u2.b>
+&nbsp;&nbsp; { id:1002, <BR id=eqdf>
+&nbsp;data:[<BR id=s-58>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "1000",<BR id=qooz>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "Blood and Smoke",<BR id=i0x0>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "Stephen King",<BR id=wgnq>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "0",<BR id=l-xe>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "1",<BR id=n2cf>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "01/01/2000"] }<BR id=pfov>
+]}<BR id=q6t_>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; grid.parse(js,"json");<BR id=bj.b>
+</BLOCKQUOTE>
+<BR id=w0.x>
+<H3 id=dat3>Details about used JSON format</H3>
+<BR id=qjm2>
+Top level object contains a collection of <SPAN id=b6s4><B id=keln>rows</B></SPAN>, each row has a mandatory <SPAN id=q-.:><B id=tpty>data </B></SPAN>array containing data for all cells.<BR id=vxfb>
+Each row representing an object may contain additional parameters; they will affect the grid in the same manner as attributes of row tag in case of loading from XML.<BR id=va_9>
+&nbsp;&nbsp; { id:1002, <BR id=au3k>
+<SPAN id=z4dx><I id=majo>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; selected:true, // selected row</I></SPAN><BR id=u8q4 style="FONT-STYLE: italic">
+<SPAN id=hk4-><I id=vbc.>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; style:"color:red;" // assigned style</I></SPAN><BR id=eqdf>
+&nbsp;data:[<BR id=s-58>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "1000",<BR id=qooz>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "Blood and Smoke",<BR id=i0x0>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "Stephen King",<BR id=pc45>
+<BR id=w:s4>
+<H2 id=neni>Loading from XML</H2>
+<BR id=a3r5>
+To load data from a remote file (static xml file or any kind of script which will generate xml output):<BR id=oaep>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; grid.load(url);<BR id=w_0a>
+or<BR id=hxxw>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; grid.load(url,callback);&nbsp;&nbsp;&nbsp; // a callback is an optional function, which will be called after the data is loaded and processed.<BR id=lgve>
+&nbsp;&nbsp;&nbsp;&nbsp;<BR id=yp6a>
+<BR id=xytj>
+To load data from an XML object or an XML string: &nbsp;&nbsp;&nbsp;&nbsp; <BR id=z:52>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grid.parse(xml_object);<BR id=f8gf>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; or<BR id=ywzh>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grid.parse(xml_string);<BR id=e8j2>
+<BR id=x2r_>
+<BR id=l831>
+The default XML format is the following: <BR id=lj07>
+&nbsp;&nbsp;&nbsp; &lt;rows&gt;<BR id=y17t>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;row id="some"&gt;<BR id=r:r4>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;cell &gt; data &lt;/cell&gt;<BR id=hsph>
+<BR id=ww9n>
+You can change used tags names like this:<BR id=o6rh>
+&nbsp;&nbsp;&nbsp; grid.xml.top="mytop"<BR id=ii3t>
+&nbsp;&nbsp;&nbsp; grid.xml.row="./myrow"<BR id=waqt>
+&nbsp;&nbsp;&nbsp; grid.xml.cell="./mycell"<BR id=ajh7>
+In such case the grid will expect the xml to be written in the following format:<BR id=co5t>
+&nbsp;&nbsp;&nbsp; &lt;mytop&gt;<BR id=kmei>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;myrow id="some"&gt;<BR id=r:r4>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;mycell&gt; data &lt;/mycell&gt;<BR id=fpng>
+<BR id=rj-e>
+The row and cell parameters are XPaths, so you can create more complex schemes:<BR id=cd9l>
+&nbsp;&nbsp;&nbsp; grid.xml.top="mytop"<BR id=ii3t>
+&nbsp;&nbsp;&nbsp; grid.xml.row="./some/myrow"<BR id=waqt>
+&nbsp;&nbsp;&nbsp; grid.xml.cell="./mycell[@show=true]"<BR id=mi:i>
+<BR id=gowl>
+&nbsp;&nbsp;&nbsp; &lt;mytop&gt;<BR id=x23g>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;some&gt;<BR id=kmei>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;myrow id="some"&gt;<BR id=r:r4>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;mycell&gt; will not be used &lt;/mycell&gt;<BR id=gnw6>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;mycell show="true"&gt; data &lt;/mycell&gt;<BR id=k:ty>
+<BR id=fnzk>
+Grid supports two additional XML formats, which are based on column IDs (ext/dhtxmlgrid_data.js).<BR id=qry7>
+<BR id=bg7c>
+<SPAN id=h-y0><B id=sn9x>xmlA<BR id=ox.g>
+</B></SPAN>&nbsp;&nbsp;&nbsp; grid.setColumnIds("first,second,third")<SPAN id=uk26><BR id=dyq8>
+</SPAN>&nbsp;&nbsp;&nbsp; grid.load(url,"xmlA")<BR id=l8-1>
+&nbsp;&nbsp;&nbsp; ....<BR id=o1kk>
+&nbsp;&nbsp;&nbsp; &lt;rows&gt;<BR id=gea9>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;row id="some" first="11" second="12" third="13" /&gt;<BR id=brlk>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;row id="some" first="21" second="22" third="23" /&gt;<BR id=cu:b>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;row id="some" first="31" second="32" third="33" /&gt;<BR id=z.23>
+&nbsp;&nbsp;&nbsp; &lt;/rows&gt;<BR id=nn7g>
+<BR id=z81c>
+(If you are using MSSQL you can use SELECT * FROM Some <SPAN id=lehu><B id=l2lw>FOR XML AUTO</B></SPAN> to get data exactly in the necessary format)<BR id=qhca>
+<BR id=evyq>
+<SPAN id=ta-h><B id=gzc7>xmlB</B></SPAN><BR id=h-nm>
+<BR id=sjku>
+&nbsp;&nbsp;&nbsp; grid.setColumnIds("first,second,third")<SPAN id=ilkr><BR id=yvww>
+</SPAN>&nbsp;&nbsp;&nbsp; grid.load(url,"xmlA")<BR id=vrfp>
+&nbsp;&nbsp;&nbsp; ....<BR id=p.xw>
+&nbsp;&nbsp;&nbsp; &lt;rows&gt;<BR id=yq.s>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;row id="some"&gt;&lt;first&gt;11&lt;/first&gt;&lt;second&gt;12&lt;/second&gt;&lt;third&gt;13&lt;/third&gt;&lt;/row&gt;<BR id=ys9j>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;row id="some"&gt;&lt;first&gt;21&lt;/first&gt;&lt;second&gt;22&lt;/second&gt;&lt;third&gt;23&lt;/third&gt;&lt;/row&gt;<BR id=o0we>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;row id="some"&gt;&lt;first&gt;31&lt;/first&gt;&lt;second&gt;32&lt;/second&gt;&lt;third&gt;33&lt;/third&gt;&lt;/row&gt;<BR id=ujym>
+&nbsp;&nbsp;&nbsp; &lt;/rows&gt;<BR id=yniu>
+<BR id=kjs9>
+Both formats can be customized in the same manner as the default xml format.<BR id=woc_>
+&nbsp;&nbsp;&nbsp;&nbsp;<BR id=qqrk>
+<BR id=buy->
+<H3 id=k2tm>Control over XML serialization</H3>
+<BR id=ho9_>
+The tags used for rows and cells during the serialization can be defined as:<BR id=lpqw>
+&nbsp;&nbsp;&nbsp; grid.xml.s_row="myrowtag";<BR id=d0ju>
+&nbsp;&nbsp;&nbsp; grid.xml.s_cell="mycelltag";<BR id=cqz0>
+<BR id=j4ma>
+The grid uses some predefined set of attributes which will be included in the serialization, but if you are using some custom attributes, you can force their including in the serialization.<BR id=y_ty>
+&nbsp;&nbsp;&nbsp; grid.setRowAttribute(id,"custom1","data");<BR id=n6xb>
+&nbsp;&nbsp;&nbsp; ...<BR id=guo6>
+&nbsp;&nbsp;&nbsp; grid.xml.row_attrs.push("custom1");&nbsp;&nbsp;&nbsp; //will include custom1 in the serialization<BR id=h7d5>
+<BR id=yqm.>
+&nbsp;&nbsp;&nbsp; grid.cells(i,j).setAttribute("custom2","data");<BR id=gm7x>
+&nbsp;&nbsp;&nbsp; ...<BR id=j_46>
+&nbsp;&nbsp;&nbsp; grid.xml.cell_attrs.push("custom2");&nbsp;&nbsp;&nbsp; //will include custom2 in the serialization<BR id=f1-l>
+
+	<!--- CONTENT. Ends --->
+	<div class="copyright" zid="223">&copy; DHTMLX, 2008</div>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!--conf
+<sample in_favorites="false">
+               <product version="1.4" edition="std"/>
+                       <modifications>
+                               <modified date="070101"/>
+                       </modifications>
+               <sampledescription><![CDATA[The easiest way to get your tabular data appear good looking is to automatically convert HTML table into dhtmlxGrid view. No scripting necessary - just include one javascript file from dhtmlxGrid library.]]></sampledescription></sample>
+ --> 
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<title>Initialization from HTML table</title>
+	<link rel="STYLESHEET" type="text/css" href="../../codebase/dhtmlxgrid.css">
+	
+	<script  src="../../codebase/dhtmlxcommon.js"></script>
+	<script  src="../../codebase/dhtmlxgrid.js"></script>		
+	<script  src="../../codebase/dhtmlxgridcell.js"></script>	
+	<script  src="../../codebase/ext/dhtmlxgrid_start.js"></script>
+</head>
+
+<body>
+<link rel='STYLESHEET' type='text/css' href='../common/style.css'>
+<table cellspacing="0" cellpadding="0" class="sample_header" border="0">
+	<tr valign="middle">
+		<!-- COMPONENT ICON -->
+		<td width="40" align="center"><img src="../common/dhtmlxgrid_icon.gif" border="0"></td>
+		<!-- COMPONENT NAME -->
+		<td width="120" align="left">Sample: dhtmlxGrid</td>
+		<!-- SAMPLE TITLE -->
+		<td width="0" align="left"><b>Initialization from HTML table</b></td>
+		<!-- LINK TO COMPONENT PAGE -->
+		<td width="0" align="right"><a href="http://www.dhtmlx.com/docs/products/dhtmlxGrid/index.shtml">dhtmlxGrid main page</a></td>
+		<!-- CLOSE BUTTON -->
+		<td width="50"><div class="sample_close"><a href="javascript:void(0);" onclick="self.close();"><img src="../common/sample_close.gif" width="14" height="14" border="0" alt="X"></a></div></td>
+	</tr>
+</table>
+	
+	
+	
+
+<p>Initialization from HTML table with script command</p>
+	
+		<li><a href="javascript:void(0)" onclick="new dhtmlXGridFromTable('tblToGrid');">Convert table to grid</a></li>
+	<table id="tblToGrid" style="width:400px" imgpath="../../codebase/imgs/" border="1" lightnavigation="true">
+		<tr>
+			<td type="ro">Column 1</td>
+			<td>Column 2</td>
+		</tr>
+		<tr>
+			<td>value 11</td>
+			<td>value 12</td>
+		</tr>
+		<tr>
+			<td>value 21</td>
+			<td>value 22</td>
+		</tr>
+		<tr>
+			<td>value 31</td>
+			<td>value 32</td>
+		</tr>
+		<tr>
+			<td>value 41</td>
+			<td>value 42</td>
+		</tr>
+		<tr>
+			<td>value 51</td>
+			<td>value 52</td>
+		</tr>
+	</table>
+<br>
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+    </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">mygrid</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlXGridFromTable</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">tblToGrid</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">;</span></pre></div></div>
+
+<p>Automatic initialization</p>
+	<table class="dhtmlxGrid" imgpath="../../codebase/imgs/" style="width:400px" lightnavigation="true">
+		<tr>
+			<td type="ro">Column 2</td>
+			<td>Column 2</td>
+		</tr>
+		<tr>
+			<td>value 11</td>
+			<td>value 12</td>
+		</tr>
+		<tr>
+			<td>value 21</td>
+			<td>value 22</td>
+		</tr>
+		<tr>
+			<td>value 31</td>
+			<td>value 32</td>
+		</tr>
+		<tr>
+			<td>value 41</td>
+			<td>value 42</td>
+		</tr>
+		<tr>
+			<td>value 51</td>
+			<td>value 52</td>
+		</tr>
+	</table>
+	<p>
+		<li>Initialize automatically  from table which class attribute set to "dhtmlxGrid"</li>
+	</p>
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+    </span><span class="hl-comment">//</span><span class="hl-comment">required js file</span><span class="hl-comment"></span><span class="hl-code">
+    &lt;</span><span class="hl-identifier">script</span><span class="hl-code">  </span><span class="hl-identifier">src</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">js/dhtmlxgrid_start.js</span><span class="hl-quotes">&quot;</span><span class="hl-code">&gt;&lt;/</span><span class="hl-identifier">script</span><span class="hl-code">&gt;
+    
+    &lt;!--- </span><span class="hl-identifier">Table</span><span class="hl-code"> </span><span class="hl-identifier">to</span><span class="hl-code"> </span><span class="hl-identifier">convert</span><span class="hl-code"> ---&gt;
+    &lt;!--- </span><span class="hl-identifier">Setting</span><span class="hl-code"> </span><span class="hl-identifier">light</span><span class="hl-code"> </span><span class="hl-identifier">mouse</span><span class="hl-code"> </span><span class="hl-identifier">navigation</span><span class="hl-code"> ---&gt;
+    &lt;</span><span class="hl-identifier">table</span><span class="hl-code"> </span><span class="hl-reserved">class</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">dhtmlXGrid</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-identifier">imgpath</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../codebase/imgs/</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-identifier">style</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">width:400px</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-identifier">lightnavigation</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">true</span><span class="hl-quotes">&quot;</span><span class="hl-code">&gt;
+        &lt;!--- </span><span class="hl-identifier">First</span><span class="hl-code"> </span><span class="hl-identifier">row</span><span class="hl-code"> </span><span class="hl-identifier">treatted</span><span class="hl-code"> </span><span class="hl-identifier">as</span><span class="hl-code"> </span><span class="hl-identifier">grid</span><span class="hl-code"> </span><span class="hl-identifier">header</span><span class="hl-code">  ---&gt;
+        &lt;</span><span class="hl-identifier">tr</span><span class="hl-code">&gt;
+            &lt;!--- </span><span class="hl-identifier">First</span><span class="hl-code"> </span><span class="hl-identifier">column</span><span class="hl-code"> </span><span class="hl-identifier">can</span><span class="hl-quotes">'</span><span class="hl-string">t be edited  ---&gt;
+            &lt;td type=&quot;ro&quot;&gt;Column 1&lt;/td&gt;
+            &lt;td&gt;Column 2&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;!--- All other rows - Grid body ---&gt;
+        &lt;tr&gt;
+            &lt;td&gt;value 11&lt;/td&gt;
+            &lt;td&gt;value 12&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;value 21&lt;/td&gt;
+            &lt;td&gt;value 22&lt;/td&gt;
+        &lt;/tr&gt;
+        ...
+    &lt;/table&gt;</span></pre></div></div>
+
+
+
+<!-- FOOTER -->
+<table callspacing="0" cellpadding="0" border="0" class="sample_footer"><tr><td style="padding-left: 8px;">&copy; <a href="http://www.dhtmlx.com">DHTMLX LTD</a>. All rights reserved</td></tr></table>
+<!-- FOOTER -->
+
+</body>
+</html>

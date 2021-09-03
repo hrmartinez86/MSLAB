@@ -1,0 +1,97 @@
+<!--conf
+<sample in_favorites="true">
+	<product version="1.0" edition="std"/>
+	<modifications>
+		<modified date="080418"/>
+	</modifications>
+</sample>
+ -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+   <title>Initializae with JS Object</title>
+</head>
+   <script>
+      window.dhx_globalImgPath="../../codebase/imgs/";
+   </script>
+	<script  src="../../codebase/dhtmlxcommon.js"></script>
+	<script  src="../../codebase/dhtmlxslider.js"></script>
+	<script  src="../../codebase/ext/dhtmlxslider_start.js"></script>
+	<link rel="STYLESHEET" type="text/css" href="../../codebase/dhtmlxslider.css">	
+<body>
+<link rel='STYLESHEET' type='text/css' href='../common/style.css'>
+<table cellspacing="0" cellpadding="0" class="sample_header" border="0">
+	<tr valign="middle">
+		<!-- COMPONENT ICON -->
+		<td width="40" align="center"><img src="../common/dhtmlxslider_icon.gif" border="0"></td>
+		<!-- COMPONENT NAME -->
+		<td width="120" align="left">Sample: dhtmlxSlider</td>
+		<!-- SAMPLE TITLE -->
+		<td width="0" align="left"><b>Initializae with JS Object</b></td>
+		<!-- LINK TO COMPONENT PAGE -->
+		<td width="0" align="right"><a href="http://www.dhtmlx.com/docs/products/dhtmlxSlider/index.shtml">dhtmlxSlider main page</a></td>
+		<!-- CLOSE BUTTON -->
+		<td width="50"><div class="sample_close"><a href="javascript:void(0);" onclick="self.close();"><img src="../common/sample_close.gif" width="14" height="14" border="0" alt="X"></a></div></td>
+	</tr>
+</table>
+   <div class="hdr">DHTML JavaScript Slider samples</div>
+   
+
+
+<hr>
+
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">sliderBox</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">div</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code"><div class="hl-main"><pre><span class="hl-code"> 
+    </span><span class="hl-comment">//</span><span class="hl-comment">slider can be initialized by object notation</span><span class="hl-comment"></span><span class="hl-code">
+    </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">slider1</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlxSlider</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">sliderBox</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-identifier">skin</span><span class="hl-code">: </span><span class="hl-quotes">&quot;</span><span class="hl-string">ball</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+        </span><span class="hl-identifier">min</span><span class="hl-code">:</span><span class="hl-number">100</span><span class="hl-code">,
+        </span><span class="hl-identifier">max</span><span class="hl-code">:</span><span class="hl-number">300</span><span class="hl-code">,
+        </span><span class="hl-identifier">step</span><span class="hl-code">:</span><span class="hl-number">50</span><span class="hl-code">,
+        </span><span class="hl-identifier">size</span><span class="hl-code">:</span><span class="hl-number">600</span><span class="hl-code">,
+        </span><span class="hl-identifier">vertical</span><span class="hl-code">:</span><span class="hl-reserved">false</span><span class="hl-code">
+    </span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">slider1</span><span class="hl-code">.</span><span class="hl-identifier">init</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;</span></pre></div></span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span></pre></div></div>
+<div id="sliderBox"></div>
+<script>
+	var slider1 = new dhtmlxSlider("sliderBox", {
+		skin: "ball",
+		min:100,
+		max:300,
+		step:50,
+		size:600,
+		vertical:false
+	});
+	slider1.init();
+</script>
+
+<br><br>
+
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">sliderBox2</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">div</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code"><div class="hl-main"><pre><span class="hl-code"> 
+    </span><span class="hl-comment">//</span><span class="hl-comment">slider can be initialized by object notation</span><span class="hl-comment"></span><span class="hl-code">
+    </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">slider2</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlxSlider</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">sliderBox2</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-brackets">{</span><span class="hl-code">
+        </span><span class="hl-identifier">size</span><span class="hl-code">:</span><span class="hl-number">300</span><span class="hl-code">,
+        </span><span class="hl-identifier">vertical</span><span class="hl-code">:</span><span class="hl-reserved">true</span><span class="hl-code">
+    </span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">slider2</span><span class="hl-code">.</span><span class="hl-identifier">init</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;</span></pre></div></span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span></pre></div></div>
+<div id="sliderBox2"></div>
+<script>
+	//slider can be initialized by object notation
+	var slider2 = new dhtmlxSlider("sliderBox2", {
+		size:300,
+		vertical:true
+	});
+	slider2.init();
+</script>
+
+
+<!-- FOOTER -->
+<table callspacing="0" cellpadding="0" border="0" class="sample_footer"><tr><td style="padding-left: 8px;">&copy; <a href="http://www.dhtmlx.com">DHTMLX LTD</a>. All rights reserved</td></tr></table>
+<!-- FOOTER -->
+
+</body>
+</html>

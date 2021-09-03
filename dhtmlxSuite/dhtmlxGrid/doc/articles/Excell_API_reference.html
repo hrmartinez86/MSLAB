@@ -1,0 +1,41 @@
+<html>
+
+<head>
+
+
+<link rel="STYLESHEET" type="text/css" href="../common/styles.css">
+</head>
+<body>
+	<table border="0" cellpadding="0" cellspacing="0" class="sample_header" zid="71">
+		<tbody zid="3">
+			<tr valign="center" zid="4">
+				<td align="center" width="10" zid="5">&nbsp;</td>
+				<td align="left" zid="6">
+					<p zid="224">
+						<a href="http://www.dhtmlx.com/" zid="7">DHTMLX</a> Documentation
+					</p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<!--- CONTENT. Starts --->
+	      <h1 id="fgfz">
+
+    
+    
+Excell API reference<br id="r.kh"></h1><h2 id="yb0r">Methods common for all types of excells</h2><br id="co.."><b id="vhxf">Data access <br id="t31n"><br id="olhn"></b>obj.<b id="t2l9">getValue</b>() - gets current cell value; <br id="he-t">obj.<b id="m.bh">setValue</b>(value) - sets new cell value (is <span id="dpig" style="background-color: rgb(255, 255, 255);">not triggered to update events, "was-changed" flag is not set);</span><br id="d:fx"><br id="u-o7">obj.<b id="b0hp">getTitle</b>()&nbsp;-&nbsp;returns text representation of the cell&nbsp;value:<br id="uwoa"><ul id="qnvi"><li id="s285">returns alt text of image for img excell;</li><li id="ye6y">returns link value for link excell.<br id="cu17"></li></ul><br id="q_c7"><span id="rmu4" style="background-color: rgb(255, 255, 255);">As last resort - the data can be set directly:</span><br id="p-he"><blockquote id="e501">grid.cells(i,j).cell.innerHTML=value;<br id="oqe."></blockquote><br id="fmes"><br id="v5_0"><b id="cn9u">Styling</b><br id="nfjs"><br id="k-l2">obj.<b id="e02l">setFont</b>(value) - allows to set specific font for a cell. The value is provided in the following format: (family)[-(type)]-(size):<br id="p:z5"><blockquote id="jp4t">grid.cells(i,j).setFont("Tahoma-bold-13px");<br id="uso1">grid.cells(i,j).setFont("Tahoma-12pt");<br id="r0si"></blockquote>obj.<b id="m_ww">getFont</b>() - returns font settings in the same format as used for setFont<sup id="po1q">(1);<br id="wq5q"></sup>obj.<b id="klmn">setTextColor</b>(val) - sets the text color of a cell;<br id="p57y"><p id="gl6j">obj.<b id="v:g4">getTextColor </b>- returns the text color of a cell<sup id="rx8s">(1)<br id="s3wr"></sup></p>obj.<b id="cs61">setBgColor</b>(val) - sets background color of&nbsp; a cell;<br id="n7by">obj.<b id="r4_p">getBgColor </b>- returns background color of a cell<sup id="tmb8">(1)<br id="cud:"></sup>obj.<b id="miit">setHorAlign</b>(val) - sets horizontal alignment of a cell;<br id="epbw">obj.<b id="b63e">getHorAlign </b>- returns horizontal alignment of a cell<sup id="wv3l">(1)</sup><br id="dsta">obj.<b id="y0gd">getWidth </b>- returns current width (int value, means actual value in pixels).<br id="bkk3"><br id="uq35">Basically all style related properties can be set directly as follows:<br id="vyqc"><blockquote id="pq3j">grid.cells(i,j).cell.style[name]=value;<br id="k2q9"></blockquote>(1) - the returned data is not included into the settings assigned indirectly by css classes or inherited from top containers.<br id="ctad"><br id="g7-e"><br id="nyc4"><b id="ke1.">Editing <br id="pwr2"><br id="kr.j"></b>obj.<b id="k3me">wasChanged</b>() - returns "true" if a cell was changed.<br id="ruwo">
+<p id="b:-t">Changed flag is set automatically after the cell was changed by user actions.<br id="ys1t">The flag will not be set if the value was changed by API. </p>
+<p id="m67v">The following code should be used to set the flag manually:<br id="ddk2"></p><blockquote id="z6jr">&nbsp;&nbsp;&nbsp; grid.cell(i,j).cell.wasChanged=true;<br id="h7tj"></blockquote>obj.<b id="dkra">setDisabled</b>(mode) - enable|disable the editor of a cell&nbsp; (checkboxes and radio buttons are rendered in the disabled state).<br id="fjcw"><br id="j_zn"><br id="b-75"><h2 id="shis">Methods specific for some excells</h2>
+<b id="a73a">ro, ch</b><br id="izzw"><br id="vqbb">obj<b id="n0_p">.isChecked</b>() - returns "true" if the cell is checked.<br id="gron">obj.<b id="jng:">setChecked</b>(mode) - sets the state of a checkbox|radion button (mode - true|false).<br id="tdgl"><br id="wmn4"><b id="x5oc">cp<br id="jbv3"><br id="j4r:"></b>obj.<b id="e:5t">get<span id="r38y" style="background-color: rgb(255, 255, 255);">Red</span></b><span id="ixpl" style="background-color: rgb(255, 255, 255);">() - gets red component of the selected color.</span><br id="z.52">obj.<b id="kc9:">getGreen</b>() - gets green component of the selected color.<br id="xl.m">obj.<b id="do6s">getBlue</b>() - gets blue component of the selected color.<br id="s_jh"><br id="u5d:"><b id="exqk">grid</b><br id="d9-c"><br id="ph5c">grid.<b id="d1qf">setSubGrid</b>(subgrid,column, s_column) - attaches the external grid as an editor:<br id="ecvq">&nbsp;&nbsp;&nbsp; subgrid - grid instance which will be used as editor;<br id="ysqg">&nbsp;&nbsp;&nbsp; column - <span id="qk05" style="background-color: rgb(255, 255, 255);">column in the main grid to which the sub grid will be linked;</span><br id="qrc2">&nbsp;&nbsp;&nbsp; s_column - index of a column in the sub grid, value from which will be shown in the main grid.<br id="pgx3"><br id="y1-g"><b id="j33_">clist<br id="pi1c"><br id="ez_e"></b>grid<b id="tg5e">.registerCList</b>(index,list) - sets the list of values.<br id="odvu">&nbsp;&nbsp;&nbsp; index - index of the column, for which clist will be used;<br id="fprn">&nbsp;&nbsp;&nbsp; list - array, or comma separated list of data.<br id="s9jd"><br id="mdzv"><b id="zcw3">dhxCalendar, dhxCalendarA</b><br id="xu9i"><br id="kk5u">obj.<span id="ij-g"><b id="rlo_">getDate</b></span>() - returns the value as the Date object.<br id="c070"><br id="ddli"><b id="zz1s">sub_row, sub_row_grid, sub_row_ajax<br id="wnml"><br id="gyf5"></b>obj.<b id="axfi">open</b>() - opens the sub row.<br id="w3ea">obj.<b id="o9bj">close</b>() - closes the sub row.<br id="ot.n">obj.<b id="ly00">setContent</b>() - sets HTML content of the sub row.<br id="at35"><br id="o:z5"><b id="b315">sub_row_grid</b><br id="dqor"><br id="nfu5">obj.<b id="rou6">getSubGrid</b>() - gets the sub grid object.<br id="bjpp"><br id="e6q4"><b id="mms4">stree</b><br id="cx48"><br id="lal8">grid.<b id="mddp">setSubTree</b>(subtree,column) - attaches an external tree as an editor.<br id="wk8h">
+&nbsp;&nbsp;&nbsp; subtree - a tree instance which will be used as an editor;<br id="f8-g">
+&nbsp;&nbsp;&nbsp; <span id="dcis" style="background-color: rgb(255, 255, 255);">column - a column in the main grid to which the sub tree will be linked.</span><br id="t65k"><br id="xf-3"><b id="dhks">cntr</b><br id="a.s1"><br id="hepn">grid.<b id="i:fv">resetCounter</b>() - forces update of the counters column.<br id="kxnl"><br id="r:8x"><b id="o:1q">link</b><br id="umi6"><br id="vinl">obj.<b id="j7cx">getContent</b>() - returns the text part of the link.<br id="zxs0"><br id="ze.:"><br id="e025"><br id="y02s"><h2 id="pst9">Inner methods </h2><br id="cty1">The methods given below are low-level setters, they are not supposed to be used directly <span id="u367" style="background-color: rgb(255, 255, 255);">(they can be used by higher-level methods or can be redefined to get custom functionality).</span><br style="background-color: rgb(255, 153, 0);" id="vm-8">
+<br id="ed92">
+obj.<b id="xjpz">setCValue</b>(formated_val,real_val) - sets the content of the cell (HTML text);<br id="u:ir">
+obj.<b id="vsfl">setCTxtValue</b>(formated_val,real_val) - sets the content of the cell (pure text):<br id="b58i">
+&nbsp;&nbsp;&nbsp;&nbsp;formated_value - the value as it will be rendered;<br id="rn6_">
+&nbsp;&nbsp;&nbsp;&nbsp;real_value - optional, the value which will be accessed by grid events;<br id="mt81">obj.<b id="xjhs">edit</b>() - switches the cell to the edit state (must not be called directly);<br id="ikj3">obj.<b id="wnv3">detach</b>() - switches the cell to the normal state (must not be called directly);<br id="l:.i">obj.<b id="otvl">changeState</b>() - changes the state of the ch|ra cell (checked|unchecked).<br id="ct.5"><br id="wt:8">
+
+	<!--- CONTENT. Ends --->
+	<div class="copyright" zid="223">&copy; DHTMLX, 2008</div>
+</body>
+</html>

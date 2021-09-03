@@ -1,0 +1,98 @@
+<!--conf
+<sample>
+              <product version="1.0" edition="std"/>
+                     <modifications>
+                            <modified date="071221"/>
+                     </modifications>
+               </sample>
+ --> 
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<title>Changing week start day</title>
+	<link rel="STYLESHEET" type="text/css" href="../../codebase/dhtmlxcalendar.css">
+<script>
+      window.dhx_globalImgPath="../../codebase/imgs/";
+</script>
+<script  src="../../codebase/dhtmlxcommon.js"></script>
+<script  src="../../codebase/dhtmlxcalendar.js"></script>
+
+	<script>
+	var cal1, cal2, mCal, mDCal, newStyleSheet;
+
+	var dateFrom = null;
+	var dateTo = null;
+	
+	
+	
+	window.onload = function () {	
+		mCal = new dhtmlxCalendarObject('dhtmlxCalendar1', false, {isYearEditable: true});
+		mCal.setYearsRange(2000, 2500);
+		mCal.draw();
+
+		mCal1 = new dhtmlxCalendarObject('dhtmlxCalendar2', false, {isYearEditable: true});
+		mCal1.setYearsRange(2000, 2500);
+		mCal1.loadUserLanguage('en-us');
+		mCal1.options.weekstart=1;
+		mCal1.draw();
+	}
+	
+	
+	</script>
+
+<body>
+<link rel='STYLESHEET' type='text/css' href='../common/style.css'>
+<table cellspacing="0" cellpadding="0" class="sample_header" border="0">
+	<tr valign="middle">
+		<!-- COMPONENT ICON -->
+		<td width="40" align="center"><img src="../common/dhtmlxcalendar_icon.gif" border="0"></td>
+		<!-- COMPONENT NAME -->
+		<td width="120" align="left">Sample: dhtmlxCalendar</td>
+		<!-- SAMPLE TITLE -->
+		<td width="0" align="left"><b>Changing week start day</b></td>
+		<!-- LINK TO COMPONENT PAGE -->
+		<td width="0" align="right"><a href="http://www.dhtmlx.com/docs/products/dhtmlxCalendar/index.shtml">dhtmlxCalendar main page</a></td>
+		<!-- CLOSE BUTTON -->
+		<td width="50"><div class="sample_close"><a href="javascript:void(0);" onclick="self.close();"><img src="../common/sample_close.gif" width="14" height="14" border="0" alt="X"></a></div></td>
+	</tr>
+</table>
+	
+	<p> This sample illustrates that you can control the start day of week by using 'weekstart' property.
+
+<table cellpadding="5">
+ <tr>
+ <td>Week starts with Monday</td><td>Week starts with Sunday</td></tr>
+  <tr>
+    <td valign="top"><div id="dhtmlxCalendar2"></div></td>
+    <td valign="top"><div id="dhtmlxCalendar1"></div></td>
+  </tr>
+  
+</table>
+
+
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+    </span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code"><div class="hl-main"><pre><span class="hl-code"> 
+        </span><span class="hl-identifier">mCal1</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlxCalendarObject</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">dhtmlxCalendar2</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-reserved">false</span><span class="hl-code">, </span><span class="hl-brackets">{</span><span class="hl-identifier">isYearEditable</span><span class="hl-code">: </span><span class="hl-reserved">true</span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;
+        ...
+        </span><span class="hl-identifier">mCal1</span><span class="hl-code">.</span><span class="hl-identifier">options</span><span class="hl-code">.</span><span class="hl-identifier">weekstart</span><span class="hl-code">=</span><span class="hl-number">1</span><span class="hl-code">;</span><span class="hl-comment">//</span><span class="hl-comment">start from Monday</span><span class="hl-comment"></span><span class="hl-code">
+        </span><span class="hl-comment">//</span><span class="hl-comment">mCal1.options.weekstart=0; //Start from Sunday</span><span class="hl-comment"></span><span class="hl-code">
+        </span><span class="hl-identifier">mCal1</span><span class="hl-code">.</span><span class="hl-identifier">draw</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;</span></pre></div></span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span></pre></div></div><br>
+Also, starting day for the week can be defined in overal language settings:
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+</span><span class="hl-comment">//</span><span class="hl-comment">sets Sunday and Saturday as weekend. Weeks starts with Monday</span><span class="hl-comment"></span><span class="hl-code">
+</span><span class="hl-brackets">{</span><span class="hl-code">
+    ...
+    </span><span class="hl-identifier">weekend</span><span class="hl-code">:    </span><span class="hl-brackets">[</span><span class="hl-number">0</span><span class="hl-code">, </span><span class="hl-number">6</span><span class="hl-brackets">]</span><span class="hl-code">,
+    </span><span class="hl-identifier">weekstart</span><span class="hl-code">:    </span><span class="hl-number">1</span><span class="hl-code">,
+</span><span class="hl-brackets">}</span></pre></div></div>
+<!-- FOOTER -->
+<table callspacing="0" cellpadding="0" border="0" class="sample_footer"><tr><td style="padding-left: 8px;">&copy; <a href="http://www.dhtmlx.com">DHTMLX LTD</a>. All rights reserved</td></tr></table>
+<!-- FOOTER -->
+
+</body>
+</html>

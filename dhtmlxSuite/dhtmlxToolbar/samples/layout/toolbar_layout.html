@@ -1,0 +1,95 @@
+<!--conf
+<sample>
+              <product version="1.0" edition="std"/>
+                     <modifications>
+                            <modified date="070101"/>
+                     </modifications>
+               </sample>
+ --> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<title>Vertical layout</title>
+	<link rel="STYLESHEET" type="text/css" href="../../codebase/dhtmlxtoolbar.css">
+	
+	<script language="JavaScript" src="../../codebase/dhtmlxprotobar.js"></script>
+	<script language="JavaScript" src="../../codebase/dhtmlxtoolbar.js"></script>
+	<script language="JavaScript" src="../../codebase/dhtmlxcommon.js"></script>	
+</head>
+
+<body>
+<link rel='STYLESHEET' type='text/css' href='../common/style.css'>
+<table cellspacing="0" cellpadding="0" class="sample_header" border="0">
+	<tr valign="middle">
+		<!-- COMPONENT ICON -->
+		<td width="40" align="center"><img src="../common/dhtmlxtoolbar_icon.gif" border="0"></td>
+		<!-- COMPONENT NAME -->
+		<td width="120" align="left">Sample: dhtmlxToolbar</td>
+		<!-- SAMPLE TITLE -->
+		<td width="0" align="left"><b>Vertical layout</b></td>
+		<!-- LINK TO COMPONENT PAGE -->
+		<td width="0" align="right"><a href="http://www.dhtmlx.com/docs/products/dhtmlxToolbar/index.shtml">dhtmlxToolbar main page</a></td>
+		<!-- CLOSE BUTTON -->
+		<td width="50"><div class="sample_close"><a href="javascript:void(0);" onclick="self.close();"><img src="../common/sample_close.gif" width="14" height="14" border="0" alt="X"></a></div></td>
+	</tr>
+</table>
+	
+	<p>You can create toolbar with vertical layout by setting the fifth parameter in the toolbar's constructor</p>
+	<table>
+		<tr>
+			<td valign="top">
+				<div id="toolbar_zone" style="border :1px solid Silver;"/>
+			</td>
+			<td valign="top">
+					<div id="toolbar_zone2" style="border :1px solid Silver;"/>
+			</td>
+		</tr>
+	</table>
+<br>
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">toolbar_zone</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">style</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">width:600; height:50;</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">/&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code"><div class="hl-main"><pre><span class="hl-code"> 
+    </span><span class="hl-identifier">aToolBar</span><span class="hl-code">=</span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlXToolbarObject</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">toolbar_zone</span><span class="hl-quotes">'</span><span class="hl-code">,</span><span class="hl-number">160</span><span class="hl-code">,</span><span class="hl-number">200</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">Demo toolbar</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-number">1</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">aToolBar</span><span class="hl-code">.</span><span class="hl-identifier">setOnClickHandler</span><span class="hl-brackets">(</span><span class="hl-identifier">onButtonClick</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">aToolBar</span><span class="hl-code">.</span><span class="hl-identifier">loadXML</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">_toolbarV2.xml</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">
+    </span><span class="hl-identifier">aToolBar</span><span class="hl-code">.</span><span class="hl-identifier">showBar</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+    
+    </span><span class="hl-identifier">bToolBar</span><span class="hl-code">=</span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlXToolbarObject</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">toolbar_zone2</span><span class="hl-quotes">'</span><span class="hl-code">,</span><span class="hl-number">25</span><span class="hl-code">,</span><span class="hl-number">200</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-number">1</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">bToolBar</span><span class="hl-code">.</span><span class="hl-identifier">setOnClickHandler</span><span class="hl-brackets">(</span><span class="hl-identifier">onButtonClick</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">bToolBar</span><span class="hl-code">.</span><span class="hl-identifier">loadXML</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">_toolbarV1.xml</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">
+    </span><span class="hl-identifier">bToolBar</span><span class="hl-code">.</span><span class="hl-identifier">showBar</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;</span></pre></div></span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span></pre></div></div>
+<br>
+		Parameters passed to the constructor are:
+			<li>object to attach toolbar to (should be loaded before calling constructor)</li>
+			<li>width of the toolbar</li>
+			<li>height of the toolbar</li>
+			<li>title of toolbar</li>
+			<li>vertical mode flag</li><br>
+
+	<script>
+	
+		function onButtonClick(itemId,itemValue)
+		{
+			alert("Button "+itemId+" was pressed"+(itemValue?("\n select value : "+itemValue):""));
+		};
+		
+		
+		aToolBar=new dhtmlXToolbarObject('toolbar_zone',160,200,"Demo toolbar",1);
+		aToolBar.setOnClickHandler(onButtonClick);
+		aToolBar.loadXML("_toolbarV2.xml")
+		aToolBar.showBar();
+		
+		aToolBar=new dhtmlXToolbarObject('toolbar_zone2',25,200,"",1);
+		aToolBar.setOnClickHandler(onButtonClick);
+		aToolBar.loadXML("_toolbarV1.xml")
+		aToolBar.showBar();
+		
+	</script>
+
+<!-- FOOTER -->
+<table callspacing="0" cellpadding="0" border="0" class="sample_footer"><tr><td style="padding-left: 8px;">&copy; <a href="http://www.dhtmlx.com">DHTMLX LTD</a>. All rights reserved</td></tr></table>
+<!-- FOOTER -->
+
+</body>
+</html>

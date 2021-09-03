@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<title>DHTML Grid guide and samples</title><link rel="STYLESHEET" type="text/css" href="common/styles.css">
+</head>
+
+<body>
+
+<h2 ><a href="http://www.scbr.com/docs/products/dhtmlxGrid/index.shtml" target="_top" title="Visit javascript tree home page">dhtmlXGrid</a> New in dhtmlxGrid 1.3</h2>
+<div class="block">
+
+<a name="htmlform"><h4 >Integration with form</h4></a><div class="block">
+Starting from dhtmlxGrid 1.3 integration in existing FORM is possible.
+To enable integration next things must be done
+<ul>
+	<li><b>dhtmlxGrid_form.js</b> included in page</li>
+	<li>Grid container placed inside existing FORM tag</li>
+</ul>
+
+By default grid sumbit mode is "Submit-only-changed-rows", which can also be anabled with <i>submitOnlyChanged</i> method.
+
+As result while form submit grid will include all modified fields inside FORM scoop<br>
+The naming of fields is next<br>
+<b>[GRIDID]_[ROWID]_[CELLINDEX]</b><br><br>
+	<ul>
+Where
+		<li>GRIDID - id of container used for grid</li>
+		<li>ROWID - id of row in which value was changed</li>
+		<li>CELLINDEX - index of cell inside row</li>
+	</ul>
+
+List of added row IDs will be submitted in the following parameter:
+<b>[GRIDID]_ROWS_ADDED</b><br><br>
+	<ul>
+Where
+		<li>GRIDID - id of container used for grid</li>
+	</ul>
+	
+List of deleted row IDs will be submitted in the following parameter:
+<b>[GRIDID]_ROWS_DELETED</b><br><br>
+	<ul>
+Where
+		<li>GRIDID - id of container used for grid</li>
+	</ul>
+
+<br><br>
+Another mode of grid submit is "Submit-selected-rows", which can be anabled with <i>submitOnlySelected</i> method. 
+If activated, then selected row id(s) will be passed to server on submit.
+<br><br>
+These two modes can be combined with each other. 
+
+Please check <a href='../samples/pro_form.html'>samples/pro_form.html</a> (Professional Edition only)
+</div>
+
+
+
+
+
+<a name="refreshgrid"><h4 >Refresh functionality</h4></a><div class="block">
+Starting from dhtmlxGrid 1.3, in addition to default grid reloading through
+<xmp>
+	grid.clearAll()
+	grid.reloadXML(URL);
+</xmp>
+new refresh method added, which just update values of existing rows without reconstructing ( as
+result it doesn't cause any visual glitches in grid, and works significently faster than full grid
+reconstruction )
+<xmp>
+	grid.updateFromXMl(URL)
+</xmp>
+The format of XML exactly the same as for initialization. Grid will update each row in grid with the same ID with data
+from XML.<br>
+
+Please check <a href='../samples/pro_refresh.html'>samples/pro_refresh.html</a> (Professional Edition only)
+</div>
+
+
+
+
+<a name="undoredo"><h4 >Undo | Redo  functionality</h4></a><div class="block">
+Starting from dhtmlxGrid 1.3 by including <b>dhtmlXGrid_undo.js</b> your enable undo|redo functionality.
+All user edit actions will be saved in unlimited undo history. ( modification caused by API calls will not be
+stored in history )
+
+<xmp>
+      mygrid.enableUndoRedo();
+      ...
+      mygrid.doUndo()
+      mygrid.doRedo()
+</xmp>
+
+Please check <a href='../samples/pro_undo.html'>samples/pro_undo.html</a> (Professional Edition only)
+</div>
+
+
+
+
+<a name="blocsel"><h4 >Block selection</h4></a><div class="block">
+Starting from dhtmlxGrid 1.3 additional selection mode supported in grid - block selection.
+To activate mode you need to include <b>dhtmlXGrid_selection.js</b> file in project.<br>
+
+In block selection mode you can select any block of content and copy it to clipboard ( also block paste from clipboard is possible)<br>
+
+Please check <a href='../samples/grid_copy_to_cb.html'>samples/pro_grid_selection.html</a>
+</div>
+
+
+<a name="intcombo"><h4 >Integration with dhtmlxCombo</h4></a><div class="block">
+Starting from dhtmlxGrid 1.3 Integration with dhtmlxCombo is possible. 
+The grid supports "combo" excell type which transformed to dhtmlxCombobox component. "Combo" excell supports all modes of the dhtmlxcombo.<br/>
+<p>There are two ways for combo setting definition:</p> 
+<ul>
+<li>For whole column </li>
+<li>For special cell </li>
+</ul>
+<p>Combo loading and representation modes are set by especial attributes in the xml:</p> 
+<ul>
+<li><b>xmlcontent</b> - in this case, options can be defined directly in the grid xml</li>
+<li><b>source</b> - the source of the combo xml</li>
+<li><b>editable</b>  (boolean, 1 by default)</li>
+<li><b>filtering</b>  (boolean, 0 by default), enables filtering mode (the same as enableFilteringMode for the combo)</li>
+<li><b>auto</b>   (boolean, 0 by default) Enables autocomplete mode (the same as enableFilteringMode(mode,source) for the combo)</li>
+	<ul type="CIRCLE" >
+	<li><b>cache</b>  (boolean, the additional parameter for autocomplete mode) - the xml suggestions are cached (the same as enableFilteringMode(mode,source,cache))</li>
+	<li><b>sub</b>  (boolean,the additional parameter for autocomplete mode)- enable auto load additional suggestions on selecting last loaded option.  (the same as enableFilteringMode(mode,source,cache,sub)</li>
+	</ul>
+</ul>
+<p style="font-size:12px; font-weight:bold;">Setting "combo" column</p>
+For the whole column combo is set in the &lt;column&gt; tag
+<xmp>
+<column width="150" type="combo" xmlcontent="1"…>TEXT
+	<option value="1">one</option>
+	<option value="2">two</option>
+	<option value="3">three</option>
+	…	
+</column>
+<column width="150" type="combo" editable="false" source="data.xml" …>TEXT</column>
+<column type="combo" source="complete.php" auto="true" cache="true" sub="true"… >TEXT</column>
+</xmp>
+Combo value should be set inside &lt;cell&gt; tags:
+<xmp>
+<cell>1</cell></xmp>
+In case of auto complete  &lt;cell&gt;value^text&lt;/cell&gt;  instruction defines value and text:
+<xmp>
+<cell>1^one</cell>
+</xmp>
+<p style="font-size:12px; font-weight:bold;">Setting "combo" cell</p>
+Cell's combo is set as the column's one, the difference is using &lt;cell&gt; tag instead of <column> and that the xmlcontent attribute is always necessary:
+<xmp>
+<cell xmlcontent="1" editable="0">1
+	<option value="1">one</option>
+	<option value="2">two</option>
+	<option value="3">three</option>
+	...
+</cell>
+<cell xmlcontent="1" source="data.xml" filter="true">1</cell>
+</xmp>
+In case of autocomplete text should be set with text attribute:
+<xmp>
+<cell xmlcontent="1" source="complete.php" auto="true" cache="true" text="some text">4</cell>
+</xmp>
+
+<p style="font-size:12px; font-weight:bold;">New methods</p>
+<b>getCellCombo</b> - returns cell combo object
+<xmp>
+combo = grid.cells(id,index).getCellCombo();
+combo.enableFilteingMode(true)
+</xmp>
+<b>getColumnCombo</b> - returns column combo objec
+<xmp>
+combo = grid.getCellCombo(column_index);
+</xmp>
+
+
+Please check <a href='../samples/pro_combo.html'>samples/pro_combo.html</a> (Professional Edition only)
+</div>
+
+</div>
+</body>
+</html>

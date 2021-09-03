@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<!--AQUI ES DONDE PONEMOS LA INFO PARA LA CAPTURA DE LOS ESTUDIOS "AUTOCOMPLETAR" -->
+
+<!-- TERMINA "AUTOCOMPLETAR" -->
+
+
+
+<meta content="text/html; charset=windows-1252" http-equiv="content-type">
+
+<style type="text/css">
+	body{
+		/*
+		You can remove these four options 
+		
+		*/
+		
+
+	}
+	#ad{
+		padding-top:220px;
+		padding-left:10px;
+	}
+	#Citas table tr td .Record .Bottom td {
+	text-align: left;
+}
+</style>
+<meta name="GENERATOR" content="CodeCharge Studio 4.2.00.040">
+<link rel="stylesheet" type="text/css" href="Styles/INFOLAB/Style_doctype.css">
+
+
+</head>
+<body>
+ 
+<!-- BEGIN Record Citas -->
+<table border="0" cellspacing="0" cellpadding="0" width="1154">
+  <tr>
+    <td colspan="8"><img style="WIDTH: 1000px; HEIGHT: 130px" border="0" alt="logo" src="../images/infolab/cabeza2.jpg" width="517" height="24"></td> 
+  </tr>
+ 
+  <tr>
+     
+    <td width="103"><a href="citas.php" id="Link1"><img style="BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px" alt="Citas" src="../images/infolab/botones/b1.jpg"></a></td> 
+    <td width="103"><a href="atenciones.php" id="Link2"><img style="BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px" alt="Atenciones" src="../images/infolab/botones/b10.jpg"></a></td> 
+    <td width="103"><a href="Etiquetas.php" id="Etiquetas"><img style="BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px" alt="Etiquetas" src="../images/infolab/botones/b13.jpg"></a></td>
+	<td width="103"><a href="../ingreso.php" id="Link3"><img style="BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px" alt="{Link3}" src="../images/infolab/botones/b2.jpg"></a></td> 
+	<td width="99"><a href="../tabla.php" id="Link4"><img style="BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px" alt="{Link4}" src="../images/infolab/botones/b4.jpg"></a></td>
+	<td width="103"><a href="../lista.php" id="Link5"><img style="BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px" alt="{Link5}" src="../images/infolab/botones/b12.jpg" /></a></td>
+	<td width="295">&nbsp;</td>
+	<td><a href="../salir.php" id="Link6"><img style="BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px" alt="{Link6}" src="../images/logout.png" /></a></td>
+    
+  </tr>
+</table>
+</body>
+</html>

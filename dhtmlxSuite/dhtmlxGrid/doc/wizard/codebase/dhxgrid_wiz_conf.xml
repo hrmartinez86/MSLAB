@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<settings>
+	<exts>
+		<ext id="srnd" name="Smart Rendering" file="codebase/ext/dhtmlxgrid_srnd.js"/>
+	</exts>
+	<skins>
+		<skin name="gray" 	file="codebase/dhtmlxgrid.css"/>
+		<skin name="light" 	file="codebase/dhtmlxgrid.css"/>
+		<skin name="mt" 	file="codebase/dhtmlxgrid.css"/>
+		<skin name="modern" file="codebase/dhtmlxgrid.css"/>
+		<skin name="xp" 	file="codebase/dhtmlxgrid.css"/>								
+		<skin name="clear"	file="codebase/dhtmlxgrid.css"/>										
+	</skins>
+	<editors>
+		<editor code="ed" 		type="any" 	file="codebase/dhtmlxgridcells.js"/>
+		<editor code="calendar" type="date" file="codebase/excells/dhtmlxgrid_excell_calendar.js" extfile="codebase/dhtmlxcalendar.js" css="codebase/dhtmlxcalendar.css"/>
+	</editors>
+</settings>

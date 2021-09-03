@@ -1,0 +1,797 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<tree id="0">
+			<item id="common" text="DHTMLX Common" im0="dhtmlxcommon_icon.gif" im1="dhtmlxcommon_icon.gif" im2="dhtmlxcommon_icon.gif">
+				<userdata name="url">
+					doc
+				</userdata>
+				<item text="dhtmlx Components XML Structure" id="dhtmlx_xml">
+					<userdata name="url">
+						dhtmlxxml/index.html
+					</userdata>
+				</item>	
+			</item>
+			<item id="dhtmlxtree" text="dhtmlxTree" im0="dhtmlxtree_icon.gif" im1="dhtmlxtree_icon.gif" im2="dhtmlxtree_icon.gif">
+				<userdata name="url">
+					../dhtmlxTree/doc
+				</userdata>
+				<userdata name="thisurl">
+					../dhtmlxTree/doc/guide.html
+				</userdata>
+				<item text="Main Features" id="mf">
+					<userdata name="url">guide.html</userdata>
+				</item>
+				<item text="Supported Browsers" id="browsers">
+					<userdata name="url">guide.html</userdata>
+				</item>
+				<item text="Guide" id="guide">
+					<userdata name="url">guide.html</userdata>
+					<item text="Initialize object on page" id="init"/>
+					<item text="Initialization from HTML" id="inithtml"/>
+					<item text="Loading data with XML" id="xmlload"/>
+					<item text="Loading from JSON" id="json" im0="leaf_new.gif"/>
+					<item text="Loading from CSV" id="csv" im0="leaf_new.gif"/>
+					<item text="Loading from JS Array" id="jsarray" im0="leaf_new.gif"/>
+					
+					
+					<item text="Adding nodes with Script" id="scriptadd"/>
+					<item text="Icons in Tree" id="g_icons"/>
+					<item text="Setting custom icons to nodes" id="iconscust"/>
+					<item text="Checkboxes in tree" id="checkbox"/>
+					<item text="Radiobuttons in tree" id="radiobut"/>
+					<item text="Tooltips" id="tooltip"/>
+					<item text="Moving nodes" id="move"/>
+					<item text="Sorting nodes" id="sort"/>
+					<item text="Increasing Performance" id="guide_perf" im0="leaf_upd.gif"/>
+					<item text="Dynamical Loading" id="dyntree">
+						<userdata name="url">dyn_loading.html</userdata>
+					</item>
+					<item text="Smart Rendering for big trees" id="smartrnd" im0="leaf_new.gif"/>
+					<item text="Smart XML Parsing" id="smartxml"/>
+					<item text="Distributed Parsing" id="distparse"/>
+					<item text="Set Event Handlers" id="handlers" im0="leaf_upd.gif"/>
+					<item text="Drag-and-drop technics" id="dnd"/>
+					<item text="Drag-and-drop between iframes" id="dndifr"/>
+					<item text="Manipulating nodes" id="nodesman"/>
+					<item text="Refreshing nodes" id="refresh"/>
+					<item text="Serialization" id="serialize"/>
+					<item text="Search functionlity" id="search"/>
+					<item text="Multiline tree items" id="multiline"/>
+					<item text="Add Items Counter" id="counter"/>
+					<item text="Context Menu" id="context_menu"/>
+					<item text="Cold Fusion Tag for dhtmlXTree" id="cftag"/>
+					<item text="Error handling in dhtmlXTree" id="error"/>
+					<item text="Keyboard Navigation" id="keyboard"/>
+					<item text="Editable Items" id="edititem"/>
+					<item text="Simultanious Server Update" id="dataprocessor"/>
+					<!--item text="*.Net Implementation" id="dotnet"/-->
+					
+				</item>
+				<item text="API Functions" id="api">
+					<userdata name="url">alpha.html</userdata>
+					<item text="Object constructor" id="api_obj">
+						<userdata name="url">objects.html</userdata>
+					</item>
+					<item text="Events" id="api_ev">
+						<userdata name="url">events.html</userdata>
+					</item>
+					<item text="Alphabeticaly sorted" id="api_a">
+						<userdata name="url">alpha.html</userdata>
+					</item>
+					<item text="Grouped by Type" id="api_t">
+						<userdata name="url">tgroup.html</userdata>
+					</item>
+					<item text="Grouped by Object" id="api_o">
+						<userdata name="url">ogroup.html</userdata>
+					</item>
+					<!--item text="*Event handlers arguments" id="events_args">
+						<userdata name="file">events.html</userdata>
+					</item-->
+				</item>
+				<item text="Special Technique" id="spec">
+					<userdata name="url">special.html</userdata>
+					<item text="Links in tree" id="spec_link"/>
+					<item text="Drag-n-drop outside tree" id="spec_dnd_out"/>
+					<!--item text="*Context Menu" id="spec_cm"/-->
+				</item>
+				<item text="Frequently asked questions" id="kb_faq">
+					<userdata name="url">faq.html</userdata>
+					<item text="Licenses" id="kb_faq_lic"/>
+					<item text="Performance. Dynamical Loading" id="kb_faq_perf"/>
+					<item text="Drag-n-drop, Nodes ordering" id="kb_faq_dnd"/>
+					<item text="API, Initialization" id="kb_faq_api"/>
+					<item text="Other Questions" id="kb_faq_else"/>
+					<item text="IE images caching troubleshooting" id="tree_im_cach">
+		                <userdata name="url">trouble.html</userdata> 
+					</item>
+				</item>
+			</item>
+			<item id="dhtmlxgrid" text="dhtmlxGrid/TreeGrid" im0="dhtmlxgrid_icon.gif" im1="dhtmlxgrid_icon.gif" im2="dhtmlxgrid_icon.gif">
+				<userdata name="url">
+					../dhtmlxGrid/doc
+				</userdata>
+				<userdata name="thisurl">
+					../dhtmlxGrid/doc/guide.html
+				</userdata>
+				<item text="Main Features" id="grid_mf">
+					<userdata name="url">guide.html</userdata>
+				</item>
+				<item text="Supported Browsers" id="grid_browsers">
+					<userdata name="url">guide.html</userdata>
+				</item>
+				<item text="Guide" id="grid_guide">
+					<userdata name="url">guide.html</userdata>
+					<item text="Initialization and Control" id="grid_h_init">
+						<item text="Initialize object on page" id="grid_init"/>
+						<item text="Initialize Grid from HTML table" id="grid_initfromhtml"/>
+						<item text="Split Mode. Frozen columns" id="grid_splitm"/>
+						<item text="Configuration via XML" id="grid_confxml"/>
+						<item text="Adding nodes with Script" id="grid_scriptadd"/>
+						<item text="Manipulating rows" id="grid_rowsman"/>
+						<item text="Multiselection in Grid" id="grid_multisel"/>
+						<item text="Multiline rows" id="grid_multiline"/>
+						<item text="Navigation with keyboard" id="grid_keyboard"/>
+						<item text="Control over tab-order" id="grid_art_tabcontrol" im0="leaf_new.gif">
+							<userdata name="url">articles/Tab_order_control.html</userdata>
+						</item>
+						<item text="Save\Restore column width" id="grid_srcolwidth"/>
+						<item text="Light Mouse Navigation" id="grid_lightmousenav"/>
+						<item text="UnDo &amp; ReDo" id="grid_undoredo">
+			    	        <userdata name="url">new_1_3.html</userdata>
+				        </item>
+						<item text="Selecting block of cells" id="grid_blocsel">
+			    	        <userdata name="url">new_1_3.html</userdata>
+				        </item>
+						<item text="Extending Grid Usability" id="grid_usability"/>
+						<item text="Context Menu in Grid" id="grid_cmenu"/>
+					</item>
+					<item text="Visual Appearance" id="grid_h_visual">
+						<item text="Applying Skins" id="grid_skins"/>
+						<item text="Creating Custom Skin" id="grid_cust_skin" im0="leaf_new.gif">
+							<userdata name="url">articles/Creating_custom_skin.html</userdata>
+						</item>
+					</item>
+					<item text="Cell Editors (eXcells)" id="grid_h_excells">
+						<item text="Using Cell Editors (eXcell)" id="grid_excell_use"/>
+						<item text="Adding Subrows and Nested Grids" id="grid_subrows"/>
+						<!-- <item text="Creating Cell Editors (eXcell)" id="grid_excell_add"/> -->
+						<item text="Checkboxes &amp; Radiobuttons" id="grid_checkbox"/>
+						<item text="Managing select box collection" id="grid_art_selectbox" im0="leaf_new.gif">
+							<userdata name="url">articles/Selectbox_collections.html</userdata>
+						</item>
+						<item text="Math Formulas in Grid" id="grid_math"/>
+						<item text="Merging Cells in grid" id="grid_merg" im0="leaf_upd.gif"/>
+						<item text="Setting cell type explicetly" id="grid_ctype_exp"/>
+						<item text="Custom eXcell creation" id="grid_cexc" im0="leaf_new.gif">
+							<userdata name="url">articles/Custom_excell_creation.html</userdata>
+						</item>
+						<item text="Formatting cell values" id="grid_art_formatcells" im0="leaf_new.gif">
+							<userdata name="url">articles/Cell_values_formating.html</userdata>
+						</item>
+						<item text="Selectbox in Grid" id="grid_sboxman" im0="leaf_new.gif">
+							<userdata name="url">articles/Managing_selectbox_coll.html</userdata>
+						</item>
+						<item text="Subrows. New Data Dimension" id="grid_subrowsndd" im0="leaf_new.gif">
+							<userdata name="url">articles/Sub_rows_new_data_dim.html</userdata>
+						</item>
+					</item>
+					<item text="Headers and Footers" id="grid_h_hdr">
+						<item text="Headers and Footers in Grid" id="grid_art_hdrftr" im0="leaf_new.gif">
+							<userdata name="url">articles/Headers_and_footers.htm</userdata>
+						</item>
+						<item text="Icons in Header" id="grid_icohdr"/>
+						<item text="Automatically calculated values for header/footer" id="grid_autocalcvals"/>
+						<item text="Multiline Headers\Footer" id="grid_mlhdr"/>
+						<item text="Custom content in header" id="grid_ccingrid" im0="leaf_new.gif">
+							<userdata name="url">articles/Custom_content_in_header.htm</userdata>
+						</item>
+					</item>
+					<item text="Loading/Serialization/Manipulating Data" id="grid_h_loading">
+						<item text="Loading Data(since v.1.6)" id="grid_art_loadingdata" im0="leaf_new.gif">
+							<userdata name="url">articles/Loading_data_in_grid.htm</userdata>
+						</item>
+						<item text="Loading data with XML" id="grid_xmlload"/>
+						
+						<item text="Refreshing Grid" id="grid_refreshgrid">
+			    	        <userdata name="url">new_1_3.html</userdata>
+				        </item>
+						<item text="Serialize Grid into XML string" id="grid_serialize"/>
+						<item text="Export to/from CSV" id="grid_csv"/>
+						<item text="Storring additional data" id="grid_art_userdata" im0="leaf_new.gif">
+							<userdata name="url">articles/Storing_additional_data.htm</userdata>
+						</item>
+						<item text="Copy data to Excel" id="grid_excel"/>
+						<item text="Pivot table" id="grid_pivot"/>
+					</item>
+					<item text="Performance" id="grid_h_perform">
+						<item text="Increasing Performance" id="grid_guide_perf" im0="leaf_upd.gif"/>
+						<item text="Dynamical Loading &amp; Buffering" id="grid_dynload"/>
+						<item text="Smart Rendering" id="grid_srnd"/>
+						<item text="FAST mode for some operations" id="grid_fastmode"/>
+						<item text="Paginal Output" id="grid_pgn"/>
+					</item>
+					<item text="Moving Columns and Rows" id="grid_h_dnd">
+						<item text="Drag-n-drop in Grid" id="grid_dnd"/>
+						<item text="Managed Drag and Drop" id="grid_mandnd" im0="leaf_new.gif">
+			    	        <userdata name="url">articles/Managed_Drag_and_Drop.html</userdata>
+				        </item>
+						<item text="Moving rows" id="grid_move"/>
+						<item text="Add/Delete/Move columns" id="grid_admcols"/>
+					</item>
+					<item text="Events" id="grid_h_events">
+						<item text="Set Event Handlers" id="grid_handlers" im0="leaf_upd.gif"/>
+						<item text="Attaching custom code to events" id="grid_attccodeevents" im0="leaf_new.gif">
+			    	        <userdata name="url">articles/Cust_code_in_events.html</userdata>
+				        </item>
+					</item>
+					<item text="Working with server" id="grid_h_server">
+						<item text="Integration with HTML Form" id="grid_htmlform">
+			    	        <userdata name="url">new_1_3.html</userdata>
+				        </item>
+						<item text="Data Processing and link with Server Datasource" id="grid_dblink"/>
+						<item text="Data Processing and Server errors handling" id="grid_dbproc_err"/>
+					</item>
+					<item text="Integration with other components" id="grid_h_integr">
+						<item text="Interaction with dhtmlxTree (drag-and-drop)" id="grid_dndtree"/>
+						<item text="Integration with dhtmlxCombo" id="grid_intcombo">
+			    	        <userdata name="url">new_1_3.html</userdata>
+				        </item>
+					</item>
+					<item text="Sorting/Filtering/Searching/Grouping" id="grid_h_filter">
+						<item text="Creation of Filter for Grid" id="grid_filter"/>
+						<item text="Filtering by many values at once" id="grid_filtermulti"/>
+						<item text="Filters in Header" id="grid_filtershdr"/>
+						<item text="Sorting" id="grid_sorting">
+							<item text="Sorting Data" id="grid_sort"/>
+							<item text="Server Side Sorting" id="grid_sssort"/>
+							<item text="Sorting Data with Custom Rules" id="grid_custsort"/>
+							<item text="In-grid sorting" id="grid_art_sort" im0="leaf_new.gif">
+			    	        	<userdata name="url">articles/Sorting_in_grid.html</userdata>
+				        	</item>
+						</item>
+						<item text="Grouping by value" id="grid_grouping"/>
+						<item text="Filtering and Searching Data in Grid" id="grid_fsing" im0="leaf_new.gif">
+			    	        <userdata name="url">articles/Data_filtering_search.html</userdata>
+				        </item>
+					</item>
+					<item text="dhtmlxTreeGrid Extension" id="grid_trgr">
+						<userdata name="url">guide.html</userdata>
+						<item text="Tree-&amp;-Grid initialization and usage" id="grid_treegrid"/>
+						<item text="TreeGrid XML structure" id="grid_xml_tree"/>
+						<item text="Math Formulas in TreeGrid" id="grid_math_tree"/>
+						<item text="Adding nodes with Script" id="grid_add_tree"/>
+						<item text="Dynamical Loading in TreeGrid" id="grid_dloadTreeGrid"/>
+						<item text="Smart XML Parsing in dhtmlxTreeGrid" id="grid_smpars"/>
+						<item text="Lines between nodes" id="grid_treelines"/>
+						<item text="Autocalculated Values in TreeGrid" id="grid_tg_statcount" im0="leaf_new.gif">
+			    	        <userdata name="url">articles/Stat_counters_treegrid.html</userdata>
+				        </item>
+					</item>
+					<item text="Functionality Compatibility" id="grid_fcompatibility" im0="leaf_new.gif">
+			    	        <userdata name="url">compatibility.html</userdata>
+				    </item>
+					<item text="Migrating to version 1.6" id="grid_art_mig16" im0="leaf_new.gif">
+			    	        <userdata name="url">articles/Migrating_to_16.html</userdata>
+				    </item>
+					<item text="Configuration Wizard" id="grid_cwizard" im0="leaf_new.gif">
+			    	        <userdata name="url">wizard/index.html</userdata>
+				    </item>
+				</item>
+				<item text="Step-by-step tutorials" id="grid_sbstut">
+					<userdata name="url">step-by-step</userdata>
+					<item text="Basics" id="grid_sbs_basics">
+						<userdata name="url">ch_basics.html</userdata>
+					</item>
+					<item text="Smart Rendering" id="grid_sbs_biggrid">
+						<userdata name="url">ch_biggrid.html</userdata>
+					</item>
+				</item>
+				<item text="API Functions" id="grid_api">
+					<userdata name="url">alpha.html</userdata>
+		        	 <item text="Object constructor" id="grid_api_obj">
+		    	        <userdata name="url">objects.html</userdata>
+			         </item>
+		        	 <item text="Events" id="grid_api_ev">
+	    	        	<userdata name="url">events.html</userdata>
+		         	</item>
+					<item text="Alphabeticaly sorted" id="grid_api_a">
+						<userdata name="url">alpha.html</userdata>
+					</item>
+					<item text="Grouped by Type" id="grid_api_t">
+						<userdata name="url">tgroup.html</userdata>
+					</item>
+					<item text="Grouped by Object" id="grid_api_o">
+						<userdata name="url">ogroup.html</userdata>
+					</item>
+					<item text="eXcells API" id="grid_excellsapi" im0="leaf_new.gif">
+						<userdata name="url">articles/Excell_API_reference.html</userdata>
+					</item>	
+					<item text="eXcells Types" id="grid_excellstypes" im0="leaf_new.gif">
+						<userdata name="url">articles/ExCell_types_usage.html</userdata>
+					</item>		
+				</item>
+				<item text="dhtmlx Integration" id="grid_integrlib">
+					<userdata name="url">articles/Integration_with_ExtJS.html</userdata>
+					<item text="Integration with ExtJS" id="grid_extjsint" im0="leaf_new.gif">
+						
+					</item>
+				</item>
+				<item text="Special Technique" id="grid_spectech">
+					<userdata name="url">specialtech.html</userdata>
+					<item text="Browser caches xml files" id="grid_cachprob"/>
+				</item>
+			</item>
+			
+			<item id="dhtmlxdataprocessor" text="dhtmlxDataProcessor" im0="dhtmlxdataprocessor_icon.gif" im1="dhtmlxdataprocessor_icon.gif" im2="dhtmlxdataprocessor_icon.gif">
+				<userdata name="url">
+					../dhtmlxDataProcessor/doc
+				</userdata>
+				<userdata name="thisurl">
+					../dhtmlxDataProcessor/doc/guide.html
+				</userdata>
+				<item text="Main Features" id="dp_mf">
+					<userdata name="url">guide.html</userdata>
+				</item>
+				<item text="Supported Browsers" id="dp_browsers">
+					<userdata name="url">guide.html</userdata>
+				</item>
+				<item text="Guide" id="dp_guide">
+					<userdata name="url">guide.html</userdata>
+					
+				</item>
+				<item text="API Functions" id="dp_api">
+					<userdata name="url">alpha.html</userdata>
+	        	 	<item text="Object constructor" id="dp_api_obj">
+	    	       		<userdata name="url">objects.html</userdata>
+		         	</item>
+	        	 	<item text="Alphabeticaly sorted" id="dp_api_a">
+						<userdata name="url">alpha.html</userdata>
+					</item>
+					<item text="Grouped by Type" id="dp_api_t">
+						<userdata name="url">tgroup.html</userdata>
+					</item>
+				</item>
+			</item>
+			
+			<item id="dhtmlxfolders" text="dhtmlxFolders" im0="dhtmlxfolders_icon.gif" im1="dhtmlxfolders_icon.gif" im2="dhtmlxfolders_icon.gif">
+				<userdata name="url">
+					../dhtmlxFolders/doc
+				</userdata>
+				<userdata name="thisurl">
+					../dhtmlxFolders/doc/guide.html
+				</userdata>
+				<item text="Main Features" id="folders_mf">
+					<userdata name="url">guide.html</userdata>
+				</item>
+				<item text="Supported Browsers" id="folders_browsers">
+					<userdata name="url">guide.html</userdata>
+				</item>
+				<item text="Guide" id="folders_guide">
+					<userdata name="url">guide.html</userdata>
+					<item text="Initialize object on page" id="folders_init"/>
+					<item text="XML format" id="folders_xml"/>
+					<item text="Item Types" id="folders_itemtypes"/>
+					<item text="Define items type using built-in types" id="folders_builtintypes"/>
+					<item text="Define your own type" id="folders_udtypes"/>
+					<item text="Changing type dynamically (keeping data)" id="folders_dyntypech"/>
+					<item text="Selection in dhtmlxFolders" id="folders_select"/>
+					<item text="Sorting" id="folders_sort"/>
+					<item text="Filtering" id="folders_filtering"/>
+					<item text="Paginal Output and Dynamical Loading" id="folders_paging"/>
+					<item text="Drag-n-drop" id="folders_dnd"/>
+					<item text="Events" id="folders_events"/>
+					<item text="Delete Items with script" id="folders_del"/>
+				</item>
+				<item text="Step by step instructions" id="folders_stepbystep">
+					<userdata name="url">step-by-step/index.html</userdata>
+				</item>
+				<item text="Create own Types" id="folders_owntypes">
+					<userdata name="url">ud_types/index.html</userdata>
+				</item>
+				<item text="Predefined Types" id="folders_pretypes">
+					<userdata name="url">item_types.html</userdata>
+				</item>
+				<item text="API Functions" id="folders_api">
+					<userdata name="url">alpha.html</userdata>
+	        	 	<item text="Object constructor" id="folders_api_obj">
+	    	       		<userdata name="url">objects.html</userdata>
+		         	</item>
+	        	 	<item text="Alphabeticaly sorted" id="foders_api_a">
+						<userdata name="url">alpha.html</userdata>
+					</item>
+					<item text="Grouped by Type" id="folders_api_t">
+						<userdata name="url">tgroup.html</userdata>
+					</item>
+					<item text="Grouped by Object" id="folders_api_o">
+						<userdata name="url">ogroup.html</userdata>
+					</item>
+					<item text="Events" id="folders_api_ev">
+	    	        	<userdata name="url">events.html</userdata>
+		         	</item>
+				</item>
+			</item>
+			<item id="dhtmlxmenu" text="dhtmlxMenu" im0="dhtmlxmenu_icon.gif" im1="dhtmlxmenu_icon.gif" im2="dhtmlxmenu_icon.gif">
+				<userdata name="url">
+					../dhtmlxMenu/doc
+				</userdata>
+				<userdata name="thisurl">
+					../dhtmlxMenu/doc/guide.html
+				</userdata>
+				<item text="Main Features" id="menu_mf">
+					<userdata name="url">guide.html</userdata>
+				</item>
+				<item text="Supported Browsers" id="menu_browsers">
+					<userdata name="url">guide.html</userdata>
+				</item>
+				<item text="Guide" id="menu_guide">
+					<userdata name="url">guide.html</userdata>
+					<item text="Initialize object on page" id="menu_init"/>
+					<item text="Set Event Handlers" id="menu_events"/>
+					<item text="Adding Items with Script" id="menu_additem"/>
+					<item text="Configuring with XML" id="menu_xml"/>
+					<item text="Menu items manipulation" id="menu_itemman"/>
+					<item text="Link navigation menu" id="menu_links"/>
+					<item text="Context menu" id="menu_context"/>
+					
+				</item>
+				<item text="API Functions" id="menu_api">
+					<userdata name="url">alpha.html</userdata>
+	        	 	<item text="Object constructor" id="menu_api_obj">
+	    	       		<userdata name="url">objects.html</userdata>
+		         	</item>
+	        	 	<item text="Alphabeticaly sorted" id="menu_api_a">
+						<userdata name="url">alpha.html</userdata>
+					</item>
+					<item text="Grouped by Type" id="menu_api_t">
+						<userdata name="url">tgroup.html</userdata>
+					</item>
+					<item text="Grouped by Object" id="menu_api_o">
+						<userdata name="url">ogroup.html</userdata>
+					</item>
+				</item>
+			</item>
+			<item id="dhtmlxtabbar" text="dhtmlxTabbar" im0="dhtmlxtabbar_icon.gif" im1="dhtmlxtabbar_icon.gif" im2="dhtmlxtabbar_icon.gif">
+				<userdata name="url">
+					../dhtmlxTabbar/doc
+				</userdata>
+				<userdata name="thisurl">
+					../dhtmlxTabbar/doc/guide.html
+				</userdata>
+				<item text="Main Features" id="tabbar_mf">
+					<userdata name="url">guide.html</userdata>
+				</item>
+				<item text="New in v.1.2" im0="leaf_new.gif" id="tabbar_newinversion">
+					<userdata name="url">new_list.html</userdata>
+				</item>
+				<item text="Supported Browsers" id="tabbar_browsers">
+					<userdata name="url">guide.html</userdata>
+				</item>
+				<item text="Guide" id="tabbar_guide">
+					<userdata name="url">guide.html</userdata>
+					<item text="Initialize TabBar object from javascript constructor" id="tabbar_init"/>
+					<item text="Initialize TabBar object from HTML structure" id="tabbar_inithtml"/>
+					<item text="Building tabbar with Javascript" id="tabbar_scriptinit"/>
+					<item text="Building tabbar from XML" id="tabbar_xmlinit"/>
+					<item text="Assigning content to tabs with Javscript" id="tabbar_contentjs"/>
+					<item text="Assigning content to tabs in XML" id="tabbar_contentxml"/>
+					<item text="Loading content in IFrames" id="tabbar_ifrmode"/>
+					<item text="Loading content with AJAX" id="tabbar_ajaxmode"/>
+		            <item text="Mixed loading mode" im0="leaf_new.gif" id="tabbar_ajaxmodemixed"/>  
+					<item text="Settings: position, align, offset, marging" id="tabbar_settings"/>
+		            <item text="Skining: colors,predefined skins" im0="leaf_upd.gif" id="tabbar_skins"/> 
+					<item text="Manage tabbar and tab content area size" id="tabbar_sizes"/>  
+					<item text="Manage each tab with script API" id="tabbar_tabmanag"/>
+					<item text="Normalization" im0="leaf_new.gif" id="tabbar_normalz"/>           
+				</item>
+				<item text="API Functions" id="tabbar_api">
+					<userdata name="url">alpha.html</userdata>
+					<item text="Alphabeticaly sorted" id="tabbar_api_a">
+						<userdata name="url">alpha.html</userdata>
+					</item>
+					<item text="Grouped by Type" id="tabbar_api_t">
+						<userdata name="url">tgroup.html</userdata>
+					</item>
+					<item text="Grouped by Object" id="tabbar_api_o">
+						<userdata name="url">ogroup.html</userdata>
+					</item>
+					<item text="Events" id="tabbar_api_events">
+						<userdata name="url">events.html</userdata>
+					</item>
+					<!--item text="*Event handlers arguments" id="tabbar_events_args">
+						<userdata name="url">events.html</userdata>
+					</item-->
+				</item>
+			</item>
+			<item id="dhtmlxcombo" text="dhtmlxCombo" im0="dhtmlxcombo_icon.gif" im1="dhtmlxcombo_icon.gif" im2="dhtmlxcombo_icon.gif">
+				<userdata name="url">
+					../dhtmlxCombo/doc
+				</userdata>
+				<userdata name="thisurl">
+					../dhtmlxCombo/doc/guide.html
+				</userdata>
+				<item text="Main Features" id="combo_mf">
+					<userdata name="url">guide.html</userdata>
+				</item>
+				<item text="Supported Browsers" id="combo_browsers">
+					<userdata name="url">guide.html</userdata>
+				</item>
+				<item text="Guide" id="combo_guide">
+					<userdata name="url">guide.html</userdata>
+					<item text="Initializing object" id="combo_init">
+					</item>
+					<item text="Adding options" id="combo_adding_options">
+					</item>
+					<item text="Integration with FORM" id="combo_form">
+					</item>
+					<item text="Filtering" id="combo_filtering">
+					</item>
+					<item text="Operations with comobobox" id="combo_operation1">
+					</item>
+					<item text="Operations with comobobox's options" id="combo_operation2">
+					</item>
+
+				</item>
+				<item text="API Functions" id="combo_api">
+					<userdata name="url">alpha.html</userdata>
+	        	 	<item text="Alphabeticaly sorted" id="combo_api_a">
+						<userdata name="url">alpha.html</userdata>
+					</item>
+					<item text="Grouped by Type" id="combo_api_t">
+						<userdata name="url">tgroup.html</userdata>
+					</item>
+					<item text="Grouped by Object" id="combo_api_o">
+						<userdata name="url">ogroup.html</userdata>
+					</item>
+					<item text="Events" id="combo_api_events" im0="leaf_new.gif">
+						<userdata name="url">events.html</userdata>
+					</item>
+				</item>
+			</item>
+			<item id="dhtmlxtoolbar" text="dhtmlxToolbar" im0="dhtmlxtoolbar_icon.gif" im1="dhtmlxtoolbar_icon.gif" im2="dhtmlxtoolbar_icon.gif">
+				<userdata name="url">
+					../dhtmlxToolbar/doc
+				</userdata>
+				<userdata name="thisurl">
+					../dhtmlxToolbar/doc/guide.html
+				</userdata>
+				<item text="Main Features" id="toolbar_mf">
+					<userdata name="url">guide.html</userdata>
+				</item>
+				<item text="Supported Browsers" id="toolbar_browsers">
+					<userdata name="url">guide.html</userdata>
+				</item>
+				<item text="Guide" id="toolbar_guide">
+					<userdata name="url">guide.html</userdata>
+					<item text="Initialize object on page" id="toolbar_init"/>
+					<item text="Set Event Handler" id="toolbar_events"/>
+					<item text="Adding buttons with Script" id="toolbar_addbuttons"/>
+					<item text="Configuring with XML" id="toolbar_xml"/>
+					<item text="Examples of buttons manipulation" id="toolbar_manip"/>
+										
+				</item>
+				<item text="API Functions" id="toolbar_api">
+					<userdata name="url">alpha.html</userdata>
+	        	 	<item text="Object constructor" id="toolbar_api_obj">
+	    	       		<userdata name="url">objects.html</userdata>
+		         	</item>
+	        	 	<item text="Alphabeticaly sorted" id="toolbar_api_a">
+						<userdata name="url">alpha.html</userdata>
+					</item>
+					<item text="Grouped by Type" id="toolbar_api_t">
+						<userdata name="url">tgroup.html</userdata>
+					</item>
+					<item text="Grouped by Object" id="toolbar_api_o">
+						<userdata name="url">ogroup.html</userdata>
+					</item>
+					<item text="Events" id="toolbar_api_events">
+						<userdata name="url">events.html</userdata>
+					</item>
+				</item>
+			</item>
+			<item id="dhtmlxcalendar" text="dhtmlxCalendar" im0="dhtmlxcalendar_icon.gif" im1="dhtmlxcalendar_icon.gif" im2="dhtmlxcalendar_icon.gif">
+				<userdata name="url">
+					../dhtmlxCalendar/doc
+				</userdata>
+				<userdata name="thisurl">
+					../dhtmlxCalendar/doc/guide.html
+				</userdata>
+				<item text="Main Features" id="calendar_mf">
+					<userdata name="url">guide.html</userdata>
+				</item>
+				<item text="Supported Browsers" id="calendar_browsers">
+					<userdata name="url">guide.html</userdata>
+				</item>
+				<item text="Guide" id="calendar_guide">
+					<userdata name="url">guide.html</userdata>
+					<item text="Initialize object on page" id="calendar_init"/>
+					<item text="Double Calendar" id="calendar_dbl"/>
+					<item text="Formating Date" id="calendar_dateformat"/>
+					<item text="Multilingual Calendar" id="calendar_lang"/>
+					<item text="Event(s) in Calendar" id="calendar_event"/>
+				</item>
+				<item text="API Functions" id="calendar_api">
+					<userdata name="url">alpha.html</userdata>
+	        	 	<item text="Object constructor" id="calendar_api_obj">
+	    	       		<userdata name="url">objects.html</userdata>
+		         	</item>
+	        	 	<item text="Alphabeticaly sorted" id="calendar_api_a">
+						<userdata name="url">alpha.html</userdata>
+					</item>
+					<item text="Grouped by Type" id="calendar_api_t">
+						<userdata name="url">tgroup.html</userdata>
+					</item>
+					<item text="Grouped by Object" id="calendar_api_o">
+						<userdata name="url">ogroup.html</userdata>
+					</item>
+					<item text="Events" id="calendar_api_events">
+						<userdata name="url">events.html</userdata>
+					</item>
+				</item>
+			</item>
+			<item id="dhtmlxwindows" text="dhtmlxWindows" im0="dhtmlxwindows_icon.gif" im1="dhtmlxwindows_icon.gif" im2="dhtmlxwindows_icon.gif">
+				<userdata name="url">
+					../dhtmlxWindows/doc
+				</userdata>
+				<userdata name="thisurl">
+					../dhtmlxWindows/doc/guide.html
+				</userdata>
+				<item text="Main Features" id="win_mf">
+					<userdata name="url">guide.html</userdata>
+				</item>
+				<item text="Supported Browsers" id="win_browsers">
+					<userdata name="url">guide.html</userdata>
+				</item>
+				<item text="Guide" id="win_guide">
+					<userdata name="url">guide.html</userdata>
+					<item text="Initializing dhtmlxWindows" id="win_init"/>
+					<item text="Attach object" id="win_atobj"/>
+					<item text="Attach url" id="win_aturl"/>
+					<item text="Viewport (working area)" id="win_viewport"/>
+					<item text="Skins" id="win_skins"/> 
+					<item text="Accessing single window" id="win_singwin"/>
+					<item text="Window iterator" id="win_interator"/>
+					<item text="Changing window dimension" id="win_chdim"/>
+					<item text="Changing window position" id="win_pos"/>
+					<item text="Window parking" id="win_park"/>
+					<item text="Window minimizing/maximizing" id="win_mnmax"/>
+					<item text="Bringing window to top/bottom" id="win_topbtm"/>
+					<item text="Window sticking/unsticking" id="win_stic"/>
+					<item text="Modal/modeless window" id="win_modal"/>
+					<item text="Topmost/Bottommost Window" id="win_tmbm"/>
+					<item text="Buttons settings manipulating" id="win_btns"/>
+					<item text="Creating user buttons" id="win_userbutton"/>
+					<item text="Event handling" id="win_eventhand"/>
+				</item>
+				<item text="API Functions" id="win_api">
+					<userdata name="url">alpha.html</userdata>
+	        	 	<item text="Object constructor" id="win_api_obj">
+	    	       		<userdata name="url">objects.html</userdata>
+		         	</item>
+	        	 	<item text="Alphabeticaly sorted" id="win_api_a">
+						<userdata name="url">alpha.html</userdata>
+					</item>
+					<item text="Grouped by Type" id="win_api_t">
+						<userdata name="url">tgroup.html</userdata>
+					</item>
+					<item text="Grouped by Object" id="win_api_o">
+						<userdata name="url">ogroup.html</userdata>
+					</item>
+					<item text="Events" id="win_api_events">
+						<userdata name="url">events.html</userdata>
+					</item>
+				</item>
+			</item>
+			
+			<item id="dhtmlxcolorpicker" text="dhtmlxColorPicker" im0="dhtmlxcolorpicker_icon.gif" im1="dhtmlxcolorpicker_icon.gif" im2="dhtmlxcolorpicker_icon.gif">
+				<userdata name="url">
+					../dhtmlxColorPicker/doc
+				</userdata>
+				<userdata name="thisurl">
+					../dhtmlxColorPicker/doc/guide.html
+				</userdata>
+				<item text="Main Features" id="cp_mf">
+					<userdata name="url">guide.html</userdata>
+				</item>
+				<item text="Supported Browsers" id="cp_browsers">
+					<userdata name="url">guide.html</userdata>
+				</item>
+				<item text="Guide" id="cp_guide">
+					<userdata name="url">guide.html</userdata>
+					<item text="Initializing dhtmlxColorPicker" id="cp_init"/>
+					<item text="Changing properties" id="cp_props"/>
+					<item text="Using Custom Colors" id="cp_cust_colors"/>
+					<item text="Events system" id="cp_events"/>
+				</item>
+				<item text="API Functions" id="cp_api">
+					<userdata name="url">alpha.html</userdata>
+	        	 	<item text="Object constructor" id="cp_api_obj">
+	    	       		<userdata name="url">objects.html</userdata>
+		         	</item>
+	        	 	<item text="Alphabeticaly sorted" id="cp_api_a">
+						<userdata name="url">alpha.html</userdata>
+					</item>
+					<item text="Events" id="cp_api_events">
+						<userdata name="url">events.html</userdata>
+					</item>
+				</item>
+			</item>
+			
+			<item id="dhtmlxslider" text="dhtmlxSlider" im0="dhtmlxslider_icon.gif" im1="dhtmlxslider_icon.gif" im2="dhtmlxslider_icon.gif">
+				<userdata name="url">
+					../dhtmlxSlider/doc
+				</userdata>
+				<userdata name="thisurl">
+					../dhtmlxSlider/doc/guide.html
+				</userdata>
+				<item text="Main Features" id="slider_mf">
+					<userdata name="url">guide.html</userdata>
+				</item>
+				<item text="Supported Browsers" id="slider_browsers">
+					<userdata name="url">guide.html</userdata>
+				</item>
+				<item text="Guide" id="slider_guide">
+					<userdata name="url">guide.html</userdata>
+					<item text="Initialize object on page" id="slider_init"/>
+					<item text="Integration with form" id="slider_formintegr"/>
+					<item text="Control and Configure slider" id="slider_cntr"/>
+					<item text="Applying Skin" id="slider_skins"/>
+					<item text="Events System" id="slider_events"/>
+				</item>
+				<item text="API Functions" id="slider_api">
+					<userdata name="url">alpha.html</userdata>
+	        	 	<item text="Object constructor" id="slider_api_obj">
+	    	       		<userdata name="url">objects.html</userdata>
+		         	</item>
+	        	 	<item text="Alphabeticaly sorted" id="slider_api_a">
+						<userdata name="url">alpha.html</userdata>
+					</item>
+					<item text="Events" id="slider_api_events">
+						<userdata name="url">events.html</userdata>
+					</item>
+				</item>
+			</item>
+			
+			
+			
+			<item id="dhtmlxvault" text="dhtmlxVault" im0="dhtmlxvault_icon.gif" im1="dhtmlxvault_icon.gif" im2="dhtmlxvault_icon.gif">
+				<userdata name="url">
+					../dhtmlxVault/doc
+				</userdata>
+				<userdata name="thisurl">
+					../dhtmlxVault/doc/guide.html
+				</userdata>
+				<item text="Main Features" id="vault_mf">
+					<userdata name="url">guide.html</userdata>
+				</item>
+				<item text="Supported Browsers" id="vault_browsers">
+					<userdata name="url">guide.html</userdata>
+				</item>
+				<item text="Guide" id="vault_guide">
+					<userdata name="url">guide.html</userdata>
+					<item text="Initialize object on page" id="vault_init"/>
+					<item text="Server Handlers description" id="vault_serverhandlers"/>
+					<item text="Running on different Servers" id="vault_run">
+						<item text="ASP.Net" id="vault_runASP"/>
+						<item text="JSP/Java" id="vault_runJSP"/>
+						<item text="PHP" id="vault_runPHP"/>
+						<item text="Perl" id="vault_runPerl"/>
+					</item>
+				</item>
+				<item text="API Functions" id="vault_api">
+					<userdata name="url">alpha.html</userdata>
+	        	 	<item text="Object constructor" id="vault_api_obj">
+	    	       		<userdata name="url">objects.html</userdata>
+		         	</item>
+	        	 	<item text="Alphabeticaly sorted" id="vault_api_a">
+						<userdata name="url">alpha.html</userdata>
+					</item>
+					<item text="Grouped by Type" id="vault_api_t">
+						<userdata name="url">tgroup.html</userdata>
+					</item>
+					<item text="Grouped by Object" id="vault_api_o">
+						<userdata name="url">ogroup.html</userdata>
+					</item>
+				</item>
+			</item>
+
+
+		</tree>

@@ -1,0 +1,213 @@
+<html>
+
+<head>
+
+
+<link rel="STYLESHEET" type="text/css" href="../common/styles.css">
+</head>
+<body>
+	<table border="0" cellpadding="0" cellspacing="0" class="sample_header" zid="71">
+		<tbody zid="3">
+			<tr valign="center" zid="4">
+				<td align="center" width="10" zid="5">&nbsp;</td>
+				<td align="left" zid="6">
+					<p zid="224">
+						<a href="http://www.dhtmlx.com/" zid="7">DHTMLX</a> Documentation
+					</p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<!--- CONTENT. Starts --->
+	<H1 id=rfwn0>In-grid sorting</H1>
+<BR id=jl250>
+<H3 id=rfwn1>Basics of sorting</H3>
+<BR id=rfwn2>
+The grid allows to sort data rows on the client side.<BR id=jl251>
+By default sorting is triggered by a single click on any header row (if a grid has multiple rows - a click on any of them will trigger sorting).<BR id=jl252>
+<BR id=jl253>
+The sorting can be forced by js code like this:<BR id=c.wu0>
+&nbsp;&nbsp;&nbsp; grid.sortRows(index)<BR id=c.wu1>
+Where "index" is the index of the column, by which the grid needs to be sorted.<BR id=c6fb0>
+<BR id=sr6k0>
+The command can be executed with additional parameters to specify more details: <BR id=sr6k1>
+&nbsp;&nbsp;&nbsp; grid.sortRows(0,"str","asc");&nbsp;&nbsp;&nbsp; // sorting by the first column, as a string in the ascendant order<BR id=p06q0>
+&nbsp;&nbsp;&nbsp; grid.sortRows(1,"int","des");&nbsp;&nbsp;&nbsp; // sorting by the first column, as a string in the descendant order<BR id=jl254>
+<BR id=grbn1>
+<H3 id=wk8-0>Sorting types</H3>
+<BR id=dx4h0>
+The way of sorting depends on column sorting types. There are 4 predefined sorting types:<BR id=dx4h1>
+&nbsp;&nbsp;&nbsp; str - the data will be sorted as strings (case sensitive);<BR id=dx4h2>
+&nbsp;&nbsp;&nbsp; int - the data will be sorted as numbers (numbers must be in js recognizable format, or you can use number formating feature of the grid);<BR id=gn4l0>
+&nbsp;&nbsp;&nbsp; date - the data will be sorted as a date (dates must be in js recognizable format, or you can use use date formating feature of the grid);<BR id=a3_l0>
+&nbsp;&nbsp;&nbsp; na - sorting is not available for a column (a column will not react on a header click and sortRows calls).<BR id=a3_l1>
+<BR id=a3_l2>
+The sorting types are assigned to columns using: <BR id=a3_l3>
+&nbsp;&nbsp;&nbsp; grid.setColSorting(list_of_values);<BR id=wk8-1>
+&nbsp;&nbsp;&nbsp; grid.setColSorting("int,str,na,str"); // define sorting state for columns 0-3<BR id=wk8-2>
+<BR id=rfwn4>
+Custom sorting<BR id=wk8-3>
+<BR id=wk8-4>
+The 4 existing sorting types are too small to cover all use-cases, so the grid allows to create custom sorting types.<BR id=u4y00>
+Basically you need to define a function which will receive two values and the required order of sorting.<BR id=dmkf0>
+The return value will be as follows:<BR id=dmkf1>
+&nbsp;&nbsp;&nbsp; valueA &gt; valueB =&gt; return 1<BR id=dmkf2>
+&nbsp;&nbsp;&nbsp; valueA &lt; valueB =&gt; return -1<BR id=dmkf3>
+<BR id=dmkf4>
+The snippets below show some common use-cases.<SPAN id=tpfz0><BR id=a9bo0>
+<BR id=a9bo1>
+</SPAN>
+<H3 id=a9bo2><SPAN id=tpfz0>Case insensitive sorting</SPAN></H3>
+<BLOCKQUOTE id=rg4w0>function <SPAN id=axln0><B id=ru270>str_custom</B></SPAN>=function(a,b,order){&nbsp;&nbsp;&nbsp; <SPAN id=b-5r0><I id=ru271>//the name of the function must be &gt; than 5 chars</I></SPAN><BR id=bm:60>
+&nbsp;&nbsp;&nbsp; if (order=="asc")<BR id=he9.0>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return (a.toLoweCase()&gt;b.toLoweCase()?1:-1);<BR id=he9.1>
+&nbsp;&nbsp;&nbsp; else<BR id=he9.2>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return (a.toLoweCase()&lt;b.toLoweCase()?-1:1);<BR id=he9.3>
+}<BR id=he9.4>
+grid.setColSorting("int,<SPAN id=axln1><B id=ru272>str_custom</B></SPAN>,na,str"); // define sorting state for columns 0-3<BR id=td:d0>
+</BLOCKQUOTE>
+<BR id=td:d1>
+The code above is pretty simple, but can be written in a simpler (or more difficult, it depends on your definition of simplicity) way like this: <BR id=he9.5>
+<BR id=grbn4>
+<BLOCKQUOTE id=rg4w1>function <SPAN id=axln0><B id=ru273>str_custom</B></SPAN>=function(a,b,order){&nbsp;&nbsp; <BR id=bm:60>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return (a.toLoweCase()&gt;b.toLoweCase()?1:-1)*(order=="asc"?1:-1);<BR id=he9.1>
+}<BR id=lmxw0>
+</BLOCKQUOTE>
+<BR id=lmxw1>
+<H3 id=a9bo2><SPAN id=tpfz0>Custom time sorting</SPAN></H3>
+For data such as&nbsp;&nbsp;&nbsp; 14:56<BR id=w3z62>
+<BR id=w3z63>
+<BLOCKQUOTE id=yea90>function time<SPAN id=axln0>_custom</SPAN>=function(a,b,order){&nbsp;&nbsp; <BR id=ue1.0>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a=a.split(":")<BR id=ue1.1>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b=a.split(":")<BR id=ue1.2>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (a[0]==b[0])<BR id=e0w80>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return (a[1]&gt;b[1]?1:-1)*(order=="asc"?1:-1);<BR id=e0w81>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else<BR id=e0w82>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return (a[0]&gt;b[0]?1:-1)*(order=="asc"?1:-1);<BR id=he9.1>
+}<BR id=k.s.0>
+grid.setColSorting("int,time<SPAN id=axln0>_custom,</SPAN>na,str"); <BR id=k.s.1>
+</BLOCKQUOTE>
+<H3 id=rg4w2><SPAN id=w3z60>Custom date sorting</SPAN></H3>
+For data such as&nbsp;&nbsp;&nbsp; dd/mm/yyyy <BR id=k.s.2>
+(you don't need it, if you are using setDateFormat functionality)<BR id=w3z62>
+<BR id=w3z63>
+<BLOCKQUOTE id=yea91>function date<SPAN id=axln0>_custom</SPAN>=function(a,b,order){&nbsp;&nbsp; <BR id=ue1.0>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a=a.split("/")<BR id=ue1.1>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b=a.split("/")<BR id=ue1.2>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (a[2]==b[2]){<BR id=blux0>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (a[1]==b[1])<BR id=blux1>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return (a[0]&gt;b[0]?1:-1)*(order=="asc"?1:-1);<BR id=blux2>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else<BR id=e0w80>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return (a[1]&gt;b[1]?1:-1)*(order=="asc"?1:-1);<BR id=e0w81>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else<BR id=e0w82>
+&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return (a[2]&gt;b[2]?1:-1)*(order=="asc"?1:-1);<BR id=he9.1>
+}<BR id=d73n0>
+grid.setColSorting("int,date<SPAN id=axln0>_custom,</SPAN>na,str"); <BR id=lmxw2>
+</BLOCKQUOTE>
+<BR id=lmxw3>
+<H3 id=cald0>Stable sorting</H3>
+The default sorting routine used by the grid is a quicksort algorithm, which is unstable (it means that rows with the same value may change their position after sorting).<BR id=cald1>
+The Grid has a way to switch to the stable sorting algorithm, it can be done with the help of:<BR id=u8yg0>
+&nbsp;&nbsp;&nbsp; mygrid.enableStableSorting(true);<BR id=u8yg1>
+Basically stable sorting is a little slower than the default one, so enable this mode only if it is really necessary.<BR id=evo40>
+<BR id=grbn5>
+Sorting by multiple columns<BR id=grbn6>
+<BR id=evo41>
+The default sorting routine is designed to sort the grid by values of a single column, but in some use-cases it is necessary to sort the grid by values of multiple columns.<BR id=l3yr0>
+While native API doesn't have legal ways to achieve such feature - there are 3 possible workarounds:<BR id=l3yr1>
+<UL id=l3yr2>
+<LI id=l3yr3>Use stable sorting</LI>
+</UL>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In case of stable sorting, the rows with the same values will not change their position, it can be exploited to organize sorting by multiple columns:<BR id=h1.b0>
+<BLOCKQUOTE id=no460>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mygrid.enableStableSorting(true);<BR id=h1.b1>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mygrid.sortRows(1,"str","asc");&nbsp;&nbsp;&nbsp; //sort by the sibling column<BR id=h1.b2>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mygrid.sortRows(0,"str","des");&nbsp;&nbsp;&nbsp; //sort by the main column<BR id=h1.b3>
+</BLOCKQUOTE>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; As a result the grid will be sorted by a column of lesser importance and after that by a column of higher importance. In combination with stable sorting it will give the same result as sorting by two columns.<BR id=ns7i0>
+<BR id=l3yr4>
+<UL id=l3yr5>
+<LI id=l3yr6>Use complex custom sorting function. <BR id=ns7i1>
+</LI>
+</UL>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; You can use complex soring function similar to the following one:<BR id=ns7i2>
+<BLOCKQUOTE id=nc9z0>function sort_by_two(a,b,order,aid,bid){<BR id=nc9z1>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (a==b){<BR id=nc9z2>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var a2=mygrid.cells(aid,<SPAN id=ksws0><B id=qq9k0>1</B></SPAN>).getValue();<BR id=nc9z3>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var b2=mygrid.cells(bid,<SPAN id=ksws1><B id=qq9k1>1</B></SPAN>).getValue();<BR id=nc9z4>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(order=="asc")<BR id=nc9z5>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return a2&gt;b2?1:-1;<BR id=nc9z6>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else<BR id=nc9z7>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return a2&lt;b2?1:-1;<BR id=nc9z8>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<BR id=nc9z9>
+<BR id=nc9z10>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(order=="asc")<BR id=nc9z11>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return a&gt;b?1:-1;<BR id=nc9z12>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; else<BR id=nc9z13>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return a&lt;b?1:-1;<BR id=nc9z14>
+&nbsp;&nbsp; }<BR id=ns7i3>
+</BLOCKQUOTE>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Two values marked in bold - index of the second column, which will be used in sorting as an addition to the main column.<BR id=ksws2>
+<BR id=ksws3>
+<UL id=l3yr5>
+<LI id=l3yr8>Use predefined sorting - see the paragraph below.<BR id=l3yr9>
+</LI>
+</UL>
+<BR id=grbn7>
+<H3 id=ilk.0>Predefined sorting order</H3>
+In some scenarios it is pretty complex to get sortable values on the client side. In such case it is possible to create a separate column with plain values which can be used for sorting. Such column can be set to invisible mode by<BR id=ilk.1>
+&nbsp;&nbsp;&nbsp; grid.setColumnHidden(...<BR id=ilk.2>
+And later, any search action is redirected to it in the following way:<BR id=ilk.3>
+<BLOCKQUOTE id=u:k90>&nbsp;&nbsp;&nbsp; grid.attachEvent("onBeforeSorting",function(ind,type,direction){<BR id=z:is0>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (ind == some1){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // if sorting for problematic column<BR id=z:is1>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.sortRows(some2,type,direction);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;//sort grid by the column with prepared values<BR id=z:is2>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.setSortImgState(true,ind,direction);&nbsp;&nbsp;&nbsp;&nbsp;//set a correct sorting image<BR id=ze5w0>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return false; //block default sorting<BR id=z:is3>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<BR id=z:is4>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return true; &nbsp; &nbsp;<BR id=z:is5>
+&nbsp;&nbsp;&nbsp;&nbsp;});<BR id=grbn8>
+</BLOCKQUOTE>
+<BR id=grbn9>
+<H3 id=pkx90>Server side sorting</H3>
+If none of the above mentioned methods works for your needs, you can implement server side sorting:<BR id=pkx91>
+<BLOCKQUOTE id=u:k91>&nbsp;&nbsp;&nbsp; grid.attachEvent("onBeforeSorting",function(ind,type,direction){<BR id=t8dr0>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.clearAll();&nbsp;&nbsp;&nbsp; // clear grid<BR id=t8dr1>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.loadXML("some.url?dir="+dir+"&amp;ind="+ind); //load a new dataset from the server, with necessary order<BR id=hv4h0>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.setSortImgState(true,ind,direction);&nbsp;&nbsp;&nbsp;&nbsp;//set a correct sorting image<BR id=z:is0>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return false; &nbsp; &nbsp;<BR id=z:is5>
+&nbsp;&nbsp;&nbsp;&nbsp;});<BR id=grbn10>
+</BLOCKQUOTE>
+<BR id=sam10>
+<BR id=sam11>
+<BR id=sam12>
+<H2 id=sam13>Some special cases</H2>
+<H3 id=o4jj0>Sorting by combo label</H3>
+The sorting uses the cell value for sorting. It works fine in most cases, but if you are using combo cells you may need to sort by cell labels (which may differ from cell values).<BR id=sam15>
+Such use-case can be implemented with the usage of custom sorting:<BR id=nh520>
+<BLOCKQUOTE id=u:k92>&nbsp;&nbsp; function custom_1(a,b,ord,a_id,b_id){<BR id=nh521>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; a=mygrid2.cells(a_id,5).getText();<BR id=nh522>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; b=mygrid2.cells(b_id,5).getText();<BR id=nh523>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return ord=="asc"?(a&gt;b?1:-1):(a&gt;b?-1:1);<BR id=nh524>
+&nbsp;&nbsp; }<BR id=sam16>
+</BLOCKQUOTE>
+&nbsp;&nbsp;&nbsp; Where 5&nbsp; - the index of the column for which sorting will be applied.<BR id=o4jj1>
+<BR id=sam17>
+<H3 id=o4jj2>Partial sorting</H3>
+<BR id=o4jj3>
+Another rare situation that may still occur is the following: the grid contains a few rows which must have fixed position, while other rows must be sorted.<BR id=o4jj4>
+And again the grid does not provide any native solution. But using custom sorting use-case can be implemented in this case:<BR id=b9.y0>
+<BR id=b9.y1>
+<BLOCKQUOTE id=b9.y2>&nbsp;&nbsp; function custom (a,b,ord,aid,bid) {<BR id=b9.y3>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var aid=aid.split("_")<BR id=b9.y4>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var bid=bid.split("_")<BR id=ulb00>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (aid[0]=="top") return 1;<BR id=b9.y9>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (bid[0]=="top") return -1;<BR id=ulb01>
+<BR id=b9.y5>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return ((a&gt;b)?1:-1)*(ord=="asc"?1:-1);<BR id=b9.y11>
+&nbsp;&nbsp; }<BR id=sam18>
+</BLOCKQUOTE>
+The snippet above adds logic to custom sorting, which will move rows with ID="top_*" to the top of the grid, while sorting other datasets in the required order.<BR id=j07u0>
+
+	<!--- CONTENT. Ends --->
+	<div class="copyright" zid="223">&copy; DHTMLX, 2008</div>
+</body>
+</html>

@@ -1,0 +1,1480 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>DHTML Windows guide and samples</title><link rel="STYLESHEET" type="text/css" href="common/styles.css">
+</head>
+   
+<body>
+
+<a name="win_guide"><h2 onclick="openFull(this)">dhtmlxWindows Guide and Samples</h2>
+</a><div class="block">
+
+<a name="win_mf"><h3>Main features</h3>
+</a><div class="block">
+		<li>Multibrowser/Multiplatform support </li>
+		<li>Full controll with JavaScript API</li>
+		<li>Modal dialog mode</li>
+		<li>Alwaya-on-top mode</li>
+		<li>Skinable</li> 
+		<li>Resizable</li>
+</div>
+
+<a name="win_browser"><a name="combo_"><h3>Supported browsers</h3
+></a></a><div class="block">
+	<li>IE 5.5 and above</li>
+	<li>Mac OS X Safari</li>
+	<li>Mozilla 1.4 and above</li>
+	<li>FireFox 0.9 and above</li>
+	<li>Opera</li>
+</div>
+
+<H3>
+  Introduction
+</H3>
+<H5>
+  Scope of the document
+</H5>
+<P class=western style=MARGIN-BOTTOM:0.04in>
+  This document describes <B>dhtmlxWindows</B> system, defines its methods and
+  global parameters.
+</P>
+<H5>
+  Target readers
+</H5>
+<P class=western style=MARGIN-BOTTOM:0.04in>
+  Target readers are project architects, development and QA staff.
+</P>
+<H3>
+  What is dhtmlxWindows
+</H3>
+<P class=western style=MARGIN-BOTTOM:0.04in>
+  <B>dhtmlxWindows</B> is a windowing system that enables user to work with
+  several windows and their content at the same time.
+</P>
+<P class=western style=MARGIN-BOTTOM:0.04in>
+  This system allows windows to overlap, and provides means for the user to
+  perform standard operations such as moving/resizing a window, sending a window
+  to the foreground/background, minimizing/maximizing a window, changing
+  window’s position, making a window modal and sticking a window.
+</P>
+<P class=western>
+  Work with this system involves:
+</P>
+<UL>
+  <LI>
+    <P class=western style=MARGIN-BOTTOM:0.04in>
+      Managing windows and their content;
+    </P>
+    <LI>
+      <P class=western style=MARGIN-BOTTOM:0.04in>
+        Applying built-in or user created skins to a window;
+      </P>
+      <LI>
+        <P class=western style=MARGIN-BOTTOM:0.04in>
+          Attaching content as External URL (Web-Page) or HTML-object to a
+          window;
+        </P>
+        <LI>
+          <P class=western style=MARGIN-BOTTOM:0.04in>
+            Manipulating with window/buttons setting;
+          </P>
+          <LI>
+            <P class=western style=MARGIN-BOTTOM:0.04in>
+              Adding user defined buttons;
+            </P>
+            <LI>
+              <P class=western style=MARGIN-BOTTOM:0.04in>
+                Event handling.
+              </P>
+            </LI>
+</UL>
+
+<h3>Working with dhtmlxWindows</h3>
+
+<H4>
+  <a name="win_init">Initializing dhtmlxWindows</a>
+</H4>
+
+<H5>
+  What files you need
+</H5>
+Before writing any script commands related to window creation on page, you need to add some js and css files to your page. Exactly:
+<XMP>
+	<link rel="stylesheet" type="text/css" href="codebase/dhtmlxwindows.css">
+	<link rel="stylesheet" type="text/css" href="codebase/skins/dhtmlxwindows_[skin name].css">
+	<script  src="codebase/dhtmlxcommon.js"></script>
+	<script  src="codebase/dhtmlxwindows.js"></script>
+</XMP>
+
+If you need more then one skin to use, then add related css files also (in most cases one skin requires one css file).
+
+<H5>
+  Minimal initialization
+</H5>
+<P class=western >
+  A base for set of new windows can be created in the following way:
+</P>
+
+<xmp>dhxWins= new dhtmlXWindows();</xmp>
+
+<H5>
+  imagePath
+</H5>
+<P class=western >
+  Sets the full path to directory where necessary image files are located.
+  Method <B>setImagePath<FONT face="Tahoma, sans-serif">()</FONT></B> should be
+  used here<FONT color=#000000><FONT face="Tahoma, sans-serif">:</FONT></FONT>
+</P>
+<XMP>dhxWins.setImagePath(String);</XMP>
+
+<H5 align=left>
+  New window creation
+</H5>
+<P class=western >
+  While creating a new window with minimal initialization, a user should use
+  <B>createWindow()</B> method and pass the following values:
+</P>
+<UL>
+  <LI>
+    <P class=western >
+      Window Id;
+    </P>
+    <LI>
+      <P class=western >
+        Window position (x &amp; y);
+      </P>
+      <LI>
+        <P class=western >
+          Window width &amp; height.
+        </P>
+      </LI>
+</UL>
+
+<XMP>dhxWins.createWindow(String id,int x,int y,int width,int height);</XMP>
+
+<P class=western >
+  User can set the <B>header text</B> to the newly created window using the
+  command <B>setText</B>:
+</P>
+<P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+  <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.window(<strong>String</strong> id).setText(<B>String</B>
+  text);</FONT></FONT></FONT>
+</P>
+<H5 class=western>
+  Default values
+</H5>
+<P class=western >
+  Default values in <B>dhtmlxWindows</B> are:
+</P>
+<UL>
+  <LI>
+    <P class=western >
+      Window control buttons (buttons “Park”, “Maximize” and “Close” are enabled
+      and visible by default);
+    </P>
+    <LI>
+      <P class=western >
+        Window icon (default icon is defined by the skin);
+      </P>
+      <LI>
+        <P class=western >
+          Window maxDimension (default value is “auto”) and minDimension
+          parameters (default value is 200x140px);
+        </P>
+        <LI>
+          <P class=western >
+            The possibility to resize window (default value is “true”);
+          </P>
+          <LI>
+            <P class=western >
+              The possibility to move window (default value is “true”);
+            </P>
+            <LI>
+              <P class=western >
+                Window default skin (default value is “standard”).
+              </P>
+            </LI>
+</UL>
+<H5 class=western>
+  Extended initialization
+</H5>
+<P class=western >
+  When creating a new window with extended initialization, a user should call
+  the same commands described in
+  <FONT color=#0000ff><U><A href=#_Minimal_initialization>Minimal
+  initialization</A></U></FONT>.
+</P>
+<P class=western >
+  Additional parameters which can be defined are:
+</P>
+<UL>
+  <LI>
+    <P class=western >
+      Header icon;
+    </P>
+    <LI>
+      <P class=western >
+        Allow/Deny resize;
+      </P>
+      <LI>
+        <P class=western >
+          Allow/Deny move;
+        </P>
+        <LI>
+          <P class=western >
+            Allow/Deny park;
+          </P>
+          <LI>
+            <P class=western >
+              Hide/disable buttons.
+            </P>
+          </LI>
+</UL>
+<H5 class=western>
+  Header icon
+</H5>
+<P class=western >
+  There is also the opportunity to specify any <B>header icon</B> if default
+  icon is not suitable for user. This can be done in the following way:
+</P>
+<P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+  <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.window(id).setIcon(<B>String</B>
+  iconEnabled, <B>String</B> iconDisabled)</FONT></FONT></FONT>
+</P>
+<P class=western >
+  Along with setting header icon user can choose to clear/remove it. In this
+  case there will be just empty space instead of any header icon. To do this
+  user should do the following:
+</P>
+<P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+  <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.window(id).clearIcon();</FONT></FONT></FONT>
+</P>
+<P class=western >
+  It is also possible to restore default window icon according the loaded skin:
+</P>
+<P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+  <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.window(id).restoreIcon();</FONT></FONT></FONT>
+</P>
+<H5 class=western>
+  <a name="win_resize">Enable/Disable Resizing</a>
+</H5>
+<P class=western >
+  By default window resizing is allowed.
+</P>
+<P class=western >
+  Extended initialization allows user to deny window resizing by calling method
+  <B>denyResize():</B>
+</P>
+<P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+  <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.window(id).denyResize()</FONT><B>;</B></FONT></FONT>
+</P>
+<P class=western >
+  Resizing of a window can be allowed again with the help of the following
+  method:
+</P>
+<P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+  <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.window(id).allowResize()</FONT><B>;</B></FONT></FONT>
+</P>
+<H5>
+  <a name="win_moving">Enable/Disable Moving</a>
+</H5>
+<P class=western >
+  By default window moving is allowed.
+</P>
+<P class=western >
+  User can deny window moving by calling the following method:
+</P>
+<P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+  <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.window(id).denyMove();</FONT></FONT></FONT>
+</P>
+<P class=western >
+  Window moving can be allowed again if user calls method <B>allowMove()</B>:
+</P>
+<P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+  <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.window(id).allowMove();</FONT></FONT></FONT>
+</P>
+<H5>
+ 	<a name="win_parking">Enable/Disable Parking</a>
+</H5>
+<P class=western >
+  By default window parking is allowed.
+</P>
+<P class=western >
+  User can choose to deny window parking using the following method:
+</P>
+<P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+  <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.window(id).denyPark();</FONT></FONT></FONT>
+</P>
+<P class=western >
+  Window parking can be allowed again with the help of the following method:
+</P>
+<P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+  <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.window(id).allowPark();</FONT></FONT></FONT>
+</P>
+<H5>
+  <a name="win_hidebuttons">Hide/disable buttons</a>
+</H5>
+<P class=western >
+  All default buttons are enabled. User can hide some of/all these buttons or
+  disable them.
+</P>
+<P class=western >
+  In order to hide/disable these buttons use the following methods:
+</P>
+<P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+  <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.window(id).button(“close”).hide();<BR>
+  dhxWins.window(id).button(“park”).disable();</FONT></FONT></FONT>
+</P>
+<H4 class=western>
+  <a name="win_atobj">Attach object</a>
+</H4>
+<P class=western >
+  <B>dhtmlxWindows </B>allows users to attach objects to any window by method
+  <B>attachObject():</B>
+</P>
+<P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+  <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.window(id).attachObject
+  = function(objId, changeDisp);</FONT></FONT></FONT>
+</P>
+<P class=western >
+  <FONT color=#000000>Besides, user can set “<B>display</B>” property to
+  “<B>none</B>” and pass <B>changeDisp=true</B> to attached element before
+  attaching it to window. </FONT>
+</P>
+<P class=western >
+  <FONT color=#000000>In this case “<B>display: none;</B>” will be removed and
+  the object will be shown immediately after attaching.</FONT>
+</P>
+<H4 class=western>
+  <a name="win_aturl">Attach url</a>
+</H4>
+<P class=western >
+  <FONT color=#000000>There is the possibility to attach any external page to
+  window with the help of method <B>attachURL()</B>:</FONT>
+</P>
+<P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+  <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.window(id).attachURL
+  = function(url);</FONT></FONT></FONT>
+</P>
+<H5>
+  Global dhtmlxWindows parameters
+</H5>
+<P class=western >
+  Global parameters affect the entire system. Global parameters enable features,
+  control information displayed in the graphical user interface.
+</P>
+
+
+<H4 class=western>
+  <a name="win_viewport">Viewport (working area)</a>
+</H4>
+<P class=western >
+  This parameter sets the invisible area that limits windows movements. Windows
+  can’t be completely moved outside the viewport.
+</P>
+<P class=western >
+  Users can specify the size of the viewport. By default the size of the
+  viewport occupies the <B>document.body</B> and automatically changes its size
+  when <B>document.body</B>’s size changes.
+</P>
+<P class=western >
+  To enable user-defined viewport evoke the following code:
+</P>
+<P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+  <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.enableAutoViewport(false);<BR>
+  dhxWins.setViewport(10, 10, 1260, 500);</FONT></FONT></FONT>
+</P>
+<P class=western >
+  <B>keepInViewport()</B> method, when is set to “true”, permanently locates a
+  window within the viewport (the window can’t be moved outside the viewport).
+</P>
+<P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+  <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>window(id).keepInViewport(true/false);</FONT></FONT></FONT>
+</P>
+<P class=western >
+  By default this method is set to “false”. Thus, all windows can be moved
+  outside the vieport in such a way that only a tiny part of window’s header
+  will be seen.
+</P>
+
+
+<H4 class=western>
+  <a name="win_skins">Skins</a>
+</H4>
+<P class=western >
+  This parameter allows users to change <B>dhtmlxWindows</B> skins. There is a
+  set of default skins among which user can choose one with the help of method
+  <B>setSkin():</B>
+</P>
+<P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+  <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.setSkin(<B>String</B>
+  skin)</FONT><B>;</B></FONT></FONT>
+</P>
+<P class=western >
+  Skins are able to be changed “on the fly”, i.e. user can change them very
+  easily in the process of work. There is no need of any other actions except
+  calling of <B>setSkin() </B>method.
+</P>
+<P class=western >
+  There is also the possibility for users to create their own skins.
+</P>
+<P class=western >
+  The following built-in skins are available in <B>dhtmlxWindows</B>:
+</P>
+<UL>
+  <LI>
+    <P class=western >
+      web
+    </P>
+  </LI>
+</UL>
+<P class=western >
+  <IMG align=bottom border=0 height=188 name=graphics1 src=common/dgr5rjkf_166fw73gc.png width=188>
+</P>
+
+<UL>
+  <LI>
+    <P class=western >
+      aqua_dark
+    </P>
+  </LI>
+</UL>
+<P class=western >
+  <IMG align=bottom border=0 height=188 name=graphics2 src=common/dgr5rjkf_2g3bms9g6.png width=188>
+</P>
+
+<UL>
+  <LI>
+    <P class=western >
+      aqua_orange
+    </P>
+  </LI>
+</UL>
+<P class=western >
+  <IMG align=bottom border=0 height=188 name=graphics3 src=common/dgr5rjkf_3gd9288fp.png width=188>
+</P>
+<UL>
+  <LI>
+    <P class=western >
+      aqua_sky
+    </P>
+  </LI>
+</UL>
+<P class=western >
+  <IMG align=bottom border=0 height=188 name=graphics4 src=common/dgr5rjkf_4g3pk4xx4.png width=188>
+</P>
+<UL>
+  <LI>
+    <P class=western >
+      modern_red
+    </P>
+  </LI>
+</UL>
+<P class=western >
+  <IMG align=bottom border=0 height=188 name=graphics5 src=common/dgr5rjkf_55ctp6sfp.png width=188>
+</P>
+<UL>
+  <LI>
+    <P class=western >
+      modern_black
+    </P>
+  </LI>
+</UL>
+<P class=western >
+  <IMG align=bottom border=0 height=188 name=graphics6 src=common/dgr5rjkf_673rpb8gw.png width=188>
+</P>
+
+<UL>
+  <LI>
+    <P class=western >
+      modern_blue
+    </P>
+  </LI>
+</UL>
+<P class=western >
+  <IMG align=bottom border=0 height=188 name=graphics7 src=common/dgr5rjkf_7fr34w8hs.png width=188>
+</P>
+<UL>
+  <LI>
+    <P class=western >
+      clear_blue
+    </P>
+  </LI>
+</UL>
+<P class=western >
+  <IMG align=bottom border=0 height=188 name=graphics8 src=common/dgr5rjkf_8dw2q8kgm.png width=188>
+</P>
+<UL>
+  <LI>
+    <P class=western >
+      clear_silver
+    </P>
+  </LI>
+</UL>
+<P class=western >
+  <IMG align=bottom border=0 height=188 name=graphics9 src=common/dgr5rjkf_9d6wpcbff.png width=188>
+</P>
+<UL>
+  <LI>
+    <P class=western >
+      clear_green
+    </P>
+  </LI>
+</UL>
+<P class=western >
+  <IMG align=bottom border=0 height=188 name=graphics10 src=common/dgr5rjkf_10hdd3tpdd.png width=188>
+</P>
+
+<UL>
+  <LI>
+    <P class=western >
+      standard
+    </P>
+  </LI>
+</UL>
+<P class=western >
+  <IMG align=bottom border=0 height=188 name=graphics11 src=common/dgr5rjkf_11jn7pk9c9.png width=188>
+</P>
+
+
+  
+  <H4>
+    <a name="win_singwin">Accessing single window</a>
+  </H4>
+  <P class=western >
+    User can access window in the two following ways:
+  </P>
+  <UL>
+    <LI>
+      <P class=western >
+        Using direct link to object that will be returned by the
+        <B>createWindow()</B> function:
+      </P>
+    </LI>
+  </UL>
+  <P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+    <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>var
+    dhxWins = new dhtmlXWindows();<BR>
+    var win = dhxWins.createWindow(id,…);</FONT></FONT></FONT>
+  </P>
+  <UL>
+    <LI>
+      <P class=western >
+        Through the global scope calling <B>window()</B> function:
+      </P>
+    </LI>
+  </UL>
+  <P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+    <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>var
+    dhxWins = new dhtmlXWindows();<BR>
+    dhxWins.window(id);</FONT></FONT></FONT>
+  </P>
+  <P class=western >
+    Thus, user can access this window using <B>“win” variable</B> or by calling
+    <B>window()</B> function.
+  </P>
+  <P class=western >
+    Regardless of the way the window is accessed, the content of “win” variable
+    and windows.window(id) will be equal.
+  </P>
+  
+  
+  <H4>
+    <a name="win_interator">Window iterator</a>
+  </H4>
+  <P class=western >
+    Method <B>forEachWindow()</B> calls user-defined function for <B>every
+    existing window</B> passing window handler into it.
+  </P>
+  <P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+    <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>forEachWindow(function(winHandler){winHandler.show();})</FONT></FONT></FONT>
+  </P>
+  
+  <H4>
+    <a name="win_chdim">Changing window dimension</a>
+  </H4>
+  <P class=western >
+    Default min- and max Dimensions are set in <B>dhtmlxWindows. </B>
+  </P>
+  <P class=western >
+    The user has the possibility to set his own min and max Dimension parameters
+    to a window by calling methods <B>setMaxDimension()</B> and
+    <B>setMinDimension():</B>
+  </P>
+  <P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+    <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.window(id).setMaxDimension(<B>int</B>
+    width</FONT><B>,</B><FONT color=#000000> <B>int</B> height);<BR>
+    dhxWins.window(id).setMinDimension(<B>int</B>
+    width</FONT><B>,</B><FONT color=#000000> <B>int</B>
+    height);</FONT></FONT></FONT>
+  </P>
+  <P class=western >
+    Also if the user wants to change window dimension, he/she should use the
+    command <B>setDimension()</B> and pass width &amp; height values:
+  </P>
+  <P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+    <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.window(id).setDimension(<B>int</B>
+    width</FONT><B>,</B><FONT color=#000000> <B>int</B>
+    height);</FONT></FONT></FONT>
+  </P>
+  <P class=western >
+    There is also a method to get window dimension (will return array (width,
+    height)):
+  </P>
+  <P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+    <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.window(id).getDimension()</FONT><B>;</B></FONT></FONT>
+  </P>
+  <P class=western >
+    The following methods can also be used to get min and max Dimensions:
+  </P>
+  <P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+    <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.window(id).getMaxDimension();<BR>
+    dhxWins.window(id).getMinDimension();</FONT></FONT></FONT>
+  </P>
+  <P class=western >
+    <B><I>Notice</I></B>: <I>window will be able to occupy the whole viewport
+    after minimizing if user sets maxDimension to “auto”</I>:
+  </P>
+  <P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+    <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.window(id).setMaxDimension(“auto”,
+    “auto”);</FONT></FONT></FONT>
+  </P>
+  <P class=western >
+    <I>In this case the window becomes not resizable (only in maximized state).
+    </I>
+  </P>
+  <P class=western >
+    <I><B>Notice</B>: if user changes window dimension in such a way that it
+    cannot display the whole title text, the text will be cut.</I>
+  </P>
+  
+  <H4>
+    <a name="win_pos">Changing window position</a>
+  </H4>
+  <P class=western >
+    As with window Dimension, it is available to change window Position. In
+    order to do this method <B>setPosition() </B>must be called with values
+    <B>x</B> and <B>y</B>:
+  </P>
+  <P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+    <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.window(id).setPosition(<B>int</B>
+    x</FONT><B>,</B><FONT color=#000000> <B>int</B> y);</FONT></FONT></FONT>
+  </P>
+  <P class=western >
+    There is also a command to get window position (will return Array(x, y)):
+  </P>
+  <P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+    <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.window(id).getPosition()</FONT><B>;</B></FONT></FONT>
+  </P>
+  
+  
+  <H4>
+    <a name="win_park">Window parking</a>
+  </H4>
+  <P class=western >
+    If user wants to park window, he/she should use the command <B>park()</B>.
+  </P>
+  <P class=western >
+    If the window was parked up, this command makes it park down and vice versa:
+  </P>
+  <P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+    <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.window(id).park()</FONT><B>;</B></FONT></FONT>
+  </P>
+  
+  
+  <H4>
+    <a name="win_mnmax">Window minimizing/maximizing</a>
+  </H4>
+  <P class=western >
+    To minimize/maximize a window user should call the following methods:
+  </P>
+  <UL>
+    <LI>
+      <P class=western >
+        <B>maximize()</B>;
+      </P>
+      <LI>
+        <P class=western >
+          <B>minimize()</B>;
+        </P>
+      </LI>
+  </UL>
+  <P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+    <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.window(id).maximize()</FONT><B>;</B><FONT color=#000000><BR>
+    dhxWins.window(id).minimize()</FONT><B>;</B></FONT></FONT>
+  </P>
+  
+  
+  <H4>
+    <a name="win_topbtm">Bringing window to top/bottom</a>
+  </H4>
+  <P class=western >
+    User can bring any window to top with the help of method
+    <B>bringToTop():</B>
+  </P>
+  <P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+    <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.window(id).
+    bringToTop ();</FONT></FONT></FONT>
+  </P>
+  <P class=western >
+    In this case the window will be automatically focused.
+  </P>
+  <P class=western >
+    Method <B>bringToBottom() </B>brings any window to bottom:
+  </P>
+  <P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+    <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.window(id).
+    bringToBottom ();</FONT></FONT></FONT>
+  </P>
+  <P class=western >
+    In the situation when this method was applied to the top window, the window
+    that lies right after the top one occupies its position and becomes the top
+    window.
+  </P>
+  <P class=western >
+    Some peculiarities of these two methods are revealed dealing with
+    <FONT color=#0000ff><U><A href=#_Window_sticking/unsticking>sticked/unsticked
+    windows</A></U></FONT>.
+  </P>
+  
+  
+  <H4>
+    <a name="win_stic">Window sticking/unsticking</a>
+  </H4>
+  <P class=western >
+    The user has the opportunity to stick/unstick window - to place it always on
+    top. To do this a user should use methods
+    <B>stick<FONT face="Tahoma, sans-serif">()
+    </FONT></B><FONT face="Tahoma, sans-serif">or<B> unstick().</B></FONT>
+  </P>
+  <P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+    <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.window(id).stick();<BR>
+    dhxWins.window(id).unstick()</FONT><B>;</B></FONT></FONT>
+  </P>
+  <P class=western >
+    If there is any window that was made “sticked” in the system, global window
+    behavior will be the following:
+  </P>
+  <UL>
+    <LI>
+      <P class=western >
+        All windows will be divided into 2 groups: sticked and unsticked;
+      </P>
+      <LI>
+        <P class=western >
+          Sticked windows (even unfocused ones) will always be positioned over
+          the unsticked ones;
+        </P>
+        <LI>
+          <P class=western >
+            Method <B>bringToTop()</B> will place sticked window on top among
+            the other sticked ones. As for unsticked window (in case there is at
+            least one sticked window) it will be placed on top of all unsticked
+            windows but below sticked ones;
+          </P>
+          <LI>
+            <P class=western >
+              Method <B>bringToBottom()</B> will work the following way with
+              sticked window: it will be brought to bottom but will be placed
+              over any unsticked window;
+            </P>
+            <LI>
+              <P class=western >
+                Any sticked/unsticked window will always be placed under any
+                modal window.
+              </P>
+            </LI>
+  </UL>
+  
+  
+  
+  <H4>
+    <a name="win_modal">Modal/modeless window</a>
+  </H4>
+  <P class=western >
+    There is the possibility to make window modal calling method
+    <B>setModal()</B>:
+  </P>
+  <P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+    <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.window(id).setModal(<B>Boolean</B>
+    state);</FONT></FONT></FONT>
+  </P>
+  <P class=western >
+    Any modal window has the following features:
+  </P>
+  <UL>
+    <LI>
+      <P class=western >
+        Only one modal window is allowed at a time;
+      </P>
+      <LI>
+        <P class=western >
+          If user wants to set modal option to any other window, this option
+          should be removed from the current modal window. Or current modal
+          window itself should be removed;
+        </P>
+      </LI>
+  </UL>
+  <UL>
+    <LI>
+      <P class=western >
+        Any modal window will always be placed over any other window (even
+        sticked ones);
+      </P>
+      <LI>
+        <P class=western >
+          Modal window requires the user to interact with it before he/she can
+          return to operating any other windows (i.e. this window is always
+          focused).
+        </P>
+      </LI>
+  </UL>
+  <P class=western >
+    The value “true” in method <B>setModal()</B> makes a window modal while the
+    value “false” makes it modeless.
+  </P>
+  
+  
+  <H4>
+    <a name="win_tmbm">Topmost/Bottommost Window</a>
+  </H4>
+  <P class=western >
+    User is able to get handler of the topmost window with the help of the
+    following method:
+  </P>
+  <P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+    <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.window(id).getTopmostWindow();</FONT></FONT></FONT>
+  </P>
+  <P class=western >
+    To get handler of the bottommost window user should call the following
+    method:
+  </P>
+  <P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+    <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.window(id).getBottommostWindow();</FONT></FONT></FONT>
+  </P>
+  
+  
+  <H4>
+    <a name="win_btns">Buttons settings manipulating</a>
+  </H4>
+  <H5>
+    Accessing the button
+  </H5>
+  <P class=western >
+    Button can be accessed in the following way:
+  </P>
+  <P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+    <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>var
+    btn = dhxWins.window(id).button(id);</FONT></FONT></FONT>
+  </P>
+  <P class=western >
+    Default buttons ids are:
+  </P>
+  <UL>
+    <LI>
+      <P class=western >
+        “park” for “park” button;
+      </P>
+      <LI>
+        <P class=western >
+          “close” for “close” button;
+        </P>
+        <LI>
+          <P class=western >
+            “help” for “help” button;
+          </P>
+          <LI>
+            <P class=western >
+              “stick” for “stick” button;
+            </P>
+            <LI>
+              <P class=western >
+                “sticked” for “sticked” button (pressed “stick”, used for
+                “unstuck” action);
+              </P>
+              <LI>
+                <P class=western >
+                  “minmax1” for “maximize” button;
+                </P>
+                <LI>
+                  <P class=western >
+                    “minmax2” for “minimize” button.
+                  </P>
+                </LI>
+  </UL>
+  <H5>
+    Showing/hiding buttons
+  </H5>
+  <P class=western >
+    There is the possibility to show/hide a button by calling the following
+    methods:
+  </P>
+  <P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+    <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.window(id).button(id).show()</FONT>;<FONT color=#000000><BR>
+    dhxWins.window(id).button(id).hide()</FONT>;</FONT></FONT>
+  </P>
+  <P class=western >
+    User buttons also inherit these methods.
+  </P>
+  <H5>
+    Button enabling/disabling
+  </H5>
+  <P class=western >
+    The button can be enabled/disabled by user:
+  </P>
+  <P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+    <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.window(id).button(id).enable()</FONT>;<FONT color=#000000><BR>
+    dhxWins.window(id).button(id).disable()</FONT>;</FONT></FONT>
+  </P>
+  <P class=western >
+    User buttons also inherit these methods.
+  </P>
+  <P class=western >
+    <I><B>Notice</B>: in some cases button enabling/disabling is determined by
+    Object.</I>
+  </P>
+  <P class=western >
+    <I>For example, when the window is Parked Up, resize buttons are
+    inactive/disabled. But they become active/enabled when the window is Parked
+    Down. Thus resize buttons are disabled by the Object.</I>
+  </P>
+  
+  
+  <H4>
+    <a name="win_userbutton">Creating user buttons</a>
+  </H4>
+  <H5>
+    Making set of button images
+  </H5>
+  <P class=western >
+    This example will show user how to create their own buttons for a window.
+  </P>
+  <OL>
+    <LI>
+      <P class=western >
+        To get started user should decide for which skin the button will be
+        created. Take, for example, the skin “Web”.
+      </P>
+      <LI>
+        <P class=western >
+          Then user should get to know the dimension of buttons for the chosen
+          skin.
+        </P>
+        <LI>
+          <P class=western >
+            Each button can be divided into “active” &amp; “inactive”. Besides,
+            all buttons have the following states: “default”, “over_default”,
+            “over_pressed”, “disabled”.
+          </P>
+        </LI>
+  </OL>
+  <P class=western style="MARGIN-BOTTOM:0.04in; TEXT-INDENT:0.25in">
+    Thus, there must be 8 skins for each single user button:
+  </P>
+  <UL>
+    <LI>
+      <P class=western >
+        Active:
+      </P>
+    </LI>
+  </UL>
+  <UL>
+    <LI>
+      <P class=western >
+        Default;
+      </P>
+      <LI>
+        <P class=western >
+          Over default;
+        </P>
+        <LI>
+          <P class=western >
+            Over pressed;
+          </P>
+          <LI>
+            <P class=western >
+              Disabled.
+            </P>
+          </LI>
+  </UL>
+  <UL>
+    <LI>
+      <P class=western >
+        Inactive:
+      </P>
+    </LI>
+  </UL>
+  <UL>
+    <LI>
+      <P class=western >
+        Default;
+      </P>
+      <LI>
+        <P class=western >
+          Over default;
+        </P>
+        <LI>
+          <P class=western >
+            Over pressed;
+          </P>
+          <LI>
+            <P class=western >
+              Disabled.
+            </P>
+          </LI>
+  </UL>
+  <OL start=4>
+    <LI>
+      <P class=western >
+        Next user should name the newly created button. For example, the name of
+        the button can be “tray”.
+      </P>
+      <LI>
+        <P class=western >
+          The next step is to create the main folder for the new button (for
+          example, “tray_button”) and 2 subfolders in it called “active” and
+          “inactive”.
+        </P>
+        <LI>
+          <P class=western >
+            Then user is to create 4 subfolders in both “active” and “inactive”
+            folders:
+          </P>
+        </LI>
+  </OL>
+  <UL>
+    <LI>
+      <P class=western >
+        btns_default;
+      </P>
+      <LI>
+        <P class=western >
+          btns_disabled;
+        </P>
+        <LI>
+          <P class=western >
+            btns_over_default;
+          </P>
+          <LI>
+            <P class=western >
+              btns_over_pressed.
+            </P>
+          </LI>
+  </UL>
+  <P class=western style="MARGIN-BOTTOM:0.04in; MARGIN-LEFT:0.49in">
+    As a result there will be the following tree:
+  </P>
+  <P class=western style="MARGIN-BOTTOM:0.04in; MARGIN-LEFT:0.74in">
+    tray/
+  </P>
+  <P class=western style="MARGIN-BOTTOM:0.04in; MARGIN-LEFT:0.74in">
+    active/
+  </P>
+  <P class=western style="MARGIN-BOTTOM:0.04in; MARGIN-LEFT:0.74in">
+    btns_default/
+  </P>
+  <P class=western style="MARGIN-BOTTOM:0.04in; MARGIN-LEFT:0.74in">
+    btns_disabled/
+  </P>
+  <P class=western style="MARGIN-BOTTOM:0.04in; MARGIN-LEFT:0.74in">
+    btns_over_default/
+  </P>
+  <P class=western style="MARGIN-BOTTOM:0.04in; MARGIN-LEFT:0.74in">
+    btns_over_pressed/
+  </P>
+  <P class=western style="MARGIN-BOTTOM:0.04in; MARGIN-LEFT:0.74in">
+    inactive/
+  </P>
+  <P class=western style="MARGIN-BOTTOM:0.04in; MARGIN-LEFT:0.74in">
+    btns_default/
+  </P>
+  <P class=western style="MARGIN-BOTTOM:0.04in; MARGIN-LEFT:0.74in">
+    btns_disabled/
+  </P>
+  <P class=western style="MARGIN-BOTTOM:0.04in; MARGIN-LEFT:0.74in">
+    btns_over_default/
+  </P>
+  <P class=western style="MARGIN-BOTTOM:0.04in; MARGIN-LEFT:0.74in">
+    btns_over_pressed/
+  </P>
+  <OL start=7>
+    <LI>
+      <P class=western >
+        Now user should create 8 GIF files with button skins for each button
+        state. Then each GIF file should be placed to each folder according to
+        state. Single file name should be used for each skin, for example:
+        “btn_tray.gif”.
+      </P>
+      <LI>
+        <P class=western >
+          After this the tree will be presented in the following way:
+        </P>
+      </LI>
+  </OL>
+  <P class=western style="MARGIN-BOTTOM:0.04in; MARGIN-LEFT:0.74in">
+    tray/
+  </P>
+  <P class=western style="MARGIN-BOTTOM:0.04in; MARGIN-LEFT:0.74in">
+    active/
+  </P>
+  <P class=western style="MARGIN-BOTTOM:0.04in; MARGIN-LEFT:0.74in">
+    btns_default/
+  </P>
+  <P class=western style="MARGIN-BOTTOM:0.04in; MARGIN-LEFT:2.22in; TEXT-INDENT:0.24in">
+    btn_tray.gif
+  </P>
+  <P class=western style="MARGIN-BOTTOM:0.04in; MARGIN-LEFT:0.74in">
+    btns_disabled/
+  </P>
+  <P class=western style="MARGIN-BOTTOM:0.04in; MARGIN-LEFT:2.22in; TEXT-INDENT:0.24in">
+    btn_tray.gif
+  </P>
+  <P class=western style="MARGIN-BOTTOM:0.04in; MARGIN-LEFT:0.74in">
+    btns_over_default/
+  </P>
+  <P class=western style="MARGIN-BOTTOM:0.04in; MARGIN-LEFT:2.22in; TEXT-INDENT:0.24in">
+    btn_tray.gif
+  </P>
+  <P class=western style="MARGIN-BOTTOM:0.04in; MARGIN-LEFT:0.74in">
+    btns_over_pressed/
+  </P>
+  <P class=western style="MARGIN-BOTTOM:0.04in; MARGIN-LEFT:2.22in; TEXT-INDENT:0.24in">
+    btn_tray.gif
+  </P>
+  <P class=western style="MARGIN-BOTTOM:0.04in; MARGIN-LEFT:0.74in">
+    inactive/
+  </P>
+  <P class=western style="MARGIN-BOTTOM:0.04in; MARGIN-LEFT:0.74in">
+    btns_default/
+  </P>
+  <P class=western style="MARGIN-BOTTOM:0.04in; MARGIN-LEFT:2.22in; TEXT-INDENT:0.24in">
+    btn_tray.gif
+  </P>
+  <P class=western style="MARGIN-BOTTOM:0.04in; MARGIN-LEFT:0.74in">
+    btns_disabled/
+  </P>
+  <P class=western style="MARGIN-BOTTOM:0.04in; MARGIN-LEFT:2.22in; TEXT-INDENT:0.24in">
+    btn_tray.gif
+  </P>
+  <P class=western style="MARGIN-BOTTOM:0.04in; MARGIN-LEFT:0.74in">
+    btns_over_default/
+  </P>
+  <P class=western style="MARGIN-BOTTOM:0.04in; MARGIN-LEFT:2.22in; TEXT-INDENT:0.24in">
+    btn_tray.gif
+  </P>
+  <P class=western style="MARGIN-BOTTOM:0.04in; MARGIN-LEFT:0.74in">
+    btns_over_pressed/
+  </P>
+  <P class=western style="MARGIN-BOTTOM:0.04in; MARGIN-LEFT:2.22in; TEXT-INDENT:0.24in">
+    btn_tray.gif
+  </P>
+  <OL start=9>
+    <LI>
+      <P class=western >
+        Now when button skins are created, user should proceed to CSS file
+        creation.
+      </P>
+    </LI>
+  </OL>
+  <H5>
+    CSS file creation
+  </H5>
+  <P class=western >
+    This example is going to show user how to create CSS file for buttons.
+  </P>
+  <OL>
+    <LI>
+      <P class=western >
+        User should find template CSS file
+        <B>dhtmlxwindows_user_button_template.css</B> and save it with a
+        different name. For example, it can be “user_button_tray.css”.
+      </P>
+      <LI>
+        <P class=western >
+          Then user should modify this CSS file in the following way:
+        </P>
+      </LI>
+  </OL>
+  <UL>
+    <LI>
+      <P class=western >
+        Replace <B>%skin%</B> with the skin name (in our example, we chose
+        “<B>web</B>” skin);
+      </P>
+      <LI>
+        <P class=western >
+          Replace <B>%button_root_folder%</B> with the name of the root folder
+          created by user (in our example it’s “<B>tray</B>”);
+        </P>
+        <LI>
+          <P class=western >
+            Replace <B>%button_name%</B> with the name of the created button (in
+            our example it’s “<B>tray</B>”);
+          </P>
+          <LI>
+            <P class=western >
+              Replace <B>%button_filename%</B> with name of the created GIF
+              files (“<B>btn_tray.gif</B>” in out example);
+            </P>
+            <LI>
+              <P class=western >
+                Link this newly created CSS file from index page.
+              </P>
+            </LI>
+  </UL>
+  <P class=western >
+    <BR>
+    <BR>
+  </P>
+  
+  
+  <H5 class=western>
+    Adding User Button
+  </H5>
+  <P class=western >
+    To add this newly created button to a window user should use the following
+    method:
+  </P>
+  <P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+    <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.window(id).<B>addUserButton</B>(id,
+    position, tooltip, name);</FONT></FONT></FONT>
+  </P>
+  <P class=western >
+    This method takes the following parameters:
+  </P>
+  <UL>
+    <LI>
+      <P class=western >
+        id – id of the newly created button (in our example it can be “tray”);
+      </P>
+      <LI>
+        <P class=western >
+          position – the type of this parameter is <B>int</B>. This parameter
+          defines the place of the button on the caption bar. (left to right: 0
+          – the first button, 1 – the second, etc);
+        </P>
+        <LI>
+          <P class=western >
+            tooltip – this parameter sets the title that appears when user
+            hovers the mouse over the button;
+          </P>
+          <LI>
+            <P class=western >
+              name – the name of the button (in out example it is “tray”).
+            </P>
+          </LI>
+  </UL>
+  <H5 class=western>
+    Adding event to button
+  </H5>
+  <P class=western >
+    User can attach an event to the newly created button in the following way:
+  </P>
+  <P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+    <FONT face="Verdana, sans-serif">dhxWins.window(id).button(id).attachEvent(“onClick”,
+    handler);</FONT>
+  </P>
+  <P class=western >
+    User can also remove an event from any user-created button:
+  </P>
+  <P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+    <FONT face="Verdana, sans-serif">dhxWins.window(id).button(id).detachEvent(“onClick”);</FONT>
+  </P>
+  <P class=western >
+    Any user-created button can be removed in the following way:
+  </P>
+  <P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+    <FONT face="Verdana, sans-serif">dhxWins.window(id).button(id).removeUserButton(id);</FONT>
+  </P>
+  <P class=western >
+    Besides, all default buttons methods will be available for user-created
+    buttons as well:
+  </P>
+  <P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+    <FONT face="Verdana, sans-serif">dhxWins.window(id).button(id).show();<BR>
+    dhxWins.window(id).button(id).hide();<BR>
+    dhxWins.window(id).button(id).isHidden();<BR>
+    dhxWins.window(id).button(id).enable();<BR>
+    dhxWins.window(id).button(id).disable();<BR>
+    dhxWins.window(id).button(id).isEnabled();</FONT>
+  </P>
+  <H5 class=western>
+    Removing User Button
+  </H5>
+  <P class=western >
+    To remove any user button from the window user should call the following
+    method:
+  </P>
+  <P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+    <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.window(id).removeUserButton(id);</FONT></FONT></FONT>
+  </P>
+  
+  
+  <H4>
+    <a name="win_eventhand">Event handling</a>
+  </H4>
+  <H5>
+    Default events
+  </H4>
+  <P class=western >
+    Default events signal various actions, such as the user clicking a button to
+    Park window or a window being closed. Default events are usually button
+    events.
+  </P>
+  <P class=western >
+    Button events can be as follows:
+  </P>
+  <UL>
+    <LI>
+      <P class=western >
+        onClick. The <B>onClick</B> event handler executes the specified
+        JavaScript code or function when the user clicks the left mouse button
+        on the object.
+      </P>
+    </LI>
+  </UL>
+  <P class=western >
+    Default events can be redefined by user, who can choose to assign other
+    user-defined events instead. In this case, default events will be ignored
+    until they are restored by user.
+  </P>
+  <H5>
+    Redefine default button event
+  </H5>
+  <P class=western >
+    User can choose to redefine default button event adding any user’s event
+    instead.
+  </P>
+  <P class=western >
+    To redefine button default event user can use <B>attachEvent()</B> method:
+  </P>
+  <P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+    <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.window(id).button(id).attachEvent(eventName,
+    handler);</FONT></FONT></FONT>
+  </P>
+  <H5>
+    Adding window events handlers
+  </H5>
+  <P class=western >
+    The entire point of an event is to inform a handler that something has
+    happened to a component in the GUI.
+  </P>
+  <P class=western >
+    A handler can figure out what exactly happened and respond in a meaningful
+    way.
+  </P>
+  <P class=western >
+    The list of events to which user-defined handlers can be attached is given
+    below:
+  </P>
+  <UL>
+    <LI>
+      <P class=western >
+        <B>onMoveFinish</B> – occurs when the window movement was finished;
+      </P>
+      <LI>
+        <P class=western >
+          <B>onResizeFinish – </B>occurs when the window resizing was finished;
+        </P>
+        <LI>
+          <P class=western >
+            <B>onFocus – </B>occurs when the window was focused by user;
+          </P>
+          <LI>
+            <P class=western >
+              <B>onParkDown/onParkUp – </B>occurs when the window was parked
+              down/up;
+            </P>
+            <LI>
+              <P class=western >
+                <B>onMaximize/onMinimize</B> – occurs when the window was
+                maximized/minimized;
+              </P>
+              <LI>
+                <P class=western >
+                  <B>onShow/onHide</B> – occurs when the window was
+                  shown/hidden;
+                </P>
+                <LI>
+                  <P class=western >
+                    <B>onClose</B> – occurs before the window was closed;
+                  </P>
+                  <LI>
+                    <P class=western >
+                      <B>onHelp </B>– occurs when user clicks the “help” button.
+                    </P>
+                  </LI>
+  </UL>
+  <H5>
+    Adding global event handlers for windows
+  </H5>
+  <P class=western >
+    User can add global event handlers for windows. This can be done in the
+    following way:
+  </P>
+  <P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+    <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.attachEvent(eventName,
+    handler);</FONT></FONT></FONT>
+  </P>
+  <H5>
+    Adding personal window event handler
+  </H5>
+  <P class=western >
+    If there is a window to which user wants to assign a special handler, this
+    can be done by adding the handler to the window directly.
+  </P>
+  <P class=western >
+    While other windows will be calling global handlers, this window with
+    personal handler will call this personal handler:
+  </P>
+  <P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+    <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.window(id).attachEvent(eventName,
+    handler);</FONT></FONT></FONT>
+  </P>
+  <H5>
+    Restore global event handlers
+  </H5>
+  <P class=western >
+    User can detach personal event from window.
+  </P>
+  <P class=western >
+    In this case global event handler will be restored for this window, i.e.
+    when personal handler is removed from the window, the widow will call global
+    handler.
+  </P>
+  <P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+    <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.window(id).detachEvent(eventName);</FONT></FONT></FONT>
+  </P>
+  <H5>
+    Remove global handlers
+  </H5>
+  <P class=western >
+    Global handlers can be easily removed with the help of the following method:
+  </P>
+  <P align=left style="BORDER-RIGHT:medium none; PADDING-RIGHT:0pt; BORDER-TOP:medium none; MARGIN-TOP:0.05in; PADDING-LEFT:0.06in; BACKGROUND:#ebebeb 0% 50%; MARGIN-BOTTOM:0.16in; PADDING-BOTTOM:0pt; BORDER-LEFT:5pt solid; PADDING-TOP:0pt; BORDER-BOTTOM:medium none">
+    <FONT face="Courier New, monospace"><FONT face="Verdana, sans-serif"><FONT color=#000000>dhxWins.detachEvent(eventName);</FONT></FONT></FONT>
+  </P>
+  <H5>
+    Understanding events handlers priority
+  </H5>
+  <P class=western lang=ru-RU >
+    <IMG src=common/dgr5rjkf_12c6wmchdw.gif>
+  </P>
+  <P class=western >
+    In the situation described above windows w2 and w3 will call “globalHandler”
+    when they are focused.
+  </P>
+  <P class=western >
+    Window w1 will call personal “w1Handler” when it is focused.
+  </P>
+  <P class=western >
+    <A name=_PictureBullets></A><IMG align=bottom border=0 height=28 name=graphics12 src=common/dgr5rjkf_13cv8rptcf.png width=18><IMG align=bottom border=0 height=28 name=graphics13 src=common/dgr5rjkf_14fhjwdfc5.png width=36><IMG align=bottom border=0 height=29 name=graphics14 src=common/dgr5rjkf_15gp3p6cfp.png width=32>
+  </P>
+
+ </div>
+<div class="copyr">&copy; DHTMLX LTD.</div>
+
+</body>
+</html>

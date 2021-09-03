@@ -1,0 +1,103 @@
+<!--conf
+<sample in_favorites="true">
+	<product version="1.0" edition="std"/>
+	<modifications>
+		<modified date="080205"/>
+	</modifications>
+</sample>
+ --> 
+
+<html>
+<head>
+	<title>Drag-n-drop in Folders</title>
+	<script src="../../codebase/dhtmlxcommon.js" type="text/javascript"></script>
+	<script src="../../codebase/dhtmlxfolders.js" type="text/javascript"></script>
+	<script src="../../codebase/ext/dhtmlxfolders_drag.js" type="text/javascript"></script>
+	<link rel="STYLESHEET" type="text/css" href="../../codebase/dhtmlxfolders.css">	
+	<script>
+		var myFolders;
+		function doOnLoad(){
+			myFolders = new dhtmlxFolders("folders_container");
+			myFolders.setImagePath("../../codebase/imgs/")
+			myFolders.setItemType("ficon");
+			myFolders.setUserData("icons_src_dir","../images");
+			myFolders.enableDragAndDrop(true);
+			myFolders.attachEvent("onBeforeDrop",function(dropType,sID,tID){
+				var tType = this.getItem(tID).data.dataObj.getAttribute("type");
+				if(dropType=="in" && tType=="dir"){
+					this.deleteItem(sID);
+					return false;
+				}else
+					return true;
+			})
+			myFolders.loadXML("files_ext.xml","../../codebase/types/ficon.xsl");
+		}
+		
+		function changeType(type){
+			myFolders.setItemType(type, "../../codebase/types/"+type+".xsl");
+		}
+	</script>
+<body onload="doOnLoad()">
+<link rel='STYLESHEET' type='text/css' href='../common/style.css'>
+<table cellspacing="0" cellpadding="0" class="sample_header" border="0">
+	<tr valign="middle">
+		<!-- COMPONENT ICON -->
+		<td width="40" align="center"><img src="../common/dhtmlxfolders_icon.gif" border="0"></td>
+		<!-- COMPONENT NAME -->
+		<td width="120" align="left">Sample: dhtmlxFolders</td>
+		<!-- SAMPLE TITLE -->
+		<td width="0" align="left"><b>Drag-n-drop in Folders</b></td>
+		<!-- LINK TO COMPONENT PAGE -->
+		<td width="0" align="right"><a href="http://www.dhtmlx.com/docs/products/dhtmlxFolders/index.shtml">dhtmlxFolders main page</a></td>
+		<!-- CLOSE BUTTON -->
+		<td width="50"><div class="sample_close"><a href="javascript:void(0);" onclick="self.close();"><img src="../common/sample_close.gif" width="14" height="14" border="0" alt="X"></a></div></td>
+	</tr>
+</table>
+	
+	
+	<p>
+	Built-in Drag-n-drop in dhtmlxFolders has default actions for "before" and "next" drop types, but no default action for "in" drop type. SO you'll need to define it for your own
+	</p>
+	<div style="position:relative;">
+		<img src="../images/samples_frame.gif" width="436" height="513" alt="" border="0">
+		<div id="folders_container" style="width:396px;height:400px;overflow:hidden;position:absolute;top:65px;left:20px;border:0px solid red;"></div>
+	</div>
+	
+	<h3>Changing type, Folders adapts drag-n-drop to new items appearence</h3>
+	<input type="radio" name="switch" onclick="changeType(this.value)" value="ficon" checked> F-icon<br>
+	<input type="radio" name="switch" onclick="changeType(this.value)" value="ftiles"> F-tiles<br>
+	<input type="radio" name="switch" onclick="changeType(this.value)" value="ftable"> F-table<br>
+
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">folders_container</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">style</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">width:400px;height:300px;overflow:hidden;</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">div</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+    
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code"><div class="hl-main"><pre><span class="hl-code"> 
+    </span><span class="hl-comment">//</span><span class="hl-comment">Initialize dhtmlxFolders</span><span class="hl-comment"></span><span class="hl-code">
+    </span><span class="hl-identifier">myFolders</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlxFolders</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">folders_container</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-comment">//</span><span class="hl-comment">set path to folder with native images (where to get image for drop-before/drop-next)</span><span class="hl-comment"></span><span class="hl-code">
+    </span><span class="hl-identifier">myFolders</span><span class="hl-code">.</span><span class="hl-identifier">setImagePath</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../codebase/imgs/</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">
+    </span><span class="hl-identifier">myFolders</span><span class="hl-code">.</span><span class="hl-identifier">setItemType</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">ficon</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">myFolders</span><span class="hl-code">.</span><span class="hl-identifier">setUserData</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">icons_src_dir</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">../images</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-comment">//</span><span class="hl-comment">enable dag-n-drop</span><span class="hl-comment"></span><span class="hl-code">
+    </span><span class="hl-identifier">myFolders</span><span class="hl-code">.</span><span class="hl-identifier">enableDragAndDrop</span><span class="hl-brackets">(</span><span class="hl-reserved">true</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-comment">//</span><span class="hl-comment">add evend handler for onBeforeDrop event (it gets type of drop, source item id, target item id)</span><span class="hl-comment"></span><span class="hl-code">
+    </span><span class="hl-identifier">myFolders</span><span class="hl-code">.</span><span class="hl-identifier">attachEvent</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">onBeforeDrop</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-reserved">function</span><span class="hl-brackets">(</span><span class="hl-identifier">dropType</span><span class="hl-code">,</span><span class="hl-identifier">sID</span><span class="hl-code">,</span><span class="hl-identifier">tID</span><span class="hl-brackets">)</span><span class="hl-brackets">{</span><span class="hl-code">
+                </span><span class="hl-comment">//</span><span class="hl-comment">find type of target item (in this case - directory or file)</span><span class="hl-comment"></span><span class="hl-code">
+                </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">tType</span><span class="hl-code"> = </span><span class="hl-reserved">this</span><span class="hl-code">.</span><span class="hl-identifier">getItem</span><span class="hl-brackets">(</span><span class="hl-identifier">tID</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">data</span><span class="hl-code">.</span><span class="hl-identifier">dataObj</span><span class="hl-code">.</span><span class="hl-identifier">getAttribute</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">type</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+                </span><span class="hl-comment">//</span><span class="hl-comment">if type of drop is &quot;in&quot; and target item is directory - remove source item from folders</span><span class="hl-comment"></span><span class="hl-code">
+                </span><span class="hl-reserved">if</span><span class="hl-brackets">(</span><span class="hl-identifier">dropType</span><span class="hl-code">==</span><span class="hl-quotes">&quot;</span><span class="hl-string">in</span><span class="hl-quotes">&quot;</span><span class="hl-code"> &amp;&amp; </span><span class="hl-identifier">tType</span><span class="hl-code">==</span><span class="hl-quotes">&quot;</span><span class="hl-string">dir</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-brackets">{</span><span class="hl-code">
+                    </span><span class="hl-reserved">this</span><span class="hl-code">.</span><span class="hl-identifier">deleteItem</span><span class="hl-brackets">(</span><span class="hl-identifier">sID</span><span class="hl-brackets">)</span><span class="hl-code">;
+                    </span><span class="hl-comment">//</span><span class="hl-comment">...and cancel default action</span><span class="hl-comment"></span><span class="hl-code">
+                    </span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-reserved">false</span><span class="hl-code">;
+                </span><span class="hl-brackets">}</span><span class="hl-reserved">else</span><span class="hl-code"> </span><span class="hl-comment">//</span><span class="hl-comment">else proceed wth default action</span><span class="hl-comment"></span><span class="hl-code">
+                    </span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-reserved">true</span><span class="hl-code">;
+            </span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">
+    </span><span class="hl-identifier">myFolders</span><span class="hl-code">.</span><span class="hl-identifier">loadXML</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">files_ext.xml</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../codebase/types/ficon.xsl</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;</span></pre></div></span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span></pre></div></div>
+
+<!-- FOOTER -->
+<table callspacing="0" cellpadding="0" border="0" class="sample_footer"><tr><td style="padding-left: 8px;">&copy; <a href="http://www.dhtmlx.com">DHTMLX LTD</a>. All rights reserved</td></tr></table>
+<!-- FOOTER -->
+
+</body>
+</html>
+

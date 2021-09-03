@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='iso-8859-1'?>
+<tree id="0">
+	<item text="dhtmlxCombo v1.0" open="1">
+		<item text="Intro" id="intro" open="1" >
+				<userdata name="file">intro.html</userdata>
+		</item>
+		<item text="API Functions" id="api" open="1">
+			<item text="Alphabeticaly sorted" id="api_a">
+				<userdata name="file">alpha.html</userdata>
+			</item>
+			<item text="Grouped by Type" id="api_t">
+				<userdata name="file">tgroup.html</userdata>
+			</item>
+			<item text="Grouped by Object" id="api_o">
+				<userdata name="file">ogroup.html</userdata>
+			</item>
+		</item>
+		<item text="Guide" id="guide">
+			<userdata name="file">guide.html</userdata>
+			<item text="Initialization" id="init">
+			</item>
+			<item text="Linking to exsiting control" id="link">
+			</item>
+			<item text="Operations with color picker" id="api">
+			</item>
+		 </item>
+		 <item text="Samples" id="samples">
+               <item text="Initialization"  id="sample1">
+					<userdata name="file">samples/color_init_js.html</userdata>
+			   </item>
+               <item text="Usage with Inputs"   id="sample2">
+					<userdata name="file">samples/color_init_html.html</userdata>
+			   </item>
+               <item text="API functions"   id="sample3">
+					<userdata name="file">samples/color_init_API.html</userdata>
+			   </item>
+               <item text="Link to HTML tags"   id="sample4">
+					<userdata name="file">samples/color_link.html</userdata>
+			   </item>
+               <item text="Change element attributes"   id="sample5">
+					<userdata name="file">samples/color_change_attrs.html</userdata>
+			   </item>			   		   
+		 </item>
+		 <item text="Troubleshooting" id="trouble">
+				<userdata name="file">troubleshooting.html</userdata>
+		 </item>
+	</item>
+</tree>

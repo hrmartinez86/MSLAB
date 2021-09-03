@@ -1,0 +1,103 @@
+
+
+.textField, .textFieldTitle, .textField_mini{
+  	font-family:Arial;
+  	font-size:11px;
+  	vertical-align:top;
+  	width:150px;
+  	text-align:left;
+}
+
+.textField_mini {
+  	padding:0;
+  	height:10px;
+  	margin-top:3px;
+  	width:auto;
+}
+
+.textFieldTitle {
+  	font-weight:bold;
+  	text-align:center;
+  	  	width:auto;
+}
+
+.inputField, .miniInputField{
+  	font-family:Arial;
+  	font-size:11px;
+  	width:110px;
+}
+
+.miniInputField {
+	width:71px;
+}
+
+.selectField {
+  	font-family:Arial;
+  	font-size:11px;
+}
+
+.code {
+  	margin-left:10px;
+  	margin-top:10px;
+  	font-family:Arial;
+  	font-size:11px;
+  	color:navy;
+}
+
+.title {
+  	margin-left:5px;
+	font: bold 20px Arial, Tahoma;
+	color: #0378A3;
+}
+
+.title span {
+  	color: #717171;
+}
+
+.tbl_cont {
+	padding:0px;
+	margin-left: auto;
+	margin-right: auto;	
+	margin-top:11px;
+  	font-family:Arial;
+  	font-size:11px;	
+}
+
+.labelColumn {
+  	width: 180px;
+  	text-align:left;
+  	vertical-align:middle;
+  	padding-left:14px;
+  	padding-top:3px;
+}
+
+.inputColumn {
+   	padding-top:3px;
+  	width:130px;
+}
+
+.spanRow {	
+   	padding-left:14px;
+  	padding-top:3px; 
+}
+
+.div_con {
+  	width:100%;
+  	text-align:center;
+  	height:100%;
+}
+
+.textArea {
+  	width:275px;
+  	height:260px;
+}
+
+.btn {
+  	font-family:Arial;
+  	font-size:11px;
+  	margin-right:14px;
+}
+
+.chbox {
+	 padding:0px;margin:0px;margin-right:2px;
+}

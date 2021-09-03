@@ -1,0 +1,204 @@
+<html>
+
+<head>
+
+
+<link rel="STYLESHEET" type="text/css" href="../common/styles.css">
+</head>
+<body>
+	<table border="0" cellpadding="0" cellspacing="0" class="sample_header" zid="71">
+		<tbody zid="3">
+			<tr valign="center" zid="4">
+				<td align="center" width="10" zid="5">&nbsp;</td>
+				<td align="left" zid="6">
+					<p zid="224">
+						<a href="http://www.dhtmlx.com/" zid="7">DHTMLX</a> Documentation
+					</p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<!--- CONTENT. Starts --->
+	<H1 id=h8bz0>Headers and footers in grid</H1>
+<BR id=w:fv0>
+<H3 id=w:fv1>Default grid header</H3>
+By default the grid is rendered with a single line header, which is defined by the following command: <BR id=dzl-1>
+&nbsp;&nbsp;&nbsp; grid.setHeader <BR id=dzl-2>
+The parameter of this command is a list of values, which will be used as column labels:<BR id=l6gq0>
+&nbsp;&nbsp;&nbsp; grid.setHeader("A,B,C")<BR id=l6gq1>
+or<BR id=l6gq2>
+&nbsp;&nbsp;&nbsp; grid.setHeader(["A","B","C"])<BR id=ubfg0>
+<BR id=ubfg1>
+The values of the header are treated as HTML, so you can put any HTML tags inside <SPAN id=n:060><I id=zqc80>setHeader </I></SPAN>command:<BR id=l6gq3>
+&nbsp;&nbsp;&nbsp; grid.setHeader("&lt;img src='some.gif'&gt;,B,C")<BR id=ubfg2>
+The above mentioned snippet will render the grid header with an image as a label for the first column.<BR id=un8h0>
+<BR id=un8h1>
+The syntax of <SPAN id=n:061><I id=zqc81>setHeader </I></SPAN>command uses a comma as a separator. So you need to escape it in a special way and then it will be processed correctly. <BR id=un8h2>
+&nbsp;&nbsp;&nbsp; grid.setHeader("A,B,C");&nbsp;&nbsp;&nbsp; // =&gt; will result in three columns "A" , "B" and "C"<BR id=un8h3>
+&nbsp;&nbsp;&nbsp; grid.setHeader("A\\,B,C");&nbsp;&nbsp;&nbsp; // =&gt; will result in two columns "A,B" and "C"<BR id=w:fv2>
+<BR id=w:fv3>
+The align of the header labels is defined by css and is not equal to the align of data columns. <BR id=a-..0>
+If you need to specify the different align (or any other styling for different columns), you can use the following two approaches:<BR id=a-..1>
+<BR id=l6gq4>
+a) Use the third parameter of setHeader command:<BR id=i4qc0>
+&nbsp;&nbsp;&nbsp; grid.setHeader("A,B,C",null,["text-align:right;","text-align:left;","text-align:center"]); <BR id=i4qc1>
+As a result each column will have its own align settings. <BR id=i4qc2>
+<BR id=i4qc3>
+b) You can use inline HTML tags to define the align:<BR id=i4qc4>
+&nbsp;&nbsp;&nbsp;&nbsp;grid.setHeader("&lt;div style='width:100%; text-align:left;'&gt;A&lt;/div&gt;,B,C"); <BR id=i4qc5>
+<BR id=i4qc6>
+<H3 id=yphs0>Grid without header</H3>
+<BR id=i4qc8>
+Grid can be initialized in such a way that the header line will not be visible. To do so you need to have the following initializing code:<BR id=xuna0>
+&nbsp;&nbsp;&nbsp; grid.setHeader("A,B,C")<BR id=xuna1>
+&nbsp;&nbsp;&nbsp; grid.setNoHeader(true);<BR id=yphs1>
+Please, take into account that you still need the <SPAN id=y7qk0><I id=zqc82>setHeader</I></SPAN> command with the correct list of parameters (the grid detects the count of columns based on the values of <SPAN id=ggp90><I id=zqc83>setHeader </I></SPAN>command. So it is mandatory, even in case when we don't want any grid header).<BR id=korx0>
+<BR id=korx1>
+<H3 id=nf9n0>Multiline headers | footers<BR id=id0r0>
+</H3>
+<BR id=u1es1>
+<SPAN id=pq.h0><I id=zqc84>attachHeader </I></SPAN>command can be used to add one more line into the header, after the first one. The syntax here is nearly the same as for <SPAN id=ib:j0><I id=zqc85>setHeader </I></SPAN>command:<BR id=u1es2>
+&nbsp;&nbsp;&nbsp; grid.attachHeader("A,B,C")<BR id=mxjl0>
+or <BR id=t4o64>
+&nbsp;&nbsp;&nbsp;&nbsp;grid.attachHeader(["A","B","C"])<BR id=nf9n1>
+<BR id=nf9n2>
+If you need to assign some custom style:<BR id=nf9n3>
+&nbsp;&nbsp;&nbsp; grid.attachHeader("A,B,C",["text-align:right;","text-align:left;","text-align:center"]); <BR id=nf9n4>
+<BR id=t4o65>
+The sibling command exists to attach footers (the first and one more line):<BR id=id0r1>
+&nbsp;&nbsp;&nbsp; grid.attachFooter("A,B,C")<BR id=mxjl0>
+or <BR id=t4o64>
+&nbsp;&nbsp;&nbsp;&nbsp;grid.attachFooter(["A","B","C"])<BR id=nf9n1>
+<BR id=nf9n2>
+If you need to assign some custom style:<BR id=nf9n3>
+&nbsp;&nbsp;&nbsp; grid.attachFooter("A,B,C",["text-align:right;","text-align:left;","text-align:center"]); <BR id=sxzr0>
+<BR id=sxzr1>
+Both <SPAN id=ib:j1><I id=zqc86>attachHeader </I></SPAN>and <SPAN id=ib:j2><I id=zqc87>attachFooter </I></SPAN>commands support the HTML as values, so they may contain any HTML compatible content.<BR id=rtho0>
+<BR id=rtho1>
+Any footer|header line can be detached later using:<BR id=rtho2>
+&nbsp;&nbsp;&nbsp; grid.detachHeader(index)<BR id=rtho3>
+&nbsp;&nbsp;&nbsp; grid.detachFooter(index)<BR id=rtho4>
+Where "index" is 1-based index of header|footer row, which needs to be detached. Please, take into account that the first header row <SPAN id=rtho5><B id=o58_0>can't </B></SPAN>be detached.<BR id=rtho6>
+<BR id=rtho7>
+<H3 id=h9in0>Accessing header values</H3>
+The values of header cells can be got in the following way:<BR id=h9in1>
+&nbsp;&nbsp;&nbsp; grid.getColumnLabel(c_index,r_index);<BR id=dw:60>
+<BR id=h9in2>
+And can be set as <BR id=h9in3>
+&nbsp;&nbsp;&nbsp; grid.setColumnLabel(c_index,value,r_index);<BR id=k9nd0>
+<BR id=k9nd1>
+Where <BR id=k9nd2>
+<UL id=m5j80>
+<LI id=m5j81>c_index - 0-base index of the column;
+<LI id=m5j82>r_index - 1-base index of the row, optional; if omitted, then the first header row will be used. </LI>
+</UL>
+<BR id=k9nd5>
+<BR id=id0r3>
+<H3 id=vxls0>Colspans and rowspans in header</H3>
+<BR id=g_g81>
+Multiline headers (footers) can have colspans and rowspans. There is no special API that calls for such task, the functionality is based on special cell values.<BR id=f:6l0>
+If the header cell contains:<BR id=f:6l1>
+&nbsp;&nbsp;&nbsp; #cspan - the cell will be joined with the cell to the left of the current one; <BR id=f:6l2>
+&nbsp;&nbsp;&nbsp; #rspan - the cell will be joined with the cell above the current one.<BR id=f:6l3>
+<BR id=f:6l4>
+For example:<BR id=lyju0>
+&nbsp;&nbsp;&nbsp; grid.setHeader("A,#cspan,B"); <BR id=oy9-0>
+&nbsp;&nbsp;&nbsp;&nbsp; 
+<DIV id=gwrz0>
+<TABLE id=sgz1 borderColor=#ff9900 cellSpacing=0 cellPadding=3 width=300 border=1><TBODY id=gwrz1>
+<TR id=gwrz2>
+<TD id=gwrz3 width="33%" colSpan=2>A<BR id=gwrz4>
+</TD>
+<TD id=gwrz9 width="33%">B<BR id=gwrz10>
+</TD>
+</TR>
+<TR id=gwrz11>
+<TD id=gwrz12 width="33%">data1<BR id=gwrz13>
+</TD>
+<TD id=gwrz16 width="33%">data2<BR id=gwrz17>
+</TD>
+<TD id=gwrz18 width="33%">data3<BR id=gwrz19>
+</TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+<BR id=qjyr0>
+<BR id=qjyr1>
+&nbsp;&nbsp;&nbsp; grid.setHeader("A,#cspan,#cspan")<BR id=qjyr2>
+&nbsp;&nbsp;&nbsp; grid.attachHeader("A1,B1,#cspan")<BR id=htzl0>
+&nbsp;&nbsp;&nbsp; grid.attachHeader("#rspan,B2,C2")<BR id=htzl1>
+<BR id=htzl2>
+<DIV id=c_fp0>
+<TABLE id=uku. borderColor=#ff9900 cellSpacing=0 cellPadding=3 width=300 border=1><TBODY id=c_fp1>
+<TR id=c_fp2>
+<TD id=c_fp3 width="33%" colSpan=3>A<BR id=c_fp4>
+</TD>
+</TR>
+<TR id=c_fp9>
+<TD id=c_fp10 width="33%" rowSpan=2>A1<BR id=c_fp11>
+</TD>
+<TD id=c_fp12 width="33%" colSpan=2>B1<BR id=c_fp13>
+</TD>
+</TR>
+<TR id=c_fp16>
+<TD id=c_fp19 width="33%">B2<BR id=c_fp20>
+</TD>
+<TD id=c_fp21 width="33%">C2<BR id=c_fp22>
+</TD>
+</TR>
+<TR id=c_fp23>
+<TD id=c_fp24 width="33%">data1<BR id=c_fp25>
+</TD>
+<TD id=c_fp26 width="33%">data2<BR id=c_fp27>
+</TD>
+<TD id=c_fp28 width="33%">data3<BR id=c_fp29>
+</TD>
+</TR>
+</TBODY></TABLE>
+</DIV>
+<BR id=qjyr3>
+<BR id=f:6l6>
+One and the same cell <SPAN id=f:6l7><B id=o58_1>can't </B></SPAN>be included in both rowspan and colspan at the same time.<BR id=korx2>
+<BR id=korx3>
+<H3 id=noka0>Initialization from XML</H3>
+<BR id=vxls2>
+With initialization from HTML values of the first header line can be defined as a part of <SPAN id=d_t40><B id=o58_2>head/column </B></SPAN>structure. Additional lines of headers|footers can be specified using the <SPAN id=c8_g0><B id=o58_3>afterInit/call@command <BR id=lf_c0>
+<BR id=lf_c1>
+</B></SPAN><SPAN id=c8_g0>&lt;rows&gt;<BR id=lf_c2>
+&nbsp;&nbsp;&nbsp; &lt;head&gt;<BR id=lf_c3>
+</SPAN><SPAN id=c8_g0>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;column ... &gt;A&lt;/column&gt;<BR id=lf_c4>
+</SPAN><SPAN id=c8_g0>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;column ... &gt;B&lt;/column&gt;<BR id=lf_c5>
+</SPAN><SPAN id=c8_g0>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;column ... &gt;C&lt;/column&gt;<BR id=lf_c6>
+</SPAN><SPAN id=c8_g0>&nbsp;&nbsp;&nbsp;&nbsp; &lt;afterInit&gt;<BR id=lf_c7>
+</SPAN><SPAN id=c8_g0>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;call command="attachHeader"&gt;&lt;param&gt;A1,B1,C1&lt;/param&gt;&lt;/call&gt;<BR id=jy_30>
+</SPAN><SPAN id=c8_g0>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;call command="attachHeader"&gt;&lt;param&gt;A2,B2,C2&lt;/param&gt;&lt;/call&gt;<BR id=jy_31>
+</SPAN><SPAN id=c8_g0>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;call command="attachFooter"&gt;&lt;param&gt;AF,BF,CF&lt;/param&gt;&lt;/call&gt;</SPAN><SPAN id=c8_g0><BR id=lf_c8>
+</SPAN><SPAN id=c8_g0>&nbsp;&nbsp;&nbsp;&nbsp; &lt;/afterInit&gt;</SPAN><SPAN id=c8_g0><BR id=lf_c9>
+</SPAN><SPAN id=c8_g0>&nbsp;&nbsp;&nbsp; &lt;/head&gt;</SPAN><SPAN id=c8_g0><BR id=lf_c10>
+<BR id=c8_g2>
+</SPAN>The same<SPAN id=jv-q0 style="BACKGROUND-COLOR: rgb(255,255,255)"> syntax </SPAN>is used to define colspans and rowspans working with the initialization from XML (be sure to omit whitespaces around #rspan and #cspan values).<SPAN id=c8_g3><B id=c8_g4><BR id=korx4>
+</B></SPAN><BR id=korx5>
+<H3 id=vjf70></H3>
+<H3 id=vjf70>Initialization from HTML</H3>
+<BR id=noka2>
+In case of grid initialization from HTML table the first line of the table will be treated as the header line. There is no way to define additional lines of header|footer in such case (they can be added later by JavaScript).<BR id=noka3>
+<BR id=noka4>
+&lt;table&gt;<BR id=noka5>
+&nbsp;&nbsp;&nbsp; &lt;tr&gt;&lt;td&gt;<SPAN id=vjf71><B id=o58_4>A</B></SPAN>&lt;/td&gt;&lt;td&gt;<SPAN id=qkam0><B id=o58_5>B</B></SPAN>&lt;/td&gt;&lt;td&gt;<SPAN id=noka6><B id=o58_6>C</B></SPAN>&lt;/td&gt;&lt;/tr&gt;&nbsp; <BR id=noka7>
+&nbsp;&nbsp;&nbsp; &lt;tr&gt;&lt;td&gt;data 1&lt;/td&gt;&lt;td&gt;data 2&lt;/td&gt;&lt;td&gt;data 3&lt;/td&gt;&lt;/tr&gt;<BR id=noka8>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ...<BR id=korx6>
+<BR id=korx7>
+<H3 id=lns.0></H3>
+<H3 id=lns.0>Initialization from CSV</H3>
+<BR id=vjf73>
+In case of initialization from CSV the first line of the header can be treated as the header line. This can be enabled|disabled in the following way:<BR id=vjf74>
+&nbsp;&nbsp;&nbsp; grid.enableCSVHeader(true|false);<BR id=wn6y0>
+<BR id=wn6y1>
+If mode is enabled - the first line of CSV will be used as the header.<BR id=wn6y2>
+If mode is disabled - the CSV will be treated as data only (in such case the header must be defined by js API before CSV loading).<BR id=me.n0>
+
+
+	<!--- CONTENT. Ends --->
+	<div class="copyright" zid="223">&copy; DHTMLX, 2008</div>
+</body>
+</html>

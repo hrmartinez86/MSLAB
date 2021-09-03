@@ -1,0 +1,143 @@
+<!--conf
+<sample>
+              <product version="1.0" edition="std"/>
+                     <modifications>
+                            <modified date="070101"/>
+                     </modifications>
+               </sample>
+ --> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<title>Easy skinable with CSS</title>
+	<link rel="STYLESHEET" type="text/css" href="../../codebase/dhtmlxmenu.css">
+	<link rel="STYLESHEET" type="text/css" href="../common/dhtmlxmenu_alter.css">
+	<link rel="STYLESHEET" type="text/css" href="../common/dhtmlxmenu_xp.css">
+	<link rel="STYLESHEET" type="text/css" href="../common/dhtmlxmenu_osx.css">
+	<link rel="STYLESHEET" type="text/css" href="../common/dhtmlxmenu_bus.css">
+	
+	<script language="JavaScript" src="../../codebase/dhtmlxprotobar.js"></script>
+	<script language="JavaScript" src="../../codebase/dhtmlxmenubar.js"></script>
+	<script language="JavaScript" src="../../codebase/dhtmlxcommon.js"></script>
+</head>
+
+<body>
+<link rel='STYLESHEET' type='text/css' href='../common/style.css'>
+<table cellspacing="0" cellpadding="0" class="sample_header" border="0">
+	<tr valign="middle">
+		<!-- COMPONENT ICON -->
+		<td width="40" align="center"><img src="../common/dhtmlxmenu_icon.gif" border="0"></td>
+		<!-- COMPONENT NAME -->
+		<td width="120" align="left">Sample: dhtmlxMenu</td>
+		<!-- SAMPLE TITLE -->
+		<td width="0" align="left"><b>Easy skinable with CSS</b></td>
+		<!-- LINK TO COMPONENT PAGE -->
+		<td width="0" align="right"><a href="http://www.dhtmlx.com/docs/products/dhtmlxMenu/index.shtml">dhtmlxMenu main page</a></td>
+		<!-- CLOSE BUTTON -->
+		<td width="50"><div class="sample_close"><a href="javascript:void(0);" onclick="self.close();"><img src="../common/sample_close.gif" width="14" height="14" border="0" alt="X"></a></div></td>
+	</tr>
+</table>
+	
+	
+	
+	<table>
+		<tr>
+			<td>Windows Classic</td>
+		</tr>
+		<tr>
+			<td>
+				<div id="menu_zone" style="width:600;"/>
+			</td>
+		</tr>
+		<tr>
+			<td>Windows XP</td>
+		</tr>
+		<tr>
+			<td>
+				<div id="xpstyle" style="width:600;"/>
+			</td>
+		</tr>
+		<tr>
+			<td>OS X Style</td>
+		</tr>
+		<tr>
+			<td>
+				<div id="osxstyle" style="width:600;"/>
+			</td>
+		</tr>
+		<tr>
+			<td>Web Style</td>
+		</tr>
+		<tr>
+			<td>
+				<div id="busstyle" style="width:600;"/>
+			</td>
+		</tr>
+		<tr>
+			<td>Free Style</td>
+		</tr>
+		<tr>
+			<td>
+				<div id="altermenu" style="width:600;"/>
+			</td>
+		</tr>
+	</table>
+<br>
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+&lt;</span><span class="hl-identifier">link</span><span class="hl-code"> </span><span class="hl-identifier">rel</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">STYLESHEET</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-identifier">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">text/css</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-identifier">href</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../dhtmlxmenu.css</span><span class="hl-quotes">&quot;</span><span class="hl-code">&gt;
+&lt;</span><span class="hl-identifier">link</span><span class="hl-code"> </span><span class="hl-identifier">rel</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">STYLESHEET</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-identifier">type</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">text/css</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-identifier">href</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../dhtmlxmenu_alter.css</span><span class="hl-quotes">&quot;</span><span class="hl-code">&gt;
+&lt;</span><span class="hl-identifier">div</span><span class="hl-code"> </span><span class="hl-identifier">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">menu_zone</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-identifier">style</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">width:600;</span><span class="hl-quotes">&quot;</span><span class="hl-code">/&gt;
+&lt;</span><span class="hl-identifier">div</span><span class="hl-code"> </span><span class="hl-identifier">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">altermenu</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-identifier">style</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">width:600;</span><span class="hl-quotes">&quot;</span><span class="hl-code">/&gt;
+&lt;!--
+    </span><span class="hl-identifier">to</span><span class="hl-code"> </span><span class="hl-identifier">use</span><span class="hl-code"> </span><span class="hl-identifier">alternative</span><span class="hl-code"> </span><span class="hl-identifier">styles</span><span class="hl-code"> </span><span class="hl-identifier">within</span><span class="hl-code"> </span><span class="hl-identifier">the</span><span class="hl-code"> </span><span class="hl-identifier">same</span><span class="hl-code"> </span><span class="hl-identifier">page</span><span class="hl-code"> </span><span class="hl-identifier">we</span><span class="hl-code"> </span><span class="hl-identifier">just</span><span class="hl-code">
+    </span><span class="hl-identifier">make</span><span class="hl-code"> </span><span class="hl-identifier">a</span><span class="hl-code"> </span><span class="hl-identifier">copy</span><span class="hl-code"> </span><span class="hl-identifier">of</span><span class="hl-code"> </span><span class="hl-reserved">default</span><span class="hl-code"> </span><span class="hl-identifier">css</span><span class="hl-code"> </span><span class="hl-identifier">file</span><span class="hl-code"> </span><span class="hl-identifier">and</span><span class="hl-code"> </span><span class="hl-identifier">prepend</span><span class="hl-code"> </span><span class="hl-identifier">all</span><span class="hl-code"> </span><span class="hl-identifier">classes</span><span class="hl-code"> </span><span class="hl-identifier">there</span><span class="hl-code">
+    </span><span class="hl-reserved">with</span><span class="hl-code"> </span><span class="hl-identifier">the</span><span class="hl-code"> </span><span class="hl-identifier">id</span><span class="hl-code"> </span><span class="hl-identifier">of</span><span class="hl-code"> </span><span class="hl-identifier">second</span><span class="hl-code"> </span><span class="hl-identifier">menu</span><span class="hl-code"> </span><span class="hl-identifier">box</span><span class="hl-code">. </span><span class="hl-identifier">Then</span><span class="hl-code"> </span><span class="hl-identifier">we</span><span class="hl-code"> </span><span class="hl-identifier">redefine</span><span class="hl-code"> </span><span class="hl-identifier">them</span><span class="hl-code"> </span><span class="hl-identifier">as</span><span class="hl-code"> </span><span class="hl-identifier">we</span><span class="hl-code"> </span><span class="hl-identifier">need</span><span class="hl-code">:
+    
+    #</span><span class="hl-identifier">altermenu</span><span class="hl-code"> .</span><span class="hl-identifier">menuName</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">...</span><span class="hl-brackets">}</span><span class="hl-code">
+ --&gt;</span></pre></div></div>
+
+
+	<script>
+		function onButtonClick(itemId,itemValue)
+		{ };
+		
+		
+		aMenuBar=new dhtmlXMenuBarObject(document.getElementById('menu_zone'),'100%',23,"Demo menu");
+	    aMenuBar.setOnClickHandler(onButtonClick);
+		aMenuBar.setGfxPath("../../codebase/imgs/");
+		aMenuBar.loadXML("_menu.xml")
+		aMenuBar.showBar();
+		
+		aMenuBar2=new dhtmlXMenuBarObject(document.getElementById('altermenu'),'100%',23,"Demo menu");
+		aMenuBar2.setOnClickHandler(onButtonClick);
+		aMenuBar2.setGfxPath("../../codebase/imgs/");
+		aMenuBar2.loadXML("_menu.xml")
+		aMenuBar2.showBar();
+		
+		aMenuBar3=new dhtmlXMenuBarObject(document.getElementById('xpstyle'),'100%',23,"Demo menu");
+		aMenuBar3.setOnClickHandler(onButtonClick);
+		aMenuBar3.setGfxPath("../../codebase/imgs/");
+		aMenuBar3.loadXML("_menu.xml")
+		aMenuBar3.showBar();
+		
+		aMenuBar4=new dhtmlXMenuBarObject(document.getElementById('osxstyle'),'100%',23,"Demo menu");
+	 	aMenuBar4.setOnClickHandler(onButtonClick);
+		aMenuBar4.setGfxPath("../../codebase/imgs/");
+		aMenuBar4.loadXML("_menu_osx.xml")
+		aMenuBar4.showBar();
+
+		aMenuBar5=new dhtmlXMenuBarObject(document.getElementById('busstyle'),'100%',23,"Demo menu");
+	 	aMenuBar5.setOnClickHandler(onButtonClick);
+		aMenuBar5.setGfxPath("../../codebase/imgs/");
+		aMenuBar5.loadXML("_menu_bus.xml")
+		aMenuBar5.showBar();
+		
+	</script>
+
+<!-- FOOTER -->
+<table callspacing="0" cellpadding="0" border="0" class="sample_footer"><tr><td style="padding-left: 8px;">&copy; <a href="http://www.dhtmlx.com">DHTMLX LTD</a>. All rights reserved</td></tr></table>
+<!-- FOOTER -->
+
+</body>
+</html>

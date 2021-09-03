@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<title>DHTML dhtmlxColorPicker guide</title><link rel="STYLESHEET" type="text/css" href="common/styles.css">
+</head>
+   
+<body>
+<a name="cp_guide"><h2 onclick="openFull(this)">dhtmlxColorPicker Guide</h2>
+</a><div class="block">
+<!---  --->
+	
+	<a name="cp_mf"><h3>Main features</h3>
+	</a><div class="block">
+			<li>Multibrowser/Multiplatform support </li>
+			<li>Usual visual appearence</li>
+			<li>Flexible controll with JavaScript API</li>
+			<li>Complete Colors Palette</li>
+			<li>RGB/HSL</li>
+			<li>Custom colors support</li>
+	</div>
+	
+	<a name="cp_browser"><h3>Supported browsers</h3
+	></a><div class="block">
+		<li>IE 5.5 and above</li>
+		<li>Mac OS X Safari</li>
+		<li>Mozilla 1.4 and above</li>
+		<li>FireFox 0.9 and above</li>
+		<li>Opera</li>
+	</div>
+
+	<a name="cp_guide"><h3>Working with dhtmlxColorPicker</h3
+	></a><div class="block">
+		<a name="cp_init"><h4>Initializing object</h4
+			></a><div class="block">
+<p>dhtmlxColorPicker can be initialized on page either based on DIV element (in this case its position is defined by position of this DIV) or attached to some text input 
+(in this case position of ColorPicker will be assigned to position of INPUT element taking its visibility on page into account )</p>
+<h5>How to set path to images folder (codebase/imgs/ in most cases)</h5>
+<p>There are three ways to set path:
+	<ul>
+		<li>through <em>setImagePath(PATH)</em></li>
+		<li>as global js variable <em>window.dhx_globalImgPath = PATH</em> - this is good way if all images for all dhtmlx components which are used on page a re place in the same folder</li>
+		<li>as input parameter <em>imagepath</em> - this way is suitable for initialization from INPUT (see below)</li>
+	</ul>
+	
+</p>
+<h5>Based on DIV element</h5>
+<XMP>
+<div id="colorPicker" style="position:absolute;top:150px;left:200px;"></div>
+<script>
+	//color picker can be initialized in specified container
+	var myCP = new dhtmlXColorPicker("colorPicker");
+	myCP.setImagePath("codeabse/imgs/");
+	myCP.init();
+</script>
+</XMP>	
+<h5>Attached to input</h5>		
+<XMP>
+	<input type="text" imagepath="codebase/imgs/" id="dhtmlxColorPicker1">
+	<script>
+		myCP = dhtmlXColorPickerInput('dhtmlxColorPicker1');
+		myCP.init();
+	</script>
+</XMP>
+<p>If you add attribute "colorbox" to your input, it will get small square with chosen color as a background in front of it</p>
+<XMP>
+	<input type="text" imagepath="codebase/imgs/" colorbox="true" id="dhtmlxColorPicker2">
+	<script>
+		myCP = dhtmlXColorPickerInput('dhtmlxColorPicker2');
+		myCP.init();
+	</script>
+</XMP>
+		</div>
+		
+		<a name="cp_props"><h4>Changing properties</h4
+			></a><div class="block">
+<p>dhtmlxColorPicker has number of javascript methods which help to define its properties on the fly:
+	<li>Position: setPosition();</li>
+	<li>Selected color: setColorRGB()</li>
+	<li>Visibility: hide(), show()</li>
+	For complete list of methods please see <a href="alpha.html">API documentation</a>.
+</p>	
+
+<XMP>
+<script>
+	//hide - show
+	var z=new dhtmlXColorPicker("null, true");
+	z.init();
+	z.setColor("#123456");
+	z.setColor([56,34,12]);
+	z.setColor("rgb(10,27,99)");
+	z.hide();
+	z.show();
+</script>
+</XMP>		
+		
+		</div>
+		
+		
+		<a name="cp_cust_colors"><h4>Using Custom Colors</h4
+			></a><div class="block">
+<p>Custom Color palette can be used to keep colors which are most useful or popular for the case. User can add color there 
+by selecting necessary custom color palette cell and pressing Add To Custom Colors button. Chosen value will be saved in cookies, thus it
+will be available to user next time he visit the page.</p>		
+
+<p>v.1.0 doesn't allow programmatic way of setting Custom Colors Palette values</p>	
+		
+		</div>
+		
+		
+		<a name="cp_events"><h4>Events system</h4
+			></a><div class="block">
+<p>You can define your own action for the moment when user has chosen the color. To do this use <em>setOnSelectHandler</em> method. 
+Event handler which is defined this way will get color value as incomming argument</p>
+<XMP>
+	function setBackgroundColor(color){
+		document.getElementById("zoneA").style.backgroundColor="#"+color;
+	}
+	
+	var z=new dhtmlXColorPicker();
+	z.init();
+	z.setOnSelectHandler(setBackgroundColor);
+</XMP>		
+		</div>
+		
+		
+	</div>
+</div>
+<div class="copyr">&copy; DHTMLX LTD.</div>
+</body>

@@ -1,0 +1,90 @@
+<!--conf
+<sample in_favorites="true">
+              <product version="1.0" edition="std"/>
+                     <modifications>
+                            <modified date="071221"/>
+                     </modifications>
+               </sample>
+ --> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<title>Styling</title>
+<link rel="STYLESHEET" type="text/css" href="../../codebase/dhtmlxcalendar.css">
+<link rel="STYLESHEET" type="text/css" href="../../codebase/dhtmlxcalendar_skins.css">
+<script>
+      window.dhx_globalImgPath="../../codebase/imgs/";
+</script>
+<script  src="../../codebase/dhtmlxcommon.js"></script>
+<script  src="../../codebase/dhtmlxcalendar.js"></script>
+
+
+	<script>
+	var mCal;
+
+	
+	
+	window.onload = function () {
+		
+		
+		mCal = new dhtmlxCalendarObject('dhtmlxCalendar', false, {isYearEditable: true});
+		mCal.loadUserLanguage('en-us');
+		mCal.setYearsRange(2000, 2500);
+		mCal.draw();
+	}
+	
+	
+	
+
+	</script>
+
+<body>
+<link rel='STYLESHEET' type='text/css' href='../common/style.css'>
+<table cellspacing="0" cellpadding="0" class="sample_header" border="0">
+	<tr valign="middle">
+		<!-- COMPONENT ICON -->
+		<td width="40" align="center"><img src="../common/dhtmlxcalendar_icon.gif" border="0"></td>
+		<!-- COMPONENT NAME -->
+		<td width="120" align="left">Sample: dhtmlxCalendar</td>
+		<!-- SAMPLE TITLE -->
+		<td width="0" align="left"><b>Styling</b></td>
+		<!-- LINK TO COMPONENT PAGE -->
+		<td width="0" align="right"><a href="http://www.dhtmlx.com/docs/products/dhtmlxCalendar/index.shtml">dhtmlxCalendar main page</a></td>
+		<!-- CLOSE BUTTON -->
+		<td width="50"><div class="sample_close"><a href="javascript:void(0);" onclick="self.close();"><img src="../common/sample_close.gif" width="14" height="14" border="0" alt="X"></a></div></td>
+	</tr>
+</table>
+	
+	<p> This sample illustrates that the calendar has different CSS skins</p> 
+<table border="0"  cellpadding="5" cellspacing="3">
+  
+  <tr>
+    <td valign="top"><div id="dhtmlxCalendar"></div></td>
+    <td valign="top" align="center">
+		<h3>CSS Skins:</h3>
+		<select name="cssName" id="skinSelect" onChange="mCal.setSkin(this.value);">
+			<option value="" selected >= default =</option>
+			<option value="yahoolike">Yahoo like</option>
+			<option value="simplegrey">Simple gray</option>
+			<option value="simpleblue">Simple blue</option>
+			<option value="vista">Windows Vista</option>			
+			<option value="simplecolordark">Simple color dark</option>
+			<option value="simplecolorsand">Simple color sand</option>
+			<option value="classic">Classic</option>								
+		</select>
+    </td>
+  <tr>
+   	
+  </tr>
+</table>
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+</span><span class="hl-identifier">mCal</span><span class="hl-code">.</span><span class="hl-identifier">setSkin</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">yahoolike</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span></pre></div></div>
+<br>
+<!-- FOOTER -->
+<table callspacing="0" cellpadding="0" border="0" class="sample_footer"><tr><td style="padding-left: 8px;">&copy; <a href="http://www.dhtmlx.com">DHTMLX LTD</a>. All rights reserved</td></tr></table>
+<!-- FOOTER -->
+
+</body>
+</html>
+

@@ -1,0 +1,58 @@
+<html>
+
+<head>
+
+
+<link rel="STYLESHEET" type="text/css" href="../common/styles.css">
+</head>
+<body>
+	<table border="0" cellpadding="0" cellspacing="0" class="sample_header" zid="71">
+		<tbody zid="3">
+			<tr valign="center" zid="4">
+				<td align="center" width="10" zid="5">&nbsp;</td>
+				<td align="left" zid="6">
+					<p zid="224">
+						<a href="http://www.dhtmlx.com/" zid="7">DHTMLX</a> Documentation
+					</p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<!--- CONTENT. Starts --->
+<H1 id=l-ln>Control over tab-order</H1>
+<BR id=gfsr>
+<H3 id=p8pr>Setting custom column tab order</H3>
+<BR id=x8n6>
+Can be set by:&nbsp;<BR id=ei23>
+<BLOCKQUOTE id=qtrk>&nbsp;&nbsp;&nbsp; grid.setTabOrder("1,2,3,4");&nbsp;&nbsp;&nbsp; // the direct tab order<BR id=nhlx>
+&nbsp;&nbsp;&nbsp; grid.setTabOrder("4,3,2,1");&nbsp;&nbsp;&nbsp; // the inverse tab order<BR id=itby>
+</BLOCKQUOTE>
+<BR id=llws>
+<BR id=s:8w>
+<H3 id=qv62>Tabbing through editable cells only</H3>
+<BR id=ub_7>
+Can be enabled by: <BR id=km5u>
+<BLOCKQUOTE id=s8p4>&nbsp;&nbsp;&nbsp; grid.enableEditTabOnly(true);<BR id=wu4m>
+</BLOCKQUOTE>
+<BR id=gozg>
+<H3 id=khaf>Tab in grid and tab out of grid</H3>
+<BR id=e6ka>
+Starting from dhtmlxgrid 1.6 you can control the page elements that precede/succeed the grid in the tab order.<BR id=laff>
+<BR id=ftki>
+For example, if you have the following layout:<BR id=url3>
+<BR id=rbp->
+<BLOCKQUOTE id=gmeg>&lt;input type="text" id="input1" /&gt;<BR id=io0g>
+&lt;div id="gridbox"&gt;&lt;/div&gt;<BR id=huot>
+&lt;input type="text" id="input3" /&gt;<BR id=jabh>
+</BLOCKQUOTE>
+<BR id=mq9t>
+You can use the following js commands to set the direct tab order:<BR id=mdi_>
+<BR id=d.vo>
+&nbsp;
+<BLOCKQUOTE id=k1yq>&nbsp;&nbsp; grid.setExternalTabOrder("input1","input3");<BR id=g9e5>
+</BLOCKQUOTE>
+<BR id=iek_>
+Now pressing the "tab" key in input1 will move the focus to the grid, and tabbing from the last cell of the grid will move the focus to input3.<BR id=fmfx><!--- CONTENT. Ends --->
+	<div class="copyright" zid="223">&copy; DHTMLX, 2008</div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!--conf
+<sample>
+              <product version="1.0" edition="std"/>
+                     <modifications>
+                            <modified date="071221"/>
+                     </modifications>
+               </sample>
+ --> 
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<title>onClick event handler</title>
+	<link rel="STYLESHEET" type="text/css" href="../../codebase/dhtmlxcalendar.css">
+<script>
+      window.dhx_globalImgPath="../../codebase/imgs/";
+</script>
+<script  src="../../codebase/dhtmlxcommon.js"></script>
+<script  src="../../codebase/dhtmlxcalendar.js"></script>
+	<script>
+	var mCal;
+
+
+
+	window.onload = function () {
+		
+		mCal = new dhtmlxCalendarObject('dhtmlxCalendar', false, {isYearEditable: true});
+		mCal.loadUserLanguage('en-us');
+		mCal.setYearsRange(2000, 2500);
+		mCal.attachEvent("onClick",mSelectDate);
+		mCal.draw();
+
+		
+	}
+	
+	function mSelectDate(date) {
+		document.getElementById('mCalInput').innerHTML = mCal.getFormatedDate("%d.%m.%Y", date);
+		return true;
+	}
+
+	
+	
+
+	</script>
+
+<body>
+<link rel='STYLESHEET' type='text/css' href='../common/style.css'>
+<table cellspacing="0" cellpadding="0" class="sample_header" border="0">
+	<tr valign="middle">
+		<!-- COMPONENT ICON -->
+		<td width="40" align="center"><img src="../common/dhtmlxcalendar_icon.gif" border="0"></td>
+		<!-- COMPONENT NAME -->
+		<td width="120" align="left">Sample: dhtmlxCalendar</td>
+		<!-- SAMPLE TITLE -->
+		<td width="0" align="left"><b>onClick event handler</b></td>
+		<!-- LINK TO COMPONENT PAGE -->
+		<td width="0" align="right"><a href="http://www.dhtmlx.com/docs/products/dhtmlxCalendar/index.shtml">dhtmlxCalendar main page</a></td>
+		<!-- CLOSE BUTTON -->
+		<td width="50"><div class="sample_close"><a href="javascript:void(0);" onclick="self.close();"><img src="../common/sample_close.gif" width="14" height="14" border="0" alt="X"></a></div></td>
+	</tr>
+</table>
+	
+	<p> You can set an onclick event handler</p>
+<form action="">
+<table >
+  <tr>
+   
+    <td valign="top"><div id="dhtmlxCalendar"></div></td>
+   </tr>
+  <tr>
+    <td colspan="2"><div id="mCalInput" style="color: navy; font-size:18px; font-family: Verdana; text-align:center; border: 1px solid navy">&nbsp;</div></td>
+  </tr>
+ 
+</table>
+
+</form>
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code"><div class="hl-main"><pre><span class="hl-code"> 
+</span><span class="hl-identifier">mCal</span><span class="hl-code">.</span><span class="hl-identifier">attachEvent</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">onClick</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-identifier">mSelectDate</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-reserved">function</span><span class="hl-code"> </span><span class="hl-identifier">mSelectDate</span><span class="hl-brackets">(</span><span class="hl-identifier">date</span><span class="hl-brackets">)</span><span class="hl-code"> </span><span class="hl-brackets">{</span><span class="hl-code">
+    </span><span class="hl-builtin">document</span><span class="hl-code">.</span><span class="hl-identifier">getElementById</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">mCalInput</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">.</span><span class="hl-identifier">innerHTML</span><span class="hl-code"> = </span><span class="hl-identifier">mCal</span><span class="hl-code">.</span><span class="hl-identifier">getFormatedDate</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">%d.%m.%Y</span><span class="hl-quotes">&quot;</span><span class="hl-code">, </span><span class="hl-identifier">date</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-reserved">return</span><span class="hl-code"> </span><span class="hl-reserved">true</span><span class="hl-code">;
+</span><span class="hl-brackets">}</span></pre></div></span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span></pre></div></div>
+<b>attachEvent</b> method sets function called when specified event occurs.<br>
+In case of onclick event a function incoming argument is the date of clicked day in the calendar.
+
+
+<!-- FOOTER -->
+<table callspacing="0" cellpadding="0" border="0" class="sample_footer"><tr><td style="padding-left: 8px;">&copy; <a href="http://www.dhtmlx.com">DHTMLX LTD</a>. All rights reserved</td></tr></table>
+<!-- FOOTER -->
+
+</body>
+</html>
+

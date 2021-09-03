@@ -1,0 +1,189 @@
+<html>
+
+<head>
+
+
+<link rel="STYLESHEET" type="text/css" href="../common/styles.css">
+</head>
+<body>
+	<table border="0" cellpadding="0" cellspacing="0" class="sample_header" zid="71">
+		<tbody zid="3">
+			<tr valign="center" zid="4">
+				<td align="center" width="10" zid="5">&nbsp;</td>
+				<td align="left" zid="6">
+					<p zid="224">
+						<a href="http://www.dhtmlx.com/" zid="7">DHTMLX</a> Documentation
+					</p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<!--- CONTENT. Starts --->
+	            <h1 id="xdai">
+
+    
+    
+
+
+    
+    
+Custom <span id="a9i5" style="background-color: rgb(255, 255, 255);">excell </span><span id="f8:k" style="background-color: rgb(255, 255, 255);">crea</span>tion - simple way</h1><h3 id="d53b">The pu<span id="am07" style="background-color: rgb(255, 255, 255);">rpose of </span><span id="v5of" style="background-color: rgb(255, 255, 255);">excells</span></h3>Excell stands for EXtended CELL and represents the cell editor in the grid.<br id="p5l7"><br id="t4ns">The way the data will be stored|shown|edited in the grid is controlled by the column type.<br id="b6up">Each column type refers to the related <span id="aezl" style="background-color: rgb(255, 255, 255);">excell </span>object:<br id="m1.x">&nbsp;&nbsp;&nbsp; ro =&gt; eXcell_ro<br id="q.lf">&nbsp;&nbsp;&nbsp; ed =&gt; eXcell_ed<br id="dclz">&nbsp;&nbsp;&nbsp; ...<br id="era1">While API allows to attach events and update settings to control some aspects of data rendering, the full control can be achieved only by customizing (or creating new one) <span id="sn6j" style="background-color: rgb(255, 255, 255);">excells</span><span id="kiu9" style="background-color: rgb(255, 255, 255);">.</span><br id="s0_z">In most cases it is enough to redefine some single method of <span id="bh.f" style="background-color: rgb(255, 255, 255);">excell </span>to change the related behavior - the full list of excell methods is <a title="listed here" href="View?docid=dhhqnnw2_9f3qg8dqc" id="cl9i">provided here</a>.<br id="z1zb"><br id="upfu"><h3 id="tp4w">Creating read-only excells (formatters)</h3>Read-они only excells are pretty simple. They are only used to describe the way how the incoming data needs to be rendered.<br id="tyjl"><br id="h2l7"><blockquote id="d2lh">function eXcell_<b id="bjf-">ro</b>(cell){&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//excell name is defined here<br id="x1hx">&nbsp;&nbsp;&nbsp; if (cell){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //default pattern, just copy it<br id="noz-">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; this.cell = cell;<br id="hynb">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; this.grid = this.cell.parentNode.grid;<br id="y0ac">&nbsp;&nbsp;&nbsp; }<br id="g6sr">&nbsp;&nbsp;&nbsp; this.edit = function(){}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //read-only cell doesn't have edit method<br id="k67y">&nbsp;&nbsp;&nbsp; this.isDisabled = function(){ return true; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // the cell is read-only, that's why it is always in the disabled state<br id="k23l">&nbsp;&nbsp;&nbsp; this.setValue=function(val){<br id="sdz3"><b id="o.o-">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </b>this.setCValue(<b id="j66e">val</b>);<b id="g.-k">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </b>//actual data processing may be placed here, for now we just set value as it is<br id="fyum">&nbsp;&nbsp;&nbsp;&nbsp;}<br id="g1ck">}<br id="h43m">eXcell_ro.prototype = new eXcell;&nbsp;&nbsp;&nbsp; // nest all other methods from base class<br id="ay7q"></blockquote><p id="a5lf">While this snippet contains about 10 lines of code, most of it may be copy-pasted. There are only two places that need to be adjusted according to your needs:</p><ul id="i3gz"><li id="ptek">Name of the column; <br id="bstw"></li><li id="yowm">Data processing formula.</li></ul><br id="z5v6">For example, the following code will create an excell which will render the cell value as button with a label:<br id="kq1c"><blockquote id="bm6.">function eXcell_<b id="y2-z">button</b>(cell){&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//excell name is defined here<br id="euak">
+&nbsp;&nbsp;&nbsp; if (cell){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //default pattern, just copy it<br id="zk_p">
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; this.cell = cell;<br id="darb">
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; this.grid = this.cell.parentNode.grid;<br id="xjtm">
+&nbsp;&nbsp;&nbsp; }<br id="m3a4">
+&nbsp;&nbsp;&nbsp; this.edit = function(){}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //read-only cell doesn't have edit method<br id="ztk1">
+&nbsp;&nbsp;&nbsp; this.isDisabled = function(){ return true; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // the cell is read-only, that's why it is always in the disabled state<br id="sbp0">
+&nbsp;&nbsp;&nbsp; this.setValue=function(val){<br id="x36."><b id="o7:8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </b>this.setCValue(<b id="as_s">"&lt;input type='button' value='"+val+"'&gt;",val</b>);&nbsp;<b id="xqw1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </b><br id="kv-s">
+&nbsp;&nbsp;&nbsp;&nbsp;}<br id="tnc5">
+}<br id="vuk9">
+eXcell_ro.prototype = new eXcell;&nbsp;&nbsp;&nbsp; // nest all other methods from base class<br id="frko"></blockquote>
+<p id="x4nw">As you can see, the above mentioned snippet differs from the previous one only in two places but now you can automatically convert the incoming data into a button just by defining the column type:</p><blockquote id="nk4x"><p id="xq7e">grid.setColTypes("button,ro");<br id="zr8b"></p></blockquote><p id="b5w2">You can use any kind of HTML in the process of cell code generation, which allows you to place complex elements inside the grid and style them as necessary. The code mentioned below creates a complex excell type, which will open new window with details on pressing the button:</p><blockquote id="e.37"><p id="ab7s">function eXcell_<b id="ph5c">details</b>(cell){&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //excell name is defined here<br id="gk.w">
+
+&nbsp;&nbsp;&nbsp; if (cell){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //default pattern, just copy it<br id="pf-v">
+
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; this.cell = cell;<br id="yj0g">
+
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; this.grid = this.cell.parentNode.grid;<br id="o7b3">
+
+&nbsp;&nbsp;&nbsp; }<br id="m5a0">
+
+&nbsp;&nbsp;&nbsp; this.edit = function(){}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //read-only cell doesn't have edit method<br id="lg62">
+
+&nbsp;&nbsp;&nbsp; this.isDisabled = function(){ return true; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // the cell is read-only, that's why it is always in the disabled state<br id="kk6g">
+
+&nbsp;&nbsp;&nbsp; this.setValue=function(val){</p><p id="fn1w"><b id="bq0y">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var row_id=this.cell.parentNode.idd; &nbsp;&nbsp;&nbsp; </b>//get related row id<br id="r_1y"></p><p id="s6j2"><b id="azad">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</b>this.setCValue(<b id="dz1g">val+"&lt;input type='button' onclick='window.open(\"details.php?for=\"+row_id)'&gt;",val</b>);&nbsp;<b id="ateu">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </b><br id="u3xw">
+
+&nbsp;&nbsp;&nbsp;&nbsp;}<br id="zup7">
+
+}<br id="lfz2">
+
+eXcell_ro.prototype = new eXcell;&nbsp;&nbsp;&nbsp; // nest all other methods from base class</p></blockquote><h3 id="q2wm">Creating editable excells</h3>The editable excells use the same approach, but with a few additional methods.<br id="d2bn">Lets analyze the simplest case: <br id="h59d"><blockquote id="gbb5">function eXcell_<b id="ujng">button</b>(cell){&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//excell name is defined here<br id="v4r6">
+
+&nbsp;&nbsp;&nbsp; if (cell){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //default pattern, just copy it<br id="no:k">
+
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; this.cell = cell;<br id="ycgk">
+
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; this.grid = this.cell.parentNode.grid;<br id="ym94">
+
+&nbsp;&nbsp;&nbsp; }<br id="q7bn">
+
+&nbsp;&nbsp;&nbsp; this.edit = function(){}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //read-only cell doesn't have edit method<br id="t:qo">
+
+&nbsp;&nbsp;&nbsp; this.isDisabled = function(){ return true; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // the cell is read-only, that's why it is always in the disabled state<br id="suzm">
+
+&nbsp;&nbsp;&nbsp; this.setValue=function(val){<br id="t12x">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b id="fxmg">this.setCValue("&lt;input type='button' value='"+val+"'&gt;",val);&nbsp;&nbsp;&nbsp;</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br id="l1b0">
+
+&nbsp;&nbsp;&nbsp;&nbsp;}<br id="v.is">&nbsp;&nbsp;&nbsp; this.getValue=function{<br id="eyjx">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b id="bp6m">return this.cell.firstChild.value;</b> // get button label<br id="mj6s">&nbsp;&nbsp;&nbsp; }<br id="k8ku">&nbsp;&nbsp;&nbsp; this.edit=function(){<br id="d3bg">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; eXcell_ed.call(this);&nbsp;&nbsp;&nbsp; //call the same method of "ed" excell<br id="fwzj">&nbsp;&nbsp;&nbsp; }<br id="assk">&nbsp;&nbsp;&nbsp; this.detach=function(){<br id="uy-o">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; eXcell_ed.detach(this);&nbsp;&nbsp;&nbsp; //call the same method of "ed" excell<br id="vauc">
+&nbsp;&nbsp;&nbsp; }<br id="qhin">
+
+}<br id="q-:t">
+
+eXcell_ro.prototype = new eXcell;&nbsp;&nbsp;&nbsp; // nest all other methods from base class<br id="jx45"></blockquote>
+As you can see 3 new methods were added:<br id="c:yc"><ul id="do:y"><li id="qkfu">getValue - returns the current cell value; it may be used by normal API, and it is necessary for normal edit operation;</li><li id="wqq.">edit - called when the grid is switched to the edit state;</li><li id="fcp7">detach - called when the grid is switched back to the normal state;&nbsp;</li></ul><span id="o7xh" style="background-color: rgb(255, 255, 255);">In spite of the fact that we have twice as much rows in this example as we had for read-only excell creation, basically we have only one row which needs to be customized. Both edit and detach events are fully reused from the already existing excell.</span><br id="ag9x"><br id="l1ze"><span id="p1r4" style="background-color: rgb(255, 255, 255);">Editable button creation is pretty useless use case, </span>so lets change it into something more usable:<br id="f285"><blockquote id="l5vu">function eXcell_<b id="uw0v">myprice</b>(cell){&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//excell name is defined here<br id="o4:v">
+
+
+&nbsp;&nbsp;&nbsp; if (cell){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //default pattern, just copy it<br id="rqgp">
+
+
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; this.cell = cell;<br id="oajg">
+
+
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; this.grid = this.cell.parentNode.grid;<br id="h-h.">
+
+
+&nbsp;&nbsp;&nbsp; }<br id="jrs4">
+
+
+&nbsp;&nbsp;&nbsp; this.edit = function(){}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //read-only cell doesn't have edit method<br id="fc35">
+
+
+&nbsp;&nbsp;&nbsp; this.isDisabled = function(){ return true; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // the cell is read-only, that's why it is always in the disabled state<br id="of_7">
+
+
+&nbsp;&nbsp;&nbsp; this.setValue=function(val){<br id="c-7t">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b id="a:na">this.setCValue("&lt;span&gt;"+val+"&lt;/span&gt;</b><b id="pebp">&lt;span&gt; USD&lt;/span&gt;</b><b id="qs4o">",val);&nbsp;&nbsp;&nbsp;</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br id="kfd5">
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;}<br id="r7d5">
+&nbsp;&nbsp;&nbsp; this.getValue=function{<br id="g:el">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b id="ffza">return this.cell.childNodes[0].innerHTML;</b> // get value<br id="s1ic">
+&nbsp;&nbsp;&nbsp; }<br id="to5w">
+&nbsp;&nbsp;&nbsp; this.edit=function(){<br id="kjrh">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; eXcell_ed.call(this);&nbsp;&nbsp;&nbsp; //call the same method of "ed" excell<br id="kvqb">
+&nbsp;&nbsp;&nbsp; }<br id="g3-g">
+&nbsp;&nbsp;&nbsp; this.detach=function(){<br id="j16e">
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; eXcell_ed.detach(this);&nbsp;&nbsp;&nbsp; //call the same method of "ed" excell<br id="fthn">
+
+&nbsp;&nbsp;&nbsp; }<br id="ej9o">
+
+
+}<br id="r0jk">
+
+
+eXcell_ro.prototype = new eXcell;&nbsp;&nbsp;&nbsp; // nest all other methods from base class<br id="xdqa"></blockquote><span id="fh5s" style="background-color: rgb(255, 255, 255);">As you can see, only the text marked in bold was changed, and now, instead of a useless button we have the value formated with some postfix. This value can be correctly editable as Integer value.</span><br id="v-ev"><br id="qxas">In the most complex cases you may need to create an excell with custom editor. In such situation lets see the sample code of excell which can be used for hour selecting, instead of the simple text input.<span id="owvj" style="background-color: rgb(255, 255, 255);"> In addition to the default input, cell editor will have an additional time selector:</span><br style="background-color: rgb(255, 153, 0);" id="n3ek"><br id="o83z"><blockquote id="oseu">function eXcell_<b id="zw46">mytime</b>(cell){&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//excell name is defined here<br id="pror">
+
+
+
+&nbsp;&nbsp;&nbsp; if (cell){&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //default pattern, just copy it<br id="pgo9">
+
+
+
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; this.cell = cell;<br id="x1rr">
+
+
+
+&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; this.grid = this.cell.parentNode.grid;<br id="y8mp">
+
+
+
+&nbsp;&nbsp;&nbsp; }<br id="haaq">
+
+
+
+&nbsp;&nbsp;&nbsp; this.edit = function(){}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // read-only cell doesn't have edit method<br id="q16u">
+
+
+
+&nbsp;&nbsp;&nbsp; this.isDisabled = function(){ return true; }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // the cell is read-only, that's why it is always in the disabled state<br id="clzb">
+
+
+
+&nbsp;&nbsp;&nbsp; this.setValue=function(val){<br id="ny3h">
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.setCValue(val);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br id="lcu1">
+
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;}<br id="o_ps">
+
+&nbsp;&nbsp;&nbsp; this.getValue=function{<br id="rzsd">
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b id="x3qa">return this.cell.innerHTML;</b> // get value<br id="p0gk">
+
+&nbsp;&nbsp;&nbsp; }<br id="llu4">
+
+&nbsp;&nbsp;&nbsp; this.<b id="sru3">edit</b>=function(){<br id="shoj">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.val = this.getValue(); //save current value<br id="i90i">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.cell.innerHTML="&lt;input type='text'&gt;&lt;select&gt;&lt;option value='AM'&gt;AM&lt;option value='PM'&gt;PM&lt;/select&gt;"; // editor's html<br id="q4uc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.cell.firstChild.value=parseInt(val); //set the first part of data<br id="ayhw">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (val.indexOf("PM")!=-1) this.cell.childNodes[1].value="PM";<br id="oqt1">
+
+&nbsp;&nbsp;&nbsp; }<br id="hv.x">
+
+&nbsp;&nbsp;&nbsp; this.<b id="t3c7">detach</b>=function(){<br id="gn1y">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.setValue(this.cell.childNodes[0].value+" "+this.cell.childNodes[1].value); //set the new value <br id="w23-">&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; return this.val!=this.getValue();&nbsp;&nbsp;&nbsp; // compare the new and the old values<br id="rns8">
+
+
+&nbsp;&nbsp;&nbsp; }<br id="lz.q">
+
+
+
+}<br id="bnz:">
+
+
+
+eXcell_ro.prototype = new eXcell;&nbsp;&nbsp;&nbsp; // nest all other methods from base class<br id="jgv0"></blockquote><br id="hr9s">As you can see this sample contains some additional code, but there is still nothing really complex.<br id="vp_5">HTML code of editor is defined inside "edit" method, thus the editor is filled with current values. <br id="azgp">Values from the editor are combined to get a new cell value inside "detach" method.<br id="p450"><br id="zaqf"><br id="j_y9"><br id="jxyc">
+
+	
+	<!--- CONTENT. Ends --->
+	<div class="copyright" zid="223">&copy; DHTMLX, 2008</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<html>
+
+<head>
+
+
+<link rel="STYLESHEET" type="text/css" href="../common/styles.css">
+</head>
+<body>
+	<table border="0" cellpadding="0" cellspacing="0" class="sample_header" zid="71">
+		<tbody zid="3">
+			<tr valign="center" zid="4">
+				<td align="center" width="10" zid="5">&nbsp;</td>
+				<td align="left" zid="6">
+					<p zid="224">
+						<a href="http://www.dhtmlx.com/" zid="7">DHTMLX</a> Documentation
+					</p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<!--- CONTENT. Starts --->
+	<h1 id="y9k:">Managing select box collection (co, coro excells)</h1><br id="lgdm">The following method can be used to get a select box collection common for the whole column:<br id="il06"><blockquote id="c:by">combo = grid.getCombo(index);<br id="tq13"></blockquote>If you need a collection to be specific for a cell: <br id="ydud"><blockquote id="vq:c"> combo = grid.getCustomCombo(index)<br id="omka"></blockquote>
+
+    
+    
+The collection supports the following API:<br id="zk1w"><br id="rmzr">&nbsp;&nbsp;&nbsp; combo.put(value,label) - adds a new record in the collection;<br id="xdvz">&nbsp;&nbsp;&nbsp; combo.remove(value) - removes a record from the collection; <br id="g1-l">&nbsp;&nbsp;&nbsp; combo.clear() - removes all records from the collection;<br id="dhvo"><br id="acuz">&nbsp;&nbsp;&nbsp; combo.size() - returns the current size of the combo box;<br id="cywc">&nbsp;&nbsp;&nbsp; combo.get(value) - returns the label by value;<br id="i2b5">&nbsp;&nbsp;&nbsp; combo.getKeys() - returns the array of all possible values;<br id="tjln"><br id="bj6o">&nbsp;&nbsp;&nbsp; combo.save() - saves the current state;<br id="v416">&nbsp;&nbsp;&nbsp; combo.restore() - restores the previously saved state.<br id="tb7n"><br id="x.-q"><br id="lu-a">The less common use-case is the one that gets the value by the label. This can be done using the following code:<br id="sw5o"><blockquote id="zpp0"> var value = combo.values[combo.keys._dhx_find(key)];<br id="c6.e"></blockquote><br id="ldgx"><br id="a6:6"><br id="ktiw"><br id="is3u"><br id="abau">
+
+	<!--- CONTENT. Ends --->
+	<div class="copyright" zid="223">&copy; DHTMLX, 2008</div>
+</body>
+</html>

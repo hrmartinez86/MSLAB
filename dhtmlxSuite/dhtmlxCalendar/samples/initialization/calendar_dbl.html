@@ -1,0 +1,74 @@
+<!--conf
+<sample in_favorites="true">
+              <product version="1.0" edition="std"/>
+                     <modifications>
+                            <modified date="071221"/>
+                     </modifications>
+               <sampledescription><![CDATA[Double Calendar is useful when you need user to define start and end dates. dhtmlxCalendar will not allow to set end date before start and vice versa.]]></sampledescription></sample>
+ --> 
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<title>Double Calendar</title>
+	<link rel="STYLESHEET" type="text/css" href="../../codebase/dhtmlxcalendar.css">
+<script>
+      window.dhx_globalImgPath="../../codebase/imgs/";
+</script>
+<script  src="../../codebase/dhtmlxcommon.js"></script>
+<script  src="../../codebase/dhtmlxcalendar.js"></script>
+	<script>
+	window.onload = function () {
+	var mDCal;
+		mDCal = new dhtmlxDblCalendarObject('dhtmlxDblCalendar', false, {isMonthEditable: true, isYearEditable: true});
+		mDCal.setYearsRange(1980, 2020);
+		mDCal.setDateFormat("%d/%m/%Y");
+		mDCal.setDate("06/01/2008","15/01/2008")
+		mDCal.draw();
+	}
+	
+	
+	</script>
+
+<body>
+<link rel='STYLESHEET' type='text/css' href='../common/style.css'>
+<table cellspacing="0" cellpadding="0" class="sample_header" border="0">
+	<tr valign="middle">
+		<!-- COMPONENT ICON -->
+		<td width="40" align="center"><img src="../common/dhtmlxcalendar_icon.gif" border="0"></td>
+		<!-- COMPONENT NAME -->
+		<td width="120" align="left">Sample: dhtmlxCalendar</td>
+		<!-- SAMPLE TITLE -->
+		<td width="0" align="left"><b>Double Calendar</b></td>
+		<!-- LINK TO COMPONENT PAGE -->
+		<td width="0" align="right"><a href="http://www.dhtmlx.com/docs/products/dhtmlxCalendar/index.shtml">dhtmlxCalendar main page</a></td>
+		<!-- CLOSE BUTTON -->
+		<td width="50"><div class="sample_close"><a href="javascript:void(0);" onclick="self.close();"><img src="../common/sample_close.gif" width="14" height="14" border="0" alt="X"></a></div></td>
+	</tr>
+</table>
+	
+	<p>This sample illustrates initialization of the double calendar object</p>
+	
+  <table>
+  <tr>
+    <td colspan="2"><div id="dhtmlxDblCalendar"></div></td>
+	
+  </tr>
+</table>
+<hr>
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+</span><span class="hl-identifier">mDCal</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlxDblCalendarObject</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">dhtmlxDblCalendar</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-reserved">false</span><span class="hl-code">, </span><span class="hl-brackets">{</span><span class="hl-identifier">isMonthEditable</span><span class="hl-code">: </span><span class="hl-reserved">true</span><span class="hl-code">, </span><span class="hl-identifier">isYearEditable</span><span class="hl-code">: </span><span class="hl-reserved">true</span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">mDCal</span><span class="hl-code">.</span><span class="hl-identifier">setYearsRange</span><span class="hl-brackets">(</span><span class="hl-number">1980</span><span class="hl-code">, </span><span class="hl-number">2020</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">mDCal</span><span class="hl-code">.</span><span class="hl-identifier">setDateFormat</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">%d/%m/%Y</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+</span><span class="hl-identifier">mDCal</span><span class="hl-code">.</span><span class="hl-identifier">setDate</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">06/01/2008</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">15/01/2008</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">
+</span><span class="hl-identifier">mDCal</span><span class="hl-code">.</span><span class="hl-identifier">draw</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;</span></pre></div></div>
+<br>
+
+<!-- FOOTER -->
+<table callspacing="0" cellpadding="0" border="0" class="sample_footer"><tr><td style="padding-left: 8px;">&copy; <a href="http://www.dhtmlx.com">DHTMLX LTD</a>. All rights reserved</td></tr></table>
+<!-- FOOTER -->
+
+</body>
+</html>
+

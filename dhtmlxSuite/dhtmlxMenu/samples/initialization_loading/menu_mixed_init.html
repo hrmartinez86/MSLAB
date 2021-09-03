@@ -1,0 +1,124 @@
+<!--conf
+<sample>
+              <product version="1.0" edition="std"/>
+                     <modifications>
+                            <modified date="070101"/>
+                     </modifications>
+               </sample>
+ --> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<title>Mixed initialization</title>
+	<link rel="STYLESHEET" type="text/css" href="../../codebase/dhtmlxmenu.css">
+	
+	<script language="JavaScript" src="../../codebase/dhtmlxprotobar.js"></script>
+	<script language="JavaScript" src="../../codebase/dhtmlxmenubar.js"></script>
+	<script language="JavaScript" src="../../codebase/dhtmlxcommon.js"></script>
+</head>
+
+<body>
+<link rel='STYLESHEET' type='text/css' href='../common/style.css'>
+<table cellspacing="0" cellpadding="0" class="sample_header" border="0">
+	<tr valign="middle">
+		<!-- COMPONENT ICON -->
+		<td width="40" align="center"><img src="../common/dhtmlxmenu_icon.gif" border="0"></td>
+		<!-- COMPONENT NAME -->
+		<td width="120" align="left">Sample: dhtmlxMenu</td>
+		<!-- SAMPLE TITLE -->
+		<td width="0" align="left"><b>Mixed initialization</b></td>
+		<!-- LINK TO COMPONENT PAGE -->
+		<td width="0" align="right"><a href="http://www.dhtmlx.com/docs/products/dhtmlxMenu/index.shtml">dhtmlxMenu main page</a></td>
+		<!-- CLOSE BUTTON -->
+		<td width="50"><div class="sample_close"><a href="javascript:void(0);" onclick="self.close();"><img src="../common/sample_close.gif" width="14" height="14" border="0" alt="X"></a></div></td>
+	</tr>
+</table>
+	
+	<p>You can load some data from xml and add items with the script</p>
+	<table>
+		<tr>
+			<td>
+				<div id="menu_zone" style="top:100px; left:300px; width:600;background-color:#f5f5f5;border :1px solid Silver;"/>
+			</td>
+		</tr>
+		<tr>
+		<td>
+            <a href='#' onclick="doIt()">Add sub-menu to File menu</a>    <br/>
+            Or click on any item in menu
+		</td>
+		</tr>
+	</table>
+<br>
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">menu_zone</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">style</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">width:600; height:50;</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">/&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code"><div class="hl-main"><pre><span class="hl-code"> 
+        </span><span class="hl-comment">//</span><span class="hl-comment">init menu</span><span class="hl-comment"></span><span class="hl-code">
+        </span><span class="hl-identifier">aMenuBar</span><span class="hl-code">=</span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlXMenuBarObject</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">menu_zone</span><span class="hl-quotes">'</span><span class="hl-code">,</span><span class="hl-quotes">'</span><span class="hl-string">100%</span><span class="hl-quotes">'</span><span class="hl-code">,</span><span class="hl-number">30</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">Demo menu</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+        </span><span class="hl-comment">//</span><span class="hl-comment">set path to imgs folder</span><span class="hl-comment"></span><span class="hl-code">
+        </span><span class="hl-identifier">aMenuBar</span><span class="hl-code">.</span><span class="hl-identifier">setGfxPath</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">../../codebase/imgs/</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+        </span><span class="hl-comment">//</span><span class="hl-comment">load menu from xml</span><span class="hl-comment"></span><span class="hl-code">
+        </span><span class="hl-identifier">aMenuBar</span><span class="hl-code">.</span><span class="hl-identifier">loadXML</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">_menu.xml</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">
+        </span><span class="hl-comment">//</span><span class="hl-comment">show menu</span><span class="hl-comment"></span><span class="hl-code">
+        </span><span class="hl-identifier">aMenuBar</span><span class="hl-code">.</span><span class="hl-identifier">showBar</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+ 
+            </span><span class="hl-comment">//</span><span class="hl-comment">get File sub menu</span><span class="hl-comment"></span><span class="hl-code">
+            </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">subMenu</span><span class="hl-code"> = </span><span class="hl-identifier">aMenuBar</span><span class="hl-code">.</span><span class="hl-identifier">getPanel</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">main_file</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+            </span><span class="hl-comment">//</span><span class="hl-comment">create a new item, the 5th parametr is a css class</span><span class="hl-comment"></span><span class="hl-code">
+            </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">pItem</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlXMenuItemObject</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">_Programs</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">Programs</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-reserved">null</span><span class="hl-code">,</span><span class="hl-reserved">null</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">menuButtonSecond</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+            </span><span class="hl-comment">//</span><span class="hl-comment">add new item to sub menu</span><span class="hl-comment"></span><span class="hl-code">
+            </span><span class="hl-identifier">aMenuBar</span><span class="hl-code">.</span><span class="hl-identifier">addItem</span><span class="hl-brackets">(</span><span class="hl-identifier">subMenu</span><span class="hl-code">,</span><span class="hl-identifier">pItem</span><span class="hl-brackets">)</span><span class="hl-code">;
+ 
+            </span><span class="hl-comment">//</span><span class="hl-comment">create new sub menu, the first parametr is parent subMenu</span><span class="hl-comment"></span><span class="hl-code">
+            </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">subMenu</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code">   </span><span class="hl-identifier">dhtmlXMenuBarPanelObject</span><span class="hl-brackets">(</span><span class="hl-identifier">subMenu</span><span class="hl-code">,</span><span class="hl-identifier">pItem</span><span class="hl-code">,</span><span class="hl-reserved">false</span><span class="hl-code">,</span><span class="hl-number">120</span><span class="hl-code">,</span><span class="hl-reserved">true</span><span class="hl-brackets">)</span><span class="hl-code">;
+            </span><span class="hl-comment">//</span><span class="hl-comment">create new item</span><span class="hl-comment"></span><span class="hl-code">
+            </span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">subItem</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlXMenuItemObject</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">10001</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">HSBC</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-reserved">null</span><span class="hl-code">,</span><span class="hl-reserved">null</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">menuButtonSecond</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+            </span><span class="hl-comment">//</span><span class="hl-comment">and attach it to submenu</span><span class="hl-comment"></span><span class="hl-code">
+            </span><span class="hl-identifier">aMenuBar</span><span class="hl-code">.</span><span class="hl-identifier">addItem</span><span class="hl-brackets">(</span><span class="hl-identifier">subMenu</span><span class="hl-code">,</span><span class="hl-identifier">subItem</span><span class="hl-brackets">)</span><span class="hl-code">;</span></pre></div></span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span></pre></div></div>
+		Parameters passed to the constructor are:
+			<li>object to attach menu to (should be loaded before calling constructor)</li>
+			<li>width of the menu</li>
+			<li>height of the menu</li>
+			<li>title of menu</li><br>
+
+	<script>
+
+		function onButtonClick(itemId,itemValue)
+		{
+            var pItem=aMenuBar.getItem(itemId);
+            var subMenu = new   dhtmlXMenuBarPanelObject(pItem.parentPanel,pItem,false,120,true);
+            var subItem = new dhtmlXMenuItemObject("10001","HSBC",null,null,"menuButtonSecond");
+            aMenuBar.addItem(subMenu,subItem);
+            var subItem = new dhtmlXMenuItemObject("10002","HSBD",null,null,"menuButtonSecond");
+            aMenuBar.addItem(subMenu,subItem);
+
+		};
+
+
+
+        function doIt(){
+            var subMenu = aMenuBar.getPanel("main_file");
+            var pItem = new dhtmlXMenuItemObject("_Programs","Programs",null,null,"menuButtonSecond");
+            aMenuBar.addItem(subMenu,pItem);
+
+            var subMenu = new   dhtmlXMenuBarPanelObject(subMenu,pItem,false,120,true);
+            var subItem = new dhtmlXMenuItemObject("10001","HSBC",null,null,"menuButtonSecond");
+            aMenuBar.addItem(subMenu,subItem);
+            var subItem = new dhtmlXMenuItemObject("10002","HSBD",null,null,"menuButtonSecond");
+            aMenuBar.addItem(subMenu,subItem);
+        }
+		aMenuBar=new dhtmlXMenuBarObject(document.getElementById('menu_zone'),'100%',22,"Demo menu");
+		aMenuBar.setOnClickHandler(onButtonClick);
+		aMenuBar.setGfxPath("../../codebase/imgs/");
+		aMenuBar.loadXML("_menu.xml");
+		aMenuBar.showBar();
+	</script>
+<br><br>
+
+<!-- FOOTER -->
+<table callspacing="0" cellpadding="0" border="0" class="sample_footer"><tr><td style="padding-left: 8px;">&copy; <a href="http://www.dhtmlx.com">DHTMLX LTD</a>. All rights reserved</td></tr></table>
+<!-- FOOTER -->
+
+</body>
+</html>

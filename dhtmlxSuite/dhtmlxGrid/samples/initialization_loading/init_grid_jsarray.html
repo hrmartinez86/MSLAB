@@ -1,0 +1,85 @@
+<!--conf
+<sample>
+               <product version="1.6" edition="std"/>
+                       <modifications>
+                               <modified date="070101"/>
+                       </modifications>
+               </sample>
+ --> 
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<title>Loading from JS array</title>
+	<link rel="STYLESHEET" type="text/css" href="../../codebase/dhtmlxgrid.css">
+	<script  src="data.js"></script>
+	<script  src="../../codebase/dhtmlxcommon.js"></script>
+	<script  src="../../codebase/dhtmlxgrid.js"></script>		
+	<script  src="../../codebase/dhtmlxgridcell.js"></script>	
+</head>
+
+<body>
+<link rel='STYLESHEET' type='text/css' href='../common/style.css'>
+<table cellspacing="0" cellpadding="0" class="sample_header" border="0">
+	<tr valign="middle">
+		<!-- COMPONENT ICON -->
+		<td width="40" align="center"><img src="../common/dhtmlxgrid_icon.gif" border="0"></td>
+		<!-- COMPONENT NAME -->
+		<td width="120" align="left">Sample: dhtmlxGrid</td>
+		<!-- SAMPLE TITLE -->
+		<td width="0" align="left"><b>Loading from JS array</b></td>
+		<!-- LINK TO COMPONENT PAGE -->
+		<td width="0" align="right"><a href="http://www.dhtmlx.com/docs/products/dhtmlxGrid/index.shtml">dhtmlxGrid main page</a></td>
+		<!-- CLOSE BUTTON -->
+		<td width="50"><div class="sample_close"><a href="javascript:void(0);" onclick="self.close();"><img src="../common/sample_close.gif" width="14" height="14" border="0" alt="X"></a></div></td>
+	</tr>
+</table>
+	
+	
+	<p>You can load grid data from JS array.</p>
+	
+	<div id="gridbox" width="500px" height="250px" style="background-color:white;overflow:hidden"></div>
+				
+	<br>	
+	<a href="javascript:void(0)" onclick='mygrid.clearAll();mygrid.parse(data,"jsarray");'>Reload from JS array object</a>
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">div</span><span class="hl-code"> </span><span class="hl-var">id</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">gridbox</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">width</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">100%</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">height</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">250px</span><span class="hl-quotes">&quot;</span><span class="hl-code"> </span><span class="hl-var">style</span><span class="hl-code">=</span><span class="hl-quotes">&quot;</span><span class="hl-string">background-color:white;overflow:hidden</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">&gt;</span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">div</span><span class="hl-brackets">&gt;</span><span class="hl-code">
+</span><span class="hl-brackets">&lt;</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span><span class="hl-code"><div class="hl-main"><pre><span class="hl-code"> 
+</span><span class="hl-reserved">var</span><span class="hl-code"> </span><span class="hl-identifier">data</span><span class="hl-code">=</span><span class="hl-brackets">[</span><span class="hl-code">
+    </span><span class="hl-brackets">[</span><span class="hl-code">
+        </span><span class="hl-quotes">&quot;</span><span class="hl-string">100</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+        </span><span class="hl-quotes">&quot;</span><span class="hl-string">A Time to Kill</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+        </span><span class="hl-quotes">&quot;</span><span class="hl-string">John Grisham</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+    </span><span class="hl-brackets">]</span><span class="hl-code">,
+    </span><span class="hl-brackets">[</span><span class="hl-code">
+        </span><span class="hl-quotes">&quot;</span><span class="hl-string">1000</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+        </span><span class="hl-quotes">&quot;</span><span class="hl-string">Blood and Smoke</span><span class="hl-quotes">&quot;</span><span class="hl-code">,
+        </span><span class="hl-quotes">&quot;</span><span class="hl-string">Stephen King</span><span class="hl-quotes">&quot;</span><span class="hl-code">
+    </span><span class="hl-brackets">]</span><span class="hl-code">
+        ...
+</span><span class="hl-brackets">]</span><span class="hl-code">
+    </span><span class="hl-identifier">mygrid</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlXGridObject</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">gridbox</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-comment">/*</span><span class="hl-comment">loading from JS array</span><span class="hl-comment">*/</span><span class="hl-code">
+    </span><span class="hl-identifier">mygrid</span><span class="hl-code">.</span><span class="hl-identifier">load</span><span class="hl-brackets">(</span><span class="hl-quotes">&quot;</span><span class="hl-string">_data.js</span><span class="hl-quotes">&quot;</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">jsarray</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-comment">/*</span><span class="hl-comment">loading from JS array object</span><span class="hl-comment">*/</span><span class="hl-code">
+    </span><span class="hl-identifier">mygrid</span><span class="hl-code">.</span><span class="hl-identifier">parse</span><span class="hl-brackets">(</span><span class="hl-identifier">data</span><span class="hl-code">,</span><span class="hl-quotes">&quot;</span><span class="hl-string">jsarray</span><span class="hl-quotes">&quot;</span><span class="hl-brackets">)</span><span class="hl-code">;</span></pre></div></span><span class="hl-brackets">&lt;/</span><span class="hl-reserved">script</span><span class="hl-brackets">&gt;</span></pre></div></div>
+<script>
+	mygrid = new dhtmlXGridObject('gridbox');
+	mygrid.setImagePath("../../codebase/imgs/");
+	mygrid.setHeader("Sales, Book Title, Author");
+	mygrid.setInitWidths("70,250,*")
+	mygrid.setColAlign("right,left,left")
+	mygrid.setColTypes("dyn,ed,ed");
+	mygrid.setColSorting("int,str,str")
+	mygrid.init();
+	mygrid.setSkin("light")
+	mygrid.load("_data.js","jsarray");
+</script>
+
+<!-- FOOTER -->
+<table callspacing="0" cellpadding="0" border="0" class="sample_footer"><tr><td style="padding-left: 8px;">&copy; <a href="http://www.dhtmlx.com">DHTMLX LTD</a>. All rights reserved</td></tr></table>
+<!-- FOOTER -->
+
+</body>
+</html>

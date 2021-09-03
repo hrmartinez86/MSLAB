@@ -1,0 +1,35 @@
+<html>
+
+<head>
+
+
+<link rel="STYLESHEET" type="text/css" href="../common/styles.css">
+</head>
+<body>
+	<table border="0" cellpadding="0" cellspacing="0" class="sample_header" zid="71">
+		<tbody zid="3">
+			<tr valign="center" zid="4">
+				<td align="center" width="10" zid="5">&nbsp;</td>
+				<td align="left" zid="6">
+					<p zid="224">
+						<a href="http://www.dhtmlx.com/" zid="7">DHTMLX</a> Documentation
+					</p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<!--- CONTENT. Starts --->
+	            <h1 id="feu7">
+
+    
+    
+Data filtering<br id="atg:"></h1>Starting from dhtmlxgrid 1.5 the grid supports filtering API, which works in the normal, paging and smart rendering modes (filtering in smart rendering mode is the fastest one, that's why it is recommended to be used with relatively big datasets).<br id="eo2g"><h3 id="qj6_">Built-in filters<br id="k:jx"></h3>The simplest way to use filters is to create a filter in the header by using shortcuts (You can study <a title="related topic" href="View?docid=dhhqnnw2_0fd88cwg4" id="a7n-">the related topic</a>).<br id="f1f7">Built-in filters are grouped by AND logic in such a way that if you create filters for 3 columns, the data will be shown only if it is accepted by all 3 sorting criteria.<br id="c.nx"><h3 id="wok6">Filtering API<br id="rxtm"></h3>The second way to create some filtering is to use API calls. The grid provides a simple way to filter the grid by any column:<br id="bzrr"><blockquote id="w-6t">grid.filterBy(column,value);<br id="w99f"></blockquote><ul id="h.hx"><li id="zf0i">column - zero based column index;</li><li id="eom9">value - value by which the column will be filtered.<br id="ls6u"></li></ul><br id="put:">You can use simple values for filtering:<br id="a3yu"><blockquote id="enz9">grid.filterBy(1,"alf");<br id="qdiz"></blockquote>Or complex javascript rules:<br id="f3o9"><blockquote id="oms3">grid.fitlerBy(1,function(data){<br id="uomd">&nbsp;&nbsp;&nbsp; return&nbsp;&nbsp; data.toString().indexOf("alf")!=-1;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // true - show the related row , false - hide the related row<br id="wxiv">});<br id="ik68"></blockquote>Every next call of filterBy will reset the grid to its initial state and filter it from the start. <span id="w_7v" style="background-color: rgb(255, 255, 255);">There is the possibility to use the following additional parameters here</span>:<br id="c5tw"><blockquote id="t2l5">grid.filterBy(1,"alf");<br id="bafb">
+grid.filterBy(2,"Omega"); // the first rule will be ignored&nbsp; <br id="x20q"><br id="gj60">grid.filterBy(1,"alf");<br id="y7ag">
+grid.filterBy(2,"Omega",true); // the grid will be filtered by both rules <br id="e38z"></blockquote><span id="z.d4" style="background-color: rgb(241, 194, 50);">There is no way to use several filters with OR logic between them.</span><br id="u.3c"><br id="ygo7"><h3 id="abkp">Simplified filter creation </h3>To simplify filter creation there is a method in the grid that will convert any external INPUT or SELECT element into the filter:<br id="h1-7"><blockquote id="bgi4">&lt;input id='some_el' type='text'&gt;<br id="knxd">....<br id="u6if">grid.makeFilter("some_el",index);&nbsp;&nbsp;&nbsp; // will create a text filter linked to the specified column in the grid<br id="b.m3"></blockquote><blockquote id="p.7z"><p id="na5q">&lt;select id='some_el' type='text'&gt;&lt;/select&gt; // the options of select will be added automatically <br id="b_sh">
+....<br id="zlc6">
+grid.makeFilter("some_el",index);&nbsp;&nbsp;&nbsp; // will create a select filter linked to the specified column in the grid</p></blockquote><h3 id="q7h.">Additonal API</h3><br id="e3n_">The following API methods are rarely used, but they may be also useful in some situation:<br id="povb"><br id="fhh0"><blockquote id="inh4">grid.<b id="retz">refreshFilters</b>(); // refresh lists of values in all the filters created by shortcuts or by makeFilter calls<br id="h.2h">grid.<b id="sz3c">collectValues</b>(index); // return alphabetically sorted list of unique values in a column<br id="iph8"></blockquote><br id="qstk">
+
+	<!--- CONTENT. Ends --->
+	<div class="copyright" zid="223">&copy; DHTMLX, 2008</div>
+</body>
+</html>

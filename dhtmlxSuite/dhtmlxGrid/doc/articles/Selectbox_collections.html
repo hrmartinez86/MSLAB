@@ -1,0 +1,75 @@
+<html>
+
+<head>
+
+
+<link rel="STYLESHEET" type="text/css" href="../common/styles.css">
+</head>
+<body>
+	<table border="0" cellpadding="0" cellspacing="0" class="sample_header" zid="71">
+		<tbody zid="3">
+			<tr valign="center" zid="4">
+				<td align="center" width="10" zid="5">&nbsp;</td>
+				<td align="left" zid="6">
+					<p zid="224">
+						<a href="http://www.dhtmlx.com/" zid="7">DHTMLX</a> Documentation
+					</p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<!--- CONTENT. Starts --->
+	<H1 id=y9k:>Managing select box collection (co, coro excells)</H1>
+<BR id=lgdm>
+The following method can be used to get a select box collection common for the whole column:<BR id=il06>
+<BLOCKQUOTE id=c:by>combo = grid.getCombo(index);<BR id=tq13>
+</BLOCKQUOTE>
+If you need a collection to be specific for a cell: <BR id=ydud>
+<BLOCKQUOTE id=vq:c>combo = grid.getCustomCombo(index)<BR id=omka>
+</BLOCKQUOTE>
+The collection supports the following API:<BR id=zk1w>
+<BR id=rmzr>
+&nbsp;&nbsp;&nbsp; combo.put(value,label) - adds a new record in the collection;<BR id=xdvz>
+&nbsp;&nbsp;&nbsp; combo.remove(value) - removes a record from the collection; <BR id=g1-l>
+&nbsp;&nbsp;&nbsp; combo.clear() - removes all records from the collection;<BR id=dhvo>
+<BR id=acuz>
+&nbsp;&nbsp;&nbsp; combo.size() - returns the current size of the combo box;<BR id=cywc>
+&nbsp;&nbsp;&nbsp; combo.get(value) - returns the label by value;<BR id=i2b5>
+&nbsp;&nbsp;&nbsp; combo.getKeys() - returns the array of all possible values;<BR id=tjln>
+<BR id=bj6o>
+&nbsp;&nbsp;&nbsp; combo.save() - saves the current state;<BR id=v416>
+&nbsp;&nbsp;&nbsp; combo.restore() - restores the previously saved state.<BR id=tb7n>
+<BR id=x.-q>
+<BR id=lu-a>
+The less common use-case is the one that gets the value by the label. This can be done using the following code:<BR id=sw5o>
+<BLOCKQUOTE id=zpp0>var value = combo.values[combo.keys._dhx_find(key)];<BR id=c6.e>
+</BLOCKQUOTE>
+<BR id=ldgx>
+<H3 id=u2bw0>Initialization from XML</H3>
+<BR id=qp131>
+The list of options for combo can be defined from XML in two ways:<BR id=qp132>
+a) With column configuration the values will be set for all cells in a column<BR id=jbbl0>
+<BR id=jbbl1>
+&nbsp;&nbsp;&nbsp; &lt;rows&gt;<BR id=jbbl2>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;head&gt;<BR id=jbbl3>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;column type="co"&gt; Combo column<BR id=jbbl4>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;option value="1"&gt; First &lt;/option&gt;<BR id=jbbl5>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;option value="2"&gt; Second &lt;/option&gt;<BR id=jbbl6>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;option value="3"&gt; Third &lt;/option&gt;<BR id=jbbl7>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/column&gt;<BR id=py-h0>
+<BR id=py-h1>
+b) For separate cells&nbsp;&nbsp;&nbsp; ( <SPAN id=x67j0><I id=s58x0>pro version only</I></SPAN> )<BR id=a6:6>
+<BR id=py-h2>
+&nbsp;&nbsp;&nbsp; &lt;rows&gt;<BR id=jbbl2>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;row id="some1"&gt;<BR id=py-h3>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;cell&gt; some &lt;/cell&gt;<BR id=py-h4>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;cell&gt; some &lt;/cell&gt;<BR id=py-h5>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;cell <SPAN id=py-h6><B id=s58x1>xmlcontent="true"</B></SPAN>&gt;1&lt;option value="1"&gt;The first&lt;/option&gt;&lt;option value="2"&gt;The second&lt;/option&gt;&lt;/cell&gt;<BR id=py-h7>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;cell&gt; some &lt;/cell&gt;<BR id=jbbl3>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/row&gt;<BR id=x67j1>
+&nbsp;&nbsp;&nbsp; &lt;/rows&gt;<BR id=abau>
+
+	<!--- CONTENT. Ends --->
+	<div class="copyright" zid="223">&copy; DHTMLX, 2008</div>
+</body>
+</html>

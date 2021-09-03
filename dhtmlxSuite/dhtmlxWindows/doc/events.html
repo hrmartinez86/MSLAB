@@ -1,0 +1,386 @@
+﻿<?xml version="1.0" encoding="utf-8"?><div style="position:absolute;right:20"><a href="javascript:void(0)" onclick="expandAll(true)">expand</a><a href="javascript:void(0)" onclick="expandAll(false)">collaps</a></div><script><!--
+		
+			function openFull(el){
+			
+				el.nextSibling.style.display!='block'?el.nextSibling.style.display='block':el.nextSibling.style.display='none'
+
+			}
+			function expandAll(fl){ 
+				var elAr = document.getElementsByTagName("DIV");
+				for(var i=1;i<elAr.length;i++){
+					if(elAr[i].className=="div_drop"){
+					if(elAr[i].style.display!='block' || elAr[i].block_fl){
+						elAr[i].block_fl = true;
+						if(fl)
+							elAr[i].style.display = "block";
+						else
+							elAr[i].style.display = "none";
+					}
+					}
+				}
+			}
+		
+		--></script><style>
+			.{font-family:arial;}
+			h2 {cursor:pointer;font-size:16px;margin-left:10px;line-height:10px}
+			h3 {cursor:pointer;font-weight:normal;color:gray;text-decoration:underline;line-height:10px}
+			.theader{font: bold 14px/14px Tahoma, Arial, Helvetica, sans-serif;cursor:pointer;}
+			.tdh{
+				font: bold 11px/11px Tahoma, Arial, Helvetica, sans-serif;
+				color: #1da6d3;
+				padding-left: 10px;
+			}
+			div.block {margin-left:30px;}
+			.div_method_block{
+				margin:10px 0 10px 0;
+				padding-left: 10px;
+				ont-weight:bold;
+				cursor:pointer;
+			}
+			.pro{
+				font: bold 17px/17px;
+				color : #ff800f;
+			}
+			.eventblock{
+				margin:20px;
+				font-size:14px;
+			}
+		</style><link rel="STYLESHEET" type="text/css" href="common/styles.css" />
+		<h2>dhtmlxWindows Events</h2>
+		<table width="100%">
+			<tr>
+				<td>
+				<div class="eventblock">
+<XMP>
+var dhxWins = new dhtmlXWindows();
+</XMP>
+				</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<div class="eventblock">
+					<b>onMoveFinish</b> - occurs when the window movement was finished.
+					<div style="color:gray;margin-top:5px;">Argument(s) passed into handler:</div>
+					<div style="padding-left:30px;"> - window handler</div>
+<XMP>
+dhxWins.attacheEvent("onMoveFinish", function(win) {
+	alert("Window with ID " + win.getId() + " was moved.");
+});
+</XMP>
+				</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<div class="eventblock">
+					<b>onResizeFinish</b> - occurs when the window resizing was finished.
+					<div style="color:gray;margin-top:5px;">Argument(s) passed into handler:</div>
+					<div style="padding-left:30px;"> - window handler</div>
+<XMP>
+dhxWins.attacheEvent("onResizeFinish", function(win) {
+	alert("Window with ID " + win.getId() + " was resized.");
+});
+</XMP>
+				</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<div class="eventblock">
+					<b>onFocus</b> - occurs when the window was focused.
+					<div style="color:gray;margin-top:5px;">Argument(s) passed into handler:</div>
+					<div style="padding-left:30px;"> - window handler</div>
+<XMP>
+dhxWins.attacheEvent("onFocus", function(win) {
+	alert("Window with ID " + win.getId() + " was focused.");
+});
+</XMP>
+				</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<div class="eventblock">
+					<b>onParkDown</b> - occurs when the window was parked down.
+					<div style="color:gray;margin-top:5px;">Argument(s) passed into handler:</div>
+					<div style="padding-left:30px;"> - window handler</div>
+<XMP>
+dhxWins.attacheEvent("onParkDown", function(win) {
+	alert("Window with ID " + win.getId() + " was parked down.");
+});
+</XMP>
+				</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<div class="eventblock">
+					<b>onParkUp</b> - occurs when the window was parked up.
+					<div style="color:gray;margin-top:5px;">Argument(s) passed into handler:</div>
+					<div style="padding-left:30px;"> - window handler</div>
+<XMP>
+dhxWins.attacheEvent("onParkUp", function(win) {
+	alert("Window with ID " + win.getId() + " was parked up.");
+});
+</XMP>
+				</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<div class="eventblock">
+					<b>onMaximize</b> - occurs when the window was maximized.
+					<div style="color:gray;margin-top:5px;">Argument(s) passed into handler:</div>
+					<div style="padding-left:30px;"> - window handler</div>
+<XMP>
+dhxWins.attacheEvent("onMaximize", function(win) {
+	alert("Window with ID " + win.getId() + " was maximized.");
+});
+</XMP>
+				</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<div class="eventblock">
+					<b>onMinimize</b> - occurs when the window was minimized.
+					<div style="color:gray;margin-top:5px;">Argument(s) passed into handler:</div>
+					<div style="padding-left:30px;"> - window handler</div>
+<XMP>
+dhxWins.attacheEvent("onMinimize", function(win) {
+	alert("Window with ID " + win.getId() + " was minimized.");
+});
+</XMP>
+				</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<div class="eventblock">
+					<b>onShow</b> - occurs when the window was shown.
+					<div style="color:gray;margin-top:5px;">Argument(s) passed into handler:</div>
+					<div style="padding-left:30px;"> - window handler</div>
+<XMP>
+dhxWins.attacheEvent("onShow", function(win) {
+	alert("Window with ID " + win.getId() + " was shown.");
+});
+</XMP>
+				</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<div class="eventblock">
+					<b>onHide</b> - occurs when the window was hidden.
+					<div style="color:gray;margin-top:5px;">Argument(s) passed into handler:</div>
+					<div style="padding-left:30px;"> - window handler</div>
+<XMP>
+dhxWins.attacheEvent("onHide", function(win) {
+	alert("Window with ID " + win.getId() + " was hidden.");
+});
+</XMP>
+				</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<div class="eventblock">
+					<b>onClose</b> - occurs before the window is closed.
+					<div style="color:gray;margin-top:5px;">Argument(s) passed into handler:</div>
+					<div style="padding-left:30px;"> - window handler</div>
+<XMP>
+dhxWins.attacheEvent("onClosed", function(win) {
+	alert("Window with ID " + win.getId() + " will be closed.");
+});
+</XMP>
+				</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<div class="eventblock">
+					<b>onHelp</b> - occurs when user clicks the "help" button.
+					<div style="color:gray;margin-top:5px;">Argument(s) passed into handler:</div>
+					<div style="padding-left:30px;"> - window handler</div>
+<XMP>
+dhxWins.attacheEvent("onHelp", function(win) {
+	alert("The 'Help' button of the Window with ID " + win.getId() + " was pressed.");
+});
+</XMP>
+				</div>
+				</td>
+			</tr>
+		</table>
+			
+		<h2>Single Window Events</h2>	
+				
+		<table width="100%">
+			<tr>
+				<td>
+				<div class="eventblock">
+<XMP>
+var dhxWins = new dhtmlXWindows();
+var myWin = dhxWins.createWindow(id, x , y, width, height);
+</XMP>
+				</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<div class="eventblock">
+					<b>onMoveFinish</b> - occurs when the window movement was finished.
+					<div style="color:gray;margin-top:5px;">Argument(s) passed into handler:</div>
+					<div style="padding-left:30px;"> - window handler</div>
+<XMP>
+myWin.attacheEvent("onMoveFinish", function(win) {
+	alert("Window with ID " + win.getId() + " was moved.");
+});
+</XMP>
+				</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<div class="eventblock">
+					<b>onResizeFinish</b> - occurs when the window resizing was finished.
+					<div style="color:gray;margin-top:5px;">Argument(s) passed into handler:</div>
+					<div style="padding-left:30px;"> - window handler</div>
+<XMP>
+myWin.attacheEvent("onResizeFinish", function(win) {
+	alert("Window with ID " + win.getId() + " was resized.");
+});
+</XMP>
+				</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<div class="eventblock">
+					<b>onFocus</b> - occurs when the window was focused.
+					<div style="color:gray;margin-top:5px;">Argument(s) passed into handler:</div>
+					<div style="padding-left:30px;"> - window handler</div>
+<XMP>
+myWin.attacheEvent("onFocus", function(win) {
+	alert("Window with ID " + win.getId() + " was focused.");
+});
+</XMP>
+				</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<div class="eventblock">
+					<b>onParkDown</b> - occurs when the window was parked down.
+					<div style="color:gray;margin-top:5px;">Argument(s) passed into handler:</div>
+					<div style="padding-left:30px;"> - window handler</div>
+<XMP>
+myWin.attacheEvent("onParkDown", function(win) {
+	alert("Window with ID " + win.getId() + " was parked down.");
+});
+</XMP>
+				</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<div class="eventblock">
+					<b>onParkUp</b> - occurs when the window was parked up.
+					<div style="color:gray;margin-top:5px;">Argument(s) passed into handler:</div>
+					<div style="padding-left:30px;"> - window handler</div>
+<XMP>
+myWin.attacheEvent("onParkUp", function(win) {
+	alert("Window with ID " + win.getId() + " was parked up.");
+});
+</XMP>
+				</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<div class="eventblock">
+					<b>onMaximize</b> - occurs when the window was maximized.
+					<div style="color:gray;margin-top:5px;">Argument(s) passed into handler:</div>
+					<div style="padding-left:30px;"> - window handler</div>
+<XMP>
+myWin.attacheEvent("onMaximize", function(win) {
+	alert("Window with ID " + win.getId() + " was maximized.");
+});
+</XMP>
+				</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<div class="eventblock">
+					<b>onMinimize</b> - occurs when the window was minimized.
+					<div style="color:gray;margin-top:5px;">Argument(s) passed into handler:</div>
+					<div style="padding-left:30px;"> - window handler</div>
+<XMP>
+myWin.attacheEvent("onMinimize", function(win) {
+	alert("Window with ID " + win.getId() + " was minimized.");
+});
+</XMP>
+				</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<div class="eventblock">
+					<b>onShow</b> - occurs when the window was shown.
+					<div style="color:gray;margin-top:5px;">Argument(s) passed into handler:</div>
+					<div style="padding-left:30px;"> - window handler</div>
+<XMP>
+myWin.attacheEvent("onShow", function(win) {
+	alert("Window with ID " + win.getId() + " was shown.");
+});
+</XMP>
+				</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<div class="eventblock">
+					<b>onHide</b> - occurs when the window was hidden.
+					<div style="color:gray;margin-top:5px;">Argument(s) passed into handler:</div>
+					<div style="padding-left:30px;"> - window handler</div>
+<XMP>
+myWin.attacheEvent("onHide", function(win) {
+	alert("Window with ID " + win.getId() + " was hidden.");
+});
+</XMP>
+				</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<div class="eventblock">
+					<b>onClose</b> - occurs before the window is closed.
+					<div style="color:gray;margin-top:5px;">Argument(s) passed into handler:</div>
+					<div style="padding-left:30px;"> - window handler</div>
+<XMP>
+myWin.attacheEvent("onClosed", function(win) {
+	alert("Window with ID " + win.getId() + " will be closed.");
+});
+</XMP>
+				</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<div class="eventblock">
+					<b>onHelp</b> - occurs when user clicks the "help" button.
+					<div style="color:gray;margin-top:5px;">Argument(s) passed into handler:</div>
+					<div style="padding-left:30px;"> - window handler</div>
+<XMP>
+myWin.attacheEvent("onHelp", function(win) {
+	alert("The 'Help' button of the Window with ID " + win.getId() + " was pressed.");
+});
+</XMP>
+				</div>
+				</td>
+			</tr>
+		</table>
+				
+				
+				

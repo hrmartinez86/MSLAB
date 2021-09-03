@@ -1,0 +1,107 @@
+<html>
+
+<head>
+
+
+<link rel="STYLESHEET" type="text/css" href="../common/styles.css">
+</head>
+<body>
+	<table border="0" cellpadding="0" cellspacing="0" class="sample_header" zid="71">
+		<tbody zid="3">
+			<tr valign="center" zid="4">
+				<td align="center" width="10" zid="5">&nbsp;</td>
+				<td align="left" zid="6">
+					<p zid="224">
+						<a href="http://www.dhtmlx.com/" zid="7">DHTMLX</a> Documentation
+					</p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<!--- CONTENT. Starts --->
+	<H1 id=en44>Storing additional data</H1>
+<BR id=j_ed>
+There are three possible approaches to load additional data:<BR id=zus8>
+<BR id=zbks>
+- hidden columns;<BR id=iie4>
+- user data;<BR id=au8h>
+- attributes.<BR id=ou1z>
+<BR id=egz->
+<H2 id=vh-1>Hidden columns</H2>
+<BR id=k1nb>
+It is possible to define a column as hidden - in such case it will not be visible for a user, but it will be accessible by API. So it will be possible to take the data from it.<BR id=inua>
+<BR id=x31z>
+In case of initialization from js code:<BR id=iz6a>
+&nbsp;&nbsp;&nbsp; ...<BR id=rtuo>
+&nbsp;&nbsp;&nbsp; grid.init();<BR id=ce7g>
+&nbsp;&nbsp;&nbsp; grid.setColumnHidden(index,true);<BR id=r4.3>
+<BR id=otm6>
+In case of initialization from XML:<BR id=ydx8>
+&lt;rows&gt;<BR id=r2hu>
+&nbsp;&nbsp;&nbsp; &lt;head&gt;<BR id=yjav>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;column hidden="true"&gt;Dummy&lt;/column&gt;<BR id=uh-m>
+&nbsp;&nbsp;&nbsp; ...<BR id=isou>
+<BR id=i1qk>
+The data can be accessed as data of any other columns:<BR id=t9gt>
+&nbsp;&nbsp;&nbsp; grid.cells(i,j).getValue();<BR id=mjip>
+&nbsp;&nbsp;&nbsp; grid.cells(i,j).setValue(some);<BR id=rs0z>
+<BR id=aqyn>
+Data of a hidden column is included in the serialization by default, can't be controlled by setSerializableColumns command.<BR id=m3a7>
+This data is available during dataprocessor calls.<BR id=kf93>
+<BR id=r2gp>
+<H2 id=wcl2>UserData</H2>
+<BR id=wj6h>
+UserData is a special tag, which can be a child of <SPAN id=g.:o><B id=ny.j>rows </B></SPAN>or <SPAN id=iiwr><B id=sj1w>row </B></SPAN>tags. In the first case userdata is related to the whole grid, while in the second case it will be related to a specific row.<BR id=gh:g>
+<BR id=d4bl>
+&lt;?xml version='1.0' encoding='iso-8859-1'?&gt;<BR id=i:yl>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;rows&gt;<BR id=dkcs>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;userdata name="somName1"&gt;some data&lt;/userdata&gt;<BR id=aicf>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;row id="unique_rowid"&gt;<BR id=e3ki>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;userdata name="someName1"&gt; some row data &lt;/userdata&gt;<BR id=wds:>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;userdata name="someName2"&gt; some row data &lt;/userdata&gt;<BR id=cs67>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;cell&gt;cell content&lt;/cell&gt;<BR id=bazi>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;cell&gt;&lt;![CDATA[&lt;font color="red"&gt;cell&lt;/font&gt; content]]&gt;&lt;/cell&gt;<BR id=gki6>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/row&gt;<BR id=jq.i>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/rows&gt;<BR id=jk_s>
+<BR id=jwm4>
+To access global userdata:<BR id=xkdb>
+&nbsp;&nbsp;&nbsp; grid.getUserData("","someName1"); // some data<BR id=aika>
+&nbsp;&nbsp;&nbsp; grid.setUserData("","someName1","new value"); <BR id=akw->
+<BR id=nxfs>
+To access row related userdata:<BR id=xkdb>
+&nbsp;&nbsp;&nbsp; grid.getUserData("unique_rowid","someName1"); // some row data<BR id=gib7>
+&nbsp;&nbsp;&nbsp; grid.setUserData("unique_rowid","someName1","new value");<BR id=k6kk>
+<BR id=rw0g>
+The userdata may be included in the serialization using setSerializationLevel command (is disabled by default).<BR id=kdkq>
+This data is available during dataprocessor calls.<BR id=gitl>
+<BR id=f78w>
+<H2 id=me-a>Attributes ( dhtmlxgrid 1.6+ )</H2>
+<BR id=gcc0>
+When loading from XML any attribute of row or cell tag can be accessed programmatically.<BR id=af.6>
+<BR id=xmua>
+&lt;?xml version='1.0' encoding='iso-8859-1'?&gt;<BR id=i:yl>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;rows&gt;<BR id=dkcs>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;row id="unique_rowid" some="data"&gt;<BR id=e3ki>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;cell some="data"&gt;cell content&lt;/cell&gt;<BR id=bazi>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;/row&gt;<BR id=jq.i>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/rows&gt;<BR id=t4hj>
+<BR id=jrjw>
+<BR id=h1ch>
+To access row attributes:<BR id=w5.g>
+&nbsp;&nbsp;&nbsp; grid.getRowAttribute("unique_rowid","some");<BR id=scn6>
+&nbsp;&nbsp;&nbsp; grid.setRowAttribute("unique_rowid","some","new value");<BR id=n_5b>
+<BR id=xqh->
+<BR id=rihw>
+To access cell attributes:<BR id=w5.g>
+&nbsp;&nbsp;&nbsp; grid.cells(i,j).getAttribute("some");<BR id=yk_b>
+&nbsp;&nbsp;&nbsp; grid.cells(i,j).setAttribute("some","new value");<BR id=s1_b>
+<BR id=tgoz>
+If you want to include such custom attributes in the serialization, some special steps are required:<BR id=xxen>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grid.xml.row_attrs.push("some");&nbsp;&nbsp;&nbsp; // will include some attribute of a row in the serialization<BR id=h7d5>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; grid.xml.cell_attrs.push("some");&nbsp;&nbsp;&nbsp; // will include some attribute of a cell in the serialization<BR id=ilci>
+This data is <SPAN id=x-3c><B id=lpxu>not</B></SPAN> available during dataprocessor calls.<BR id=tzso>
+
+	<!--- CONTENT. Ends --->
+	<div class="copyright" zid="223">&copy; DHTMLX, 2008</div>
+</body>
+</html>

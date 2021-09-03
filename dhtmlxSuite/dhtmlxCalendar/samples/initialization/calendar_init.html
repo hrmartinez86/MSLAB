@@ -1,0 +1,86 @@
+<!--conf
+<sample>
+              <product version="1.0" edition="std"/>
+                     <modifications>
+                            <modified date="071221"/>
+                     </modifications>
+               </sample>
+ --> 
+
+<html>
+<head>
+	<title>Initialize object on page</title>
+	<link rel="STYLESHEET" type="text/css" href="../../codebase/dhtmlxcalendar.css">
+<script>
+      window.dhx_globalImgPath="../../codebase/imgs/";
+</script>
+<script  src="../../codebase/dhtmlxcommon.js"></script>
+<script  src="../../codebase/dhtmlxcalendar.js"></script>
+
+	<script>
+	var mCal;
+
+	
+	
+	window.onload = function () {
+		
+		
+		mCal = new dhtmlxCalendarObject('dhtmlxCalendar');
+		mCal.setYearsRange(2000, 2500);
+		mCal.draw();
+		
+		mCal2 = new dhtmlxCalendarObject('dhtmlxCalendar2', false, {isYearEditable: true,isMonthEditable: true});
+		mCal2.setYearsRange(2000, 2500);
+		mCal2.draw();
+
+		
+	}
+	</script>
+	
+	
+
+<body>
+<link rel='STYLESHEET' type='text/css' href='../common/style.css'>
+<table cellspacing="0" cellpadding="0" class="sample_header" border="0">
+	<tr valign="middle">
+		<!-- COMPONENT ICON -->
+		<td width="40" align="center"><img src="../common/dhtmlxcalendar_icon.gif" border="0"></td>
+		<!-- COMPONENT NAME -->
+		<td width="120" align="left">Sample: dhtmlxCalendar</td>
+		<!-- SAMPLE TITLE -->
+		<td width="0" align="left"><b>Initialize object on page</b></td>
+		<!-- LINK TO COMPONENT PAGE -->
+		<td width="0" align="right"><a href="http://www.dhtmlx.com/docs/products/dhtmlxCalendar/index.shtml">dhtmlxCalendar main page</a></td>
+		<!-- CLOSE BUTTON -->
+		<td width="50"><div class="sample_close"><a href="javascript:void(0);" onclick="self.close();"><img src="../common/sample_close.gif" width="14" height="14" border="0" alt="X"></a></div></td>
+	</tr>
+</table>
+	
+	<p>You can place this JavaScript calendar anywhere on your web page, attaching it
+	to any object.<br>
+	Set up calendar parameters to determine the look of the calendar. </p>
+
+<table border="0" cellpadding="5" >
+  
+  <tr>
+    <td ><div id="dhtmlxCalendar"></div></td>
+	<td ><div id="dhtmlxCalendar2"></div></td>
+  </tr>
+  
+</table>
+<div class='sample_code'><div class="hl-main"><pre><span class="hl-code"> 
+    </span><span class="hl-identifier">mCal</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlxCalendarObject</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">dhtmlxCalendar</span><span class="hl-quotes">'</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">mCal</span><span class="hl-code">.</span><span class="hl-identifier">setYearsRange</span><span class="hl-brackets">(</span><span class="hl-number">2000</span><span class="hl-code">, </span><span class="hl-number">2500</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">mCal</span><span class="hl-code">.</span><span class="hl-identifier">draw</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;
+    
+    </span><span class="hl-comment">//</span><span class="hl-comment">with editable year and month</span><span class="hl-comment"></span><span class="hl-code">
+    </span><span class="hl-identifier">mCal2</span><span class="hl-code"> = </span><span class="hl-reserved">new</span><span class="hl-code"> </span><span class="hl-identifier">dhtmlxCalendarObject</span><span class="hl-brackets">(</span><span class="hl-quotes">'</span><span class="hl-string">dhtmlxCalendar2</span><span class="hl-quotes">'</span><span class="hl-code">, </span><span class="hl-reserved">false</span><span class="hl-code">, </span><span class="hl-brackets">{</span><span class="hl-identifier">isYearEditable</span><span class="hl-code">: </span><span class="hl-reserved">true</span><span class="hl-code">,</span><span class="hl-identifier">isMonthEditable</span><span class="hl-code">: </span><span class="hl-reserved">true</span><span class="hl-brackets">}</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">mCal2</span><span class="hl-code">.</span><span class="hl-identifier">setYearsRange</span><span class="hl-brackets">(</span><span class="hl-number">2000</span><span class="hl-code">, </span><span class="hl-number">2500</span><span class="hl-brackets">)</span><span class="hl-code">;
+    </span><span class="hl-identifier">mCal2</span><span class="hl-code">.</span><span class="hl-identifier">draw</span><span class="hl-brackets">(</span><span class="hl-brackets">)</span><span class="hl-code">;</span></pre></div></div>
+
+<!-- FOOTER -->
+<table callspacing="0" cellpadding="0" border="0" class="sample_footer"><tr><td style="padding-left: 8px;">&copy; <a href="http://www.dhtmlx.com">DHTMLX LTD</a>. All rights reserved</td></tr></table>
+<!-- FOOTER -->
+
+</body>
+</html>

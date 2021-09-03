@@ -1,0 +1,68 @@
+<h2>Color widgets</h2>
+<p>You currently have two color widgtes available in the DHTML Suite. They are created by the </p>
+<ul>
+	<li>DHTMLSuite.colorWidget and</li>
+	<li>DHTMLSuite.colorPalette</li>
+</ul>
+<p>classes.</p>
+<p>It is also important to notice that these widgets doesn't write anything to the screen unless you ask them to. The scripts creates a div for the widget, and
+it's up to you what you want to do with it. You'll get a reference to the div by using the getDivElement() method.</p>
+<p>One example how to do this is in the window script where I append them to tabs like this:</p>
+<pre>
+myWindow.appendContent('windowContent1',webColorPalette.getDivElement());
+myWindow.appendContent('windowContent1',webColorPalette2.getDivElement());
+myWindow.appendContent('windowContent2',colorSlider.getDivElement());
+myWindow.appendContent('windowContent3',namedColorPalette.getDivElement());
+</pre>
+<p><B>DHTMLSuite.colorPalette</b></p>
+<p>DHTMLSuite.colorPalette is the simplest of these two widgets. What it does is to create a palette of colors. </p>
+<p>This is one example:</p>
+<pre>
+var webColorPalette2 = new DHTMLSuite.colorPalette( { width:300,callbackOnColorClick:'setColor' } );
+webColorPalette2.addGrayScaleColors(32);
+webColorPalette2.init();
+</pre>
+<p>This creates a palette with 32 gray scale colors between 0 and 255(FF). The addGrayScaleColors method also accepts two range parameters in case you want to limit the 
+range of the colors. Example: webColorPalette2.addGrayScaleColors(16,0,15) will create the colors #010101, #020202, #030303, #040404 .... #0F0F0F.</p>
+<p>You also have the addAllWebColors and addAllNamedColors methods which can be used to add the 216 "web safe" colors to the palette or all the named colors. Custom colors can also
+been added by the addColor method. This method takes two arguments. The first one is the rgb code, while the second one(optional) is the title of this color.</p>
+<p>When you are finished adding colors to the palette, you call the init method to create the div.</p>
+<p>The colorPalette widget supports one callback function named callbackOnColorClick. You can specify it, by sending it to the constructor as shown in the example above. When a color is clicked,
+the function named "setColor" will be executed. This will receive an associative array as only argument. Keys in this array are rgb and name. This is how the setColor function may look like:</p>
+<pre>
+function setColor(color)
+{
+	var obj = document.getElementById('colorDiv');
+	if(color.name)obj.innerHTML = color.name;else obj.innerHTML=color.rgb;
+	obj.style.backgroundColor = color.rgb;
+}
+</pre>
+<p>This sets the background color of the div with id "colorDiv" to the clicked color.</p>
+<p><B>DHTMLSuite.colorWidget</b></p>
+<p>This widget creates the color widget which you see under the "Advanced color picker" tab. This is the code used to create this widget:</p>
+<pre>
+var colorWidget = new DHTMLSuite.colorWidget({ callbackOnChangeRgb : 'setColor' });
+colorWidget.init();
+colorWidget.setRgbColor('#AA5033');
+</pre>
+<p>And we have appended the DIV to the window with the line shown above:</p>
+<pre>
+myWindow.appendContent('windowContent2',colorSlider.getDivElement());
+</pre>
+<p>The constructor of this widget accepts an associative array of properties. Possible properties are:</p>
+<ul>
+	<li><b>hueSliderPosition</b> - Position of the hue slider. You can show it horizontally below the palette as in the demo, or you can 
+	show a smaller slider at the right side of the palette by dropping the param to the constructor or by calling the setHueSliderPosition method after the widget has been created.</li>
+	<li><b>callbackOnChangeRgb</b> - Name of function to execute when rgb code is changed in the slider. When this function is executed, it will include one associative array as only argument. The keys
+	of this arrray are: rgb,hue,saturation and brightness.</li>
+	<li><b>displayRgb</b> - Boolean value - true(default) if you want to show the form fields for red, green and blue, false otherwise.</li>
+	<li><b>displayHsv</b> - Boolean value - true(default) if you want to show the form fields for hue, saturation and brightness, false otherwise.</li>
+	<li><b>displayRgbCode</b> - Boolean value - true(default) you want to show the form field displaying the rgb code, false otherwise.</li>
+</ul>
+<p>For example click on one of the links below:</p>
+<ul>
+	<li><a href="#" onclick="colorWindow.activateTab('colorWidget');colorWidget.setHueSliderPosition('vertical');return false">Vertical</a></li>
+	<li><a href="#" onclick="colorWindow.activateTab('colorWidget');colorWidget.setHueSliderPosition('horizontal');return false">Horizontal</a></li>
+</ul>
+<p>And open the tab to see the changes.</p>
+<p>For more info, see the <a href="../doc/js_docs_out/index.html" onclick="var docWin=window.open(this.href);return false">class documentation</a>.</p>

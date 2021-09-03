@@ -1,0 +1,61 @@
+HOW TO USE
+
+1. Include class source and create a object.
+
+require_once 'class.PrintAnything.php';
+$pa = new PrintAnything();
+
+2. Create one or several print contexts inside the <head> element of your HTML document.
+
+$css = array (
+    '.stylel' => 'color: blue;',
+    '.style2' => 'color: red;'
+);
+$printData1 = <<<PDATA
+<b>This text will be printed out when pressing the link...</b><br />
+<span class="style1">It will not be shown in browser window!</span>
+<div class="style2">Here can be a table, an image or other elements...</div>
+<font color='#00ff00'>Goooogle!</font>
+PDATA;
+$con1 = $pa->addPrintContext($printData1, $css);
+
+$printData2 = "And here is some other output for another context...";
+$con2 = $pa->addPrintContext($printData2);
+
+$printData3 = PrintAnything::readBody('http://localhost/print_anything/test.php');
+$con3 = $pa->addPrintContext($printData3);
+
+3. Call showPrintLink() or showPrintButton() methods inside your HTML document body to display a link or a button that will send to the printer the data assigned to appropriate context.
+
+$pa->showPrintLink($con1, 'Print Out');
+
+echo '<form>';
+$pa->showPrintButton($con2, 'Print Out', 'style="background-color: #ff0000; color: yellow;"');
+echo '</form>';
+
+$pa->showPrintLink($con3, 'Print URL');
+
+
+CLASS REFERENCE
+
+PrintAnything();
+Class constructor.
+
+int addPrintContext(string printHtml, [array stylesheet]);
+Creates a new print context and returns context id. First parameter is an HTML code which should be printed using the context. A stylesheet array may be passed to be used with printing output.
+
+string readBody(url);
+Reads the contents of external URL. External URL can be a static html page or a dynamic page.
+
+void showPrintLink(int context, string linkText[, string attributes]);
+Creates a link which sends the output to the printer. First parameter is context id from addPrintContext() call, second parameter is text or img tag displayed as link. Optional attributes parameter may be used to define additional attributes for the anchor tag, like a style definition or css class name.
+
+void showPrintButton(int context, string buttonText[, string attributes]);
+Creates a button which sends the output to the printer. First parameter is
+context id from addPrintContext() call, second parameter is the value of button. Optional attributes parameter may be used to define additional attributes for the input tag, like a style definition or css class name.
+
+
+
+BROWSER COMPATIBILITY
+
+Tested in IE 5.5, IE 6, IE 7, Firefox 1.5, Netscape 8 and Opera 9 under Windows.

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rows>
+<head>
+<column width="50" type="ro" color="">Column 1</column>
+<column width="50" type="ro" color="#e5dd09">Yellow</column>
+<column width="50" type="ro" color="">Column 3</column>
+<column width="50" type="ro" color="">Column 4</column>
+<column width="100" type="price" color="#e54e04">Price</column>
+<column width="50" type="ro" color="">Column 6</column>
+<settings>
+<colwidth>px</colwidth>
+</settings>
+</head>
+	<row id="1">
+		<cell>-1500</cell>
+		<cell>12.99</cell>
+		<cell>1</cell>
+		<cell>24</cell>
+		<cell>0</cell>
+		<cell>05/01/1998</cell>
+	</row>
+</rows>

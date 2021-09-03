@@ -1,0 +1,115 @@
+<html>
+
+<head>
+
+
+<link rel="STYLESHEET" type="text/css" href="../common/styles.css">
+</head>
+<body>
+	<table border="0" cellpadding="0" cellspacing="0" class="sample_header" zid="71">
+		<tbody zid="3">
+			<tr valign="center" zid="4">
+				<td align="center" width="10" zid="5">&nbsp;</td>
+				<td align="left" zid="6">
+					<p zid="224">
+						<a href="http://www.dhtmlx.com/" zid="7">DHTMLX</a> Documentation
+					</p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<!--- CONTENT. Starts --->
+	<h1>How to use new excell “combo”</h1> 
+<P class=MsoNormal id=zh074><B id=zh075><SPAN lang=EN-US id=zh076><FONT id=vr1l1 size=4>&nbsp;</FONT></SPAN></B></P>
+<P class=MsoNormal id=zh078><SPAN lang=EN-US id=zh079>“Combo” excell supports all modes of the dhtmlxcombo.</SPAN></P>
+<P class=MsoNormal id=zh0711><SPAN lang=EN-US id=zh0712>&nbsp;</SPAN></P>
+<P class=MsoNormal id=zh0714><SPAN lang=EN-US id=zh0715>There are two ways of setting a combo: </SPAN></P>
+<P class=MsoNormal id=zh0717><SPAN lang=EN-US id=zh0718>&nbsp;</SPAN></P>
+<P class=MsoNormal id=zh0726 style="MARGIN-LEFT: 0.25in"><SPAN lang=EN-US id=zh0721><SPAN id=zh0722>1)<SPAN id=zh0723 style="FONT-SIZE: 7pt; LINE-HEIGHT: normal; FONT-FAMILY: 'Times New Roman'; FONT-VARIANT: normal; font-size-adjust: none; font-stretch: normal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN></SPAN></SPAN><SPAN lang=EN-US id=zh0727>For the whole column; <BR id=j58j0>
+</SPAN></P>
+<P class=MsoNormal id=zh0729 style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.25in"><SPAN lang=EN-US id=zh0730><SPAN id=zh0731>2)<SPAN id=zh0732 style="FONT-SIZE: 7pt; LINE-HEIGHT: normal; FONT-FAMILY: 'Times New Roman'; FONT-VARIANT: normal; font-size-adjust: none; font-stretch: normal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN></SPAN></SPAN><SPAN lang=EN-US id=zh0733>For a certain cell. </SPAN></P>
+<P class=MsoNormal id=zh0735><SPAN lang=EN-US id=zh0736>&nbsp;</SPAN></P>
+<P class=MsoNormal id=zh0738><SPAN lang=EN-US id=zh0739>Combo loading and representation modes are set by special attributes in the xml: </SPAN></P>
+<P class=MsoNormal id=zh0741><SPAN lang=EN-US id=zh0742>&nbsp;</SPAN></P>
+<P class=MsoNormal id=zh0744 style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.25in"><SPAN lang=EN-US id=zh0745><SPAN id=zh0746>a)<SPAN id=zh0747 style="FONT-SIZE: 7pt; LINE-HEIGHT: normal; FONT-FAMILY: 'Times New Roman'; FONT-VARIANT: normal; font-size-adjust: none; font-stretch: normal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN></SPAN></SPAN><B id=zh0748><U id=zh0749><SPAN lang=EN-US id=zh0750>xmlcontent</SPAN></U></B><B id=zh0751><SPAN lang=EN-US id=zh0752> -&nbsp;</SPAN></B><SPAN lang=EN-US id=zh0753>In this case the options can be defined directly in the grid xml;</SPAN></P>
+<P class=MsoNormal id=zh0755 style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.25in"><SPAN lang=EN-US id=zh0756><SPAN id=zh0757>b)<SPAN id=zh0758 style="FONT-SIZE: 7pt; LINE-HEIGHT: normal; FONT-FAMILY: 'Times New Roman'; FONT-VARIANT: normal; font-size-adjust: none; font-stretch: normal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN></SPAN></SPAN><B id=zh0759><U id=zh0760><SPAN lang=EN-US id=zh0761>source</SPAN></U></B><SPAN lang=EN-US id=zh0762> - Sets the source of the combo xml;</SPAN></P>
+<P class=MsoNormal id=zh0764 style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.25in"><SPAN lang=EN-US id=zh0765><SPAN id=zh0766>c)<SPAN id=zh0767 style="FONT-SIZE: 7pt; LINE-HEIGHT: normal; FONT-FAMILY: 'Times New Roman'; FONT-VARIANT: normal; font-size-adjust: none; font-stretch: normal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN></SPAN></SPAN><B id=zh0768><SPAN lang=EN-US id=zh0769>editable</SPAN></B><SPAN lang=EN-US id=zh0770> - true/false; "true" by default; </SPAN></P>
+<P class=MsoNormal id=zh0772 style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.25in"><SPAN lang=EN-US id=zh0773><SPAN id=zh0774>d)<SPAN id=zh0775 style="FONT-SIZE: 7pt; LINE-HEIGHT: normal; FONT-FAMILY: 'Times New Roman'; FONT-VARIANT: normal; font-size-adjust: none; font-stretch: normal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN></SPAN></SPAN><B id=zh0776><U id=zh0777><SPAN lang=EN-US id=zh0778>filtering</SPAN></U></B><SPAN lang=EN-US id=zh0779> - true/false; "false" by default. Enables filtering mode (the same as <SPAN id=kzl.0><I id=jh-x0>enableFilteringMode </I></SPAN>for the combo);</SPAN></P>
+<P class=MsoNormal id=zh0781 style="MARGIN-LEFT: 0.5in; TEXT-INDENT: -0.25in"><SPAN lang=EN-US id=zh0782><SPAN id=zh0783>e)<SPAN id=zh0784 style="FONT-SIZE: 7pt; LINE-HEIGHT: normal; FONT-FAMILY: 'Times New Roman'; FONT-VARIANT: normal; font-size-adjust: none; font-stretch: normal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN></SPAN></SPAN><B id=zh0785><U id=zh0786><SPAN lang=EN-US id=zh0787>auto -</SPAN></U></B><SPAN lang=EN-US id=zh0788> true/false; "false" by default. Enables autocomplete mode (the same as <SPAN id=kzl.1><I id=jh-x1>enableFilteringMode</I></SPAN><SPAN id=cgyr0><I id=jh-x2>(mode,source)</I></SPAN> for the combo);</SPAN></P>
+<P class=MsoNormal id=zh0791 style="MARGIN-LEFT: 1in; TEXT-INDENT: -0.25in"><SPAN lang=EN-US id=zh0792><SPAN id=zh0793>-<SPAN id=zh0794 style="FONT-SIZE: 7pt; LINE-HEIGHT: normal; FONT-FAMILY: 'Times New Roman'; FONT-VARIANT: normal; font-size-adjust: none; font-stretch: normal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN></SPAN></SPAN><B id=zh0795><U id=zh0796><SPAN lang=EN-US id=zh0797>cache</SPAN></U></B><SPAN lang=EN-US id=zh0798> (the additional parameter for autocomplete mode) – the xml suggestions are cached (the same as <SPAN id=kzl.2><I id=jh-x3>enableFilteringMode</I></SPAN><SPAN id=cgyr1><I id=jh-x4>(mode,source,cache)</I></SPAN>);</SPAN></P>
+<P class=MsoNormal id=zh07100 style="MARGIN-LEFT: 1in; TEXT-INDENT: -0.25in"><SPAN lang=EN-US id=zh07101><SPAN id=zh07102>-<SPAN id=zh07103 style="FONT-SIZE: 7pt; LINE-HEIGHT: normal; FONT-FAMILY: 'Times New Roman'; FONT-VARIANT: normal; font-size-adjust: none; font-stretch: normal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN></SPAN></SPAN><B id=zh07104><U id=zh07105><SPAN lang=EN-US id=zh07106>sub</SPAN></U></B><SPAN lang=EN-US id=zh07107> (the additional parameter for autocomplete mode) - enables auto load additional suggestions on selecting the last loaded option (the same as <SPAN id=tp4c0><I id=jh-x5>enableFilteringMode(mode,source,cache,sub)</I></SPAN>).</SPAN></P>
+<P class=MsoNormal id=zh07110><SPAN lang=EN-US id=zh07111>&nbsp;</SPAN></P>
+<P class=MsoNormal id=zh07113><B id=zh07114><I id=zh07115><SPAN lang=EN-US id=zh07116>Setting “combo” column:</SPAN></I></B></P>
+<P class=MsoNormal id=zh07118><SPAN lang=EN-US id=zh07119>&nbsp;</SPAN></P>
+<P class=MsoNormal id=zh07121><SPAN lang=EN-US id=zh07122>For the whole column the combo is set in the &lt;column&gt; tag. </SPAN></P>
+<P class=MsoNormal id=zh07124><SPAN lang=EN-US id=zh07125>&nbsp;</SPAN></P>
+<P class=MsoNormal id=zh07127><SPAN lang=EN-US id=zh07128>Examples:</SPAN></P>
+<P class=MsoNormal id=zh07130><SPAN lang=EN-US id=zh07131>&nbsp;</SPAN></P>
+<BLOCKQUOTE id=u3:q0>
+<P class=MsoNormal id=zh07133><SPAN lang=EN-US id=zh07134>&lt;column width="150" type="combo” xmlcontent="1"…&gt;TEXT&lt;option value="1"&gt;one&lt;/option&gt;</SPAN></P>
+<P class=MsoNormal id=zh07136><SPAN lang=EN-US id=zh07137><SPAN id=zh07138>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN id=zh07139>&nbsp;&nbsp; </SPAN><SPAN id=zh07140>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN id=zh07141>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>&lt;option value="2"&gt;two&lt;/option&gt;</SPAN></P>
+<P class=MsoNormal id=zh07143><SPAN lang=EN-US id=zh07144><SPAN id=zh07145>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN id=zh07146>&nbsp;&nbsp; </SPAN><SPAN id=zh07147>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN id=zh07148>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>&lt;option value="3"&gt;three&lt;/option&gt;</SPAN></P>
+<P class=MsoNormal id=zh07150><SPAN lang=EN-US id=zh07151><SPAN id=zh07152>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN id=zh07153>&nbsp;&nbsp; </SPAN><SPAN id=zh07154>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN id=zh07155>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>…<SPAN id=zh07156>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN></SPAN></P>
+<P class=MsoNormal id=zh07158><SPAN lang=EN-US id=zh07159>&lt;/column&gt;</SPAN></P>
+<P class=MsoNormal id=zh07161><SPAN lang=EN-US id=zh07162>&nbsp;</SPAN></P>
+<P class=MsoNormal id=zh07164><SPAN lang=EN-US id=zh07165>&lt;column width="150" type="combo" editable="false" source="data.xml" …&gt;TEXT</SPAN></P>
+<P class=MsoNormal id=zh07167><SPAN lang=EN-US id=zh07168><SPAN id=zh07169>&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN id=zh07170>&nbsp;&nbsp;&nbsp; </SPAN>&lt;/column&gt;</SPAN></P>
+<P class=MsoNormal id=zh07172><SPAN lang=EN-US id=zh07173>&lt;column type="combo" source="complete.php" auto="true" cache="true" sub="true"… &gt;TEXT</SPAN></P>
+<P class=MsoNormal id=zh07175><SPAN lang=EN-US id=zh07176>&lt;/column&gt;</SPAN></P>
+</BLOCKQUOTE>
+<P class=MsoNormal id=zh07178><SPAN lang=EN-US id=zh07179>&nbsp;</SPAN></P>
+<P class=MsoNormal id=zh07181><SPAN lang=EN-US id=zh07182>Combo value should be set inside the &lt;cell&gt; tags:</SPAN></P>
+<BLOCKQUOTE id=u3:q1>
+<P class=MsoNormal id=zh07184><SPAN lang=EN-US id=zh07185>&lt;cell&gt;1&lt;/cell&gt;</SPAN></P>
+</BLOCKQUOTE>
+<P class=MsoNormal id=zh07187><SPAN lang=EN-US id=zh07188>&nbsp;</SPAN></P>
+<P class=MsoNormal id=zh07190><SPAN lang=EN-US id=zh07191>In case of autocomplete mode the following instruction defines the value and the text:</SPAN></P>
+<P class=MsoNormal id=zh07193><SPAN lang=EN-US id=zh07194>&nbsp;</SPAN></P>
+<BLOCKQUOTE id=opdm0>
+<P class=MsoNormal id=zh07196><SPAN lang=EN-US id=zh07197>&lt;cell&gt;value^text&lt;/cell&gt; </SPAN></P>
+</BLOCKQUOTE>
+<P class=MsoNormal id=zh07199><SPAN lang=EN-US id=zh07200>&nbsp;</SPAN></P>
+<P class=MsoNormal id=zh07202><SPAN lang=EN-US id=zh07203>For example: </SPAN></P>
+<BLOCKQUOTE id=opdm1>
+<P class=MsoNormal id=zh07205><SPAN lang=EN-US id=zh07206>&lt;cell&gt;1^one&lt;/cell&gt;</SPAN></P>
+</BLOCKQUOTE>
+<P class=MsoNormal id=zh07208><SPAN lang=EN-US id=zh07209>&nbsp;</SPAN></P>
+<P class=MsoNormal id=zh07211><B id=zh07212><I id=zh07213><SPAN lang=EN-US id=zh07214>Setting “combo” cell:</SPAN></I></B></P>
+<P class=MsoNormal id=zh07216><B id=zh07217><I id=zh07218><SPAN lang=EN-US id=zh07219>&nbsp;</SPAN></I></B></P>
+<P class=MsoNormal id=zh07221><SPAN lang=EN-US id=zh07222>The combo for a cell is set practically in the same way as one for the column. The difference is in using the &lt;cell&gt; tag instead of the &lt;column&gt; one. Also the <SPAN id=rk5i0><I id=jh-x6>xmlcontent </I></SPAN>attribute is always necessary:</SPAN></P>
+<P class=MsoNormal id=zh07224><SPAN lang=EN-US id=zh07225>&nbsp;</SPAN></P>
+<BLOCKQUOTE id=v6zt0>
+<P class=MsoNormal id=zh07227><SPAN lang=EN-US id=zh07228>&lt;cell xmlcontent="1" editable="0"&gt;1&lt;option value="1"&gt;one&lt;/option&gt;</SPAN></P>
+<P class=MsoNormal id=zh07230><SPAN lang=EN-US id=zh07231><SPAN id=zh07232>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN id=zh07233>&nbsp;&nbsp; </SPAN><SPAN id=zh07234>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>&lt;option value="2"&gt;two&lt;/option&gt;</SPAN></P>
+<P class=MsoNormal id=zh07236><SPAN lang=EN-US id=zh07237><SPAN id=zh07238>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN><SPAN id=zh07239>&nbsp;&nbsp; </SPAN><SPAN id=zh07240>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN>&lt;option value="3"&gt;three&lt;/option&gt;</SPAN></P>
+<P class=MsoNormal id=zh07242><SPAN lang=EN-US id=zh07243>&lt;/cell&gt;<BR id=zh07244>
+&lt;cell xmlcontent="1" source="data.xml" filter="true”&gt;1&lt;/cell&gt;</SPAN></P>
+</BLOCKQUOTE>
+<P class=MsoNormal id=zh07246><SPAN lang=EN-US id=zh07247>&nbsp;</SPAN></P>
+<P class=MsoNormal id=zh07249><SPAN lang=EN-US id=zh07250>In case of </SPAN><SPAN lang=EN-US id=zh07191>auto</SPAN><SPAN lang=EN-US id=zh07191>complete mode</SPAN><SPAN lang=EN-US id=zh07250> the text should be set with the help of the text attribute:</SPAN></P>
+<P class=MsoNormal id=zh07252><SPAN lang=EN-US id=zh07253><SPAN id=zh07254>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </SPAN></SPAN></P>
+<BLOCKQUOTE id=v6zt1>
+<P class=MsoNormal id=zh07256><SPAN lang=EN-US id=zh07257>&lt;cell xmlcontent="1" source="complete.php" auto="true" cache="true" <B id=zh07258>text</B>="some text"&gt;4&lt;/cell&gt;</SPAN></P>
+</BLOCKQUOTE>
+<P class=MsoNormal id=zh07260><SPAN lang=EN-US id=zh07261>&nbsp;</SPAN></P>
+<P class=MsoNormal id=zh07263><B id=zh07264><I id=zh07265><SPAN lang=EN-US id=zh07266>New methods:</SPAN></I></B></P>
+<P class=MsoNormal id=zh07268><SPAN lang=EN-US id=zh07269>&nbsp;</SPAN></P>
+<P class=MsoNormal id=zh07271><SPAN lang=EN-US id=zh07272><SPAN id=aqlf0><I id=jh-x7>getCellCombo </I></SPAN>returns cell combo object:</SPAN></P>
+<P class=MsoNormal id=zh07274><SPAN lang=EN-US id=zh07275>&nbsp;</SPAN></P>
+<BLOCKQUOTE id=aqlf1>
+<P class=MsoNormal id=zh07277><SPAN lang=EN-US id=zh07279>combo = grid.cells(id,index).getCellCombo();</SPAN></P>
+<P class=MsoNormal id=zh07281><SPAN lang=EN-US id=zh07283>&nbsp;</SPAN></P>
+<P class=MsoNormal id=zh07285><SPAN lang=EN-US id=zh07287>combo.enableFilteingMode(true)<SPAN id=zh07288>&nbsp;</SPAN></SPAN></P>
+</BLOCKQUOTE>
+<P class=MsoNormal id=zh07290><SPAN lang=EN-US id=zh07291>&nbsp;</SPAN></P>
+<P class=MsoNormal id=zh07293><SPAN lang=EN-US id=zh07294><SPAN id=aqlf2><I id=jh-x8>getColumnCombo </I></SPAN>returns column combo object:</SPAN></P>
+<P class=MsoNormal id=zh07296><SPAN lang=EN-US id=zh07297>&nbsp;</SPAN></P>
+<BLOCKQUOTE id=aqlf3>
+<P class=MsoNormal id=zh07303><SPAN lang=EN-US id=zh07305>combo = grid.getCellCombo(column_index);</SPAN><I id=zh07304><SPAN lang=EN-US id=zh07305><BR id=aqlf4>
+</SPAN></I></P>
+</BLOCKQUOTE>
+
+	<!--- CONTENT. Ends --->
+	<div class="copyright" zid="223">&copy; DHTMLX, 2008</div>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+	<HEAD>
+		<title>
+		</title>
+<style type="text/css">
+.campoal
+{
+	Font: Bold 12px Trebuchet MS;
+	TEXT-TRANSFORM: uppercase;
+	background: #FFE12E;
+}
+
+.campoan
+{
+	Font: Bold 12px Trebuchet MS;
+	background: #FFE12E;
+	text-align: right
+}
+
+
+.campo
+{
+	Font: 12px Trebuchet MS;
+	TEXT-TRANSFORM: uppercase;
+	background: #FFFFFF;
+}
+
+.campov
+{
+	FONT-SIZE: 11px;
+	BACKGROUND: #c0f0c0;
+	TEXT-TRANSFORM: uppercase;
+	FONT-FAMILY: Trebuchet MS
+}
+.campovn
+{
+	font-size: 11px;
+	background: #c0f0c0;
+	font-family: Trebuchet MS;
+	text-align: right
+}
+.campon
+{
+	font-size: 11px;
+	text-transform: uppercase;
+	font-family: Trebuchet MS;
+	text-align: right;
+	background: #FFFFFF;
+}
+</style>
+<script>
+/*
+Autor: Ing. Andrews Dumith
+Fecha: 25-10-2006
+Versión: 2
+Nombre función: CambioC
+Descripción: Función que cambia el estilo del campo cuando se hace el focus										
+Parámetros: id --> Identificador del campo a cambiar														
+            tipod --> Determina el tipo de dato del campo a cambiar
+Nota: si la función no recibe el parámetro se emitirá un mensaje y no se cambiará el estilo del campo*/
+function CambioC(id,tipod)
+{
+	switch(tipod)
+	{
+	case 'N':
+		/* Campo Numérico */
+		document.getElementById(id).className='campoan';
+		break;
+	case 'L':
+		/* Campo Alfanumérico */
+		document.getElementById(id).className='campoal';
+		break;
+	default:
+		alert("El parámetro recibido para ACTIVAR el campo no está definido.");		
+	}
+}
+
+/*
+Autor: Ing. Andrews Dumith
+Fecha: 25-10-2006
+Versión: 2
+Nombre función: RestableceC
+Descripción: Función que reestablece el estilo del campo cuando se pierde el focus.										
+Parámetros: id --> Identificador del campo a restablecer														
+            tipod --> Determina el tipo de dato del campo a restablecer
+Nota: si la función no recibe el parámetro se emitirá un mensaje y NO se restablecerá el estilo del campo*/	
+function RestableceC(id,tipod)
+{
+	switch(tipod)
+	{
+	case 'ON':
+		/* Campo Obligatorio Numérico*/
+		document.getElementById(id).className='campovn';
+		break;
+	case 'OL':
+		/* Campo Obligatorio Alfanumérico*/
+				document.getElementById(id).className='campov';
+			break;
+	case 'NON':
+		/* Campo NO Obligatorio Numérico*/
+		document.getElementById(id).className='campon';
+		break;
+	case 'NOL':
+		/* Campo NO Obligatorio Alfanumérico*/
+		document.getElementById(id).className='campo';
+		break;
+	default:
+		alert("El parámetro recibido para DESACTIVAR el campo no está definido.");
+	}
+}		
+</script>	
+</HEAD>
+<BODY>
+<p>
+  <input class="campov" onFocus="CambioC('txt1','L');" onBlur="RestableceC('txt1','OL');" id="txt1" type="text">
+  <input class="campo" onFocus="CambioC('txt2','L');" onBlur="RestableceC('txt2','NOL');" id="txt2" type="text">
+  <input class="campovn" onFocus="CambioC('txt9','N');" onBlur="RestableceC('txt9','ON');" id="txt9" type="text">
+  <input class="campon" onFocus="CambioC('txt10','N');" onBlur="RestableceC('txt10','NON');" id="txt10" type="text">
+</p>
+<p>
+  <select class="campo" id="txt3" onFocus="CambioC('txt3');" onBlur="RestableceC('txt3');">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+  </select>
+</p>
+<p>
+  <label> Ccccccc
+  <textarea class="campo" onFocus="CambioC('txt4');" onBlur="RestableceC('txt4');" id="txt4">
+  </textarea>
+  </label>
+</p>
+    
+
+    <label><br>
+    Bbbbbb
+      <input class="campo" name="radiobutton" type="radio" value="opción" onFocus="CambioC('txt5');" onBlur="RestableceC('txt5');" id="txt5">
+Opción</label>
+    <br>
+    <label> Aaaaa
+      <input class="campo" name="radiobutton" type="radio" value="opción" onFocus="CambioC('txt6');" onBlur="RestableceC('txt6');" id="txt6">
+      Opción</label>
+
+      <p>
+        <input class="campo" type="checkbox" name="checkbox" value="checkbox" onFocus="CambioC('txt7');" onBlur="RestableceC('txt7');" id="txt7" >
+</p>
+</BODY>
+</HTML>

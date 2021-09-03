@@ -1,0 +1,201 @@
+<html>
+<head>
+<script src="../../codebase/dhtmlxcommon.js" type="text/javascript"></script>
+<script src="../../../dhtmlxTabbar/codebase/dhtmlxtabbar.js" type="text/javascript"></script>
+<script src="../../codebase/dhtmlxgrid.js" type="text/javascript"></script>
+<script src="codebase/dhtmlxgrid_wizard.js" type="text/javascript"></script>
+<script  src="../../codebase/dhtmlxgridcell.js" type="text/javascript"></script>	
+<script  src="codebase/dhtmlxgrid_configurator.js" type="text/javascript"></script>	
+<script  src="../../../dhtmlxColorPicker/codebase/dhtmlxcolorpicker.js" type="text/javascript"></script>
+<script  src="../../../dhtmlxCalendar/codebase/dhtmlxcalendar.js" type="text/javascript"></script>
+<script  src="../../codebase/excells/dhtmlxgrid_excell_dhxcalendar.js" type="text/javascript"></script>
+<script  src="codebase/log.js" type="text/javascript"></script>
+
+<link id="gridStyle" rel="STYLESHEET" type="text/css" href="../../codebase/dhtmlxgrid.css">
+<link rel="STYLESHEET" type="text/css" href="../../../dhtmlxTabbar/codebase/dhtmlxtabbar.css">
+<link rel="STYLESHEET" type="text/css" href="codebase/dhtmlxgrid_wizard.css" />
+<link rel="STYLESHEET" type="text/css" href="../../../dhtmlxColorPicker/codebase/dhtmlxcolorpicker.css"> 
+<link rel="STYLESHEET" type="text/css" href="../../../dhtmlxCalendar/codebase/dhtmlxcalendar.css"> 
+
+
+
+<title>dhtmlxGrid Wizard</title>
+
+<style id="extStyle"></style>
+</head>
+<body onLoad="doOnLoad();">
+<span class="title">dhtmlxGrid<span> Wizard</span></span>
+<table border="0" style="width:750px;height:610px;">
+	<tr>
+		<td style="width:100%;align:right;">
+			<div id="gridbox" style="width:440px;height:360px;"></div>
+		</td>
+		<td>
+			<div id="optionsbox" style="width:307px;height:361px;">
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<div id="outputbox" style="width:100%;height:300px;">
+		</td>
+	</tr>
+</table>
+<!--#Log
+<div id="log" style="position:absolute;right:0px;top:0px;width:400px;height:600px;background:black;color:lime;overflow:auto;"></div>
+-->
+
+<!--#Global settings-->
+<div id="global_sets" class="div_con">
+	<table class="tbl_cont" cellspacing="0" cellpadding="0">
+		<tr>
+			<td class="labelColumn"><span id="conf_type_label" class="label">Configuration via:</span></td>
+			<td class="inputColumn"><select class="inputField" id="conf_type" onFocus="generateInitCode();" onClick="saveDump(this,'conf_type_label',1);" onChange="saveDump(this,'conf_type_label',2);">		
+				<option value="script" selected>script</option>		
+				<option value="xml">XML
+			</select></td>
+		</tr>
+		<tr>
+			<td class="labelColumn"><span id="col_count_label" class="label">Number of columns:</span></td>
+			<td class="inputColumn"><input class="inputField" id="col_count" value="1" onFocus="generateInitCode();" onKeyDown="saveDump(this,'col_count_label',0);" style="width:40px;"><input id="col_editable"  type="checkbox" onFocus="generateInitCode();" onMouseDown="saveDump(this,'col_editable_label',1);" onClick="saveDump(this,'col_editable_label',2);"><span class="textField_mini" id="col_editable_label">editable</span></td>
+		</tr>
+		<tr>
+			<td class="labelColumn"><span id="grid_col_width_type_label" class="label">Column width UOM:</span></td>
+			<td class="inputColumn"><select class="selectField" id="grid_width_type" onClick="saveDump(this,'grid_col_width_type_label',1);" onChange="saveDump(this,'grid_col_width_type_label',2);"><option value="px">px</option><option value="pc">%</option></select></td>
+		</tr>
+		<tr>
+			<td class="labelColumn"><span id="grid_skin_label" class="label">Skin:</span></td>
+			<td class="inputColumn">
+			<select class="inputField" id="grid_skin" onFocus="generateInitCode();" onClick="saveDump(this,'grid_skin_label',1);" onChange="saveDump(this,'grid_skin_label',2);">		
+				<option value="gray">gray</option>
+				<option value="light" selected>light</option>		
+				<option value="mt">mt</option>
+				<option value="xp">xp</option>
+				<option value="clear">clear</option>
+				<option value="modern">modern</option>
+			</select>
+			</td>
+		</tr>
+		<tr>
+			<td class="labelColumn"><span id="grid_date_format_label" class="label">Date format:</span></td>
+			<td class="inputColumn">
+			<select class="inputField" onChange="document.getElementById('grid_date_format').value=this.value;" >
+				<option value="">---</option>			
+				<option value="%m-%d-%y">m-d-y</option>
+				<option value="%m-%d-%Y">m-d-Y</option>
+				<option value="%Y-%m-%d">Y-m-d</option>
+				<option value="%y-%m-%d">y-m-d</option>
+				<option value="%d/%m/%Y">d/m/Y</option>				
+				<option value="%d/%m/%y">d/m/y</option>
+			</select><br>
+			<input class="inputField" id="grid_date_format" onKeyDown="saveDump(this,'grid_date_format_label',0);" onFocus="generateInitCode();">
+			</td>			
+		</tr>				
+		<tr>
+			<td class="spanRow" colspan="2"><input  id="grid_srnd" type="checkbox" onFocus="generateInitCode();" class="chbox" onMouseDown="saveDump(this,'grid_srnd_label',1);" onClick="saveDump(this,'grid_srnd_label',2);"><span id="grid_srnd_label">smart rendering enable</span></td>
+		</tr>
+		<tr>
+			<td class="spanRow" style="text-align:right;" colspan="2"><input type="button" value="Apply" class="btn" onClick="generateInitCode();"></td>
+		</tr>
+	</table>			
+</div>
+<!--#Column settings-->
+<div id="column_sets" class="div_con">
+	<table class="tbl_cont" cellspacing="0" cellpadding="0">
+		<tr>
+			<td class="labelColumn"><span id="col_label_label" class="label">Label:</span></td>
+			<td class="inputColumn"><input class="inputField" id="col_label" onKeyDown="saveDump(this,'col_label_label',0);"></td>
+		</tr>
+		<tr>
+			<td class="labelColumn"><span id="col_width_label" >Width:</span></td>
+			<td class="inputColumn"><input class="miniInputField" id="col_width"  onKeyDown="saveDump(this,'col_width_label',0);"><select class="selectField" id="col_width_type" disabled="disabled"><option value="px">px</option><option value="pc">%</option></select></td>
+		</tr>
+		<tr>
+			<td class="labelColumn"><span id="col_type_label">Type:</span></td>
+			<td class="inputColumn"><select class="inputField" id="col_type" onClick="saveDump(this,'col_type_label',1);" onChange="saveDump(this,'col_type_label',2);">
+			<option value="ro">Read only</option>
+			<option value="ron">Read only(number)</option>			
+			<option value="edn">Editable(number)</option>
+			<option value="ed">Editable</option>			
+			<option value="txt">Text</option>
+			<option value="dyn">Dynamical</option>
+			<option value="price">Price</option>
+			<option value="ch">Checkbox</option>
+			<option value="ra">Radio button</option>
+			<option value="cp">Color picker</option>
+			<option value="dhxCalendar">Date/calendar</option>
+			<option value="dhxCalendarA">Date/calendarA</option>						
+			</select></td>
+		</tr>
+		<tr>
+			<td class="labelColumn"><span id="col_sort_label">Sorting type:</span></td>
+			<td class="inputColumn"><select class="inputField" id="col_sort"  onClick="saveDump(this,'col_sort_label',1);" onChange="saveDump(this,'col_sort_label',2);">
+			<option value="na">Not available</option>
+			<option value="int">Integer</option>
+			<option value="str">String</option>
+			<option value="price">Price</option>
+			<option value="date">Date</option>						
+			</select></td>
+		</tr>		
+		<tr>
+			<td class="labelColumn"><span id="col_bgcolor_label">Background-color:</span></td>
+			<td class="inputColumn"><input class="inputField" id="col_bgcolor"  onMouseDown="saveDump(this,'col_bgcolor_label',1);"></td>
+		</tr>
+		<tr>
+			<td class="labelColumn"><span id="col_align_label">Text align:</span></td>
+			<td class="inputColumn"><select class="inputField" id="col_align"  onClick="saveDump(this,'col_align_label',1);" onChange="saveDump(this,'col_align_label',2);">
+			<option value="left">Left</option>
+			<option value="center">Center</option>
+			<option value="right">Right</option>
+			</select></td>
+		</tr>
+		<tr>
+			<td class="labelColumn"><span id="col_format_label">Number format:</span></td>
+			<td class="inputColumn"><select class="inputField" onChange="document.getElementById('col_format').value=this.value;">
+				<option value="">---</option>			
+				<option value="0,000">0,000</option>
+				<option value="0,000.00">0,000.00</option>
+				<option value="0.00%">0.00%</option>			
+			</select><br>
+			<input class="inputField" id="col_format" onKeyDown="saveDump(this,'col_format_label',0);">
+			</td>			
+		</tr>			
+		<tr>
+			<td class="spanRow" colspan="2"><input id="col_resize" type="checkbox"  onMouseDown="saveDump(this,'col_resize_label',1);" onClick="saveDump(this,'col_resize_label',2);"><span id="col_resize_label">resizable</span></td>
+		</tr>		
+		<tr>
+			<td class="spanRow" style="text-align:right;" colspan="2"><input id="col_apply" type="button" class="btn" value="Apply"></td>
+		</tr>
+	</table>
+</div>
+<!-- #Headers style -->
+<div id="grid_style" class="div_con">
+	<table class="tbl_cont" cellspacing="0" cellpadding="0">
+		<tr>
+			<td class="labelColumn">
+			<span id="hdr_border_type_label">Style of : </span>
+			</td>
+			<td class="inputColumn">
+			<select class="inputField" id ="style_type" onClick="/*saveDump(this,'hdr_border_type_label',1);*/" onChange="/*saveDump(this,'hdr_border_type_label',2);*/getStyles();">			
+				<option value="header">header</option>			
+				<option value="cell">cells</option>
+				<option value="selcell">selected cell</option>
+				<option value="selrow">selected row</option>
+			</select>					
+			</td>		
+		</tr>	
+		<tr>		
+			<td class="spanRow" colspan="2"><textarea id="style_value" class="textArea" wrap="VIRTUAL"></textarea></tD>
+		</tr>	
+		<tr>
+			<td class="spanRow" style="text-align:right;" colspan="2"><input type="button" value="Apply" class="btn" id="style_apply"></td>
+		</tr>		
+	</table>
+</div>
+<!-- #Get source block-->
+<form action="php/getSource.php" method="post" target="ifrPostData" id="source_form">
+<input id="html_content" name="html" type="hidden" value="">
+<input id="xml_content" name="xml" type="hidden" value="">
+<input value="Get source in a .zip" type="button" class="getButton" onClick="getSource();">
+</form>
+<iframe id="ifrPostData" name="ifrPostData" frameborder=0 style="display:none;"></iframe>
+</body>

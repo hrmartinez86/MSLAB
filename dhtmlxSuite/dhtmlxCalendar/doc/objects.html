@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?><div style="position:absolute;right:20"><a href="javascript:void(0)" onclick="expandAll(true)">expand</a><a href="javascript:void(0)" onclick="expandAll(false)">collaps</a></div><script><!--
+		
+			function openFull(el){
+				el.nextSibling.style.display!='block'?el.nextSibling.style.display='block':el.nextSibling.style.display='none'
+			}
+			function expandAll(fl){ 
+				var elAr = document.getElementsByTagName("DIV");
+				for(var i=2;i<elAr.length;i++){
+					if(elAr[i].style.display!='block' || elAr[i].block_fl){
+						elAr[i].block_fl = true;
+						if(fl)
+							elAr[i].style.display = "block";
+						else
+							elAr[i].style.display = "none";
+					}
+				}
+			}
+		
+		--></script><style>
+			.{font-family:arial;}
+			h2 {cursor:pointer;font-size:16px;margin-left:10px;line-height:10px}
+			h3 {cursor:pointer;font-weight:normal;color:gray;text-decoration:underline;line-height:10px}
+			div.block {margin-left:30px;}
+		</style><link rel="STYLESHEET" type="text/css" href="common/styles.css" /><div style="font-size:20px" onclick="openFull(this)">dhtmlxDblCalendarObject object constructor</div><div class="block" style="display:show;"><div style="margin-top:0px;font-weight:bold;cursor:pointer;" onclick="openFull(this)"><br /><strong style="color:#6c6c6c;font-size:12px">dhtmlxDblCalendarObject constructor (double dhtmlxCalendarObject)</strong><br /><span /></div><div style="display:show;margin-left:20px;font-size:12px"><li type="circle">{String} id - attribute of HTML Element</li><li type="circle">isAutoDraw - is auto draw calendar</li><li type="circle">options - an associate array of options</li><span /></div></div><div style="font-size:20px" onclick="openFull(this)">dhtmlxCalendarObject object constructor</div><div class="block" style="display:show;"><div style="margin-top:0px;font-weight:bold;cursor:pointer;" onclick="openFull(this)"><br /><strong style="color:#6c6c6c;font-size:12px">dhtmlxCalendarObject constructor</strong><br /><span /></div><div style="display:show;margin-left:20px;font-size:12px"><li type="circle">{String} id - attribute of HTML Element</li><li type="circle">isAutoDraw - is auto draw calendar</li><li type="circle">options - an associate array of options</li><span /></div></div>

@@ -1,0 +1,327 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<title>dhtmlxGrid. Step-by-step Guide. Basics</title>
+	<link rel="STYLESHEET" type="text/css" href="../common/styles.css">
+	
+</head>
+
+<body>
+<h1 id="jds5">
+  dhtmlxGrid. Step-by-step Guide. Basics</h1>
+<div id="jfvx"><span id="x2lc" style="text-decoration: underline;">
+  by Ivan Petrenko</span><br id="zggu">
+</div>
+<h2 id="dcid">If you like to read Introductions</h2>
+
+<p>When
+I started writing this tutorial, I called dhtmlxGrid "the best grid you've
+ever seen". But this was too arrogant. It doesn't really matter what I
+think about it. More important what will you think about it at the end. So, one
+of the purposes of these set of articles united by common title
+"dhtmlxGrid. Step-by-step Guide" is to pass you my feeling of
+dhtmlxGrid, as very useful and powerful ajax grid component... and make you believe</span> that it is SIMPLE, FAST and FLEXIBLE. <br id="kc7.">First of all, I'm going to show you how to do things, then you'll experiment. <br id="o8ad"><br id="iilu">In this article I'll show the following:<br id="w5fu"><br id="o.jo"><ol id="n35d"><li id="ytez"><a title="What external files need to be included and how" href="#Step_1_-_Include_script_and_css_" id="rlc5">What external files need to be included and how</a> </li><li id="ngbr"><a title="How to place grid on page" href="#Step_2_-_Place_grid_on_the_page" id="zil.">How to place grid on page</a> </li><li id="ka:e"><a title="How to populate it with data" href="#Step_3_-_Populate_Grid_with_Data" id="vexk">How to populate it with data</a> </li><li id="cogr"><a title="How to define sorting for columns" href="#Step_4_-_Add_client_side_sorting" id="szf3">How to define sorting for columns</a> </li><li id="jo94"><a title="How to format data in cells and how to edit them" href="#Step_5_-_Implementing_Cell_Edito" id="eu8g">How to format data in cells and how to edit</a> </li><li id="be1g"><a title="How to add and remove rows (this basically makes you take a close look at grid API)" href="#Step_6_-_Add/Remove_rows_in_grid" id="qjf4">How to add and remove rows (this basically makes you take a close look at grid API)</a> </li><li id="qij3"><a title="How to add event handlers to the grid and react on user actions" href="#Step_7_-_Event_Handlers" id="q1ma">How to add event handlers to the grid and react on user actions</a> <br id="egk2"></li></ol><p id="lr3v"><br id="p662"></p><p id="lr3v"><br id="r-5.">
+</p>
+<h2 id="x4oh"><a id="c1ra" name="Step_1_-_Include_script_and_css_"></a>
+  Step 1 - Include script and css files into the page
+</h2>
+<p id="f8nl">
+  First of all let's place files we need for grid: <b id="talz">dhtmlxcommon.js</b> - file includes common objects shared by all dhtmlx components like AJAX request processors, error handlers, various tools and parsers used by the components, <b id="lpxc">dhtmlxgrid.js</b> - the main grid engine and API, <b id="s1t4">dhtmlxgridcell.js</b> - grid cells engine and default cells.
+</p>
+<p id="j4lm">
+  And styles: <b id="f.t3">dhtmlxgrid.css</b> - the main grid styles file, it also contains various predefine skins related styles.</p><br id="wgw6"><blockquote id="a:34">
+  &lt;link rel="STYLESHEET" type="text/css" href="codebase/dhtmlxgrid.css"&gt;<br id="hge2">
+  &lt;script src="codebase/dhtmlxcommon.js"&gt;&lt;/script&gt;<br id="ubjr">
+  &lt;script src="codebase/dhtmlxgrid.js"&gt;&lt;/script&gt;<br id="q0b2">
+  &lt;script src="codebase/dhtmlxgridcell.js"&gt;&lt;/script&gt;<br id="kqrb">&lt;script&gt;<br id="m5-x">&nbsp;&nbsp;&nbsp; //we'll write script commands here<br id="vwyu">&lt;/script&gt;<br id="nl7x">
+</blockquote>
+<h2 id="camv"><a id="w0w8" name="Step_2_-_Place_grid_on_the_page"></a></h2><p id="usif">While you are working with dhtmlxGrid, you'll need to include more
+files from the library as soon as you require more functionality. I'll
+tell you about some popular extensions in next chapters of this
+step-by-step tutorial.</p><h2 id="camv"> Step 2 - Place grid on the page
+</h2>
+<p id="bk4g">
+  There are two ways to place grid on the page, but as the main goal of this article is to show you the simplicity of dhtmlx components' usage, I'll go the most common way. So I need to place DIV on my page and set ID attribute to some unique value. Also I'll specify the grid's width and height right in the style attribute of the DIV.
+</p>
+<blockquote id="rq3x">
+  &lt;div id="mygrid_container" style="width:600px;height:150px;"&gt;&lt;/div&gt;
+</blockquote>
+<p id="dw6n">
+  Now I proceed to the main phase of the process - defining the grid parameters. So in the script block (remember? I left it empty right after external javascript files inclusions) I write the following:
+</p>
+<blockquote id="a:-o">
+  var mygrid;<br id="vv8_">
+  function doInitGrid(){<br id="paug">
+  <br id="ai9e">
+  <br id="g_mc">
+  }
+</blockquote>
+<p id="sp9e">
+  <b id="fnyh">doInitGrid</b> function will contain grid initialization code (not so much code I would say):
+</p>
+<ul id="u1yo">
+  <li id="c_:w">
+    create grid object based on DIV we placed on the page. Using constructor function <b id="tw4x">dhtmlXGridObject ;</b>
+  </li>
+  <li id="pz1l">
+    set grid images path. This is a path to the folder which contains all the necessary images for the grid to look nice. In most cases it is <b id="qpg:">codebase/imgs/</b>. It is important to use this last "/" in the path. By the way, this path has no relation to the images which you will use when representing your data in grid;
+  </li>
+  <li id="gjod">
+    define grid header with <b id="z_g1">setHeader</b> method;
+  </li>
+  <li id="udye">
+    define the width of columns in grid with <b id="yq6d">setInitWidths</b> (in pixels) or <b id="cxzw">setInitWidthsP</b> (in percents). Use * to make the column use all available space;
+  </li>
+  <li id="wqe9">
+    define a column's horizontal align. Numeric values is better to align right;
+  </li>
+  <li id="surj">
+    set grid skin with <b id="b715">setSkin</b>. I'll use the "light" skin from the list of predefined ones;
+  </li>
+  <li id="c4bq">
+    and finaly initialize grid with these settings using <b id="djx4">init</b> method. We'll add some more parameters to grid later. But for now the content of <b id="lgsm">doInitGrid</b> function will be the following:
+  </li>
+</ul>
+<p id="j.v1">
+  &nbsp;
+</p>
+<blockquote id="h4g.">
+  <p id="uku_">
+    mygrid = new dhtmlXGridObject('mygrid_container');
+  </p>
+  <p id="ir86">
+    mygrid.setImagePath("codebase/imgs/");
+  </p>
+  <p id="ww6y">
+    mygrid.setHeader("Model,Qty,Price");
+  </p>
+  <p id="n_sw">
+    mygrid.setInitWidths("*,150,150");
+  </p>
+  <p id="dz5z">
+    mygrid.setColAlign("left,right,right");
+  </p>
+  <p id="psdl">
+    mygrid.setSkin("light");
+  </p>
+  <p id="zr4m">
+    mygrid.init();
+  </p>
+</blockquote>
+<p id="a.d4">
+  Now we need to run this function. It is important to run it after DIV element that we would use for grid iniialization was loaded. So I could place this function call in the script block right after the mentioned DIV, but I prefer to use onload event of the "body: element for this. So my "body" tag will look like this:
+</p>
+<blockquote id="k5if">
+  &lt;body onload="doInitGrid();"&gt;
+</blockquote>
+<p id="ydnp">
+  If you run the page now it should look like this:
+</p>
+<img alt="" id="xqtb" src="images/step2.gif" border="0">
+<h2 id="ox_o"><a id="ucdz" name="Step_3_-_Populate_Grid_with_Data"></a>
+  Step 3 - Populate Grid with Data
+</h2>
+<p id="opn1">
+  As you probably already know <span id="u:jj"><b id="hweo">dhtmlxGrid </b></span>can load data from XML, CSV (text file where values separated by some character like comma or any other). It also can be populated with javascript methods. In this article I'll describe loading from XML. By the way, loading data from XML doesn't mean that you can't load data from the database. You'll see this later in the article.
+</p>
+<p id="rwea">
+  <b id="jw.7">XML structure</b> understandable for dhtmlxGrid.<br id="t:7:">
+</p>
+<p id="rwea">
+  To populate grid from XML you need the data to be structured in the way grid can understand. This is easy as the structure is intuitively clear. Generally it consists of rows with the cells inside. Each row should have a unique identifier (This is important as grid should be able to distinguish one row from another). Cells values are inside cell tags. To work with our sample we need each row to have 3 cells inside it (as soon as we set 3 columns in grid):
+</p>
+<blockquote id="u6:d">&lt;?xml version="1.0" encoding="UTF-8"?&gt;<br id="t4pr">&lt;rows&gt;<br id="g.79">&nbsp;&nbsp; &nbsp;&lt;row id="a"&gt;<br id="sx_v">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;cell&gt;Model 1&lt;/cell&gt;<br id="b-vq">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;cell&gt;100&lt;/cell&gt;<br id="ot.p">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;cell&gt;399&lt;/cell&gt;<br id="t:er">&nbsp;&nbsp; &nbsp;&lt;/row&gt;<br id="zusf">&nbsp;&nbsp; &nbsp;&lt;row id="b"&gt;<br id="kg-q">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;cell&gt;Model 2&lt;/cell&gt;<br id="z:25">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;cell&gt;50&lt;/cell&gt;<br id="hijg">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;cell&gt;649&lt;/cell&gt;<br id="v7cb">&nbsp;&nbsp; &nbsp;&lt;/row&gt;<br id="n_gw">&nbsp;&nbsp; &nbsp;&lt;row id="c"&gt;<br id="kjs_">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;cell&gt;MOdel 3&lt;/cell&gt;<br id="gtrf">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;cell&gt;70&lt;/cell&gt;<br id="l2wr">&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&lt;cell&gt;499&lt;/cell&gt;<br id="s74.">&nbsp;&nbsp; &nbsp;&lt;/row&gt;<br id="ql:y">&lt;/rows&gt;
+</blockquote>
+<p id="bh5r">
+  &nbsp;
+</p>
+Let's save this xml into a file with the name "step3.xml" and place this file into the same folder where we have <span id="b:xy"><b id="rbss">index.html file&nbsp;</b></span> and where we implement the grid. You need the only one command to be added to your <b id="fa1e">doInitGrid</b> function which&nbsp; is <i id="q7h5">mygrid.loadXML("step3.xml");</i>. Put it after mygrid.init();
+<blockquote id="h34q">
+  mygrid.loadXML("step3.xml");
+</blockquote>
+<p id="ctu2">
+  If you run the page now it should look like this:
+</p>
+<img alt="" id="m6_q" src="images/step3.gif" border="0">
+<p id="szk0">
+  Grid still looks rather simple and has just a few rows of data. In real life people use grids to show much more data in hundreds, thousands or sometimes millions of rows. This is also possible with <span id="czv3"><b id="xsix">dhtmlxGrid</b></span>. But for now three rows is enough.
+</p>
+<h2 id="i7t9"><a id="nksc" name="Step_4_-_Add_client_side_sorting"></a>
+  Step 4 - Add client side sorting
+</h2>
+<p id="jwxp">
+  To enable sorting of rows on the client side ("client side" means that grid will do this in your browser without using any help from the server) you need to define sorting type for each column in grid using <span id="ou8t"><b id="y28u">mygrid.setColSorting(sortTypesStr);</b></span> method, where <span id="i:vd"><b id="echv">sortTypesStr </b></span>is a list of types. There are four types available plus "na" - which means that sorting is not available for the column:
+</p>
+<ul id="vdfi">
+  <li id="nijy">
+    <span id="mqp:"><b id="go7f">str </b></span>- sort values as strings;
+  </li>
+  <li id="gi_b">
+    <span id="nmzo"><b id="fiap">int </b></span>- sort values as integers (generally as any number);
+  </li>
+  <li id="amaz">
+    <span id="gfav"><b id="q_qe">date </b></span>- sort values as dates;
+  </li>
+  <li id="a3ku">
+    <span id="jqzu"><b id="u.8g">custom sorting</b></span> - this is a more complex type which gives the ability to sort values as you like (for example to sort days of week).
+  </li>
+</ul>
+For example, we are going to sort the first column as string (str), the second as number (int) and set no sorting for the third one. In this case we need to add the following line of code before <span id="qz7h"><b id="mcqt">mygrid.init();&nbsp;</b></span>
+<p id="uzrs">
+  &nbsp;
+</p>
+<blockquote id="s0fe">
+  mygrid.setColSorting("str,int,int");
+</blockquote>
+<p id="p9gt">
+  Now you can click on the column header and sort the rows in grid according to the sorting types you've just specified. You can find out about "custom sorting" <a href="..." id="w:ed">here.</a>
+</p>
+<p id="t3eq">
+  If you run the page now and click on the last column header grid should look like this:
+</p>
+<img alt="" id="ve8r" src="images/step4.gif" border="0">
+<h2 id="leow"><a id="p5_b" name="Step_5_-_Implementing_Cell_Edito"></a>
+  Step 5 - Implementing Cell Editors for Formatting and Editing (cell types)
+</h2>
+<p id="pf6e">
+  <span id="jax4"><b id="knum">Cell Editiors</b></span> (or eXcells - Extended Cells, Cell or Columns types) are used in grid to define the value formating and the way of editing. There are some predefined eXcells, delivered with the package (complete list is avalable <a title="here" href="http://www.dhtmlx.com/docs/products/dhtmlxGrid/doc/articles/ExCell_types_usage.html#grid_excellstypes" id="ndha">here</a>). Also there are some eXcells created by other developers. You also can create eXcells which will exactly suite your needs.
+</p>
+<p id="ukxz">
+  Setting cell types is easy - it can be done using one line of code. First of all, all eXcells have their own codes. These codes should be used while setting cell types. For example, a simple editor has the code "ed", an editor with popup multiline editing area - "txt", a readonly cell - "ro", a checkbox - "ch", a price formatted cell - "price". In the Standard Edition of grid there is a possibility to set types on columns. In the Professional edition you can set type either on a column or on each cell.
+</p>
+<p id="ljnl">
+  Let's add types to our grid. By default all columns has "ro" type. Some types can be assigned to any values, but some, like "price", for example, should be assigned to the cells with proper - numeric - values. Otherwise the value will be omitted or incorrectly parsed. Taking this into account, let's set the first column as editable with a simple editor ("ed"), assign a simple editor ("ed") on the second one too and price formating with editing capabilities ("price") on the last column. The line of code you need to add before <span id="jfda"><b id="ymkc">mygrid.init()</b></span> is the following:
+</p>
+<blockquote id="izpu">
+  mygrid.setColTypes("ed,ed,price");
+</blockquote>
+<p id="iu_q">
+  Now you can enter editors by a double click on an editable cell, or pressing F2. If you use tab key to navigate from one cell to another, then editor will be opened automatically for the cell which is in focus.
+</p>
+<p id="f8sl">
+  If you run the page now and double click on a cell in the third column it should look like this:
+</p>
+<img alt="" id="kp10" src="images/step5.gif" border="0">
+<h2 id="u.nh"><a id="j6vh" name="Step_6_-_Add/Remove_rows_in_grid"></a>
+  Step 6 - Add/Remove rows in grid
+</h2>
+<p id="qhu0">
+  Here I would say some words about adding rows into grid and removing rows with the help of Script API (set of methods which help you manage grid through JavaScript). First of all we'll need to add two buttons to the page: "Add Row" and "Remove Row". Do this by adding the following HTML code to the body of your page right after grid:
+</p>
+<blockquote id="nwhq">
+  <br id="rb4h">
+  &lt;button onclick="addRow()"&gt;Add Row&lt;/button&gt; &nbsp; &lt;button onclick="removeRow()"&gt;Remove Row&lt;/button&gt;
+</blockquote>
+<p id="n78.">
+  Most important things here are two function calls, which occure when you click the first or the second button: <span id="w9y0"><b id="k_8y">addRow()</b></span> and <span id="n0id"><b id="hbde">removeRow()</b></span> respectively. Let's add these function to the script block where you already have <span id="cg7-"><b id="xdh_">doInitGrid()</b></span> function. The code you need to add is the following:
+</p>
+<blockquote id="dc9g">
+  function addRow(){<br id="qwqz">
+  &nbsp;&nbsp;&nbsp;&nbsp;var newId = (new Date()).valueOf()<br id="pcua">
+  &nbsp;&nbsp;&nbsp;&nbsp;mygrid.addRow(newId,"",mygrid.getRowsNum())<br id="mvm2">
+  &nbsp;&nbsp;&nbsp;&nbsp;mygrid.selectRow(mygrid.getRowIndex(newId),false,false,true);<br id="t_en">
+  }<br id="eba6">
+  function removeRow(){<br id="ar-i">
+  &nbsp;&nbsp;&nbsp;&nbsp;var selId = mygrid.getSelectedId()<br id="pckf">
+  &nbsp;&nbsp;&nbsp;&nbsp;mygrid.deleteRow(selId);<br id="nn2b">
+  }<br id="auuc">
+</blockquote>
+<p id="lrkt">
+  Some comments about <span id="y.6s"><b id="ljz3">addRow()</b></span> function code (line by line):<br id="a:b2">
+</p>
+<ul id="sqg:">
+  <li id="y56e">
+    Creates a unique value (number of millisecond since 1970) to use as row identifier;
+  </li>
+  <li id="y56e">
+    Adds a row with a new Id, empty values and put it after the last row in grid;
+  </li>
+  <li id="y56e">
+    Selects the newly created row (by index), without calling for On-Select event handler, without preserving previously selected rows and with setting focus on the selected row (will scroll to it if vertical scroller exists).
+  </li>
+</ul>
+<p id="u8n-">
+  Some comments about <span id="wb7t"><b id="sebg">removeRow()</b></span> function code (line by line):<br id="dd7n">
+</p>
+<ul id="n31y">
+  <li id="zapo">
+    Gets Id of the selected row;
+  </li>
+  <li id="qufm">
+    Deletes the row with the&nbsp; specified Id.
+  </li>
+</ul>
+<h2 id="r4b1"><a id="j0te" name="Step_7_-_Event_Handlers"></a>
+  Step 7 - Event Handlers
+</h2>
+<p id="xew_">
+  Like with any other component you need to have the ability to set your own reaction on some user action. For example, you need something to be done when a user clicks on a row in grid. <span id="s3tz"><b id="v3ve">dhtmlxGrid </b></span>provides this possibility together with impressive <a href="http://www.dhtmlx.com/docs/products/dhtmlxGrid/doc/events.html#grid_api_ev" id="xb-h" target="_blank">list of events</a>.
+</p>
+<p id="a.ip">
+  The way of setting event handler is common for all events. Just call <b id="bvsf">attachEvent</b> method of the grid object with the event name as the first argument and the event handler function as the second argument. Depending on the event, an event handler will get various number of incoming parameters. For example, <i id="xt7x">onRowSelect</i> event handler will get 2 incoming parameters: row ID and cell index where user clicked to the select row:
+</p>
+<blockquote id="r_vq">
+  <p id="cxby">
+    function doOnRowSelected(rowID,celInd){<br id="e9.x">
+    &nbsp;&nbsp;&nbsp;&nbsp;alert("Selected row ID is "+rowID+"\nUser clicked cell with index "+celInd);
+  </p>
+  <p id="ccva">
+    }<br id="hu9h">
+    mygrid.attachEvent("onRowSelect",doOnRowSelected);<br id="eqgk">
+  </p>
+</blockquote>
+<h2 id="et:9">
+  Resulting code
+</h2>
+<p id="c1jo">
+  Here is what we get at the end:
+</p>
+<blockquote id="ii2d">
+  &lt;title&gt;dhtmlxGrid Sample Page&lt;/title&gt;<br id="ria2"><br id="xbnt">
+  &nbsp;&lt;link rel="STYLESHEET" type="text/css" href="codebase/dhtmlxgrid.css"&gt;<br id="n-ro">
+  &nbsp;&lt;script src="codebase/dhtmlxcommon.js"&gt;&lt;/script&gt;<br id="ytm6">
+  &nbsp;&lt;script src="codebase/dhtmlxgrid.js"&gt;&lt;/script&gt;<br id="qxon">
+  &nbsp;&lt;script src="codebase/dhtmlxgridcell.js"&gt;&lt;/script&gt;<br id="y_jd"><br id="jtpm">
+  &nbsp;&lt;script&gt;<br id="hkw_">
+  &nbsp;&nbsp;var mygrid;<br id="g38j">
+  &nbsp;&nbsp;function doInitGrid(){<br id="rr1g">
+  &nbsp;&nbsp;&nbsp;mygrid = new dhtmlXGridObject('mygrid_container');<br id="q6gf">
+  &nbsp;&nbsp;&nbsp;mygrid.setImagePath("codebase/imgs/");<br id="ojpb">
+  &nbsp;&nbsp;&nbsp;mygrid.setHeader("Model,Qty,Price");<br id="lf-6">
+  &nbsp;&nbsp;&nbsp;mygrid.setInitWidths("*,150,150");<br id="rpox">
+  &nbsp;&nbsp;&nbsp;mygrid.setColAlign("left,right,right")<br id="fmp_">
+  &nbsp;&nbsp;&nbsp;mygrid.setSkin("light");<br id="duvo">
+  &nbsp;&nbsp;&nbsp;mygrid.setColSorting("str,int,int");<br id="t3vf">
+  &nbsp;&nbsp;&nbsp;mygrid.setColTypes("ed,ed,price");<br id="n_eh">
+  &nbsp;&nbsp;&nbsp;mygrid.attachEvent("onRowSelect",doOnRowSelected);<br id="mpni">
+  &nbsp;&nbsp;&nbsp;mygrid.init();<br id="n9v4">
+  &nbsp;&nbsp;&nbsp;mygrid.loadXML("step3.xml");<br id="ctj-">
+  &nbsp;&nbsp;}<br id="qzhl"><br id="ee:n">
+  &nbsp;&nbsp;function addRow(){<br id="ah2l">
+  &nbsp;&nbsp;&nbsp;var newId = (new Date()).valueOf()<br id="yhkz">
+  &nbsp;&nbsp;&nbsp;mygrid.addRow(newId,"",mygrid.getRowsNum())<br id="vyg5">
+  &nbsp;&nbsp;&nbsp;mygrid.selectRow(mygrid.getRowIndex(newId),false,false,true);<br id="rih1">
+  &nbsp;&nbsp;}<br id="rn8q">
+  &nbsp;&nbsp;function removeRow(){<br id="nmii">
+  &nbsp;&nbsp;&nbsp;var selId = mygrid.getSelectedId()<br id="er2q">
+  &nbsp;&nbsp;&nbsp;mygrid.deleteRow(selId);<br id="dh8i">
+  &nbsp;&nbsp;}<br id="i0pn">
+  &nbsp;&nbsp;<br id="cuhl">
+  &nbsp;&nbsp;function doOnRowSelected(rowID,celInd){<br id="knpd">
+  &nbsp;&nbsp;&nbsp;alert("Selected row ID is "+rowID+"\nUser clicked cell with index "+celInd);<br id="wo2w">
+  &nbsp;&nbsp;}<br id="hygi">
+  &nbsp;<br id="i69n">
+  &nbsp;&lt;/script&gt;<br id="dkh0">
+  &nbsp;<br id="tw6f">
+  &nbsp;&lt;body onload="doInitGrid()"&gt;<br id="te1n">
+  &nbsp;&nbsp;&lt;div id="mygrid_container" style="width:600px;height:150px;"&gt;&lt;/div&gt;<br id="crwc">
+  &nbsp;&lt;/body&gt;<br id="jqaa">
+</blockquote><a title="Download elated files" href="dhtmlxgrid_sbs_basics.zip" id="dw22">Download related files</a> <br id="a9z1"><br id="enlr"><br id="bn_2">
+
+
+
+<div class="copyright" zid="223">&copy; DHTMLX, 2008</div>
+
+</body>
+</html>

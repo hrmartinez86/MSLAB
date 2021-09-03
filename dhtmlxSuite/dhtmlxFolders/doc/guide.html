@@ -1,0 +1,420 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+<head>
+	<title>dhtmlxFolders - DHTML Items Browsing Component - guide and samples</title><link rel="STYLESHEET" type="text/css" href="common/styles.css">
+</head>
+
+<body>
+
+<h2 ><a href="http://www.scbr.com/docs/products/dhtmlxFolders/index.shtml" target="_top" title="Visit javascript items browsing component home page">dhtmlXFolders</a> Guide and Samples</h2>
+<div class="block">
+<!---  --->
+	<a name="folders_whatis"><h3>What is dhtmlxFolders</h3
+	></a>
+		<p>
+		dhtmlxFolders can display various number of objects which have the same structure of data. Thus it can be used as a basis for file/image browsers, product catalogs or any kind of informational resources. Paging support allows displaying these objects one-by-one, portion by portion or all at once. The size of each object depends on visualization template. So this can be either icon with title under it or complete web page. 
+		</p>
+		<p>
+		Using different visualization templates combined with different paging settings applied to the same data content, you can display items with different level of detalization. For example, you can switch from simple list of images to image thumbnails or full-size image view, or from list of products to product details pages, from list of documents titles to detailed list of documents and to document complete view at the end.
+		</p>
+		<p>
+		Built-in sorting and filtering capabilities make it easier to find necessary item among the others and provide ready-to-use file/image browser or internet product catalog/shop functionality. Such features as selection and drag-n-drop allow for easy and intuitive object reorganization. Besides, dhtmlxFolders provides the possibility of inline item editing.
+		</p>
+	</div>
+<div class="block">
+<!---  --->
+	<a name="folders_mf"><h3>Main features</h3
+	></a>
+		<li>Full control with JavaScript API</li>
+		<li>XML/XSL or pure Javascript visualization</li>
+		<li>Sorting</li>
+		<li>Filtering</li>
+		<li>Paging &amp; dynamical loading</li>
+		<li>Drag-and-drop</li>
+	</div>
+	
+	<a name="folders_browsers"><h3>Supported browsers</h3
+	></a><div style="display:show" class="block">
+	dhtmlxFolders developed using Javascript, including browsers built-n XML/XSLT/Xpath processors and CSS. <br>
+	Guaranteed compatibility:
+		<li>IE 6 and above</li>
+		<li>FireFox 2.x</li>
+		<li>Safari 3.x</li> 
+		<li>Opera 9.x</li>
+
+	</div>
+
+	<h3 >Working with dhtmlxFolders</h3
+	><div style="display:show" class="block">
+<!--- Nivigation with keyboard --->	
+	<a name="folders_init"><h4>Initialize dhtmlxFolders object on page</h4
+	></a><div class="block">
+	<p>
+		First of all you need to choose container for dhtmlxFolders object which will define width, height for it and its place on page. 
+		Most useful HTML object for these purposes is DIV element. It can be in any type of position - relative, absolute, static or fixed. 
+		But some css attributes are mandatory for it: 
+	</p>
+		<li>width:  in px or %</li>
+		<li>height:  in px or %</li>
+		<li>overflow:hidden;</li>
+	<p>It also should have <em>id</em> attribute. <br>So here is a sample of  valid dhtmlxFolder container:</p>
+<xmp>
+	<div id="folders_container" style="width:450px;height:450px;overflow:hidden;"></div>
+</xmp>
+	<p>Having container you now can create dhtmlxFolders object and put it there. This can be done with single script command:</p>
+<xmp>
+	myFolders = new dhtmlxFolders("folders_container");
+</xmp>	
+		<p>Now, you have javascript object myFolders which has all functionality of dhtmlxFolders. You can define type of items you want to have in it and load data. We'll do this with short set of script commands:</p>	
+<xmp>
+	myFolders.setItemType("type_name");
+	myFolders.setUserData("name","value")
+	myFolders.loadXML("/path/to/xml_source.xml","/path_to/itemtype_visualization/xsl_file.xsl");
+</xmp>		
+	<p><em>setItemType</em> method call  is necessary if you want to use some of predefined types (read chapter <a href="#folders_builtintypes">"Define items type using built-in types"</a>) or switch from one type to another (read "Changing type dynamically" chapter).</p>
+
+	<p><em>setUserData</em> method sets name/value pairs which then can be used in XSL as xsl variables. You can pass path to icons or some other values this way.  If you use built-in or third party types you need to refer to the documentation to find out what variables should be set. Or look into xsl file to see what variables are used there. Userdata cab be set with script or in XML (using userdata tag).</p>
+	
+	<p><em>loadXML</em> method gets data provided in XML format from server and populates dhtmlxFolders object with items.  As you can see it uses two arguments:</p>
+		<li><strong>XML file url</strong>. This can be either static XML file or any other programming file which responses data in valid XML format. (read "XML format" chapter to know what XML format is required by dhtmlxFolders)</li>
+		<li><strong>XSL file url</strong>. Each item type of "xml-xsl" kind has corresponding XSL used for formatting items. Built-in types has corresponding xsl files in codebase/types folder. All you need is to point dhtmlxFolders object there. For example "../codebase/types/ftable.xsl" . If you use your own XSL file, point dhtmlxFolders to this file (read <a href="ud_types/index.html">"Define your own type"</a> chapter to know how to create your own visualization files)</li>
+	
+	</div>
+	
+	
+<a name="folders_xml"><h4>XML format</h4></a><div class="block">
+	<p>
+	As far as dhtmlxFolders can display any kind of data which can be presented through HTML, XML can contain any data and its format can be of any kind. But… if you use built-in or third party types you have to follow XML format required by those types. In appendix you can find a summary table of available types and corresponding XML format. 
+	</p>
+	
+	<p>
+	You need to understand that xml structure should be defined based not only on exact necessities of the type (what information is shown by each item), but also on some additional purposes - like ordering by different property values (even if these properties are invisible), showing information out of dhtmlxFolders object (like showing additional information for selected item). Also XML structure can be defined taking into account the possible changing of type without reloading the data. For example when files list in file browser is shown as icons or as thumbnails. 
+	</p>
+
+	<p>
+	Talking about XML we do not mean only static xml files. In most cases not static content is used. XML content can be created dynamically based on database data or file system (if you need to display real file system structure) using any server-side programming language.  Common requirements for xml produced by server side language:	
+	</p>
+	<li>Response content-type must be text/xml or application/xhtml+xml</li>
+	<li>There shouldn't be any spaces or other content before xml declaration tag (same requirement is for static xml files).</li>
+	
+	<h5>PHP Example of creation of correct header for XML producting routine:</h5>
+<XMP>
+<?php
+if ( stristr($_SERVER["HTTP_ACCEPT"],"application/xhtml+xml") ) {
+                  header("Content-type: application/xhtml+xml"); } else {
+                  header("Content-type: text/xml");
+}
+echo("<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>\n"); 
+?>
+</XMP>
+</div>
+
+
+<a name="folders_itemtypes"><h4>Item Types</h4></a><div class="block">
+		<h5>XML-XSL</h5>
+		<p>There are 3 components of xml-xsl type :</p>
+			<li>Javascript constructor (same for all, so you do not need to think about it a lot)</li>
+			<li>XSL template. It defines visual appearance of the item. You can use built-in or create your own. XSL files for built-in types usually located in codebase/types</li>
+			<li>CSS classes definition. By default css class name for top item element is created based on type name. using the following template: dhx_folders_[NAME OF TYPE IN UPPER CASE]_item. Thus if you use built-in type "ficon" and want to change something in CSS, you need to search for dhx_folders_FICON_item class in codeabse/dhtmlxfolders.css. If you create your own type (with name "mytype" for example), then define style through dhx_folders_MYTYPE_item class and sub classes</li>
+		<h5>JSON</h5>
+			<li>Javascript constructor</li>
+			<li>CSS class (see explanations above)</li>
+
+</div>
+
+
+<a name="folders_builtintypes"><h4>Define items type using built-in types</h4></a><div class="block">
+	<p>Although dhtmlxFolders contains some built-in types it is not possible to offer universal solution for all possible cases of dhtmlxFolders usage. Thus built-in types can be considered as basis for types you need for your development. They also provide basic functionality mostly  demand for file browsers. You can find a list of built-in types in <a href="item_types.html">dhtmlxFolders Built-in Types</a>.</p>
+	<p>So, to use any of this type, please make sure your XML contains all necessary tags and attributes required by type you are going to use.  If it is, you can apply the type:</p>
+
+<XMP>
+	myFolders.setItemType("type_name");
+	myFolders.loadXML("/path/to/xml_source.xml","/path_to/itemtype_visualization/xsl_file.xsl");
+</XMP>
+<p>
+	In most cases xsl files for built-in types are in codebase/types folder inside dhtmlxFolders package. But you can put them in any place where they can be located by loadXML mathod.
+</p>
+</div>
+
+
+<a name="folders_udtypes"><h4>Define your own type</h4></a><div class="block">
+<h5>XML-XSL</h5>
+	See <a href="ud_types/index.html">Creation of item types for dhtmlxFolders</a>
+<h5>JSON</h5>
+<p>...</p>
+</div>
+
+
+
+<a name="folders_dyntypech"><h4>Changing type dynamically (keeping data)</h4></a><div class="block">
+<p>	To change type of dhtmlxFolders items which were already loaded and rendered with another type you need to call the following command:</p>
+
+<XMP>
+		myFolders.setItemType("type-name", "/path_to/itemtype_visualization/xsl_file.xsl");
+</XMP>
+
+<p>	Where first argument - new type name (for your own type try "xml_generic"), second - path to new type xsl file</p>
+</div>
+
+
+<a name="folders_select"><h4>Selection in dhtmlxFolders</h4></a><div class="block">
+	<p>Selection in dhtmlxFolders behave same way as in desktop applications:</p>
+		<ol type="1">
+		<li>Single click on item selects it</li>
+		<li>If you click on item when other item(s) selected:</li>
+			<ol type="i">
+				<li>Holding Shift key - selects all items starting from already selected to currently clicked</li>
+				<li>Holding Ctrl key - adds currently clicked item to selected items (if this item wasn't selected), removes currently clicked item from selected items (if item was already selected)</li>
+			</ol>
+		</ol>
+	<p>To select item with script call the following command:</p>
+<XMP>
+	selectItem(itemId,ctrl-key-state,shift-key-state);
+</XMP>
+</div>
+
+
+
+<a name="folders_sort"><h4>Sorting</h4></a><div class="block">
+	<p>Items in dhtmlxFolders can be sorted using any of their parameter. 
+	To sort items you need to use <em>sortItems</em> method. The main thing you need to do is to define function for items comparison and pass it into that method (as first argument), second argument will be "asc" for ascending sort, "desc" for descending sort.</p>
+	
+	<p>Items comparison function gets two abstract items as incoming arguments and returns:
+		<li>0 if both items have identical compared values</li>
+		<li>1 if first item value is bigger (or should stay first higher in list)</li>
+		<li>-1 if second item value is bigger  (or should stay second higher in list)</li>
+	</p>	
+	<p>For example XML representation of item in dhtmlxFolders is the following:
+
+<XMP>
+<item name="[string]" id="[string]">
+	<size>[numeric value]</size>
+</item>
+</XMP>
+		Comparison function to sort by name attribute will be the following:
+<XMP>
+function sortByName(a,b){
+	var aName = a.data.dataObj.getAttribute("name");
+	var bName = b.data.dataObj.getAttribute("name");
+	if(aName>bName)
+		return 1;
+	else if(aName==bName)
+		return 0;
+	else
+		return -1;
+}  
+</XMP>
+	</p>
+	
+	<p>As you can see from example above, we get item XML node using itemObject.data.dataObj construction. Afterwards we can work with it as with XMLDOM node object. <br>
+	To compare numeric value of size node we'll use the following comparison function:
+<XMP>
+function sortBySize(a,b){
+	var aSize = parseInt(a.data.dataObj.getElementsByTagName("size")[0].firstChild.nodeValue);
+	var bSize = parseInt(b.data.dataObj.getElementsByTagName("size")[0].firstChild.nodeValue);
+	return aSize-bSize;
+}
+</XMP>
+	</p>
+	
+	<p>	Complete sorting command will be the following:
+<XMP>
+myFolders.sortItems(sortByName,"asc");//to sort ascending by name
+myFolders.sortItems(sortBySize,"asc");//to sort ascending by size
+</XMP>
+	</p>
+</div>
+
+
+
+<a name="folders_filtering"><h4>Filtering</h4></a><div class="block">
+<h5>Apply filter</h5>
+<p>
+Use filterItems(...) method to filter dhtmlxFolder items by some mask.<br>
+Like with sorting, to create filter for dhtmlxFolders item you need to define function where you decide if item should be visible after filter applied or not. This function gets abstract item object as first incoming argument and mask as second argument.  Function returns true if item should be visible, false if it shouldn't be.
+</p>
+<p>	For example XML representation of item in dhtmlxFolders is the following:
+<XMP>
+<item name="[string]" id="[string]">
+	<size>[numeric value]</size>
+</item>
+</XMP>
+</p>
+
+<p>	To filter items which name begins with some value, we define the following function:
+<XMP>
+function filterByName(obj,mask){
+	var aName = obj.data.dataObj.getAttribute("name");
+	return (aName.toString().indexOf(mask)==0 || mask=="");
+}
+</XMP>	
+</p>
+
+<p>
+	Complete filtering command will be the following:
+<XMP>
+	myFolders.filterItems(filterByName,"[mask value]");
+</XMP>
+</p>
+
+<h5>Clear filters</h5>
+<p>
+	To clear all applied filters use filterClear method:
+<XMP>
+myFolders.filterClear();
+</XMP>
+</p>
+
+<h5>Apply multiple filters</h5>
+<p>
+	To apply filter keeping previous filters use third argument of filterItems method:
+<XMP>
+	myFolders.filterItems(filterByName,"[mask value]");
+	myFolders.filterItems(filterBySize,"[mask value]",true);
+</XMP>
+This code will filter items by name and then (keeping results of first filtering) by size.
+</p>
+
+</div>	
+
+
+<a name="folders_paging"><h4>Paginal Output</h4></a><div class="block">
+<p>	By default all items loaded from server or created with script are shown  at once. But to increasing loading speed and make perception better you can use paginal output (this is mostly usefull for product catalogs). With paginal output only limited number of items are visible. Other items can be viewed by switching to other page(s). </p>
+
+<h5>Turn on/off paginal output</h5>
+<p>
+		To turn on paginal output use the following way:
+<XMP>
+	myFolders.enablePaging(10,true);
+</XMP>
+</p>
+
+<p>Where first argument is number of items per page, second - allows dhtmlxFolders to request additional content from server when no items available to fill complete page (more details about dynamical loading see below).</p>
+		
+<p>To reset new number of items per page use <em>enablePaging</em> again - with new number items per page. Each time you change number of items per page, dhtmlxFolders switches to 1st page.</p>
+
+<p>To turn paging off use:
+<xmp>
+	myFolders.enablePaging(false);
+</xmp>		
+</p>
+
+<h5>Turn on ability to load additional items from server (dynamical loading)</h5>
+<p>
+Using second argument of  <em>enablePaging</em> method you can allow (true) or deny (false) dhtmlxFolders to apply for additional content to server.  In case it is allowed, dhtmxFolders will send request to server using same URL which was specified in <em>loadXML</em> method but with additional parameter:  <em>dhx_global_page</em> - each time it has not enough items in collection to populate last page and untill this request returns 0 items. <em>dhx_global_page</em> parameter will increment its value by 1 with each next request starting from very first one (so, first automatic request will have <em>dhx_global_page=2</em>)
+</p>
+<p>
+<span style="color:red;">Important:</span> if you are going to use paging with dynamical loading please make sure you included processing of dhx_global_page into your xml producing routine. Otherwise dhtmlxFolders will get same content endless times.
+</p>
+
+<h5>How to switch between pages (user interface)</h5>
+<p>
+First version of dhtmlxFolders doesn't provide ready to use interface objects for managing paging, but it does provide API methods for building it. Main method for it is: goToPage(pgNum). It provides the possibility to navigate through pages. If no page number passed, then it will return to the first page.
+<br>
+On each call, goToPage returns value, which means the following:
+
+		<li>0 - there is no items in dhtmlxFolders object which can be displayed (this doesn't mean there is no items at all, but no items to show. Some items can be filtered out for example)</li>
+		<li>1 - page was completed without request for additional content</li>
+		<li>2 - dynamical request was sent to server, as page had no enough content and dynamical loading was on.</li>
+<br>
+Same values are returned by enablePaging method.
+</p>
+
+<p>Other methods which can be useful while working with paging:
+	<li><em>getCurrentPage</em> - returns current page</li>
+	<li><em>getNumberOfPages</em> - returns number of pages</li>
+</p>
+
+</div>
+
+
+
+<a name="folders_dnd"><h4>Drag-n-drop</h4></a><div class="block">
+<p>	dhtmlxFolders supports drag-n-drop in following ways:
+		<li>Drop before</li>
+		<li>Drop next</li>
+		<li>Drop in</li>
+</p>
+
+<p>
+	To enable drag-n-drop you need to call the following command:
+<XMP>
+	myFolders.enableDragAndDrop(true);
+</XMP>
+</p>
+
+<p>
+	As far as drag-n-drop uses two images  (included into dhtmlxFolders delivery package)  to visualize before/next drop types, you also need to set path to codebase/imgs forlder:
+<xmp>
+	myFolders.setImagePath("../../codebase/imgs/");
+</xmp>
+</p>
+
+<p>
+	As far as Drag-n-drop in dhtmlxFolders has default actions for "before" and "next" drop types (move source item before/next target item), but no default action for "in" drop type,  you'll need to define it on your own , or it will just do nothing. Action for any type of drag-n-drop can be reset using onBeforeDrop event handler. For example:
+<xmp>
+	myFolders.attachEvent("onBeforeDrop",function(dropType,sID,tID){
+		//find type of target item (in this case - directory or file)
+		var tType = this.getItem(tID).data.dataObj.getAttribute("type");
+		//if type of drop is "in" and target item is directory - remove source item from folders
+		if(dropType=="in" && tType=="dir"){
+			this.deleteItem(sID);
+			//...and cancel default action
+			return false;
+		}else //else proceed wth default action
+			return true;
+	})
+</xmp>
+</p>
+
+<p>
+	If this event handler returns false, then default action will be canceled. Thus it can be used to decide if drop should be allowed or not depending on drop type, source and target items.
+</p>
+</div>
+
+
+<a name="folders_events"><h4>Events</h4></a><div class="block">
+<p>
+	As with other dhtmlx components you can set event handlers on number of events using same method - attachEvent(…).
+	List of available events can be found in API documentation. Nearly each event handler gets some parameters. This also described with list of available events.
+</p>	
+<p>
+	Here is an example of how to set event handler to capture the moment item was clicked:
+<XMP>
+	myFolders.attachEvent("onclick",function(id){
+		alert("Item ID is: "+id)
+	})
+</XMP>
+</p>
+
+<p>
+	As you can see from example, item ID was passed to the event handler, so you can use it to get item object and all it's properties and values.
+</p>
+
+</div>
+
+<a name="folders_del"><h4>Delete Items with script</h4></a><div class="block">
+<p>
+	To delete items with script you can use deleteItem method with item ID passed into it.  You also can pass array of IDs to delete more than one item at once.
+	<br>
+	You can use the following set of commands to delete selected item(s):
+<xmp>
+	myFolders.deleteItem(myFolders.getSelectedId();
+</xmp>
+</p>
+</div>	
+
+
+
+<!--- <a name="folders_test"><h4>...</h4></a><div class="block">
+...
+<XMP>
+	
+</XMP>
+</div>	 --->
+
+</div>
+<div class="copyr">&copy; DHTMLX LTD.</div>
+</body>
+</html>

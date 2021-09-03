@@ -1,0 +1,415 @@
+/**
+ * Zapatec Grid theme.
+ *
+ * Copyright (c) 2004-2007 by Zapatec, Inc.
+ * http://www.zapatec.com
+ * 1700 MLK Way, Berkeley, California,
+ * 94709, U.S.A.
+ * All rights reserved.
+ */
+
+/* $Id: winxp.css 7597 2007-07-25 08:32:55Z alex $ */
+
+/*
+	Root class name is formed from zpGrid + theme file name with first character
+	in upper case and following characters in lower case.
+*/
+
+.zpGridWinxp {
+	border-collapse: collapse;
+}
+
+.zpGridWinxp .zpGridTable {
+	padding: 0px;
+}
+
+.zpGridWinxp .zpGridTableTable {
+	border-collapse: collapse;
+}
+
+.zpGridWinxp .zpGridCell {
+	border-width: 1px 1px 0px 1px;
+	border-style: solid;
+	border-color: #F1EFE2;
+	padding: 3px 5px;
+	font: 11px Tahoma, Arial, sans-serif;
+}
+
+.zpGridWinxp .zpGridDiv {
+	overflow: hidden;
+}
+
+/* Alignment depending from type */
+
+.zpGridWinxp .zpGridTypeInt,
+.zpGridWinxp .zpGridTypeIntGerman,
+.zpGridWinxp .zpGridTypeFloat,
+.zpGridWinxp .zpGridTypeFloatGerman
+{
+	text-align: right;
+}
+
+.zpGridWinxp .zpGridTypeBoolean,
+.zpGridWinxp .zpGridTypeBooleanTF {
+	text-align: center;
+}
+
+.zpGridWinxp .zpGridRow .zpGridCell0 .zpGridTypeInt,
+.zpGridWinxp .zpGridRow .zpGridCell0 .zpGridTypeIntGerman
+{
+	text-align: center;
+}
+
+/* Alignment horizontal */
+
+.zpGridWinxp .zpGridCol .zpGridField .zpGridDiv {
+	text-align: left;
+}
+
+/* Data */
+
+.zpGridWinxp .zpGridRow  {
+	background: #FFF;
+}
+
+.zpGridWinxp .zpGridRowLast .zpGridCell {
+	border-bottom: solid 1px #D6D2C2;
+}
+
+.zpGridWinxp .zpGridCellLast {
+	border-right: solid 1px #D6D2C2;
+}
+
+/* Data horizontal */
+
+.zpGridWinxp .zpGridCol  {
+	background: #FFF;
+}
+
+.zpGridWinxp .zpGridColLast .zpGridCell {
+	border-bottom: solid 1px #D6D2C2;
+}
+
+/* Fixed columns */
+
+.zpGridWinxp .zpGridTableFixed .zpGridCell {
+	background: url(winxp/firstcolbg.gif) repeat-x top #EAEBDB;
+	border-top: solid 1px #D6D2C2;
+	border-right: solid 1px #D6D2C2;
+	border-left: solid 1px #D6D2C2;
+	color: #000;
+}
+
+.zpGridWinxp .zpGridTableFixed .zpGridCell0 {
+	border-left: solid 1px #FAF9F4;
+}
+
+/* Fixed columns horizontal */
+
+.zpGridWinxp .zpGridColFixed .zpGridCellData {
+	background: url(winxp/firstcolbg.gif) repeat-x top #EAEBDB;
+	border: solid 1px #D6D2C2;
+	color: #000;
+}
+
+.zpGridWinxp .zpGridColFixed0 .zpGridCellData {
+	background: #EAEBDB;
+	border-top: solid 1px #FAF9F4;
+}
+
+/* Active row and cell */
+
+.zpGridWinxp .zpGridRowActive .zpGridCellData {
+	background: #316AC5;
+	color: #FFF;
+}
+
+.zpGridWinxp .zpGridRow .zpGridCellDataActive {
+	background: #316AC5;
+	color: #0FF;
+}
+
+/* Active row and cell horizontal */
+
+.zpGridWinxp .zpGridCol .zpGridCellDataActive {
+	background: #316AC5;
+	color: #0FF;
+}
+
+/* Selected row and cell */
+
+.zpGridWinxp .zpGridRowSelected .zpGridCell {
+	background: #E90;
+}
+
+.zpGridWinxp .zpGridRow .zpGridCellSelected {
+	background: #E60;
+}
+
+/* Selected row and cell horizontal */
+
+.zpGridWinxp .zpGridCol .zpGridCellSelected {
+	background: #E60;
+}
+
+/* Editable row and cell */
+
+.zpGridWinxp .zpGridTable .zpGridRowEditable .zpGridCell {
+	background: #FFF;
+	color: #000;
+}
+
+.zpGridWinxp .zpGridTableFixed .zpGridRowEditable .zpGridCell {
+	background: url(winxp/firstcolbg.gif) repeat-x top #eaebdb;
+}
+
+.zpGridWinxp .zpGridTable .zpGridRow .zpGridCellEditable {
+	background: #FFF;
+	text-align: left !important;
+}
+
+.zpGridWinxp .zpGridTableFixed .zpGridRow .zpGridCellEditable {
+	background: url(winxp/firstcolbg.gif) repeat-x top #EAEBDB;
+}
+
+.zpGridWinxp .zpGridTable .zpGridRow .zpGridCellEditable0 {
+	background: url(winxp/firstcolbg.gif) repeat-x top #EAEBDB;
+}
+
+/* Editable cell horizontal */
+
+.zpGridWinxp .zpGridCol .zpGridCellEditable {
+	background: #FFF;
+	color: #000;
+	text-align: left !important;
+}
+
+/* Editable grid textarea and selectbox */
+
+.zpGridWinxp .zpGridTable .zpGridRow .zpGridCellEditable .zpGridTextarea,
+.zpGridWinxp .zpGridTable .zpGridRow .zpGridCellEditable .zpGridSelect,
+.zpGridWinxp .zpGridCol .zpGridCellEditable .zpGridTextarea,
+.zpGridWinxp .zpGridCol .zpGridCellEditable .zpGridSelect
+{
+	background: #EBEBEB;
+	margin: 0px;
+	border: 0px;
+	padding: 0px;
+	font: 11px Tahoma, Arial, sans-serif;
+	overflow: hidden;
+}
+
+/* Editable grid checkbox */
+
+.zpGridWinxp .zpGridTable .zpGridRow .zpGridCellEditable .zpGridInput,
+.zpGridWinxp .zpGridCol .zpGridCellEditable .zpGridInput
+{
+	height: 13px;
+	width: 13px;
+	margin: 0px;
+}
+
+/* Invalid row and cell */
+
+.zpGridWinxp .zpGridTable .zpGridRowInvalid .zpGridCell {
+}
+
+.zpGridWinxp .zpGridTable .zpGridRow .zpGridCellInvalid,
+.zpGridWinxp .zpGridCol .zpGridCellInvalid
+{
+	background: #F00;
+	color: #FFF;
+}
+
+/* Saved cell */
+
+.zpGridWinxp .zpGridTable .zpGridRow .zpGridCellSaved,
+.zpGridWinxp .zpGridCol .zpGridCellSaved
+{
+	background: #090;
+	color: #FFF;
+}
+
+/* Not saved cell */
+
+.zpGridWinxp .zpGridTable .zpGridRow .zpGridCellNotSaved,
+.zpGridWinxp .zpGridCol .zpGridCellNotSaved
+{
+	background: #F00;
+	color: #FFF;
+}
+
+/* Header */
+
+.zpGridWinxp .zpGridTable .zpGridField {
+	background: url(winxp/headbg.gif) repeat-x bottom #EAEBDB;
+	border-top: 1px solid #FAF9F4;
+	border-right: none;
+	border-left: none;
+	padding: 3px 5px 5px 6px;
+	vertical-align: top;
+	font: 11px Tahoma, Arial, sans-serif;
+	color: #000;  
+	cursor: pointer;
+}
+
+.zpGridWinxp .zpGridTable .zpGridField0 {
+	border-left: 1px solid #F1EFE2;
+}
+
+.zpGridWinxp .zpGridField .zpGridSpan {
+	display: block;
+	padding-right: 10px;
+	height: 100%;
+	overflow: hidden;
+}
+
+/* Header horizontal */
+
+.zpGridWinxp .zpGridCol .zpGridField {
+	background: url(winxp/headbgh.gif) repeat-y right #EAEBDB;
+	border-top: 1px solid #FAF9F4;
+	border-right: 0px;
+	border-bottom: 1px solid #ACA899;
+	border-left: 1px solid #FAF9F4;
+	padding: 3px 5px;
+}
+
+.zpGridWinxp .zpGridCol .zpGridField0 {
+	border-top: 1px solid #FAF9F4;
+}
+
+/* Active header */
+
+.zpGridWinxp .zpGridTable .zpGridFieldActive {
+	background: url(winxp/headbgsel.gif) repeat-x bottom #FAF9F4;
+}
+
+/* Active header horizontal */
+
+.zpGridWinxp .zpGridCol .zpGridFieldActive {
+	background: url(winxp/headbgselh.gif) repeat-y right #FAF9F4;
+	border-bottom: 1px solid #ACA899;
+}
+
+/* Sorted header */
+
+.zpGridWinxp .zpGridSortedAsc .zpGridDiv {
+	background: url(winxp/sortedasc.gif) no-repeat right center;
+}
+
+.zpGridWinxp .zpGridSortedAscActive .zpGridDiv {
+	background: url(winxp/sortedasc.gif) no-repeat right center;
+}
+
+.zpGridWinxp .zpGridSortedDesc .zpGridDiv {
+	background: url(winxp/sorteddesc.gif) no-repeat right center;
+}
+
+.zpGridWinxp .zpGridSortedDescActive .zpGridDiv {
+	background: url(winxp/sorteddesc.gif) no-repeat right center;
+}
+
+/* Sorted header horizontal */
+
+.zpGridWinxp .zpGridCol .zpGridSortedAsc .zpGridDiv {
+	background: url(winxp/sortedasch.gif) no-repeat right center;
+}
+
+.zpGridWinxp .zpGridCol .zpGridSortedAscActive .zpGridDiv {
+	background: url(winxp/sortedasch.gif) no-repeat right center;
+}
+
+.zpGridWinxp .zpGridCol .zpGridSortedDesc .zpGridDiv {
+	background: url(winxp/sorteddesch.gif) no-repeat right center;
+}
+
+.zpGridWinxp .zpGridCol .zpGridSortedDescActive .zpGridDiv {
+	background: url(winxp/sorteddesch.gif) no-repeat right center;
+}
+
+/* Header span */
+
+.zpGridWinxp .zpGridTable .zpGridFieldSpan {
+	cursor: default;
+}
+
+/* Resizable column */
+
+.zpGridWinxp .zpGridColMargin {
+	position: absolute;
+	right: -8px;
+	/* Needed for IE in non standards compliant mode */
+	left: expression(this.parentNode.offsetWidth + 2 + 'px');
+	background: url(winxp/headsepbg.gif) repeat-y center;
+	width: 6px;
+	height: 100%;
+	/* Needed for IE 6 */
+	height: expression(this.parentNode.offsetHeight + 'px');
+}
+
+.zpGridWinxp .zpGridColResize,
+.zpGridWinxpColResize
+{
+	position: absolute;
+	z-index: 100;
+	right: -8px;
+	/* Needed for IE in non standards compliant mode */
+	left: expression(this.parentNode.offsetWidth + 2 + 'px');
+	background: url(winxp/resizemargin.gif) repeat-y center top;
+	width: 6px;
+	height: 100%;
+	/* Needed for IE 6 */
+	height: expression(this.parentNode.offsetHeight + 'px');
+	cursor: e-resize;
+}
+
+.zpGridWinxp .zpGridColResizeHidden,
+.zpGridWinxpColResizeHidden
+{
+	position: absolute;
+	right: -8px;
+	/* Needed for IE in non standards compliant mode */
+	left: expression(this.parentNode.offsetWidth + 2 + 'px');
+	background: url(winxp/headsepbg.gif) repeat-y center;
+	width: 6px;
+	height: 100%;
+	/* Needed for IE 6 */
+	height: expression(this.parentNode.offsetHeight + 'px');
+	cursor: e-resize;
+}
+
+/* Pagination */
+
+.zpGridWinxp .zpGridPagination {
+	font: 11px Tahoma, Arial, sans-serif;
+	color: #000;
+	text-align: center;
+	padding-top:5px;
+}
+
+.zpGridWinxp .zpGridPagination .zpGridPage {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.zpGridWinxp .zpGridPagination .zpGridFirstPage,
+.zpGridWinxp .zpGridPagination .zpGridLastPage {
+	background: #EAEBDB;
+	cursor: pointer;
+}
+
+.zpGridWinxp .zpGridPagination .zpGridNextPage,
+.zpGridWinxp .zpGridPagination .zpGridPrevPage {
+	background: #EAEBDB;
+	padding: 0px 4px 0px 4px;
+	cursor: pointer;
+}
+
+.zpGridWinxp .zpGridPagination .zpGridCurrentPage {
+	font-weight: bold;
+}
+
+.zpGridWinxpMouseSelection {
+	border: 1px dotted #000;
+}
