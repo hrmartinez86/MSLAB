@@ -3,7 +3,7 @@
 <head>
 <link rel="shortcut icon" href="imagenes/icons/favicon.ico" />
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Infolab - Sistema para laboratorios de Analisis Clinicos (Ver. Web)</title>
+<title>Core - Sistema para laboratorios de Analisis Clinicos (Ver. Web)</title>
 </head>
 <frameset rows="110px,70%,5%" cols="*" framespacing="0" frameborder="no" border="0">
   <frame src="cabeza.php" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" title="topFrame" />

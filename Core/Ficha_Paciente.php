@@ -16,7 +16,7 @@ if ($_SESSION['estado']=="ok" ) {
 <META content="text/html; charset=iso-8859-1" http-equiv=Content-Type>
 <META content="MSHTML 5.00.2314.1000" name=GENERATOR>
 <meta http-equiv="imagetoolbar" content="no">
-<link rel="stylesheet" type="text/css" href="../WEB/Styles/INFOLAB/Style_doctype.css">
+<link rel="stylesheet" type="text/css" href="../WEB/Styles/Core/Style_doctype.css">
 <!-- <!#E3E3E3> -->
 <!-- <style type="text/css">
 .Estilo3 {font-family: "Times New Roman", Times, serif}
@@ -405,7 +405,7 @@ global $result ;
                     <TR bgColor=#6e8fd4> 
                       <TD height=2 colspan="2" align=center> 
                           <FONT color=#ffffff face="Verdana, Arial, Helvetica, sans-serif" size=1>
-                <B>IMPORTANTE : EL RESULTADO DE ESTE EXAMEN TIENE VALIDEZ SOLO CON INTERPRETACION DEL MEDICO TRATANTE.</B>  <div align="center" class="current_page_item Estilo3"> <em>Un producto mas de Dicipa S.A de C.V.</em></div><BR>
+                <B>IMPORTANTE : EL RESULTADO DE ESTE EXAMEN TIENE VALIDEZ SOLO CON INTERPRETACION DEL MEDICO TRATANTE.</B>  <div align="center" class="current_page_item Estilo3"> <em>Un producto mas de MultiSystems</em></div><BR>
                   </FONT>
                       </TD>
                     </TR>

@@ -25,7 +25,7 @@ echo '</script>';
 <META content="text/html; charset=iso-8859-1" http-equiv=Content-Type>
 <META content="MSHTML 5.00.2314.1000" name=GENERATOR>
 <meta http-equiv="imagetoolbar" content="no">
-<link rel="stylesheet" type="text/css" href="../WEB/Styles/INFOLAB/Style_doctype.css">
+<link rel="stylesheet" type="text/css" href="../WEB/Styles/Core/Style_doctype.css">
 <!-- <!#E3E3E3> -->
 <!-- <style type="text/css">
 .Estilo3 {font-family: "Times New Roman", Times, serif}
@@ -65,9 +65,9 @@ echo '</script>';
 <!--      <td valign="top">-->
 <table class="Header" border="0" cellspacing="0" cellpadding="0" width="30">
           <tr>
-            <td class="HeaderLeft"><img border="0" alt="" src="WEB/Styles/INFOLAB/Images/Spacer.gif"></td> 
+            <td class="HeaderLeft"><img border="0" alt="" src="WEB/Styles/Core/Images/Spacer.gif"></td> 
             <td class="th"><strong>Folio:</strong></td> 
-            <td class="HeaderRight"><img border="0" alt="" src="WEB/Styles/INFOLAB/Images/Spacer.gif"></td>
+            <td class="HeaderRight"><img border="0" alt="" src="WEB/Styles/Core/Images/Spacer.gif"></td>
             <td><input type="hidden" name="tipo" id="tipo" size="4" value="<?php echo $_GET['t'];?>"></td>
           </tr>
           
@@ -198,9 +198,9 @@ echo '</script>';
     <td valign="top">
       <table class="Header" border="0" cellspacing="0" cellpadding="0">
         <tr>
-          <td class="HeaderLeft"><img border="0" alt="" src="WEB/Styles/INFOLAB/Images/Spacer.gif"></td> 
+          <td class="HeaderLeft"><img border="0" alt="" src="WEB/Styles/Core/Images/Spacer.gif"></td> 
           <td class="th"><strong>Secci&oacute;n:</strong></td> 
-          <td class="HeaderRight"><img border="0" alt="" src="WEB/Styles/INFOLAB/Images/Spacer.gif"></td>
+          <td class="HeaderRight"><img border="0" alt="" src="WEB/Styles/Core/Images/Spacer.gif"></td>
         </tr>
 
       </table>
@@ -292,9 +292,9 @@ FROM         lab_relacion_laboratorio_seccion INNER JOIN
 
         <table  class="Header" border="0" cellspacing="0" cellpadding="0">
         <tr>
-          <!--<td class="HeaderLeft"><img border="0" alt="" src="WEB/Styles/INFOLAB/Images/Spacer.gif"></td>--> 
+          <!--<td class="HeaderLeft"><img border="0" alt="" src="WEB/Styles/Core/Images/Spacer.gif"></td>--> 
           <td class="th"><strong>Doctor:</strong></td> 
-          <!--<td class="HeaderRight"><img border="0" alt="" src="WEB/Styles/INFOLAB/Images/Spacer.gif"></td>-->
+          <!--<td class="HeaderRight"><img border="0" alt="" src="WEB/Styles/Core/Images/Spacer.gif"></td>-->
         </tr>
         <tr>
             

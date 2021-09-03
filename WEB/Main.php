@@ -5,7 +5,7 @@
 <title>MULTI SYSTEMS</title>
 <!--<link rel="icon" type="image/gif" href="favicon.ico">-->
 <meta name="GENERATOR" content="CodeCharge Studio 4.2.00.040">
-<link rel="stylesheet" type="text/css" href="Styles/INFOLAB/Style_doctype.css">
+<link rel="stylesheet" type="text/css" href="Styles/Core/Style_doctype.css">
 
 <script language="JavaScript" type="text/javascript">
 //Begin CCS script
@@ -20,13 +20,13 @@
 
 var Citas_DatePicker_Fecha1 = new Object(); 
 Citas_DatePicker_Fecha1.format           = "ShortDate";
-Citas_DatePicker_Fecha1.style            = "Styles/INFOLAB/Style.css";
+Citas_DatePicker_Fecha1.style            = "Styles/Core/Style.css";
 Citas_DatePicker_Fecha1.relativePathPart = "";
 Citas_DatePicker_Fecha1.themeVersion = "3.0";
 
 var Citas_DatePicker_Fecha_Nac1 = new Object(); 
 Citas_DatePicker_Fecha_Nac1.format           = "ShortDate";
-Citas_DatePicker_Fecha_Nac1.style            = "Styles/INFOLAB/Style.css";
+Citas_DatePicker_Fecha_Nac1.style            = "Styles/Core/Style.css";
 Citas_DatePicker_Fecha_Nac1.relativePathPart = "";
 Citas_DatePicker_Fecha_Nac1.themeVersion = "3.0";
 

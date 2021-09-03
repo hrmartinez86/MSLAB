@@ -142,7 +142,7 @@ else
 		$query_result=odbc_exec($db_conn,$sql_1) or 
 		die ("ERROR : No se puede ejecutar la consulta.");
 			
-		$sql="select citasMaximoDias as Citas from configuracion_infolab";
+		$sql="select citasMaximoDias as Citas from configuracion_Core";
          //echo $sql;
          $query=odbc_exec($db_conn,$sql);
           
@@ -277,7 +277,7 @@ else
 
 
 ?>
-<link rel="stylesheet" type="text/css" href="Styles/INFOLAB/Style_doctype.css">
+<link rel="stylesheet" type="text/css" href="Styles/Core/Style_doctype.css">
 
 <body>
 <div id="Seleccion"><table class="Header" border="0" cellspacing="0" cellpadding="0">
@@ -292,9 +292,9 @@ else
       <td valign="top">
         <table class="Header" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td class="HeaderLeft"><img border="0" alt="" src="Styles/INFOLAB/Images/Spacer.gif"></td> 
+            <td class="HeaderLeft"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td> 
             <td class="th"><strong>N&uacute;mero de Cita:<?php echo $correcit;?></strong></td> 
-            <td class="HeaderRight"><img border="0" alt="" src="Styles/INFOLAB/Images/Spacer.gif"></td>
+            <td class="HeaderRight"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td>
           </tr>
 </table>
 
@@ -343,9 +343,9 @@ WHERE     (id = ".$CitasProcedencia.")";
 </table>
 <table class="Header" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td width="32" class="HeaderLeft"><img border="0" alt="" src="Styles/INFOLAB/Images/Spacer.gif"></td>
+            <td width="32" class="HeaderLeft"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td>
             <td width="768" class="th"><div align="center"><strong> EXAMENES</strong></div></td>  
-            <td width="32" class="th"><img border="0" alt="" src="Styles/INFOLAB/Images/Spacer.gif" /></td>
+            <td width="32" class="th"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif" /></td>
           </tr>
 </table>
 <table height="10" cellpadding="0" cellspacing="0" class="Record">

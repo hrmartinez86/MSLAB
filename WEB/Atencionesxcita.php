@@ -80,7 +80,7 @@ WHERE     (CP.id =".$num.")";
 }
 </style>
 <meta name="GENERATOR" content="CodeCharge Studio 4.2.00.040">
-<link rel="stylesheet" type="text/css" href="Styles/INFOLAB/Style_doctype.css">
+<link rel="stylesheet" type="text/css" href="Styles/Core/Style_doctype.css">
 
 <link type="text/css" rel="stylesheet" href="dhtmlgoodies_calendar/dhtmlgoodies_calendar.css?random=20051112" media="screen"></LINK>
 <script type="text/javascript" src="dhtmlgoodies_calendar/dhtmlgoodies_calendar.js?random=20060118"></script>
@@ -97,9 +97,9 @@ WHERE     (CP.id =".$num.")";
       <td valign="top">
         <table class="Header" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td class="HeaderLeft"><img border="0" alt="" src="Styles/INFOLAB/Images/Spacer.gif"></td> 
+            <td class="HeaderLeft"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td> 
             <td class="th"><strong>N&uacute;mero de Cita</strong></td> 
-            <td class="HeaderRight"><img border="0" alt="" src="Styles/INFOLAB/Images/Spacer.gif"></td>
+            <td class="HeaderRight"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td>
           </tr>
         </table>
  
@@ -108,7 +108,7 @@ WHERE     (CP.id =".$num.")";
           <tr class="Controls">
              
             <!-- <td><input align="middle" name="Cit" id="Cit" class="Controls" onChange="Citas('librerias/citas.php')" value="" ><div id="Citasn"></div></td> -->
-            <td><input  name="num" id="num" class="Controls" onChange="numero('librerias/citas.php')" value="" > <?php echo "Número de Cita:". $_POST['num'];?></td>
+            <td><input  name="num" id="num" class="Controls" onChange="numero('librerias/citas.php')" value="" > <?php echo "Nï¿½mero de Cita:". $_POST['num'];?></td>
             
           </tr>
           
@@ -124,9 +124,9 @@ WHERE     (CP.id =".$num.")";
       <td valign="top">
         <table class="Header" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td class="HeaderLeft"><img border="0" alt="" src="Styles/INFOLAB/Images/Spacer.gif"></td> 
+            <td class="HeaderLeft"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td> 
             <td class="th"><strong>Atenciones</strong></td> 
-            <td class="HeaderRight"><img border="0" alt="" src="Styles/INFOLAB/Images/Spacer.gif"></td>
+            <td class="HeaderRight"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td>
           </tr>
         </table>
  
@@ -166,7 +166,7 @@ WHERE     (CP.id =".$num.")";
  
           <tr class="Controls">
              
-            <td>Fecha de Nacimiento: </td><td><input type="text" value="<?php echo $fechas[2]."/".$fechas[1]."/".$fechas[0];?>" readonly name="theDate2"><img type="button" src="Styles/INFOLAB/Images/DatePicker.gif" onclick="displayCalendar(document.forms[1].theDate2,'dd/mm/yyyy',this)"></td>
+            <td>Fecha de Nacimiento: </td><td><input type="text" value="<?php echo $fechas[2]."/".$fechas[1]."/".$fechas[0];?>" readonly name="theDate2"><img type="button" src="Styles/Core/Images/DatePicker.gif" onclick="displayCalendar(document.forms[1].theDate2,'dd/mm/yyyy',this)"></td>
             <td></td>
             </tr>
  
@@ -213,7 +213,7 @@ WHERE     (CP.id =".$num.")";
             </td>
           </tr>
           <tr class="Controls">
-            <td class="th"><label for="Doctor">Médico:</label></td> 
+            <td class="th"><label for="Doctor">Mï¿½dico:</label></td> 
             <td><select id="Doctor" name="Doctor">
             	<?php
 			      $sql="select nombre + ' ' + apellidos as Nombre,llave_doctor from dat_doctores  order by Nombre ";
@@ -229,7 +229,7 @@ WHERE     (CP.id =".$num.")";
           
  
           <tr class="Controls">
-            <td class="th"><label for="CitasDireccion">Dirección:</label></td> 
+            <td class="th"><label for="CitasDireccion">Direcciï¿½n:</label></td> 
             <td><textarea  name="Direccion" id="Direccion" cols="45" rows="5"><?php echo $direccion;?></textarea></td>
             <td></td>
           </tr>
@@ -280,9 +280,9 @@ WHERE     (CP.id =".$num.")";
           <tr class="Bottom">
             <table class="Header" border="0" cellspacing="0" cellpadding="0">
               <tr>
-                <td class="HeaderLeft"><img border="0" alt="" src="Styles/INFOLAB/Images/Spacer.gif"></td> 
+                <td class="HeaderLeft"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td> 
                 <td class="th"><strong>Estudios</strong></td> 
-                <td class="HeaderRight"><img border="0" alt="" src="Styles/INFOLAB/Images/Spacer.gif"></td>
+                <td class="HeaderRight"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td>
               </tr>
             </table>
             <table height="200" cellpadding="0" cellspacing="0" class="Record">

@@ -26,7 +26,7 @@ include ("scripts\php\generales.php");
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>Sistema Web Informatico de Análisis Clinico</title>
 <meta name="description" content="" />
-<link rel="stylesheet" type="text/css" href="WEB/Styles/INFOLAB/Style_doctype.css">
+<link rel="stylesheet" type="text/css" href="WEB/Styles/Core/Style_doctype.css">
 <link href="css/themes/blue/css/text-edit.css"rel="stylesheet" type="text/css" />
 
 <script>
@@ -285,13 +285,13 @@ $ODBC=$_SESSION["ODBC"];
                <table id="fecha" >
        Fecha Inicial: 
           <input name="FI" value="<?php echo $fecha2;?>" type="text" id="calInput3" style="border-width:0px; width: 70px; font-size:10px;" readonly="true" />
-          <img style="cursor:pointer;" onclick="showCalendar(3)" src="WEB/Styles/INFOLAB/Images/DatePicker.gif" align="absmiddle" />               
+          <img style="cursor:pointer;" onclick="showCalendar(3)" src="WEB/Styles/Core/Images/DatePicker.gif" align="absmiddle" />               
           <div style="position:relative; border:0px  width: 50px;width: 100px;">
           <div id="calendar3" style="position:absolute; left:190px; top:-50px; display:none"> </div>
                <table id="fecha" >
        Fecha Final: 
           <input name="FF" value="<?php echo $fecha2;?>" type="text" id="calInput4" style="border-width:0px; width: 70px; font-size:10px;" readonly="true" />
-          <img style="cursor:pointer;" onclick="showCalendar(4)" src="WEB/Styles/INFOLAB/Images/DatePicker.gif" align="absmiddle" />               
+          <img style="cursor:pointer;" onclick="showCalendar(4)" src="WEB/Styles/Core/Images/DatePicker.gif" align="absmiddle" />               
           <div style="position:relative; border:0px  width: 50px;width: 100px;">
           <div id="calendar4" style="position:absolute; left:190px; top:-50px; display:none"> </div>
           <tr>   
@@ -365,13 +365,13 @@ $ODBC=$_SESSION["ODBC"];
   <!-- end content -->
   <!-- start sidebar -->
  <!-- <div id="sidebar">
-<div align="center" class="current_page_item Estilo3"> <em>Un producto mas de Dicipa S.A de C.V.</em></div> -->
+<div align="center" class="current_page_item Estilo3"> <em>Un producto mas de MultiSystems</em></div> -->
   </div>
   <!-- end sidebar -->
 </div>
 <!-- end page -->
 <!-- <div id="footer">
-  <p id="legal">&copy;2008 DICIPA S.A. de C.V.,  All Rights Reserved.  Designed by <a href="http://www.dicipa.com.mx">T.I</a></p>
+  <p id="legal">&copy;2008 MultiSystems S.A. de C.V.,  All Rights Reserved.  Designed by <a href="http://www.MultiSystems.com.mx">T.I</a></p>
   <p id="links"><a href="http://www.deltalab.com.mx/bioquimica">Principal</a>&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; <a href="#">Terms</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="http://jigsaw.w3.org/css-validator/check/referer" title="This page validates as CSS"><abbr title="Cascading Style Sheets">CSS</abbr></a></p>
 </div> -->
 <script type="text/javascript">

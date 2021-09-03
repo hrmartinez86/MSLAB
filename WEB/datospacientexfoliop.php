@@ -46,7 +46,7 @@ $fecha=date('d/m/Y');
 }
 </style>
 <meta name="GENERATOR" content="CodeCharge Studio 4.2.00.040">
-<link rel="stylesheet" type="text/css" href="Styles/INFOLAB/Style_doctype.css">
+<link rel="stylesheet" type="text/css" href="Styles/Core/Style_doctype.css">
 <script language="javascript" type="text/javascript" src="librerias/ajax.js"></script>
 <script language="javascript" type="text/javascript" src="js/mambo.js"></script>
 <link type="text/css" rel="stylesheet" href="dhtmlgoodies_calendar/dhtmlgoodies_calendar.css?random=20051112" media="screen"></LINK>
@@ -99,9 +99,9 @@ $sql="SELECT dat_dfipa.fecha AS Fecha, dat_paciente.rfc,dat_paciente.rut,dat_pac
       <td valign="top">
         <table class="Header" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td class="HeaderLeft"><img border="0" alt="" src="Styles/INFOLAB/Images/Spacer.gif"></td> 
+            <td class="HeaderLeft"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td> 
             <td class="th"><strong>Datos del Paciente</strong></td> 
-            <td class="HeaderRight"><img border="0" alt="" src="Styles/INFOLAB/Images/Spacer.gif"></td>
+            <td class="HeaderRight"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td>
           </tr>
         </table>
      </td>
@@ -145,14 +145,14 @@ $sql="SELECT dat_dfipa.fecha AS Fecha, dat_paciente.rfc,dat_paciente.rut,dat_pac
  
           <tr class="Controls">
              
-            <td>Fecha de Nacimiento: </td><td><input type="text" id="Fecha" value="<?php echo $fm;?>" readonly name="theDate2"><img type="button" src="Styles/INFOLAB/Images/DatePicker.gif" onclick="displayCalendar(document.forms[0].theDate2,'dd/mm/yyyy',this)">A&ntilde;os<input id="anos" size="1" onBlur="calculaf()" value=0>Meses<input id="meses" size="1"  value=0>Dias<input id="dias" size="1"  value=0></td>
+            <td>Fecha de Nacimiento: </td><td><input type="text" id="Fecha" value="<?php echo $fm;?>" readonly name="theDate2"><img type="button" src="Styles/Core/Images/DatePicker.gif" onclick="displayCalendar(document.forms[0].theDate2,'dd/mm/yyyy',this)">A&ntilde;os<input id="anos" size="1" onBlur="calculaf()" value=0>Meses<input id="meses" size="1"  value=0>Dias<input id="dias" size="1"  value=0></td>
             <td></td>
             </tr>
  
           
  
           <tr class="Controls">
-            <td class="th"><label for="CitasDireccion">Dirección:</label></td> 
+            <td class="th"><label for="CitasDireccion">Direcciï¿½n:</label></td> 
             <td><textarea  name="Direccion" id="Direccion" cols="45" rows="5"><?php echo $calle;?></textarea></td>
             <td></td>
           </tr>
@@ -204,9 +204,9 @@ $sql="SELECT dat_dfipa.fecha AS Fecha, dat_paciente.rfc,dat_paciente.rut,dat_pac
           </table>
           <table class="Header" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td class="HeaderLeft"><img border="0" alt="" src="Styles/INFOLAB/Images/Spacer.gif"></td> 
+            <td class="HeaderLeft"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td> 
             <td class="th"><strong>Datos de la Ficha</strong></td> 
-            <td class="HeaderRight"><img border="0" alt="" src="Styles/INFOLAB/Images/Spacer.gif"></td>
+            <td class="HeaderRight"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td>
            </tr> 
             </table>
           

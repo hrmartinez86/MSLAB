@@ -32,7 +32,7 @@ Description: A wide two-column design suitable for blogs and small websites.
 <meta name="description" content="" />
 <link href="default.css" rel="stylesheet" type="text/css" />
 <link href="css/bulma/css/bulma.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" type="text/css" href="WEB/Styles/INFOLAB/Style_doctype.css">
+<link rel="stylesheet" type="text/css" href="WEB/Styles/Core/Style_doctype.css">
 <style type="text/css">
 <!--
 #apDiv1 {
@@ -116,7 +116,7 @@ function self()
                             <a class="button is-info is-outlined" onclick="Validas()">
   Aceptar
 </a>
-      <!--<input type="image" src="images/infolab/baceptar1.jpg" onclick="Validas()" />-->
+      <!--<input type="image" src="images/Core/baceptar1.jpg" onclick="Validas()" />-->
 </div>
 		  </div>
 		</div>

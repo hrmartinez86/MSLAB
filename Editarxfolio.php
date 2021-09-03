@@ -21,7 +21,7 @@ $fecha=date("d , M, y,  H:i a");
 <title>Sistema Web Informatico de Análisis Clinico</title>
 <meta name="keywords" content="" />
 <meta name="description" content="" />
-<link rel="stylesheet" type="text/css" href="WEB/Styles/INFOLAB/Style_doctype.css">
+<link rel="stylesheet" type="text/css" href="WEB/Styles/Core/Style_doctype.css">
 	<!-- Common JS files -->
 <script type='text/javascript' src='grid/utils/zapatec.js'></script>
 
@@ -526,7 +526,7 @@ function filtra(txt) {
 <!-- end content -->
 	<!-- start sidebar -->
   <!-- <div id="sidebar"> -->
-		<!-- <div align="center" class="current_page_item Estilo3"> <em>Un producto mas de Dicipa S.A de C.V.</em></div> -->
+		<!-- <div align="center" class="current_page_item Estilo3"> <em>Un producto mas de MultiSystems</em></div> -->
         <?php 
 $poer='
 </XFecha>';

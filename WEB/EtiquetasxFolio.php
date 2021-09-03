@@ -67,7 +67,7 @@ $sql="SELECT FECHA, HORA, NUMERO, NUMERO_REGISTRO, RUT, USUARIO_CREACION, NOMBRE
 }
 </style>
 <meta name="GENERATOR" content="CodeCharge Studio 4.2.00.040">
-<link rel="stylesheet" type="text/css" href="Styles/INFOLAB/Style_doctype.css">
+<link rel="stylesheet" type="text/css" href="Styles/Core/Style_doctype.css">
 
 <link type="text/css" rel="stylesheet" href="dhtmlgoodies_calendar/dhtmlgoodies_calendar.css?random=20051112" media="screen"></LINK>
 <script type="text/javascript" src="dhtmlgoodies_calendar/dhtmlgoodies_calendar.js?random=20060118"></script>
@@ -84,9 +84,9 @@ $sql="SELECT FECHA, HORA, NUMERO, NUMERO_REGISTRO, RUT, USUARIO_CREACION, NOMBRE
       <td valign="top">
         <table class="Header" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td class="HeaderLeft"><img border="0" alt="" src="Styles/INFOLAB/Images/Spacer.gif"></td> 
+            <td class="HeaderLeft"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td> 
             <td class="th"><strong>Folio.</strong></td> 
-            <td class="HeaderRight"><img border="0" alt="" src="Styles/INFOLAB/Images/Spacer.gif"></td>
+            <td class="HeaderRight"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td>
           </tr>
         </table>
  
@@ -108,9 +108,9 @@ $sql="SELECT FECHA, HORA, NUMERO, NUMERO_REGISTRO, RUT, USUARIO_CREACION, NOMBRE
       <td valign="top">
         <table class="Header" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td class="HeaderLeft"><img border="0" alt="" src="WEB/Styles/INFOLAB/Images/Spacer.gif"></td> 
+            <td class="HeaderLeft"><img border="0" alt="" src="WEB/Styles/Core/Images/Spacer.gif"></td> 
             <td class="th"><strong>Folio:</strong></td> 
-            <td class="HeaderRight"><img border="0" alt="" src="WEB/Styles/INFOLAB/Images/Spacer.gif"></td>
+            <td class="HeaderRight"><img border="0" alt="" src="WEB/Styles/Core/Images/Spacer.gif"></td>
             <td class="th"><strong><?php echo $folio;?></strong></td> 
           </tr>
         </table>
@@ -120,9 +120,9 @@ $sql="SELECT FECHA, HORA, NUMERO, NUMERO_REGISTRO, RUT, USUARIO_CREACION, NOMBRE
       <td valign="top">
         <table class="Header" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td class="HeaderLeft"><img border="0" alt="" src="WEB/Styles/INFOLAB/Images/Spacer.gif"></td> 
+            <td class="HeaderLeft"><img border="0" alt="" src="WEB/Styles/Core/Images/Spacer.gif"></td> 
             <td class="th"><strong>Nombre del Paciente:</strong></td> 
-            <td class="HeaderRight"><img border="0" alt="" src="WEB/Styles/INFOLAB/Images/Spacer.gif"></td>
+            <td class="HeaderRight"><img border="0" alt="" src="WEB/Styles/Core/Images/Spacer.gif"></td>
             <td class="th"><strong><?php echo $nombre;?></strong></td> 
           </tr>
         </table>
@@ -135,9 +135,9 @@ $sql="SELECT FECHA, HORA, NUMERO, NUMERO_REGISTRO, RUT, USUARIO_CREACION, NOMBRE
       <td valign="top">
         <table class="Header" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td class="HeaderLeft"><img border="0" alt="" src="Styles/INFOLAB/Images/Spacer.gif"></td> 
+            <td class="HeaderLeft"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td> 
             <td class="th"><strong>Etiquetas</strong></td> 
-            <td class="HeaderRight"><img border="0" alt="" src="Styles/INFOLAB/Images/Spacer.gif"></td>
+            <td class="HeaderRight"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td>
           </tr>
         </table>
  

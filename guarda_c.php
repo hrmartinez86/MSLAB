@@ -19,7 +19,7 @@ include ('Librerias/conection.php');    //ESTABLACE LA CADENA DE CONEXION CON EL
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<link rel="stylesheet" type="text/css" href="WEB/Styles/INFOLAB/Style_doctype.css">
+<link rel="stylesheet" type="text/css" href="WEB/Styles/Core/Style_doctype.css">
     <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Combrobante de Atenci&oacute;n</title>
@@ -44,7 +44,7 @@ $sql_1="update lab_parametros_sistema set par_correlativo=".$Veterinario." where
   $query_result=odbc_exec($db_conn,$sql_1) or 
 die ("ERROR : No se puede ejecutar la consulta.");
 ?>
-<link rel="stylesheet" type="text/css" href="Styles/INFOLAB/Style_doctype.css">
+<link rel="stylesheet" type="text/css" href="Styles/Core/Style_doctype.css">
 
 <body>
  <table align="center" border="0" cellspacing="0" cellpadding="0">
@@ -65,9 +65,9 @@ die ("ERROR : No se puede ejecutar la consulta.");
       <td valign="top">
         <table class="Header" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td class="HeaderLeft"><img border="0" alt="" src="Styles/INFOLAB/Images/Spacer.gif"></td> 
+            <td class="HeaderLeft"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td> 
             <td class="th"><strong>N&uacute;mero de Cita</strong></td> 
-            <td class="HeaderRight"><img border="0" alt="" src="Styles/INFOLAB/Images/Spacer.gif"></td>
+            <td class="HeaderRight"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td>
           </tr>
         </table>
  
@@ -91,9 +91,9 @@ die ("ERROR : No se puede ejecutar la consulta.");
       <td valign="top">
         <table class="Header" border="0" cellspacing="0" cellpadding="0">
           <tr>
-              <td class="HeaderLeft"><img border="0" alt="" src="WEB/Styles/INFOLAB/Images/Spacer.gif"></td> 
+              <td class="HeaderLeft"><img border="0" alt="" src="WEB/Styles/Core/Images/Spacer.gif"></td> 
               <td class="th"><strong>Configuraci&oacute;n</strong></td> 
-            <td class="HeaderRight"><img border="0" alt="" src="WEB/Styles/INFOLAB/Images/Spacer.gif"></td>
+            <td class="HeaderRight"><img border="0" alt="" src="WEB/Styles/Core/Images/Spacer.gif"></td>
           </tr>
         </table>
  

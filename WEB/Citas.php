@@ -46,7 +46,7 @@ $fecha=date('d/m/Y');
 }
 </style>
 <meta name="GENERATOR" content="CodeCharge Studio 4.2.00.040">
-<link rel="stylesheet" type="text/css" href="Styles/INFOLAB/Style_doctype.css">
+<link rel="stylesheet" type="text/css" href="Styles/Core/Style_doctype.css">
 <script language="javascript" type="text/javascript" src="librerias/ajax.js"></script>
 <script language="javascript" type="text/javascript" src="js/mambo.js"></script>
 <link type="text/css" rel="stylesheet" href="dhtmlgoodies_calendar/dhtmlgoodies_calendar.css?random=20051112" media="screen"></LINK>
@@ -65,19 +65,19 @@ $fecha=date('d/m/Y');
       <td valign="top">
         <table class="Header" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td class="HeaderLeft"><img border="0" alt="" src="Styles/INFOLAB/Images/Spacer.gif"></td> 
+            <td class="HeaderLeft"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td> 
             <td class="th"><strong>Citas</strong></td> 
-            <td class="HeaderRight"><img border="0" alt="" src="Styles/INFOLAB/Images/Spacer.gif"></td>
+            <td class="HeaderRight"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td>
           </tr>
         </table>
  
         <table height="450" cellpadding="0" cellspacing="0" class="Record">
           <tr class="Controls">
          <td>Fecha de la Cita: </td>
-         <td><input id="" type="text" value="<?php echo $fecha;?>" onChange="MostrarConsulta('librerias/control_citas.php');" readonly  name="theDate"><img type="button" src="Styles/INFOLAB/Images/DatePicker.gif" onclick="displayCalendar(document.forms[0].theDate,'dd/mm/yyyy',this)"></td>
+         <td><input id="" type="text" value="<?php echo $fecha;?>" onChange="MostrarConsulta('librerias/control_citas.php');" readonly  name="theDate"><img type="button" src="Styles/Core/Images/DatePicker.gif" onclick="displayCalendar(document.forms[0].theDate,'dd/mm/yyyy',this)"></td>
          <td>Maximo de Citas:<input type=HIDDEN value=""> <?php 
          //echo $fecha;
-         $sql="select citasMaximoDias as Citas from configuracion_infolab";
+         $sql="select citasMaximoDias as Citas from configuracion_Core";
          //echo $sql;
          $query=odbc_exec($conection,$sql);
           
@@ -90,7 +90,7 @@ $fecha=date('d/m/Y');
            
           <tr class="Controls">
             <td class="th"><label for="CitasExpediente">Expediente:</label></td> 
-            <td><input  name="Expediente" id="Expediente" class="Controls" onChange="paciente('librerias/paciente.php')" onBlur="cambia()" value="" ><img style="WIDTH: 25px; HEIGHT: 20px"  type="button" src="Styles/INFOLAB/Images/4.jpg" onclick="valor()"><div id="expedientes"></div></td>
+            <td><input  name="Expediente" id="Expediente" class="Controls" onChange="paciente('librerias/paciente.php')" onBlur="cambia()" value="" ><img style="WIDTH: 25px; HEIGHT: 20px"  type="button" src="Styles/Core/Images/4.jpg" onclick="valor()"><div id="expedientes"></div></td>
             <td>Citas Disponibles:<div id="citas"></div></td>
           </tr>
  
@@ -119,7 +119,7 @@ $fecha=date('d/m/Y');
  
           <tr class="Controls">
              
-            <td>Fecha de Nacimiento: </td><td><input type="text" id="Fecha" value="<?php echo $fecha;?>" readonly name="theDate2"><img type="button" src="Styles/INFOLAB/Images/DatePicker.gif" onclick="displayCalendar(document.forms[0].theDate2,'dd/mm/yyyy',this)">A&ntilde;os<input id="anos" size="1" onBlur="calculaf()" value=0>Meses<input id="meses" size="1"  value=0>Dias<input id="dias" size="1"  value=0></td>
+            <td>Fecha de Nacimiento: </td><td><input type="text" id="Fecha" value="<?php echo $fecha;?>" readonly name="theDate2"><img type="button" src="Styles/Core/Images/DatePicker.gif" onclick="displayCalendar(document.forms[0].theDate2,'dd/mm/yyyy',this)">A&ntilde;os<input id="anos" size="1" onBlur="calculaf()" value=0>Meses<input id="meses" size="1"  value=0>Dias<input id="dias" size="1"  value=0></td>
             <td></td>
             </tr>
  
@@ -141,7 +141,7 @@ $fecha=date('d/m/Y');
           </tr>
  
           <tr class="Controls">
-            <td class="th"><label for="CitasDireccion">Dirección:</label></td> 
+            <td class="th"><label for="CitasDireccion">Direcciï¿½n:</label></td> 
             <td><textarea name="Direccion" id="Direccion" cols="45" rows="5"></textarea></td>
             <td></td>
           </tr>
@@ -182,9 +182,9 @@ $fecha=date('d/m/Y');
           <tr class="Bottom">
             <table class="Header" border="0" cellspacing="0" cellpadding="0">
               <tr>
-                <td class="HeaderLeft"><img border="0" alt="" src="Styles/INFOLAB/Images/Spacer.gif"></td> 
+                <td class="HeaderLeft"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td> 
                 <td class="th"><strong>Estudios</strong></td> 
-                <td class="HeaderRight"><img border="0" alt="" src="Styles/INFOLAB/Images/Spacer.gif"></td>
+                <td class="HeaderRight"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td>
               </tr>
             </table>
             <table height="200" cellpadding="0" cellspacing="0" class="Record">

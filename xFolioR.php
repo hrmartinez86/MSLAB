@@ -21,7 +21,7 @@ if ( $_SESSION['estado']=="ok" ) {
 <script src="codebase/dhtmlxgrid.js" type="text/javascript"></script>
 <script src="codebase/dhtmlxgridcell.js" type="text/javascript"></script>
 <link rel="STYLESHEET" type="text/css" href="codebase/dhtmlxgrid.css">
-<link rel="stylesheet" type="text/css" href="WEB/Styles/INFOLAB/Style_doctype.css">
+<link rel="stylesheet" type="text/css" href="WEB/Styles/Core/Style_doctype.css">
 <script type="text/JavaScript">
 <!--
 function MM_jumpMenu(targ,selObj,restore){ //v3.0
@@ -87,7 +87,7 @@ while ($ros=odbc_fetch_array($echo))
 	$saltar++;
 	$seguir_no="SELECT distinct(NOMBRE_COMPLETO),idpaciente,fecha_atencion, id_procemuestra, numero_atencion, sexo,USUARIO_CREACION_DETALLE 
 	FROM SISTEMA_ATENCION_EXAMENES WHERE numero_atencion=".$fol;
-	echo $seguir_no;
+	// echo $seguir_no;
 	$sk=odbc_exec($conection,$seguir_no) or die ("ERROR : No se puede ejecutar la consulta.");
 	while ($rsd=odbc_fetch_array($sk))
 	{															
@@ -225,7 +225,7 @@ while ($ros=odbc_fetch_array($echo))
 	</div>
 </div>
 <div id="footer">
-	 <p id="legal">&copy;2008 DICIPA S.A. de C.V.,  All Rights Reserved.  Designed by <a href="http://www.dicipa.com.mx">T.I</a></p>
+	 <p id="legal">&copy;2008 MultiSystems S.A. de C.V.,  All Rights Reserved.  Designed by <a href="http://www.MultiSystems.com.mx">T.I</a></p>
   <p id="links"><a href="http://www.deltalab.com.mx/bioquimica">Principal</a>&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; <a href="#">Terms</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="http://jigsaw.w3.org/css-validator/check/referer" title="This page validates as CSS"><abbr title="Cascading Style Sheets">CSS</abbr></a></p></div>
 </body>
 </html>

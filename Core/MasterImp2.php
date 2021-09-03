@@ -46,7 +46,7 @@ $query_result=odbc_exec($db_conn,$sxql) or
 	die ("ERROR: no se puede ejecutar la consulta");
 
 $pdf=new FPDF('P','mm','Letter');
-$pdf->SetTitle('Sistema InfoLAB 2008');
+$pdf->SetTitle('Sistema Core 2008');
 $pdf->SetAuthor('Lic. Nestor Ismael Aguilar Estrada');
 $pdf->Open();
 $pdf->AddPage();

@@ -1,4 +1,4 @@
-<Page id="1" templateExtension="html" relativePath="." fullRelativePath="." secured="False" urlType="Relative" isIncluded="False" SSLAccess="False" isService="False" cachingEnabled="False" cachingDuration="1 minutes" wizardTheme="INFOLAB" wizardThemeVersion="3.0" needGeneration="0">
+<Page id="1" templateExtension="html" relativePath="." fullRelativePath="." secured="False" urlType="Relative" isIncluded="False" SSLAccess="False" isService="False" cachingEnabled="False" cachingDuration="1 minutes" wizardTheme="Core" wizardThemeVersion="3.0" needGeneration="0">
 	<Components>
 		<Record id="2" sourceType="Table" urlType="Relative" secured="False" allowInsert="True" allowUpdate="False" allowDelete="False" validateData="True" preserveParameters="GET" returnValueType="Number" returnValueTypeForDelete="Number" returnValueTypeForInsert="Number" returnValueTypeForUpdate="Number" name="Citas" actionPage="Citas" errorSummator="Error" wizardFormMethod="post" PathID="Citas">
 <Components>
@@ -86,13 +86,13 @@
 <Attributes/>
 <Features/>
 </Button>
-<DatePicker id="17" name="DatePicker_Fecha1" PathID="CitasDatePicker_Fecha1" control="Fecha" wizardDatePickerType="Image" wizardPicture="Styles/INFOLAB/Images/DatePicker.gif" style="Styles/INFOLAB/Style.css">
+<DatePicker id="17" name="DatePicker_Fecha1" PathID="CitasDatePicker_Fecha1" control="Fecha" wizardDatePickerType="Image" wizardPicture="Styles/Core/Images/DatePicker.gif" style="Styles/Core/Style.css">
 <Components/>
 <Events/>
 <Attributes/>
 <Features/>
 </DatePicker>
-<DatePicker id="18" name="DatePicker_Fecha_Nac1" PathID="CitasDatePicker_Fecha_Nac1" control="Fecha_Nac" wizardDatePickerType="Image" wizardPicture="Styles/INFOLAB/Images/DatePicker.gif" style="Styles/INFOLAB/Style.css">
+<DatePicker id="18" name="DatePicker_Fecha_Nac1" PathID="CitasDatePicker_Fecha_Nac1" control="Fecha_Nac" wizardDatePickerType="Image" wizardPicture="Styles/Core/Images/DatePicker.gif" style="Styles/Core/Style.css">
 <Components/>
 <Events/>
 <Attributes/>

@@ -61,7 +61,7 @@ if(isset($_GET['UFI']) and isset($_GET['UFF']) and isset($_GET['t_urgencia']))
 </head>
 <body>
 <div id="headerbg">
-  <p class="text1">DICIPA  S.A. de C.V.<br />
+  <p class="text1">MultiSystems  S.A. de C.V.<br />
     <span class="Estilo1">Inicio </span></p>
 </div>
 <!-- start page -->
@@ -429,7 +429,7 @@ fclose($file);
 </div>
 <!-- end page -->
 <div id="footer">
-	<p id="legal">&copy;2008 DICIPA S.A. de C.V.,  All Rights Reserved.  Designed by <a href="www.dicipa.com.mx">T.I</a></p>
+	<p id="legal">&copy;2008 MultiSystems S.A. de C.V.,  All Rights Reserved.  Designed by <a href="www.MultiSystems.com.mx">T.I</a></p>
   <p id="links"><a href="#">Privacy</a>&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Link's.&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; <a href="#">Terms</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="http://jigsaw.w3.org/css-validator/check/referer" title="This page validates as CSS"><abbr title="Cascading Style Sheets">CSS</abbr></a></p>
 </div>
 

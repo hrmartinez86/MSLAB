@@ -7,7 +7,7 @@ include(RelativePath . "/db_adapter.php");
 
 //Connection Settings @0-F7CE75A8
 $CCConnectionSettings = array (
-    "INFOLAB" => array(
+    "Core" => array(
         "Type" => "MSSQLServer",
         "DBLib" => "MSSQL",
         "Database" => "ODBC_ZUBIRAN",
@@ -44,7 +44,7 @@ $CCSUseAmp = true;
 $CipherBox = array();
 $CipherKey = array();
 $CCSLocales = new clsLocales(RelativePath);
-$CCSLocales->AddLocale("es", Array("es", "ES", array(1, 0, ""), 2, ",", ".", array("enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"), array("ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"), array("domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"), array("dom", "lun", "mar", "mié", "jue", "vie", "sáb"), array("D", "L", "M", "M", "J", "V", "S"), array("dd", "/", "mm", "/", "yyyy"), array("dddd", ", ", "dd", " de ", "mmmm", " de ", "yyyy"), array("H", ":", "nn"), array("H", ":", "nn", ":", "ss"), "", "", 1, false, "", "windows-1252", "CP1252"));
+$CCSLocales->AddLocale("es", Array("es", "ES", array(1, 0, ""), 2, ",", ".", array("enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"), array("ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"), array("domingo", "lunes", "martes", "miï¿½rcoles", "jueves", "viernes", "sï¿½bado"), array("dom", "lun", "mar", "miï¿½", "jue", "vie", "sï¿½b"), array("D", "L", "M", "M", "J", "V", "S"), array("dd", "/", "mm", "/", "yyyy"), array("dddd", ", ", "dd", " de ", "mmmm", " de ", "yyyy"), array("H", ":", "nn"), array("H", ":", "nn", ":", "ss"), "", "", 1, false, "", "windows-1252", "CP1252"));
 $CCSLocales->DefaultLocale = strtolower("es");
 $CCSLocales->Init();
 $Charset = "";
@@ -52,7 +52,7 @@ $Charset = "";
 if ($PHPLocale = $CCSLocales->GetFormatInfo("PHPLocale"))
     setlocale(LC_ALL, $PHPLocale);
 CCConvertDataArrays();
-$CCProjectStyle = "INFOLAB";
+$CCProjectStyle = "Core";
 //for compatibility
 $ShortWeekdays = $CCSLocales->GetFormatInfo("WeekdayShortNames");
 $Weekdays = $CCSLocales->GetFormatInfo("WeekdayNames");
@@ -90,10 +90,10 @@ $DefaultDateFormat = array("ShortDate");
 $MainPage = new clsMainPage();
 //End Initialize Common Variables
 
-//INFOLAB Connection Class @-0AB468FA
-class clsDBINFOLAB extends DB_Adapter
+//Core Connection Class @-0AB468FA
+class clsDBCore extends DB_Adapter
 {
-    function clsDBINFOLAB()
+    function clsDBCore()
     {
         $this->Initialize();
     }
@@ -101,7 +101,7 @@ class clsDBINFOLAB extends DB_Adapter
     function Initialize()
     {
         global $CCConnectionSettings;
-        $this->SetProvider($CCConnectionSettings["INFOLAB"]);
+        $this->SetProvider($CCConnectionSettings["Core"]);
         parent::Initialize();
         $this->DateLeftDelimiter = "'";
         $this->DateRightDelimiter = "'";
@@ -122,7 +122,7 @@ class clsDBINFOLAB extends DB_Adapter
     }
 
 }
-//End INFOLAB Connection Class
+//End Core Connection Class
 
 //CCToHTML @0-93F44B0D
 function CCToHTML($Value)

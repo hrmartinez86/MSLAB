@@ -46,7 +46,7 @@ $fecha=date('d/m/Y');
 }
 </style>
 <meta name="GENERATOR" content="CodeCharge Studio 4.2.00.040">
-<link rel="stylesheet" type="text/css" href="Styles/INFOLAB/Style_doctype.css">
+<link rel="stylesheet" type="text/css" href="Styles/Core/Style_doctype.css">
 <script language="javascript" type="text/javascript" src="librerias/ajax.js"></script>
 <script language="javascript" type="text/javascript" src="js/mambo2.js"></script>
 <link type="text/css" rel="stylesheet" href="dhtmlgoodies_calendar/dhtmlgoodies_calendar.css?random=20051112" media="screen"></LINK>
@@ -65,20 +65,20 @@ $fecha=date('d/m/Y');
       <td valign="top">
         <table class="Header" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td class="HeaderLeft"><img border="0" alt="" src="Styles/INFOLAB/Images/Spacer.gif"></td> 
+            <td class="HeaderLeft"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td> 
             <td class="th"><strong>Impresion por Lote</strong></td> 
-            <td class="HeaderRight"><img border="0" alt="" src="Styles/INFOLAB/Images/Spacer.gif"></td>
+            <td class="HeaderRight"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td>
           </tr>
         </table>
  
         <table height="150" cellpadding="0" cellspacing="0" class="Record">
           <tr class="Controls">
          <td>Fecha Inicial: </td>
-         <td><input id="" type="text" value="<?php echo $fecha;?>"  readonly  name="theDate"><img type="button" src="Styles/INFOLAB/Images/DatePicker.gif" onclick="displayCalendar(document.forms[0].theDate,'dd/mm/yyyy',this)"></td>
+         <td><input id="" type="text" value="<?php echo $fecha;?>"  readonly  name="theDate"><img type="button" src="Styles/Core/Images/DatePicker.gif" onclick="displayCalendar(document.forms[0].theDate,'dd/mm/yyyy',this)"></td>
          
           <tr class="Controls">
              
-            <td>Fecha Final: </td><td><input type="text" id="Fecha" value="<?php echo $fecha;?>" readonly name="theDate2"><img type="button" src="Styles/INFOLAB/Images/DatePicker.gif" onclick="displayCalendar(document.forms[0].theDate2,'dd/mm/yyyy',this)"></td>
+            <td>Fecha Final: </td><td><input type="text" id="Fecha" value="<?php echo $fecha;?>" readonly name="theDate2"><img type="button" src="Styles/Core/Images/DatePicker.gif" onclick="displayCalendar(document.forms[0].theDate2,'dd/mm/yyyy',this)"></td>
             
             </tr>
  
@@ -122,7 +122,7 @@ $fecha=date('d/m/Y');
             </table>
          
 </form>
-<input type="image" src="img/infolab/baceptar1.jpg" onClick="validar3()" />
+<input type="image" src="img/Core/baceptar1.jpg" onClick="validar3()" />
 
 </body>
 

@@ -10,7 +10,7 @@
 			$exec=odbc_exec($conection, $sql_citas) or die ("Error");
 			$hechas=odbc_result($exec,"citas_creadas");
 			
-			$exec_t=odbc_exec($conection,"select citasMaximoDias from configuracion_infolab");
+			$exec_t=odbc_exec($conection,"select citasMaximoDias from configuracion_Core");
 			$total=odbc_result($exec_t,"citasMaximoDias");	
 			$fecha=$total-$hechas;
 			echo  $fecha;
