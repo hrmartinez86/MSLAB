@@ -394,7 +394,7 @@ global	$VL_Buscar;
 	$i=0;
 	// echo $sql_1;
 	$query_result=odbc_exec($db_conn,$sql_1) or 
-			die ("ERROR : No se puede ejecutar la consulta.".odbc_errormsg());
+			die ("ERROR : No se puede ejecutar la consulta.".odbc_errormsg()."<br>".$sql_1);
 	if (odbc_num_rows($query_result)!=0)
 	{ 
 		
@@ -552,7 +552,17 @@ global	$VL_Buscar;
                                   
                                   <td bgcolor=#5c7ec3 height=25 align="center" valign=middle width="20%"> 
                                       <!--estado p-->
-                                      <TEXTAREA <?php if($result["ESTADO"]=='P'|| $result["ESTADO"]==' ' || $result["ESTADO"]==''){}else{echo "readonly";}?> style="background-color:<?php echo $color;?>;" type="text" name="res"  id="<?php ECHO $llave2;?>" onChange="valor('<?php ECHO $llave2;?>','<?php ECHO $perfil;?>','<?php ECHO $paciente;?>','<?php ECHO $tipo;?>','<?php ECHO $alto;?>','<?php ECHO $bajo;?>','<?php echo $result["ESTADO"];?>'); javascript: return false;"><?php echo ($result["RESULTADO"]); ?></TEXTAREA>
+                                      <input <?php if($result["ESTADO"]=='P'|| $result["ESTADO"]==' ' || $result["ESTADO"]==''){}else
+                                      {echo "readonly";}?> style="background-color:<?php echo $color;?>;" 
+                                      type="text" name="res"  id="<?php ECHO $llave2;?>" 
+                                        onChange="valor('<?php ECHO $llave2;?>',
+                                        '<?php ECHO $perfil;?>',
+                                        '<?php ECHO $paciente;?>',
+                                        '<?php ECHO $tipo;?>',
+                                        '<?php ECHO $alto;?>',
+                                        '<?php ECHO $bajo;?>',
+                                        '<?php echo $result["ESTADO"];?>'); javascript: return false;"
+                                        value ='<?php echo ($result["RESULTADO"]); ?>'></input>
                                     <input type="hidden" name="perfil" value="<?php echo $perfil?>">
                                     <input type="hidden" name="estudio" value="<?php echo $result["LLAVE_FONASA"];?>">
                                   </td>
@@ -691,26 +701,12 @@ global	$VL_Buscar;
                     </td>
                    
                     <td bgcolor=#5c7ec3 height=25 align=center valign=middle width="20%">
-                    <TEXTAREA <?php if($result["ESTADO"]=='P'
-                                    ||$result["ESTADO"]==' ' 
-                                    || $result["ESTADO"]=='')
-                                    {}
-                                    else{echo "readonly";}?> 
-                                    style="background-color:
-                                    <?php echo $color;?>;" 
-                                    type="text" name="res2"  
-                                    id="<?php ECHO $llave;?>
-                                    " onChange="valor('
-                                    <?php ECHO $llave;?>','
-                                    <?php ECHO $perfil;?>','
-                                    <?php ECHO $paciente;?>','
-                                    <?php ECHO $tipo;?>','
-                                    <?php ECHO $alto;?>','
-                                    <?php ECHO $bajo;?>',
-                                    '<?php echo $result["ESTADO"];
-                                    ?>'); javascript: return false;">
-                                    <?php echo ($result["RESULTADO"]); ?>
-                                  </TEXTAREA>
+                    <input <?php if($result["ESTADO"]=='P'||$result["ESTADO"]==' ' || $result["ESTADO"]==''){}else{echo "readonly";}?> 
+                    style="background-color:<?php echo $color;?>;" 
+                    type="text" name="res2" id="<?php ECHO $llave;?>" 
+                    onChange="valor('<?php ECHO $llave;?>','<?php ECHO $perfil;?>','<?php ECHO $paciente;?>','<?php ECHO $tipo;?>','<?php ECHO $alto;?>','<?php ECHO $bajo;?>','<?php echo $result["ESTADO"];?>'); javascript: return false;"
+                    value='<?php echo ($result["RESULTADO"]); ?>'>
+                                  </input>
                       <input type="hidden" name="perfil2" value="<?php echo $perfil;?>">
                       <input type="hidden" name="estudio2" value="<?php echo $result["LLAVE_FONASA"];?>">
                     </td>
@@ -788,27 +784,27 @@ global	$VL_Buscar;
                               </table>
                             </TD>
                           </TR>
-                          <TR> 
+                          <!-- <TR> 
                             <TD vAlign=top width="90%">
                               <p><IMG height=12 src="Imagenes/Transparente.gif" width=20><BR>
                                 <font size="2"><b>&nbsp;</b></font><b><br>
                                 <font size="1">
                                 &nbsp;ESTE INFORME NO CONSTITUYE DIAGNOSTICO, CONSULTE A SU MEDICO TRATANTE.</font></b></p>
                             </TD>
-                          </TR>
+                          </TR> -->
                           </TBODY> 
                         </TABLE>
                       </TD>
                     </TR>
-                    <TR bgColor=#6e8fd4> 
+                    <!-- <TR bgColor=#6e8fd4> 
                       <TD height=2 colspan="2" align=center> 
                           <FONT color=#ffffff face="Verdana, Arial, Helvetica, sans-serif" size=1>
                 <B>IMPORTANTE : EL RESULTADO DE ESTE EXAMEN TIENE VALIDEZ SOLO CON INTERPRETACION DEL MEDICO TRATANTE.</B>  <div align="center" class="current_page_item Estilo3"> <em></em></div><BR>
                   </FONT>
                       </TD>
-                      <input type="hidden" value="<?php echo $i;?>" id="uno"/>
-                      <input type="hidden" value="<?php echo $j;?>" id="dos"/>
-                    </TR>
+                      <input type="hidden" value="<?php //echo $i;?>" id="uno"/>
+                      <input type="hidden" value="<?php //echo $j;?>" id="dos"/>
+                    </TR> -->
                     </TBODY> 
                   </TABLE>
                  </TD>

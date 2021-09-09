@@ -16,7 +16,7 @@
 	<pre>
 &lt;ul id="galleryModel">
 	&lt;li id="media1" title="From Norway" caption="This is a picture from norway" largeImagePath="demo-images/image-gallery/bigger1.jpg" thumbnailPathSmall="demo-images/image-gallery/smallthumb1.jpg" >&lt;img src="demo-images/image-gallery/thumb1.jpg">&lt;/li>
-	&lt;li id="media2" title="Spinning cycle" caption="One hour on the spinning cycle makes you feel better" largeImagePath="demo-images/image-gallery/bigger2.jpg" thumbnailPathSmall="demo-images/image-gallery/smallthumb2.jpg" >&lt;img src="demo-images/image-gallery/thumb2.jpg">&lt;/li>
+	&lt;li id="media2" title="Spinning cycle" caption="One hour on the spinning cycle makes you feel better" largeImagePath="demo-images/image-gallery/bigger2.png" thumbnailPathSmall="demo-images/image-gallery/smallthumb2.jpg" >&lt;img src="demo-images/image-gallery/thumb2.jpg">&lt;/li>
 	&lt;li id="media3" title="My workstation at home" caption="This is where I'm sitting developing DHTML scripts" largeImagePath="demo-images/image-gallery/bigger3.jpg" thumbnailPathSmall="demo-images/image-gallery/smallthumb3.jpg" >&lt;img src="demo-images/image-gallery/thumb3.jpg">&lt;/li>
 	&lt;li id="media4" title="From Norway 2" largeImagePath="demo-images/image-gallery/bigger4.jpg" thumbnailPathSmall="demo-images/image-gallery/smallthumb4.jpg" >&lt;img src="demo-images/image-gallery/thumb4.jpg">&lt;/li>
 	&lt;li id="media5" title="From Boemlo" caption="Summer vacation 2004. This picture was taken from a ferry" largeImagePath="demo-images/image-gallery/bigger5.jpg" thumbnailPathSmall="demo-images/image-gallery/smallthumb5.jpg" >&lt;img src="demo-images/image-gallery/thumb5.jpg">&lt;/li>

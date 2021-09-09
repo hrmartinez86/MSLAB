@@ -7,7 +7,7 @@
 	<!--
 	.cabeza {
 			border-color:#000099;
-			background-image:url(imagenes/Core/cabeza2.jpg);
+			background-image:url(imagenes/Core/cabeza2.png);
 			height:105px;
 			width:100%;
 		  }

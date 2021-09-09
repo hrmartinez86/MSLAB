@@ -57,7 +57,7 @@ $fecha=date('d/m/Y');
 <!-- BEGIN Record Citas -->
 <table border="0" cellspacing="0" cellpadding="0" width="1154">
   <tr>
-    <td colspan="8"><img style="WIDTH: 1000px; HEIGHT: 130px" border="0" alt="logo" src="../images/Core/cabeza2.jpg" width="517" height="24"></td> 
+    <td colspan="8"><img style="WIDTH: 1000px; HEIGHT: 130px" border="0" alt="logo" src="../images/Core/cabeza2.png" width="517" height="24"></td> 
   </tr>
  
   <tr>
@@ -66,7 +66,7 @@ $fecha=date('d/m/Y');
     <td width="103"><a href="{Link2}" id="Link2"><img style="BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px" alt="{Link2}" src="../images/Core/botones/b10.jpg"></a></td> 
     <td width="103"><a href="{Link3}" id="Link3"><img style="BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px" alt="{Link3}" src="../images/Core/botones/b2.jpg"></a></td> 
 	<td width="99"><a href="../tabla.php" id="Link4"><img style="BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px" alt="{Link4}" src="../images/Core/botones/b4.jpg"></a></td>
-	<td width="103"><a href="../lista.php" id="Link5"><img style="BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px" alt="{Link5}" src="../images/Core/botones/b12.jpg" /></a></td>
+	<td width="103"><a href="../lista.php" id="Link5"><img style="BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px" alt="{Link5}" src="../images/Core/botones/b12.png" /></a></td>
 	<td width="395">&nbsp;</td>
 	<td><a href="../salir.php" id="Link6"><img style="BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px" alt="{Link6}" src="../images/logout.png" /></a></td>
     <td width="1"></td> 

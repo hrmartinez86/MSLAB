@@ -57,7 +57,7 @@ function valor(k,p,f,t,a,b,est){
 	var valor=document.getElementById(k).value;
 	ajax=objetoAjax();
 	var val="librerias/numero.php?id="+ k + "&res=" + valor + "&per=" + p + "&pac=" + f;
-//	alert (val);
+	console.log (val);
 	if(est==' ' || est==''|| est=='P'){
             if(t=='N'){
                     if (isNaN(valor)==true)
@@ -145,18 +145,20 @@ function validarres(f)
 		
 		
 		for (x=0;x<elementos.length;x++)
-		{valor =  elementos[x].value;
-		perfil=perfiles[x].value;
-		llave=elementos[x].id;
-		estado=estados[x].value;
-		estudio=estudios[x].value;
-		if ((estado=='' || estado==' ' || estado=='T') && valor !=''){
+		{	
+			valor =  elementos[x].value;
 			
-		//alert(estado + ' ' + estudio);
-		guarda(llave,valor,perfil,f,estudio);
-		
-	    
-	     }
+			perfil=perfiles[x].value;
+			llave=elementos[x].id;
+			estado=estados[x].value;
+			estudio=estudios[x].value;
+			
+			if ((estado=='' || estado==' ' || estado=='T') && valor !=''){
+			
+				//alert(estado + ' ' + estudio);
+				guarda(llave,valor,perfil,f,estudio);
+				
+	     	}
 		}
 		
 		
@@ -244,7 +246,8 @@ valor2=valor2.replace('++++','????');
 valor2=valor2.replace('+++++','?????');
 
     val="librerias/validanumero.php?id="+ llave2 + "&res=" + valor2 +  "&per=" + perfil2 +"&pac=" + f + "&est=" + estudio2;
-//	alert(val);
+	console.log(val);
+	alert(val);
     ajax.open("GET", val);
     ajax.onreadystatechange=function() {
 	if (ajax.readyState==4) {

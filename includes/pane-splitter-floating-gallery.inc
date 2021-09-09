@@ -4,7 +4,7 @@
 	</div>
 	<ul id="galleryModel">
 		<li id="media1" title="From Norway" caption="This is a picture from norway" largeImagePath="demo-images/image-gallery/bigger1.jpg" thumbnailPathSmall="demo-images/image-gallery/smallthumb1.jpg" ><img src="demo-images/image-gallery/thumb1.jpg"></li>
-		<li id="media2" title="Spinning cycle" caption="One hour on the spinning cycle makes you feel better" largeImagePath="demo-images/image-gallery/bigger2.jpg" thumbnailPathSmall="demo-images/image-gallery/smallthumb2.jpg" ><img src="demo-images/image-gallery/thumb2.jpg"></li>
+		<li id="media2" title="Spinning cycle" caption="One hour on the spinning cycle makes you feel better" largeImagePath="demo-images/image-gallery/bigger2.png" thumbnailPathSmall="demo-images/image-gallery/smallthumb2.jpg" ><img src="demo-images/image-gallery/thumb2.jpg"></li>
 		<li id="media3" title="My workstation at home" caption="This is where I'm sitting developing DHTML scripts" largeImagePath="demo-images/image-gallery/bigger3.jpg" thumbnailPathSmall="demo-images/image-gallery/smallthumb3.jpg" ><img src="demo-images/image-gallery/thumb3.jpg"></li>
 		<li id="media4" title="From Norway 2" largeImagePath="demo-images/image-gallery/bigger4.jpg" thumbnailPathSmall="demo-images/image-gallery/smallthumb4.jpg" ><img src="demo-images/image-gallery/thumb4.jpg"></li>
 		<li id="media5" title="From Boemlo" caption="Summer vacation 2004. This picture was taken from a ferry" largeImagePath="demo-images/image-gallery/bigger5.jpg" thumbnailPathSmall="demo-images/image-gallery/smallthumb5.jpg" ><img src="demo-images/image-gallery/thumb5.jpg"></li>
@@ -14,7 +14,7 @@
 		<li id="media9" title="Friends" caption="Some of my friends playing croquet" largeImagePath="demo-images/image-gallery/bigger9.jpg" thumbnailPathSmall="demo-images/image-gallery/smallthumb9.jpg" ><img src="demo-images/image-gallery/thumb9.jpg"></li>
 		<li id="media10" title="Croquet" caption="" largeImagePath="demo-images/image-gallery/bigger10.jpg" thumbnailPathSmall="demo-images/image-gallery/smallthumb10.jpg" ><img src="demo-images/image-gallery/thumb10.jpg"></li>
 		<li id="media11" title="Puerto Rico" caption="Probably one of the best board games ever made." largeImagePath="demo-images/image-gallery/bigger11.jpg" thumbnailPathSmall="demo-images/image-gallery/smallthumb11.jpg" ><img src="demo-images/image-gallery/thumb11.jpg"></li>
-		<li id="media12" title="Another cup of coffee" caption="" largeImagePath="demo-images/image-gallery/bigger12.jpg" thumbnailPathSmall="demo-images/image-gallery/smallthumb12.jpg" ><img src="demo-images/image-gallery/thumb12.jpg"></li>
+		<li id="media12" title="Another cup of coffee" caption="" largeImagePath="demo-images/image-gallery/bigger12.png" thumbnailPathSmall="demo-images/image-gallery/smallthumb12.png" ><img src="demo-images/image-gallery/thumb12.png"></li>
 		<li id="media13" title="Winter picture from my window" caption="" largeImagePath="demo-images/image-gallery/bigger13.jpg" thumbnailPathSmall="demo-images/image-gallery/smallthumb13.jpg" ><img src="demo-images/image-gallery/thumb13.jpg"></li>
 		<li id="media14" title="Another winter picture from my window" caption="" largeImagePath="demo-images/image-gallery/bigger14.jpg" thumbnailPathSmall="demo-images/image-gallery/smallthumb14.jpg" ><img src="demo-images/image-gallery/thumb14.jpg"></li>
 	</ul>

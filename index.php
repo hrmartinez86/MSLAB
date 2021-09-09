@@ -27,7 +27,7 @@ Description: A wide two-column design suitable for blogs and small websites.
 <script language="javascript" type="text/javascript" src="js/mambo.js"></script>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>MS-APEC</title>
-<!--<link rel="icon" type="image/gif" href="favicon.gif">-->
+<link rel="icon" type="image/gif" href="images/core/icon.png">
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link href="default.css" rel="stylesheet" type="text/css" />

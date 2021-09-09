@@ -18,14 +18,16 @@ $fecha=date('d/m/Y');
 $cod=$_SESSION['empresa'];
 $cod=str_pad($cod, 2, "0", STR_PAD_LEFT);
 //echo $cod;
+$idpaciente=$_GET['id'];
 $num= $_GET['num'];
 $folio=str_pad($num, 6, "0", STR_PAD_LEFT); 
 $folio= $cod.$folio;
-$sql="SELECT FECHA, HORA, NUMERO, NUMERO_REGISTRO, RUT, USUARIO_CREACION, NOMBRE_USUARIO, A�OS, NOMBRE_DOCTOR, FECHATOMAMUESTRA, FECHARECEPCIONMUESTRA, ESTADOTOMAMUESTRA, ESTADORECEPCIONMUESTRA, HORARECEPCIONMUESTRA, FECHA_REGISTRO, IDPACIENTE, ORI_PAC, TIPO_DE_URGENCIA, OBSTOMAMUESTRA, DESCRIPCION, RUT_PACIENTE, NOMBRE, APELLIDOS, SEXO, TELEFONO, FECHA_NACIMIENTO, PREVISION, CONTRAINDICACIONES, PROCEDENCIA_MUESTRA, FOLIO_HOST, NUM_CAMA FROM SISTEMA_TOMA_MUESTRAS_PACIENTE WHERE (idpaciente = '".$_GET['id']."')";
+$sql="SELECT FECHA, HORA, NUMERO, NUMERO_REGISTRO, RUT, USUARIO_CREACION, NOMBRE_USUARIO, AnOS, NOMBRE_DOCTOR, FECHATOMAMUESTRA, FECHARECEPCIONMUESTRA, ESTADOTOMAMUESTRA, ESTADORECEPCIONMUESTRA, HORARECEPCIONMUESTRA, FECHA_REGISTRO, IDPACIENTE, ORI_PAC, TIPO_DE_URGENCIA, OBSTOMAMUESTRA, DESCRIPCION, RUT_PACIENTE, NOMBRE, APELLIDOS, SEXO, TELEFONO, FECHA_NACIMIENTO, PREVISION, CONTRAINDICACIONES, PROCEDENCIA_MUESTRA, FOLIO_HOST, NUM_CAMA 
+FROM SISTEMA_TOMA_MUESTRAS_PACIENTE WHERE (idpaciente = '".$idpaciente."')";
 
     	
     	$query=odbc_exec($conection,$sql);  
-    // echo $sql;  
+    //  echo $sql;  
 			      while ($result=odbc_fetch_array($query))
 			          {
 			        	$idpaciente=$result['IDPACIENTE'];
@@ -129,14 +131,11 @@ $sql="SELECT FECHA, HORA, NUMERO, NUMERO_REGISTRO, RUT, USUARIO_CREACION, NOMBRE
            <td>|   Descripcion</td>
            <td>|   Imprime Todos<input type="checkbox" onclick="check()" name="todos" > </td>
           </tr>
-          <?php $sql="SELECT     *
-FROM         SISTEMA_ATENCION_EXAMENES SAE INNER JOIN
-                      lab_relac_fonasa_perfil LRFP ON LRFP.llave_fonasa = SAE.llave_fonasa INNER JOIN
-                      lab_RLS_perfiles LP ON LRFP.llave_perfil = LP.llave_perfil
-WHERE     (SAE.numero_atencion = '".$folio."')
-ORDER BY LP.cod_llave, LP.orden_perfil";
+          <?php $sql="select cdp.llave_fonasa,cf.codigo_fonasa,cf.nombre as nombre_prestacion, cdp.idpaciente from caj_det_prestaciones cdp
+inner join caj_codigos_fonasa cf on cf.llave_fonasa=cdp.llave_fonasa
+where idpaciente='".$idpaciente."'";
           $query=odbc_exec($conection,$sql);  
-          //echo $sql;  
+          echo $sql;  
           $i=0;
 			      while ($result=odbc_fetch_array($query))
 			          {
@@ -158,7 +157,7 @@ ORDER BY LP.cod_llave, LP.orden_perfil";
 			          }?>
 			          <tr>
                                       <td><div type="hidden" id="resultado"></div></td>
-          <td><input type="button" value="Enviar" onclick="imp()"/></td>
+          <td><input type="button" value="Imprimir" onclick="imp()"/></td>
           
           </tr>
                       <tr><td><input type="hidden" value="<?php echo $id;?>" name="i" id="idpac"/></td>

@@ -31,7 +31,7 @@ if(isset($_GET['FI']) and isset($_GET['ff']))
 <script type="text/javascript" src="grid/demo.js"></script>
 
 	<!-- ALL demos need these css -->
-	<link rel="SHORTCUT ICON" href="favicon.gif">
+	<link rel="SHORTCUT ICON" href="icon.png">
 	<script type="text/javascript" src="grid/src/slider.js"></script>
 	<script src="SpryAssets/SpryMenuBar.js" type="text/javascript"></script>
 <link href="default_2.css" rel="stylesheet" type="text/css" />

@@ -130,10 +130,10 @@ img.right {
 
 #headerbg {
 	clear: both;
-	width: 900px;
-	height: 134px;
+	width: 1000px;
+	height: 176px;
 	margin-top: 20px;
-	background-image:url(images/Core/cabeza2.jpg);
+	background-image:url(images/Core/cabeza2.png);
 	margin-right: auto;
 	margin-bottom: 0;
 	margin-left: auto;

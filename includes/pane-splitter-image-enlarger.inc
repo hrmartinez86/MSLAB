@@ -26,7 +26,7 @@
 			<p>Please click on one of the links below to see this widget in action:</p>
 			<a href="#" onclick="displayImage('demo-images/imageEnlarger3.jpg','The view from my window.','This is what I see when I look out the window in my living room. I wish I had more time to appreciate it.');return false">The view from my window</a><br>
 			<a href="#" onclick="displayImage('demo-images/imageEnlarger1.jpg','','A nice picture from an Island of Norway');return false">Summer in Norway.</a><br>
-			<a href="#" onclick="displayImage('demo-images/imageEnlarger2.jpg','Go Kart driving is fun.','');return false">Driving Go-Karts.</a><br>
+			<a href="#" onclick="displayImage('demo-images/imageEnlarger2.png','Go Kart driving is fun.','');return false">Driving Go-Karts.</a><br>
 			
 		</div>
 	</div>

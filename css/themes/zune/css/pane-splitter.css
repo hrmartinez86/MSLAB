@@ -183,7 +183,7 @@ the span tag. The span tag is absolute positioned at the right side of the div t
 	background-image:url(../images/pane-splitter/pane-splitter-tab-inact-bg2.png);	/* Right part of background image */
 }
 .DHTMLSuite_paneTabs .paneSplitterActiveTab span{	/* Background image active tab */
-	background-image:url(../images/pane-splitter/pane-splitter-tab-active-b2.png);	/* The right part of a tab background (No transparency since this part overlaps the left part - see div declaration above )*/
+	background-image:url(../images/pane-splitter/pane-splitter-tab-active-b2.jpg);	/* The right part of a tab background (No transparency since this part overlaps the left part - see div declaration above )*/
 }
 
 

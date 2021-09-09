@@ -170,7 +170,7 @@ function valor1(){
 		
 	}
 function imprimir(){
-	//alert('hola');
+	alert('hola');
 	 if (document.getElementById('Folio').value!=''){
 		 
 		var exp=document.getElementById('Folio').value;

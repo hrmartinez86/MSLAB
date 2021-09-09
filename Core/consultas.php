@@ -89,10 +89,10 @@ function Header2()
 	$VL_LlaveFonasa = $lf; //$HTTP_GET_VARS["lf"];
 	$con="sistema_web_resultados ".$VL_IdPaciente.",".$VL_LlaveFonasa.", 'Infoweb', 200";
 	//echo $con."<br>";
-	$consulta=odbc_exec($link,$con) or die ("Error de consulta");
+	$consulta=odbc_exec($link,$con) or die ("Error de consulta"."<br>" .odbc_errormsg()."<br>".$con);
 	$sql_1="SELECT * FROM TBL_Impresion WHERE I_IdPaciente = '".$VL_IdPaciente."'  AND (I_Informacion IS NOT NULL) AND ((I_Informacion <> '') OR I_Estilo = 'L') and I_Estilo='E' ORDER BY I_Estilo, I_Orden";
 	//echo $sql_1;
-	$son=odbc_exec($link,$sql_1) or die ("error aqui");
+	$son=odbc_exec($link,$sql_1) or die ("error aqui".odbc_errormsg());
 	while($row =odbc_fetch_array($son) )
 				{ 
 					$I_Info[]=array('X'=>$row['I_CoordenadaX1'],'Y'=>$row['I_CoordenadaY1'],'Tamano'=>$row['I_TamanoFuente'],'Info'=>$row['I_Informacion']);
@@ -168,7 +168,7 @@ FROM         dat_paciente INNER JOIN
                       dat_dfipa ON dat_paciente.rut = dat_dfipa.rut
 where dat_dfipa.idpaciente='".$VL_IdPaciente."'";
 	//echo $sql_1;
-	$son=odbc_exec($link,$sql_1) or die ("error aqui");
+	$son=odbc_exec($link,$sql_1) or die ("error aqui".odbc_errormsg());
 	while($row =odbc_fetch_array($son) )
 				{ 
 					$fechan=$row['F'];

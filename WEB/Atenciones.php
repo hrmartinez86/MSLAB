@@ -104,7 +104,7 @@ $fecha=date('d/m/Y');
 <meta name="GENERATOR" content="CodeCharge Studio 4.2.00.040">
 
 <link rel="stylesheet" type="text/css" href="Styles/Core/Style_doctype.css">
-
+<link rel="icon" type="image/gif" href="../images/core/icon.png">
 <link type="text/css" rel="stylesheet" href="dhtmlgoodies_calendar/dhtmlgoodies_calendar.css?random=20051112" media="screen"></LINK>
 <script type="text/javascript" src="dhtmlgoodies_calendar/dhtmlgoodies_calendar.js?random=20060118"></script>
 <!--<link href="../css/bulma/css/bulma.css" rel="stylesheet" type="text/css" />-->
@@ -133,26 +133,28 @@ $fecha=date('d/m/Y');
  
         <table  cellpadding="0" cellspacing="0" class="Record">
           
-          <tr class="Controls">
+          <tr class="Controls" >
             <td class="th"><label for="Expediente">Expediente:</label></td> 
-            <td><input  name="Expediente" id="Expediente" class="Controls"  value="" ></td>
+            <td><input style="text-align:center; width:99%;"" name="Expediente" id="Expediente" class="Controls"  value="" size="70" ></td>
             
           </tr>
  
           <tr class="Controls">
             <td class="th"><label for="CitasSexo">Sexo:</label></td> 
-            <td><select id="Sexo" name="Sexo">
-				  <option value="" selected></option>	            
-			      <option value="M">Masculino</option>
+            <td><select id="Sexo" name="Sexo" style="width:100%; text-align: center;
+                                                         text-align-last: center;
+                                                         -moz-text-align-last: center;">
+				          <option value="" selected></option>	            
+			            <option value="M">Masculino</option>
                   <option value="F">Femenino</option>
 			      
-				</select></td>
-				<td></td>
+				        </select></td>
+				      <td></td>
           </tr>
  
           <tr class="Controls">
             <td class="th"><label for="CitasNombres">Nombre del Paciente:</label></td> 
-            <td><input name="nombre" id="CitasNombres" value="" size="70"></td>
+            <td><input name="nombre" id="CitasNombres" value="" style="width:99%;"></td>
             <td></td>
           </tr>
  
@@ -164,13 +166,15 @@ $fecha=date('d/m/Y');
  
           <tr class="Controls">
              
-            <td>Fecha de Nacimiento: </td><td><input type="text" id="Fecha" value="<?php echo $fecha;?>" name="theDate2"><img type="button" src="Styles/Core/Images/DatePicker.gif" onclick="displayCalendar(document.Citas.theDate2,'dd/mm/yyyy',this)"></td>
+            <td>Fecha de Nacimiento: </td><td><input style="width:94%; text-align:center;" type="text" id="Fecha" value="<?php echo $fecha;?>" name="theDate2"><img type="button" src="Styles/Core/Images/DatePicker.gif" onclick="displayCalendar(document.Citas.theDate2,'dd/mm/yyyy',this)"></td>
             <td></td>
             </tr>
  
          <tr class="Controls">
             <td class="th"><label for="CitasProcedencia">Procedencia:</label></td> 
-            <td><select id="CitasProcedencia" name="CitasProcedencia">
+            <td><select id="CitasProcedencia" name="CitasProcedencia" style="width:100%; text-align: center;
+                                                         text-align-last: center;
+                                                         -moz-text-align-last: center;">
             	<?php
            	  echo '<option value="" </option>';
 			      $sql="select * from Procedencia_muestra where activo='S' order by descripcion ";
@@ -207,8 +211,10 @@ $fecha=date('d/m/Y');
           </tr>-->
           <tr class="Controls">
               <td class="th"><label for="Doctor">M&eacute;dico:</label></td> 
-            <td><select id="Doctor" name="Doctor">
-            	<?php
+            <td><select id="Doctor" name="Doctor" style="width:100%; text-align: center;
+                                                         text-align-last: center;
+                                                         -moz-text-align-last: center;" >
+            <?php
 			      $sql="select nombre + ' ' + apellidos as Nombre,llave_doctor from dat_doctores  order by Nombre ";
 			      $query=odbc_exec($conection,$sql);
 			      while ($result=odbc_fetch_array($query))
@@ -222,7 +228,9 @@ $fecha=date('d/m/Y');
           
           <tr class="Controls">
             <td class="th"><label for="Tipo">Tipo de Paciente:</label></td> 
-            <td><select id="Tipo" name="Tipo">
+            <td><select id="Tipo" name="Tipo" style="width:100%; text-align: center;
+                                                         text-align-last: center;
+                                                         -moz-text-align-last: center;">
             	<?php
             	  echo '<option value="" </option>';
 			      $sql="select * from lab_tipo_paciente where clase='B' order by descripcion ";
@@ -243,7 +251,27 @@ $fecha=date('d/m/Y');
 				</select>
             </td>
           </tr>
+
+          <tr class="Controls">
+            <td class="th"><label for="Correo">Email:</label></td> 
+            <td><input  name="correo" id="correo" class="Controls"  value="" style="width:98%; text-align: center;
+                                                         text-align-last: center;
+                                                         -moz-text-align-last: center;" ></td>
+            
+          </tr>
           
+          <tr class="Controls">
+            <td class="th"><label for="FormaPago">Forma de pago:</label></td> 
+            <td><select id="FormaPago" name="FormaPago" style="width:100%; text-align: center;
+                                                         text-align-last: center;
+                                                         -moz-text-align-last: center;">
+				          <option value="" selected></option>	            
+			            <option value="efe">Efectivo</option>
+                  <option value="tc">Tarjeta de crédito</option>
+                  <option value="td">Tarjeta de debito</option>
+				        </select></td>
+				      <td></td>
+          </tr>
  
 <!--          <tr class="Controls">
             <td class="th"><label for="CitasDireccion">Direcci�n:</label></td> 

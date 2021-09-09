@@ -172,7 +172,7 @@ function Valida1()
 	    if (document.getElementById('CitasNombres').value=='')
 	    {
 	    	alert('Debe Ingresar el Nombre del Paciente');
-			document.Citas.nombre.focus();
+			document.Citas.CitasNombres.focus();
 	    }
 	    else
 	    {
