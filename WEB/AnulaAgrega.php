@@ -53,7 +53,7 @@ $fecha=date('d/m/Y');
 
 </head>
 <body>
- 
+<!-- BEGIN Record citas 2 -->
 <!-- BEGIN Record Citas -->
 <?php include("Header.html")?>
 <br></br>

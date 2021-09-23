@@ -272,12 +272,7 @@ $fecha=date('d/m/Y');
 				        </select></td>
 				      <td></td>
           </tr>
- 
-<!--          <tr class="Controls">
-            <td class="th"><label for="CitasDireccion">Direcci�n:</label></td> 
-            <td><textarea name="Direccion" id="Direccion" cols="45" rows="5"></textarea></td>
-            <td></td>
-          </tr>-->
+
  
 <!--          <tr class="Controls">
             <td class="th"><label for="CitasCiudad">Ciudad:</label></td> 
