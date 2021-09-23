@@ -120,7 +120,7 @@ $fecha=date('d/m/Y');
  </table>
     <br>    
 <form id="Citas" method="post" name="Citas" action="guarda_atencion.php">
-    <table align="center" border="0" cellspacing="0" cellpadding="0">
+    <table align="center" border="0" cellspacing="0" cellpadding="10">
     <tr>
       <td valign="top">
         <table class="Header" border="0" cellspacing="0" cellpadding="0">
@@ -131,7 +131,7 @@ $fecha=date('d/m/Y');
           </tr>
         </table>
  
-        <table  cellpadding="0" cellspacing="0" class="Record">
+        <table  cellpadding="0" cellspacing="0" class="Record"  >
           
           <tr class="Controls" >
             <td class="th"><label for="Expediente">Expediente:</label></td> 
