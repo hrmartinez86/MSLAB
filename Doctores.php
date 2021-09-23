@@ -1,7 +1,7 @@
 <?php
 session_start();
 //header("Cache-control: private"); //Arregla IE 6 
-//include_once(RelativePath . "/Barra.php");       
+  
 if ($_SESSION['estado']=="ok" ) {
         } 
         else {
