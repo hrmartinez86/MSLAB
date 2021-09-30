@@ -120,7 +120,7 @@ $fecha=date('d/m/Y');
  </table>
     <br>    
 <form id="Citas" method="post" name="Citas" action="guarda_atencion.php">
-    <table align="center" border="0" cellspacing="0" cellpadding="10">
+    <table align="center" border="0" cellspacing="0" cellpadding="10" width="40%">
     <tr>
       <td valign="top">
         <table class="Header" border="0" cellspacing="0" cellpadding="0">
@@ -135,15 +135,14 @@ $fecha=date('d/m/Y');
           
           <tr class="Controls" >
             <td class="th"><label for="Expediente">Expediente:</label></td> 
-            <td><input style="text-align:center; width:99%;"" name="Expediente" id="Expediente" class="Controls"  value="" size="70" ></td>
+            <td><input style=" width:100%;"" name="Expediente" id="Expediente" class="Controls"  value="" size="70" ></td>
             
           </tr>
  
           <tr class="Controls">
             <td class="th"><label for="CitasSexo">Sexo:</label></td> 
-            <td><select id="Sexo" name="Sexo" style="width:100%; text-align: center;
-                                                         text-align-last: center;
-                                                         -moz-text-align-last: center;">
+            <td><select id="Sexo" name="Sexo" style="width:100%;
+                                                         text-align-last: center;">
 				          <option value="" selected></option>	            
 			            <option value="M">Masculino</option>
                   <option value="F">Femenino</option>
@@ -154,27 +153,19 @@ $fecha=date('d/m/Y');
  
           <tr class="Controls">
             <td class="th"><label for="CitasNombres">Nombre del Paciente:</label></td> 
-            <td><input name="nombre" id="CitasNombres" value="" style="width:99%;"></td>
+            <td><input name="nombre" id="CitasNombres" value="" style="width:100%;"></td>
             <td></td>
           </tr>
- 
-<!--          <tr class="Controls">
-            <td class="th"><label for="CitasApellidos">Apellidos:</label></td> 
-            <td><input name="apellidos" id="CitasApellidos" value="" size="70"></td>
-            <td></td>
-          </tr>-->
- 
+
           <tr class="Controls">
              
-            <td>Fecha de Nacimiento: </td><td><input style="width:94%; text-align:center;" type="text" id="Fecha" value="<?php echo $fecha;?>" name="theDate2"><img type="button" src="Styles/Core/Images/DatePicker.gif" onclick="displayCalendar(document.Citas.theDate2,'dd/mm/yyyy',this)"></td>
+            <td>Fecha de Nacimiento: </td><td><input style="width:100%; " type="text" id="Fecha" value="<?php echo $fecha;?>" name="theDate2"><img type="button" src="Styles/Core/Images/DatePicker.gif" onclick="displayCalendar(document.Citas.theDate2,'dd/mm/yyyy',this)"></td>
             <td></td>
             </tr>
  
          <tr class="Controls">
             <td class="th"><label for="CitasProcedencia">Procedencia:</label></td> 
-            <td><select id="CitasProcedencia" name="CitasProcedencia" style="width:100%; text-align: center;
-                                                         text-align-last: center;
-                                                         -moz-text-align-last: center;">
+            <td><select id="CitasProcedencia" name="CitasProcedencia" style="width:100%; ">
             	<?php
            	  echo '<option value="" </option>';
 			      $sql="select * from Procedencia_muestra where activo='S' order by descripcion ";
@@ -211,9 +202,7 @@ $fecha=date('d/m/Y');
           </tr>-->
           <tr class="Controls">
               <td class="th"><label for="Doctor">M&eacute;dico:</label></td> 
-            <td><select id="Doctor" name="Doctor" style="width:100%; text-align: center;
-                                                         text-align-last: center;
-                                                         -moz-text-align-last: center;" >
+            <td><select id="Doctor" name="Doctor" style="width:100%; " >
             <?php
 			      $sql="select nombre + ' ' + apellidos as Nombre,llave_doctor from dat_doctores  order by Nombre ";
 			      $query=odbc_exec($conection,$sql);

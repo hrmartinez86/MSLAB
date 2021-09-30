@@ -107,7 +107,7 @@ include("Headersc.html");}
           </tr>
         </table>
  
-          <table align="center" width="40" height="200" cellpadding="0" cellspacing="0" class="Record">
+          <table align="center" width="40" height="20" cellpadding="0" cellspacing="0" class="Record">
           
           <tr class="Controls">
             <td class="th"><label for="CitasNombres">Folio Paciente:</label></td> 
@@ -120,17 +120,17 @@ include("Headersc.html");}
 			          }			?>" size="70"></td>
             <td></td>
           </tr>
-          <tr class="Controls">
+          <!-- <tr class="Controls">
             <td class="th"><label for="CitasNombres">Folio Veterinario:</label></td> 
             <td><input name="Nombres" id="CitasNombres" value="<?php 
-            $sql="select par_correlativo from lab_parametros_sistema  where cod_empresa=2  ";
-			      $query=odbc_exec($conection,$sql);
-			      while ($result=odbc_fetch_array($query))
-			          {
-			        	echo $result['par_correlativo'];
-			          }			?>" size="70"></td>
+            //$sql="select par_correlativo from lab_parametros_sistema  where cod_empresa=2  ";
+			      //$query=odbc_exec($conection,$sql);
+			      //while ($result=odbc_fetch_array($query))
+			         // {
+			        	//echo $result['par_correlativo'];
+			          //}			?>" size="70"></td>
             <td></td>
-          </tr>
+          </tr> -->
  
          
             

@@ -156,12 +156,7 @@ function GuardaFolio()
         alert('Debe Ingresar el folio del paciente');
         document.Citas.Codigo.focus();
     }
-    else
-        if(document.Citas.CitasNombres.value=='')
-    {
-        alert('Debe Ingresar el folio veterinario');
-        document.Citas.CitasNombres.focus();
-    }
+    
     else
         if(document.Citas.usuario.value=='master')
     {

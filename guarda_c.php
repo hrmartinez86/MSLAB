@@ -104,11 +104,11 @@ die ("ERROR : No se puede ejecutar la consulta.");
             <td><h3  size="70"><?php echo $Paciente ; ?></td>
             <td></td>
           </tr>
-              <tr class="Controls">
+              <!-- <tr class="Controls">
               <td class="th"><label for="CitasNombres">Folio de veterinario:</label></td> 
-            <td><h3  size="70"><?php echo $Veterinario; ?></td>
+            <td><h3  size="70"><?php //echo $Veterinario; ?></td>
             <td></td>
-          </tr>
+          </tr> -->
           
   		
             </table>
