@@ -17,7 +17,6 @@ $conection=conectar($ODBC);
 $fecha=date('d/m/Y');
 $cod=$_SESSION['empresa'];
 $cod=str_pad($cod, 2, "0", STR_PAD_LEFT);
-//echo $cod;
 $idpaciente=$_GET['id'];
 $num= $_GET['num'];
 $folio=str_pad($num, 6, "0", STR_PAD_LEFT); 
@@ -27,18 +26,14 @@ FROM SISTEMA_TOMA_MUESTRAS_PACIENTE WHERE (idpaciente = '".$idpaciente."')";
 
     	
     	$query=odbc_exec($conection,$sql);  
-    //  echo $sql;  
+    
 			      while ($result=odbc_fetch_array($query))
 			          {
 			        	$idpaciente=$result['IDPACIENTE'];
 			        	$nombre=$result['NOMBRE']." ".$result['APELLIDOS'];
 			        	$folio=$result['NUMERO'];
 			          }
-			          //echo $idpaciente;
-			          
 
-			          //echo $idpaciente;
-			          //echo " " .$i;
 ?> 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -135,7 +130,7 @@ FROM SISTEMA_TOMA_MUESTRAS_PACIENTE WHERE (idpaciente = '".$idpaciente."')";
 inner join caj_codigos_fonasa cf on cf.llave_fonasa=cdp.llave_fonasa
 where idpaciente='".$idpaciente."'";
           $query=odbc_exec($conection,$sql);  
-          echo $sql;  
+          
           $i=0;
 			      while ($result=odbc_fetch_array($query))
 			          {

@@ -133,10 +133,10 @@ $fecha=date('d/m/Y');
  
         <table  cellpadding="0" cellspacing="0" class="Record"  >
           
-          <tr class="Controls" >
-            <td class="th"><label for="Expediente">Expediente:</label></td> 
-            <td><input style=" width:100%;"" name="Expediente" id="Expediente" class="Controls"  value="" size="70" ></td>
-            
+        <tr class="Controls">
+            <td class="th"><label for="CitasNombres">Nombre del Paciente:</label></td> 
+            <td><input name="nombre" id="CitasNombres" value="" style="width:100%;"></td>
+            <td></td>
           </tr>
  
           <tr class="Controls">
@@ -151,11 +151,7 @@ $fecha=date('d/m/Y');
 				      <td></td>
           </tr>
  
-          <tr class="Controls">
-            <td class="th"><label for="CitasNombres">Nombre del Paciente:</label></td> 
-            <td><input name="nombre" id="CitasNombres" value="" style="width:100%;"></td>
-            <td></td>
-          </tr>
+          
 
           <tr class="Controls">
              
@@ -226,14 +222,14 @@ $fecha=date('d/m/Y');
 			      $query=odbc_exec($conection,$sql);
 			      while ($result=odbc_fetch_array($query))
 			          { 
-                                        if ($result['codigo']==1)
-                                        {
-                                            echo '<option value="'.$result['codigo'].'" selected>'.$result['descripcion'].'</option>';
-                                        }
-                                        else
-                                        {
-                                            echo '<option value="'.$result['codigo'].'">'.$result['descripcion'].'</option>';
-                                        }
+                  if ($result['codigo']==1)
+                  {
+                      echo '<option value="'.$result['codigo'].'" selected>'.$result['descripcion'].'</option>';
+                  }
+                  else
+                  {
+                      echo '<option value="'.$result['codigo'].'">'.$result['descripcion'].'</option>';
+                  }
                                         
 			          }			
 		        ?>        

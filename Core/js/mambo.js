@@ -170,15 +170,17 @@ function valor1(){
 		
 	}
 function imprimir(){
-	alert('hola');
-	 if (document.getElementById('Folio').value!=''){
-		 
-		var exp=document.getElementById('Folio').value;
-		x=open('../WEB/ResultadosxFolio.php?id='+ exp ,'' ,'width=500,height=800'); 
-	    x.close; 
-	 }
+	console.log(document.getElementById('Folio').value);
+	/////RESULT PRINT FUNCTION
+	if (document.getElementById('Folio').value!=''){
 		
+		var exp=document.getElementById('Folio').value
+		x=open('../WEB/ResultadosxFolio.php?id='+ exp ,'' ,'width=500,height=800'); 
+		x.close; 
+
 	}
+		
+}
 function editar(id){
     var str=id
     var folio=str.toString();

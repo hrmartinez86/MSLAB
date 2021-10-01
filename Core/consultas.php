@@ -88,7 +88,7 @@ function Header2()
 	$VL_IdPaciente = $i;  //$HTTP_GET_VARS["i"];
 	$VL_LlaveFonasa = $lf; //$HTTP_GET_VARS["lf"];
 	$con="sistema_web_resultados ".$VL_IdPaciente.",".$VL_LlaveFonasa.", 'Infoweb', 200";
-	//echo $con."<br>";
+	// echo $con."<br>";
 	$consulta=odbc_exec($link,$con) or die ("Error de consulta"."<br>" .odbc_errormsg()."<br>".$con);
 	$sql_1="SELECT * FROM TBL_Impresion WHERE I_IdPaciente = '".$VL_IdPaciente."'  AND (I_Informacion IS NOT NULL) AND ((I_Informacion <> '') OR I_Estilo = 'L') and I_Estilo='E' ORDER BY I_Estilo, I_Orden";
 	//echo $sql_1;

@@ -247,7 +247,7 @@ valor2=valor2.replace('+++++','?????');
 
     val="librerias/validanumero.php?id="+ llave2 + "&res=" + valor2 +  "&per=" + perfil2 +"&pac=" + f + "&est=" + estudio2;
 	console.log(val);
-	alert(val);
+
     ajax.open("GET", val);
     ajax.onreadystatechange=function() {
 	if (ajax.readyState==4) {

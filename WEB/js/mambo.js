@@ -349,7 +349,7 @@ function imp()
 	var llaves=document.getElementsByName('curvas');
 	var i=0;
 	var llave='';
-//        alert("hola");
+
 	 for (x=0;x<che.length;x++)
 		{
 			if(che[x].checked)
@@ -362,15 +362,14 @@ function imp()
                                 actualiza_fecha(id,llaves[x].value);
 				var lf=llaves[x].value;
 				}
-			else
-			{}
-
 			
 		}
-	//alert(i);
+
 if (i==1)
 {	
- x=open('../Core/MasterImp.php?i='+ id +'&llave=' + llave + '&lf=' + lf,'' ,'width=600,height=500');
+
+	console.log('../Core/MasterImp.php?i='+ id +'&llave=' + llave + '&lf=' + lf,'' ,'width=600,height=500');
+	// x=open('../Core/MasterImp.php?i='+ id +'&llave=' + llave + '&lf=' + lf,'' ,'width=600,height=500');
  
 }
 else
