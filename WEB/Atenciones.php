@@ -134,7 +134,7 @@ $fecha=date('d/m/Y');
         <table  cellpadding="0" cellspacing="0" class="Record"  >
           
         <tr class="Controls">
-            <td class="th"><label for="CitasNombres">Nombre del Paciente:</label></td> 
+            <td class="th"><label for="CitasNombres">Nombre del perro:</label></td> 
             <td><input name="nombre" id="CitasNombres" value="" style="width:100%;"></td>
             <td></td>
           </tr>
