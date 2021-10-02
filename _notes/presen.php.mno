@@ -7,6 +7,6 @@
 	<infoitem key="MMGuidesSnapToElements" value="true" />
 	<infoitem key="MMDistanceColor" value="#0000FF" />
 	<infoitem key="MMGuideCount" value="2" />
-	<infoitem key="MMGuide0" value="horizontal: user 671 px" />
+	<infoitem key="MMGuide0" value="vertical: user 671 px" />
 	<infoitem key="MMGuide1" value="vertical: user 949 px" />
 </info>
