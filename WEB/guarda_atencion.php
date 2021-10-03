@@ -1,3 +1,4 @@
+<script src="js/atencion.js"></script>
 <?php
 //include_once(RelativePath . "/Barra.php");
 session_start();
@@ -37,7 +38,10 @@ include ('Librerias/conection.php');    //ESTABLACE LA CADENA DE CONEXION CON EL
   $examenes=htmlspecialchars($_POST["examenes"]);
   $hoy = date("d/m/Y G:i:s");  
   $CitasProcedencia=htmlspecialchars($_POST["CitasProcedencia"]);
-  
+  $examenesArray=array();
+  $_SESSION['Tipo']=$Tipo;
+  $_SESSION['nombre']=$nombre;
+  $_SESSION['doctor']=$Doctor;
   echo '<script>';
   echo 'console.log('. json_encode( $Tipo ) .');';
   
@@ -52,6 +56,11 @@ include ('Librerias/conection.php');    //ESTABLACE LA CADENA DE CONEXION CON EL
   echo 'console.log('. json_encode( $hoy ) .');';
   echo 'console.log('. json_encode( $CitasProcedencia ) .');';
   echo '</script>';
+
+  //creamos el array
+  $datosPaciente = array($nombre,$Sexo,$Doctor);
+  
+  echo "<script> console.log('".count($datosPaciente)."');</script>";
 // // //pRIMERO CHCO SI EXISTE O NO EL PACIENTE
 if ($Expediente!=''){
 $sql_1="SELECT     TOP 1 *
@@ -69,12 +78,7 @@ if (odbc_num_rows($query_result)!=0)
   echo '<script> console.log("existe");</script>';
 	while($result=odbc_fetch_array($query_result))
 		{	
-		// $rut=$result["rut"];
-		// $nombre=$result["nombre"];	
-		// $apellidos=$result["apellidos"];
-		// $theDate2=$result["fecha_nacimiento"];	
-		// $Sexo=$result["sexo"];
-		//echo $rut;	
+		
 		}	
 }
 else
@@ -411,27 +415,30 @@ WHERE     (codigo_fonasa = '".$ex[$i-1]."')";
                     $query_result=odbc_exec($db_conn,$sql_1) or 
 			        die ("ERROR : No se puede ejecutar la consulta.10");
 			        while($result=odbc_fetch_array($query_result))
-		            {	
-		             $exades=$result["nombre"];
-		             $exaindi=$result["indicaciones_toma_muestra"]; 
+		            {
+                  //llenamos el array de examenes
+                  $examenes=array_push($examenesArray,$result["nombre"]);	
+		              $exades=$result["nombre"];
+                  
+		              $exaindi=$result["indicaciones_toma_muestra"]; 
 		              	
 		            }	
+
 ?>
 <tr class="Controls">
-<TD ALIGN="right" WIDTH=200> <?php echo $ex[$i-1];?></TD>
+<TD ALIGN="right" WIDTH=200> <?php echo $ex[$i-1]; array_push($datosPaciente,$ex[$i-1]);?></TD>
          <td WIDTH=500><?php echo $exades;?>  </td>
          
          </tr>
 <?php 
    }
+    echo "<input type='hidden' id='datosPaciente' value='".json_encode($datosPaciente)."'> </input>";
+    $_SESSION['examenes']=$examenesArray
 ?>  
 </table>       
-<a href="javascript:window.print()"><img title="Imprimir" width="32" height="32" style="BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px" alt="{Link4}" src="images/fileprint.gif"></a>
+<a href="imprimirComprobante.php" target="_blank"><img title="Imprimir" width="32" height="32" style="BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px" alt="{Link4}" src="images/fileprint.gif"></a>
 <a href="atenciones.php"><img title="Nueva Atenci&oacute;n" width="32" height="32" style="BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px" alt="{Link4}" src="images/regresar.jpg"></a>
 <a href="Main.php"><img title="Principal" width="32" height="32" style="BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px" alt="{Link4}" src="images/home.gif"></a>
-<!-- <a href="Etiqueta.php?num=<?php //echo $correF; ?>" target="_blank"> -->
-<!-- <img title="Etiquetas de la atención" width="32" height="32" style="BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px" alt="{Link4}" src="images/codigo_b.png">
-</a> -->
 
 <a href="javascript:abrir_ventana('Etiqueta.php?num=<?php echo $correF; ?>','450','350')">
 <img title="Etiquetas de la atención" width="32" height="32" style="BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px" alt="{Link4}" src="images/codigo_b.png">
