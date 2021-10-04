@@ -99,7 +99,7 @@ while ($result=odbc_fetch_array($query))
         </table>
         <br></br>
 
-<form id="Lista" name="Lista" method="GET" action="../Core/MasterImp.php">
+<form id="Lista" name="Lista" method="GET" action="MasterImp.php">
 <table border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td valign="top">
