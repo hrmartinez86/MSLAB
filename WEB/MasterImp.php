@@ -32,7 +32,7 @@ function PDF($orientation='P',$unit='mm',$format='A4')
 {
     //Llama al constructor de la clase padre
     $this->FPDF($orientation,$unit,$format);
-    //Iniciación de variables
+    //Iniciaciï¿½n de variables
     $this->B=0;
     $this->I=0;
     $this->U=0;
@@ -41,7 +41,7 @@ function PDF($orientation='P',$unit='mm',$format='A4')
 
 function WriteHTML($html)
 {
-    //Intérprete de HTML
+    //Intï¿½rprete de HTML
     $html=str_replace("\n",' ',$html);
     $a=preg_split('/<(.*)>/U',$html,-1,PREG_SPLIT_DELIM_CAPTURE);
     foreach($a as $i=>$e)
@@ -66,8 +66,8 @@ function WriteHTML($html)
                 $tag=strtoupper(array_shift($a2));
                 $attr=array();
                 foreach($a2 as $v)
-                    if(ereg('^([^=]*)=["\']?([^"\']*)["\']?$',$v,$a3))
-                        $attr[strtoupper($a3[1])]=$a3[2];
+                    // if(ereg('^([^=]*)=["\']?([^"\']*)["\']?$',$v,$a3))
+                    //     $attr[strtoupper($a3[1])]=$a3[2];
                 $this->OpenTag($tag,$attr);
             }
         }
@@ -117,7 +117,7 @@ function PutLink($URL,$txt)
 
 
 
-//Cabecera de página
+//Cabecera de pï¿½gina
 
 
 function Header()
@@ -158,7 +158,7 @@ function Header()
 $I_Info=Header2($varia[0],$varia[1],$varia[3],$varia[2],$link);
 //////////////////////////////////////////////////////////////////////////////////////////////////
 $html='<U>                                                                                                                                                                                                </U>';
-$pdf->Image('logo.png',10,10,-300);
+// $pdf->Image('logo.png',10,10,-300);
 //for ($i=0;$i<count($I_Info);$i++)
 //{
 //		
@@ -197,7 +197,7 @@ $pdf->Image('logo.png',10,10,-300);
 
 }
 
-//Pie de página
+//Pie de pï¿½gina
 function Footer()
 {
 	$this->SetFont("Arial","","8");
@@ -232,7 +232,7 @@ function Footer()
 	$VL_IdPaciente = $i;  //$HTTP_GET_VARS["i"];
 	$VL_LlaveFonasa = $lf; //$HTTP_GET_VARS["lf"];
 
-//Creación del objeto de la clase heredada
+//Creaciï¿½n del objeto de la clase heredada
 #$pdf=new PDF('P','mm','Letter');
 $pdf=new PDF();
 $pdf->SetTitle('');

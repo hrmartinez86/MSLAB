@@ -1,17 +1,14 @@
 <?php
-session_start();
-//header("Cache-control: private"); //Arregla IE 6 
-//include_once(RelativePath . "/Barra.php");       
+session_start();      
 if ($_SESSION['estado']=="ok" ) {
-        } 
-        else {
-          header("Location: index.php"); 
-         
-        }
+} 
+else {
+  header("Location: index.php"); 
+  
+}
 $ver_botones="";
 $fecha=date("d , M, y,  H:i a");
 include ("librerias/conection.php");
-//include("librerias/control_citas.php");
 $ODBC=$_SESSION["ODBC"];
 $conection=conectar($ODBC);
 $fecha=date('d/m/Y');
@@ -23,16 +20,14 @@ $folio=str_pad($num, 6, "0", STR_PAD_LEFT);
 $folio= $cod.$folio;
 $sql="SELECT FECHA, HORA, NUMERO, NUMERO_REGISTRO, RUT, USUARIO_CREACION, NOMBRE_USUARIO, AnOS, NOMBRE_DOCTOR, FECHATOMAMUESTRA, FECHARECEPCIONMUESTRA, ESTADOTOMAMUESTRA, ESTADORECEPCIONMUESTRA, HORARECEPCIONMUESTRA, FECHA_REGISTRO, IDPACIENTE, ORI_PAC, TIPO_DE_URGENCIA, OBSTOMAMUESTRA, DESCRIPCION, RUT_PACIENTE, NOMBRE, APELLIDOS, SEXO, TELEFONO, FECHA_NACIMIENTO, PREVISION, CONTRAINDICACIONES, PROCEDENCIA_MUESTRA, FOLIO_HOST, NUM_CAMA 
 FROM SISTEMA_TOMA_MUESTRAS_PACIENTE WHERE (idpaciente = '".$idpaciente."')";
-
-    	
-    	$query=odbc_exec($conection,$sql);  
+$query=odbc_exec($conection,$sql);  
     
-			      while ($result=odbc_fetch_array($query))
-			          {
-			        	$idpaciente=$result['IDPACIENTE'];
-			        	$nombre=$result['NOMBRE']." ".$result['APELLIDOS'];
-			        	$folio=$result['NUMERO'];
-			          }
+while ($result=odbc_fetch_array($query))
+{
+  $idpaciente=$result['IDPACIENTE'];
+  $nombre=$result['NOMBRE']." ".$result['APELLIDOS'];
+  $folio=$result['NUMERO'];
+}
 
 ?> 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
