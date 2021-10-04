@@ -1,10 +1,10 @@
 <?php
+session_start();
 define ('FPDF_FONTPATH','FPDF/font/');
 require('fpdf153/fpdf.php');
 include ("consultas.php");
-
-include ("librerias/conection.php");
-
+include("librerias/conection.php");
+set_time_limit(0);
 $uno=0;
 $h=0;
 $ds=1;
@@ -13,12 +13,23 @@ $numero=0;
 $numer=1;
 $lineas=0;
 $new_prue=0;
-$var=variables();
-$varia=explode ("@",$var);
+$VL_UsuarioImprime = "Infoweb";
+	$i=$_GET['i'];
+	$lf=$_GET['lf'];
+	$llave_fonasa=$_GET['llave'];
+	$VL_IdPaciente = $i;  //$HTTP_GET_VARS["i"];
+	$VL_LlaveFonasa = $lf; //$HTTP_GET_VARS["lf"];
+	$VL_UsuarioImprime = "Infoweb";
+	$VL_NumeroPcImprime = 200;
+	//echo $llave_fonasa;
+	$variables=$VL_IdPaciente."@".$llave_fonasa."@".$VL_UsuarioImprime."@".$VL_NumeroPcImprime;
+
+$varia=explode ("@",$variables);
+
 $cero=0;
 $new=0;
 $j=0;
-$Y=30;
+$Y=50;
 
 class PDF extends FPDF
 {
@@ -32,7 +43,7 @@ function PDF($orientation='P',$unit='mm',$format='A4')
 {
     //Llama al constructor de la clase padre
     $this->FPDF($orientation,$unit,$format);
-    //IniciaciÛn de variables
+    //Iniciaci√≥n de variables
     $this->B=0;
     $this->I=0;
     $this->U=0;
@@ -41,7 +52,7 @@ function PDF($orientation='P',$unit='mm',$format='A4')
 
 function WriteHTML($html)
 {
-    //IntÈrprete de HTML
+    //Int√©rprete de HTML
     $html=str_replace("\n",' ',$html);
     $a=preg_split('/<(.*)>/U',$html,-1,PREG_SPLIT_DELIM_CAPTURE);
     foreach($a as $i=>$e)
@@ -117,7 +128,7 @@ function PutLink($URL,$txt)
 
 
 
-//Cabecera de p·gina
+//Cabecera de p√°gina
 
 
 function Header()
@@ -125,11 +136,9 @@ function Header()
 
 	$exa=50;
 	$exa2=14;
-	
-
-    $ODBC=$_SESSION["ODBC"];
-   
-    $conection=conectar($ODBC);
+	$ODBC=$_SESSION["ODBC"];
+ 		
+            
 	$link=conectar($ODBC);		
 	$var=variables();
 	$varia=explode ("@",$var);
@@ -156,52 +165,88 @@ function Header()
 	}*/
 
 $I_Info=Header2($varia[0],$varia[1],$varia[3],$varia[2],$link);
+//echo $varia[0];
 //////////////////////////////////////////////////////////////////////////////////////////////////
 $html='<U>                                                                                                                                                                                                </U>';
-$pdf->Image('logo.png',10,10,-300);
-//for ($i=0;$i<count($I_Info);$i++)
-//{
-//		
-//		if (ereg("_____",$I_Info[$i]['Info']))
-//		{
-//			$this->SetXY($I_Info[$i]['X'],$I_Info[$i]['Y']+$exa2);
-//			$this->SetLeftMargin(1);
-//			$this->SetFontSize(10);
-//			$this->WriteHTML($html);
-//		}
-//		else
-//		{
-//			$this->SetXY($I_Info[$i]['X'],$I_Info[$i]['Y']+$exa2);
-//			$this->SetFont("Arial",'',$I_Info[$i]['Tamano']); // $VL_Est
-//			$this->Cell(0,0,$I_Info[$i]['Info'],0,0,1,'S');
-//		}
-////		$this->SetXY(8,$exa);	
-////		$this->SetFont("Arial",'',8);
-////		$this->Cell(0,0,"EXAMEN",0,0,1,'');
-////		$this->SetXY(77,$exa);	
-////		$this->SetFont("Arial",'',8);
-////		$this->Cell(0,0,"RESULTADO",0,0,1,'');
-////		$this->SetXY(108,$exa);	
-////		$this->SetFont("Arial",'',8);
-////		$this->Cell(0,0,"UNIDAD",0,0,1,'S');
-////		$this->SetXY(130,$exa);	
-////		$this->SetFont("Arial",'',8);
-////		$this->Cell(0,0,"VALOR DE REFERENCIA",0,0,1,'S');
-//		$this->SetXY(3,$exa);
-//		$this->SetLeftMargin(1);
-//		$this->SetFontSize(10);
-//		$this->WriteHTML($html);
-//
-//}
+
+for ($i=0;$i<count($I_Info);$i++)
+{
+		//echo $I_Info;
+		if (ereg("_____",$I_Info[$i]['Info']))
+		{
+			$this->SetXY($I_Info[$i]['X'],$I_Info[$i]['Y']+$exa2);
+			$this->SetLeftMargin(1);
+			$this->SetFontSize(10);
+			$this->WriteHTML($html);
+		}
+		else
+		{
+			$this->SetXY($I_Info[$i]['X'],$I_Info[$i]['Y']+$exa2);
+			$this->SetFont("Arial",'',$I_Info[$i]['Tamano']); // $VL_Est
+			
+			$this->Cell(0,0,$I_Info[$i]['Info'],0,0,1,'S');
+			/////para la edad y fecha impresion
+			////
+			if ($I_Info[$i]['Info']=='Edad')
+			{
+			$fecha_nac=fecha_nac();	
+			$this->SetXY($I_Info[$i]['X']+10,$I_Info[$i]['Y']+$exa2);
+			$this->Cell(0,0,":".$fecha_nac,0,0,1,'S');
+			}
+			 if ($I_Info[$i]['Info'] == 'Unidad de Procedencia') {
+                $this->SetXY($I_Info[$i]['X'] +40+3, $I_Info[$i]['Y'] + 14.5);
+                $this->Cell(0, 0, uprocedencia($_GET['i']), 0, 0, 1, 'S');
+            }
+                    if ($I_Info[$i]['Info'] == 'No. Cuenta') {
+                $this->SetXY($I_Info[$i]['X']-40 , $I_Info[$i]['Y'] + 15);
+                //$this->Cell(0, 0, $_GET['i'], 0, 0, 1, 'S');
+                $this->Cell(0, 0, 'hola', 0, 0, 1, 'S');
+            }
+		    if ($I_Info[$i]['Info']=='FECHA DE IMPRESION')
+			{
+				$F=date("d/m/Y,  H:i a");
+			$this->SetXY($I_Info[$i]['X']+40,$I_Info[$i]['Y']+$exa2);
+			$this->Cell(0,0,$F,0,0,1,'S');
+			}
+			
+			if ($I_Info[$i]['Info']=='No')
+			{
+				$F=date("d/m/Y,  H:i a");
+			$this->SetXY($I_Info[$i]['X']+40,$I_Info[$i]['Y']+$exa2);
+			$this->Cell(0,0,$F,0,0,1,'S');
+			}
+			
+		}
+		$this->SetXY(8,$exa+5);	
+		$this->SetFont("Arial",'',8);
+		$this->Cell(0,0,"EXAMEN",0,0,1,'');
+		$this->SetXY(77,$exa+5);	
+		$this->SetFont("Arial",'',8);
+		$this->Cell(0,0,"RESULTADO",0,0,1,'');
+		$this->SetXY(108,$exa+5);	
+		$this->SetFont("Arial",'',8);
+		$this->Cell(0,0,"UNIDAD",0,0,1,'S');
+		$this->SetXY(130,$exa+5);	
+		$this->SetFont("Arial",'',8);
+		$this->Cell(0,0,"VALOR DE REFERENCIA",0,0,1,'S');
+		$this->SetXY(3,$exa+3);
+		$this->SetLeftMargin(1);
+		$this->SetFontSize(10);
+		$this->WriteHTML($html);
+
+}
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 }
-
-//Pie de p·gina
+//Pie de p√°gina
 function Footer()
 {
 	$this->SetFont("Arial","","8");
-	$link=conectar();		
+	session_start();
+	$ODBC=$_SESSION["ODBC"];
+    //$conection=conectar($ODBC);
+	//$db_conn=conectar($ODBC);
+	$link=conectar($ODBC);		
 	$var=variables();
 	$varia=explode ("@",$var);
 	$datos=Foot($varia[0],$varia[1],$varia[3],$varia[2],$link);
@@ -226,33 +271,42 @@ function Footer()
 	}
 }
 }
-	$i=$_POST['i'];
-	$lf=$_POST['lf'];
-	$llave_fonasa=$_POST['llavefonasa'];
+	$i=$_GET['i'];
+	$lf=$_GET['lf'];
+	//echo $lf;
+	$llave_fonasa=$_GET['llave'];
 	$VL_IdPaciente = $i;  //$HTTP_GET_VARS["i"];
 	$VL_LlaveFonasa = $lf; //$HTTP_GET_VARS["lf"];
 
-//CreaciÛn del objeto de la clase heredada
+//Creaci√≥n del objeto de la clase heredada
 #$pdf=new PDF('P','mm','Letter');
 $pdf=new PDF();
-$pdf->SetTitle('');
-$pdf->SetAuthor('');
+$pdf->SetTitle('Sistema InfoLABWEB');
+$pdf->SetAuthor('Nestor I. Aguilar Estrada');
 $pdf->AliasNbPages();
 $pdf->AddPage();
 $fonasa=explode("-",$varia[1]);
+
 $cuentas=0;
-$Y=30;
+
 for ($x=0;$x<=count($fonasa)-2;$x++)
 {
 
-	$va=variables();
+	$va=$variables;
 	$vaa=explode ("@",$va);
 	$nombre=$vaa[2];
 	$id_paciente=$vaa[0];
 	$no_pc=$vaa[3];
 	$I_In=bodys($id_paciente,$fonasa[$x],$nombre,$no_pc);
+	$tot=$Y + count($I_In);
+	if ($tot >= 220)
+	{
+		$Y=55;
+		$pdf->AddPage();
+	}
 	if ($new_page=='S')
 	{
+		$Y=55;
 		$pdf->AddPage();
 		$num=0;
 	}
@@ -276,7 +330,7 @@ for ($x=0;$x<=count($fonasa)-2;$x++)
 			if ($I_In[$i]['Linea']==0)
 			{		
 				
-				$pdf->SetXY($I_In[$i]['X'],$Y);
+				$pdf->SetXY($I_In[$i]['X'],$Y+10);
 				$pdf->SetFont("Arial",'',$I_In[$i]['Tamano']); // $VL_Est
 				$pdf->Cell(0,0,$I_In[$i]['Info'],0,0,'C');
 				#echo $I_In[$i]['Info']."<br>";
@@ -343,7 +397,7 @@ for ($x=0;$x<=count($fonasa)-2;$x++)
 		
 	}
 	#$pdf->SetX(30);
-	if ($ds==30)
+	if ($ds==20)
 	{
 		#$pdf->Cell(0,0,$ds,0);
 		$pdf->AddPage();
@@ -358,11 +412,11 @@ for ($x=0;$x<=count($fonasa)-2;$x++)
 }
 for ($k=0;$k<$new_prue;$k++)
 {
-if ($uno>1)
+if ($unol>1)
 {
 	$pdf->AddPage();
 }
-$Y=30;
+$Y=80;
 /****************************************************************************************************************************************************************/	
 for($i=0;$i<count($I_In2[$k]);$i++)
 	{

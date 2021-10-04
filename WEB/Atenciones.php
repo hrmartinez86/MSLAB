@@ -25,7 +25,7 @@ $fecha=date('d/m/Y');
 
 <!-- TERMINA "AUTOCOMPLETAR" -->
 
-
+<!--c-->
 <script language="javascript" type="text/javascript" src="librerias/ajax.js"></script>
 <script language="javascript" type="text/javascript" src="js/mambo.js"></script>
 <script type="text/javascript">
@@ -107,6 +107,12 @@ $fecha=date('d/m/Y');
 <link rel="icon" type="image/gif" href="../images/core/icon.png">
 <link type="text/css" rel="stylesheet" href="dhtmlgoodies_calendar/dhtmlgoodies_calendar.css?random=20051112" media="screen"></LINK>
 <script type="text/javascript" src="dhtmlgoodies_calendar/dhtmlgoodies_calendar.js?random=20060118"></script>
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/css/bootstrap-select.min.css'>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
 <!--<link href="../css/bulma/css/bulma.css" rel="stylesheet" type="text/css" />-->
 </head>
 <body>
@@ -120,7 +126,7 @@ $fecha=date('d/m/Y');
  </table>
     <br>    
 <form id="Citas" method="post" name="Citas" action="guarda_atencion.php">
-    <table align="center" border="0" cellspacing="0" cellpadding="10" width="40%">
+  <table align="center" border="0" cellspacing="0" cellpadding="10" width="40%">
     <tr>
       <td valign="top">
         <table class="Header" border="0" cellspacing="0" cellpadding="0">
@@ -133,7 +139,7 @@ $fecha=date('d/m/Y');
  
         <table  cellpadding="0" cellspacing="0" class="Record"  >
           
-        <tr class="Controls">
+          <tr class="Controls">
             <td class="th"><label for="CitasNombres">Nombre del paciente:</label></td> 
             <td><input name="nombre" id="CitasNombres" value="" style="width:100%;"></td>
             <td></td>
@@ -149,15 +155,13 @@ $fecha=date('d/m/Y');
 			      
 				        </select></td>
 				      <td></td>
-          </tr>
- 
-          
+          </tr> 
 
           <tr class="Controls">
              
             <td>Fecha de Nacimiento: </td><td><input style="width:100%; " type="text" id="Fecha" value="<?php echo $fecha;?>" name="theDate2"><img type="button" src="Styles/Core/Images/DatePicker.gif" onclick="displayCalendar(document.Citas.theDate2,'dd/mm/yyyy',this)"></td>
-            <td></td>
-            </tr>
+            
+          </tr>
  
          <tr class="Controls">
             <td class="th"><label for="CitasProcedencia">Procedencia:</label></td> 
@@ -174,28 +178,14 @@ $fecha=date('d/m/Y');
 			          	
 			          	
 			          }	
-//			          		
+		          		
 		        ?>        
 				</select>
 
             </td>
             <td></td>
           </tr>
-<!--           <tr class="Controls">
-            <td class="th"><label for="Tipo">Tipo de Paciente:</label></td> 
-            <td><select id="Tipo" name="Tipo">
-            	<?php
-//            	  echo '<option value="" </option>';
-//			      $sql="select * from lab_tipo_paciente where clase='B' order by descripcion ";
-//			      $query=odbc_exec($conection,$sql);
-//			      while ($result=odbc_fetch_array($query))
-//			          {
-//			        	echo '<option value="'.$result['codigo'].'">'.$result['descripcion'].'</option>';
-//			          }			
-		        ?>        
-				</select>
-            </td>
-          </tr>-->
+
           <tr class="Controls">
               <td class="th"><label for="Doctor">M&eacute;dico:</label></td> 
             <td><select id="Doctor" name="Doctor" style="width:100%; " >
@@ -213,9 +203,7 @@ $fecha=date('d/m/Y');
           
           <tr class="Controls">
             <td class="th"><label for="Tipo">Tipo de Paciente:</label></td> 
-            <td><select id="Tipo" name="Tipo" style="width:100%; text-align: center;
-                                                         text-align-last: center;
-                                                         -moz-text-align-last: center;">
+            <td><select id="Tipo" name="Tipo" style="width:100%; ">
             	<?php
             	  echo '<option value="" </option>';
 			      $sql="select * from lab_tipo_paciente where clase='B' order by descripcion ";
@@ -257,91 +245,45 @@ $fecha=date('d/m/Y');
 				        </select></td>
 				      <td></td>
           </tr>
-
- 
-<!--          <tr class="Controls">
-            <td class="th"><label for="CitasCiudad">Ciudad:</label></td> 
-            <td><select id="CiudadCit" name="CiudadCit">
-            	<?php
-//			      $sql="select * from lab_ciudad order by descripcion";
-//			      $query=odbc_exec($conection,$sql);
-//			      while ($result=odbc_fetch_array($query))
-//			          {
-//			        	echo '<option value="'.$result['codigo'].'">'.$result['descripcion'].'</option>';
-//			          }			
-		        ?>        
-				</select>
-            </td>
-            <td></td>
-          </tr>-->
- 
-<!--          <tr class="Controls">
-            <td class="th"><label for="CitasTelefono">Telefono:</label></td> 
-            <td><input id="Telefono" value="" name="Telefono"></td>
-            <td></td>
-          </tr>
- 
-          <tr class="Controls">
-            <td class="th"><label for="CitasRFC">RFC:</label></td> 
-            <td><input id="CitasRFC" value="" name="CitasRFC"></td>
-            <td></td>
-          </tr>
- 
-          <tr class="Controls">
-            <td class="th"><label for="CitasCURP">CURP:</label></td> 
-            <td><input name="CitasCURP" class="Row" id="CitasCURP" value=""></td>
-            <td></td>
-          </tr>-->
-          <tr class="Bottom">
-            <table class="Header" border="0" cellspacing="0" cellpadding="0">
-              <tr>
-                <td class="HeaderLeft"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td> 
-                <td class="th"><strong>Estudios</strong></td> 
-                <td class="HeaderRight"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td>
-              </tr>
-            </table>
-            <table height="150" cellpadding="0" cellspacing="0" class="Record">
-                 <tr class="Controls">
-                     <td><strong>Codigo</strong><input name="data[Examen][Codigo]"  onKeyPress = "Valida(event)" size="4" value="" type="text" id="ExamenCodigo" /><input type="button" value="+" onClick="buscarEstudio(); javascript: return false;" /></td>
-                     <td>                     
-                     <select name="ExamenCatalogo"  multiple="multiple" size="9" style="width: 250px;" id="ExamenCatalogo">
-						   <?php
-                      $sql="select * from caj_codigos_fonasa where activo='S' AND CODIGO_FONASA NOT LIKE 'ANTV%' order by CODIGO_FONASA ";
-                      $query=odbc_exec($conection,$sql);
-                      while ($result=odbc_fetch_array($query))
-                          {
-                            echo '<option value="'.$result['codigo_fonasa'].'">'.$result['nombre'].' --> '.$result['codigo_fonasa'].'</option>';
-                          }			
-                    ?>        
-                     </select>
-                     </td>
-                     <td>
-                     <input type="image" src="img/icons/flechder1.jpg" name="test" value=">>" onClick="Choose(); javascript: return false;" />
-                     <input type="image" src="img/icons/flechizq1.jpg" name="test2" value="<<" onClick="unChoose(); javascript: return false;" />
-                     </td>
-                     <td>
-            			<select name="ExamenSeleccionado"  multiple="multiple" size="9" style="width: 250px;" id="ExamenSeleccionado">
-</select> <input type="hidden" name="examenes" value="" />		
-                     </td>
-                      
-                 </tr>
-                 
-                
-            </table>
           
-  		<tr>
-  	            
-                
-                
-                <td></td>
-              </tr>
-            </table>
-          </tr>
         </table>
-      </td>
+  <br>
+  <table class="Header" border="0" cellspacing="0" cellpadding="0" width="40%">
+    <tr>
+      <td class="HeaderLeft"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td> 
+      <td class="th"><strong>Estudios</strong></td> 
+      <td class="HeaderRight"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td>
     </tr>
   </table>
-  
+  <table height="150" cellpadding="0" cellspacing="0" class="Record" width="80">
+    <tr class="Controls">
+      <td><strong>Codigo</strong><input name="data[Examen][Codigo]"  onKeyPress = "Valida(event)" size="20" value="" type="text" id="ExamenCodigo" /><input type="button" value="+" onClick="buscarEstudio(); javascript: return false;" /></td>
+      
+      <td>   
+        <!--c-->
+        <strong>Descripción</strong>
+        <select class="selectpicker" data-show-subtext="true" data-live-search="true" size="5" style="width: 450px;" id="ExamenCatalogo" multiple="multiple">
+          <?php
+              $sql="select * from caj_codigos_fonasa where activo='S' AND CODIGO_FONASA NOT LIKE 'ANTV%' order by CODIGO_FONASA ";
+              $query=odbc_exec($conection,$sql);
+              while ($result=odbc_fetch_array($query))
+                  {
+                    echo '<option value="'.$result['codigo_fonasa'].'">'.$result['nombre'].' --> '.$result['codigo_fonasa'].'</option>';
+                  }			
+            ?>        
+        </select>
+      </td>
+      <td>
+        <input type="image" src="img/icons/flechder1.jpg" name="test" value=">>" onClick="Choose(); javascript: return false;" />
+        <input type="image" src="img/icons/flechizq1.jpg" name="test2" value="<<" onClick="unChoose(); javascript: return false;" />
+      </td>
+      <td>
+        <select name="ExamenSeleccionado"  multiple="multiple" size="9" style="width: 250px;" id="ExamenSeleccionado">
+        </select> <input type="hidden" name="examenes" value="" />		
+      </td>
+            
+    </tr>
+            </table>
 </form>
     <table align="center">
         <tr>
@@ -360,7 +302,39 @@ $fecha=date('d/m/Y');
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp; </p>
+<script>
+function myFunction() {
+  	// creamos un variable que hace referencia al select
+  //--c
+	var select=document.getElementById("ExamenCatalogo");
 
+ 
+
+  // obtenemos el valor a buscar
+
+  var buscar=document.getElementById("buscar").value;
+
+  console.log(select.options[4].text);
+
+  // recorremos todos los valores del select
+  
+  for(var i=1;i<select.length;i++)
+
+  {
+
+    if(select.options[i].text==buscar)
+
+    { 
+
+      // seleccionamos el valor que coincide
+
+      select.selectedIndex=i;
+
+    }
+
+  }
+}
+</script>
 </body>
 
 </html>

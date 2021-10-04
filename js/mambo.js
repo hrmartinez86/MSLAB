@@ -119,6 +119,11 @@ function GuardaUsuario()
         document.Citas.submit();
     }
 }
+function buscarSelect()
+{
+    alert("hol");
+}
+
 function GuardaDoctor()
 {
     evaluamos_datos();
