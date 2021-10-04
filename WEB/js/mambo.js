@@ -369,7 +369,7 @@ if (i==1)
 {	
 
 	//console.log('../Core/MasterImp.php?i='+ id +'&llave=' + llave + '&lf=' + lf,'' ,'width=600,height=500');
-	 x=open('../Core/MasterImp.php?i='+ id +'&llave=' + llave + '&lf=' + lf,'' ,'width=600,height=500');
+	 x=open('MasterImp.php?i='+ id +'&llave=' + llave + '&lf=' + lf,'' ,'width=600,height=500');
  
 }
 else
