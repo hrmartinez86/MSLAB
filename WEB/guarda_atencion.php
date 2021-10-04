@@ -108,7 +108,7 @@ else
   // echo "<br>";
 	// echo $_SESSION['empresa']."d";	
 	$sql_1="INSERT INTO dat_paciente (cod_empresa, rut, expediente , nombre, apellidos, fecha_nacimiento, calle, telefono, fono_urgencia, contraindicaciones, sexo, ciudad, fecha_ult_examen,curp,rfc) 
-  VALUES (".$_SESSION['empresa'].", '".$correPac."', '".$Expediente."','".$nombre."', '".$apellidos."', '".$theDate2."', '".$Direccion."', '".$Telefono."', '', '', '".$Sexo."', '1', CONVERT(DATETIME, GETDATE(), 103), '".$CitasCURP."', '".$CitasRFC."')";            
+  VALUES (".$_SESSION['empresa'].", '".$correPac."', '".$Expediente."','".$nombre."', '".$apellidos."', '".$fecha_de_nacimiento."', '".$Direccion."', '".$Telefono."', '', '', '".$Sexo."', '1', CONVERT(DATETIME, GETDATE(), 103), '".$CitasCURP."', '".$CitasRFC."')";            
   
   $rut=$correPac;
   // echo "<br>";
@@ -152,7 +152,7 @@ if ($fechan[1]!=""){
 	$fechamod=$com[2]."-".$com[1]."-".$com[0];
 	$fechan[0]= $fechamod;
 }
-$fecha_de_nacimiento = $fechan[0];
+//$fecha_de_nacimiento = $fechan[0];
 $fecha_actual = date ("Y-m-d");
 //$fecha_actual = date ("2006-03-05"); //para pruebas
 
@@ -356,7 +356,7 @@ die ("ERROR : No se puede ejecutar la consulta.2".odbc_errormsg().$sql_1);
 </tr>
 <tr class="Controls">
          <TD ALIGN="right" WIDTH=200> Nombre Completo: <?php echo $nombre." ".$apellidos;?></TD>
-         <td WIDTH=500>Fecha de Nacimiento: <?php echo $theDate2;?> </td>
+         <td WIDTH=500>Fecha de Nacimiento: <?php echo $fecha_de_nacimiento;?> </td>
          
 
          </tr>

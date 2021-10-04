@@ -28,6 +28,8 @@ $fecha=date('d/m/Y');
 <!--c-->
 <script language="javascript" type="text/javascript" src="librerias/ajax.js"></script>
 <script language="javascript" type="text/javascript" src="js/mambo.js"></script>
+<script language="javascript" type="text/javascript" src="js/atencion.js"></script>
+
 <script type="text/javascript">
 
 // ]]&gt;</script>
@@ -35,10 +37,7 @@ $fecha=date('d/m/Y');
 
 <title>**Atenciones**</title>
 <style type="text/css">
-	body{
 
-
-	}
 	#ad{
 		padding-top:220px;
 		padding-left:10px;
@@ -158,9 +157,13 @@ $fecha=date('d/m/Y');
           </tr> 
 
           <tr class="Controls">
-             
-            <td>Fecha de Nacimiento: </td><td><input style="width:100%; " type="text" id="Fecha" value="<?php echo $fecha;?>" name="theDate2"><img type="button" src="Styles/Core/Images/DatePicker.gif" onclick="displayCalendar(document.Citas.theDate2,'dd/mm/yyyy',this)"></td>
-            
+          <td class="th"><label for="edad">Edad:</label></td>
+          <td> <input type="text" id="edad" onChange="cmbioEdad()"></td>
+          
+          </tr>
+          <tr class="Controls">
+            <td class="th"><label for="Fecha">Fecha de nacimiento:</label></td>
+            <td><input style="width:50%; " type="text" id="Fecha" value="<?php echo $fecha;?>" name="theDate2"><img type="button" src="Styles/Core/Images/DatePicker.gif" onclick="displayCalendar(document.Citas.theDate2,'dd/mm/yyyy',this)"></td>
           </tr>
  
          <tr class="Controls">
