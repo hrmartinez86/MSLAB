@@ -383,14 +383,19 @@ global	$VL_Buscar;
 	/*gbrel*/
 	
 	/*Consulta a realizar 23 */
-	if($_GET['Secciond']==1)
+  if(isset($_GET['Secciond'])){ 
+    if($_GET['Secciond']==1)
 	{
 	$sql_1="EXECUTE SISTEMA_RESULTADOS_WEB_EDIT '".$VL_Buscar."'";
 	//echo $sql_1;
 	}
 	else
 	{$sql_1="EXECUTE SISTEMA_RESULTADOS_WEB_EDITXSEC @X_IDPACIENTE='".$VL_Buscar."',@SECCION='".$SEC."' ";}
-	
+  }
+  else
+  { 
+    $sql_1="EXECUTE SISTEMA_RESULTADOS_WEB_EDIT '".$VL_Buscar."'";
+  }
 	$i=0;
 	// echo $sql_1;
 	$query_result=odbc_exec($db_conn,$sql_1) or 
@@ -827,71 +832,9 @@ global	$VL_Buscar;
         {
            ?>
             <BODY class=main text=#45acf6 vLink=#aaaaaa link=#45acf6 bgColor=black leftMargin=0 topMargin=0 marginheight="0" marginwidth="0">
-            <h1 align="center" class="Estilo5"><br>
-            ESTUDIOS PENDIENTES </h1><br>
+            
             <div align="center">
-            <table width="90%" height="56" aling="center" border="1">
-            <tr>
-                <td><div align="center">
-                <?php 
-                  if ($_GET['t']==3)
-                  {
-                  	 //echo $paciente[0];
-                  	 //echo $idpac;
-                  	if ($idpac=="")
-                  	 {$pac=$paciente[0];}
-                  	 else
-                  	 {$pac=$idpac;}
-//                  	 echo $pac;
-                  	$sql="SELECT     caj_codigos_fonasa.codigo_fonasa AS Codigo, caj_codigos_fonasa.nombre AS nombre
-FROM         lab_RLS_perfiles INNER JOIN
-                      lab_relacion_laboratorio_seccion ON lab_RLS_perfiles.cod_llave = lab_relacion_laboratorio_seccion.cod_llave INNER JOIN
-                      lab_relac_fonasa_perfil ON lab_RLS_perfiles.llave_perfil = lab_relac_fonasa_perfil.llave_perfil INNER JOIN
-                      caj_det_prestaciones INNER JOIN
-                      caj_codigos_fonasa ON caj_det_prestaciones.llave_fonasa = caj_codigos_fonasa.llave_fonasa ON 
-                      lab_relac_fonasa_perfil.codigo_fonasa = caj_codigos_fonasa.codigo_fonasa
-WHERE     (caj_det_prestaciones.idpaciente = '".$pac."') AND (caj_det_prestaciones.LIBERADO = 'N')";
-                  	//echo $sql;
-                   if($_GET['Seccion']!="")
-                   {
-                   	$sql=" SELECT     caj_codigos_fonasa.codigo_fonasa AS Codigo, caj_codigos_fonasa.nombre AS nombre
-FROM         lab_RLS_perfiles INNER JOIN
-                      lab_relacion_laboratorio_seccion ON lab_RLS_perfiles.cod_llave = lab_relacion_laboratorio_seccion.cod_llave INNER JOIN
-                      lab_relac_fonasa_perfil ON lab_RLS_perfiles.llave_perfil = lab_relac_fonasa_perfil.llave_perfil INNER JOIN
-                      caj_det_prestaciones INNER JOIN
-                      caj_codigos_fonasa ON caj_det_prestaciones.llave_fonasa = caj_codigos_fonasa.llave_fonasa ON 
-                      lab_relac_fonasa_perfil.codigo_fonasa = caj_codigos_fonasa.codigo_fonasa
-WHERE     (caj_det_prestaciones.idpaciente = '".$pac."') AND (caj_det_prestaciones.LIBERADO = 'N') AND (lab_relacion_laboratorio_seccion.cod_llave = '".$_GET['Seccion']."')";
-                   	
-                   	//echo $sql;
-                   }
-                  }
-                  else
-                  {
-            	  if ($idpac=="")
-            	  {$sql="SELECT     caj_codigos_fonasa.codigo_fonasa AS Codigo, caj_codigos_fonasa.nombre AS nombre FROM         caj_det_prestaciones INNER JOIN caj_codigos_fonasa ON caj_det_prestaciones.llave_fonasa = caj_codigos_fonasa.llave_fonasa WHERE     (caj_det_prestaciones.idpaciente = '".$paciente[0]."') AND (caj_det_prestaciones.LIBERADO = 'N')";}
-            	  else
-            	  
-            	  {$sql="SELECT     caj_codigos_fonasa.codigo_fonasa AS Codigo, caj_codigos_fonasa.nombre AS nombre FROM         caj_det_prestaciones INNER JOIN caj_codigos_fonasa ON caj_det_prestaciones.llave_fonasa = caj_codigos_fonasa.llave_fonasa WHERE     (caj_det_prestaciones.idpaciente = '".$idpac."') AND (caj_det_prestaciones.LIBERADO = 'N')";}
-			      
-                  }
-                 //echo $sql; 
-            	  $query=odbc_exec($db_conn,$sql);
-			      
-			      while ($result=odbc_fetch_array($query))
-			          {
-			        	 echo "<p><font>".$result['Codigo']." - ".$result['nombre']."</font></p>";
-			          }	
-			          
-               ?>
-                  
-                  
-                </div></td>
-            </tr>
-            <tr>
-                
-            </tr>
-            </table>
+
             </div>
  <?php
         } 
