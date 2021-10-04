@@ -133,6 +133,10 @@ if(isset($_GET['FI']) and isset($_GET['ff']))
                   <td><a href="tipoPaciente.php" id="tipoPaciente"><img height="80" width="80" src="images/botones/doctor.jpeg"</a></td>
                   <td>Tipo Paciente</td>
               </tr>
+			  <tr>
+                  <td><a href="procedenciaMuestra.php" id="procedenciaMuestra"><img height="80" width="80" src="images/botones/doctor.jpeg"</a></td>
+                  <td>Procedencia de la muestra</td>
+              </tr>
               <tr>
                   <td><a href="Usuarios.php" id="Usuarios"><img height="80" width="80" src="images/botones/usuarios.png"</a></td>
                   <td>Usuarios</td>
