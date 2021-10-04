@@ -40,11 +40,11 @@ $sql_1="Select max(llave_doctor)as llave_doctor from dat_doctores ";
                                 $llave_doctor=$result["llave_doctor"]+1;   	
 		            }	
 
-$sql_1="INSERT INTO dat_doctores (codigo, nombre, apellidos,llave_doctor,clase)   
-       VALUES (
+$sql_1="INSERT INTO lab_tipo_paciente (cod_empresa, codigo, descripcion ,clase,cod_imss)   
+       VALUES (1,
            '".$Codigo."', 
            '".$Nombre."', 
-           '".$Apellidos."',".$llave_doctor.",'B')"; 
+           'B','')"; 
 //   echo $sql_1; 
   $query_result=odbc_exec($db_conn,$sql_1) or 
 die ("ERROR : No se puede ejecutar la consulta.");
@@ -99,7 +99,7 @@ die ("ERROR : No se puede ejecutar la consulta.");
         <table class="Header" border="0" cellspacing="0" cellpadding="0">
           <tr>
               <td class="HeaderLeft"><img border="0" alt="" src="WEB/Styles/Core/Images/Spacer.gif"></td> 
-            <td class="th"><strong>Doctor Ingresado</strong></td> 
+            <td class="th"><strong>Tipo de paciente ingresado</strong></td> 
             <td class="HeaderRight"><img border="0" alt="" src="WEB/Styles/Core/Images/Spacer.gif"></td>
           </tr>
         </table>
@@ -107,8 +107,8 @@ die ("ERROR : No se puede ejecutar la consulta.");
           <table width="40" height="200" cellpadding="0" cellspacing="0" class="Record">
           
           <tr class="Controls">
-              <td class="th"><label for="CitasNombres">M&eacute;dico:</label></td> 
-            <td><h3  size="70"><?php echo $Apellidos . ' ' . $Nombre; ?></td>
+              <td class="th"><label for="CitasNombres">Tipo de paciente:</label></td> 
+            <td><h3  size="70"><?php echo  $Nombre; ?></td>
             <td></td>
           </tr>
           
@@ -123,10 +123,7 @@ die ("ERROR : No se puede ejecutar la consulta.");
 <p>
   <!-- END Record Citas -->
 </p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp; </p>
+
 
 </body>
 

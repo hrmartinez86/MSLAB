@@ -27,7 +27,7 @@ $fecha=date('d/m/Y');
 <script language="javascript" type="text/javascript" src="librerias/ajax.js"></script>
 <script language="javascript" type="text/javascript" src="js/mambo.js"></script>
 <meta content="text/html; charset=windows-1252" http-equiv="content-type">
-<title>**Creaci�n de doctores**</title>
+<title>**Creación del tipo de paciente**</title>
 <style type="text/css">
 	body{
 		/*
@@ -70,7 +70,7 @@ $fecha=date('d/m/Y');
           <table align="center" class="Header" border="0" cellspacing="0" cellpadding="0">
           <tr>
               <td class="HeaderLeft"><img border="0" alt="" src="WEB/Styles/Core/Images/Spacer.gif"></td> 
-            <td class="th"><strong>Doctores</strong></td> 
+            <td class="th"><strong>Tipo de Paciente</strong></td> 
             <td class="HeaderRight"><img border="0" alt="" src="WEB/Styles/Core/Images/Spacer.gif"></td>
           </tr>
         </table>
@@ -83,23 +83,16 @@ $fecha=date('d/m/Y');
             <td></td>
           </tr>
           <tr class="Controls">
-            <td class="th"><label for="CitasNombres">Nombres:</label></td> 
+            <td class="th"><label for="CitasNombres">Descripción:</label></td> 
             <td><input name="nombre" id="CitasNombres" value="" size="70"></td>
             <td></td>
           </tr>
- 
-          <tr class="Controls">
-            <td class="th"><label for="CitasApellidos">Apellidos:</label></td> 
-            <td><input name="apellidos" id="CitasApellidos" value="" size="70"></td>
-            <td></td>
-          </tr>
 
-  		
-            </table>
+        </table>
 </form>
 <table align="center">
     <tr>
-        <td><input value="Guardar" type="button" src="WEB/img/icons/bguardatencion.jpg" onClick="GuardaDoctor()" /></td>
+        <td><input value="Guardar" type="submit" src="WEB/img/icons/bguardatencion.jpg" /></td>
     </tr>
 </table>
 <p>
