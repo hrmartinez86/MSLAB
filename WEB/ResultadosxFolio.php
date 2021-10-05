@@ -43,14 +43,7 @@ while ($result=odbc_fetch_array($query))
 <meta content="text/html; charset=windows-1252" http-equiv="content-type">
 <title>**Impresi&oacute;n de Resultados**</title>
 <style type="text/css">
-	body{
-		/*
-		You can remove these four options 
-		
-		*/
-		
 
-	}
 	#ad{
 		padding-top:220px;
 		padding-left:10px;
@@ -94,12 +87,13 @@ while ($result=odbc_fetch_array($query))
             <td class="th"><strong>Nombre del Paciente:</strong></td> 
             <td class="HeaderRight"><img border="0" alt="" src="WEB/Styles/Core/Images/Spacer.gif"></td>
             <td class="th"><strong><?php echo $nombre;?></strong></td> 
+            
           </tr>
         </table>
         </table>
         <br></br>
 
-<form id="Lista" name="Lista" method="GET" action="MasterImp.php">
+<form id="Lista" name="Lista" method="POST" action="MasterImp.php">
 <table border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td valign="top">
@@ -108,7 +102,8 @@ while ($result=odbc_fetch_array($query))
             <td class="HeaderLeft"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td> 
             <td class="th"><strong>Estudios </strong></td> 
             <td class="HeaderRight"><img bordber="0" alt="" src="Styles/Core/Images/Spacer.gif"></td>
-
+            <td class="th"><input type="text" value="<?php echo $nombre;?>" name="nombrePaciente" id="nombrePaciente"></td>
+            <td class="th"><input type="text" value="<?php echo $folio;?>" id="folioPaciente"></td>
           </tr>
         </table>
  
@@ -121,38 +116,45 @@ while ($result=odbc_fetch_array($query))
            <td>|   Descripcion</td>
            <td>|   Imprime Todos<input type="checkbox" onclick="check()" name="todos" > </td>
           </tr>
-          <?php $sql="select cdp.llave_fonasa,cf.codigo_fonasa,cf.nombre as nombre_prestacion, cdp.idpaciente from caj_det_prestaciones cdp
+          <?php $sql="select cdp.llave_fonasa,cf.codigo_fonasa,cf.nombre as nombre_prestacion, cdp.idpaciente,cdp.liberado 
+           from caj_det_prestaciones cdp
 inner join caj_codigos_fonasa cf on cf.llave_fonasa=cdp.llave_fonasa
 where idpaciente='".$idpaciente."'";
           $query=odbc_exec($conection,$sql);  
-          
+          echo $sql;
           $i=0;
+            
 			      while ($result=odbc_fetch_array($query))
 			          {
 			          	$codigos[$i]=$result['llave_fonasa'];
 			          	 		
-			          	
+			          
 			        	$llave=$result['codigo_fonasa'];
 			        	$id=$result['idpaciente'];
 			        	$llave_fonasa=$result['llave_fonasa'];
+                $examenes[]=array('codigo'=>$result['codigo_fonasa'],'nombre'=>$result['nombre_prestacion'],'llave'=>$result['llave_fonasa']);
 			          	?>
 			          	<tr class="Controls">
              
-                         <td><input type="hidden" value="<?php echo $codigos[$i];?>" name="curvas"/><?php echo $llave;?></td>
+                         <td><input type="text" value="<?php echo $codigos[$i];?>" name="curvas"/><?php echo $llave;?></td>
                          <td><?php echo $result['nombre_prestacion'];?></td>
-                         <td ><input   type="checkbox" name="option" align="middle" value="<?php echo $result['LIBERADO'];?>" <?php if ($result['LIBERADO']=='N'){echo "disabled";} else {echo "enabled";}?>> </td>
+                         <?php echo "<script> console.log('". $result['liberado']."');</script>";?>
+                         <td ><input   type="checkbox" name="option" align="middle" value="<?php echo $result['liberado'];?>" <?php if ($result['liberado']=='N'){echo "disabled";} ?>> </td>
                        </tr>
                        <?php 
 			        	$i=$i+1;
-			          }?>
+			          }
+                
+                $_SESSION['examenes']=$examenes;
+                ?>
 			          <tr>
                                       <td><div type="hidden" id="resultado"></div></td>
-          <td><input type="button" value="Imprimir" onclick="imp()"/></td>
+          <td><input type="submit" value="Imprimir" onclick="imp()"/></td>
           
           </tr>
-                      <tr><td><input type="hidden" value="<?php echo $id;?>" name="i" id="idpac"/></td>
-			          <td><input type="hidden" value="<?php echo $llave;?>" name="llave" /></td></tr>
-			          <td><input type="hidden" value="<?php echo $llave_fonasa;?>" name="lf" id="lf" /></td></tr>
+                <tr><td><input type="text" value="<?php echo $id;?>" name="i" id="idpac"/></td>
+			          <td><input type="text" value="<?php echo $llave;?>" name="llave" /></td></tr>
+			          <td><input type="text" value="<?php echo $llave_fonasa;?>" name="lf" id="lf" /></td></tr>
           </table>
           
           </table>
