@@ -102,8 +102,8 @@ while ($result=odbc_fetch_array($query))
             <td class="HeaderLeft"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td> 
             <td class="th"><strong>Estudios </strong></td> 
             <td class="HeaderRight"><img bordber="0" alt="" src="Styles/Core/Images/Spacer.gif"></td>
-            <td class="th"><input type="text" value="<?php echo $nombre;?>" name="nombrePaciente" id="nombrePaciente"></td>
-            <td class="th"><input type="text" value="<?php echo $folio;?>" id="folioPaciente"></td>
+            <td class="th"><input type="hidden" value="<?php echo $nombre;?>" name="nombrePaciente" id="nombrePaciente"></td>
+            <td class="th"><input type="hidden" value="<?php echo $folio;?>" id="folioPaciente"></td>
           </tr>
         </table>
  
@@ -121,7 +121,7 @@ while ($result=odbc_fetch_array($query))
 inner join caj_codigos_fonasa cf on cf.llave_fonasa=cdp.llave_fonasa
 where idpaciente='".$idpaciente."'";
           $query=odbc_exec($conection,$sql);  
-          echo $sql;
+          
           $i=0;
             
 			      while ($result=odbc_fetch_array($query))
@@ -136,7 +136,7 @@ where idpaciente='".$idpaciente."'";
 			          	?>
 			          	<tr class="Controls">
              
-                         <td><input type="text" value="<?php echo $codigos[$i];?>" name="curvas"/><?php echo $llave;?></td>
+                         <td><input type="hidden" value="<?php echo $codigos[$i];?>" name="curvas"/><?php echo $llave;?></td>
                          <td><?php echo $result['nombre_prestacion'];?></td>
                          <?php echo "<script> console.log('". $result['liberado']."');</script>";?>
                          <td ><input   type="checkbox" name="option" align="middle" value="<?php echo $result['liberado'];?>" <?php if ($result['liberado']=='N'){echo "disabled";} ?>> </td>
@@ -152,9 +152,9 @@ where idpaciente='".$idpaciente."'";
           <td><input type="submit" value="Imprimir" onclick="imp()"/></td>
           
           </tr>
-                <tr><td><input type="text" value="<?php echo $id;?>" name="i" id="idpac"/></td>
-			          <td><input type="text" value="<?php echo $llave;?>" name="llave" /></td></tr>
-			          <td><input type="text" value="<?php echo $llave_fonasa;?>" name="lf" id="lf" /></td></tr>
+                <tr><td><input type="hidden" value="<?php echo $id;?>" name="i" id="idpac"/></td>
+			          <td><input type="hidden" value="<?php echo $llave;?>" name="llave" /></td></tr>
+			          <td><input type="hidden" value="<?php echo $llave_fonasa;?>" name="lf" id="lf" /></td></tr>
           </table>
           
           </table>
