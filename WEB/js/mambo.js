@@ -349,27 +349,33 @@ function imp()
 	var llaves=document.getElementsByName('curvas');
 	var i=0;
 	var llave='';
-
+	var id=document.getElementById('idpac').value; 
+	const keyExam=[];
 	 for (x=0;x<che.length;x++)
 		{
 			if(che[x].checked)
 			
-				{i=1;
-				var id=document.getElementById('idpac').value; 
-				var llave=llave + llaves[x].value + '-';
-                                //hrmd(17/04/2017)
-                                //colocamos la fecha de entrega
-                                actualiza_fecha(id,llaves[x].value);
-				var lf=llaves[x].value;
+				{
+					i=1;
+					
+					keyExam.push(llaves[x].value);
+
+					var llave=llave + llaves[x].value + '-';
+
+					actualiza_fecha(id,llaves[x].value);
+
+					var lf=llaves[x].value;
 				}
 			
 		}
 
 if (i==1)
 {	
-
+	doc="A QUIEN CORRESPONDA";
 	//console.log('../Core/MasterImp.php?i='+ id +'&llave=' + llave + '&lf=' + lf,'' ,'width=600,height=500');
-	 x=open('MasterImp.php?i='+ id +'&llave=' + llave + '&lf=' + lf,'' ,'width=600,height=500');
+
+	console.Lista.submit();
+	//  x=open('MasterImp.php?i='+ id + '&lf=' + keyExam + '&doc=' + doc,'' ,'width=600,height=500');
  
 }
 else

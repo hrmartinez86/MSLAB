@@ -1,7 +1,7 @@
 <?php
 session_start();
-$nombre='prueba';
-$examenes=array("2"=>"biometria");
+$examenes=$_SESSION['examenes'];
+$idPaciente=$_POST['i'];
 require('FPDF/fpdf.php');
 define ('FPDF_FONTPATH','FPDF/font/');
 class PDF extends FPDF
@@ -10,6 +10,8 @@ protected $col = 0; // Columna actual
 protected $y0;      // Ordenada de comienzo de la columna
 
     function encabezado(){
+		$nombre=$_POST['nombrePaciente'];
+		$doctor=$_GET['doc'];
         $this->WriteText('LABORATORIO SALAS FERNANDEZ',210,5,'B',13,'Arial',true);
         $this->WriteText('QUIMICO RESPONSABLE',210,5,'',10,'Arial',true);
         $this->WriteText('Q.F.B. GERARDO SALAS FERNANDEZ',210,5,'B',10,'Arial',true);
@@ -23,8 +25,12 @@ protected $y0;      // Ordenada de comienzo de la columna
         
         $hoy=utf8_decode($diassemana[date('w')])." ".date('d')." de ".$meses[date('n')-1]. " del ".date('Y') . " " . date('g:ia') ;
         $this->WriteText($hoy,130,6,'',10,'Arial',false);
-
-        
+		$this->WriteText("NOMBRE DEL PACIENTE:".$nombre,10,10,'B',12,'Arial',false);
+		$this->WriteText("NOMBRE DEL DOCTOR:".$doctor,10,6,'B',12,'Arial',false);
+		$x1=5;
+		$x2=200;
+		$y1=$this->GetY();
+		$this->Line($x1,  $y1,  $x2, $y1);
     }
     function Header()
     {    
@@ -38,7 +44,13 @@ protected $y0;      // Ordenada de comienzo de la columna
 
     function Footer()
     {
-        
+		
+		$this->SetY(-15);
+        $this->WriteText(utf8_decode('Q.F.B. Gerardo Salas Fernández'),140,0,'',10,'Arial',false);
+		$this->SetY(-11);
+		$this->WriteText('UNE D.G.P. Num.2530411',145,0,'',10,'Arial',false);
+		$this->SetY(-7);
+		$this->WriteText('S.S. 20303',160,0,'',10,'Arial',false);
     }
 
     function SetCol($col)
@@ -89,34 +101,42 @@ protected $y0;      // Ordenada de comienzo de la columna
     {
         $this->SetFont('Arial','',12);
         $this->SetFillColor(208,211,212);
-        $this->Cell(0,6,"Nombre del paciente : $label",0,1,'C',true);
-        $this->Ln(4);
+        $this->Cell(0,6,$label,0,10,'',true);
+        $this->Ln(0);
         // Guardar ordenada
         $this->y0 = $this->GetY();
     }
 
-    function ChapterBody($examenes)
+    function ChapterConten($llave,$idPaciente)
+    {
+        $this->WriteText('glucosa',5,6,'',10,'Arial',false);
+        $this->WriteText('urea',5,6,'',10,'Arial',false);
+    }
+
+    function ChapterBody($examenes,$idPaciente)
     {
         // Fuente
         $this->SetFont('Times','',12);
         $this->SetX(90);
         $x=count($examenes);
         $this->Ln(8);
+        $this->WriteText($x,9,6,'',10,'Arial',false);
         
-        foreach($examenes as $x => $x_value) {
-            
-            $this->WriteText($x_value ,40,8,'B',12,'Arial',false);
-
+        for ($i=0; $i <$x ; $i++) { 
+            //nombre del estudio
+            $this->ChapterTitle($examenes[$i]['nombre']);
+            //pruebas en el estudio
+            $this->ChapterConten($examenes[$i]['llave'],$idPaciente);
         }
+        
         
     }
 
-    function PrintChapter($title, $examenes)
+    function PrintChapter($title, $examenes,$idPaciente)
     {
         // Añadir capítulo
-        
-        $this->ChapterTitle($title);
-        $this->ChapterBody($examenes);
+
+        $this->ChapterBody($examenes,$idPaciente);
         
     }
 }
@@ -124,12 +144,16 @@ protected $y0;      // Ordenada de comienzo de la columna
 $pdf = new PDF();
 
 $pdf->SetAuthor('MSLAB');
+//descomponer el array de los estudios
 $pdf->AddPage();
-$pdf->PrintChapter($nombre,$examenes);
-$pdf->SetY(140);
-// $pdf->Image('images/logo_laboratorio.jpeg',10,135,40,0,'JPEG');
-// $pdf->encabezado();
-// $pdf->PrintChapter($nombre,$examenes);
-// $pdf->SetY(160);
+//$pdf->WriteText($examenes,10,6,'',10,'Arial',false);
+
+$examen=explode(",",$examenes);
+$y=$pdf->GetY();
+$pdf->SetY($y+5);
+
+$pdf->PrintChapter($title,$examenes,$idPaciente);
+
 $pdf->Output();
+
 ?>
