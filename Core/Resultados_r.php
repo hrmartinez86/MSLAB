@@ -435,13 +435,14 @@ global	$VL_Buscar;
         <!--  <TD bgColor=#000000 height=419 vAlign=top width="9%"> -->
              <TABLE align=center border=0 cellPadding=0 cellSpacing=0 height=100 width="98%">
             <TBODY>
+
             <TR>
                <TD height=2 vAlign=top>&nbsp;</TD>
             </TR>
             <TR>
                <TD vAlign=top>
                   <TABLE border=1 borderColor=#5c7ec3 cellPadding=0 cellSpacing=3 width="100%">
-                  
+
                     <TBODY> 
                     <TR> 
                       <TD>
