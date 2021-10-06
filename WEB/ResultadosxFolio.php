@@ -132,23 +132,25 @@ where idpaciente='".$idpaciente."'";
 			        	$llave=$result['codigo_fonasa'];
 			        	$id=$result['idpaciente'];
 			        	$llave_fonasa=$result['llave_fonasa'];
-                $examenes[]=array('codigo'=>$result['codigo_fonasa'],'nombre'=>$result['nombre_prestacion'],'llave'=>$result['llave_fonasa']);
+                
 			          	?>
 			          	<tr class="Controls">
              
-                         <td><input type="hidden" value="<?php echo $codigos[$i];?>" name="curvas"/><?php echo $llave;?></td>
-                         <td><?php echo $result['nombre_prestacion'];?></td>
-                         <?php echo "<script> console.log('". $result['liberado']."');</script>";?>
-                         <td ><input   type="checkbox" name="option" align="middle" value="<?php echo $result['liberado'];?>" <?php if ($result['liberado']=='N'){echo "disabled";} ?>> </td>
-                       </tr>
-                       <?php 
+                    <td><input type="hidden" value="<?php echo $codigos[$i];?>" name="curvas"/><?php echo $llave;?></td>
+                    <td><?php echo $result['nombre_prestacion'];?></td>
+                    <?php echo "<script> console.log('". $result['liberado']."');</script>";?>
+                    <td ><input   type="checkbox" name="option" align="middle" value="
+                    <?php echo $result['liberado'];?>" 
+                    <?php if ($result['liberado']=='N'){echo "disabled";}else{$examenes[]=array('codigo'=>$result['codigo_fonasa'],'nombre'=>$result['nombre_prestacion'],'llave'=>$result['llave_fonasa']);} ?>> </td>
+                  </tr>
+                  <?php 
 			        	$i=$i+1;
 			          }
                 
                 $_SESSION['examenes']=$examenes;
                 ?>
 			          <tr>
-                                      <td><div type="hidden" id="resultado"></div></td>
+                <td><div type="hidden" id="resultado"></div></td>
           <td><input type="submit" value="Imprimir" onclick="imp()"/></td>
           
           </tr>

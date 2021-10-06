@@ -3,6 +3,7 @@ session_start();
 $examenes=$_SESSION['examenes'];
 $idPaciente=$_POST['i'];
 require('FPDF/fpdf.php');
+require('modules/consultas.php');
 define ('FPDF_FONTPATH','FPDF/font/');
 class PDF extends FPDF
 {
@@ -109,8 +110,8 @@ protected $y0;      // Ordenada de comienzo de la columna
 
     function ChapterConten($llave,$idPaciente)
     {
-        $this->WriteText('glucosa',5,6,'',10,'Arial',false);
-        $this->WriteText('urea',5,6,'',10,'Arial',false);
+
+        $this->WriteText($llave,5,6,'',10,'Arial',false);
     }
 
     function ChapterBody($examenes,$idPaciente)

@@ -397,7 +397,7 @@ global	$VL_Buscar;
     $sql_1="EXECUTE SISTEMA_RESULTADOS_WEB_EDIT '".$VL_Buscar."'";
   }
 	$i=0;
-	// echo $sql_1;
+	echo $sql_1;
 	$query_result=odbc_exec($db_conn,$sql_1) or 
 			die ("ERROR : No se puede ejecutar la consulta.".odbc_errormsg()."<br>".$sql_1);
 	if (odbc_num_rows($query_result)!=0)
@@ -435,13 +435,14 @@ global	$VL_Buscar;
         <!--  <TD bgColor=#000000 height=419 vAlign=top width="9%"> -->
              <TABLE align=center border=0 cellPadding=0 cellSpacing=0 height=100 width="98%">
             <TBODY>
+
             <TR>
                <TD height=2 vAlign=top>&nbsp;</TD>
             </TR>
             <TR>
                <TD vAlign=top>
                   <TABLE border=1 borderColor=#5c7ec3 cellPadding=0 cellSpacing=3 width="100%">
-                  
+
                     <TBODY> 
                     <TR> 
                       <TD>
