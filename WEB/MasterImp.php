@@ -4,6 +4,7 @@ $examenes=$_SESSION['examenes'];
 $idPaciente=$_POST['i'];
 require('FPDF/fpdf.php');
 require('modules/consultas.php');
+include("librerias/conection.php");
 define ('FPDF_FONTPATH','FPDF/font/');
 class PDF extends FPDF
 {
@@ -103,15 +104,27 @@ protected $y0;      // Ordenada de comienzo de la columna
         $this->SetFont('Arial','',12);
         $this->SetFillColor(208,211,212);
         $this->Cell(0,6,$label,0,10,'',true);
-        $this->Ln(0);
+        $this->Ln(6);
         // Guardar ordenada
         $this->y0 = $this->GetY();
     }
 
     function ChapterConten($llave,$idPaciente)
     {
-
-        $this->WriteText($llave,5,6,'',10,'Arial',false);
+        
+        $examArray=resultados($llave,$idPaciente);
+        // $this->WriteText(count($examArray),15,6,'',10,'Arial',false);
+        for ($i=0;$i<count($examArray);$i++)
+        {
+            if($examArray[$i]['Res']!=''){
+                $this->WriteText($examArray[$i]['Info'],5,0,'',10,'Arial',false);
+                $this->WriteText($examArray[$i]['Res'],100,0,'',10,'Arial',false);
+                $this->WriteText($examArray[$i]['Res'],100,0,'',10,'Arial',false);
+                $this->WriteText($examArray[$i]['um'],140,0,'',10,'Arial',false);
+                $this->Ln(6);
+            }
+        }
+        // $this->WriteText($llave,5,6,'',10,'Arial',false);
     }
 
     function ChapterBody($examenes,$idPaciente)
@@ -121,7 +134,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         $this->SetX(90);
         $x=count($examenes);
         $this->Ln(8);
-        $this->WriteText($x,9,6,'',10,'Arial',false);
+        // $this->WriteText($x,9,6,'',10,'Arial',false);
         
         for ($i=0; $i <$x ; $i++) { 
             //nombre del estudio

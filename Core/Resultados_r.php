@@ -397,7 +397,7 @@ global	$VL_Buscar;
     $sql_1="EXECUTE SISTEMA_RESULTADOS_WEB_EDIT '".$VL_Buscar."'";
   }
 	$i=0;
-	echo $sql_1;
+	// echo $sql_1;
 	$query_result=odbc_exec($db_conn,$sql_1) or 
 			die ("ERROR : No se puede ejecutar la consulta.".odbc_errormsg()."<br>".$sql_1);
 	if (odbc_num_rows($query_result)!=0)
