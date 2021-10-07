@@ -21,7 +21,9 @@
                     { 
                         $I_Info[]=array('Info'=>$row['DESC_PRU'],
                                         'Res'=>$row['RESULTADO'],
-                                        'um'=>$row['UNIDADES_MEDIDA']);
+                                        'um'=>$row['UNIDADES_MEDIDA'],
+                                        'vd'=>$row['VALOR_DESDE'],
+                                        'vh'=>$row['VALOR_HASTA']);
                         //echo "<script> console.log('".$row['DESRESULTADOC_PRU']."');</script>";
                     }
         return $I_Info;	

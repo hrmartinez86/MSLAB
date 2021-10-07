@@ -297,6 +297,7 @@ die ("ERROR : No se puede ejecutar la consulta.2".odbc_errormsg().$sql_1);
                             $query_result=odbc_exec($db_conn,$sql_1) or 
 		       	    die ("ERROR : No se puede ejecutar la consulta.5".odbc_errormsg());
 		            $sql_1="SELECT llave_perfil From lab_relac_fonasa_perfil Where llave_fonasa = ".$llave;
+                echo $sql_1;
 		            $query_result=odbc_exec($db_conn,$sql_1) or 
 			        die ("ERROR : No se puede ejecutar la consulta.6".odbc_errormsg());
 			        while($result=odbc_fetch_array($query_result))
@@ -307,7 +308,7 @@ die ("ERROR : No se puede ejecutar la consulta.2".odbc_errormsg().$sql_1);
 		            //echo $perfil." " ;
 		            $sql_1="Execute x_Sistema_Busca_Detalle_Perfil @xllave_per =".$perfil;
 		            $query_result=odbc_exec($db_conn,$sql_1) or 
-			        die ("ERROR : No se puede ejecutar la consulta.7");
+			        die ("ERROR : No se puede ejecutar la consulta.".odbc_errormsg().$sql_1);
 			        while($result=odbc_fetch_array($query_result))
 			        {
 			        	$sql_1="INSERT INTO dat_dpcod (dat_dpcod.perfil, dat_dpcod.Llave_Perfil, dat_dpcod.prueba, dat_dpcod.Llave_prueba, dat_dpcod.cod_empresa, dat_dpcod.Idpaciente, dat_dpcod.usuario, dat_dpcod.fecha_creacion, dat_dpcod.resultado) 

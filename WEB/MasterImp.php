@@ -121,6 +121,8 @@ protected $y0;      // Ordenada de comienzo de la columna
                 $this->WriteText($examArray[$i]['Res'],100,0,'',10,'Arial',false);
                 $this->WriteText($examArray[$i]['Res'],100,0,'',10,'Arial',false);
                 $this->WriteText($examArray[$i]['um'],140,0,'',10,'Arial',false);
+                $this->WriteText($examArray[$i]['vd']." - ".$examArray[$i]['vh'],160,0,'',10,'Arial',false);
+                
                 $this->Ln(6);
             }
         }
