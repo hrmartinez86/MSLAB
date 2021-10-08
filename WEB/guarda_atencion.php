@@ -43,18 +43,9 @@ include ('Librerias/conection.php');    //ESTABLACE LA CADENA DE CONEXION CON EL
   $_SESSION['nombre']=$nombre;
   $_SESSION['doctor']=$Doctor;
   echo '<script>';
-  echo 'console.log('. json_encode( $Tipo ) .');';
-  
-  echo "console.log(". json_encode( $Doctor ) .");";
-  
-  echo 'console.log('. json_encode( $Expediente ) .');';
-  
-  echo 'console.log('. json_encode( $Sexo ) .');';
-  echo 'console.log('. json_encode( $nombre ) .');';
-  echo 'console.log('. json_encode( $fecha_de_nacimiento ) .');';
+
   echo 'console.log('. json_encode( $examenes ) .');';
-  echo 'console.log('. json_encode( $hoy ) .');';
-  echo 'console.log('. json_encode( $CitasProcedencia ) .');';
+
   echo '</script>';
 
   //creamos el array
@@ -103,21 +94,15 @@ else
 	$sql_1="UPDATE CAJ_CORRELATIVOS SET CORRELATIVO_PACIENTES =".$correcPac;
   $query_result=odbc_exec($db_conn,$sql_1) or 
 	die ("ERROR : No se puede ejecutar la consulta.");
-  // echo "<br>";
-  // echo $sql_1;
-  // echo "<br>";
-	// echo $_SESSION['empresa']."d";	
+
 	$sql_1="INSERT INTO dat_paciente (cod_empresa, rut, expediente , nombre, apellidos, fecha_nacimiento, calle, telefono, fono_urgencia, contraindicaciones, sexo, ciudad, fecha_ult_examen,curp,rfc) 
   VALUES (".$_SESSION['empresa'].", '".$correPac."', '".$Expediente."','".$nombre."', '".$apellidos."', '".$fecha_de_nacimiento."', '".$Direccion."', '".$Telefono."', '', '', '".$Sexo."', '1', CONVERT(DATETIME, GETDATE(), 103), '".$CitasCURP."', '".$CitasRFC."')";            
   
   $rut=$correPac;
-  // echo "<br>";
-  // echo $rut;
+
   $query_result=odbc_exec($db_conn,$sql_1) or 
   die ("ERROR : No se puede ejecutar la consulta_PACIENTE.");
-  // echo '<script>';
-  // echo 'console.log('. json_encode( $sql_1 ) .')';
-  // echo '</script>';
+
 }
 ///aumento el correlativo de la atencion
 $sql_1="SELECT par_correlativo FROM lab_parametros_sistema WHERE cod_empresa =".$_SESSION['empresa'];
@@ -281,8 +266,6 @@ function bisiesto($anio_actual){
 die ("ERROR : No se puede ejecutar la consulta.2".odbc_errormsg().$sql_1);
 		        for($i=1;$i<=$j;$i++){
                     //--Para el Ingreso de los Estudios                 
-                	
-                	
 		            $sql_1="SELECT llave_fonasa FROM CAJ_codigos_fonasa where codigo_fonasa='".$ex[$i-1]."'";
                     $query_result=odbc_exec($db_conn,$sql_1) or 
 			        die ("ERROR : No se puede ejecutar la consulta.4");
@@ -291,12 +274,14 @@ die ("ERROR : No se puede ejecutar la consulta.2".odbc_errormsg().$sql_1);
 		              $llave=$result["llave_fonasa"];
 		              echo "<script> console.log(".$llave.");</script>";
 		            }	
+
+                ///hay que evaluar si es una agrupación
 		            $sql_1="INSERT INTO CAJ_DET_PRESTACIONES (cod_empresa,IDPACIENTE, ID, LLAVE_FONASA, VALOR_PARTICULAR, VALOR_PREVISION, VALOR_PAGADO, USUARIO_CREACION, FECHA_ENTREGA, URGENTE, FECHA_CREACION,LIBERADO) 
 		            VALUES (".$_SESSION['empresa'].", '".$idpaciente."', ".$i.", ".$llave.", 0, 0, 0, '".$_SESSION['nivel']."', '".$fecha."', '', CONVERT(DATETIME, GETDATE(), 103),'N' )";
-		            // echo $sql_1;
                             $query_result=odbc_exec($db_conn,$sql_1) or 
 		       	    die ("ERROR : No se puede ejecutar la consulta.5".odbc_errormsg());
 		            $sql_1="SELECT llave_perfil From lab_relac_fonasa_perfil Where llave_fonasa = ".$llave;
+
 		            $query_result=odbc_exec($db_conn,$sql_1) or 
 			        die ("ERROR : No se puede ejecutar la consulta.6".odbc_errormsg());
 			        while($result=odbc_fetch_array($query_result))
@@ -304,10 +289,10 @@ die ("ERROR : No se puede ejecutar la consulta.2".odbc_errormsg().$sql_1);
 		              $perfil=$result["llave_perfil"];
 		             
 		            }	
-		            //echo $perfil." " ;
+
 		            $sql_1="Execute x_Sistema_Busca_Detalle_Perfil @xllave_per =".$perfil;
 		            $query_result=odbc_exec($db_conn,$sql_1) or 
-			        die ("ERROR : No se puede ejecutar la consulta.7");
+			        die ("ERROR : No se puede ejecutar la consulta.".odbc_errormsg().$sql_1);
 			        while($result=odbc_fetch_array($query_result))
 			        {
 			        	$sql_1="INSERT INTO dat_dpcod (dat_dpcod.perfil, dat_dpcod.Llave_Perfil, dat_dpcod.prueba, dat_dpcod.Llave_prueba, dat_dpcod.cod_empresa, dat_dpcod.Idpaciente, dat_dpcod.usuario, dat_dpcod.fecha_creacion, dat_dpcod.resultado) 

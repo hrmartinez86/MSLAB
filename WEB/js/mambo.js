@@ -75,6 +75,7 @@ function unChoose() {
 
 function buscarEstudio() {
 	document.Citas.ExamenCodigo.value = document.Citas.ExamenCodigo.value.toUpperCase();
+
 	var estudio = document.Citas.ExamenCodigo.value;
 	var listaOrigen = document.Citas.ExamenCatalogo;
 	var listaDestino = document.Citas.ExamenSeleccionado;
@@ -84,6 +85,8 @@ function buscarEstudio() {
 	var destinoLen = document.Citas.ExamenSeleccionado.length;
 	var destino = "x";
 
+	console.log('estudio '.estudio);
+	console.log('listaorigen '.listaOrigen);
 	//Construye un arreglo de elementos blanco
 	for (var i=destinoLen-1; i > -1; i--) {
 		destino += "," + listaDestino.options[i].value + ","
@@ -116,12 +119,17 @@ function Assemble()
 	var temp = new Array;
 	for (var i=0, n=document.Citas.ExamenSeleccionado.options.length; i < n; i++)
 	{
-		temp[i] = document.Citas.ExamenSeleccionado.options[i].value;
+		 var codigoEstudio=document.Citas.ExamenSeleccionado.options[i].value;
+		//modificación de agrupaciones
+		
+			temp[i] = codigoEstudio;
+		
 	}
 	
  	document.Citas.examenes.value = temp.join( ' ' );
  	document.Citas.submit();
 }
+
 function Assemble1()
 {
 	var temp = new Array;
@@ -161,7 +169,7 @@ function Valida()
 }
 function Valida1()
 {
-//	alert('hola');
+	Assemble();
 	if (document.getElementById('Sexo').value=='')
 	{
 		alert('Debe Ingresar el Sexo del Paciente');

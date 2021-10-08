@@ -125,7 +125,7 @@ $fecha=date('d/m/Y');
  </table>
     <br>    
 <form id="Citas" method="post" name="Citas" action="guarda_atencion.php">
-  <table align="center" border="0" cellspacing="0" cellpadding="10" width="40%">
+  <table align="center" border="0" cellspacing="0" cellpadding="10" width="70%">
     <tr>
       <td valign="top">
         <table class="Header" border="0" cellspacing="0" cellpadding="0">
@@ -229,6 +229,14 @@ $fecha=date('d/m/Y');
           </tr>
 
           <tr class="Controls">
+            <td class="th"><label for="Correo">Telefono:</label></td> 
+            <td><input  name="telefono" id="trlefono" class="Controls"  value="" style="width:98%; text-align: center;
+                                                         text-align-last: center;
+                                                         -moz-text-align-last: center;" ></td>
+            
+          </tr>
+
+          <tr class="Controls">
             <td class="th"><label for="Correo">Email:</label></td> 
             <td><input  name="correo" id="correo" class="Controls"  value="" style="width:98%; text-align: center;
                                                          text-align-last: center;
@@ -260,20 +268,28 @@ $fecha=date('d/m/Y');
   </table>
   <table height="150" cellpadding="0" cellspacing="0" class="Record" width="80">
     <tr class="Controls">
-      <td><strong>Codigo</strong><input name="data[Examen][Codigo]"  onKeyPress = "Valida(event)" size="20" value="" type="text" id="ExamenCodigo" /><input type="button" value="+" onClick="buscarEstudio(); javascript: return false;" /></td>
+      
       
       <td>   
         <!--c-->
         <strong>Descripción</strong>
         <select class="selectpicker" data-show-subtext="true" data-live-search="true" size="5" style="width: 450px;" id="ExamenCatalogo" multiple="multiple">
           <?php
-              $sql="select * from caj_codigos_fonasa where activo='S' AND CODIGO_FONASA NOT LIKE 'ANTV%' order by CODIGO_FONASA ";
+          ///estudios
+              $sql="select codigo_fonasa,nombre from caj_codigos_fonasa where activo='S' AND CODIGO_FONASA NOT LIKE 'ANTV%' order by CODIGO_FONASA ";
               $query=odbc_exec($conection,$sql);
               while ($result=odbc_fetch_array($query))
                   {
                     echo '<option value="'.$result['codigo_fonasa'].'">'.$result['nombre'].' --> '.$result['codigo_fonasa'].'</option>';
-                  }			
-            ?>        
+                  }		
+          //agrupaciones
+              $sql="select codigo,descripcion from agrupaciones where activo='S' order by id ";
+              $query=odbc_exec($conection,$sql);
+              while ($result=odbc_fetch_array($query))
+              {
+                  echo '<option value="'.$result['codigo'].'">'.$result['descripcion'].' --> '.$result['codigo'].'</option>';
+              }		
+          ?>        
         </select>
       </td>
       <td>
@@ -282,7 +298,7 @@ $fecha=date('d/m/Y');
       </td>
       <td>
         <select name="ExamenSeleccionado"  multiple="multiple" size="9" style="width: 250px;" id="ExamenSeleccionado">
-        </select> <input type="hidden" name="examenes" value="" />		
+        </select> <input type="text" name="examenes" value="" />		
       </td>
             
     </tr>
