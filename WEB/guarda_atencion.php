@@ -292,7 +292,6 @@ $sql_1 = "INSERT INTO dat_dfipa (cod_empresa, fecha, hora, numero,
            1, 
            0, 
            '',
-<<<<<<< HEAD
            '" . $j . "')";
 
 
@@ -337,51 +336,6 @@ for ($i = 0; $i < $numFinal; $i++) {
       die("ERROR : No se puede ejecutar la consulta.8");
   }
 }
-=======
-           '".$j."')"; 
-  //  echo $sql_1; 
-  $query_result=odbc_exec($db_conn,$sql_1) or 
-die ("ERROR : No se puede ejecutar la consulta.2".odbc_errormsg().$sql_1);
-		        for($i=1;$i<=$j;$i++){
-                    //--Para el Ingreso de los Estudios                 
-                	
-                	
-		            $sql_1="SELECT llave_fonasa FROM CAJ_codigos_fonasa where codigo_fonasa='".$ex[$i-1]."'";
-                    $query_result=odbc_exec($db_conn,$sql_1) or 
-			        die ("ERROR : No se puede ejecutar la consulta.4");
-			        while($result=odbc_fetch_array($query_result))
-		            {	
-		              $llave=$result["llave_fonasa"];
-		              echo "<script> console.log(".$llave.");</script>";
-		            }	
-		            $sql_1="INSERT INTO CAJ_DET_PRESTACIONES (cod_empresa,IDPACIENTE, ID, LLAVE_FONASA, VALOR_PARTICULAR, VALOR_PREVISION, VALOR_PAGADO, USUARIO_CREACION, FECHA_ENTREGA, URGENTE, FECHA_CREACION,LIBERADO) 
-		            VALUES (".$_SESSION['empresa'].", '".$idpaciente."', ".$i.", ".$llave.", 0, 0, 0, '".$_SESSION['nivel']."', '".$fecha."', '', CONVERT(DATETIME, GETDATE(), 103),'N' )";
-		            // echo $sql_1;
-                            $query_result=odbc_exec($db_conn,$sql_1) or 
-		       	    die ("ERROR : No se puede ejecutar la consulta.5".odbc_errormsg());
-		            $sql_1="SELECT llave_perfil From lab_relac_fonasa_perfil Where llave_fonasa = ".$llave;
-                echo $sql_1;
-		            $query_result=odbc_exec($db_conn,$sql_1) or 
-			        die ("ERROR : No se puede ejecutar la consulta.6".odbc_errormsg());
-			        while($result=odbc_fetch_array($query_result))
-		            {	
-		              $perfil=$result["llave_perfil"];
-		             
-		            }	
-		            //echo $perfil." " ;
-		            $sql_1="Execute x_Sistema_Busca_Detalle_Perfil @xllave_per =".$perfil;
-		            $query_result=odbc_exec($db_conn,$sql_1) or 
-			        die ("ERROR : No se puede ejecutar la consulta.".odbc_errormsg().$sql_1);
-			        while($result=odbc_fetch_array($query_result))
-			        {
-			        	$sql_1="INSERT INTO dat_dpcod (dat_dpcod.perfil, dat_dpcod.Llave_Perfil, dat_dpcod.prueba, dat_dpcod.Llave_prueba, dat_dpcod.cod_empresa, dat_dpcod.Idpaciente, dat_dpcod.usuario, dat_dpcod.fecha_creacion, dat_dpcod.resultado) 
-			        	VALUES ('".$result["perfil"]."', ".$result["llave_perfil"].", '".$result["prueba"]."', ".$result["llave_prueba"].", ".$_SESSION['empresa'].", '".$idpaciente."', '".$_SESSION['nivel']."', CONVERT(DATETIME, GETDATE(), 103), '' )";
-//			        	echo $sql_1." **";
-			        	$query_result2=odbc_exec($db_conn,$sql_1) or 
-			            die ("ERROR : No se puede ejecutar la consulta.8");
-			        }
-                }
->>>>>>> 12b68222fab27c0d3cb5ca1cfc2e77d3e00eef07
 /*********************************************************************************************************************/
 
 ?>
