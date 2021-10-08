@@ -287,7 +287,7 @@ $fecha=date('d/m/Y');
               $query=odbc_exec($conection,$sql);
               while ($result=odbc_fetch_array($query))
               {
-                  echo '<option value="'.$result['codigo'].'">'.$result['descripcion'].' --> '.$result['codigo'].'</option>';
+                  echo '<option value="'.$result['codigo'].'-">'.$result['descripcion'].' --> '.$result['codigo'].'</option>';
               }		
           ?>        
         </select>
@@ -298,7 +298,7 @@ $fecha=date('d/m/Y');
       </td>
       <td>
         <select name="ExamenSeleccionado"  multiple="multiple" size="9" style="width: 250px;" id="ExamenSeleccionado">
-        </select> <input type="text" name="examenes" value="" />		
+        </select> <input type="hidden" name="examenes" value="" />		
       </td>
             
     </tr>
