@@ -198,12 +198,15 @@ $query_result = odbc_exec($db_conn, $sql_1) or
   die("ERROR : No se puede ejecutar la consulta.1");
 
 $final = array();
-
+//rescatamos el listado de peticiones
 $ex = explode(" ", $examenes);
 $j = count($ex);
 
+// echo "<br>estudios antes de la comparacion<br>";var_dump($ex);
+
 for ($i = 0; $i < $j; $i++) {
   $lastChar = substr($ex[$i], -1);
+  //verificar si es agrupación
   if ($lastChar == '-') {
     $really = strlen($ex[$i]) - 1;
     $textoExam = substr($ex[$i], 0, $really);
@@ -224,24 +227,27 @@ for ($i = 0; $i < $j; $i++) {
   }
 }
 
-if ($j > 1) {
-  //recorremos el array para no repetir examenes
-  $numFinal = count($final);
-  // var_dump($final);
-  for ($i = 0; $i < $numFinal; $i++) {
-    $comp = $final[$i];
+// echo "<br>numero de elementos en ex<br>".$j;
+// echo "<br>numero de elementos en final<br>".count($final);
+// echo "<br>estudios en el array final<br>";var_dump($final);
+// if ($j > 1) {
+//   //recorremos el array para no repetir examenes
+//   $numFinal = count($final);
+//   // var_dump($final);
+//   for ($i = 0; $i < $numFinal; $i++) {
+//     $comp = $final[$i];
 
-    for ($j = 1; $j < $numFinal; $j++) {
-      if ($final[$i] == $final[$j]) {
-        echo "<br>El valor de i" . $final[$i] . " es igual a el valor en j" . $final[$j];
-        unset($final[$j]);
-      }
-    }
+//     for ($j = 1; $j < $numFinal; $j++) {
+//       if ($final[$i] == $final[$j]) {
+//         echo "<br>El valor de i" . $final[$i] . " es igual a el valor en j" . $final[$j];
+//         unset($final[$j]);
+//       }
+//     }
     
-  }
-}
+//   }
+// }
 $numFinal = count($final);
-
+//insert a dat_dfipa
 $sql_1 = "INSERT INTO dat_dfipa (cod_empresa, fecha, hora, numero,  
            rut, 
            idpaciente, 
