@@ -129,7 +129,7 @@ $fecha = date('d/m/Y');
   </table>
   <br>
   <form id="Citas" method="post" name="Citas" action="guarda_atencion.php">
-    <table align="center" border="0" cellspacing="0" cellpadding="10" width="70%">
+    <table align="center" border="0" cellspacing="0" cellpadding="10" width="60%">
       <tr>
         <td valign="top">
           <table class="Header" border="0" cellspacing="0" cellpadding="0">
@@ -262,7 +262,7 @@ $fecha = date('d/m/Y');
               <td class="HeaderRight"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td>
             </tr>
           </table>
-          <table height="150" cellpadding="0" cellspacing="0" class="Record" width="80">
+          <table height="90" cellpadding="0" cellspacing="0" class="Record" width="50">
             <tr class="Controls">
 
 
@@ -290,18 +290,21 @@ $fecha = date('d/m/Y');
 
                 <input type="image" src="img/icons/flechizq1.jpg" name="test2" value="<<" onClick="unChoose(); javascript: return false;" />
               </td>
+              <td></td>
 
     
 
             </tr>
             <tr class="Controls">
 
-              <td style="width:90%">
+              <td style="width:10%">
                 <select name="ExamenSeleccionado" multiple="multiple" size="5" style="width: 900px;" id="ExamenSeleccionado">
                 </select> <input type="hidden" name="examenes" value="" />
               </td>
+              <td><input type="text" id="precioTotal" value="0" size="5" readonly>Total</td>
 
             </tr>
+
           </table>
   </form>
   <table align="center">
