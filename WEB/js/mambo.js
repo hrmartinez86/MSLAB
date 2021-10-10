@@ -73,6 +73,11 @@ function unChoose() {
     
     for (var i=srcLen-1; i > -1; i--) {
 		if (srcList.options[i].selected) {
+			texto=srcList.options[i].text;
+			var precio = parseFloat(texto.substring(texto.indexOf("$")+1));
+			var precioTotal=parseFloat( document.getElementById("precioTotal").value);
+			var nuevoPrecio=precioTotal-precio;
+			document.getElementById("precioTotal").value=nuevoPrecio;
 			srcList.options[i] = null;
 		}
 	}
