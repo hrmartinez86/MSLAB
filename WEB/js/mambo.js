@@ -45,13 +45,17 @@ function Choose() {
 	for (var i=tgtLen-1; i > -1; i--) {
 		tgt += "," + tgtList.options[i].value + ","
 	}
-
+	var precioTotal=0;
 	//Extrae los recursos seleccionados y los a�ade a la lista
 	for (var i=srcLen-1; i > -1; i--) {
 		if (srcList.options[i].selected && tgt.indexOf( "," + srcList.options[i].value + "," ) == -1) {
 			opt = new Option( srcList.options[i].text, srcList.options[i].value );
 			tgtList.options[tgtList.length] = opt;
-			
+			//obtenemos el precio
+			var texto=srcList.options[i].text;
+			var precio = parseFloat(texto.substring(texto.indexOf("$")+1));
+			precioTotal = precioTotal+precio;
+			console.log(precioTotal)
 		}
 	}
 }
