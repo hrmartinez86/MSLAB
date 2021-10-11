@@ -128,16 +128,20 @@ function buscarEstudio() {
 function Assemble()
 {
 	var temp = new Array;
+	var temp2 = new Array;
 	for (var i=0, n=document.Citas.ExamenSeleccionado.options.length; i < n; i++)
 	{
 		 var codigoEstudio=document.Citas.ExamenSeleccionado.options[i].value;
+		 var texto=document.Citas.ExamenSeleccionado.options[i].text;;
 		//modificación de agrupaciones
 		
 			temp[i] = codigoEstudio;
+			temp2[i] = texto;
 		
 	}
-	
+	var examJson = JSON.stringify(temp2);
  	document.Citas.examenes.value = temp.join( ' ' );
+	document.Citas.examenesDescripcion.value=examJson;
  	document.Citas.submit();
 }
 

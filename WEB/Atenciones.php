@@ -299,7 +299,7 @@ $fecha = date('d/m/Y');
 
               <td style="width:10%">
                 <select name="ExamenSeleccionado" multiple="multiple" size="5" style="width: 900px;" id="ExamenSeleccionado">
-                </select> <input type="hidden" name="examenes" value="" />
+                </select> <input type="hidden" name="examenes" value="" /><input type="hidden" name="examenesDescripcion">
               </td>
               <td><input type="text" id="precioTotal" value="0" size="5" readonly>Total</td>
 

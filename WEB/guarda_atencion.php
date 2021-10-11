@@ -36,7 +36,7 @@ $Sexo = htmlspecialchars($_POST["Sexo"]);
 $nombre = htmlspecialchars($_POST["nombre"]);
 $fecha_de_nacimiento = htmlspecialchars($_POST["theDate2"]);
 $examenes = htmlspecialchars($_POST["examenes"]);
-
+$examenesTotal =json_decode($_POST["examenesDescripcion"],false);
 $hoy = date("d/m/Y G:i:s");
 $CitasProcedencia = htmlspecialchars($_POST["CitasProcedencia"]);
 $examenesArray = array();
@@ -227,25 +227,6 @@ for ($i = 0; $i < $j; $i++) {
   }
 }
 
-// echo "<br>numero de elementos en ex<br>".$j;
-// echo "<br>numero de elementos en final<br>".count($final);
-// echo "<br>estudios en el array final<br>";var_dump($final);
-// if ($j > 1) {
-//   //recorremos el array para no repetir examenes
-//   $numFinal = count($final);
-//   // var_dump($final);
-//   for ($i = 0; $i < $numFinal; $i++) {
-//     $comp = $final[$i];
-
-//     for ($j = 1; $j < $numFinal; $j++) {
-//       if ($final[$i] == $final[$j]) {
-//         echo "<br>El valor de i" . $final[$i] . " es igual a el valor en j" . $final[$j];
-//         unset($final[$j]);
-//       }
-//     }
-    
-//   }
-// }
 $numFinal = count($final);
 //insert a dat_dfipa
 $sql_1 = "INSERT INTO dat_dfipa (cod_empresa, fecha, hora, numero,  
@@ -427,42 +408,22 @@ WHERE     (id = " . $CitasProcedencia . ")";
       <td width="32" class="th"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif" /></td>
     </tr>
   </table>
-  <table height="10" cellpadding="0" cellspacing="0" class="Record">
-    <tr class="Controls">
-      <TD ALIGN="right" WIDTH=200> CODIGO </TD>
-      <td WIDTH=500>DESCRIPCION </td>
-
-
-    </tr>
-  </table>
+  
 
   <table height="10" cellpadding="0" cellspacing="0" class="Record">
     <?php
-    for ($i = 1; $i <= $j; $i++) {
-      $sql_1 = "SELECT     *
-FROM         caj_codigos_fonasa
-WHERE     (codigo_fonasa = '" . $final[$i - 1] . "')";
-      $query_result = odbc_exec($db_conn, $sql_1) or
-        die("ERROR : No se puede ejecutar la consulta.10");
-      while ($result = odbc_fetch_array($query_result)) {
-        //llenamos el array de examenes
-        $examenes = array_push($examenesArray, $result["nombre"]);
-        $exades = $result["nombre"];
-
-        $exaindi = $result["indicaciones_toma_muestra"];
-      }
+    for ($i = 0; $i < count($examenesTotal); $i++) {
 
     ?>
       <tr class="Controls">
-        <TD ALIGN="right" WIDTH=200> <?php echo $ex[$i - 1];
-                                      array_push($datosPaciente, $ex[$i - 1]); ?></TD>
-        <td WIDTH=500><?php echo $exades; ?> </td>
+        <TD ALIGN="right" WIDTH=200> <?php echo $examenesTotal[$i];
+                                      array_push($datosPaciente, $examenesTotal[$i]); ?></TD>
 
       </tr>
     <?php
     }
     echo "<input type='hidden' id='datosPaciente' value='" . json_encode($datosPaciente) . "'> </input>";
-    $_SESSION['examenes'] = $examenesArray
+    $_SESSION['examenes'] = $examenesTotal;
     ?>
   </table>
   <a href="imprimirComprobante.php" target="_blank"><img title="Imprimir" width="32" height="32" style="BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px" alt="{Link4}" src="images/fileprint.gif"></a>
