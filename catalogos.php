@@ -126,6 +126,10 @@ if(isset($_GET['FI']) and isset($_GET['ff']))
 ?>
               <table align="center">
               <tr>
+                  <td><a href="Estudios.php" id="Estudio"><img height="80" width="80" src="images/botones/doctor.jpeg"</a></td>
+                  <td>Estudios</td>
+              </tr>
+			  <tr>
                   <td><a href="Doctores.php" id="Doctor"><img height="80" width="80" src="images/botones/doctor.jpeg"</a></td>
                   <td>Doctores</td>
               </tr>
