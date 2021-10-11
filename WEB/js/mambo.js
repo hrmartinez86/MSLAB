@@ -45,13 +45,19 @@ function Choose() {
 	for (var i=tgtLen-1; i > -1; i--) {
 		tgt += "," + tgtList.options[i].value + ","
 	}
+	var precioTotal=parseFloat( document.getElementById("precioTotal").value);
 
 	//Extrae los recursos seleccionados y los a�ade a la lista
 	for (var i=srcLen-1; i > -1; i--) {
 		if (srcList.options[i].selected && tgt.indexOf( "," + srcList.options[i].value + "," ) == -1) {
 			opt = new Option( srcList.options[i].text, srcList.options[i].value );
 			tgtList.options[tgtList.length] = opt;
-			
+			//obtenemos el precio
+			var texto=srcList.options[i].text;
+			var precio = parseFloat(texto.substring(texto.indexOf("$")+1));
+			precioTotal = precioTotal+precio;
+			console.log(precioTotal);
+			document.getElementById("precioTotal").value=precioTotal;
 		}
 	}
 }
@@ -67,6 +73,11 @@ function unChoose() {
     
     for (var i=srcLen-1; i > -1; i--) {
 		if (srcList.options[i].selected) {
+			texto=srcList.options[i].text;
+			var precio = parseFloat(texto.substring(texto.indexOf("$")+1));
+			var precioTotal=parseFloat( document.getElementById("precioTotal").value);
+			var nuevoPrecio=precioTotal-precio;
+			document.getElementById("precioTotal").value=nuevoPrecio;
 			srcList.options[i] = null;
 		}
 	}
