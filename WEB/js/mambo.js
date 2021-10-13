@@ -52,6 +52,7 @@ function Choose() {
 		if (srcList.options[i].selected && tgt.indexOf( "," + srcList.options[i].value + "," ) == -1) {
 			opt = new Option( srcList.options[i].text, srcList.options[i].value );
 			tgtList.options[tgtList.length] = opt;
+			tgtList[0].selected=true;
 			//obtenemos el precio
 			var texto=srcList.options[i].text;
 			var precio = parseFloat(texto.substring(texto.indexOf("$")+1));
@@ -142,7 +143,7 @@ function Assemble()
 	var examJson = JSON.stringify(temp2);
  	document.Citas.examenes.value = temp.join( ' ' );
 	document.Citas.examenesDescripcion.value=examJson;
- 	document.Citas.submit();
+ 	// document.Citas.submit();
 }
 
 function Assemble1()
@@ -183,41 +184,24 @@ function Valida()
 	}
 }
 function Valida1()
-{
-	Assemble();
-	if (document.getElementById('Sexo').value=='')
+{		
+	var i=0;
+
+	i=document.Citas.ExamenSeleccionado.length
+
+	if (i==0)
 	{
-		alert('Debe Ingresar el Sexo del Paciente');
-		document.Citas.Sexo.focus();
+		document.getElementById('ExamenCatalogo').focus();
+		return false;
 	}
 	else
-	{	
-	    if (document.getElementById('CitasNombres').value=='')
-	    {
-	    	alert('Debe Ingresar el Nombre del Paciente');
-			document.Citas.CitasNombres.focus();
-	    }
-	    else
-	    {
-	    	
-                    var i=0;
-
-                  i=document.Citas.ExamenSeleccionado.length
-//                  alert(i);
-                  if (i==0)
-                  {
-                          alert('Debe Ingresar Estudios');
-                          document.getElementById('ExamenCodigo').focus();
-                  }
-                  else
-                  {
-                     Assemble();
-                  }
-				
-		
+	{
+		Assemble();
 	}
-	    }	   
-	    }
+
+}
+		   
+
 	    
 
 function Valida2()

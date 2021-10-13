@@ -103,8 +103,6 @@ $factual = date("Ymd");
 $fecha = date("d/m/Y");
 $hora = date("H:i");
 $idpaciente = $factual . $folio;
-$fechan = explode(" ", $theDate2);
-//echo $theDate2;
 if ($fechan[1] != "") {
   //echo "lleno";
 } else {
@@ -116,9 +114,12 @@ if ($fechan[1] != "") {
 $fecha_actual = date("Y-m-d");
 
 $array_nacimiento = explode("-", $fecha_de_nacimiento);
+
 $array_actual = explode("-", $fecha_actual);
 
+
 $anos =  $array_actual[0] - $array_nacimiento[0]; // calculamos a�os
+
 $meses = $array_actual[1] - $array_nacimiento[1]; // calculamos meses
 $dias =  $array_actual[2] - $array_nacimiento[2]; // calculamos d�as
 
@@ -173,8 +174,7 @@ if ($dias < 0) {
 
   $dias = $dias + $dias_mes_anterior;
 }
-$anos = $anos - 2021;
-//ajuste de posible negativo en $meses
+
 if ($meses < 0) {
 
   $meses = $meses + 12;

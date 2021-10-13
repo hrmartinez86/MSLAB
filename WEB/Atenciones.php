@@ -128,7 +128,7 @@ $fecha = date('d/m/Y');
     </tr>
   </table>
   <br>
-  <form id="Citas" method="post" name="Citas" action="guarda_atencion.php">
+  <form id="Citas" method="post" name="Citas" action="guarda_atencion.php" onsubmit="Valida1()">
     <table align="center" border="0" cellspacing="0" cellpadding="10" width="60%">
       <tr>
         <td valign="top">
@@ -144,14 +144,13 @@ $fecha = date('d/m/Y');
 
             <tr class="Controls">
               <td class="th"><label for="CitasNombres">Nombre del paciente:</label></td>
-              <td><input name="nombre" id="CitasNombres" value="" style="width:100%;"></td>
+              <td><input name="nombre" id="CitasNombres" value="" style="width:100%;" required></td>
               <td></td>
             </tr>
 
             <tr class="Controls">
               <td class="th"><label for="CitasSexo">Sexo:</label></td>
-              <td><select id="Sexo" name="Sexo" style="width:100%;
-                                                         text-align-last: center;">
+              <td><select id="Sexo" name="Sexo" style="width:100%;" required>
                   <option value="" selected></option>
                   <option value="M">Masculino</option>
                   <option value="F">Femenino</option>
@@ -162,17 +161,17 @@ $fecha = date('d/m/Y');
 
             <tr class="Controls">
               <td class="th"><label for="edad">Edad:</label></td>
-              <td> <input type="text" id="edad" onChange="cmbioEdad()"></td>
+              <td> <input type="text" id="edad" onChange="cmbioEdad()" ></td>
 
             </tr>
             <tr class="Controls">
               <td class="th"><label for="Fecha">Fecha de nacimiento:</label></td>
-              <td><input style="width:50%; " type="text" id="Fecha" value="<?php echo $fecha; ?>" name="theDate2"><img type="button" src="Styles/Core/Images/DatePicker.gif" onclick="displayCalendar(document.Citas.theDate2,'dd/mm/yyyy',this)"></td>
+              <td><input required style="width:50%; " type="date" id="Fecha" value="<?php echo $fecha; ?>" name="theDate2"></td>
             </tr>
 
             <tr class="Controls">
               <td class="th"><label for="CitasProcedencia">Procedencia:</label></td>
-              <td><select id="CitasProcedencia" name="CitasProcedencia" style="width:100%; ">
+              <td><select required id="CitasProcedencia" name="CitasProcedencia" style="width:100%; ">
                   <?php
                   echo '<option value="" </option>';
                   $sql = "select * from Procedencia_muestra where activo='S' order by descripcion ";
@@ -191,7 +190,7 @@ $fecha = date('d/m/Y');
 
             <tr class="Controls">
               <td class="th"><label for="Tipo">Tipo de Paciente:</label></td>
-              <td><select id="Tipo" name="Tipo" style="width:100%; ">
+              <td><select id="Tipo" name="Tipo" style="width:100%; " required>
                   <?php
                   echo '<option value="" </option>';
                   $sql = "select * from lab_tipo_paciente where clase='B' order by descripcion ";
@@ -210,7 +209,7 @@ $fecha = date('d/m/Y');
 
             <tr class="Controls">
               <td class="th"><label for="Doctor">M&eacute;dico:</label></td>
-              <td><select id="Doctor" name="Doctor" style="width:100%; ">
+              <td><select id="Doctor" name="Doctor" style="width:100%; " required>
                   <?php
                   $sql = "select nombre + ' ' + apellidos as Nombre,llave_doctor from dat_doctores  order by Nombre ";
                   $query = odbc_exec($conection, $sql);
@@ -226,25 +225,19 @@ $fecha = date('d/m/Y');
 
             <tr class="Controls">
               <td class="th"><label for="Correo">Telefono:</label></td>
-              <td><input name="telefono" id="trlefono" class="Controls" value="" style="width:98%; text-align: center;
-                                                         text-align-last: center;
-                                                         -moz-text-align-last: center;"></td>
+              <td><input name="telefono" id="trlefono" class="Controls" value="" style="width:98%; "></td>
 
             </tr>
 
             <tr class="Controls">
               <td class="th"><label for="Correo">Email:</label></td>
-              <td><input name="correo" id="correo" class="Controls" value="" style="width:98%; text-align: center;
-                                                         text-align-last: center;
-                                                         -moz-text-align-last: center;"></td>
+              <td><input name="correo" id="correo" class="Controls" value="" style="width:98%; "></td>
 
             </tr>
 
             <tr class="Controls">
               <td class="th"><label for="FormaPago">Forma de pago:</label></td>
-              <td><select id="FormaPago" name="FormaPago" style="width:100%; text-align: center;
-                                                         text-align-last: center;
-                                                         -moz-text-align-last: center;">
+              <td><select id="FormaPago" name="FormaPago" style="width:100%; ">
                   <option value="" selected></option>
                   <option value="efe">Efectivo</option>
                   <option value="tc">Tarjeta de crédito</option>
@@ -298,24 +291,22 @@ $fecha = date('d/m/Y');
             <tr class="Controls">
 
               <td style="width:10%">
-                <select name="ExamenSeleccionado" multiple="multiple" size="5" style="width: 900px;" id="ExamenSeleccionado">
-                </select> <input type="hidden" name="examenes" value="" /><input type="hidden" name="examenesDescripcion">
+                <select  name="ExamenSeleccionado" multiple="multiple" size="5" style="width: 900px;" id="ExamenSeleccionado" multiple required>
+                </select> <input required type="hidden"  name="examenes" value="" /><input required type="hidden" name="examenesDescripcion">
               </td>
               <td><input type="text" id="precioTotal" value="0" size="5" readonly>Total</td>
 
             </tr>
 
           </table>
-  </form>
-  <table align="center">
-    <tr>
-      <td align="center"><a class="button is-info is-outlined" onclick="Valida1()">
-          Guardar
-        </a></td>
-      <!--<td><input type="image" src="img/icons/bguardatencion.jpg" onClick="Valida1()" /></td>-->
-    </tr>
+          <table align="center">
+            <tr>
+              <td align="center"><input type="submit" class="btn btn-primary" value='Guardar'></td>
+            </tr>
 
-  </table>
+           </table>
+        </form>
+ 
 
   <script>
     function myFunction() {
