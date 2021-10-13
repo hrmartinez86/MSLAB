@@ -35,8 +35,12 @@ $Expediente = htmlspecialchars($_POST["Expediente"]);
 $Sexo = htmlspecialchars($_POST["Sexo"]);
 $nombre = htmlspecialchars($_POST["nombre"]);
 $fecha_de_nacimiento = htmlspecialchars($_POST["theDate2"]);
+$array_nacimiento = explode("-", $fecha_de_nacimiento);
+$fecha_de_nacimiento=$array_nacimiento[2]."/". $array_nacimiento[1] ."/". $array_nacimiento[0];
 $examenes = htmlspecialchars($_POST["examenes"]);
 $examenesTotal =json_decode($_POST["examenesDescripcion"],false);
+$Telefono=htmlspecialchars($_POST["telefono"]);
+$Email=htmlspecialchars($_POST["correo"]);
 $hoy = date("d/m/Y G:i:s");
 $CitasProcedencia = htmlspecialchars($_POST["CitasProcedencia"]);
 $examenesArray = array();
@@ -77,13 +81,16 @@ if (odbc_num_rows($query_result) != 0) {
   $query_result = odbc_exec($db_conn, $sql_1) or
     die("ERROR : No se puede ejecutar la consulta.");
 
-  $sql_1 = "INSERT INTO dat_paciente (cod_empresa, rut, expediente , nombre, apellidos, fecha_nacimiento, calle, telefono, fono_urgencia, contraindicaciones, sexo, ciudad, fecha_ult_examen,curp,rfc) 
-    VALUES (" . $_SESSION['empresa'] . ", '" . $correPac . "', '" . $Expediente . "','" . $nombre . "', '" . $apellidos . "', '" . $fecha_de_nacimiento . "', '" . $Direccion . "', '" . $Telefono . "', '', '', '" . $Sexo . "', '1', CONVERT(DATETIME, GETDATE(), 103), '" . $CitasCURP . "', '" . $CitasRFC . "')";
+  $sql_1 = "INSERT INTO dat_paciente (cod_empresa, rut, expediente , nombre, apellidos, fecha_nacimiento, 
+  calle, telefono, fono_urgencia, contraindicaciones, sexo, ciudad, fecha_ult_examen,curp,rfc,email) 
+    VALUES (" . $_SESSION['empresa'] . ", '" . $correPac . "', '" . $Expediente . "','" . $nombre . "', 
+    '" . $apellidos . "', '" . $fecha_de_nacimiento . "', '" . $Direccion . "', '" . $Telefono . "', '', ''
+    , '" . $Sexo . "', '1', CONVERT(DATETIME, GETDATE(), 103), '" . $CitasCURP . "', '" . $CitasRFC . "','".$Email."')";
 
   $rut = $correPac;
-
+  echo $sql_1;
   $query_result = odbc_exec($db_conn, $sql_1) or
-    die("ERROR : No se puede ejecutar la consulta_PACIENTE.");
+    die("ERROR : No se puede ejecutar la consulta_PACIENTE.<br>".odbc_error());
 }
 ///aumento el correlativo de la atencion
 $sql_1 = "SELECT par_correlativo FROM lab_parametros_sistema WHERE cod_empresa =" . $_SESSION['empresa'];
@@ -103,8 +110,6 @@ $factual = date("Ymd");
 $fecha = date("d/m/Y");
 $hora = date("H:i");
 $idpaciente = $factual . $folio;
-$fechan = explode(" ", $theDate2);
-//echo $theDate2;
 if ($fechan[1] != "") {
   //echo "lleno";
 } else {
@@ -115,10 +120,13 @@ if ($fechan[1] != "") {
 }
 $fecha_actual = date("Y-m-d");
 
-$array_nacimiento = explode("-", $fecha_de_nacimiento);
+
+
 $array_actual = explode("-", $fecha_actual);
 
+
 $anos =  $array_actual[0] - $array_nacimiento[0]; // calculamos a�os
+
 $meses = $array_actual[1] - $array_nacimiento[1]; // calculamos meses
 $dias =  $array_actual[2] - $array_nacimiento[2]; // calculamos d�as
 
@@ -173,8 +181,7 @@ if ($dias < 0) {
 
   $dias = $dias + $dias_mes_anterior;
 }
-$anos = $anos - 2021;
-//ajuste de posible negativo en $meses
+
 if ($meses < 0) {
 
   $meses = $meses + 12;
@@ -359,7 +366,7 @@ for ($i = 0; $i < $numFinal; $i++) {
 
           <tr class="Controls">
             <td WIDTH=800>Fecha/Hora Creacion: <?php echo $fecha_actual . "-" . $hora; ?></td>
-            <TD ALIGN="right" WIDTH=800> </TD>
+            <TD ALIGN="right" WIDTH=800>Teléfono:<?php echo $Telefono;?></TD>
 
           </tr>
           <tr class="Controls">
@@ -369,7 +376,7 @@ for ($i = 0; $i < $numFinal; $i++) {
 
           </tr>
           <tr class="Controls">
-            <TD ALIGN="right" WIDTH=200> Expediente: <?php echo $Expediente; ?></TD>
+            <TD ALIGN="right" WIDTH=200> Email: <?php echo $Email; ?></TD>
             <td WIDTH=500>Sexo: <?php if ($Sexo == "F") {
                                   echo "FEMENINO";
                                 } else {

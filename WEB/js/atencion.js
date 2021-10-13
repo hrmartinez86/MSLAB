@@ -9,5 +9,6 @@ function cmbioEdad() {
 
     var yyyy = date.getFullYear()-edad;
 
-    document.getElementById('Fecha').value=dd + "/" + MM + "/" + yyyy;
+    document.getElementById('Fecha').value=yyyy + "-" + MM + "-" + dd;
 }
+
