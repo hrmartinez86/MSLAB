@@ -35,6 +35,8 @@ $Expediente = htmlspecialchars($_POST["Expediente"]);
 $Sexo = htmlspecialchars($_POST["Sexo"]);
 $nombre = htmlspecialchars($_POST["nombre"]);
 $fecha_de_nacimiento = htmlspecialchars($_POST["theDate2"]);
+$array_nacimiento = explode("-", $fecha_de_nacimiento);
+$fecha_de_nacimiento=$array_nacimiento[2]."/". $array_nacimiento[1] ."/". $array_nacimiento[0];
 $examenes = htmlspecialchars($_POST["examenes"]);
 $examenesTotal =json_decode($_POST["examenesDescripcion"],false);
 $Telefono=htmlspecialchars($_POST["telefono"]);
@@ -86,9 +88,9 @@ if (odbc_num_rows($query_result) != 0) {
     , '" . $Sexo . "', '1', CONVERT(DATETIME, GETDATE(), 103), '" . $CitasCURP . "', '" . $CitasRFC . "','".$Email."')";
 
   $rut = $correPac;
-
+  echo $sql_1;
   $query_result = odbc_exec($db_conn, $sql_1) or
-    die("ERROR : No se puede ejecutar la consulta_PACIENTE.");
+    die("ERROR : No se puede ejecutar la consulta_PACIENTE.<br>".odbc_error());
 }
 ///aumento el correlativo de la atencion
 $sql_1 = "SELECT par_correlativo FROM lab_parametros_sistema WHERE cod_empresa =" . $_SESSION['empresa'];
@@ -118,7 +120,7 @@ if ($fechan[1] != "") {
 }
 $fecha_actual = date("Y-m-d");
 
-$array_nacimiento = explode("-", $fecha_de_nacimiento);
+
 
 $array_actual = explode("-", $fecha_actual);
 
