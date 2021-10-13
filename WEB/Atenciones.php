@@ -225,7 +225,7 @@ $fecha = date('d/m/Y');
 
             <tr class="Controls">
               <td class="th"><label for="Correo">Telefono:</label></td>
-              <td><input name="telefono" id="trlefono" class="Controls" value="" style="width:98%; "></td>
+              <td><input name="telefono" id="telefono" class="Controls" value="" style="width:98%; "></td>
 
             </tr>
 

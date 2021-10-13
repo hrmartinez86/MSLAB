@@ -37,6 +37,8 @@ $nombre = htmlspecialchars($_POST["nombre"]);
 $fecha_de_nacimiento = htmlspecialchars($_POST["theDate2"]);
 $examenes = htmlspecialchars($_POST["examenes"]);
 $examenesTotal =json_decode($_POST["examenesDescripcion"],false);
+$Telefono=htmlspecialchars($_POST["telefono"]);
+$Email=htmlspecialchars($_POST["correo"]);
 $hoy = date("d/m/Y G:i:s");
 $CitasProcedencia = htmlspecialchars($_POST["CitasProcedencia"]);
 $examenesArray = array();
@@ -77,8 +79,11 @@ if (odbc_num_rows($query_result) != 0) {
   $query_result = odbc_exec($db_conn, $sql_1) or
     die("ERROR : No se puede ejecutar la consulta.");
 
-  $sql_1 = "INSERT INTO dat_paciente (cod_empresa, rut, expediente , nombre, apellidos, fecha_nacimiento, calle, telefono, fono_urgencia, contraindicaciones, sexo, ciudad, fecha_ult_examen,curp,rfc) 
-    VALUES (" . $_SESSION['empresa'] . ", '" . $correPac . "', '" . $Expediente . "','" . $nombre . "', '" . $apellidos . "', '" . $fecha_de_nacimiento . "', '" . $Direccion . "', '" . $Telefono . "', '', '', '" . $Sexo . "', '1', CONVERT(DATETIME, GETDATE(), 103), '" . $CitasCURP . "', '" . $CitasRFC . "')";
+  $sql_1 = "INSERT INTO dat_paciente (cod_empresa, rut, expediente , nombre, apellidos, fecha_nacimiento, 
+  calle, telefono, fono_urgencia, contraindicaciones, sexo, ciudad, fecha_ult_examen,curp,rfc,email) 
+    VALUES (" . $_SESSION['empresa'] . ", '" . $correPac . "', '" . $Expediente . "','" . $nombre . "', 
+    '" . $apellidos . "', '" . $fecha_de_nacimiento . "', '" . $Direccion . "', '" . $Telefono . "', '', ''
+    , '" . $Sexo . "', '1', CONVERT(DATETIME, GETDATE(), 103), '" . $CitasCURP . "', '" . $CitasRFC . "','".$Email."')";
 
   $rut = $correPac;
 
@@ -359,7 +364,7 @@ for ($i = 0; $i < $numFinal; $i++) {
 
           <tr class="Controls">
             <td WIDTH=800>Fecha/Hora Creacion: <?php echo $fecha_actual . "-" . $hora; ?></td>
-            <TD ALIGN="right" WIDTH=800> </TD>
+            <TD ALIGN="right" WIDTH=800>Teléfono:<?php echo $Telefono;?></TD>
 
           </tr>
           <tr class="Controls">
@@ -369,7 +374,7 @@ for ($i = 0; $i < $numFinal; $i++) {
 
           </tr>
           <tr class="Controls">
-            <TD ALIGN="right" WIDTH=200> Expediente: <?php echo $Expediente; ?></TD>
+            <TD ALIGN="right" WIDTH=200> Email: <?php echo $Email; ?></TD>
             <td WIDTH=500>Sexo: <?php if ($Sexo == "F") {
                                   echo "FEMENINO";
                                 } else {
