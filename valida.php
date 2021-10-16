@@ -56,56 +56,35 @@ Description: A wide two-column design suitable for blogs and small websites.
 include ("librerias/conection.php");
 $conection=conectar();
 $fecha=date("Y-m-d");   
-   //pRIMERO vALIDO daTOS
-//	$centro= $_POST['centro'];
+
 	$usuario=$_POST['usuario'];
 	$password=$_POST['password'];
-	
-		//Aqui es donde valida el usuario
+
+	$sql_1= "SELECT * FROM lab_usuarios WHERE     (lab_usuarios.usuario = '" .$usuario."') AND (lab_usuarios.clave = '" .$password. "') and (lab_usuarios.activo='S')";
+
+	if ($resultado = $conection->query($sql_1)) {
+		printf("La selección devolvió %d filas.\n", $resultado->num_rows);
 		
-		
-		//$sql_1="select * from procedencia_muestra where descripcion='".$login."' and codigo='".$password."' and id=".$id;
-//		$sql_1= "SELECT lab_procedencia.ODBC as ODBC ,descripcion,codigo FROM lab_procedencia WHERE     (lab_procedencia.descripcion = '" .$centro. "')";
-//		$re =  odbc_exec($conection,$sql_1) or die ("no hay resultados");
-		$ODBC="laboratorio"; 
-		$empresa=1;
-		$nombre="laboratorio";
-		$sql_1= "SELECT * FROM lab_usuarios WHERE     (lab_usuarios.usuario = '" .$usuario."') AND (lab_usuarios.clave = '" .$password. "')";
-		$re =  odbc_exec($conection,$sql_1) or die ("no hay resultados");
-//		echo $sql_1 ;
-		$clave=odbc_result($re,"clave");
-		$nivel=odbc_result($re,"usuario");
-		$nombre2="";
-		$apellidos="";
-		$conec=odbc_connect($ODBC, "sa", "") or die ("<h1 align='center'>ERROR EN LA IDENTIFICACION DE USUARIO EN LA BASE DE DATOS FAVOR DE CONSULTAR A SU PROVEEDOR</h1><br> <a href=\"index.php\" title=\"Regresar a la pagina principal\" target=\"_self\"><center>REGRESAR</center></a>");
-                
-                $sql_1= "SELECT * FROM lab_usuarios WHERE     (lab_usuarios.usuario = '" .$usuario."') AND (lab_usuarios.clave = '" .$password. "')";
-		$re =  odbc_exec($conec,$sql_1) or die ("no hay resultados");
-		//$msg = "<a href=\"tabla.php?FI=2009-03-18&ff=2009-03-18\">Bienvenido: " . $CENTRO . "  >></a>";
-		$nivel=odbc_result($re,"usuario");
-		$clave=odbc_result($re,"clave");
-		//$nombreU=odbc_result($re,"nombre");
-		//echo $nivel;
-		
-                if ($nivel==''){$msg = 'Este usuario no pertenece al Centro!!. <a href="index.php">Intentelo de nuevo.</a>';}else
-		{$msg="entra";}
-	
-                echo $nivel.$nombre;
- 
-if ($password==$clave) 
-{
-        
-$_SESSION['estado'] = "ok"; //Coloco la variable de sesión 'estado'
-$_SESSION['nombre']= $nombre;
-$_SESSION['paciente']= $nombre2;
-$_SESSION['apellidos']= $apellidos;
-$_SESSION['login']=$usuario;
-$_SESSION['passport']=$password;
-$_SESSION['nivel']=$nivel;
-$_SESSION['ODBC']=$ODBC;  
-$_SESSION['empresa']=$empresa;      
-//$_SESSION['usuario']=$nombreU;        
-        }
+		while($r=$resultado->fetch_assoc()) {
+			$usuarioBd=$r["usuario"];
+			$passwordBd=$r["clave"];
+			$nombre=$r["nombre"];
+			$nivel=$r["perfil"];
+		}
+
+		/* liberar el conjunto de resultados */
+		$resultado->close();
+	}
+
+	if ($password==$passwordBd) 
+	{        
+		$_SESSION['estado'] = "ok"; //Coloco la variable de sesión 'estado'
+		$_SESSION['nombre']= $nombre;
+		$_SESSION['login']=$usuario;
+		$_SESSION['nivel']=$nivel; 
+		$_SESSION['empresa']=$empresa;    
+		$msg="entra";
+	}
 		 elseif ($login=="" && $password=="")
 			{
 				$msg = "Sesion Cerrada!!. <a href=\"index.php\">Regresar.</a>";
@@ -115,29 +94,7 @@ $_SESSION['empresa']=$empresa;
              
      	    $msg = 'Datos erroneos, por favor intentelo nuevamente!!. <a href="index.php">Intentelo de nuevo.</a>';
         }
-        //echo $centro;
-//if ($centro==''){$msg = 'Datos erroneos, por favor intentelo nuevamente!!. <a href="index.php">Intentelo de nuevo.</a>';}
-// $carpeta = "XML/".$nombre."/";
-
-// if($carpeta<>"XML//" or $carpeta<>"")
-// {
-// eliminar_recursivo_contenido_de_directorio( $carpeta ) ;
-// }	
-// //función que elimina recursivamente todo el contenido de un directorio dado 
-// function eliminar_recursivo_contenido_de_directorio( $carpeta ){ 
-// @$directorio = opendir($carpeta); 
-// while ($archivo = @readdir($directorio)){ 
-// if( $archivo !='.' && $archivo !='..' ){ 
-// //si es un directorio, volvemos a llamar a la función para que elimine el contenido del mismo 
-// if ( is_dir( $carpeta.$archivo ) ) eliminar_recursivo_contenido_de_directorio( $carpeta.$archivo ); 
-// //si no es un directorio, lo borramos 
-// @unlink($carpeta.$archivo); 
-// } 
-// } 
-// @closedir($directorio); 
-// } 
-
-/**********************************************************************************************************************************************************/
+ 
 ?>
 
 
@@ -160,7 +117,6 @@ else
 echo $msg;
 }
 
-//echo $msg;
 ?>
 
 

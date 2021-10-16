@@ -11,8 +11,8 @@ $fecha = date("d , M, y,  H:i a");
 include("librerias/conection.php");
 //include("librerias/control_citas.php");
 
-$ODBC = $_SESSION["ODBC"];
-$conection = conectar($ODBC);
+
+$conection = conectar();
 
 $fecha = date('d/m/Y');
 ?>
@@ -162,11 +162,12 @@ $fecha = date('d/m/Y');
             <tr class="Controls">
               <td class="th"><label for="edad">Edad:</label></td>
               <td> <input type="text" id="edad" onChange="cmbioEdad()" ></td>
-
+              <td></td>
             </tr>
             <tr class="Controls">
               <td class="th"><label for="Fecha">Fecha de nacimiento:</label></td>
               <td><input required style="width:50%; " type="date" id="Fecha" value="<?php echo $fecha; ?>" name="theDate2"></td>
+              <td></td>
             </tr>
 
             <tr class="Controls">
@@ -175,17 +176,15 @@ $fecha = date('d/m/Y');
                   <?php
                   echo '<option value="" </option>';
                   $sql = "select * from Procedencia_muestra where activo='S' order by descripcion ";
-                  $query = odbc_exec($conection, $sql);
-                  $cont = 0;
-                  while ($result = odbc_fetch_array($query)) {
-                    echo '<option  value="' . $result['id'] . '">' . $result['descripcion'] . '</option>';
+                  $resultado = $conection->query($sql);
+                  while($r=$resultado->fetch_assoc()) {
+                    echo '<option  value="' . $r['id'] . '">' . $r['descripcion'] . '</option>';
                   }
-
                   ?>
                 </select>
 
               </td>
-              <td></td>
+              <td colspan="2" style="text-align:center;"><input type="button" class="btn btn-success" value="+" data-toggle="modal" data-target="#exampleModal"></td>
             </tr>
 
             <tr class="Controls">
@@ -194,31 +193,29 @@ $fecha = date('d/m/Y');
                   <?php
                   echo '<option value="" </option>';
                   $sql = "select * from lab_tipo_paciente where clase='B' order by descripcion ";
-                  $query = odbc_exec($conection, $sql);
-                  while ($result = odbc_fetch_array($query)) {
-                    if ($result['codigo'] == 1) {
-                      echo '<option value="' . $result['codigo'] . '" selected>' . $result['descripcion'] . '</option>';
-                    } else {
-                      echo '<option value="' . $result['codigo'] . '">' . $result['descripcion'] . '</option>';
-                    }
+                  $resultado = $conection->query($sql);
+                  while($r=$resultado->fetch_assoc()) {
+                    echo '<option value="' . $r['codigo'] . '">' . $r['descripcion'] . '</option>';
                   }
                   ?>
                 </select>
               </td>
+              <td colspan="2" style="text-align:center;"><input type="button" class="btn btn-success" value="+" data-toggle="modal" data-target="#exampleModal"></td>
             </tr>
 
             <tr class="Controls">
               <td class="th"><label for="Doctor">M&eacute;dico:</label></td>
               <td><select id="Doctor" name="Doctor" style="width:100%; " required>
                   <?php
-                  $sql = "select nombre + ' ' + apellidos as Nombre,llave_doctor from dat_doctores  order by Nombre ";
-                  $query = odbc_exec($conection, $sql);
-                  while ($result = odbc_fetch_array($query)) {
-                    echo '<option value="' . $result['llave_doctor'] . '">' . $result['Nombre'] . '</option>';
+                  $sql = "select concat_ws(' ',nombre ,apellidos) as Nombre,llave_doctor from dat_doctores order by Nombre ";
+                  $resultado = $conection->query($sql);
+                  while($r=$resultado->fetch_assoc()) {
+                    echo '<option value="' . $r['llave_doctor'] . '">' . $r['Nombre'] . '</option>';
                   }
                   ?>
                 </select>
               </td>
+              <td colspan="2" style="text-align:center;"><input type="button" class="btn btn-success" value="+" data-toggle="modal" data-target="#exampleModal"></td>
             </tr>
 
             
@@ -226,13 +223,13 @@ $fecha = date('d/m/Y');
             <tr class="Controls">
               <td class="th"><label for="Correo">Telefono:</label></td>
               <td><input name="telefono" id="telefono" class="Controls" value="" style="width:98%; "></td>
-
+              <td></td>
             </tr>
 
             <tr class="Controls">
               <td class="th"><label for="Correo">Email:</label></td>
               <td><input name="correo" id="correo" class="Controls" value="" style="width:98%; "></td>
-
+              <td></td>
             </tr>
 
             <tr class="Controls">
@@ -266,15 +263,15 @@ $fecha = date('d/m/Y');
                   <?php
                   ///estudios
                   $sql = "select codigo_fonasa,nombre,costo_examen as precio from caj_codigos_fonasa where activo='S' AND CODIGO_FONASA NOT LIKE 'ANTV%' order by CODIGO_FONASA ";
-                  $query = odbc_exec($conection, $sql);
-                  while ($result = odbc_fetch_array($query)) {
-                    echo '<option value="' . $result['codigo_fonasa'] . '">' . $result['nombre'] . ' --> ' . $result['codigo_fonasa'] . '-->$' . $result['precio'] . '</option>';
+                  $resultado = $conection->query($sql);
+                  while($r=$resultado->fetch_assoc()) {
+                    echo '<option value="' . $r['codigo_fonasa'] . '">' . $r['nombre'] . ' --> ' . $r['codigo_fonasa'] . '-GI->$' . $r['precio'] . '</option>';
                   }
                   //agrupaciones
                   $sql = "select codigo,descripcion,precio from agrupaciones where activo='S' order by id ";
-                  $query = odbc_exec($conection, $sql);
-                  while ($result = odbc_fetch_array($query)) {
-                    echo '<option value="' . $result['codigo'] . '-">' . $result['descripcion'] . ' --> ' . $result['codigo'] . ' -->$' . $result['precio'] . '</option>';
+                  $resultado = $conection->query($sql);
+                  while($r=$resultado->fetch_assoc()) {
+                    echo '<option value="' . $r['codigo'] . '-">' . $r['descripcion'] . ' --> ' . $r['codigo'] . ' -->$' . $r['precio'] . '</option>';
                   }
                   ?>
                 </select>
@@ -306,7 +303,28 @@ $fecha = date('d/m/Y');
 
            </table>
         </form>
- 
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="">
+          <p>kokkook</p>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>                
 
   <script>
     function myFunction() {
