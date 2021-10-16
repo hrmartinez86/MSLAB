@@ -52,6 +52,50 @@ function paciente(expediente){
         ajax.send(null)
 }
 
+function RangoUpdate(k,t){
+	switch (t) {
+		case 1:
+				var resKeyTexto=k+'t';
+				var resTexto=document.getElementById(resKeyTexto).value;
+				ajax=objetoAjax();
+				var val="librerias/updateRangoTexto.php?id="+k+"&rest="+resTexto;
+				
+				ajax.open("GET", val);
+				ajax.onreadystatechange=function() {
+					if (ajax.readyState==4) {
+						valor.innerHTML = ajax.responseText
+						alert("Rango actualizado")
+					}
+				}
+				ajax.send(null)
+
+			break;
+		case 0:
+			var resKeyDesde=k+'d';
+			var resDesde=document.getElementById(resKeyDesde).value;
+			var resKeyHasta=k+'h';
+			var resHasta=document.getElementById(resKeyHasta).value;
+			
+			ajax=objetoAjax();
+			var val="librerias/updateRango.php?id="+k+"&resd="+resDesde+"&resh="+resHasta;
+			
+			ajax.open("GET", val);
+			ajax.onreadystatechange=function() {
+				if (ajax.readyState==4) {
+					valor.innerHTML = ajax.responseText
+					alert("Rango actualizado")
+				}
+			}
+			ajax.send(null)
+		
+			break;
+	
+		default:
+			break;
+	}
+	
+}
+
 function valor(k,p,f,t,a,b,est){
 	
 	var valor=document.getElementById(k).value;
@@ -97,7 +141,7 @@ function valor(k,p,f,t,a,b,est){
 				
 				if (valor<b){
 					
-					document.getElementById(k).style.backgroundColor="#ed6d5a";}
+					document.getElementById(k).style.backgroundColor="##FFD700";}
 				}
 			
 	
