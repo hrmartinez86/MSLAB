@@ -110,30 +110,27 @@ $fecha=date("d , M, y,  H:i a");
 	$sec=$_GET['Seccion'];
 	$fxini=$_GET['foliod'];
 	$fxfin=$_GET['folioh'];
-	//echo $fxfin;
-	//echo $fxini;
+
 	if (!empty($fxini))
 	
 	{
-	     if (empty($fxfin))
-	      {
-                 $fxini=str_pad($fxini, 6, "0", STR_PAD_LEFT);
-                 $fxini=$cod.$fxini;
-                 $fxfin=$fxini; 
-              }
-              //echo $fxfin;
-	      else
-             {  
+		if (empty($fxfin))
+		{
+			$fxini=str_pad($fxini, 6, "0", STR_PAD_LEFT);
+			$fxini=$cod.$fxini;
+			$fxfin=$fxini; 
+		}
+
+		else
+		{  
          
-      	
-	     $fxini=str_pad($fxini, 6, "0", STR_PAD_LEFT); 
-	     $fxfin=str_pad($fxfin, 6, "0", STR_PAD_LEFT);    
-             $cod=str_pad($cod,2,"0",STR_PAD_LEFT);
-	    $fxini=$cod.$fxini;
-	     $fxfin=$cod.$fxfin;
-	    //echo $_SESSION['empresa'];
-	    //echo $fxfin;
-            }
+			$fxini=str_pad($fxini, 6, "0", STR_PAD_LEFT); 
+			$fxfin=str_pad($fxfin, 6, "0", STR_PAD_LEFT);    
+			$cod=str_pad($cod,2,"0",STR_PAD_LEFT);
+			$fxini=$cod.$fxini;
+			$fxfin=$cod.$fxfin;
+
+		}
 	 }
 	if($sec!='')
     {
@@ -157,7 +154,6 @@ $fecha=date("d , M, y,  H:i a");
     
     else
     {$sql="execute LISTA_RESULTADOSXFOLIO_WEB @FINI='".$fxini."',@FFIN='".$fxfin."'";}
-//		echo $sql;
 	
     if (!isset($_GET['Paciente']))
 	{
@@ -167,11 +163,11 @@ $fecha=date("d , M, y,  H:i a");
 	}
 	else
 	{
-	$_SESSION['sql']="";
-	$paciente=rtrim(ltrim($_SESSION['paciente']));
-	$apellidos= rtrim(ltrim($_SESSION['apellidos']));
-	$sql .=" idpaciente=".$_GET['Paciente'];
-	$_SESSION['sql']=$sql;
+		$_SESSION['sql']="";
+		$paciente=rtrim(ltrim($_SESSION['paciente']));
+		$apellidos= rtrim(ltrim($_SESSION['apellidos']));
+		$sql .=" idpaciente=".$_GET['Paciente'];
+		$_SESSION['sql']=$sql;
 	}
 
 	function edad($fecha_nac){
