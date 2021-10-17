@@ -35,12 +35,7 @@ $Veterinario = $_POST['Nombres'];
 
 
 $sql_1="update lab_parametros_sistema set par_correlativo=".$Paciente." where cod_empresa=1"; 
-//   echo $sql_1; 
-  $query_result=odbc_exec($db_conn,$sql_1) or 
-die ("ERROR : No se puede ejecutar la consulta.");
-   
-$sql_1="update lab_parametros_sistema set par_correlativo=".$Veterinario." where cod_empresa=2"; 
-//  echo $sql_1; 
+
   $query_result=odbc_exec($db_conn,$sql_1) or 
 die ("ERROR : No se puede ejecutar la consulta.");
 ?>
@@ -104,27 +99,15 @@ die ("ERROR : No se puede ejecutar la consulta.");
             <td><h3  size="70"><?php echo $Paciente ; ?></td>
             <td></td>
           </tr>
-              <!-- <tr class="Controls">
-              <td class="th"><label for="CitasNombres">Folio de veterinario:</label></td> 
-            <td><h3  size="70"><?php //echo $Veterinario; ?></td>
-            <td></td>
-          </tr> -->
           
   		
-            </table>
+          </table>
 </form>
 <table align="center">
     <tr>
         <!--<td><input value="Guardar" type="button" src="WEB/img/icons/bguardatencion.jpg" onClick="GuardaDoctor()" /></td>-->
     </tr>
 </table>
-<p>
-  <!-- END Record Citas -->
-</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp; </p>
 
 </body>
 
