@@ -318,6 +318,23 @@ $ODBC=$_SESSION["ODBC"];
 				</select>
             </td>
           </tr>
+
+          <tr >
+            <td ><label for="Tipo">Procedencia de muestra:</label></td> 
+            <td><select id="Procedencia" name="Procedencia" >
+            	<?php
+			       echo '<option value="" </option>';
+				  $sql="select * from procedencia_muestra where activo='S'";
+			      $query=odbc_exec($conection,$sql);
+			     
+				  while ($result=odbc_fetch_array($query))
+			          {
+			        	echo '<option value="'.$result['id'].'">'.$result['descripcion'].'</option>';
+			          }			
+		        ?>        
+				</select>
+            </td>
+          </tr>
    
            <tr>
            <td>
