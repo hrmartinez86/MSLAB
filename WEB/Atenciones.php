@@ -161,7 +161,7 @@ $fecha = date('d/m/Y');
 
             <tr class="Controls">
               <td class="th"><label for="edad">Edad:</label></td>
-              <td> <input type="text" id="edad" onChange="cmbioEdad()" ></td>
+              <td> <input type="text" id="edad" onChange="cmbioEdad()" >Años</td>
 
             </tr>
             <tr class="Controls">
