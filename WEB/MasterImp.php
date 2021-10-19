@@ -34,7 +34,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         
 		$this->WriteText("NOMBRE DEL PACIENTE:".$nombre,10,10,'B',8,'Arial',false,false);
 		$this->WriteText("NOMBRE DEL DOCTOR:".$doctor,10,0,'B',8,'Arial',false,false);
-        $this->WriteText($procedencia,120,5,'B',8,'Arial',false,false);
+        $this->WriteText($procedencia,130,5,'B',8,'Arial',false,false);
 		$x1=5;
 		$x2=200;
 		$y1=$this->GetY();
@@ -147,12 +147,17 @@ protected $y0;      // Ordenada de comienzo de la columna
                     $this->WriteText($examArray[$i]['vd']." - ".$examArray[$i]['vh'],160,0,'',8,'Arial',false,false);
                 }
                 
-                $this->Ln(6);
+                $this->Ln(4);
             }
         }
-        $this->WriteText(metodo($llave),5,5,'B',8,'Arial',false,true);
-        $this->WriteText(nota($llave),2,0,'',8,'Arial',false,true);
-                
+        $metodo=metodo($llave);
+        if ($metodo!=""){
+            $this->WriteText(metodo($llave),5,5,'B',8,'Arial',false,true);
+        }
+        $nota=nota($llave);
+        if ($nota!=""){
+            $this->WriteText($nota ,2,0,'',8,'Arial',false,true);
+        }
     }
 
     function ChapterBody($examenes,$idPaciente)
