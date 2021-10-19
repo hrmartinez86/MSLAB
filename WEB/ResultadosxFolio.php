@@ -18,7 +18,10 @@ $idpaciente=$_GET['id'];
 $num= $_GET['num'];
 $folio=str_pad($num, 6, "0", STR_PAD_LEFT); 
 $folio= $cod.$folio;
-$sql="SELECT FECHA, HORA, NUMERO, NUMERO_REGISTRO, RUT, USUARIO_CREACION, NOMBRE_USUARIO, AnOS, NOMBRE_DOCTOR, FECHATOMAMUESTRA, FECHARECEPCIONMUESTRA, ESTADOTOMAMUESTRA, ESTADORECEPCIONMUESTRA, HORARECEPCIONMUESTRA, FECHA_REGISTRO, IDPACIENTE, ORI_PAC, TIPO_DE_URGENCIA, OBSTOMAMUESTRA, DESCRIPCION, RUT_PACIENTE, NOMBRE, APELLIDOS, SEXO, TELEFONO, FECHA_NACIMIENTO, PREVISION, CONTRAINDICACIONES, PROCEDENCIA_MUESTRA, FOLIO_HOST, NUM_CAMA 
+$sql="SELECT FECHA, HORA, NUMERO, NUMERO_REGISTRO, RUT, USUARIO_CREACION, NOMBRE_USUARIO, AnOS, NOMBRE_DOCTOR, FECHATOMAMUESTRA, 
+FECHARECEPCIONMUESTRA, ESTADOTOMAMUESTRA, ESTADORECEPCIONMUESTRA, HORARECEPCIONMUESTRA, FECHA_REGISTRO, IDPACIENTE, ORI_PAC, TIPO_DE_URGENCIA, 
+OBSTOMAMUESTRA, DESCRIPCION, RUT_PACIENTE, NOMBRE, APELLIDOS, SEXO, TELEFONO, FECHA_NACIMIENTO, PREVISION, CONTRAINDICACIONES, PROCEDENCIA_MUESTRA, 
+FOLIO_HOST, NUM_CAMA 
 FROM SISTEMA_TOMA_MUESTRAS_PACIENTE WHERE (idpaciente = '".$idpaciente."')";
 $query=odbc_exec($conection,$sql);  
     
@@ -27,6 +30,8 @@ while ($result=odbc_fetch_array($query))
   $idpaciente=$result['IDPACIENTE'];
   $nombre=$result['NOMBRE']." ".$result['APELLIDOS'];
   $folio=$result['NUMERO'];
+  $doctor=$result['NOMBRE_DOCTOR'];
+  $procedencia=$result['PROCEDENCIA_MUESTRA'];
 }
 
 ?> 
@@ -104,6 +109,8 @@ while ($result=odbc_fetch_array($query))
             <td class="HeaderRight"><img bordber="0" alt="" src="Styles/Core/Images/Spacer.gif"></td>
             <td class="th"><input type="hidden" value="<?php echo $nombre;?>" name="nombrePaciente" id="nombrePaciente"></td>
             <td class="th"><input type="hidden" value="<?php echo $folio;?>" id="folioPaciente"></td>
+            <td class="th"><input type="hidden" value="<?php echo $doctor;?>" name="doc" id="doc"></td>
+            <td class="th"><input type="hidden" value="<?php echo $procedencia;?>" name="procedencia" id="procedencia"></td>
           </tr>
         </table>
  
