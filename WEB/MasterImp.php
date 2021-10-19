@@ -25,12 +25,12 @@ protected $y0;      // Ordenada de comienzo de la columna
         
         $diassemana = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
         $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
-        $this->WriteText('',190,6,'',8,'Arial',false,false);
+        $this->WriteText('',180,6,'',8,'Arial',false,false);
 
         
         
         $hoy=utf8_decode($diassemana[date('w')])." ".date('d')." de ".$meses[date('n')-1]. " del ".date('Y') . " " . date('g:ia') ;
-        $this->WriteText($hoy,130,6,'',8,'Arial',false,false);
+        $this->WriteText($hoy,120,6,'',8,'Arial',false,false);
         
 		$this->WriteText("NOMBRE DEL PACIENTE:".$nombre,10,10,'B',8,'Arial',false,false);
 		$this->WriteText("NOMBRE DEL DOCTOR:".$doctor,10,0,'B',8,'Arial',false,false);
@@ -156,7 +156,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         }
         $nota=nota($llave);
         if ($nota!=""){
-            $this->WriteText($nota ,2,0,'',8,'Arial',false,true);
+            $this->WriteText($nota ,5,0,'',6,'Arial',false,true);
         }
     }
 
