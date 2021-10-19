@@ -25,7 +25,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         
         $diassemana = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
         $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
-        $this->WriteText('',210,6,'',8,'Arial',false,false);
+        $this->WriteText('',190,6,'',8,'Arial',false,false);
 
         
         
@@ -34,7 +34,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         
 		$this->WriteText("NOMBRE DEL PACIENTE:".$nombre,10,10,'B',8,'Arial',false,false);
 		$this->WriteText("NOMBRE DEL DOCTOR:".$doctor,10,0,'B',8,'Arial',false,false);
-        $this->WriteText($procedencia,150,5,'B',8,'Arial',false,false);
+        $this->WriteText($procedencia,120,5,'B',8,'Arial',false,false);
 		$x1=5;
 		$x2=200;
 		$y1=$this->GetY();
@@ -147,11 +147,11 @@ protected $y0;      // Ordenada de comienzo de la columna
                     $this->WriteText($examArray[$i]['vd']." - ".$examArray[$i]['vh'],160,0,'',8,'Arial',false,false);
                 }
                 
-                $this->Ln(6);
+                $this->Ln(1);
             }
         }
         $this->WriteText(metodo($llave),5,5,'B',8,'Arial',false,true);
-        $this->WriteText(nota($llave),5,0,'',8,'Arial',false,true);
+        $this->WriteText(nota($llave),2,0,'',8,'Arial',false,true);
                 
     }
 
