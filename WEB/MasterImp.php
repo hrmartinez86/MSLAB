@@ -147,11 +147,10 @@ protected $y0;      // Ordenada de comienzo de la columna
                     $this->WriteText($examArray[$i]['vd']." - ".$examArray[$i]['vh'],160,0,'',10,'Arial',false,false);
                 }
                 
-                
                 $this->Ln(6);
             }
         }
-        
+        $this->WriteText(metodo($llave),5,5,'B',10,'Arial',false,true);
         $this->WriteText(nota($llave),5,0,'',10,'Arial',false,true);
                 
     }
