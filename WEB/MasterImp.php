@@ -147,7 +147,7 @@ protected $y0;      // Ordenada de comienzo de la columna
                     $this->WriteText($examArray[$i]['vd']." - ".$examArray[$i]['vh'],160,0,'',8,'Arial',false,false);
                 }
                 
-                $this->Ln(1);
+                $this->Ln(6);
             }
         }
         $this->WriteText(metodo($llave),5,5,'B',8,'Arial',false,true);
@@ -161,7 +161,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         $this->SetFont('Times','',8);
         $this->SetX(90);
         $x=count($examenes);
-        $this->Ln(8);
+        $this->Ln(1);
         // $this->WriteText($x,9,6,'',10,'Arial',false,false);
         
         for ($i=0; $i <$x ; $i++) { 
