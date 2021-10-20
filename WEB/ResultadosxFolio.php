@@ -126,7 +126,7 @@ while ($result=odbc_fetch_array($query))
           <?php $sql="select cdp.llave_fonasa,cf.codigo_fonasa,cf.nombre as nombre_prestacion, cdp.idpaciente,cdp.liberado 
            from caj_det_prestaciones cdp
 inner join caj_codigos_fonasa cf on cf.llave_fonasa=cdp.llave_fonasa
-where idpaciente='".$idpaciente."'";
+where idpaciente='".$idpaciente."' ORDER BY cf.codigo_fonasa desc";
           $query=odbc_exec($conection,$sql);  
           
           $i=0;
