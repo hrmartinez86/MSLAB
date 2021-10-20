@@ -173,11 +173,7 @@ function validarres(f)
 	 var seccion=document.getElementById('Seccioncod').value;
 	 	
 	  
-		if(seccion=="")
-	    { 
-		alert('Debe Ingresar la Seccion ');
-		exit();
-	    }
+		
 		var elementos = document.getElementsByName("res2");
 		var perfiles=document.getElementsByName("perfil2");
 		var estados=document.getElementsByName("estado2");
@@ -310,11 +306,7 @@ function validarres_r(f)
 	 seccion=document.getElementById('Secciond').value;
  	
 	   //alert(seccion);
-		if(seccion==1)
-	    { 
-		alert('Debe Ingresar la Seccion ');
-		exit();
-	    }
+		
 		var elementos = document.getElementsByName("res2");
 		var perfiles=document.getElementsByName("perfil2");
 		var estados=document.getElementsByName("estado2");
