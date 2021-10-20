@@ -117,7 +117,7 @@ protected $y0;      // Ordenada de comienzo de la columna
     {
         $this->SetFont('Arial','',8);
         // $this->SetFillColor(208,211,212);
-        $this->Cell(0,6,$label,0,8,'',true);
+        $this->Cell(0,6,$label,0,10,'B',false);
         $this->WriteText('',210,2,'',8,'Arial',false,false);
         $this->WriteText('NOMBRE DEL EXAMEN',5,0,'B',8,'Arial',false,false);
         $this->WriteText('REULTADOS',100,0,'B',8,'Arial',false,false);
