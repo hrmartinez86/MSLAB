@@ -32,8 +32,8 @@ protected $y0;      // Ordenada de comienzo de la columna
         $hoy=utf8_decode($diassemana[date('w')])." ".date('d')." de ".$meses[date('n')-1]. " del ".date('Y') . " " . date('g:ia') ;
         $this->WriteText($hoy,120,6,'',8,'Arial',false,false);
         
-		$this->WriteText("NOMBRE DEL PACIENTE:".$nombre,10,10,'B',8,'Arial',false,false);
-		$this->WriteText("NOMBRE DEL DOCTOR:".$doctor,10,0,'B',8,'Arial',false,false);
+		$this->WriteText("NOMBRE DEL PACIENTE:".utf8_decode($nombre),10,10,'B',8,'Arial',false,false);
+		$this->WriteText("NOMBRE DEL DOCTOR:".utf8_decode($doctor),10,0,'B',8,'Arial',false,false);
         $this->WriteText($procedencia,130,5,'B',8,'Arial',false,false);
 		$x1=5;
 		$x2=200;
