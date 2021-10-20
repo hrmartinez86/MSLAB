@@ -134,33 +134,37 @@ $db_conn = conectar($ODBC);
 
 
                 if ($_GET['t'] == 0) {
-
-                  $sql = "SELECT     idpaciente AS id , numero as Folio FROM dat_dfipa WHERE     (fecha = CONVERT(varchar(10), '" . $fecha . "', 103)) order by numero";
+                  echo "<script> console.log('entra al 0');</script>";
+                  // $sql = "SELECT     idpaciente AS id , numero as Folio FROM dat_dfipa WHERE     (fecha = CONVERT(varchar(10), '" . $fecha . "', 103)) order by numero";
+                  $sql = "EXECUTE LISTA_RESULTADOS_WEB @TIPO='" . $tipo . "',@PROCEDENCIA='" . $proc . "',@SECCION='" . $sec . "',@FECHA_DESDE='" . $fecha . "',@FECHA_HASTA='" . $fecha . "',@EXP='" . $exp . "',@NOMBRE='" . $nombre . "',@APELLIDO='" . $ape . "'";
                 }
 
                 if ($_GET['t'] == 3) {
                   $infocon = $_GET['FI'];
-
+                  echo "<script> console.log('entra al 3');</script>";
                   $f = explode("-", $infocon);
                   $ini = $f[2] . "/" . $f[1] . "/" . $f[0];
-
+                  echo "<script> console.log('".$ini."');</script>";
                   $ffin = $_GET['FF'];
                   $f = explode("-", $ffin);
+                  echo "<script> console.log('".$f[0]."');</script>";
                   $fin = $f[2] . "/" . $f[1] . "/" . $f[0];
-                  $sec = $_GET['Seccion'];
+                  // $sec = $_GET['Seccion'];
+                  // echo "<script> console.log('".$sec."');</script>";
                   $sql = "EXECUTE LISTA_RESULTADOS_WEB @TIPO='" . $tipo . "',@PROCEDENCIA='" . $proc . "',@SECCION='" . $sec . "',@FECHA_DESDE='" . $ini . "',@FECHA_HASTA='" . $fin . "',@EXP='" . $exp . "',@NOMBRE='" . $nombre . "',@APELLIDO='" . $ape . "'";
                   //$sql="SELECT     idpaciente AS id , numero FROM dat_dfipa WHERE     (fecha between CONVERT(varchar(10), '".$ini."', 103) and CONVERT(varchar(10), '".$fin."', 103)) order by numero";
+                  echo "<script> console.log('".$sql."');</script>";
                 }
-                echo $sql;
+                
                 $query = odbc_exec($db_conn, $sql);
                 $idpac = $_GET['id'];
 
                 while ($result = odbc_fetch_array($query)) {
                   if ($result['id'] == $idpac) {
 
-                    echo '<option  value="' . $result['id'] . '" selected>' . $result['Folio'] . '</option>';
+                    echo '<option  value="' . $result['id'] . '" selected>' . $result['Folio'] . '-'. $result['Nombre'].'</option>';
                   } else {
-                    echo '<option  value="' . $result['id'] . '">' . $result['Folio'] . '</option>';
+                    echo '<option  value="' . $result['id'] . '">' . $result['Folio'] . '-'. $result['Nombre'].'</option>';
                   }
                   //echo '<option  value="'.$result['id'].'">'.$result['numero'].'</option>';   
                 }

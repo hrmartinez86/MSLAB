@@ -208,8 +208,8 @@ $final = array();
 //rescatamos el listado de peticiones
 $ex = explode(" ", $examenes);
 $j = count($ex);
-
-// echo "<br>estudios antes de la comparacion<br>";var_dump($ex);
+//almacenamos el numero consecutivo diario
+$numeroDiario=0;
 
 for ($i = 0; $i < $j; $i++) {
   $lastChar = substr($ex[$i], -1);
