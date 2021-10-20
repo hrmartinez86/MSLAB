@@ -120,7 +120,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         $this->Cell(0,6,$label,0,10,'B',false);
         $this->WriteText('',210,2,'',8,'Arial',false,false);
         $this->WriteText('NOMBRE DEL EXAMEN',5,0,'B',8,'Arial',false,false);
-        $this->WriteText('REULTADOS',100,0,'B',8,'Arial',false,false);
+        $this->WriteText('RESULTADOS',80,0,'B',8,'Arial',false,false);
         $this->WriteText('VALOR DE REFERENCIA',140,6,'B',8,'Arial',false,false);
         
         // Guardar ordenada
@@ -146,6 +146,23 @@ protected $y0;      // Ordenada de comienzo de la columna
                 {
                     $this->WriteText($examArray[$i]['vd']." - ".$examArray[$i]['vh'],160,0,'',8,'Arial',false,false);
                 }
+                $resultado=$examArray[$i]['Res'];
+                $longitud=strlen($resultado);
+                if ($longitud>40)
+                {
+                    // echo "<script> console.log('superior');</script>";
+                    $arr_res=str_split($resultado,40);
+                    for ($i=0; $i < count($arr_res); $i++) { 
+                        $this->WriteText($arr_res[$i],80,0,'',8,'Arial',false,false);
+                        $this->Ln(4);
+                        // echo "<script> console.log('".$i."-".$arr_res[$i]."');</script>";
+                    }
+                }
+                else{
+                    $this->WriteText($examArray[$i]['Res'],80,0,'',8,'Arial',false,false);
+                }
+                
+                
                 
                 $this->Ln(4);
             }
