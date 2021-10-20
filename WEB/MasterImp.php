@@ -144,21 +144,21 @@ protected $y0;      // Ordenada de comienzo de la columna
                 {
                     $this->WriteText($examArray[$i]['vd']." - ".$examArray[$i]['vh'],160,0,'',8,'Arial',false,false);
                 }
-                $resultado=$examArray[$i]['Res'];
-                $longitud=strlen($resultado);
-                if ($longitud>40)
-                {
-                    // echo "<script> console.log('superior');</script>";
-                    $arr_res=str_split($resultado,40);
-                    for ($i=0; $i < count($arr_res); $i++) { 
-                        $this->WriteText($arr_res[$i],80,0,'',8,'Arial',false,false);
-                        $this->Ln(4);
-                        // echo "<script> console.log('".$i."-".$arr_res[$i]."');</script>";
-                    }
-                }
-                else{
+                // $resultado=$examArray[$i]['Res'];
+                // $longitud=strlen($resultado);
+                // if ($longitud>40)
+                // {
+                //     // echo "<script> console.log('superior');</script>";
+                //     $arr_res=str_split($resultado,40);
+                //     for ($i=0; $i < count($arr_res); $i++) { 
+                //         $this->WriteText($arr_res[$i],80,0,'',8,'Arial',false,false);
+                //         $this->Ln(4);
+                //         // echo "<script> console.log('".$i."-".$arr_res[$i]."');</script>";
+                //     }
+                // }
+                // else{
                     $this->WriteText($examArray[$i]['Res'],80,0,'',8,'Arial',false,false);
-                }
+                // }
                 
                 
                 
