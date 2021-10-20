@@ -136,8 +136,6 @@ protected $y0;      // Ordenada de comienzo de la columna
         {
             if($examArray[$i]['Res']!=''){
                 $this->WriteText(utf8_decode($examArray[$i]['Info']),5,0,'',8,'Arial',false,false);
-                $this->WriteText(utf8_decode($examArray[$i]['Res']),100,0,'',8,'Arial',false,false);
-                $this->WriteText(utf8_decode($examArray[$i]['Res']),100,0,'',8,'Arial',false,false);
                 $this->WriteText(utf8_decode($examArray[$i]['um']),140,0,'',8,'Arial',false,false);
                 if ($examArray[$i]['rt']!="") {
                     $this->WriteText($examArray[$i]['rt'],140,0,'',8,'Arial',false,false);
