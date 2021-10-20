@@ -116,7 +116,7 @@ protected $y0;      // Ordenada de comienzo de la columna
     function ChapterTitle($label)
     {
         $this->SetFont('Arial','',8);
-        $this->SetFillColor(208,211,212);
+        // $this->SetFillColor(208,211,212);
         $this->Cell(0,6,$label,0,8,'',true);
         $this->WriteText('',210,2,'',8,'Arial',false,false);
         $this->WriteText('NOMBRE DEL EXAMEN',5,0,'B',8,'Arial',false,false);
