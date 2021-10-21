@@ -28,7 +28,7 @@ $query=odbc_exec($conection,$sql);
 while ($result=odbc_fetch_array($query))
 {
   $idpaciente=$result['IDPACIENTE'];
-  $nombre=$result['NOMBRE']." ".$result['APELLIDOS'];
+  $nombre=utf8_encode($result['NOMBRE'])." ".utf8_encode($result['APELLIDOS']);
   $folio=$result['NUMERO'];
   $doctor=$result['NOMBRE_DOCTOR'];
   $procedencia=$result['PROCEDENCIA_MUESTRA'];
