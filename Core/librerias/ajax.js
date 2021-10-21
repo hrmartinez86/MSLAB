@@ -364,20 +364,13 @@ function validarres_r(f)
 function desvalidarres_r(f)
 {
 	
-	seccion=document.getElementById('Secciond').value;
- 	
-	   //alert(seccion);
-		if(seccion==1)
-	    { 
-		alert('Debe Ingresar la Seccion ');
-		exit();
-	    }
-		
+	
 	var elementos = document.getElementsByName("res2");
 	var perfiles=document.getElementsByName("perfil2");
 	var estados=document.getElementsByName("estado2");
 	var estudios=document.getElementsByName("estudio2");
 	var des=document.getElementsByName("des2");
+
 	for (x=0;x<elementos.length;x++)
 	{
 		valor =  elementos[x].value;
@@ -385,9 +378,9 @@ function desvalidarres_r(f)
 		llave=elementos[x].id;
 		estado=estados[x].value;
 		estudio=estudios[x].value;
-	if (des[x].checked) {
-		DES(llave,valor,perfil,f,estudio);
-    }
+		if (des[x].checked) {
+			DES(llave,valor,perfil,f,estudio);
+		}
 	}
 	
 	var elementos = document.getElementsByName("res");
@@ -395,6 +388,7 @@ function desvalidarres_r(f)
 	var estados=document.getElementsByName("estado");
 	var estudios=document.getElementsByName("estudio");
 	var des=document.getElementsByName("des");
+
 	for (x=0;x<elementos.length;x++)
 	{
 		valor =  elementos[x].value;
@@ -402,9 +396,9 @@ function desvalidarres_r(f)
 		llave=elementos[x].id;
 		estado=estados[x].value;
 		estudio=estudios[x].value;
-	if (des[x].checked) {
-		DES(llave,valor,perfil,f,estudio);
-    }
+		if (des[x].checked) {
+			DES(llave,valor,perfil,f,estudio);
+		}
 	}
 	alert('Estudios Desvalidados');
 	
@@ -414,64 +408,65 @@ function desvalidarres_r(f)
 function DES(llave2,valor2,perfil2,f,estudio2)
 {  
     valor2=valor2.replace('+','?');
-valor2=valor2.replace('++','??');
-valor2=valor2.replace('+++','???');
-valor2=valor2.replace('++++','????');
-valor2=valor2.replace('+++++','?????');
-valor2=valor2.replace('+','?');
-valor2=valor2.replace('++','??');
-valor2=valor2.replace('+++','???');
-valor2=valor2.replace('++++','????');
-valor2=valor2.replace('+++++','?????');
-valor2=valor2.replace('+','?');
-valor2=valor2.replace('++','??');
-valor2=valor2.replace('+++','???');
-valor2=valor2.replace('++++','????');
-valor2=valor2.replace('+++++','?????');
-valor2=valor2.replace('+','?');
-valor2=valor2.replace('++','??');
-valor2=valor2.replace('+++','???');
-valor2=valor2.replace('++++','????');
-valor2=valor2.replace('+++++','?????');
-valor2=valor2.replace('+','?');
-valor2=valor2.replace('++','??');
-valor2=valor2.replace('+++','???');
-valor2=valor2.replace('++++','????');
-valor2=valor2.replace('+++++','?????');
-valor2=valor2.replace('+','?');
-valor2=valor2.replace('++','??');
-valor2=valor2.replace('+++','???');
-valor2=valor2.replace('++++','????');
-valor2=valor2.replace('+++++','?????');
-valor2=valor2.replace('+','?');
-valor2=valor2.replace('++','??');
-valor2=valor2.replace('+++','???');
-valor2=valor2.replace('++++','????');
-valor2=valor2.replace('+++++','?????');
-valor2=valor2.replace('+','?');
-valor2=valor2.replace('++','??');
-valor2=valor2.replace('+++','???');
-valor2=valor2.replace('++++','????');
-valor2=valor2.replace('+++++','?????');
-valor2=valor2.replace('+','?');
-valor2=valor2.replace('++','??');
-valor2=valor2.replace('+++','???');
-valor2=valor2.replace('++++','????');
-valor2=valor2.replace('+++++','?????');
-valor2=valor2.replace('+','?');
-valor2=valor2.replace('++','??');
-valor2=valor2.replace('+++','???');
-valor2=valor2.replace('++++','????');
-valor2=valor2.replace('+++++','?????');
+	valor2=valor2.replace('++','??');
+	valor2=valor2.replace('+++','???');
+	valor2=valor2.replace('++++','????');
+	valor2=valor2.replace('+++++','?????');
+	valor2=valor2.replace('+','?');
+	valor2=valor2.replace('++','??');
+	valor2=valor2.replace('+++','???');
+	valor2=valor2.replace('++++','????');
+	valor2=valor2.replace('+++++','?????');
+	valor2=valor2.replace('+','?');
+	valor2=valor2.replace('++','??');
+	valor2=valor2.replace('+++','???');
+	valor2=valor2.replace('++++','????');
+	valor2=valor2.replace('+++++','?????');
+	valor2=valor2.replace('+','?');
+	valor2=valor2.replace('++','??');
+	valor2=valor2.replace('+++','???');
+	valor2=valor2.replace('++++','????');
+	valor2=valor2.replace('+++++','?????');
+	valor2=valor2.replace('+','?');
+	valor2=valor2.replace('++','??');
+	valor2=valor2.replace('+++','???');
+	valor2=valor2.replace('++++','????');
+	valor2=valor2.replace('+++++','?????');
+	valor2=valor2.replace('+','?');
+	valor2=valor2.replace('++','??');
+	valor2=valor2.replace('+++','???');
+	valor2=valor2.replace('++++','????');
+	valor2=valor2.replace('+++++','?????');
+	valor2=valor2.replace('+','?');
+	valor2=valor2.replace('++','??');
+	valor2=valor2.replace('+++','???');
+	valor2=valor2.replace('++++','????');
+	valor2=valor2.replace('+++++','?????');
+	valor2=valor2.replace('+','?');
+	valor2=valor2.replace('++','??');
+	valor2=valor2.replace('+++','???');
+	valor2=valor2.replace('++++','????');
+	valor2=valor2.replace('+++++','?????');
+	valor2=valor2.replace('+','?');
+	valor2=valor2.replace('++','??');
+	valor2=valor2.replace('+++','???');
+	valor2=valor2.replace('++++','????');
+	valor2=valor2.replace('+++++','?????');
+	valor2=valor2.replace('+','?');
+	valor2=valor2.replace('++','??');
+	valor2=valor2.replace('+++','???');
+	valor2=valor2.replace('++++','????');
+	valor2=valor2.replace('+++++','?????');
+
     ajax=objetoAjax();
     val="librerias/desvalidanumero.php?id="+ llave2 + "&res=" + valor2 +  "&per=" + perfil2 +"&pac=" + f + "&est=" + estudio2;
 	//alert(val);
     ajax.open("GET", val);
     ajax.onreadystatechange=function() {
-	if (ajax.readyState==4) {
-	valor.innerHTML = ajax.responseText
-	  }
-     }
+		if (ajax.readyState==4) {
+			valor.innerHTML = ajax.responseText
+		}
+	}
     ajax.send(null)
 	
 }   
