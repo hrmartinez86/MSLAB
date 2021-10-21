@@ -64,7 +64,7 @@ $fecha=date('d/m/Y');
 <?php include("Header.html")?>
 <br></br>
 
-<form id="Citas" method="get" name="Citas" action="MasterImpxlote.php">
+<form target="_blank" id="Citas" method="get" name="Citas" action="MasterImpxlote.php">
   <table border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td valign="top">
@@ -79,11 +79,11 @@ $fecha=date('d/m/Y');
         <table height="150" cellpadding="0" cellspacing="0" class="Record">
           <tr class="Controls">
          <td>Fecha Inicial: </td>
-         <td><input id=""  value="<?php echo $fecha;?>"  type="date"  name="theDate"></td>
+         <td><input id="" required value="<?php echo $fecha;?>"  type="date"  name="theDate"></td>
          
           <tr class="Controls">
              
-            <td>Fecha Final: </td><td><input id="Fecha" value="<?php echo $fecha;?>" type="date" name="theDate2"></td>
+            <td>Fecha Final: </td><td><input id="Fecha" required value="<?php echo $fecha;?>" type="date" name="theDate2"></td>
             
             </tr>
  
