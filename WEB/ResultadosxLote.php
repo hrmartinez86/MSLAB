@@ -51,7 +51,12 @@ $fecha=date('d/m/Y');
 <script language="javascript" type="text/javascript" src="js/mambo2.js"></script>
 <link type="text/css" rel="stylesheet" href="dhtmlgoodies_calendar/dhtmlgoodies_calendar.css?random=20051112" media="screen"></LINK>
 <script type="text/javascript" src="dhtmlgoodies_calendar/dhtmlgoodies_calendar.js?random=20060118"></script>
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/css/bootstrap-select.min.css'>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
 </head>
 <body>
  
@@ -74,11 +79,11 @@ $fecha=date('d/m/Y');
         <table height="150" cellpadding="0" cellspacing="0" class="Record">
           <tr class="Controls">
          <td>Fecha Inicial: </td>
-         <td><input id="" type="text" value="<?php echo $fecha;?>"  type="date"  name="theDate"><img type="button" src="Styles/Core/Images/DatePicker.gif" onclick="displayCalendar(document.forms[0].theDate,'dd/mm/yyyy',this)"></td>
+         <td><input id=""  value="<?php echo $fecha;?>"  type="date"  name="theDate"></td>
          
           <tr class="Controls">
              
-            <td>Fecha Final: </td><td><input type="text" id="Fecha" value="<?php echo $fecha;?>" type="date" name="theDate2"><img type="button" src="Styles/Core/Images/DatePicker.gif" onclick="displayCalendar(document.forms[0].theDate2,'dd/mm/yyyy',this)"></td>
+            <td>Fecha Final: </td><td><input id="Fecha" value="<?php echo $fecha;?>" type="date" name="theDate2"></td>
             
             </tr>
  
@@ -120,9 +125,10 @@ $fecha=date('d/m/Y');
             
      
             </table>
-         
+            <input type="button" class="btn btn-primary" value='Enviar' onClick="validar3()" >
 </form>
-<input type="image" src="img/Core/baceptar1.jpg" onClick="validar3()" />
+
+
 
 </body>
 

@@ -23,7 +23,7 @@
         inner join caj_codigos_fonasa cf on cf.llave_fonasa=lrfp.llave_fonasa 
         inner join procedencia_muestra pm on pm.id=df.procedencia_muestra
         inner join dat_doctores doc on doc.llave_doctor=df.doctor
-        where df.fecha between convert(datetime,'".$fechaIni."',103) and convert(datetime,'".$fechaFin."',103) ";
+        where df.fecha between '".$fechaIni."' and '".$fechaFin."' ";
         if ($procedencia!=''){$sql=$sql." and procedencia_muestra=".$procedencia;}
         if ($tipo!=''){$sql=$sql." and df.tipo='".$tipo."'" ;}
         $sql=$sql." and dp.estado='V' group by df.idpaciente,cf.llave_fonasa,cf.nombre,

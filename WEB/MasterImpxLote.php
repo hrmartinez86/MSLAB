@@ -214,6 +214,14 @@ $pdf->SetAuthor('MSLAB');
 //tomamos los parametros 
 $fechaIni=$_GET['theDate'];
 $fechaFin=$_GET['theDate2'];
+
+$fecha_array = explode("-", $fechaIni);
+$fechaIni=$fecha_array[2]."/". $fecha_array[1] ."/". $fecha_array[0];
+
+$fecha_array_ = explode("-", $fechaFin);
+$fechaFin=$fecha_array_[2]."/". $fecha_array_[1] ."/". $fecha_array_[0];
+
+
 $procedencia=$_GET['CitasProcedencia'];
 $tipo=$_GET['Tipo'];
 $idspaciente=pacientes($fechaIni,$fechaFin,$tipo,$procedencia);
