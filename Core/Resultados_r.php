@@ -24,7 +24,7 @@ $db_conn = conectar($ODBC);
 
 <HEAD>
   <TITLE>Ingreso de Resultados</TITLE>
-  <META content="text/html; charset=iso-8859-1" http-equiv=Content-Type>
+  <META content="text/html; UTF-8" http-equiv=Content-Type>
   <META content="MSHTML 5.00.2314.1000" name=GENERATOR>
   <meta http-equiv="imagetoolbar" content="no">
   <link rel="stylesheet" type="text/css" href="../WEB/Styles/Core/Style_doctype.css">
