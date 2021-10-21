@@ -59,7 +59,7 @@ $fecha=date('d/m/Y');
 <?php include("Header.html")?>
 <br></br>
 
-<form id="Citas" method="get" name="Citas" action="../Core/MasterImpxlote.php">
+<form id="Citas" method="get" name="Citas" action="MasterImpxlote.php">
   <table border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td valign="top">
@@ -74,11 +74,11 @@ $fecha=date('d/m/Y');
         <table height="150" cellpadding="0" cellspacing="0" class="Record">
           <tr class="Controls">
          <td>Fecha Inicial: </td>
-         <td><input id="" type="text" value="<?php echo $fecha;?>"  readonly  name="theDate"><img type="button" src="Styles/Core/Images/DatePicker.gif" onclick="displayCalendar(document.forms[0].theDate,'dd/mm/yyyy',this)"></td>
+         <td><input id="" type="text" value="<?php echo $fecha;?>"  type="date"  name="theDate"><img type="button" src="Styles/Core/Images/DatePicker.gif" onclick="displayCalendar(document.forms[0].theDate,'dd/mm/yyyy',this)"></td>
          
           <tr class="Controls">
              
-            <td>Fecha Final: </td><td><input type="text" id="Fecha" value="<?php echo $fecha;?>" readonly name="theDate2"><img type="button" src="Styles/Core/Images/DatePicker.gif" onclick="displayCalendar(document.forms[0].theDate2,'dd/mm/yyyy',this)"></td>
+            <td>Fecha Final: </td><td><input type="text" id="Fecha" value="<?php echo $fecha;?>" type="date" name="theDate2"><img type="button" src="Styles/Core/Images/DatePicker.gif" onclick="displayCalendar(document.forms[0].theDate2,'dd/mm/yyyy',this)"></td>
             
             </tr>
  

@@ -10,6 +10,47 @@
         
     }
 
+    function pacientes($fechaIni,$fechaFin,$tipo,$procedencia){
+        //llave id paciente
+        $ODBC=$_SESSION["ODBC"];
+        $link=conectar($ODBC);
+        $sql="select df.idpaciente,cf.llave_fonasa,cf.nombre,dpc.nombre + ' ' + dpc.apellidos as NombrePaciente,
+        pm.descripcion as procedencia,doc.nombre as doctor,df.fecha,df.numero
+         from dat_dpcod dp 
+        inner join dat_dfipa df on df.idpaciente=dp.idpaciente
+        inner join dat_paciente dpc on df.rut=dpc.rut
+        inner join lab_relac_fonasa_perfil lrfp on lrfp.llave_perfil=dp.llave_perfil
+        inner join caj_codigos_fonasa cf on cf.llave_fonasa=lrfp.llave_fonasa 
+        inner join procedencia_muestra pm on pm.id=df.procedencia_muestra
+        inner join dat_doctores doc on doc.llave_doctor=df.doctor
+        where df.fecha between convert(datetime,'".$fechaIni."',103) and convert(datetime,'".$fechaFin."',103) ";
+        if ($procedencia!=''){$sql=$sql." and procedencia_muestra=".$procedencia;}
+        if ($tipo!=''){$sql=$sql." and df.tipo='".$tipo."'" ;}
+        $sql=$sql." and dp.estado='V' group by df.idpaciente,cf.llave_fonasa,cf.nombre,
+        dpc.nombre,dpc.apellidos,pm.descripcion,doc.nombre,df.fecha,df.numero 
+        order by df.idpaciente,cf.llave_fonasa desc";
+        
+        // echo $sql;
+        
+        $son=odbc_exec($link,$sql) or die ("error aqui".odbc_errormsg());
+        while($row =odbc_fetch_array($son) )
+        {
+            // $folios[]=array('idpaciente'=>$row['idpaciente'],
+            //                 'llave_fonasa'=>$row['llave_fonasa']);
+            $pac[]=array('idpaciente'=>$row['idpaciente'],
+                         'llave_fonasa'=>$row['llave_fonasa'],
+                         'nombre'=>$row['nombre'],
+                         'nombrePaciente'=>$row['NombrePaciente'],
+                         'procedencia'=>$row['procedencia'],
+                         'doctor'=>$row['doctor'],
+                         'fecha'=>$row['fecha'],
+                         'numero'=>$row['numero']);
+
+        }
+        return $pac;
+    }
+
+
     function resultados($idPaciente,$llave)
     {
         global $ODBC;
