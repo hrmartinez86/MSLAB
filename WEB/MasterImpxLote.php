@@ -225,7 +225,8 @@ $fechaFin=$fecha_array_[2]."/". $fecha_array_[1] ."/". $fecha_array_[0];
 $procedencia=$_GET['CitasProcedencia'];
 $tipo=$_GET['Tipo'];
 $idspaciente=pacientes($fechaIni,$fechaFin,$tipo,$procedencia);
-// var_dump($idspaciente);
+
+$pdf->Image('background-image.png', 0, 0, 100, 150);
 
 for ($i=0; $i < count($idspaciente) ; $i++) { 
     if($idPacienteComp==$idspaciente[$i]['idpaciente'])
