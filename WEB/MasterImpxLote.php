@@ -32,7 +32,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         .$meses[date('n',strtotime($fecha))-1]. " del ".date('Y',strtotime($fecha))  ;
         $this->WriteText($hoy,130,6,'',8,'Arial',false,false);
         
-		$this->WriteText("NOMBRE DEL PACIENTE:".utf8_decode($nombre),10,10,'B',8,'Arial',false,false);
+		$this->WriteText("NOMBRE DEL PACIENTE:".str_replace("?","Ñ",$nombre),10,10,'B',8,'Arial',false,false);
 		$this->WriteText("NOMBRE DEL DOCTOR:".utf8_decode($doctor),10,0,'B',8,'Arial',false,false);
         $this->WriteText($procedencia,130,5,'B',8,'Arial',false,false);
 		$x1=5;
