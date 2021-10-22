@@ -241,7 +241,7 @@ for ($i=0; $i < count($idspaciente) ; $i++) {
         $pdf->AddPage();
 
         $pdf->encabezado($idspaciente[$i]['nombrePaciente'],$idspaciente[$i]['doctor'],
-        $idspaciente[$i]['procedencia'],$idspaciente[$i]['fecha'],$idspaciente[$i]['numero']);
+        $idspaciente[$i]['procedencia'],$idspaciente[$i]['fecha'],str_pad($idspaciente[$i]['numero'],3,"0",STR_PAD_LEFT));
 
         $pdf->ChapterTitle($idspaciente[$i]['nombre']);
 

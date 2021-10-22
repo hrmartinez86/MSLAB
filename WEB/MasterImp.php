@@ -1,4 +1,4 @@
-git <?php
+<?php
 header('Content-Type: text/html; charset=UTF-8');
 session_start();
 $examenes=$_SESSION['examenes'];
@@ -17,6 +17,7 @@ protected $y0;      // Ordenada de comienzo de la columna
 		$nombre=$_POST['nombrePaciente'];
 		$doctor=$_POST['doc'];
         $procedencia=$_POST['procedencia'];
+        $numero=$_POST['folioPaciente'];
         $this->WriteText('LABORATORIO SALAS FERNANDEZ',210,5,'B',13,'Arial',true,false);
         $this->WriteText('QUIMICO RESPONSABLE',210,5,'',8,'Arial',true,false);
         $this->WriteText('Q.F.B. GERARDO SALAS FERNANDEZ',210,5,'B',8,'Arial',true,false);
@@ -28,7 +29,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
         $this->WriteText('',180,6,'',8,'Arial',false,false);
 
-        
+        $this->WriteText($numero,160,6,'B',8,'Arial',false,false);
         
         $hoy=utf8_decode($diassemana[date('w')])." ".date('d')." de ".$meses[date('n')-1]. " del ".date('Y') . " " . date('g:ia') ;
         $this->WriteText($hoy,120,6,'',8,'Arial',false,false);

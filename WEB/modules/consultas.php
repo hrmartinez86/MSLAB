@@ -15,7 +15,7 @@
         $ODBC=$_SESSION["ODBC"];
         $link=conectar($ODBC);
         $sql="select df.idpaciente,cf.llave_fonasa,cf.nombre,dpc.nombre + ' ' + dpc.apellidos as NombrePaciente,
-        pm.descripcion as procedencia,doc.nombre as doctor,df.fecha,df.numero
+        pm.descripcion as procedencia,doc.nombre as doctor,df.fecha,df.numero_registro as numero
          from dat_dpcod dp 
         inner join dat_dfipa df on df.idpaciente=dp.idpaciente
         inner join dat_paciente dpc on df.rut=dpc.rut
