@@ -134,25 +134,23 @@ $db_conn = conectar($ODBC);
 
 
                 if ($_GET['t'] == 0) {
-                  echo "<script> console.log('entra al 0');</script>";
-                  // $sql = "SELECT     idpaciente AS id , numero as Folio FROM dat_dfipa WHERE     (fecha = CONVERT(varchar(10), '" . $fecha . "', 103)) order by numero";
+                  
                   $sql = "EXECUTE LISTA_RESULTADOS_WEB @TIPO='" . $tipo . "',@PROCEDENCIA='" . $proc . "',@SECCION='" . $sec . "',@FECHA_DESDE='" . $fecha . "',@FECHA_HASTA='" . $fecha . "',@EXP='" . $exp . "',@NOMBRE='" . $nombre . "',@APELLIDO='" . $ape . "'";
                 }
 
                 if ($_GET['t'] == 3) {
                   $infocon = $_GET['FI'];
-                  echo "<script> console.log('entra al 3');</script>";
+
                   $f = explode("-", $infocon);
                   $ini = $f[2] . "/" . $f[1] . "/" . $f[0];
-                  echo "<script> console.log('".$ini."');</script>";
+
                   $ffin = $_GET['FF'];
                   $f = explode("-", $ffin);
-                  echo "<script> console.log('".$f[0]."');</script>";
+
                   $fin = $f[2] . "/" . $f[1] . "/" . $f[0];
-                  // $sec = $_GET['Seccion'];
-                  // echo "<script> console.log('".$sec."');</script>";
+
                   $sql = "EXECUTE LISTA_RESULTADOS_WEB @TIPO='" . $tipo . "',@PROCEDENCIA='" . $proc . "',@SECCION='" . $sec . "',@FECHA_DESDE='" . $ini . "',@FECHA_HASTA='" . $fin . "',@EXP='" . $exp . "',@NOMBRE='" . $nombre . "',@APELLIDO='" . $ape . "'";
-                  //$sql="SELECT     idpaciente AS id , numero FROM dat_dfipa WHERE     (fecha between CONVERT(varchar(10), '".$ini."', 103) and CONVERT(varchar(10), '".$fin."', 103)) order by numero";
+                  
                   echo "<script> console.log('".$sql."');</script>";
                 }
                 
@@ -162,11 +160,11 @@ $db_conn = conectar($ODBC);
                 while ($result = odbc_fetch_array($query)) {
                   if ($result['id'] == $idpac) {
 
-                    echo '<option  value="' . $result['id'] . '" selected>' . $result['Folio'] . '-'. $result['Nombre'].'</option>';
+                    echo '<option  value="' . $result['id'] . '" selected>' . str_pad($result['numero_registro'],3,"0",STR_PAD_LEFT). '-'. $result['Nombre'].'-'. substr($result['Fecha'],0,10).'</option>';
                   } else {
-                    echo '<option  value="' . $result['id'] . '">' . $result['Folio'] . '-'. $result['Nombre'].'</option>';
+                    echo '<option  value="' . $result['id'] . '">' . str_pad($result['numero_registro'],3,"0",STR_PAD_LEFT). '-'. $result['Nombre'].'-'. substr($result['Fecha'],0,10).'</option>';
                   }
-                  //echo '<option  value="'.$result['id'].'">'.$result['numero'].'</option>';   
+ 
                 }
 
 
@@ -379,7 +377,7 @@ FROM         lab_relacion_laboratorio_seccion INNER JOIN
             $sql_1 = "EXECUTE SISTEMA_RESULTADOS_WEB_EDIT '" . $VL_Buscar . "'";
           }
           $i = 0;
-          // echo $sql_1;
+          //  echo $sql_1;
           $query_result = odbc_exec($db_conn, $sql_1) or
             die("ERROR : No se puede ejecutar la consulta." . odbc_errormsg() . "<br>" . $sql_1);
           if (odbc_num_rows($query_result) != 0) {
@@ -396,6 +394,7 @@ FROM         lab_relacion_laboratorio_seccion INNER JOIN
                 $VL_Sexo = $result["SEXO"];
                 $VL_Edad = $result["ANOS"];
                 $VL_Procedencia = $result["DESC_PROCEDENCIA"];
+                // echo "<script> console.log('".$VL_Procedencia."');</script>";
                 $VL_NombreMedico = $result["NOMBRE_MEDICO"];
                 $llave = $result["LLAVE_PRUEBA"];
                 $perfil = $result["LLAVE_PERFIL"];
@@ -403,6 +402,8 @@ FROM         lab_relacion_laboratorio_seccion INNER JOIN
                 $tipo = $result["TIPO"];
                 $alto = $result["VALOR_HASTA"];
                 $bajo = $result["VALOR_DESDE"];
+                $numero_registro=str_pad($result["NUMERO_REGISTRO"],3,"0",STR_PAD_LEFT);
+                echo "<script> console.log('".$numero_registro."');</script>";
 
           ?>
                 <!-- <img src="../images/globulos.jpg" width="1206" height="150"></div> -->
@@ -425,7 +426,7 @@ FROM         lab_relacion_laboratorio_seccion INNER JOIN
                                   <TBODY>
                                     <TR>
                                       <TD>
-                                        <div align="center"><b>FOLIO : <?php echo (substr($VL_Buscar, 8)) ?></b></div>
+                                        <div align="center"><b>FOLIO : <?php echo $numero_registro; ?></b></div>
                                         <!-- ."-".$VL_Buscar) ?>)</b></div>-->
                                       </TD>
                                     </TR>
