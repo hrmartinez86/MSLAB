@@ -10,7 +10,8 @@ if ($_SESSION['estado'] == "ok") {
   header("Location: ../index.php");
   echo "<html></html>";
 }
-include('Librerias/conection.php');    //ESTABLACE LA CADENA DE CONEXION CON EL SERVIDOR MSSQL .   
+include('Librerias/conection.php');
+include_once('Librerias/consultas.php');
 
 $ODBC = $_SESSION["ODBC"];
 
@@ -209,7 +210,10 @@ $final = array();
 $ex = explode(" ", $examenes);
 $j = count($ex);
 //almacenamos el numero consecutivo diario
-$numeroDiario=0;
+$numeroDiario=numeroDiario($fecha)+1;
+$folioComprobante=str_pad($numeroDiario, 3, "0", STR_PAD_LEFT);
+
+echo "<script> console.log('".$numeroDiario."');</script>";
 
 for ($i = 0; $i < $j; $i++) {
   $lastChar = substr($ex[$i], -1);
@@ -286,7 +290,7 @@ $sql_1 = "INSERT INTO dat_dfipa (cod_empresa, fecha, hora, numero,
            1, 
            0, 
            '',
-           '" . $j . "')";
+           '" . $numeroDiario . "')";
 
 
            $query_result = odbc_exec($db_conn, $sql_1) or
@@ -355,9 +359,14 @@ for ($i = 0; $i < $numFinal; $i++) {
     <tr>
       <td valign="top">
         <table class="Header" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td class="HeaderLeft"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td>
+            <td class="th"><strong>Fecha:<?php echo date("d/m/Y"); ?></strong></td>
+            <td class="HeaderRight"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td>
+          </tr>
           <tr>
             <td class="HeaderLeft"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td>
-            <td class="th"><strong>Folio:<?php echo $folio; ?></strong></td>
+            <td class="th"><strong>Folio:<?php echo $folioComprobante; ?></strong></td>
             <td class="HeaderRight"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td>
           </tr>
         </table>

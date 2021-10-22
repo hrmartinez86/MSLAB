@@ -207,28 +207,8 @@ $varsql="otro";
                 <tbody>
 				  <?php  
 				  $carpeta=$_SESSION['nombre'];     
-				  @mkdir("XML/".$carpeta, 0600);
-				  $nombre="archivo_".rand().".xml";
-				  $file=fopen("XML/".$carpeta."/".$nombre,"a+");   
-				  $poner='<?xml version="1.0" encoding="ISO-8859-1"?> 
-<XFecha>';
-				  fwrite($file,$poner);         
-                  if (isset($varsql) and $varsql<>"otro")
-					{ 
-                       echo
-					   '<tr>
-                        <td width="*" class="zpGridTypeInt">Folio</td>
-                            <td width="60" class="zpGridTypeDate">Fecha de Atencion</td>
-                            <td width="46" class="zpGridTypeTime">Nombre</td>
-                            <td width="20">Sexo</td>
-                            <td width="87">Procedencia</td>
-                            <!--td width="47" class="zpGridTypeInt"></td-->
-                            <td width="80" class="zpGridTypeFloat">Medico</td>
-                       </tr>';
-					   $ver_botones=TRUE;
-                   	}
-				  else
-				    {
+				  
+                  
                        
 					   echo
 					   '<tr>
@@ -241,7 +221,7 @@ $varsql="otro";
                             <td width="47" class="zpGridTypeInt">Sexo</td>
                             <td width="80" class="zpGridTypeFloat">Medico</td>
                        </tr>';					
-				    }
+				    
                                     echo $sql;
 					$result=odbc_exec($conection,$sql);
                                         
@@ -249,65 +229,7 @@ $varsql="otro";
 					while($rows=odbc_fetch_array($result))
 					{
 						
-					if (isset($varsql) and $varsql<>"otro")
-					{ 
-						
-                        
-						#$aten=explode(" ",$rows['fecha_atencion']);
-						#$aaten=explode("-",$aten[0]);
-						$faten=$rows["Fecha"];
-						
-						if(	$rows['Sexo']=='M')
-						{
-							$sexo="Masculino";
-						}
-						if(	$rows['Sexo']=='F')
-						{
-							$sexo="Femenino";
-						}
-					
-						$sexo=ereg_replace("<","",$sexo);
-						
-						$atencion=$rows['numero'];
-						$atencion=ereg_replace("<","",$atencion);
-						$faten=ereg_replace("<","",$faten);
-						$nombre_completo=$rows['Nombre'];
-						
-						$nombre_completo=ereg_replace("<","",$nombre_completo);
-						
-						$procedencia=$rows['Procedencia'];
-						#$procedencia=ereg_replace("<","",$procedecia);
-						$doctor=$rows['NOMBRE_DOCTOR'];
-						$doctor=ereg_replace("<","",$doctor);
-						echo 
-						'
-							<tr>
-							<td>'.$atencion.'</td>
-							<td>'.$faten.'</td>
-							<td>'.$nombre_completo.'</td>
-							<td>'.$sexo.'</td>
-							<td>'.$procedencia.'</td>
-							<td>'.$doctor.'</td>
-							</tr>										
-						';
-						
-						$cadena="
-							<Paciente>
-								<id>".$i."</id>
-								<folio>".$atencion."</folio>
-								<fecha_atencion>".$faten."</fecha_atencion>
-								<nombre>".$nombre_completo."</nombre>
-								<sexo>".$sexo."</sexo>
-								<procedencia>".$procedencia."</procedencia>
-								<doctor>".$doctor."</doctor>
-							</Paciente>	
-						";
-						fwrite($file,$cadena);
-					$_SESSION['tagnames'] = 'sexo';
-						$i++;	
-					 }
-					 else
-					 {
+				
 	 				$fec=explode(" ",$rows['Fn']);
 					$fech_2=explode("-",$fec[0]);
 					$fecha_nac =$fech_2[0]."/".$fech_2[1]."/".$fech_2[2];
@@ -318,7 +240,7 @@ $varsql="otro";
 					 	echo 
 						'
 							<tr>
-							<td>'.$rows['Folio'].'</td>
+							<td>'. str_pad($rows['numero_registro'],3,"0",STR_PAD_LEFT).'</td>
 							<td>'.$creacion.'</td>
 							<td>'.$rows['Nombre'].'</td>
 							<td>'.edad($fecha_nac).'</td>
@@ -346,7 +268,7 @@ $varsql="otro";
 						$i++;
 						
 					 }	
-					}
+					
 					?>
                     
                 </tbody>

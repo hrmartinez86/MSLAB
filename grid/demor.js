@@ -33,7 +33,7 @@ function onCellClick(oGrid, oCell) {
 	// oGrid.getRowByCell(oCell), 5))+
 	// '\nItem number is ' + oGrid.getCellValueString(oGrid.getCellByRow(
 	// oGrid.getRowByCell(oCell), 6))
-	 window.open("xFolioR.php?folio="+oGrid.getCellValueString(oGrid.getCellByRow(oGrid.getRowByCell(oCell), 0)),"_self","");
+	// window.open("xFolioR.php?folio="+oGrid.getCellValueString(oGrid.getCellByRow(oGrid.getRowByCell(oCell), 0)),"_self","");
 	//alert	(" 
 	//alert(	"");
 }

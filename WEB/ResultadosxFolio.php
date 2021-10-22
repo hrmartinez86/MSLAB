@@ -29,7 +29,7 @@ while ($result=odbc_fetch_array($query))
 {
   $idpaciente=$result['IDPACIENTE'];
   $nombre=utf8_encode($result['NOMBRE'])." ".utf8_encode($result['APELLIDOS']);
-  $folio=$result['NUMERO'];
+  $folio=str_pad($result['NUMERO_REGISTRO'],3,"0",STR_PAD_LEFT);
   $doctor=$result['NOMBRE_DOCTOR'];
   $procedencia=$result['PROCEDENCIA_MUESTRA'];
 }
@@ -108,7 +108,7 @@ while ($result=odbc_fetch_array($query))
             <td class="th"><strong>Estudios </strong></td> 
             <td class="HeaderRight"><img bordber="0" alt="" src="Styles/Core/Images/Spacer.gif"></td>
             <td class="th"><input type="hidden" value="<?php echo $nombre;?>" name="nombrePaciente" id="nombrePaciente"></td>
-            <td class="th"><input type="hidden" value="<?php echo $folio;?>" id="folioPaciente"></td>
+            <td class="th"><input type="hidden" value="<?php echo $folio;?>" name="folioPaciente" id="folioPaciente"></td>
             <td class="th"><input type="hidden" value="<?php echo $doctor;?>" name="doc" id="doc"></td>
             <td class="th"><input type="hidden" value="<?php echo $procedencia;?>" name="procedencia" id="procedencia"></td>
           </tr>
