@@ -377,7 +377,7 @@ FROM         lab_relacion_laboratorio_seccion INNER JOIN
             $sql_1 = "EXECUTE SISTEMA_RESULTADOS_WEB_EDIT '" . $VL_Buscar . "'";
           }
           $i = 0;
-          // echo $sql_1;
+          //  echo $sql_1;
           $query_result = odbc_exec($db_conn, $sql_1) or
             die("ERROR : No se puede ejecutar la consulta." . odbc_errormsg() . "<br>" . $sql_1);
           if (odbc_num_rows($query_result) != 0) {
@@ -394,6 +394,7 @@ FROM         lab_relacion_laboratorio_seccion INNER JOIN
                 $VL_Sexo = $result["SEXO"];
                 $VL_Edad = $result["ANOS"];
                 $VL_Procedencia = $result["DESC_PROCEDENCIA"];
+                // echo "<script> console.log('".$VL_Procedencia."');</script>";
                 $VL_NombreMedico = $result["NOMBRE_MEDICO"];
                 $llave = $result["LLAVE_PRUEBA"];
                 $perfil = $result["LLAVE_PERFIL"];
@@ -401,6 +402,8 @@ FROM         lab_relacion_laboratorio_seccion INNER JOIN
                 $tipo = $result["TIPO"];
                 $alto = $result["VALOR_HASTA"];
                 $bajo = $result["VALOR_DESDE"];
+                $numero_registro=str_pad($result["NUMERO_REGISTRO"],3,"0",STR_PAD_LEFT);
+                echo "<script> console.log('".$numero_registro."');</script>";
 
           ?>
                 <!-- <img src="../images/globulos.jpg" width="1206" height="150"></div> -->
@@ -423,7 +426,7 @@ FROM         lab_relacion_laboratorio_seccion INNER JOIN
                                   <TBODY>
                                     <TR>
                                       <TD>
-                                        <div align="center"><b>FOLIO : <?php echo "interno" ?></b></div>
+                                        <div align="center"><b>FOLIO : <?php echo $numero_registro; ?></b></div>
                                         <!-- ."-".$VL_Buscar) ?>)</b></div>-->
                                       </TD>
                                     </TR>
