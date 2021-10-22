@@ -40,7 +40,33 @@ $fecha = date('d/m/Y');
       padding-top: 220px;
       padding-left: 10px;
     }
-
+    
+    body {
+  padding-top: 50px;
+  }
+  .bootstrap-select {
+    max-width: 900px;
+  }
+.bootstrap-select .btn {
+  background-color: #fff;
+  border-style: solid;
+  border-left-width: 3px;
+  border-left-color: #00DDDD;
+  border-top: none;
+  border-bottom: none;
+  border-right: none;
+  color: black;
+  font-weight: 200;
+  padding: 12px 12px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.bootstrap-select .dropdown-menu {
+  margin: 15px 0 0;
+}
     .button {
       -moz-appearance: none;
       -webkit-appearance: none;
@@ -76,7 +102,7 @@ $fecha = date('d/m/Y');
       text-align: center;
       white-space: nowrap;
     }
-
+    
     .button.is-white.is-outlined {
       background-color: transparent;
       border-color: #fff;
@@ -184,7 +210,7 @@ $fecha = date('d/m/Y');
                 </select>
 
               </td>
-              <td colspan="2" style="text-align:center;"><input type="button" class="btn btn-success" value="+" data-toggle="modal" data-target="#exampleModal"></td>
+              <td colspan="2" style="text-align:center;"><input type="hidden" class="btn btn-success" value="+" data-toggle="modal" data-target="#exampleModal"></td>
             </tr>
 
             <tr class="Controls">
@@ -200,7 +226,7 @@ $fecha = date('d/m/Y');
                   ?>
                 </select>
               </td>
-              <td colspan="2" style="text-align:center;"><input type="button" class="btn btn-success" value="+" data-toggle="modal" data-target="#exampleModal"></td>
+              <td colspan="2" style="text-align:center;"><input type="hidden" class="btn btn-success" value="+" data-toggle="modal" data-target="#exampleModal"></td>
             </tr>
 
             <tr class="Controls">
@@ -215,7 +241,7 @@ $fecha = date('d/m/Y');
                   ?>
                 </select>
               </td>
-              <td colspan="2" style="text-align:center;"><input type="button" class="btn btn-success" value="+" data-toggle="modal" data-target="#exampleModal"></td>
+              <td colspan="2" style="text-align:center;"><input type="hidden" class="btn btn-success" value="+" data-toggle="modal" data-target="#exampleModal"></td>
             </tr>
 
             
@@ -256,14 +282,15 @@ $fecha = date('d/m/Y');
             <tr class="Controls">
 
 
-              <td>
+              <td style="width: 80;">
                 <!--c-->
                 <strong>Descripción</strong>
-                <select class="selectpicker" data-show-subtext="true" data-live-search="true" size="5" style="width: 450px;" id="ExamenCatalogo" multiple="multiple">
+                <select class="selectpicker"  data-live-search="true" size="2" style="width: 20px;" id="ExamenCatalogo" onchange="seleccionaEstudio()">
                   <?php
                   ///estudios
                   $sql = "select codigo_fonasa,nombre,costo_examen as precio from caj_codigos_fonasa where activo='S' AND CODIGO_FONASA NOT LIKE 'ANTV%' order by CODIGO_FONASA ";
                   $resultado = $conection->query($sql);
+                  echo '<option value=""></option>';
                   while($r=$resultado->fetch_assoc()) {
                     echo '<option value="' . $r['codigo_fonasa'] . '">' . $r['nombre'] . ' --> ' . $r['codigo_fonasa'] . '-GI->$' . $r['precio'] . '</option>';
                   }

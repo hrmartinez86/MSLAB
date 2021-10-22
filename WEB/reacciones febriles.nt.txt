@@ -1,0 +1,742 @@
+reacciones febriles
+
+MÉTODO: AGLUTINACIÓN
+“La reacción de Widal detecta anticuerpos aglutinantes contra los antígenos H y O de la Salmonella typhi. Los anticuerpos contra el antígeno O aparecen tras 6 a 8 días después de iniciar la sintomatología y se dejan de detectar entre 3 y 6 meses después. Los anticuerpos contra el antígeno H tardan en detectarse de 8 a 12 días tras el inicio de los síntomas, las titulaciones son más elevadas y duran un año con valores altos. Es importante también considerar que la reacción de Widal presenta reacciones antigénicas cruzadas contra las bacterias (principalmente enterobacterias incluyendo Salmonellas no typhi), parásitos, virus y hongos. Adicionalmente, también se han encontrado falsos positivos en procesos no infecciosos, como enfermedades autoinmunes (artritis reumatoide-lupus eritematoso sistémico) y hepatopatías crónicas. Finalmente, hay que considerar que en nuestra comunidad existe presencia de Anti-O y Anti-H en población sana por la prevalencia de salmonelosis.” 
+
+
+303                                                                                                                         	
+ESTE ANALISIS NO DEBE USARSE PARA EXCLUIR COVID-19 ACTIVO O RECIENTE. CONSIDERAR LA SIGUIENTE INTERPRETACION:
+IGM-/IGG NO HAY EVIDENCIA DE INFECCION POR SARS-COV 2. 
+IGM+/IGG- PROBABLE INFECCION RECIENTE SIN ANTICUERPOS PROTECTORES. 
+IGM+/IGG+ PROBABLE INFECCION RECIENTE CON ANTICUERPOS PROTECTORES EN DESARROLLO. 
+IGM-/IGG+ PROBABLE INFECCION PASADA CON ANTICUERPOS PROTECTORES.
+TENER ANTICUERPOS PROTECTORES IGG NO EXCLUYE LA POSIBILIDAD DE UNA EVENTUAL REINFECCION.
+SOLO IDENTIFICA LA PRESENCIA O AUSENCIA DE LOS ANTICUERPOS Ig G E Ig M;  NO SON CONCLUYENTES DE LA PRESENCIA O AUSENCIA DEL VIRUS SARS COV-2 COVID-19, Y POR LO TANTO NO SON DE PRUEBA DIAGNOSTICA.
+
+
+304
+ESTE ANALISIS NO DEBE USARSE PARA EXCLUIR COVID-19 ACTIVO O RECIENTE. CONSIDERAR LA SIGUIENTE INTERPRETACION:
+IGM-/IGG NO HAY EVIDENCIA DE INFECCION POR SARS-COV 2. 
+IGM+/IGG- PROBABLE INFECCION RECIENTE SIN ANTICUERPOS PROTECTORES. 
+IGM+/IGG+ PROBABLE INFECCION RECIENTE CON ANTICUERPOS PROTECTORES EN DESARROLLO. 
+IGM-/IGG+ PROBABLE INFECCION PASADA CON ANTICUERPOS PROTECTORES.
+TENER ANTICUERPOS PROTECTORES IGG NO EXCLUYE LA POSIBILIDAD DE UNA EVENTUAL REINFECCION.
+SOLO IDENTIFICA LA PRESENCIA O AUSENCIA DE LOS ANTICUERPOS Ig G E Ig M;  NO SON CONCLUYENTES DE LA PRESENCIA O AUSENCIA DEL VIRUS SARS COV-2 COVID-19, Y POR LO TANTO NO SON DE PRUEBA DIAGNOSTICA.
+
+doctor no aparecen **
+
+bajar el texto **
+
+letra mas chica**
+
+titulo 
+nombre prueba resultado valor de referencia**
+
+
+impresión de procedencia**
+
+Metodología agregar prueba metodología**
+
+valores de referencia**
+
+
+lab oela lab shot
+pl sql
+vales de despensa 
+vales restaurante
+seguro meico
+segudo
+35000 libres de impuesto
+
+proceso de estados unidos , 15 20 mins en ingles
+mt Data
+
+I studied at UPIICSA college, where I gained university degree on 
+Information Technology.+ewrq
+I’ve been working as a full stack developer php,c#,SQL  at DICIPA  for 13 years and my duties 
+included assisting customer requests.
+Providing exceptional service builds a lab's reputation and creates trust in clients and patients. 
+A reputation for customer service allows a lab to retain current clients and attract new ones. ... 
+Moreover, every client and patient should be given courtesy and professional and timely assistance.
+
+What are your strengths?
+My previous job had a lot of deadlines (time when you must finish something by) and 
+I made sure that I was organized and adhered to (respected) all my jobs. 
+To be a team-player – to work well with others. 
+I consider myself to be a team-player. I like to work with other people and 
+I find that it’s much easier to achieve something when everyone works together and communicates well. 
+To be ambitious – to have goals. I’m ambitious. I have always set myself goals and it motivates me to work hard. 
+to do something without having to be told to do it. When I work, I always take initiative. 
+If I see something that needs doing, I don’t wait for instruction, I do it.
+To be proactive – To do things and make them happen. I’m proactive. When I think about things, I do them. 
+Can find answers to problems easily
+
+I sometimes am slower in completing my tasks compared to others because I really want to get things right. 
+
+    I’m looking for new challenges.
+    I feel I wasn’t able to show my talents.
+    I’m looking for a job that suits my qualifications.
+    I’m looking for a job where I can grow with the company.
+
+6. Where do you see yourself 5 years from now?
+    Improved my skills
+    Created more of a name for myself in the industry (become more known for what you do).
+    Become more independent in what I do and productive (doing more).
+    Enhanced (improved) my knowledge.
+    Achieved a higher position.
+    Become a team leader…
+
+    preguntas a la empresa
+Do you have any examples of projects that I would be working on if I were to be offered the job? 
+What is the typical day for this position (job)? 
+What is the next step?
+
+---pendiente
+cambiarElOrden_PrimeroReaccionesFebriles**
+QuitarCandadoValidarPorSeccion**
+colocarMasDatosEnElSelectDeBusquedaDeFolios
+CambioDeColorEnLetraVValidado
+
+
+--------------------
+
+USE [laboratorioEstudios]
+GO
+/****** Object:  StoredProcedure [dbo].[SISTEMA_RESULTADOS_WEB_EDIT]    Script Date: 10/19/2021 20:59:15 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER OFF
+GO
+
+
+
+
+
+
+
+ALTER   PROCEDURE [dbo].[SISTEMA_RESULTADOS_WEB_EDIT]
+@X_IDPACIENTE VARCHAR(16)
+
+AS
+
+DECLARE @LLAVE_FONASA SMALLINT
+DECLARE @CODIGO_FONASA NVARCHAR(15)
+DECLARE @NOMBRE_FONASA NVARCHAR(80)
+DECLARE @RUT_PACIENTE NVARCHAR(13)
+DECLARE @NOMBRE_PACIENTE NVARCHAR(101)
+DECLARE @FECHA_NACIMIENTO DATETIME
+DECLARE @SEXO NVARCHAR(1)
+DECLARE @ANOS NUMERIC(3)
+
+DECLARE @FECHA DATETIME
+DECLARE @NUMERO NVARCHAR(8)
+DECLARE @IDPACIENTE NVARCHAR(16)
+DECLARE @LLAVE_PERFIL SMALLINT
+DECLARE @LLAVE_PRUEBA SMALLINT
+DECLARE @ORDEN SMALLINT
+DECLARE @ESTADO NVARCHAR(1)
+DECLARE @RESULTADO NVARCHAR(255)
+DECLARE @DESC_PRU NVARCHAR(50)
+DECLARE @DESC_PROCEDENCIA NVARCHAR(80)
+DECLARE @NOMBRE_MEDICO NVARCHAR(201)
+DECLARE @UNIDADES_MEDIDA NVARCHAR(25)
+DECLARE @DECIMALES NUMERIC(2)
+DECLARE @VALOR_DESDE REAL
+DECLARE @VALOR_HASTA REAL
+DECLARE @RANGO_TEXTO NVARCHAR(50)
+DECLARE @TIPO NVARCHAR(1)
+
+
+CREATE TABLE #DETALLE_RESULTADOS
+   (
+   LLAVE_FONASA SMALLINT,
+   CODIGO_FONASA NVARCHAR(15),
+   NOMBRE_FONASA NVARCHAR(80),
+   RUT_PACIENTE NVARCHAR(13),
+   NOMBRE_PACIENTE NVARCHAR(101),
+   FECHA_NACIMIENTO DATETIME,
+   SEXO NVARCHAR(1),
+   ANOS NUMERIC(3),
+   FECHA DATETIME,
+   NUMERO NVARCHAR(8),
+   IDPACIENTE NVARCHAR(16),
+   LLAVE_PERFIL SMALLINT,
+   LLAVE_PRUEBA SMALLINT,
+   ORDEN SMALLINT,
+   ESTADO NVARCHAR(1),
+   RESULTADO NVARCHAR(255),
+   DESC_PRU NVARCHAR(50),
+   DESC_PROCEDENCIA NVARCHAR(80),
+   NOMBRE_MEDICO NVARCHAR(201),
+   DECIMALES NUMERIC (2),
+   UNIDADES_MEDIDA NVARCHAR(25),
+   VALOR_DESDE REAL,
+   VALOR_HASTA REAL,
+   RANGO_TEXTO NVARCHAR(50),
+   TIPO NVARCHAR(1)
+   )
+
+DECLARE CUR_RESULTADOS_ATENCION CURSOR FOR
+SELECT 
+CF.llave_fonasa, 
+CF.codigo_fonasa, 
+CF.nombre AS NOMBRE_FONASA, 
+DPAC.RUT_PACIENTE,
+LTRIM(RTRIM(DPAC.apellidos)) + ' ' + LTRIM(RTRIM(DPAC.nombre)) AS NOMBRE_PACIENTE, 
+DPAC.FECHA_NACIMIENTO,
+DPAC.SEXO,
+DF.anos ANOS, 
+DF.fecha, 
+DF.numero, 
+DF.idpaciente, 
+EXA.llave_perfil, 
+EXA.llave_PRUEBA, 
+EXA.ESTADO,
+EXA.RESULTADO,
+P.DESCRIPCION DESC_PRU,
+P.TIPO_RESULTADO,
+PM.DESCRIPCION DESC_PROCEDENCIA,
+LTRIM(RTRIM(medi.apellidos)) + ' ' + LTRIM(RTRIM(medi.nombre)) AS NOMBRE_MEDICO, 
+P.decimales as decimales,
+(SELECT lab_unidades_de_medida.descripcion 
+FROM lab_RLS_prueba, lab_pruebas, lab_unidades_de_medida 
+WHERE (lab_RLS_prueba.llave_prueba = EXA.llave_PRUEBA)
+AND (lab_RLS_prueba.prueba = lab_pruebas.codigo) 
+AND (lab_pruebas.unidades = lab_unidades_de_medida.codigo)
+AND (lab_unidades_de_medida.CODIGO <> '0')) UNIDADES_MEDIDA, 
+(SELECT lab_detalle_perfiles.orden_detalle FROM lab_detalle_perfiles 
+WHERE 
+((lab_detalle_perfiles.llave_perfil = EXA.llave_perfil) 
+AND (lab_detalle_perfiles.llave_prueba = EXA.llave_PRUEBA))) ORDEN
+FROM 
+dbo.caj_det_prestaciones DP,  
+dbo.lab_relac_fonasa_prueba RFPRU,  
+dbo.caj_codigos_fonasa CF,  
+dbo.lab_RLS_prueba RP,
+dbo.lab_pruebas P,
+dbo.lab_tipos_de_muestra TM,
+dbo.lab_relacion_laboratorio_seccion RLS,
+dbo.lab_secciones S,
+dbo.dat_dpcod EXA,
+dbo.dat_dfipa DF,
+dbo.dat_paciente DPAC,
+dbo.procedencia_muestra PM, 
+dbo.dat_doctores MEDI
+WHERE 
+DP.llave_fonasa = CF.llave_fonasa 
+AND CF.llave_fonasa = RFPRU.llave_fonasa 
+AND RFPRU.llave_prueba = RP.llave_prueba 
+AND RP.prueba = P.codigo 
+AND P.muestra = TM.codigo 
+AND RP.cod_llave = RLS.cod_llave 
+AND RLS.seccion = S.codigo 
+AND RP.llave_prueba = EXA.llave_prueba 
+AND DP.idpaciente = DF.idpaciente AND EXA.Idpaciente = DF.idpaciente 
+AND DF.rut = DPAC.rut
+and df.doctor = medi.LLAVE_DOCTOR
+AND PM.id = DF.procedencia_muestra 
+AND (CF.clase = 'B') 
+AND (CF.prueba_o_perfil = 'PRUEBA') 
+AND ((DF.IDPACIENTE = @X_IDPACIENTE)) 
+
+GROUP BY 
+CF.llave_fonasa, 
+CF.codigo_fonasa, 
+CF.nombre, 
+DPAC.RUT_PACIENTE,
+DPAC.apellidos, 
+DPAC.nombre, 
+DPAC.FECHA_NACIMIENTO,
+DPAC.SEXO,
+DF.anos, 
+DF.fecha, 
+DF.numero, 
+DF.idpaciente, 
+EXA.llave_perfil, 
+EXA.llave_pRUEBA, 
+EXA.ESTADO,
+EXA.RESULTADO,
+P.DESCRIPCION,
+P.TIPO_RESULTADO,
+PM.DESCRIPCION,
+medi.apellidos,
+medi.nombre, 
+P.decimales
+
+UNION
+
+SELECT 
+CF.llave_fonasa, 
+CF.codigo_fonasa, 
+CF.nombre AS NOMBRE_FONASA, 
+DPAC.RUT_PACIENTE,
+LTRIM(RTRIM(DPAC.apellidos)) + ' ' + LTRIM(RTRIM(DPAC.nombre)) AS NOMBRE_PACIENTE, 
+DPAC.FECHA_NACIMIENTO,
+DPAC.SEXO,
+DF.anos ANOS, 
+DF.fecha, 
+DF.numero, 
+DF.idpaciente, 
+EXA.llave_perfil, 
+EXA.llave_pRUEBA, 
+EXA.ESTADO,
+EXA.RESULTADO,
+P.DESCRIPCION DESC_PRU,
+P.TIPO_RESULTADO,
+PM.DESCRIPCION DESC_PROCEDENCIA,
+LTRIM(RTRIM(medi.apellidos)) + ' ' + LTRIM(RTRIM(medi.nombre)) AS NOMBRE_MEDICO,
+P.decimales as decimales, 
+(SELECT lab_unidades_de_medida.descripcion 
+FROM lab_RLS_prueba, lab_pruebas, lab_unidades_de_medida 
+WHERE (lab_RLS_prueba.llave_prueba = EXA.llave_PRUEBA)
+AND (lab_RLS_prueba.prueba = lab_pruebas.codigo) 
+AND (lab_pruebas.unidades = lab_unidades_de_medida.codigo)
+AND (lab_unidades_de_medida.CODIGO <> '0')) UNIDADES_MEDIDA, 
+(SELECT lab_detalle_perfiles.orden_detalle FROM lab_detalle_perfiles 
+WHERE 
+((lab_detalle_perfiles.llave_perfil = EXA.llave_perfil) 
+AND (lab_detalle_perfiles.llave_prueba = EXA.llave_PRUEBA))) ORDEN
+FROM 
+dbo.lab_pruebas P, 
+dbo.lab_tipos_de_muestra TM, 
+dbo.lab_RLS_prueba RP,
+dbo.lab_relacion_laboratorio_seccion RLS, 
+dbo.dat_paciente DPAC, 
+dbo.dat_dfipa DF, 
+dbo.caj_det_prestaciones DP, 
+dbo.caj_codigos_fonasa CF, 
+dbo.dat_dpcod EXA, 
+dbo.lab_relac_fonasa_perfil RFPER,
+dbo.lab_RLS_perfiles RPE,
+dbo.procedencia_muestra PM, 
+dbo.dat_doctores MEDI
+WHERE 
+P.muestra = TM.codigo 
+AND P.codigo = RP.prueba 
+AND DP.llave_fonasa = CF.llave_fonasa 
+AND DF.idpaciente = DP.idpaciente 
+AND DF.idpaciente = EXA.Idpaciente 
+AND DPAC.rut = DF.rut 
+and df.doctor = medi.LLAVE_DOCTOR
+AND CF.llave_fonasa = RFPER.llave_fonasa
+AND EXA.llave_perfil = RPE.llave_perfil 
+AND RFPER.llave_perfil = RPE.llave_perfil 
+AND RLS.cod_llave = RPE.cod_llave 
+AND RP.cod_llave = RLS.cod_llave 
+AND RP.llave_prueba = EXA.llave_prueba
+AND  PM.id = DF.procedencia_muestra
+AND (CF.clase = 'B') 
+AND (CF.prueba_o_perfil = 'PERFIL') 
+AND ((DF.IDPACIENTE = @X_IDPACIENTE)) 
+
+GROUP BY 
+CF.llave_fonasa, 
+CF.codigo_fonasa, 
+CF.nombre, 
+DPAC.RUT_PACIENTE,
+DPAC.apellidos, 
+DPAC.nombre, 
+DPAC.FECHA_NACIMIENTO,
+DPAC.SEXO,
+DF.anos, 
+DF.fecha, 
+DF.numero, 
+DF.idpaciente, 
+EXA.llave_perfil, 
+EXA.llave_pRUEBA, 
+EXA.ESTADO,
+EXA.RESULTADO,
+P.DESCRIPCION,
+P.TIPO_RESULTADO,
+PM.DESCRIPCION,
+medi.apellidos,
+medi.nombre,
+P.decimales
+ORDER BY 
+DF.idpaciente asc, cf.LLAVE_FONASA DESC, EXA.llave_perfil,ORDEN
+
+
+OPEN CUR_RESULTADOS_ATENCION
+FETCH NEXT FROM CUR_RESULTADOS_ATENCION
+INTO 
+@LLAVE_FONASA, @CODIGO_FONASA, @NOMBRE_FONASA, @RUT_PACIENTE, @NOMBRE_PACIENTE,
+@FECHA_NACIMIENTO, @SEXO, @ANOS, @FECHA, @NUMERO, @IDPACIENTE, @LLAVE_PERFIL,
+@LLAVE_PRUEBA, @ESTADO, @RESULTADO, @DESC_PRU,@TIPO, @DESC_PROCEDENCIA, @NOMBRE_MEDICO, @DECIMALES,
+@UNIDADES_MEDIDA, @ORDEN
+
+WHILE @@FETCH_STATUS = 0
+BEGIN
+   EXECUTE SISTEMA_RESCATA_MARGENES_NORMALES 
+   @LLAVE_PRUEBA, 
+   @SEXO, 
+   @FECHA_NACIMIENTO,
+   @FECHA,
+   @X_VALOR_DESDE = @VALOR_DESDE OUTPUT,
+   @X_VALOR_HASTA = @VALOR_HASTA OUTPUT,
+   @X_RANGO_TEXTO = @RANGO_TEXTO OUTPUT
+   
+   
+    SET  @VALOR_DESDE=ISNULL(@VALOR_DESDE,0)
+    SET  @VALOR_HASTA=ISNULL(@VALOR_HASTA,0)
+    SET   @RANGO_TEXTO=ISNULL( @RANGO_TEXTO,' ')
+    SET  @RUT_PACIENTE=ISNULL(@RUT_PACIENTE,' ')
+    SET  @UNIDADES_MEDIDA=ISNULL(@UNIDADES_MEDIDA,' ')
+
+
+
+   INSERT INTO #DETALLE_RESULTADOS
+   (
+   LLAVE_FONASA, CODIGO_FONASA, NOMBRE_FONASA, RUT_PACIENTE, NOMBRE_PACIENTE,
+   FECHA_NACIMIENTO, SEXO, ANOS, FECHA, NUMERO, IDPACIENTE, LLAVE_PERFIL,
+   LLAVE_PRUEBA, ORDEN, ESTADO, RESULTADO, DESC_PRU,TIPO, DESC_PROCEDENCIA, NOMBRE_MEDICO,DECIMALES, UNIDADES_MEDIDA,
+   VALOR_DESDE, VALOR_HASTA, RANGO_TEXTO
+   )
+   VALUES
+   (
+   @LLAVE_FONASA, @CODIGO_FONASA, @NOMBRE_FONASA, @RUT_PACIENTE, @NOMBRE_PACIENTE,
+   @FECHA_NACIMIENTO, @SEXO, @ANOS, @FECHA, @NUMERO, @IDPACIENTE, @LLAVE_PERFIL,
+   @LLAVE_PRUEBA, @ORDEN, @ESTADO, @RESULTADO, @DESC_PRU, @TIPO,@DESC_PROCEDENCIA, @NOMBRE_MEDICO,@DECIMALES, @UNIDADES_MEDIDA, 
+   @VALOR_DESDE, @VALOR_HASTA, @RANGO_TEXTO
+
+   )
+   
+   FETCH NEXT FROM CUR_RESULTADOS_ATENCION
+   INTO 
+   @LLAVE_FONASA, @CODIGO_FONASA, @NOMBRE_FONASA, @RUT_PACIENTE, @NOMBRE_PACIENTE,
+   @FECHA_NACIMIENTO, @SEXO, @ANOS, @FECHA, @NUMERO, @IDPACIENTE, @LLAVE_PERFIL,
+   @LLAVE_PRUEBA, @ESTADO, @RESULTADO, @DESC_PRU,@TIPO, @DESC_PROCEDENCIA, @NOMBRE_MEDICO,@DECIMALES, 
+   @UNIDADES_MEDIDA, @ORDEN
+END
+
+CLOSE CUR_RESULTADOS_ATENCION
+DEALLOCATE CUR_RESULTADOS_ATENCION
+
+SELECT * FROM #DETALLE_RESULTADOS
+
+/**/
+
+-----
+USE [laboratorioEstudios]
+GO
+/****** Object:  StoredProcedure [dbo].[SISTEMA_RESULTADOS_WEB_EDITXCF]    Script Date: 10/19/2021 21:18:36 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER OFF
+GO
+
+
+
+
+
+
+
+ALTER   PROCEDURE [dbo].[SISTEMA_RESULTADOS_WEB_EDITXCF]
+@X_IDPACIENTE VARCHAR(16),
+@CF VARCHAR(16)
+AS
+
+DECLARE @LLAVE_FONASA SMALLINT
+DECLARE @CODIGO_FONASA NVARCHAR(15)
+DECLARE @NOMBRE_FONASA NVARCHAR(80)
+DECLARE @RUT_PACIENTE NVARCHAR(13)
+DECLARE @NOMBRE_PACIENTE NVARCHAR(101)
+DECLARE @FECHA_NACIMIENTO DATETIME
+DECLARE @SEXO NVARCHAR(1)
+DECLARE @ANOS NUMERIC(3)
+
+DECLARE @FECHA DATETIME
+DECLARE @NUMERO NVARCHAR(8)
+DECLARE @IDPACIENTE NVARCHAR(16)
+DECLARE @LLAVE_PERFIL SMALLINT
+DECLARE @LLAVE_PRUEBA SMALLINT
+DECLARE @ORDEN SMALLINT
+DECLARE @ESTADO NVARCHAR(1)
+DECLARE @RESULTADO NVARCHAR(255)
+DECLARE @DESC_PRU NVARCHAR(50)
+DECLARE @DESC_PROCEDENCIA NVARCHAR(80)
+DECLARE @NOMBRE_MEDICO NVARCHAR(201)
+DECLARE @UNIDADES_MEDIDA NVARCHAR(25)
+DECLARE @DECIMALES NUMERIC(2)
+DECLARE @VALOR_DESDE REAL
+DECLARE @VALOR_HASTA REAL
+DECLARE @RANGO_TEXTO NVARCHAR(50)
+DECLARE @TIPO NVARCHAR(1)
+
+CREATE TABLE #DETALLE_RESULTADOS
+   (
+   LLAVE_FONASA SMALLINT,
+   CODIGO_FONASA NVARCHAR(15),
+   NOMBRE_FONASA NVARCHAR(80),
+   RUT_PACIENTE NVARCHAR(13),
+   NOMBRE_PACIENTE NVARCHAR(101),
+   FECHA_NACIMIENTO DATETIME,
+   SEXO NVARCHAR(1),
+   ANOS NUMERIC(3),
+   FECHA DATETIME,
+   NUMERO NVARCHAR(8),
+   IDPACIENTE NVARCHAR(16),
+   LLAVE_PERFIL SMALLINT,
+   LLAVE_PRUEBA SMALLINT,
+   ORDEN SMALLINT,
+   ESTADO NVARCHAR(1),
+   RESULTADO NVARCHAR(255),
+   DESC_PRU NVARCHAR(50),
+   DESC_PROCEDENCIA NVARCHAR(80),
+   NOMBRE_MEDICO NVARCHAR(201),
+   DECIMALES NUMERIC (2),
+   UNIDADES_MEDIDA NVARCHAR(25),
+   VALOR_DESDE REAL,
+   VALOR_HASTA REAL,
+   RANGO_TEXTO NVARCHAR(50),
+   TIPO NVARCHAR(1)
+   )
+
+DECLARE CUR_RESULTADOS_ATENCION CURSOR FOR
+SELECT 
+CF.llave_fonasa, 
+CF.codigo_fonasa, 
+CF.nombre AS NOMBRE_FONASA, 
+DPAC.RUT_PACIENTE,
+LTRIM(RTRIM(DPAC.apellidos)) + ' ' + LTRIM(RTRIM(DPAC.nombre)) AS NOMBRE_PACIENTE, 
+DPAC.FECHA_NACIMIENTO,
+DPAC.SEXO,
+DF.anos ANOS, 
+DF.fecha, 
+DF.numero, 
+DF.idpaciente, 
+EXA.llave_perfil, 
+EXA.llave_PRUEBA, 
+EXA.ESTADO,
+EXA.RESULTADO,
+P.DESCRIPCION DESC_PRU,
+P.TIPO_RESULTADO,
+PM.DESCRIPCION DESC_PROCEDENCIA,
+LTRIM(RTRIM(medi.apellidos)) + ' ' + LTRIM(RTRIM(medi.nombre)) AS NOMBRE_MEDICO, 
+P.decimales as decimales,
+(SELECT lab_unidades_de_medida.descripcion 
+FROM lab_RLS_prueba, lab_pruebas, lab_unidades_de_medida 
+WHERE (lab_RLS_prueba.llave_prueba = EXA.llave_PRUEBA)
+AND (lab_RLS_prueba.prueba = lab_pruebas.codigo) 
+AND (lab_pruebas.unidades = lab_unidades_de_medida.codigo)
+AND (lab_unidades_de_medida.CODIGO <> '0')) UNIDADES_MEDIDA, 
+(SELECT lab_detalle_perfiles.orden_detalle FROM lab_detalle_perfiles 
+WHERE 
+((lab_detalle_perfiles.llave_perfil = EXA.llave_perfil) 
+AND (lab_detalle_perfiles.llave_prueba = EXA.llave_PRUEBA))) ORDEN
+FROM 
+dbo.caj_det_prestaciones DP,  
+dbo.lab_relac_fonasa_prueba RFPRU,  
+dbo.caj_codigos_fonasa CF,  
+dbo.lab_RLS_prueba RP,
+dbo.lab_pruebas P,
+dbo.lab_tipos_de_muestra TM,
+dbo.lab_relacion_laboratorio_seccion RLS,
+dbo.lab_secciones S,
+dbo.dat_dpcod EXA,
+dbo.dat_dfipa DF,
+dbo.dat_paciente DPAC,
+dbo.procedencia_muestra PM, 
+dbo.dat_doctores MEDI
+WHERE 
+DP.llave_fonasa = CF.llave_fonasa 
+AND CF.llave_fonasa = RFPRU.llave_fonasa 
+AND RFPRU.llave_prueba = RP.llave_prueba 
+AND RP.prueba = P.codigo 
+AND P.muestra = TM.codigo 
+AND RP.cod_llave = RLS.cod_llave 
+AND RLS.seccion = S.codigo 
+AND RP.llave_prueba = EXA.llave_prueba 
+AND DP.idpaciente = DF.idpaciente AND EXA.Idpaciente = DF.idpaciente 
+AND DF.rut = DPAC.rut
+and df.doctor = medi.LLAVE_DOCTOR
+AND PM.id = DF.procedencia_muestra 
+AND (CF.clase = 'B') 
+AND (CF.prueba_o_perfil = 'PRUEBA') 
+AND ((DF.IDPACIENTE = @X_IDPACIENTE)) 
+
+GROUP BY 
+CF.llave_fonasa, 
+CF.codigo_fonasa, 
+CF.nombre, 
+DPAC.RUT_PACIENTE,
+DPAC.apellidos, 
+DPAC.nombre, 
+DPAC.FECHA_NACIMIENTO,
+DPAC.SEXO,
+DF.anos, 
+DF.fecha, 
+DF.numero, 
+DF.idpaciente, 
+EXA.llave_perfil, 
+EXA.llave_pRUEBA, 
+EXA.ESTADO,
+EXA.RESULTADO,
+P.DESCRIPCION,
+P.TIPO_RESULTADO,
+
+PM.DESCRIPCION,
+medi.apellidos,
+medi.nombre, 
+P.decimales
+
+UNION
+
+SELECT 
+CF.llave_fonasa, 
+CF.codigo_fonasa, 
+CF.nombre AS NOMBRE_FONASA, 
+DPAC.RUT_PACIENTE,
+LTRIM(RTRIM(DPAC.apellidos)) + ' ' + LTRIM(RTRIM(DPAC.nombre)) AS NOMBRE_PACIENTE, 
+DPAC.FECHA_NACIMIENTO,
+DPAC.SEXO,
+DF.anos ANOS, 
+DF.fecha, 
+DF.numero, 
+DF.idpaciente, 
+EXA.llave_perfil, 
+EXA.llave_pRUEBA, 
+EXA.ESTADO,
+EXA.RESULTADO,
+P.DESCRIPCION DESC_PRU,
+P.TIPO_RESULTADO,
+PM.DESCRIPCION DESC_PROCEDENCIA,
+LTRIM(RTRIM(medi.apellidos)) + ' ' + LTRIM(RTRIM(medi.nombre)) AS NOMBRE_MEDICO,
+P.decimales as decimales, 
+(SELECT lab_unidades_de_medida.descripcion 
+FROM lab_RLS_prueba, lab_pruebas, lab_unidades_de_medida 
+WHERE (lab_RLS_prueba.llave_prueba = EXA.llave_PRUEBA)
+AND (lab_RLS_prueba.prueba = lab_pruebas.codigo) 
+AND (lab_pruebas.unidades = lab_unidades_de_medida.codigo)
+AND (lab_unidades_de_medida.CODIGO <> '0')) UNIDADES_MEDIDA, 
+(SELECT lab_detalle_perfiles.orden_detalle FROM lab_detalle_perfiles 
+WHERE 
+((lab_detalle_perfiles.llave_perfil = EXA.llave_perfil) 
+AND (lab_detalle_perfiles.llave_prueba = EXA.llave_PRUEBA))) ORDEN
+FROM 
+dbo.lab_pruebas P, 
+dbo.lab_tipos_de_muestra TM, 
+dbo.lab_RLS_prueba RP,
+dbo.lab_relacion_laboratorio_seccion RLS, 
+dbo.dat_paciente DPAC, 
+dbo.dat_dfipa DF, 
+dbo.caj_det_prestaciones DP, 
+dbo.caj_codigos_fonasa CF, 
+dbo.dat_dpcod EXA, 
+dbo.lab_relac_fonasa_perfil RFPER,
+dbo.lab_RLS_perfiles RPE,
+dbo.procedencia_muestra PM, 
+dbo.dat_doctores MEDI
+WHERE 
+P.muestra = TM.codigo 
+AND P.codigo = RP.prueba 
+AND DP.llave_fonasa = CF.llave_fonasa 
+AND DF.idpaciente = DP.idpaciente 
+AND DF.idpaciente = EXA.Idpaciente 
+AND DPAC.rut = DF.rut 
+and df.doctor = medi.LLAVE_DOCTOR
+AND CF.llave_fonasa = RFPER.llave_fonasa
+AND EXA.llave_perfil = RPE.llave_perfil 
+AND RFPER.llave_perfil = RPE.llave_perfil 
+AND RLS.cod_llave = RPE.cod_llave 
+AND RP.cod_llave = RLS.cod_llave 
+AND RP.llave_prueba = EXA.llave_prueba
+AND  PM.id = DF.procedencia_muestra
+AND (CF.clase = 'B') 
+AND (CF.prueba_o_perfil = 'PERFIL') 
+AND ((DF.IDPACIENTE = @X_IDPACIENTE)) 
+
+AND (CF.llave_fonasa=@CF)
+GROUP BY 
+CF.llave_fonasa, 
+CF.codigo_fonasa, 
+CF.nombre, 
+DPAC.RUT_PACIENTE,
+DPAC.apellidos, 
+DPAC.nombre, 
+DPAC.FECHA_NACIMIENTO,
+DPAC.SEXO,
+DF.anos, 
+DF.fecha, 
+DF.numero, 
+DF.idpaciente, 
+EXA.llave_perfil, 
+EXA.llave_pRUEBA, 
+EXA.ESTADO,
+EXA.RESULTADO,
+P.DESCRIPCION,
+P.TIPO_RESULTADO,
+PM.DESCRIPCION,
+medi.apellidos,
+medi.nombre,
+P.decimales
+ORDER BY 
+DF.idpaciente asc, cf.codigo_fonasa DESC, EXA.llave_perfil, ORDEN
+
+
+OPEN CUR_RESULTADOS_ATENCION
+FETCH NEXT FROM CUR_RESULTADOS_ATENCION
+INTO 
+@LLAVE_FONASA, @CODIGO_FONASA, @NOMBRE_FONASA, @RUT_PACIENTE, @NOMBRE_PACIENTE,
+@FECHA_NACIMIENTO, @SEXO, @ANOS, @FECHA, @NUMERO, @IDPACIENTE, @LLAVE_PERFIL,
+@LLAVE_PRUEBA, @ESTADO, @RESULTADO, @DESC_PRU, @DESC_PROCEDENCIA, @TIPO,@NOMBRE_MEDICO, @DECIMALES,
+@UNIDADES_MEDIDA, @ORDEN
+
+WHILE @@FETCH_STATUS = 0
+BEGIN
+   EXECUTE SISTEMA_RESCATA_MARGENES_NORMALES 
+   @LLAVE_PRUEBA, 
+   @SEXO, 
+   @FECHA_NACIMIENTO,
+   @FECHA,
+   @X_VALOR_DESDE = @VALOR_DESDE OUTPUT,
+   @X_VALOR_HASTA = @VALOR_HASTA OUTPUT,
+   @X_RANGO_TEXTO = @RANGO_TEXTO OUTPUT
+   
+   
+    SET  @VALOR_DESDE=ISNULL(@VALOR_DESDE,0)
+    SET  @VALOR_HASTA=ISNULL(@VALOR_HASTA,0)
+    SET   @RANGO_TEXTO=ISNULL( @RANGO_TEXTO,' ')
+    SET  @RUT_PACIENTE=ISNULL(@RUT_PACIENTE,' ')
+    SET  @UNIDADES_MEDIDA=ISNULL(@UNIDADES_MEDIDA,' ')
+
+
+
+   INSERT INTO #DETALLE_RESULTADOS
+   (
+   LLAVE_FONASA, CODIGO_FONASA, NOMBRE_FONASA, RUT_PACIENTE, NOMBRE_PACIENTE,
+   FECHA_NACIMIENTO, SEXO, ANOS, FECHA, NUMERO, IDPACIENTE, LLAVE_PERFIL,
+   LLAVE_PRUEBA, ORDEN, ESTADO, RESULTADO, DESC_PRU,TIPO, DESC_PROCEDENCIA, NOMBRE_MEDICO,DECIMALES, UNIDADES_MEDIDA,
+   VALOR_DESDE, VALOR_HASTA, RANGO_TEXTO
+   )
+   VALUES
+   (
+   @LLAVE_FONASA, @CODIGO_FONASA, @NOMBRE_FONASA, @RUT_PACIENTE, @NOMBRE_PACIENTE,
+   @FECHA_NACIMIENTO, @SEXO, @ANOS, @FECHA, @NUMERO, @IDPACIENTE, @LLAVE_PERFIL,
+   @LLAVE_PRUEBA, @ORDEN, @ESTADO, @RESULTADO, @DESC_PRU,  @TIPO,@DESC_PROCEDENCIA, @NOMBRE_MEDICO,@DECIMALES, @UNIDADES_MEDIDA, 
+   @VALOR_DESDE, @VALOR_HASTA, @RANGO_TEXTO
+
+   )
+   
+   FETCH NEXT FROM CUR_RESULTADOS_ATENCION
+   INTO 
+   @LLAVE_FONASA, @CODIGO_FONASA, @NOMBRE_FONASA, @RUT_PACIENTE, @NOMBRE_PACIENTE,
+   @FECHA_NACIMIENTO, @SEXO, @ANOS, @FECHA, @NUMERO, @IDPACIENTE, @LLAVE_PERFIL,
+   @LLAVE_PRUEBA, @ESTADO, @RESULTADO, @DESC_PRU, @TIPO, @DESC_PROCEDENCIA, @NOMBRE_MEDICO,@DECIMALES, 
+   @UNIDADES_MEDIDA, @ORDEN
+END
+
+CLOSE CUR_RESULTADOS_ATENCION
+DEALLOCATE CUR_RESULTADOS_ATENCION
+
+SELECT * FROM #DETALLE_RESULTADOS
+
+/**/
+
+
+
+
+
+
+
+
+

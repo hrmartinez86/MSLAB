@@ -13,6 +13,14 @@
 /* Escribe de un listbox a otro un determinado option con su value.           */
 /* No recibe ningun parametro.			                                      */
 /******************************************************************************/
+
+function seleccionaEstudio() {
+	// alert(document.getElementById('ExamenCatalogo').value);
+	mySelect = document.getElementById("ExamenCatalogo");
+	Choose();
+	mySelect.selectedIndex = -1; 
+}
+
 function objetoAjax(){
         var xmlhttp=false;
         try {
