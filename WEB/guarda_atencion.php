@@ -34,6 +34,7 @@ $Doctor = htmlspecialchars($_POST["Doctor"]);
 $Expediente = htmlspecialchars($_POST["Expediente"]);
 $Sexo = htmlspecialchars($_POST["Sexo"]);
 $nombre = htmlspecialchars($_POST["nombre"]);
+$edad = htmlspecialchars($_POST["edad"]);
 $fecha_de_nacimiento = htmlspecialchars($_POST["theDate2"]);
 $array_nacimiento = explode("-", $fecha_de_nacimiento);
 $fecha_de_nacimiento=$array_nacimiento[2]."/". $array_nacimiento[1] ."/". $array_nacimiento[0];
@@ -41,7 +42,7 @@ $examenes = htmlspecialchars($_POST["examenes"]);
 $examenesTotal =json_decode($_POST["examenesDescripcion"],false);
 $Telefono=htmlspecialchars($_POST["telefono"]);
 $Email=htmlspecialchars($_POST["correo"]);
-$hoy = date("d/m/Y G:i:s");
+$hoy = date("d/m/Y");
 $CitasProcedencia = htmlspecialchars($_POST["CitasProcedencia"]);
 $examenesArray = array();
 $_SESSION['Tipo'] = $Tipo;
@@ -62,7 +63,9 @@ $array = Array (
       "procedencia"=>$CitasProcedencia,
       "telefono"=>$Telefono,
       "email"=>$Email,
-      "examenes" => $examenes
+      "examenes" => $examenes,
+      "edad" => $edad,
+      "fecha"=>$hoy
   )  
 );
 $data[] = $array;
