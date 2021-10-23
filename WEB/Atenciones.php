@@ -198,36 +198,12 @@ $fecha = date('d/m/Y');
 
             <tr class="Controls">
               <td class="th"><label for="CitasProcedencia">Procedencia:</label></td>
-              <td><select required id="CitasProcedencia" name="CitasProcedencia" style="width:100%; ">
-                  <?php
-                  echo '<option value="" </option>';
-                  $sql = "select * from Procedencia_muestra where activo='S' order by descripcion ";
-                  $resultado = $conection->query($sql);
-                  while($r=$resultado->fetch_assoc()) {
-                    echo '<option  value="' . $r['id'] . '">' . $r['descripcion'] . '</option>';
-                  }
-                  ?>
-                </select>
+              <td><input type="text"  required id="CitasProcedencia" name="CitasProcedencia" style="width:100%; ">
+                 
 
               </td>
               <td colspan="2" style="text-align:center;"><input type="hidden" class="btn btn-success" value="+" data-toggle="modal" data-target="#exampleModal"></td>
-            </tr>
-
-            <tr class="Controls">
-              <td class="th"><label for="Tipo">Tipo de Paciente:</label></td>
-              <td><select id="Tipo" name="Tipo" style="width:100%; " required>
-                  <?php
-                  echo '<option value="" </option>';
-                  $sql = "select * from lab_tipo_paciente where clase='B' order by descripcion ";
-                  $resultado = $conection->query($sql);
-                  while($r=$resultado->fetch_assoc()) {
-                    echo '<option value="' . $r['codigo'] . '">' . $r['descripcion'] . '</option>';
-                  }
-                  ?>
-                </select>
-              </td>
-              <td colspan="2" style="text-align:center;"><input type="hidden" class="btn btn-success" value="+" data-toggle="modal" data-target="#exampleModal"></td>
-            </tr>
+        
 
             <tr class="Controls">
               <td class="th"><label for="Doctor">M&eacute;dico:</label></td>
