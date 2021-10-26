@@ -9,8 +9,6 @@ if ($_SESSION['estado'] == "ok") {
 $ver_botones = "";
 $fecha = date("d , M, y,  H:i a");
 include("librerias/conection.php");
-//include("librerias/control_citas.php");
-
 
 $conection = conectar();
 
@@ -129,16 +127,22 @@ $fecha = date('d/m/Y');
     }
   </style>
   <meta name="GENERATOR" content="CodeCharge Studio 4.2.00.040">
+    
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css"></link>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css"></link>
 
   
   <link rel="icon" type="image/gif" href="../images/core/icon.png">
   <link type="text/css" rel="stylesheet" href="dhtmlgoodies_calendar/dhtmlgoodies_calendar.css?random=20051112" media="screen">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" ></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+
 </head>
 
 <body>
@@ -150,6 +154,21 @@ $fecha = date('d/m/Y');
       </td>
     </tr>
   </table>
+  <div class="container">
+  <div class="row">
+      <div class="col-7 col-md-5">
+
+        <label>Select with Search</label>
+        <select class="selectpicker" data-live-search="true">
+          <option data-tokens="ketchup mustard">Hot Dog, Fries and a Soda</option>
+          <option data-tokens="mustard">Burger, Shake and a Smile</option>
+          <option data-tokens="frosting">Sugar, Spice and all things nice</option>
+        </select>
+
+        
+      </div>
+  </div>
+</div>
   <br>
   <div class="container">
   <h2>Atenciones</h2>    
@@ -218,7 +237,7 @@ $fecha = date('d/m/Y');
               <td style="width: 80;">
                 <!--c-->
                 <strong>Descripción</strong>
-                <select class="selectpicker"  data-live-search="true" size="2" style="width: 20px;" id="ExamenCatalogo" onchange="seleccionaEstudio()">
+                <select class="selectpicker"  data-live-search="true" id="ExamenCatalogo" onchange="seleccionaEstudio()">
                   <?php
                   ///estudios
                   $sql = "select codigo_fonasa,nombre,costo_examen as precio from caj_codigos_fonasa where activo='S' AND CODIGO_FONASA NOT LIKE 'ANTV%' order by CODIGO_FONASA ";
