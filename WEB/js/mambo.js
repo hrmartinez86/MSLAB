@@ -191,6 +191,11 @@ function Valida()
 		
 	}
 }
+function precargar(estudio,codigo) {
+	var listaDestino = document.Citas.ExamenSeleccionado;
+	opt = new Option(estudio, codigo);
+	listaDestino.options[0] = opt;
+}
 function Valida1()
 {		
 	var i=0;

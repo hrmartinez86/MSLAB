@@ -128,23 +128,23 @@ $fecha = date('d/m/Y');
   </style>
   <meta name="GENERATOR" content="CodeCharge Studio 4.2.00.040">
     
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css"></link>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css"></link>
-
-  
+  <link rel="stylesheet" type="text/css" href="Styles/Core/Style_doctype.css">
   <link rel="icon" type="image/gif" href="../images/core/icon.png">
   <link type="text/css" rel="stylesheet" href="dhtmlgoodies_calendar/dhtmlgoodies_calendar.css?random=20051112" media="screen">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </LINK>
+  <script type="text/javascript" src="dhtmlgoodies_calendar/dhtmlgoodies_calendar.js?random=20060118"></script>
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/css/bootstrap-select.min.css'>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  
-  
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" ></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
 
 </head>
-
+<?php echo '<script type="text/javascript">',
+     'window.addEventListener("load", function () {   precargar("EXAMEN MANEJADOR DE ALIMENTOS --> EMA -->$0","EMA-")  })',
+     '</script>'
+;?>
 <body>
   <table align="center" border="0" cellspacing="0" cellpadding="0">
     <!-- BEGIN Record Citas -->
@@ -154,24 +154,16 @@ $fecha = date('d/m/Y');
       </td>
     </tr>
   </table>
-  <div class="container">
-  <div class="row">
-      <div class="col-7 col-md-5">
 
-        <label>Select with Search</label>
-        <select class="selectpicker" data-live-search="true">
-          <option data-tokens="ketchup mustard">Hot Dog, Fries and a Soda</option>
-          <option data-tokens="mustard">Burger, Shake and a Smile</option>
-          <option data-tokens="frosting">Sugar, Spice and all things nice</option>
-        </select>
-
-        
-      </div>
-  </div>
-</div>
   <br>
   <div class="container">
-  <h2>Atenciones</h2>    
+  <table class="Header" border="0" cellspacing="0" cellpadding="0" width="40%">
+    <tr>
+      <td class="HeaderLeft"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td>
+      <td class="th"><strong>Atenciones</strong></td>
+      <td class="HeaderRight"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td>
+    </tr>
+  </table>
   <form action="" id="Atencion">  
   <table class="table table-bordered">
     <thead >
@@ -196,8 +188,9 @@ $fecha = date('d/m/Y');
                   <option value="F">Femenino</option>
                   </select>
               </td>
-              <td> <input type="text" name="edad" id="edad" onChange="cmbioEdad()" size="5"></td>
-              <td><input type="text"  required id="CitasProcedencia" name="CitasProcedencia" style="width:100%; ">
+              <td> <input type="text" name="edad" id="edad" onChange="cmbioEdad()" size="5"><input type="date" id="Fecha" value=""></td>
+              <td><input type="text"  required id="CitasProcedencia" name="CitasProcedencia" style="width:100%; "></td>
+
               <td><select id="Doctor" name="Doctor" style="width:100%; " required>
                   <?php
                   $sql = "select concat_ws(' ',nombre ,apellidos) as Nombre,llave_doctor from dat_doctores order by Nombre ";
@@ -221,7 +214,7 @@ $fecha = date('d/m/Y');
   </form>     
      
 </div>
-
+<div class="container">
   <form id="Citas" method="post" name="Citas" action="guarda_atencion.php" onsubmit="Valida1()">
           <table class="Header" border="0" cellspacing="0" cellpadding="0" width="40%">
             <tr>
@@ -250,7 +243,7 @@ $fecha = date('d/m/Y');
                   $sql = "select codigo,descripcion,precio from agrupaciones where activo='S' order by id ";
                   $resultado = $conection->query($sql);
                   while($r=$resultado->fetch_assoc()) {
-                    echo '<option value="' . $r['codigo'] . '-">' . $r['descripcion'] . ' --> ' . $r['codigo'] . ' -->$' . $r['precio'] . '</option>';
+                    echo '<option value="' . $r['codigo'] . '-">' .  $r['descripcion'] . ' --> ' . $r['codigo'] . ' -->$' . $r['precio'] . '</option>';
                   }
                   ?>
                 </select>
@@ -277,33 +270,13 @@ $fecha = date('d/m/Y');
           </table>
           <table align="center">
             <tr>
-              <td align="center"><input type="submit" class="btn btn-primary" value='Guardar'></td>
+              <td align="center"><input type="hidden" class="btn btn-primary" value='Guardar'></td>
             </tr>
 
            </table>
         </form>
-  <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form action="">
-          <p></p>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>                
+        </div>
+    
 
   <script>
     function myFunction() {
