@@ -130,18 +130,15 @@ $fecha = date('d/m/Y');
   </style>
   <meta name="GENERATOR" content="CodeCharge Studio 4.2.00.040">
 
-  <link rel="stylesheet" type="text/css" href="Styles/Core/Style_doctype.css">
+  
   <link rel="icon" type="image/gif" href="../images/core/icon.png">
   <link type="text/css" rel="stylesheet" href="dhtmlgoodies_calendar/dhtmlgoodies_calendar.css?random=20051112" media="screen">
-  </LINK>
-  <script type="text/javascript" src="dhtmlgoodies_calendar/dhtmlgoodies_calendar.js?random=20060118"></script>
-  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
-  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/css/bootstrap-select.min.css'>
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
-  <!--<link href="../css/bulma/css/bulma.css" rel="stylesheet" type="text/css" />-->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -154,59 +151,34 @@ $fecha = date('d/m/Y');
     </tr>
   </table>
   <br>
-  <form id="Citas" method="post" name="Citas" action="guarda_atencion.php" onsubmit="Valida1()">
-    <table align="center" border="0" cellspacing="0" cellpadding="10" width="60%">
-      <tr>
-        <td valign="top">
-          <table class="Header" border="0" cellspacing="0" cellpadding="0">
-            <tr>
-              <td class="HeaderLeft"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td>
-              <td class="th"><strong>Atenciones</strong></td>
-              <td class="HeaderRight"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td>
-            </tr>
-          </table>
-
-          <table cellpadding="0" cellspacing="0" class="Record">
-
-            <tr class="Controls">
-              <td class="th"><label for="CitasNombres">Nombre del paciente:</label></td>
-              <td><input name="nombre" id="CitasNombres" value="" style="width:100%;" required></td>
-              <td></td>
-            </tr>
-
-            <tr class="Controls">
-              <td class="th"><label for="CitasSexo">Sexo:</label></td>
+  <div class="container">
+  <h2>Atenciones</h2>    
+  <form action="" id="Atencion">  
+  <table class="table table-bordered">
+    <thead >
+      <tr class="table-primary">
+        <th >Nombre</th>
+        <th >Sexo</th>
+        <th >Edad</th>
+        <th >Procedencia</th>
+        <th >Médico</th>
+        <th>Telefono</th>
+        <th >Correo</th>
+        <th >Forma de pago</th>
+      </tr>
+      
+    </thead>
+    <tbody>
+    <tr>
+      <td><input name="nombre" id="CitasNombres" value=""  required></td>          
               <td><select id="Sexo" name="Sexo" style="width:100%;" required>
                   <option value="" selected></option>
                   <option value="M">Masculino</option>
                   <option value="F">Femenino</option>
-
-                </select></td>
-              <td></td>
-            </tr>
-
-            <tr class="Controls">
-              <td class="th"><label for="edad">Edad:</label></td>
-              <td> <input type="text" name="edad" id="edad" onChange="cmbioEdad()" ></td>
-              <td></td>
-            </tr>
-            <tr class="Controls">
-              <td class="th"><label for="Fecha">Fecha de nacimiento:</label></td>
-              <td><input required style="width:50%; " type="date" id="Fecha" value="<?php echo $fecha; ?>" name="theDate2"></td>
-              <td></td>
-            </tr>
-
-            <tr class="Controls">
-              <td class="th"><label for="CitasProcedencia">Procedencia:</label></td>
-              <td><input type="text"  required id="CitasProcedencia" name="CitasProcedencia" style="width:100%; ">
-                 
-
+                  </select>
               </td>
-              <td colspan="2" style="text-align:center;"><input type="hidden" class="btn btn-success" value="+" data-toggle="modal" data-target="#exampleModal"></td>
-        
-
-            <tr class="Controls">
-              <td class="th"><label for="Doctor">M&eacute;dico:</label></td>
+              <td> <input type="text" name="edad" id="edad" onChange="cmbioEdad()" size="5"></td>
+              <td><input type="text"  required id="CitasProcedencia" name="CitasProcedencia" style="width:100%; ">
               <td><select id="Doctor" name="Doctor" style="width:100%; " required>
                   <?php
                   $sql = "select concat_ws(' ',nombre ,apellidos) as Nombre,llave_doctor from dat_doctores order by Nombre ";
@@ -216,37 +188,22 @@ $fecha = date('d/m/Y');
                   }
                   ?>
                 </select>
-              </td>
-              <td colspan="2" style="text-align:center;"><input type="hidden" class="btn btn-success" value="+" data-toggle="modal" data-target="#exampleModal"></td>
-            </tr>
-
-            
-
-            <tr class="Controls">
-              <td class="th"><label for="Correo">Telefono:</label></td>
               <td><input name="telefono" id="telefono" class="Controls" value="" style="width:98%; "></td>
-              <td></td>
-            </tr>
-
-            <tr class="Controls">
-              <td class="th"><label for="Correo">Email:</label></td>
               <td><input name="correo" id="correo" class="Controls" value="" style="width:98%; "></td>
-              <td></td>
-            </tr>
-
-            <tr class="Controls">
-              <td class="th"><label for="FormaPago">Forma de pago:</label></td>
               <td><select id="FormaPago" name="FormaPago" style="width:100%; ">
                   <option value="" selected></option>
                   <option value="efe">Efectivo</option>
                   <option value="tc">Tarjeta de crédito</option>
                   <option value="td">Tarjeta de debito</option>
                 </select></td>
-              <td></td>
-            </tr>
+      </tr>
+    </tbody>
+    
+  </form>     
+     
+</div>
 
-          </table>
-          <br>
+  <form id="Citas" method="post" name="Citas" action="guarda_atencion.php" onsubmit="Valida1()">
           <table class="Header" border="0" cellspacing="0" cellpadding="0" width="40%">
             <tr>
               <td class="HeaderLeft"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td>
@@ -318,7 +275,7 @@ $fecha = date('d/m/Y');
       </div>
       <div class="modal-body">
         <form action="">
-          <p>kokkook</p>
+          <p></p>
         </form>
       </div>
       <div class="modal-footer">
