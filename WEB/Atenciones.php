@@ -9,7 +9,7 @@ if ($_SESSION['estado'] == "ok") {
 $ver_botones = "";
 $fecha = date("d , M, y,  H:i a");
 include("librerias/conection.php");
-
+include('librerias/consultas.php');
 $conection = conectar();
 
 $fecha = date('d/m/Y');
@@ -182,7 +182,7 @@ $fecha = date('d/m/Y');
     </thead>
     <tbody>
     <tr>
-      <td><input type="button" class="" value="+" onclick="generaJson()"></td>
+      <td><input type="button" class="" value="+" onclick="generaJson()"><input type="hidden" id="id" name="id" value="<?php echo rescataNumero();?>"></td>
       <td><input name="nombre" id="nombre" value=""  required></td>          
               <td><select id="sexo" name="sexo" style="width:100%;" required>
                   <option value="" selected></option>

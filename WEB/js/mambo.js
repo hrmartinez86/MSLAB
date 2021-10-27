@@ -437,9 +437,7 @@ function evaluamos_datos(){
 }
 function actualiza_fecha(id,llave)
 {
-//    alert(id);
-//    alert(llave);
-    		ajax=objetoAjax();
+	ajax=objetoAjax();
 	divResultado = document.getElementById('resultado');
 //	alert(document.getElementById('Rut').value);
     val="../Core/librerias/fecha_entrega.php?id="+ id + "&llave=" + llave;
@@ -464,6 +462,7 @@ function generaJson() {
 	var telefono=document.getElementById('telefono').value;
 	var correo=document.getElementById('correo').value;
 	var formaPago=document.getElementById('formaPago').value;
+	var id=document.getElementById('id').value;
 
 	if (nombre=='') {
 		alert("Favor de ingresar el nombre del paciente");
@@ -476,7 +475,7 @@ function generaJson() {
 		document.getElementById('procedencia').focus();
 		return;
 	}
-	var data={name:nombre,sex:sexo,fn:fechanacimiento,proc:procedencia,doc:doctor,tel:telefono,email:correo,fp:formaPago};
+	var data={name:nombre,sex:sexo,fn:fechanacimiento,proc:procedencia,doc:doctor,tel:telefono,email:correo,fp:formaPago,id:id};
 	var xhttp = new XMLHttpRequest();
 	// // Set POST method and ajax file path
 	xhttp.open("POST", "generaJson.php", true);
@@ -494,6 +493,9 @@ function generaJson() {
 			document.getElementById('correo').value='';
 			document.getElementById('formaPago').value='';
 			document.getElementById('edad').value='';
+			if (document.getElementById('ExamenSeleccionado').length>1) {
+				limpiaSelect('ExamenSeleccionado');
+			}
 		}
 		}
 		
@@ -506,4 +508,12 @@ function generaJson() {
 	xhttp.send(JSON.stringify(data));
 	
   
+  }
+  function limpiaSelect(select) {
+	var select = document.getElementById(select);
+	var length = select.options.length;
+	for (i = length-1; i >= 0; i--) {
+	  select.options[i] = null;
+	}
+	precargar("EXAMEN MANEJADOR DE ALIMENTOS --> EMA -->$0","EMA-");
   }

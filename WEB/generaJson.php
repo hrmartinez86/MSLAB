@@ -12,16 +12,9 @@
     $formaPago=$data->fp;
     $Telefono=$data->tel;
     $correo=$data->email;
-    // $examenes = htmlspecialchars($_POST["examenes"]);
-    // $examenesTotal =json_decode($_POST["examenesDescripcion"],false);
-    // $Telefono=htmlspecialchars($_POST["telefono"]);
-    // $Email=htmlspecialchars($_POST["correo"]);
-    // $hoy = date("d/m/Y");
-    // $CitasProcedencia = htmlspecialchars($_POST["CitasProcedencia"]);
-    // $n=rescataNumero();
-    // $ns=$n+1;
-    // $nc=str_pad($ns,3,"0",STR_PAD_LEFT);
-    // echo "<script> console.log('".$nc."');</script>";
+    $n=$data->id;
+    $ns=$n+1;
+    $nc=str_pad($ns,3,"0",STR_PAD_LEFT);
     $json = file_get_contents("Ingreso.json");
     $data = json_decode($json);
     $array = Array (
