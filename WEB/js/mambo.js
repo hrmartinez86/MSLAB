@@ -478,7 +478,13 @@ function generaJson() {
 
 		var response = this.responseText;
 		if(response == 1){
-			alert("Insert successfully.");
+			document.getElementById('nombre').value='';
+			document.getElementById('sexo').value='';
+			document.getElementById('fechanacimiento').value='';
+			document.getElementById('telefono').value='';
+			document.getElementById('correo').value='';
+			document.getElementById('formaPago').value='';
+			document.getElementById('edad').value='';
 		}
 		}
 		

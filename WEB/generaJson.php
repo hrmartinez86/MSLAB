@@ -39,5 +39,6 @@
     );
     $data[] = $array;
     file_put_contents("Ingreso.json", json_encode($data));
+    echo '1';
 ?>
 
