@@ -464,9 +464,18 @@ function generaJson() {
 	var telefono=document.getElementById('telefono').value;
 	var correo=document.getElementById('correo').value;
 	var formaPago=document.getElementById('formaPago').value;
-  
-	// var data = {nombre: nombre,sexo: sexo,fechanacimiento:fechanacimiento,doctor:doctor,procedencia:procedencia,
-	// 		    telefono:telefono,correo: correo,formaPago:formaPago};
+
+	if (nombre=='') {
+		alert("Favor de ingresar el nombre del paciente");
+		document.getElementById('nombre').focus();
+		return;
+	}
+
+	if (procedencia=='') {
+		alert("Favor de ingresar la procedencia");
+		document.getElementById('procedencia').focus();
+		return;
+	}
 	var data={name:nombre,sex:sexo,fn:fechanacimiento,proc:procedencia,doc:doctor,tel:telefono,email:correo,fp:formaPago};
 	var xhttp = new XMLHttpRequest();
 	// // Set POST method and ajax file path
