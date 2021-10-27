@@ -168,6 +168,7 @@ $fecha = date('d/m/Y');
   <table class="table table-bordered">
     <thead >
       <tr class="table-primary">
+        <th></th>
         <th >Nombre</th>
         <th >Sexo</th>
         <th >Edad</th>
@@ -181,17 +182,18 @@ $fecha = date('d/m/Y');
     </thead>
     <tbody>
     <tr>
-      <td><input name="nombre" id="CitasNombres" value=""  required></td>          
-              <td><select id="Sexo" name="Sexo" style="width:100%;" required>
+      <td><input type="button" class="" value="+" onclick="generaJson()"></td>
+      <td><input name="nombre" id="nombre" value=""  required></td>          
+              <td><select id="sexo" name="sexo" style="width:100%;" required>
                   <option value="" selected></option>
                   <option value="M">Masculino</option>
                   <option value="F">Femenino</option>
                   </select>
               </td>
-              <td> <input type="text" name="edad" id="edad" onChange="cmbioEdad()" size="5"><input type="date" id="Fecha" value=""></td>
-              <td><input type="text"  required id="CitasProcedencia" name="CitasProcedencia" style="width:100%; "></td>
+              <td> <input type="text" name="edad" id="edad" onChange="cmbioEdad()" size="5"><input type="date" id="fechanacimiento" value=""></td>
+              <td><input type="text"  required id="procedencia" name="procedencia" style="width:100%; "></td>
 
-              <td><select id="Doctor" name="Doctor" style="width:100%; " required>
+              <td><select id="doctor" name="doctor" style="width:100%; " required>
                   <?php
                   $sql = "select concat_ws(' ',nombre ,apellidos) as Nombre,llave_doctor from dat_doctores order by Nombre ";
                   $resultado = $conection->query($sql);
@@ -202,7 +204,7 @@ $fecha = date('d/m/Y');
                 </select>
               <td><input name="telefono" id="telefono" class="Controls" value="" style="width:98%; "></td>
               <td><input name="correo" id="correo" class="Controls" value="" style="width:98%; "></td>
-              <td><select id="FormaPago" name="FormaPago" style="width:100%; ">
+              <td><select id="formaPago" name="formaPago" style="width:100%; ">
                   <option value="" selected></option>
                   <option value="efe">Efectivo</option>
                   <option value="tc">Tarjeta de crédito</option>

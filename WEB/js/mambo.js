@@ -454,3 +454,41 @@ function actualiza_fecha(id,llave)
      }
     ajax.send(null)
 }
+function generaJson() {
+
+	var nombre = document.getElementById('nombre').value;
+	var sexo = document.getElementById('sexo').value;
+	var fechanacimiento = document.getElementById('fechanacimiento').value;
+	var procedencia=document.getElementById('procedencia').value;
+	var doctor = document.getElementById('doctor').value;
+	var telefono=document.getElementById('telefono').value;
+	var correo=document.getElementById('correo').value;
+	var formaPago=document.getElementById('formaPago').value;
+  
+	// var data = {nombre: nombre,sexo: sexo,fechanacimiento:fechanacimiento,doctor:doctor,procedencia:procedencia,
+	// 		    telefono:telefono,correo: correo,formaPago:formaPago};
+	var data={name:nombre,sex:sexo,fn:fechanacimiento,proc:procedencia,doc:doctor,tel:telefono,email:correo,fp:formaPago};
+	var xhttp = new XMLHttpRequest();
+	// // Set POST method and ajax file path
+	xhttp.open("POST", "generaJson.php", true);
+
+	// // call on request changes state
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+
+		var response = this.responseText;
+		if(response == 1){
+			alert("Insert successfully.");
+		}
+		}
+		
+	};
+
+	// // Content-type
+	xhttp.setRequestHeader("Content-Type", "application/json");
+
+	// // Send request with data
+	xhttp.send(JSON.stringify(data));
+	
+  
+  }
