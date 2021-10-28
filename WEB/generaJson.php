@@ -14,6 +14,7 @@
     $Telefono=$data->tel;
     $correo=$data->email;
     $n=$data->id;
+    $Total=$data->total;
     $ns=$n+1;
     $nc=str_pad($ns,3,"0",STR_PAD_LEFT);
     $json = file_get_contents("Ingreso.json");
@@ -28,7 +29,8 @@
         "doctor"=>$Doctor,
         "telefono"=>$Telefono,
         "email"=>$correo,
-        "formaPago"=>$formaPago
+        "formaPago"=>$formaPago,
+        "total"=>$Total
     )  
     );
     $data[] = $array;
