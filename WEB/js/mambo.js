@@ -470,6 +470,15 @@ function generaJson() {
 	var formaPago=document.getElementById('formaPago').value;
 	var id=document.getElementById('id').value;
 	var total=document.getElementById('precioTotal').value;
+	var temp=new Array;
+	for (var i=0, n=document.Citas.ExamenSeleccionado.options.length; i < n; i++)
+	{
+		temp[i] = document.Citas.ExamenSeleccionado.options[i].value;
+	}
+	
+ 	document.Citas.examenes.value = temp.join( ' ' );
+	var examenes=document.getElementById('examenes').value;
+
 	if (nombre=='') {
 		alert("Favor de ingresar el nombre del paciente");
 		document.getElementById('nombre').focus();
@@ -481,7 +490,7 @@ function generaJson() {
 		document.getElementById('procedencia').focus();
 		return;
 	}
-	var data={name:nombre,sex:sexo,fn:fechanacimiento,proc:procedencia,doc:doctor,tel:telefono,email:correo,fp:formaPago,id:id,total:total};
+	var data={name:nombre,sex:sexo,fn:fechanacimiento,proc:procedencia,doc:doctor,tel:telefono,email:correo,fp:formaPago,id:id,total:total,estudios:examenes};
 	var xhttp = new XMLHttpRequest();
 	// // Set POST method and ajax file path
 	xhttp.open("POST", "generaJson.php", true);
