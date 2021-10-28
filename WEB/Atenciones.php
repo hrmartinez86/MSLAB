@@ -165,10 +165,11 @@ $fecha = date('d/m/Y');
     </tr>
   </table>
   <form action="" id="Atencion">  
+  <?php $n=rescataNumero();?>
   <table class="table table-bordered">
     <thead >
       <tr class="table-primary">
-        <th></th>
+        <th id="num">No.<?php echo str_pad($n,3,"0",STR_PAD_LEFT);?></th>
         <th >Nombre</th>
         <th >Sexo</th>
         <th >Edad</th>
@@ -182,7 +183,7 @@ $fecha = date('d/m/Y');
     </thead>
     <tbody>
     <tr>
-      <td><input type="button" class="" value="+" onclick="generaJson()"><input type="hidden" id="id" name="id" value="<?php echo rescataNumero();?>"></td>
+      <td><input type="button" class="" value="+" onclick="genera()"><input type="hidden" id="id" name="id" value="<?php echo $n;?>"></td>
       <td><input name="nombre" id="nombre" value=""  required></td>          
               <td><select id="sexo" name="sexo" style="width:100%;" required>
                   <option value="" selected></option>
@@ -278,41 +279,6 @@ $fecha = date('d/m/Y');
            </table>
         </form>
         </div>
-    
-
-  <script>
-    function myFunction() {
-      // creamos un variable que hace referencia al select
-      //--c
-      var select = document.getElementById("ExamenCatalogo");
-
-
-
-      // obtenemos el valor a buscar
-
-      var buscar = document.getElementById("buscar").value;
-
-      console.log(select.options[4].text);
-
-      // recorremos todos los valores del select
-
-      for (var i = 1; i < select.length; i++)
-
-      {
-
-        if (select.options[i].text == buscar)
-
-        {
-
-          // seleccionamos el valor que coincide
-
-          select.selectedIndex = i;
-
-        }
-
-      }
-    }
-  </script>
 </body>
 
 </html>

@@ -21,18 +21,19 @@
 
     function actualizaNumero($n)
     {
+        echo "<script> console.log('act');</script>";
         $link = conectar();
     
         // Chequea coneccion
         if($link === false){
             die("ERROR: No pudo conectarse con la DB. " . mysqli_connect_error());
         }
-        $n++;
         // Ejecuta la actualizacion del registro
         $sql = "UPDATE consecutivo SET id=".$n;
+        echo "<script> console.log('".$sql."');</script>";
         if(mysqli_query($link, $sql)){
 
-            echo "Registro actualizado.";
+            echo "1";
         } else {
             echo "ERROR: No se ejecuto $sql. " . mysqli_error($link);
         }

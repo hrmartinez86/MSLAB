@@ -1,6 +1,7 @@
 <?php 
     
     include('librerias/consultas.php');
+    include('librerias/conection.php');
     // Read POST data
     $data = json_decode(file_get_contents("php://input"));
 
@@ -32,6 +33,23 @@
     );
     $data[] = $array;
     file_put_contents("Ingreso.json", json_encode($data));
-    echo '1';
+    
+    $link = conectar();
+    
+    // Chequea coneccion
+    if($link === false){
+        die("ERROR: No pudo conectarse con la DB. " . mysqli_connect_error());
+    }
+    // Ejecuta la actualizacion del registro
+    $sql = "UPDATE consecutivo SET id=".$ns;
+    
+    if(mysqli_query($link, $sql)){
+
+        echo $ns;
+    } else {
+        echo "ERROR: No se ejecuto $sql. " . mysqli_error($link);
+    }
+    // Cierra la conexion
+    mysqli_close($link);
 ?>
 

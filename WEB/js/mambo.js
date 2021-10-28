@@ -452,6 +452,12 @@ function actualiza_fecha(id,llave)
      }
     ajax.send(null)
 }
+function genera() {
+	generaJson();
+	
+	
+}
+
 function generaJson() {
 
 	var nombre = document.getElementById('nombre').value;
@@ -463,7 +469,6 @@ function generaJson() {
 	var correo=document.getElementById('correo').value;
 	var formaPago=document.getElementById('formaPago').value;
 	var id=document.getElementById('id').value;
-
 	if (nombre=='') {
 		alert("Favor de ingresar el nombre del paciente");
 		document.getElementById('nombre').focus();
@@ -485,7 +490,8 @@ function generaJson() {
 		if (this.readyState == 4 && this.status == 200) {
 
 		var response = this.responseText;
-		if(response == 1){
+
+		if(response > 0){
 			document.getElementById('nombre').value='';
 			document.getElementById('sexo').value='';
 			document.getElementById('fechanacimiento').value='';
@@ -493,9 +499,53 @@ function generaJson() {
 			document.getElementById('correo').value='';
 			document.getElementById('formaPago').value='';
 			document.getElementById('edad').value='';
+			document.getElementById('id').value=response;
+			var numc=zfill(response,5);
+			document.getElementById('num').textContent='No.'+ numc ;
+			document.getElementById('nombre').focus();
 			if (document.getElementById('ExamenSeleccionado').length>1) {
 				limpiaSelect('ExamenSeleccionado');
 			}
+			
+		}
+		}
+		
+	};
+
+	// // Content-type
+	xhttp.setRequestHeader("Content-Type", "application/json");
+
+	// // Send request with data
+	xhttp.send(JSON.stringify(data));
+
+	xhttp.upload.onload=function (e) {
+		console.log("Upload completed");
+	}
+	
+  }
+  function limpiaSelect(select) {
+	var select = document.getElementById(select);
+	var length = select.options.length;
+	for (i = length-1; i >= 0; i--) {
+	  select.options[i] = null;
+	}
+	precargar("EXAMEN MANEJADOR DE ALIMENTOS --> EMA -->$0","EMA-");
+  }
+  function grabaConsecutivo(n) {
+	var data={consecutivo:n};
+	var xhttp = new XMLHttpRequest();
+	// // Set POST method and ajax file path
+	xhttp.open("POST", "librerias/actualizaConsecutivo.php", true);
+	// // call on request changes state
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+
+		var response = this.responseText;
+		if(response ==1){
+			alert('actualizado');
+		}
+		else{
+			alert(response);
 		}
 		}
 		
@@ -507,13 +557,24 @@ function generaJson() {
 	// // Send request with data
 	xhttp.send(JSON.stringify(data));
 	
-  
   }
-  function limpiaSelect(select) {
-	var select = document.getElementById(select);
-	var length = select.options.length;
-	for (i = length-1; i >= 0; i--) {
-	  select.options[i] = null;
-	}
-	precargar("EXAMEN MANEJADOR DE ALIMENTOS --> EMA -->$0","EMA-");
-  }
+
+  function zfill(number, width) {
+    var numberOutput = Math.abs(number); /* Valor absoluto del número */
+    var length = number.toString().length; /* Largo del número */ 
+    var zero = "0"; /* String de cero */  
+    
+    if (width <= length) {
+        if (number < 0) {
+             return ("-" + numberOutput.toString()); 
+        } else {
+             return numberOutput.toString(); 
+        }
+    } else {
+        if (number < 0) {
+            return ("-" + (zero.repeat(width - length)) + numberOutput.toString()); 
+        } else {
+            return ((zero.repeat(width - length)) + numberOutput.toString()); 
+        }
+    }
+}
