@@ -70,7 +70,7 @@ $sql="SELECT dat_dfipa.fecha AS Fecha, dat_paciente.rfc,dat_paciente.rut,dat_pac
     $sql .=" procedencia_muestra ON dat_dfipa.procedencia_muestra = procedencia_muestra.id INNER JOIN " ;
 	$sql .="  lab_tipo_paciente ON dat_dfipa.tipo = lab_tipo_paciente.codigo " ;
 	$sql .=" WHERE     (dat_dfipa.numero=".$folio.") ";
-    //echo $sql;
+    // echo $sql;
 	$eje=odbc_exec($conection,$sql);
 	$count=0;
 	while ($res=odbc_fetch_array($eje))
@@ -79,8 +79,8 @@ $sql="SELECT dat_dfipa.fecha AS Fecha, dat_paciente.rfc,dat_paciente.rut,dat_pac
                 
 		$nombre=$res['nombre'];
 		$apellidos=$res['apellidos'];
-		$fec=split(" ",$res['fecha_nacimiento']);
-	    $fecs=split("-",$fec[0]);
+		$fec=explode(" ",$res['fecha_nacimiento']);
+	    $fecs=explode("-",$fec[0]);
 	    $fm= $fecs[2]."/".$fecs[1]."/".$fecs[0];
 		$calle=$res['calle'];
 		$ciudad=$res['ciudad'];
