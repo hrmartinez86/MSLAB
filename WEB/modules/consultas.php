@@ -27,7 +27,7 @@
         if ($procedencia!=''){$sql=$sql." and procedencia_muestra=".$procedencia;}
         if ($tipo!=''){$sql=$sql." and df.tipo='".$tipo."'" ;}
         $sql=$sql." and dp.estado='V' group by df.idpaciente,cf.llave_fonasa,cf.nombre,
-        dpc.nombre,dpc.apellidos,pm.descripcion,doc.nombre,df.fecha,df.numero 
+        dpc.nombre,dpc.apellidos,pm.descripcion,doc.nombre,df.fecha,df.numero,df.numero_registro
         order by df.idpaciente,cf.llave_fonasa desc";
         
         // echo $sql;
