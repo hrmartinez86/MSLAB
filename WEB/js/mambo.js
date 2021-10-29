@@ -452,13 +452,13 @@ function actualiza_fecha(id,llave)
      }
     ajax.send(null)
 }
-function genera() {
-	generaJson();
+function genera(tipo) {
+	generaJson(tipo);
 	
 	
 }
 
-function generaJson() {
+function generaJson(tipo) {
 
 	var nombre = document.getElementById('nombre').value;
 	var sexo = document.getElementById('sexo').value;
@@ -492,15 +492,29 @@ function generaJson() {
 	}
 	var data={name:nombre,sex:sexo,fn:fechanacimiento,proc:procedencia,doc:doctor,tel:telefono,email:correo,fp:formaPago,id:id,total:total,estudios:examenes};
 	var xhttp = new XMLHttpRequest();
+	var file;
+	switch (tipo) {
+		case "externo":
+			// // Set POST method and ajax file path
+			file="generaJson.php";
+			break;
+		case "interno":
+			// // Set POST method and ajax file path
+			file="guarda_atencion.php";
+			break;
+		default:
+			return;
+			break;
+	}
 	// // Set POST method and ajax file path
-	xhttp.open("POST", "generaJson.php", true);
+	xhttp.open("POST", file, true);
 
 	// // call on request changes state
 	xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 
 		var response = this.responseText;
-
+		alert(response);
 		if(response > 0){
 			document.getElementById('nombre').value='';
 			document.getElementById('sexo').value='';

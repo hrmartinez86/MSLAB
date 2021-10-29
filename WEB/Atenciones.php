@@ -183,7 +183,7 @@ $fecha = date('d/m/Y');
     </thead>
     <tbody>
     <tr>
-      <td><input type="button" class="" value="+" onclick="genera()"><input type="hidden" id="id" name="id" value="<?php echo $n;?>"></td>
+      <td><input type="button" class="" value="+" onclick="genera('interno')"><input type="hidden" id="id" name="id" value="<?php echo $n;?>"></td>
       <td><input name="nombre" id="nombre" value=""  required></td>          
               <td><select id="sexo" name="sexo" style="width:100%;" required>
                   <option value="" selected></option>
