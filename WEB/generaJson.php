@@ -17,7 +17,7 @@
     $Total=$data->total;
     $estudios=$data->estudios;
     $ns=$n+1;
-    $nc=str_pad($ns,3,"0",STR_PAD_LEFT);
+    $nc=str_pad($n,3,"0",STR_PAD_LEFT);
     $json = file_get_contents("Ingreso.json");
     $data = json_decode($json);
     $array = Array (
