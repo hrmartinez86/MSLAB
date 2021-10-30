@@ -454,6 +454,7 @@ function filtra(txt) {
                 
 				  <p><a href="busqueda.php">Busqueda a detalle</a></p>
 				  <p><a href="Core/Resultados_r.php?t=0">Acepta Rango</a></p>
+				  <p><a href="Core/Importar.php?t=0">Importar Json</a></p>
 			  </div>
 				
 				  <?PHP
