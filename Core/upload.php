@@ -1,8 +1,5 @@
 <?php 
-    include("controlador.paciente.php");
-    $ODBC = $_SESSION["ODBC"];
-
-    $db_conn = conectar($ODBC);
+    include("paciente.php");
 
     if ($_SERVER['REQUEST_METHOD']=='POST' && isset($_FILES['upload']['type'])) {
         echo 'Verdadero '.$_FILES["upload"]["tmp_name"];
@@ -19,6 +16,7 @@
                 
                 echo $value2['id'];
                 echo $value2['name'];
+                IngresaPaciente($value2['name'],$value2['telefono'],$value2['email'],$value2['fecha']);
                 echo $value2['doctor'];
                 echo $value2['procedencia'];
                 echo $value2['telefono'];
