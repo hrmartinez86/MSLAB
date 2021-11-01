@@ -50,12 +50,12 @@ $cont=$_GET['numero'];
 
 $a=$folios;
 $n=$apellidos." ,".$nombre;
-$pdf = new PDF_Code39('P','mm',array(104,54));
+$pdf = new PDF_Code39('P','mm',array(50,20));
 
 if($i<=0){
 	$pdf->AddPage();
 	///configuración de la impresión de la primera etiqueta (x,y)
-	$pdf->Code39(25, 15, $a,$folios,$n,$fecha_ingreso,$proc,$i,$e,$m,$opcion[$t-1]);
+	$pdf->Code39(20, 5, $a,$folios,$n,$fecha_ingreso,$proc,$i,$e,$m,$opcion[$t-1]);
 	
 
         //$pdf->Code39(15, 5, $a,$folios,$n,$opcion[1],$proc,$i,$e,$m);

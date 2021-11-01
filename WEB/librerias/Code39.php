@@ -7,20 +7,20 @@ require('../pdf/fpdf1.php');
 class PDF_Code39 extends FPDF {
 
 
-function Code39($x, $y, $code,$folio,$nombre,$fecha,$pro,$c,$estudios,$muestra,$curva, $ext = false, $cks = false, $w = 0.28, $h = 8, $wide = false) {
+function Code39($x, $y, $code,$folio,$nombre,$fecha,$pro,$c,$estudios,$muestra,$curva, $ext = false, $cks = false, $w = 0.28, $h = 5, $wide = false) {
     //Display code
     if ($c==0){
     
-    $this->SetFont('Arial', '', 22);
-    $this->Text($x, $y-2, $folio);
     $this->SetFont('Arial', '', 10);
+    $this->Text($x, $y-2, $folio);
+    $this->SetFont('Arial', '', 8);
     
     //folio de la cabecera
-    $this->Text($x-10, $y+12, $folio.' - '.$fecha);
+    $this->Text($x-20, $y+8, $folio.' - '.$fecha);
     //nombres del paciente
-    $this->Text($x-10, $y+$h+8, $nombre);
+    $this->Text($x-20, $y+11, $nombre);
     //procedencia de la muestra
-    $this->Text($x-10, $y+$h+13, $pro." ");
+    $this->Text($x-20, $y+14, $pro." ");
     }
     else
     {
@@ -43,24 +43,24 @@ function Code39($x, $y, $code,$folio,$nombre,$fecha,$pro,$c,$estudios,$muestra,$
         //    $h=10;
         //   } 
         // }
-        $w=0.4;
-        $h=20;
+        $w=0.2;
+        $h=5;
           
-        $this->SetFont('Arial', 'B',11);
+        $this->SetFont('Arial', 'B',8);
     
-        $this->Text($x-10, $y+$h+5, $code.' - '.$fecha);
+        $this->Text($x-20, $y-1, $code.' - '.$fecha);
 
-        $this->SetFont('Arial', '',10);
+        $this->SetFont('Arial', '',8);
 
-        $this->Text($x-10, $y+$h+9, $nombre);
+        $this->Text($x-20, $y+8, $nombre);
         
-        $this->SetFont('Arial', '',10);
+        $this->SetFont('Arial', '',8);
 
-        $this->Text($x-10, $y+$h+13, $pro." - ".$muestra);
+        $this->Text($x-20, $y+11, $pro." - ".$muestra);
         
-        $this->SetFont('Arial', '',10);
+        $this->SetFont('Arial', '',8);
 
-        $this->Text($x-10, $y+$h+17, $estudios);
+        $this->Text($x-20, $y+14, $estudios);
     }
     if($ext) {
         //Extended encoding
@@ -128,7 +128,7 @@ function Code39($x, $y, $code,$folio,$nombre,$fecha,$pro,$c,$estudios,$muestra,$
 
     //Draw bars
 
-    $this->draw_code39($encode, $x, $y, $w, $h);
+    $this->draw_code39($encode, $x-10, $y, $w, $h);
     // if($curva==31){
         //para act5
         // $this->draw_code39($encode, $x, $y, $w, $h);
