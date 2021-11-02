@@ -165,7 +165,12 @@ where idpaciente='".$idpaciente."' ORDER BY cf.codigo_fonasa desc";
 			          <td><input type="hidden" value="<?php echo $llave;?>" name="llave" /></td></tr>
 			          <td><input type="hidden" value="<?php echo $llave_fonasa;?>" name="lf" id="lf" /></td></tr>
           </table>
-          
+          <tr>
+            <td>
+              <p><label for="imagen">Imprime marco del resultado</label><input type="checkbox" name="imagen" id="imagen"></p>
+              
+            </td>
+          </tr>
           </table>
 </form>
 </body>

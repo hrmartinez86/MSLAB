@@ -3,6 +3,8 @@ header('Content-Type: text/html; charset=UTF-8');
 session_start();
 $examenes=$_SESSION['examenes'];
 $idPaciente=$_POST['i'];
+$imagen=$_POST['imagen'];
+
 require('FPDF/fpdf.php');
 require('modules/consultas.php');
 include("librerias/conection.php");
@@ -12,19 +14,31 @@ class PDF extends FPDF
 protected $col = 0; // Columna actual
 protected $y0;      // Ordenada de comienzo de la columna
 
-    function encabezado(){
-        $this->Image('marco.jpg',0,0,220,0,'','');
+    function encabezado($imagen,$anchoPagina){
+        
+        if ($imagen==TRUE) {
+            $this->Image('marco.jpg',0,0,220,0,'','');
+            $x1=10;
+            $x2=200;
+            
+        }
+        else
+        {
+            $x1=5;
+            $x2=200;
+            
+        }
         $this->Ln(10);
 		$nombre=$_POST['nombrePaciente'];
 		$doctor=$_POST['doc'];
         $procedencia=$_POST['procedencia'];
         $numero=$_POST['folioPaciente'];
-        $this->WriteText('LABORATORIO SALAS FERNANDEZ',210,5,'B',13,'Arial',true,false);
-        $this->WriteText('QUIMICO RESPONSABLE',210,5,'',8,'Arial',true,false);
-        $this->WriteText('Q.F.B. GERARDO SALAS FERNANDEZ',210,5,'B',8,'Arial',true,false);
-        $this->WriteText('Emilio Carranza No.208 Ote.Zona Centro Cd. Madero,Tam.',210,5,'',8,'Arial',true,false);
-        $this->WriteText('C.P. 89400 Tel. 2-10-22-98 y 2-15-01-82',210,5,'',8,'Arial',true,false);
-        $this->WriteText('RFC.SAFG-7200203-IM0 UNE D.G.P. Num. 2530411',210,5,'',8,'Arial',true,false);
+        $this->WriteText('LABORATORIO SALAS FERNANDEZ',$anchoPagina,5,'B',13,'Arial',true,false);
+        $this->WriteText('QUIMICO RESPONSABLE',$anchoPagina,5,'',8,'Arial',true,false);
+        $this->WriteText('Q.F.B. GERARDO SALAS FERNANDEZ',$anchoPagina,5,'B',8,'Arial',true,false);
+        $this->WriteText('Emilio Carranza No.208 Ote.Zona Centro Cd. Madero,Tam.',$anchoPagina,5,'',8,'Arial',true,false);
+        $this->WriteText('C.P. 89400 Tel. 2-10-22-98 y 2-15-01-82',$anchoPagina,5,'',8,'Arial',true,false);
+        $this->WriteText('RFC.SAFG-7200203-IM0 UNE D.G.P. Num. 2530411',$anchoPagina,5,'',8,'Arial',true,false);
         
         $diassemana = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
         $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
@@ -38,31 +52,22 @@ protected $y0;      // Ordenada de comienzo de la columna
 		$this->WriteText("NOMBRE DEL PACIENTE:".utf8_decode($nombre),10,10,'B',8,'Arial',false,false);
 		$this->WriteText("NOMBRE DEL DOCTOR:".utf8_decode($doctor),10,0,'B',8,'Arial',false,false);
         $this->WriteText($procedencia,130,5,'B',8,'Arial',false,false);
-		$x1=5;
-		$x2=200;
-		$y1=$this->GetY();
+        $y1=$this->GetY();
 		$this->Line($x1,  $y1,  $x2, $y1);
 
     }
     function Header()
     {    
-        
-        $this->encabezado();
-        
-        // $this->Image('images/logo_laboratorio.jpeg',10,5,40,0,'JPEG');
-        // Guardar ordenada
+        $anchoPagina=210;
+        $imagen=$_POST['imagen'];
+        $this->encabezado($imagen,$anchoPagina);
         $this->y0 = $this->GetY();
     }
 
     function Footer()
     {
 		
-		$this->SetY(-15);
-        $this->WriteText(utf8_decode('Q.F.B. Gerardo Salas Fernández'),140,0,'',8,'Arial',false,false);
-		$this->SetY(-11);
-		$this->WriteText('UNE D.G.P. Num.2530411',145,0,'',8,'Arial',false,false);
-		$this->SetY(-7);
-		$this->WriteText('S.S. 20303',160,0,'',8,'Arial',false,false);
+
     }
 
     function SetCol($col)
@@ -116,13 +121,20 @@ protected $y0;      // Ordenada de comienzo de la columna
         }
     }
 
-    function ChapterTitle($label)
+    function ChapterTitle($label,$anchoPagina,$imagen)
     {
+        if ($imagen==TRUE) {
+            $inicioIMp=10;
+        }
+        else
+        {
+            $inicioImpresion=5;
+        }
         $this->SetFont('Arial','',8);
         // $this->SetFillColor(208,211,212);
-        $this->Cell(0,6,$label,0,10,'B',false);
-        $this->WriteText('',210,2,'',8,'Arial',false,false);
-        $this->WriteText('NOMBRE DEL EXAMEN',5,0,'B',8,'Arial',false,false);
+        $this->Cell(0,$inicioIMp,$label,0,10,'B',false);
+        $this->WriteText('',$anchoPagina,2,'',8,'Arial',false,false);
+        $this->WriteText('NOMBRE DEL EXAMEN',$inicioIMp,0,'B',8,'Arial',false,false);
         $this->WriteText('RESULTADOS',80,0,'B',8,'Arial',false,false);
         $this->WriteText('VALOR DE REFERENCIA',140,6,'B',8,'Arial',false,false);
         
@@ -130,15 +142,22 @@ protected $y0;      // Ordenada de comienzo de la columna
         $this->y0 = $this->GetY();
     }
 
-    function ChapterConten($llave,$idPaciente)
+    function ChapterConten($llave,$idPaciente,$imagen)
     {
         
+        if ($imagen==TRUE) {
+            $xRes=10;
+        }
+        else
+        {
+            $xRes=5;
+        }
         $examArray=resultados($llave,$idPaciente);
-        // $this->WriteText(count($examArray),15,6,'',10,'Arial',false,false);
+
         for ($i=0;$i<count($examArray);$i++)
         {
             if($examArray[$i]['Res']!=''){
-                $this->WriteText(utf8_decode($examArray[$i]['Info']),5,0,'',8,'Arial',false,false);
+                $this->WriteText(utf8_decode($examArray[$i]['Info']),$xRes,0,'',8,'Arial',false,false);
                 $this->WriteText(utf8_decode($examArray[$i]['um']),140,0,'',8,'Arial',false,false);
                 if ($examArray[$i]['rt']!="") {
                     $this->WriteText($examArray[$i]['rt'],140,0,'',8,'Arial',false,false);
@@ -147,24 +166,9 @@ protected $y0;      // Ordenada de comienzo de la columna
                 {
                     $this->WriteText($examArray[$i]['vd']." - ".$examArray[$i]['vh'],160,0,'',8,'Arial',false,false);
                 }
-                // $resultado=$examArray[$i]['Res'];
-                // $longitud=strlen($resultado);
-                // if ($longitud>40)
-                // {
-                //     // echo "<script> console.log('superior');</script>";
-                //     $arr_res=str_split($resultado,40);
-                //     for ($i=0; $i < count($arr_res); $i++) { 
-                //         $this->WriteText($arr_res[$i],80,0,'',8,'Arial',false,false);
-                //         $this->Ln(4);
-                //         // echo "<script> console.log('".$i."-".$arr_res[$i]."');</script>";
-                //     }
-                // }
-                // else{
-                    $this->WriteText($examArray[$i]['Res'],80,0,'',8,'Arial',false,false);
-                // }
                 
-                
-                
+                $this->WriteText($examArray[$i]['Res'],80,0,'',8,'Arial',false,false);
+ 
                 $this->Ln(4);
             }
         }
@@ -178,7 +182,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         }
     }
 
-    function ChapterBody($examenes,$idPaciente)
+    function ChapterBody($examenes,$idPaciente,$anchoPagina,$imagen)
     {
         // Fuente
         $this->SetFont('Times','',8);
@@ -189,19 +193,19 @@ protected $y0;      // Ordenada de comienzo de la columna
         
         for ($i=0; $i <$x ; $i++) { 
             //nombre del estudio
-            $this->ChapterTitle($examenes[$i]['nombre']);
+            $this->ChapterTitle($examenes[$i]['nombre'],$anchoPagina,$imagen);
             //pruebas en el estudio
-            $this->ChapterConten($examenes[$i]['llave'],$idPaciente);
+            $this->ChapterConten($examenes[$i]['llave'],$idPaciente,$imagen);
         }
         
         
     }
 
-    function PrintChapter($title, $examenes,$idPaciente)
+    function PrintChapter($title, $examenes,$idPaciente,$imagen)
     {
         // Añadir capítulo
-
-        $this->ChapterBody($examenes,$idPaciente);
+        $anchoPagina=210;
+        $this->ChapterBody($examenes,$idPaciente,$anchoPagina,$imagen);
         
     }
 }
@@ -217,7 +221,7 @@ $examen=explode(",",$examenes);
 $y=$pdf->GetY();
 $pdf->SetY($y);
 
-$pdf->PrintChapter($title,$examenes,$idPaciente);
+$pdf->PrintChapter($title,$examenes,$idPaciente,$imagen);
 
 $pdf->Output();
 
