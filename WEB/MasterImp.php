@@ -13,6 +13,7 @@ protected $col = 0; // Columna actual
 protected $y0;      // Ordenada de comienzo de la columna
 
     function encabezado(){
+        $this->Image('marco.jpg',0,0,220,0,'','');
         $this->Ln(10);
 		$nombre=$_POST['nombrePaciente'];
 		$doctor=$_POST['doc'];
