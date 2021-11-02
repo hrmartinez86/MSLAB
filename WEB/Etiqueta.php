@@ -30,12 +30,9 @@ $sql="SELECT FECHA, HORA, NUMERO, NUMERO_REGISTRO, RUT, USUARIO_CREACION, NOMBRE
 			          {
 			        	$idpaciente=$result['IDPACIENTE'];
 			        	$nombre=$result['NOMBRE']." ".$result['APELLIDOS'];
+                $folio=str_pad($result['NUMERO_REGISTRO'],3,"0",STR_PAD_LEFT). '<br>' .date("d/m/Y");
 			          }
-			          //echo $idpaciente;
-			          
 
-			          //echo $idpaciente;
-			          //echo " " .$i;
 ?> 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
