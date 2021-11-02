@@ -34,17 +34,19 @@ FROM         SISTEMA_TOMA_MUESTRAS_PACIENTE
 WHERE     (numero = '".$folio."')";
  $query=odbc_exec($conection,$sql);  
      //echo $sql;  
-			      while ($result=odbc_fetch_array($query))
-			          {
-			        	$nombre=$result['nombre'];
-			        	$apellidos=$result['apellidos'];
-			        	$fecha=explode(" ", $result['fecha']);
-			        	$fx=explode("-",$fecha[0]);
-			        	$fecha_ingreso=$fx[2]."/".$fx[1]."/".$fx[0]." ".$result['hora']." Sx:".$result['sexo']." Ed:".$result['a�os'];
-			        	//$fecha_ingreso=$fecha[0]." ".$result['hora'];
-			        	$proc=$result['PROCEDENCIA_MUESTRA'];
-			        	$idpac=$result['idpaciente'];
-			          }
+while ($result=odbc_fetch_array($query))
+{
+	$nombre=$result['nombre'];
+	$apellidos=$result['apellidos'];
+	$fecha=explode(" ", $result['fecha']);
+	$fx=explode("-",$fecha[0]);
+	$fecha_ingreso=$fx[2]."/".$fx[1]."/".$fx[0]." ".$result['hora']." Sx:".$result['sexo']." Ed:".$result['a�os'];
+	//$fecha_ingreso=$fecha[0]." ".$result['hora'];
+	$proc=$result['PROCEDENCIA_MUESTRA'];
+	$idpac=$result['idpaciente'];
+	$folios=str_pad($result['numero_registro'],3,STR_PAD_LEFT);
+	$folio=str_pad($result['numero_registro'],3,STR_PAD_LEFT);
+}
 			       
 $cont=$_GET['numero'];
 
@@ -57,32 +59,28 @@ if($i<=0){
 	///configuración de la impresión de la primera etiqueta (x,y)
 	$pdf->Code39(20, 5, $a,$folios,$n,$fecha_ingreso,$proc,$i,$e,$m,$opcion[$t-1]);
 	
-
-        //$pdf->Code39(15, 5, $a,$folios,$n,$opcion[1],$proc,$i,$e,$m);
-    }
+}
 	
-		for($t=1;$t<=$nopciones;$t++){
-			$i=$i+1;
-		$a= $opcion[$t-1].$folio;
+	for($t=1;$t<=$nopciones;$t++){
+	$i=$i+1;
+	$a= $opcion[$t-1].$folio;
+
+	$sql="EXECUTE CODIGOS_ETIQUETAS @CODBARRAS = '".$opcion[$t-1]."', @IDPACIENTE = '".$idpac."'";
+	$query=odbc_exec($conection,$sql);  
+	               
+	while ($result=odbc_fetch_array($query))
+	{
+		$m=$result['GRUPO_MUESTRAS'];
 		
-		$sql="EXECUTE CODIGOS_ETIQUETAS @CODBARRAS = '".$opcion[$t-1]."', @IDPACIENTE = '".$idpac."'";
-        $query=odbc_exec($conection,$sql);  
-         //echo $sql;  
-                   
-			      while ($result=odbc_fetch_array($query))
-			          {
-			        	$m=$result['GRUPO_MUESTRAS'];
-			        	
-			        	if ($comp != $result['codigo_fonasa']){
-			        	
-			        	$e=$result['codigo_fonasa'].",".$e;
-			        	$comp=$result['codigo_fonasa'];}
-			        	else
-			        	{$comp=$result['codigo_fonasa'];
-			        	$e=$result['codigo_fonasa'];}
-			        	
-			        	
-			          }
+		if ($comp != $result['codigo_fonasa']){		
+			$e=$result['codigo_fonasa'].",".$e;
+			$comp=$result['codigo_fonasa'];
+		}
+		else
+		{
+			$comp=$result['codigo_fonasa'];
+			$e=$result['codigo_fonasa'];}
+		}
 		$comp='';
 			       
 		$pdf->AddPage();

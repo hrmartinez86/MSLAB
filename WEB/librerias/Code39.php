@@ -24,25 +24,7 @@ function Code39($x, $y, $code,$folio,$nombre,$fecha,$pro,$c,$estudios,$muestra,$
     }
     else
     {
-	//para el act5
-        // if($curva==31 || $curva==30){
-        //     $w=0.25;
-        //    $h=10;
-    	// }
-
-        // else
-        // {
-        //  //esto es para syncrhon
-        //  if($curva==32){
-        //    $w=0.235;
-        //    $h=11;
-        //  }
-        //   else{
-        //   //para la impresion normal
-        //    $w=0.25;
-        //    $h=10;
-        //   } 
-        // }
+	
         $w=0.2;
         $h=5;
           
