@@ -120,16 +120,16 @@ protected $y0;      // Ordenada de comienzo de la columna
         
     }
 }
-$pdf = new PDF('L', 'mm', array(210,150));
+$pdf = new PDF();
 //tamaño media carta
 
 $pdf->SetAuthor('MSLAB');
 $pdf->AddPage();
 $pdf->PrintChapter($nombre,$examenes);
-// $pdf->SetY(140);
-// $pdf->Image('images/logo_laboratorio.jpeg',10,135,40,0,'JPEG');
-// $pdf->encabezado();
-// $pdf->PrintChapter($nombre,$examenes);
-// $pdf->SetY(160);
+$pdf->SetY(140);
+$pdf->Image('images/logo_laboratorio.jpeg',10,135,40,0,'JPEG');
+$pdf->encabezado();
+$pdf->PrintChapter($nombre,$examenes);
+$pdf->SetY(160);
 $pdf->Output();
 ?>
