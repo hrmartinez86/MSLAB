@@ -210,7 +210,7 @@ $fecha = date('d/m/Y');
               <tr class="Controls">
                 
                 <td>
-                <select class="selectpicker" data-show-subtext="true" data-live-search="true" size="5" style="width: 450px;" id="ExamenCatalogo" >
+                <select class="selectpicker" data-show-subtext="true" data-live-search="true" size="5" style="width: 450px;" id="ExamenCatalogo" onchange="seleccionaEstudio()" >
                   <?php
                   ///estudios
                   $sql = "select codigo_fonasa,nombre,costo_examen as precio from caj_codigos_fonasa where activo='S' AND CODIGO_FONASA NOT LIKE 'ANTV%' order by CODIGO_FONASA ";

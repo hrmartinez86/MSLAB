@@ -60,7 +60,12 @@ function Choose() {
 		}
 	}
 }
-
+function seleccionaEstudio() {
+	// alert(document.getElementById('ExamenCatalogo').value);
+	mySelect = document.getElementById("ExamenCatalogo");
+	Choose();
+	mySelect.selectedIndex = -1; 
+}
 /******************************************************************************/
 /* Funcion unChoose()	                                                      */
 /* Realiza la funcion inversa a Choose()							          */
