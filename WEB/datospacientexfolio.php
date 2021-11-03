@@ -210,7 +210,7 @@ $fecha = date('d/m/Y');
               <tr class="Controls">
                 
                 <td>
-                <select class="selectpicker" data-show-subtext="true" data-live-search="true" size="5" style="width: 450px;" id="ExamenCatalogo" multiple="multiple">
+                <select class="selectpicker" data-show-subtext="true" data-live-search="true" size="5" style="width: 450px;" id="ExamenCatalogo" >
                   <?php
                   ///estudios
                   $sql = "select codigo_fonasa,nombre,costo_examen as precio from caj_codigos_fonasa where activo='S' AND CODIGO_FONASA NOT LIKE 'ANTV%' order by CODIGO_FONASA ";
@@ -219,11 +219,7 @@ $fecha = date('d/m/Y');
                     echo '<option value="' . $result['codigo_fonasa'] . '">' . $result['nombre'] . ' --> ' . $result['codigo_fonasa'] . '-->$' . $result['precio'] . '</option>';
                   }
                   //agrupaciones
-                  $sql = "select codigo,descripcion,precio from agrupaciones where activo='S' order by id ";
-                  $query = odbc_exec($conection, $sql);
-                  while ($result = odbc_fetch_array($query)) {
-                    echo '<option value="' . $result['codigo'] . '-">' . $result['descripcion'] . ' --> ' . $result['codigo'] . ' -->$' . $result['precio'] . '</option>';
-                  }
+                  
                   ?>
                 </select>
                 </td>
