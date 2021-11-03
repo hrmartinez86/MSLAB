@@ -94,18 +94,19 @@ function actualiza()
 function actualizafolio(folio)
 {
 	ajax=objetoAjax();
-//	alert(document.getElementById('Doctor').value);
-	//alert(document.getElementById('Rut').value);
-//	alert(document.getElementById('Expediente').value);
-//        alert(folio);
-    var val="librerias/actualizafolio.php?exp="+ document.getElementById('Expediente').value + "&sex=" + document.getElementById('Sexo').value + "&nom=" + document.getElementById('CitasNombres').value + "&fecha=" + document.getElementById('Fecha').value + "&rut=" + document.getElementById('Rut').value + "&doc=" + document.getElementById('Doctor').value + "&folio=" + folio;
+    alert (folio);
+    alert (document.getElementById('Sexo').value);
+    var val="librerias/actualizafolio.php?sex=" + document.getElementById('Sexo').value + 
+            "&nom=" + document.getElementById('CitasNombres').value + 
+            "&fecha=" + document.getElementById('Fecha').value + 
+            "&rut=" + document.getElementById('Rut').value + "&folio=" + folio;
 	ajax.open("GET", val);
     ajax.onreadystatechange=function() {
 	if (ajax.readyState==4) {
-	valor.innerHTML = ajax.responseText
+	    valor.innerHTML = ajax.responseText
         alert('Datos del Paciente Actualizados');
 	  }
-     }
+    }
     ajax.send(null)
 }
 

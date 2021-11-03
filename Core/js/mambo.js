@@ -185,11 +185,7 @@ function editar(id){
     var str=id
     var folio=str.toString();
     folio=folio.substr(8);
-//    alert(folio);
-    
-//        var exp=document.getElementById('Folio').value;
-        x=open('../WEB/datospacientexfolio.php?folio='+ folio ,'' ,'width=800,height=350'); 
-//        x.close; 
-//    }
+
+	x=open('../WEB/datospacientexfolio.php?folio='+ folio ,'' ,'width=800,height=550'); 
 
 }
