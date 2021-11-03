@@ -174,11 +174,11 @@ protected $y0;      // Ordenada de comienzo de la columna
         }
         $metodo=metodo($llave);
         if ($metodo!=""){
-            $this->WriteText(metodo($llave),5,5,'B',8,'Arial',false,true);
+            $this->WriteText(metodo($llave),$xRes,5,'B',8,'Arial',false,true);
         }
         $nota=nota($llave);
         if ($nota!=""){
-            $this->WriteText($nota ,5,0,'',6,'Arial',false,true);
+            $this->WriteText($nota ,$xRes,0,'',6,'Arial',false,true);
         }
     }
 
