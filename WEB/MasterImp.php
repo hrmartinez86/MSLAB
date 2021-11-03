@@ -130,7 +130,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         }
         else
         {
-            $inicioImpresion=5;
+            $inicioIMp=5;
         }
         $this->SetFont('Arial','',8);
         // $this->SetFillColor(208,211,212);
