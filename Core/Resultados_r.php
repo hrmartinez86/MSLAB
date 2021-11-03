@@ -814,11 +814,7 @@ FROM         lab_relacion_laboratorio_seccion INNER JOIN
                         <!-- <center> <input type="button" value="Generar PDF" align="middle">&nbsp;<input type="button" value="Regresar" onclick=regresar()>&nbsp;<input type="button" value="Salir" onclick=salir()></center> -->
                         </form>
                         <STYLE type=text/css>
-                          {
-                            FILTER: DropShadow(Color='#000000', OffX=4, OffY=2, Positive=1);
-                            FONT: 10pt verdana, arial, helvetic;
-                            TEXT-DECORATION: none
-                          }
+                         
 
                           A:hover {
                             COLOR: #000000;

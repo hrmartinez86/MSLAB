@@ -39,7 +39,7 @@ $fecha = date('d/m/Y');
   <link type="text/css" rel="stylesheet" href="dhtmlgoodies_calendar/dhtmlgoodies_calendar.css?random=20051112" media="screen">
   </LINK>
   <script type="text/javascript" src="dhtmlgoodies_calendar/dhtmlgoodies_calendar.js?random=20060118"></script>
-
+  <script language="javascript" type="text/javascript" src="js/mambo2.js"></script>
 </head>
 
 <body>

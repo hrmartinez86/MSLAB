@@ -35,19 +35,20 @@ function objetoAjax(){
 /******************************************************************************/
 
 function Choose() {
-	var srcList = document.Citas.ExamenCatalogo;
-	var tgtList = document.Citas.ExamenSeleccionado;
+	
+	var srcList = document.getElementById('ExamenCatalogo');
+	var tgtList = document.getElementById('ExamenSeleccionado');
 
-	var srcLen = document.Citas.ExamenCatalogo.length;
-	var tgtLen = document.Citas.ExamenSeleccionado.length;
+	var srcLen = srcList.length;
+	var tgtLen = tgtList.length;
 	var tgt = "x";
-
+	console.log(srcLen);
 	//Construye un arreglo de elementos blanco
 	for (var i=tgtLen-1; i > -1; i--) {
 		tgt += "," + tgtList.options[i].value + ","
 	}
 
-	//Extrae los recursos seleccionados y los añade a la lista
+	//Extrae los recursos seleccionados y los aï¿½ade a la lista
 	for (var i=srcLen-1; i > -1; i--) {
 		if (srcList.options[i].selected && tgt.indexOf( "," + srcList.options[i].value + "," ) == -1) {
 			opt = new Option( srcList.options[i].text, srcList.options[i].value );
@@ -68,7 +69,7 @@ function Choose() {
 function unChoose() {
 	var srcList = document.Citas.ExamenSeleccionado;
 	var srcLen = document.Citas.ExamenSeleccionado.length;
-    if(confirm('¿Desea Eliminar el estudio '+ document.Citas.ExamenSeleccionado.value+' ?')){
+    if(confirm('ï¿½Desea Eliminar el estudio '+ document.Citas.ExamenSeleccionado.value+' ?')){
     	var el=document.Citas.ExamenSeleccionado.value;
     	elimina(el);
     for (var i=srcLen-1; i > -1; i--) {
@@ -96,7 +97,7 @@ function buscarEstudio() {
 		destino += "," + listaDestino.options[i].value + ","
 	}
 
-	//Extrae los recursos seleccionados y los añade a la lista
+	//Extrae los recursos seleccionados y los aï¿½ade a la lista
 	for (var i=origenLen-1; i > -1; i--) {
 		if (listaOrigen.options[i].value == estudio && destino.indexOf( "," + listaOrigen.options[i].value + "," ) == -1) 
 		{
@@ -164,10 +165,10 @@ function elimina(e)
 function agregaest(e,n)
 {
 	ajax=objetoAjax();
-	//alert('Datos del Paciente Actualizados');
-	//alert(document.getElementById('Rut').value);
 	
-    var val="librerias/agregaestudio.php?est="+ e + "&folio=" + document.getElementById('folio').value + "&idpaciente=" + document.getElementById('idpaciente').value + "&num=" + n;
+    var val="librerias/agregaestudio.php?est="+ e + "&folio=" + 
+			document.getElementById('folio').value + "&idpaciente=" + 
+			document.getElementById('idpaciente').value + "&num=" + n;
 	//alert(val);
 	ajax.open("GET", val);
     ajax.onreadystatechange=function() {

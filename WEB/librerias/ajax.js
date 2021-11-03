@@ -94,8 +94,7 @@ function actualiza()
 function actualizafolio(folio)
 {
 	ajax=objetoAjax();
-    alert (folio);
-    alert (document.getElementById('Sexo').value);
+   
     var val="librerias/actualizafolio.php?sex=" + document.getElementById('Sexo').value + 
             "&nom=" + document.getElementById('CitasNombres').value + 
             "&fecha=" + document.getElementById('Fecha').value + 
