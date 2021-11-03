@@ -33,6 +33,7 @@ protected $y0;      // Ordenada de comienzo de la columna
 		$doctor=$_POST['doc'];
         $procedencia=$_POST['procedencia'];
         $numero=$_POST['folioPaciente'];
+        $fecha=$_POST['fecha'];
         $this->WriteText('LABORATORIO SALAS FERNANDEZ',$anchoPagina,5,'B',13,'Arial',true,false);
         $this->WriteText('QUIMICO RESPONSABLE',$anchoPagina,5,'',8,'Arial',true,false);
         $this->WriteText('Q.F.B. GERARDO SALAS FERNANDEZ',$anchoPagina,5,'B',8,'Arial',true,false);
@@ -47,7 +48,8 @@ protected $y0;      // Ordenada de comienzo de la columna
         $this->WriteText($numero,160,6,'B',8,'Arial',false,false);
         
         $hoy=utf8_decode($diassemana[date('w')])." ".date('d')." de ".$meses[date('n')-1]. " del ".date('Y') . " " . date('g:ia') ;
-        $this->WriteText($hoy,120,6,'',8,'Arial',false,false);
+        $hoy=utf8_decode('Fecha de Atención:'.$fecha);
+        $this->WriteText($hoy,125,6,'',8,'Arial',false,false);
         
 		$this->WriteText("NOMBRE DEL PACIENTE:".utf8_decode($nombre),10,10,'B',8,'Arial',false,false);
 		$this->WriteText("NOMBRE DEL DOCTOR:".utf8_decode($doctor),10,0,'B',8,'Arial',false,false);
