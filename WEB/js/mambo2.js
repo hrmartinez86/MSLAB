@@ -67,10 +67,10 @@ function Choose() {
 /* No recibe ningun parametro.			                                      */
 /******************************************************************************/
 function unChoose() {
-	var srcList = document.Citas.ExamenSeleccionado;
-	var srcLen = document.Citas.ExamenSeleccionado.length;
-    if(confirm('�Desea Eliminar el estudio '+ document.Citas.ExamenSeleccionado.value+' ?')){
-    	var el=document.Citas.ExamenSeleccionado.value;
+	var srcList = document.getElementById('ExamenSeleccionado');
+	var srcLen = srcList.length;
+    if(confirm('¿Desea Eliminar el estudio '+ document.getElementById('ExamenSeleccionado').value+' ?')){
+    	var el=srcList.value;
     	elimina(el);
     for (var i=srcLen-1; i > -1; i--) {
 		if (srcList.options[i].selected) {

@@ -158,7 +158,7 @@ $fecha = date('d/m/Y');
 
       <tr class="Controls">
 
-        <td><input type="text" name="Rut" class="Row" id="Rut" value="<?php echo $Rut; ?>"></td>
+        <td><input type="hidden" name="Rut" class="Row" id="Rut" value="<?php echo $Rut; ?>"></td>
 
       </tr>
     </table>
