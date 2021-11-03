@@ -36,6 +36,13 @@ $fecha = date('d/m/Y');
   <link rel="stylesheet" type="text/css" href="Styles/Core/Style_doctype.css">
   <script language="javascript" type="text/javascript" src="librerias/ajax.js"></script>
   <script language="javascript" type="text/javascript" src="js/mambo.js"></script>
+  <script type="text/javascript" src="dhtmlgoodies_calendar/dhtmlgoodies_calendar.js?random=20060118"></script>
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/css/bootstrap-select.min.css'>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
   <link type="text/css" rel="stylesheet" href="dhtmlgoodies_calendar/dhtmlgoodies_calendar.css?random=20051112" media="screen">
   </LINK>
   <script type="text/javascript" src="dhtmlgoodies_calendar/dhtmlgoodies_calendar.js?random=20060118"></script>
@@ -199,26 +206,33 @@ $fecha = date('d/m/Y');
                 <td class="HeaderRight"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td>
               </tr>
             </table>
-            <table height="200" cellpadding="0" cellspacing="0" class="Record">
+            <table height="200" width="800" cellpadding="0" cellspacing="0" class="Record">
               <tr class="Controls">
-                <td><strong>Codigo</strong><input name="data[Examen][Codigo]" onKeyPress="Valida(event)" size="4" value="" type="text" id="ExamenCodigo" /><input type="button" value="+" onClick="buscarEstudio(); javascript: return false;" /></td>
+                
                 <td>
-                  <select name="ExamenCatalogo" multiple="multiple" size="9" style="width: 250px;" id="ExamenCatalogo">
-                    <?php
-                    $sql = "select * from caj_codigos_fonasa where activo='S' order by descripcion ";
-                    $query = odbc_exec($conection, $sql);
-                    while ($result = odbc_fetch_array($query)) {
-                      echo '<option value="' . $result['codigo_fonasa'] . '">' . $result['nombre'] . ' --> ' . $result['codigo_fonasa'] . '</option>';
-                    }
-                    ?>
-                  </select>
+                <select class="selectpicker" data-show-subtext="true" data-live-search="true" size="5" style="width: 450px;" id="ExamenCatalogo" multiple="multiple">
+                  <?php
+                  ///estudios
+                  $sql = "select codigo_fonasa,nombre,costo_examen as precio from caj_codigos_fonasa where activo='S' AND CODIGO_FONASA NOT LIKE 'ANTV%' order by CODIGO_FONASA ";
+                  $query = odbc_exec($conection, $sql);
+                  while ($result = odbc_fetch_array($query)) {
+                    echo '<option value="' . $result['codigo_fonasa'] . '">' . $result['nombre'] . ' --> ' . $result['codigo_fonasa'] . '-->$' . $result['precio'] . '</option>';
+                  }
+                  //agrupaciones
+                  $sql = "select codigo,descripcion,precio from agrupaciones where activo='S' order by id ";
+                  $query = odbc_exec($conection, $sql);
+                  while ($result = odbc_fetch_array($query)) {
+                    echo '<option value="' . $result['codigo'] . '-">' . $result['descripcion'] . ' --> ' . $result['codigo'] . ' -->$' . $result['precio'] . '</option>';
+                  }
+                  ?>
+                </select>
                 </td>
                 <td>
                   <input type="image" src="img/icons/flechder1.jpg" name="test" value=">>" onClick="Choose(); javascript: return false;" />
                   <input type="image" src="img/icons/flechizq1.jpg" name="test2" value="<<" onClick="unChoose(); javascript: return false;" />
                 </td>
                 <td>
-                  <select name="ExamenSeleccionado" multiple="multiple" size="9" style="width: 250px;" id="ExamenSeleccionado">
+                  <select name="ExamenSeleccionado" multiple="multiple" size="9" style="width: 500px;" id="ExamenSeleccionado">
                     <?php
                     for ($i = 1; $i <= $examenes; $i++) {
                       $sql = "select * from caj_codigos_fonasa where codigo_fonasa='" . $exa[$i - 1] . "' order by descripcion ";
