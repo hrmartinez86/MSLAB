@@ -307,7 +307,7 @@ $fecha = date('d/m/Y');
                     <td><input type="text" name="precioTotal" id="precioTotal" value="0" size="5" >Total</td>
                   </tr>
                   <tr>
-                    <td><input type="text" name="adelanto" id="adelanto" value="0" size="5" >Adelanto</td>
+                    <td><input type="text" name="adelanto" id="adelanto" value="0" size="5" >Anticipo</td>
                   </tr>
                 </table>
                 

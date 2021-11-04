@@ -124,4 +124,4 @@ function bodys($id_paciente,$fonasa,$nombre,$no_pc)
 	return $I_In;
 	odbc_close($link);
 }
-?>
+

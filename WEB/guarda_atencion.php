@@ -46,6 +46,7 @@ $adelanto=htmlspecialchars($_POST['adelanto']);
 $total=htmlspecialchars($_POST['precioTotal']);
 $hoy = date("d/m/Y G:i:s");
 $CitasProcedencia = htmlspecialchars($_POST["CitasProcedencia"]);
+$formaPago=htmlspecialchars($_POST['FormaPago']);
 $examenesArray = array();
 $_SESSION['Tipo'] = $Tipo;
 $_SESSION['nombre'] = $nombre;
@@ -54,16 +55,19 @@ $_SESSION['doctor'] = $Doctor;
 if ($adelanto==$total) {
   $nota="PAGADO";
   $pendiente=0;
+  $estatusCuenta='X';
 }
 else
 {
   $nota="PENDIENTE";
   $pendiente=$total-$adelanto;
+  $estatusCuenta='P';
 }
 $_SESSION['total']=$total;
 $_SESSION['nota']=$nota;
 $_SESSION['pendiente']=$pendiente;
 $_SESSION['adelanto']=$adelanto;
+
 
 //creamos el array
 $datosPaciente = array($nombre, $Sexo, $Doctor);
@@ -280,7 +284,11 @@ $sql_1 = "INSERT INTO dat_dfipa (cod_empresa, fecha, hora, numero,
            turno, 
            ID_UNIDAD_PROCEDENCIA, 
            num_cama,
-           numero_registro) 
+           numero_registro,
+           total,
+           anticipo,
+           pendiente,
+           cuentaEstado) 
            vALUES (" . $_SESSION['empresa'] . ",
            '" . $fecha . "', 
            '" . $hora . "', 
@@ -307,7 +315,11 @@ $sql_1 = "INSERT INTO dat_dfipa (cod_empresa, fecha, hora, numero,
            1, 
            0, 
            '',
-           '" . $numeroDiario . "')";
+           '" . $numeroDiario . "',
+           ".$total.",
+           ".$adelanto.",
+           ".$pendiente.",
+           '".$estatusCuenta."')";
 
 
            $query_result = odbc_exec($db_conn, $sql_1) or
@@ -462,10 +474,31 @@ WHERE     (id = " . $CitasProcedencia . ")";
   <br>
   <table class="Record">
     <tr class="Controls">
-      <td><?php echo $nota."<br>";
-echo "Pendiente->".$pendiente."<br>";
-echo "Adelanto->".$adelanto."<br>";
-echo "Total->".$total."<br>";?></td>
+      <td><?php if ($formaPago!='') {
+
+                  switch ($formaPago) {
+                    case 'efe':
+                      $descripcion="Efectivo";
+                      break;
+                    case 'tc':
+                      $descripcion="Tarjeta de crédito";
+                      break;
+                    case 'td':
+                      $descripcion="Tarjeta de debito";
+                      break;
+                    default:
+                      $descripcion="";
+                      break;
+                  }
+                  $_SESSION['formaPago']=$descripcion;
+                  echo "Forma de pago:".$descripcion."<br>";
+                }
+      
+                echo $nota."<br>";
+                echo "Total->".$total."<br>";
+                echo "Anticipo->".$adelanto."<br>";
+                echo "Pendiente->".$pendiente."<br>";
+                ?></td>
     </tr>
 
   </table>
