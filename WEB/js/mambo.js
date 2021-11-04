@@ -13,6 +13,12 @@
 /* Escribe de un listbox a otro un determinado option con su value.           */
 /* No recibe ningun parametro.			                                      */
 /******************************************************************************/
+function seleccionaEstudio() {
+	mySelect = document.getElementById("ExamenCatalogo");
+	Choose();
+	mySelect.selectedIndex = -1; 
+	
+}
 function objetoAjax(){
         var xmlhttp=false;
         try {
@@ -46,7 +52,17 @@ function Choose() {
 		tgt += "," + tgtList.options[i].value + ","
 	}
 	var precioTotal=parseFloat( document.getElementById("precioTotal").value);
+	var now = new Date();
+	var dia=now.getDay();
+	var mes=now.getMonth()+1;
+	var ano=now.getFullYear();
+	var diaActual=now.getUTCDay();
+	fecha=EvaluaFecha(dia,mes,ano,1,diaActual);
 
+	alert(fecha);
+	displayTime = "18" + ":" + "00"; 
+	document.getElementById('fechaEntrega').value=fecha;
+	document.getElementById('horaEntrega').value=displayTime;
 	//Extrae los recursos seleccionados y los a�ade a la lista
 	for (var i=srcLen-1; i > -1; i--) {
 		if (srcList.options[i].selected && tgt.indexOf( "," + srcList.options[i].value + "," ) == -1) {
@@ -442,4 +458,57 @@ function actualiza_fecha(id,llave)
 	  }
      }
     ajax.send(null)
+}
+function EvaluaFecha(d,m,y,a,dd){
+	dt=d+a;
+	if ((m==1||m==3||m==5||m==7||m==8||m==10||m==12)&&d>31) {
+		if (m==12) {
+			m=1;
+			y++;
+		}
+		else{
+			m++;
+		}
+	}
+	if ((m==4||m==6||m==5||m==9||m==11)&&d>30) {
+		m++;
+	}
+	if ((m==2)&&d>28) {
+		m++;
+	}
+	fecha=y+"-"+zfill(m,2)+'-'+zfill(dt,2);
+	// fecha='2021-11-04';
+	return fecha;
+
+	//enero 31 1-
+	//febrero 28
+	//marzo 31 3-
+	//abril 30
+	//mayo 31 5-
+	//junio 30
+	//julio 31 7-
+	//agosto 31 8-
+	//septiembre 30
+	//octubre 31 10-
+	//noviembre 30
+	//diciembre 31 12-
+}
+function zfill(number, width) {
+    var numberOutput = Math.abs(number); /* Valor absoluto del número */
+    var length = number.toString().length; /* Largo del número */ 
+    var zero = "0"; /* String de cero */  
+    
+    if (width <= length) {
+        if (number < 0) {
+             return ("-" + numberOutput.toString()); 
+        } else {
+             return numberOutput.toString(); 
+        }
+    } else {
+        if (number < 0) {
+            return ("-" + (zero.repeat(width - length)) + numberOutput.toString()); 
+        } else {
+            return ((zero.repeat(width - length)) + numberOutput.toString()); 
+        }
+    }
 }

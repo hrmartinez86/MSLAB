@@ -268,7 +268,7 @@ $fecha = date('d/m/Y');
               <td>
                 <!--c-->
                 <strong>Descripción</strong>
-                <select class="selectpicker" data-show-subtext="true" data-live-search="true" size="5" style="width: 450px;" id="ExamenCatalogo" multiple="multiple">
+                <select class="selectpicker" data-show-subtext="true" data-live-search="true" size="5" style="width: 450px;" id="ExamenCatalogo"  onchange="seleccionaEstudio()">
                   <?php
                   ///estudios
                   $sql = "select codigo_fonasa,nombre,costo_examen as precio from caj_codigos_fonasa where activo='S' AND CODIGO_FONASA NOT LIKE 'ANTV%' order by CODIGO_FONASA ";
@@ -288,6 +288,7 @@ $fecha = date('d/m/Y');
 
 
                 <input type="image" src="img/icons/flechizq1.jpg" name="test2" value="<<" onClick="unChoose(); javascript: return false;" />
+                <label for="fechaEntrega">Fecha de entrega:</label><input type="date" name="fechaEntrega" id="fechaEntrega"><input type="time" name="horaEntrega" id="horaEntrega">
               </td>
               <td></td>
 
