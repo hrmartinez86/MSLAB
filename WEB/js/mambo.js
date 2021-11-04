@@ -57,6 +57,9 @@ function Choose() {
 	var mes=now.getMonth()+1;
 	var ano=now.getFullYear();
 	var diaActual=now.getUTCDay();
+	// dia=30;
+	// mes=6;
+	// diaActual=6
 	fecha=EvaluaFecha(dia,mes,ano,1,diaActual);
 
 	alert(fecha);
@@ -460,20 +463,29 @@ function actualiza_fecha(id,llave)
     ajax.send(null)
 }
 function EvaluaFecha(d,m,y,a,dd){
-	dt=d+a;
-	if ((m==1||m==3||m==5||m==7||m==8||m==10||m==12)&&d>31) {
+	if (dd!=6) {
+		dt=d+a;
+	}
+	else{
+		dt=d+2;
+	}
+	
+	if ((m==1||m==3||m==5||m==7||m==8||m==10||m==12)&&dt>31) {
 		if (m==12) {
 			m=1;
+			dt=dt-31;
 			y++;
 		}
 		else{
 			m++;
+			dt=dt-31;
 		}
 	}
-	if ((m==4||m==6||m==5||m==9||m==11)&&d>30) {
+	if ((m==4||m==6||m==5||m==9||m==11)&&dt>30) {
 		m++;
+		dt=dt-30;
 	}
-	if ((m==2)&&d>28) {
+	if ((m==2)&&dt>28) {
 		m++;
 	}
 	fecha=y+"-"+zfill(m,2)+'-'+zfill(dt,2);
