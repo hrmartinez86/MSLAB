@@ -62,7 +62,6 @@ function Choose() {
 	// diaActual=6
 	fecha=EvaluaFecha(dia,mes,ano,1,diaActual);
 
-	alert(fecha);
 	displayTime = "18" + ":" + "00"; 
 	document.getElementById('fechaEntrega').value=fecha;
 	document.getElementById('horaEntrega').value=displayTime;

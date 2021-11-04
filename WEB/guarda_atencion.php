@@ -48,9 +48,13 @@ $hoy = date("d/m/Y G:i:s");
 $CitasProcedencia = htmlspecialchars($_POST["CitasProcedencia"]);
 $formaPago=htmlspecialchars($_POST['FormaPago']);
 $examenesArray = array();
+$fechaEntrega=htmlspecialchars($_POST['fechaEntrega']);
+$horaEntrega=htmlspecialchars($_POST['horaEntrega']);
 $_SESSION['Tipo'] = $Tipo;
 $_SESSION['nombre'] = $nombre;
 $_SESSION['doctor'] = $Doctor;
+$_SESSION['fechaEntrega']=$fechaEntrega;
+$_SESSION['horaEntrega']=$horaEntrega;
 
 if ($adelanto==$total) {
   $nota="PAGADO";
