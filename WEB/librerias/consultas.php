@@ -15,7 +15,7 @@
         {
             $num=$res['numero_registro'];
         }
-        echo $sql;
+        
         return $num;
     }
 	

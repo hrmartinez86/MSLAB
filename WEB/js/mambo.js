@@ -59,6 +59,7 @@ function Choose() {
 			precioTotal = precioTotal+precio;
 			console.log(precioTotal);
 			document.getElementById("precioTotal").value=precioTotal;
+			document.getElementById("adelanto").value=precioTotal;
 		}
 	}
 }
@@ -79,6 +80,7 @@ function unChoose() {
 			var precioTotal=parseFloat( document.getElementById("precioTotal").value);
 			var nuevoPrecio=precioTotal-precio;
 			document.getElementById("precioTotal").value=nuevoPrecio;
+			document.getElementById("adelanto").value=precioTotal;
 			srcList.options[i] = null;
 		}
 	}

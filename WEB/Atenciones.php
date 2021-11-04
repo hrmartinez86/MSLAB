@@ -178,7 +178,13 @@ $fecha = date('d/m/Y');
                   $query = odbc_exec($conection, $sql);
                   $cont = 0;
                   while ($result = odbc_fetch_array($query)) {
-                    echo '<option  value="' . $result['id'] . '">' . $result['descripcion'] . '</option>';
+                    if ($result['descripcion'] =="EXTERNO") {
+                      echo '<option  value="' . $result['id'] . '" selected>' . $result['descripcion'] . '</option>';
+                    }
+                    else{
+                      echo '<option  value="' . $result['id'] . '">' . $result['descripcion'] . '</option>';
+                    }
+                    
                   }
 
                   ?>
@@ -196,7 +202,7 @@ $fecha = date('d/m/Y');
                   $sql = "select * from lab_tipo_paciente where clase='B' order by descripcion ";
                   $query = odbc_exec($conection, $sql);
                   while ($result = odbc_fetch_array($query)) {
-                    if ($result['codigo'] == 1) {
+                    if ($result['descripcion'] =="EXTERNO") {
                       echo '<option value="' . $result['codigo'] . '" selected>' . $result['descripcion'] . '</option>';
                     } else {
                       echo '<option value="' . $result['codigo'] . '">' . $result['descripcion'] . '</option>';
@@ -294,7 +300,17 @@ $fecha = date('d/m/Y');
                 <select  name="ExamenSeleccionado" multiple="multiple" size="5" style="width: 900px;" id="ExamenSeleccionado" multiple required>
                 </select> <input required type="hidden"  name="examenes" value="" /><input required type="hidden" name="examenesDescripcion">
               </td>
-              <td><input type="text" id="precioTotal" value="0" size="5" readonly>Total</td>
+              <td>
+                <table>
+                  <tr>
+                    <td><input type="text" name="precioTotal" id="precioTotal" value="0" size="5" >Total</td>
+                  </tr>
+                  <tr>
+                    <td><input type="text" name="adelanto" id="adelanto" value="0" size="5" >Adelanto</td>
+                  </tr>
+                </table>
+                
+              </td>
 
             </tr>
 

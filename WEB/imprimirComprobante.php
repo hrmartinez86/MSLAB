@@ -2,6 +2,10 @@
 session_start();
 $nombre=$_SESSION['nombre'];
 $examenes=$_SESSION['examenes'];
+$nota=$_SESSION['nota'];
+$pendiente=$_SESSION['pendiente'];
+$total=$_SESSION['total'];
+$adelanto=$_SESSION['adelanto'];
 require('FPDF/fpdf.php');
 define ('FPDF_FONTPATH','FPDF/font/');
 class PDF extends FPDF
@@ -16,11 +20,11 @@ protected $y0;      // Ordenada de comienzo de la columna
         $this->WriteText('Emilio Carranza No.208 Ote.Zona Centro Cd. Madero,Tam.',210,5,'',10,'Arial',true);
         $this->WriteText('C.P. 89400 Tel. 2-10-22-98 y 2-15-01-82',210,5,'',10,'Arial',true);
         $this->WriteText('RFC.SAFG-7200203-IM0 UNE D.G.P. Num. 2530411',210,5,'',10,'Arial',true);
-        
+        $numero=$_SESSION['numero'];
         $diassemana = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
         $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
         $this->WriteText('',210,6,'',10,'Arial',false);
-        
+        $this->WriteText('Folio:'.str_pad($numero,3,"0",STR_PAD_LEFT),155,6,'B',12,'Arial',false);
         $hoy=utf8_decode($diassemana[date('w')])." ".date('d')." de ".$meses[date('n')-1]. " del ".date('Y') . " " . date('g:ia') ;
         $this->WriteText($hoy,130,6,'',10,'Arial',false);
 
@@ -29,6 +33,8 @@ protected $y0;      // Ordenada de comienzo de la columna
     function Header()
     {    
         
+        
+        // echo $numero;
         $this->encabezado();
         
         $this->Image('images/logo_laboratorio.jpeg',10,5,40,0,'JPEG');
@@ -105,31 +111,43 @@ protected $y0;      // Ordenada de comienzo de la columna
         
         foreach($examenes as $x => $x_value) {
             
-            $this->WriteText($x_value ,40,8,'B',12,'Arial',false);
+            $this->WriteText($x_value ,20,8,'B',12,'Arial',false);
 
         }
         
     }
 
-    function PrintChapter($title, $examenes)
+    function ChapterCuenta($nota,$total,$adelanto,$pendiente)
+    {
+        // Fuente
+        $this->SetFont('Times','',12);
+        $this->WriteText($nota ,130,8,'B',20,'Arial',false);
+        $this->WriteText("Adelanto->".$adelanto ,135,8,'',12,'Arial',false);
+        $this->WriteText("Pendiente->".$pendiente ,135,8,'',12,'Arial',false);
+        $this->WriteText("Total->".$total ,135,8,'',12,'Arial',false);
+        
+    }
+
+    function PrintChapter($title, $examenes,$nota,$total,$adelanto,$pendiente,$y)
     {
         // Añadir capítulo
         
         $this->ChapterTitle($title);
         $this->ChapterBody($examenes);
+        $this->SetY($y);
+        $this->ChapterCuenta($nota,$total,$adelanto,$pendiente);
         
     }
 }
 $pdf = new PDF();
 //tamaño media carta
-
 $pdf->SetAuthor('MSLAB');
 $pdf->AddPage();
-$pdf->PrintChapter($nombre,$examenes);
+$pdf->PrintChapter($nombre,$examenes,$nota,$total,$adelanto,$pendiente,70);
 $pdf->SetY(160);
 $pdf->Image('images/logo_laboratorio.jpeg',10,160,40,0,'JPEG');
 $pdf->encabezado();
-$pdf->PrintChapter($nombre,$examenes);
+$pdf->PrintChapter($nombre,$examenes,$nota,$total,$adelanto,$pendiente,222);
 $pdf->SetY(160);
 $pdf->Output();
 ?>

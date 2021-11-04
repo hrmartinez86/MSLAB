@@ -42,12 +42,28 @@ $examenes = htmlspecialchars($_POST["examenes"]);
 $examenesTotal =json_decode($_POST["examenesDescripcion"],false);
 $Telefono=htmlspecialchars($_POST["telefono"]);
 $Email=htmlspecialchars($_POST["correo"]);
+$adelanto=htmlspecialchars($_POST['adelanto']);
+$total=htmlspecialchars($_POST['precioTotal']);
 $hoy = date("d/m/Y G:i:s");
 $CitasProcedencia = htmlspecialchars($_POST["CitasProcedencia"]);
 $examenesArray = array();
 $_SESSION['Tipo'] = $Tipo;
 $_SESSION['nombre'] = $nombre;
 $_SESSION['doctor'] = $Doctor;
+
+if ($adelanto==$total) {
+  $nota="PAGADO";
+  $pendiente=0;
+}
+else
+{
+  $nota="PENDIENTE";
+  $pendiente=$total-$adelanto;
+}
+$_SESSION['total']=$total;
+$_SESSION['nota']=$nota;
+$_SESSION['pendiente']=$pendiente;
+$_SESSION['adelanto']=$adelanto;
 
 //creamos el array
 $datosPaciente = array($nombre, $Sexo, $Doctor);
@@ -211,7 +227,7 @@ $ex = explode(" ", $examenes);
 $j = count($ex);
 //almacenamos el numero consecutivo diario
 $numeroDiario=numeroDiario($fecha)+1;
-echo "ND" .$numeroDiario;
+$_SESSION['numero']=$numeroDiario;
 $folioComprobante=str_pad($numeroDiario, 3, "0", STR_PAD_LEFT);
 
 echo "<script> console.log('".$numeroDiario."');</script>";
@@ -442,6 +458,16 @@ WHERE     (id = " . $CitasProcedencia . ")";
     echo "<input type='hidden' id='datosPaciente' value='" . json_encode($datosPaciente) . "'> </input>";
     $_SESSION['examenes'] = $examenesTotal;
     ?>
+  </table>
+  <br>
+  <table class="Record">
+    <tr class="Controls">
+      <td><?php echo $nota."<br>";
+echo "Pendiente->".$pendiente."<br>";
+echo "Adelanto->".$adelanto."<br>";
+echo "Total->".$total."<br>";?></td>
+    </tr>
+
   </table>
   <a href="imprimirComprobante.php" target="_blank"><img title="Imprimir" width="32" height="32" style="BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px" alt="{Link4}" src="images/fileprint.gif"></a>
   <a href="atenciones.php"><img title="Nueva Atenci&oacute;n" width="32" height="32" style="BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px" alt="{Link4}" src="images/regresar.jpg"></a>
