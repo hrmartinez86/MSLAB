@@ -211,6 +211,7 @@ $ex = explode(" ", $examenes);
 $j = count($ex);
 //almacenamos el numero consecutivo diario
 $numeroDiario=numeroDiario($fecha)+1;
+echo "ND" .$numeroDiario;
 $folioComprobante=str_pad($numeroDiario, 3, "0", STR_PAD_LEFT);
 
 echo "<script> console.log('".$numeroDiario."');</script>";
