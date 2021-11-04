@@ -6,6 +6,7 @@ $nota=$_SESSION['nota'];
 $pendiente=$_SESSION['pendiente'];
 $total=$_SESSION['total'];
 $adelanto=$_SESSION['adelanto'];
+$fp=$_SESSION['formaPago'];
 require('FPDF/fpdf.php');
 define ('FPDF_FONTPATH','FPDF/font/');
 class PDF extends FPDF
@@ -117,25 +118,29 @@ protected $y0;      // Ordenada de comienzo de la columna
         
     }
 
-    function ChapterCuenta($nota,$total,$adelanto,$pendiente)
+    function ChapterCuenta($nota,$total,$adelanto,$pendiente,$fp)
     {
         // Fuente
         $this->SetFont('Times','',12);
+        $hoy=date('d/m/Y g:ia');
+        $this->WriteText('Fecha Ingreso:'.$hoy ,130,8,'B',12,'Arial',false);
+        $this->WriteText('Forma de pago:'.$fp ,130,8,'B',12,'Arial',false);
         $this->WriteText($nota ,130,8,'B',20,'Arial',false);
-        $this->WriteText("Adelanto->".$adelanto ,135,8,'',12,'Arial',false);
-        $this->WriteText("Pendiente->".$pendiente ,135,8,'',12,'Arial',false);
-        $this->WriteText("Total->".$total ,135,8,'',12,'Arial',false);
+        $this->WriteText("Total    :".$total ,135,8,'',12,'Arial',false);
+        $this->WriteText("Anticipo :".$adelanto ,135,8,'',12,'Arial',false);
+        $this->WriteText("Restante :".$pendiente ,135,8,'',12,'Arial',false);
+        
         
     }
 
-    function PrintChapter($title, $examenes,$nota,$total,$adelanto,$pendiente,$y)
+    function PrintChapter($title, $examenes,$nota,$total,$adelanto,$pendiente,$y,$fp)
     {
         // Añadir capítulo
         
         $this->ChapterTitle($title);
         $this->ChapterBody($examenes);
         $this->SetY($y);
-        $this->ChapterCuenta($nota,$total,$adelanto,$pendiente);
+        $this->ChapterCuenta($nota,$total,$adelanto,$pendiente,$fp);
         
     }
 }
@@ -143,11 +148,11 @@ $pdf = new PDF();
 //tamaño media carta
 $pdf->SetAuthor('MSLAB');
 $pdf->AddPage();
-$pdf->PrintChapter($nombre,$examenes,$nota,$total,$adelanto,$pendiente,70);
+$pdf->PrintChapter($nombre,$examenes,$nota,$total,$adelanto,$pendiente,70,$fp);
 $pdf->SetY(160);
 $pdf->Image('images/logo_laboratorio.jpeg',10,160,40,0,'JPEG');
 $pdf->encabezado();
-$pdf->PrintChapter($nombre,$examenes,$nota,$total,$adelanto,$pendiente,222);
+$pdf->PrintChapter($nombre,$examenes,$nota,$total,$adelanto,$pendiente,222,$fp);
 $pdf->SetY(160);
 $pdf->Output();
 ?>
