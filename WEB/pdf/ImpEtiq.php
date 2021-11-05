@@ -58,7 +58,7 @@ $pdf = new PDF_Code39('P','mm',array(50,20));
 if($i<=0){
 	$pdf->AddPage();
 	///configuración de la impresión de la primera etiqueta (x,y)
-	$pdf->Code39(20, 5, $a,$folios,$n,$fecha_ingreso,$proc,$i,$e,$m,$opcion[$t-1]);
+	$pdf->Code39(0, 5, $a,$folios,$n,$fecha_ingreso,$proc,$i,$e,$m,$opcion[$t-1]);
 	
 }
 	
@@ -86,12 +86,12 @@ if($i<=0){
 			       
 		$pdf->AddPage();
              if ($opcion[$t-1]==00) 
-	    {$pdf->Code39(20, 5, $a,$folios,$n,$fecha_ingreso,$proc,$i,$e,$m,$opcion[$t-1]);}
+	    {$pdf->Code39(0, 5, $a,$folios,$n,$fecha_ingreso,$proc,$i,$e,$m,$opcion[$t-1]);}
              else
              if($opcion[$t-1]==31)
-             {$pdf->Code39(20, 5, $a,$folios,$n,$fecha_ingreso,$proc,$i,$e,$m,$opcion[$t-1]);}
+             {$pdf->Code39(0, 5, $a,$folios,$n,$fecha_ingreso,$proc,$i,$e,$m,$opcion[$t-1]);}
               else
-            {$pdf->Code39(20, 5, $a,$folios,$n,$fecha_ingreso,$proc,$i,$e,$m,$opcion[$t-1]);}
+            {$pdf->Code39(0, 5, $a,$folios,$n,$fecha_ingreso,$proc,$i,$e,$m,$opcion[$t-1]);}
 	    $e='';
 		}
 	

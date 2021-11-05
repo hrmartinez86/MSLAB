@@ -11,7 +11,7 @@ function Code39($x, $y, $code,$folio,$nombre,$fecha,$pro,$c,$estudios,$muestra,$
     //Display code
     if ($c==0){
         $this->SetFont('Arial', '', 10);
-        $this->Text($x, $y-2, $folio);
+        $this->Text($x+20, $y-2, $folio);
         $this->SetFont('Arial', '', 8);
         
         //folio de la cabecera
@@ -109,7 +109,7 @@ function Code39($x, $y, $code,$folio,$nombre,$fecha,$pro,$c,$estudios,$muestra,$
 
     //Draw bars
 
-    $this->draw_code39($encode, $x-10, $y, $w, $h);
+    $this->draw_code39($encode, $x+15, $y, $w, $h);
     
 }
 
