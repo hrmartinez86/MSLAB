@@ -58,8 +58,10 @@ $fecha = date('d/m/Y');
   $folio = $_GET['folio'];
 
 
-  $sql = "SELECT dat_dfipa.fecha AS Fecha,dat_dfipa.idpaciente, dat_paciente.rfc,dat_paciente.rut,dat_paciente.CURP,dat_paciente.expediente,dat_paciente.telefono,dat_paciente.calle,dat_paciente.ciudad,dat_dfipa.numero AS Folio, dat_paciente.nombre ,dat_paciente.apellidos , dat_paciente.sexo as Sexo, ";
-  $sql .= " dat_doctores.nombre + ' ' + dat_doctores.apellidos AS Medico ,  procedencia_muestra.id as procedencia, dat_paciente.fecha_nacimiento , lab_tipo_paciente.codigo AS Tipo ";
+  $sql = "SELECT dat_dfipa.fecha AS Fecha,dat_dfipa.idpaciente, dat_paciente.rfc,dat_paciente.rut,dat_paciente.CURP,dat_paciente.expediente,dat_paciente.telefono,
+  dat_paciente.calle,dat_paciente.ciudad,dat_dfipa.numero AS Folio, dat_paciente.nombre ,dat_paciente.apellidos , dat_paciente.sexo as Sexo, ";
+  $sql .= " dat_doctores.nombre + ' ' + dat_doctores.apellidos AS Medico ,  procedencia_muestra.id as procedencia, dat_paciente.fecha_nacimiento , dat_paciente.email,
+  lab_tipo_paciente.codigo AS Tipo ";
   $sql .= " FROM         dat_dfipa INNER JOIN ";
   $sql .= " dat_paciente ON dat_dfipa.rut = dat_paciente.rut INNER JOIN ";
   $sql .= " dat_doctores ON dat_dfipa.doctor = dat_doctores.llave_doctor  INNER JOIN ";
@@ -80,6 +82,7 @@ $fecha = date('d/m/Y');
     $calle = $res['calle'];
     $ciudad = $res['ciudad'];
     $telefono = $res['telefono'];
+    $email=$res['email'];
     $rfc = $res['rfc'];
     $curp = $res['CURP'];
     $expe = $res['expediente'];
@@ -132,6 +135,18 @@ $fecha = date('d/m/Y');
 
         <td>Fecha de Nacimiento: </td>
         <td><input type="text" id="Fecha" value="<?php echo $fm; ?>" name="theDate2"><img type="button" src="Styles/Core/Images/DatePicker.gif" onclick="displayCalendar(document.forms[0].theDate2,'dd/mm/yyyy',this)">A&ntilde;os<input id="anos" size="1" onBlur="calculaf()" value=0>Meses<input id="meses" size="1" value=0>Dias<input id="dias" size="1" value=0></td>
+        <td></td>
+      </tr>
+
+      <tr class="Controls">
+        <td class="th"><label for="telefono">Teléfono:</label></td>
+        <td><input name="telefono" id="telefono" value="<?php echo $telefono; ?>" size="70"></td>
+        <td></td>
+      </tr>
+
+      <tr class="Controls">
+        <td class="th"><label for="correo">Correo:</label></td>
+        <td><input name="email" id="email" value="<?php echo $email; ?>" size="70"></td>
         <td></td>
       </tr>
 

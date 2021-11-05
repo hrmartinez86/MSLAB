@@ -94,11 +94,12 @@ function actualiza()
 function actualizafolio(folio)
 {
 	ajax=objetoAjax();
-   
     var val="librerias/actualizafolio.php?sex=" + document.getElementById('Sexo').value + 
             "&nom=" + document.getElementById('CitasNombres').value + 
             "&fecha=" + document.getElementById('Fecha').value + 
-            "&rut=" + document.getElementById('Rut').value + "&folio=" + folio;
+            "&rut=" + document.getElementById('Rut').value + "&folio=" + folio+
+            "&telefono=" + document.getElementById('telefono').value+
+            "&email=" + document.getElementById('email').value;
 	ajax.open("GET", val);
     ajax.onreadystatechange=function() {
 	if (ajax.readyState==4) {

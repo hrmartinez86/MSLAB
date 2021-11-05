@@ -6,8 +6,12 @@
     $hora=date("H:i:s");
     $fh=$fecha." ".$hora; 
    
-	$sql_="UPDATE DAT_PACIENTE SET sexo ='".$_GET['sex']."', nombre ='".$_GET['nom']."', "
-                . "fecha_nacimiento ='".$_GET['fecha']."' WHERE rut=".$_GET['rut'];
+	$sql_="UPDATE DAT_PACIENTE SET sexo ='".$_GET['sex']."', 
+	nombre ='".$_GET['nom']."', 
+	telefono ='".$_GET['telefono']."', 
+	email ='".$_GET['email']."', "
+    . "fecha_nacimiento ='".$_GET['fecha']."' 
+	WHERE rut=".$_GET['rut'];
 	$eje=odbc_exec($conection,$sql_);
 	
 ?>
