@@ -10,17 +10,16 @@ class PDF_Code39 extends FPDF {
 function Code39($x, $y, $code,$folio,$nombre,$fecha,$pro,$c,$estudios,$muestra,$curva, $ext = false, $cks = false, $w = 0.28, $h = 5, $wide = false) {
     //Display code
     if ($c==0){
-    
-    $this->SetFont('Arial', '', 10);
-    $this->Text($x, $y-2, $folio);
-    $this->SetFont('Arial', '', 8);
-    
-    //folio de la cabecera
-    $this->Text($x-20, $y+8, $folio.' - '.$fecha);
-    //nombres del paciente
-    $this->Text($x-20, $y+11, $nombre);
-    //procedencia de la muestra
-    $this->Text($x-20, $y+14, $pro." ");
+        $this->SetFont('Arial', '', 10);
+        $this->Text($x, $y-2, $folio);
+        $this->SetFont('Arial', '', 8);
+        
+        //folio de la cabecera
+        $this->Text($x, $y+8, $folio.' - '.$fecha);
+        //nombres del paciente
+        $this->Text($x, $y+11, $nombre);
+        //procedencia de la muestra
+        $this->Text($x, $y+14, $pro." ");
     }
     else
     {
@@ -30,19 +29,19 @@ function Code39($x, $y, $code,$folio,$nombre,$fecha,$pro,$c,$estudios,$muestra,$
           
         $this->SetFont('Arial', 'B',8);
     
-        $this->Text($x-20, $y-1, $code.' - '.$fecha);
+        $this->Text($x, $y-1, $code.' - '.$fecha);
 
         $this->SetFont('Arial', '',8);
 
-        $this->Text($x-20, $y+8, $nombre);
+        $this->Text($x, $y+8, $nombre);
         
         $this->SetFont('Arial', '',8);
 
-        $this->Text($x-20, $y+11, $pro." - ".$muestra);
+        $this->Text($x, $y+11, $pro." - ".$muestra);
         
         $this->SetFont('Arial', '',8);
 
-        $this->Text($x-20, $y+14, $estudios);
+        $this->Text($x, $y+14, $estudios);
     }
     if($ext) {
         //Extended encoding
@@ -111,22 +110,6 @@ function Code39($x, $y, $code,$folio,$nombre,$fecha,$pro,$c,$estudios,$muestra,$
     //Draw bars
 
     $this->draw_code39($encode, $x-10, $y, $w, $h);
-    // if($curva==31){
-        //para act5
-        // $this->draw_code39($encode, $x, $y, $w, $h);
-    	// }
-        // else
-        // {
-        //  if ($curva==32){
-        //  //para syncrhon INFANTIL 1.5
-        //  $this->draw_code39($encode, $x, $y, $w, $h);
-        //  }
-        //  else
-        //  {
-        //   //impresion normal
-        //   $this->draw_code39($encode, $x, $y, $w, $h);
-        //  }
-        // }
     
 }
 
