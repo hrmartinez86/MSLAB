@@ -1,7 +1,8 @@
 <?php
 header('Content-Type: text/html; charset=UTF-8');
 session_start();
-$examenes=$_SESSION['examenes'];
+$examenes=$_POST['lf'];
+// echo $examenes;
 $idPaciente=$_POST['i'];
 $imagen=$_POST['imagen'];
 
@@ -191,13 +192,13 @@ protected $y0;      // Ordenada de comienzo de la columna
         $this->SetX(90);
         $x=count($examenes);
         $this->Ln(1);
-        // $this->WriteText($x,9,6,'',10,'Arial',false,false);
+        $this->WriteText($x,9,6,'',10,'Arial',false,false);
         
         for ($i=0; $i <$x ; $i++) { 
-            //nombre del estudio
-            $this->ChapterTitle($examenes[$i]['nombre'],$anchoPagina,$imagen);
-            //pruebas en el estudio
-            $this->ChapterConten($examenes[$i]['llave'],$idPaciente,$imagen);
+        //     //nombre del estudio
+        //     $this->ChapterTitle($examenes[$i]['nombre'],$anchoPagina,$imagen);
+        //     //pruebas en el estudio
+            $this->ChapterConten($examenes[$i],$idPaciente,$imagen);
         }
         
         
@@ -217,9 +218,9 @@ $pdf = new PDF();
 $pdf->SetAuthor('MSLAB');
 //descomponer el array de los estudios
 $pdf->AddPage();
-//$pdf->WriteText($examenes,10,6,'',10,'Arial',false,false);
+$pdf->WriteText($examenes,10,6,'',10,'Arial',false,false);
 
-$examen=explode(",",$examenes);
+// $examen=explode(",",$examenes);
 $y=$pdf->GetY();
 $pdf->SetY($y);
 

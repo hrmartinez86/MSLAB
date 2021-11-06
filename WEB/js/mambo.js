@@ -374,19 +374,24 @@ function imp()
 {
 	var che=document.getElementsByName('option');
 	var llaves=document.getElementsByName('curvas');
+	var codigos=document.getElementsByName('codigos');
 	var i=0;
 	var llave='';
 	var id=document.getElementById('idpac').value; 
+	alert(id);
+
 	const keyExam=[];
+	const keyCodigos=[];
 	 for (x=0;x<che.length;x++)
 		{
 			if(che[x].checked)
 			
 				{
 					i=1;
+					alert(codigos[x].value);
 					
 					keyExam.push(llaves[x].value);
-
+					keyCodigos.push(codigos[x].value);
 					var llave=llave + llaves[x].value + '-';
 
 					actualiza_fecha(id,llaves[x].value);
@@ -396,12 +401,14 @@ function imp()
 			
 		}
 
+document.getElementById('lf').value=keyExam;
+document.getElementById('llave').value=keyCodigos;
 if (i==1)
 {	
 	doc="A QUIEN CORRESPONDA";
 	//console.log('../Core/MasterImp.php?i='+ id +'&llave=' + llave + '&lf=' + lf,'' ,'width=600,height=500');
 
-	console.Lista.submit();
+	// console.Lista.submit();
 	//  x=open('MasterImp.php?i='+ id + '&lf=' + keyExam + '&doc=' + doc,'' ,'width=600,height=500');
  
 }

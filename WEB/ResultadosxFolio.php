@@ -145,7 +145,8 @@ where idpaciente='".$idpaciente."' ORDER BY cf.codigo_fonasa desc";
 			          	?>
 			          	<tr class="Controls">
              
-                    <td><input type="hidden" value="<?php echo $codigos[$i];?>" name="curvas"/><?php echo $llave;?></td>
+                    <td><input type="text" value="<?php echo $codigos[$i];?>" name="curvas"/><?php echo $llave;?></td>
+                    <td><input type="text" value="<?php echo $llave;?>" name="codigos"/><?php echo $llave_fonasa;?></td>
                     <td><?php echo $result['nombre_prestacion'];?></td>
                     <?php echo "<script> console.log('". $result['liberado']."');</script>";?>
                     <td ><input   type="checkbox" name="option" align="middle" value="
@@ -156,16 +157,15 @@ where idpaciente='".$idpaciente."' ORDER BY cf.codigo_fonasa desc";
 			        	$i=$i+1;
 			          }
                 
-                $_SESSION['examenes']=$examenes;
                 ?>
 			          <tr>
                 <td><div type="hidden" id="resultado"></div></td>
-          <td><input type="submit" value="Imprimir" onclick="imp()"/></td>
+          <td><input type="button" value="Imprimir" onclick="imp()"/></td>
           
           </tr>
-                <tr><td><input type="hidden" value="<?php echo $id;?>" name="i" id="idpac"/></td>
-			          <td><input type="hidden" value="<?php echo $llave;?>" name="llave" /></td></tr>
-			          <td><input type="hidden" value="<?php echo $llave_fonasa;?>" name="lf" id="lf" /></td></tr>
+                <tr><td><input type="text" value="<?php echo $id;?>" name="i" id="idpac"/></td>
+			          <td><input type="text" value="<?php echo $llave;?>" name="llave" id="llave"/></td></tr>
+			          <td><input type="text" value="<?php echo $llave_fonasa;?>" name="lf" id="lf" /></td></tr>
           </table>
           <tr>
             <td>
