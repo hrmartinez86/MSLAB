@@ -44,6 +44,7 @@ include('Librerias/conection.php');
                 <label for="">Subir archivo</label>
                 <center>
                     <input type="file" name="upload" id="upload" onchange="upload_file()" class="form-control" placeholder="" aria-describedby="helpId">
+                    <input type="date" name="fecha_orden" id="fecha_orden">
                 </center>
             </div>
             <div class="upload-msg"></div>
