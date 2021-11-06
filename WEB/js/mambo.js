@@ -375,6 +375,7 @@ function imp()
 	var che=document.getElementsByName('option');
 	var llaves=document.getElementsByName('curvas');
 	var codigos=document.getElementsByName('codigos');
+	var descripcion=document.getElementsByName('descripcion');
 	var i=0;
 	var llave='';
 	var id=document.getElementById('idpac').value; 
@@ -382,6 +383,7 @@ function imp()
 
 	const keyExam=[];
 	const keyCodigos=[];
+	const keyDescripcion=[];
 	 for (x=0;x<che.length;x++)
 		{
 			if(che[x].checked)
@@ -392,6 +394,7 @@ function imp()
 					
 					keyExam.push(llaves[x].value);
 					keyCodigos.push(codigos[x].value);
+					keyDescripcion.push(descripcion[x].value);
 					var llave=llave + llaves[x].value + '-';
 
 					actualiza_fecha(id,llaves[x].value);
@@ -403,6 +406,7 @@ function imp()
 
 document.getElementById('lf').value=keyExam;
 document.getElementById('llave').value=keyCodigos;
+document.getElementById('descripcion_').value=keyDescripcion;
 if (i==1)
 {	
 	doc="A QUIEN CORRESPONDA";
