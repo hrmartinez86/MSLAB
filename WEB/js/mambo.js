@@ -379,7 +379,6 @@ function imp()
 	var i=0;
 	var llave='';
 	var id=document.getElementById('idpac').value; 
-	alert(id);
 
 	const keyExam=[];
 	const keyCodigos=[];
@@ -390,7 +389,6 @@ function imp()
 			
 				{
 					i=1;
-					alert(codigos[x].value);
 					
 					keyExam.push(llaves[x].value);
 					keyCodigos.push(codigos[x].value);
@@ -412,7 +410,7 @@ if (i==1)
 	doc="A QUIEN CORRESPONDA";
 	//console.log('../Core/MasterImp.php?i='+ id +'&llave=' + llave + '&lf=' + lf,'' ,'width=600,height=500');
 
-	// console.Lista.submit();
+	console.Lista.submit();
 	//  x=open('MasterImp.php?i='+ id + '&lf=' + keyExam + '&doc=' + doc,'' ,'width=600,height=500');
  
 }

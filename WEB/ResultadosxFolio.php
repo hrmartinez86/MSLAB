@@ -122,6 +122,8 @@ while ($result=odbc_fetch_array($query))
              
             <!-- <td><input align="middle" name="Cit" id="Cit" class="Controls" onChange="Citas('librerias/citas.php')" value="" ><div id="Citasn"></div></td> -->
             <td>Codigo</td>
+            <td></td>
+            <td></td>
            <td>|   Descripcion</td>
            <td>|   Imprime Todos<input type="checkbox" onclick="check()" name="todos" > </td>
           </tr>
@@ -145,9 +147,9 @@ where idpaciente='".$idpaciente."' ORDER BY cf.codigo_fonasa desc";
 			          	?>
 			          	<tr class="Controls">
              
-                    <td><input type="text" value="<?php echo $codigos[$i];?>" name="curvas"/><?php echo $llave;?></td>
-                    <td><input type="text" value="<?php echo $llave;?>" name="codigos"/><?php echo $llave_fonasa;?></td>
-                    <td><input type="text" value="<?php echo $result['nombre_prestacion'];?>" name="descripcion"/><?php echo "";?></td>
+                    <td><input type="hidden" value="<?php echo $codigos[$i];?>" name="curvas"/><?php echo $llave;?></td>
+                    <td><input type="hidden" value="<?php echo $llave;?>" name="codigos"/></td>
+                    <td><input type="hidden" value="<?php echo $result['nombre_prestacion'];?>" name="descripcion"/></td>
                     <td><?php echo $result['nombre_prestacion'];?></td>
                     <?php echo "<script> console.log('". $result['liberado']."');</script>";?>
                     <td ><input   type="checkbox" name="option" align="middle" value="
@@ -161,13 +163,13 @@ where idpaciente='".$idpaciente."' ORDER BY cf.codigo_fonasa desc";
                 ?>
 			          <tr>
                 <td><div type="hidden" id="resultado"></div></td>
-          <td><input type="button" value="Imprimir" onclick="imp()"/></td>
+          <td><input type="submit" value="Imprimir" onclick="imp()"/></td>
           
           </tr>
-                <tr><td><input type="text" value="<?php echo $id;?>" name="i" id="idpac"/></td>
-			          <td><input type="text" value="<?php echo $llave;?>" name="llave" id="llave"/></td></tr>
-			          <td><input type="text" value="<?php echo $llave_fonasa;?>" name="lf" id="lf" /></td></tr>
-                <td><input type="text" value="<?php echo $result['nombre_prestacion'];?>" name="descripcion_" id="descripcion_" /></td></tr>
+                <tr><td><input type="hidden" value="<?php echo $id;?>" name="i" id="idpac"/></td>
+			          <td><input type="hidden" value="<?php echo $llave;?>" name="llave" id="llave"/></td></tr>
+			          <td><input type="hidden" value="<?php echo $llave_fonasa;?>" name="lf" id="lf" /></td></tr>
+                <td><input type="hidden" value="<?php echo $result['nombre_prestacion'];?>" name="descripcion_" id="descripcion_" /></td></tr>
           </table>
           <tr>
             <td>
