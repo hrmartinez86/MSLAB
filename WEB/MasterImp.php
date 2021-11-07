@@ -148,8 +148,21 @@ protected $y0;      // Ordenada de comienzo de la columna
         // Guardar ordenada
         $this->y0 = $this->GetY();
     }
+    
+    function evaluarHoja($cantidad,$posicionY)
+    {
+        $pasa=false;
+        $total=$cantidad+$posicionY;
+        if ($total>220) {
+            $pasa=false;
+        }
+        else{
+            $pasa=true;
+        }
+        return $pasa;
+    }
 
-    function ChapterConten($llave,$idPaciente,$imagen)
+    function ChapterConten($llave,$examArray,$imagen)
     {
         
         if ($imagen==TRUE) {
@@ -159,8 +172,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         {
             $xRes=5;
         }
-        $examArray=resultados($llave,$idPaciente);
-
+        
         for ($i=0;$i<count($examArray);$i++)
         {
             if($examArray[$i]['Res']!=''){
@@ -203,19 +215,23 @@ protected $y0;      // Ordenada de comienzo de la columna
             $x=count($cod);
             // echo "<br>".$x;
             // $this->WriteText($x,9,6,'',10,'Arial',false,false);
-        
+            
+            
+
             for ($i=0; $i <$x ; $i++) { 
+                $examArray=resultados($cod[$i],$idPaciente);
+
+                //evaluar el tamaño de la hoja
+                if ($this->evaluarHoja(count($examArray),$this->GetY())==false) {
+                    $this->AddPage();
+                }
                 //nombre del estudio
                 $this->ChapterTitle($desc[$i],$anchoPagina,$imagen);
                 //pruebas en el estudio
-                $this->ChapterConten($cod[$i],$idPaciente,$imagen);
+                $this->ChapterConten($cod[$i],$examArray,$imagen);
             }
         }
-        else{
-            
-            $this->ChapterTitle($examenesDescripcion,$anchoPagina,$imagen);
-            $this->ChapterConten($examenes,$idPaciente,$imagen);
-        }
+       
         $this->Ln(1);
         
     }

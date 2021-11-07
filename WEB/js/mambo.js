@@ -335,14 +335,10 @@ function check()
 {
 	var t=document.getElementsByName('todos')
 	if (t[0].checked) {
-		alert('in');
 		var che=document.getElementsByName('option');
-		alert(che.length);
 		for (x=0;x<=che.length;x++)
 		{
-
 			liberado=che[x].value;
-			alert(liberado.trim());
 			if(liberado.trim()=='S')
 			{
 				che[x].checked=true
