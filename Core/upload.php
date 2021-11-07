@@ -2,6 +2,7 @@
     session_start();
     $empresa=1;
     include("paciente.php");
+    include("folio.php");
     include("librerias/conection.php");
     if ($_SERVER['REQUEST_METHOD']=='POST' && isset($_FILES['upload']['type'])) {
         echo 'Verdadero '.$_FILES["upload"]["tmp_name"];
@@ -18,8 +19,9 @@
                 
                 echo $value2['id'];
                 echo $value2['name'];
-                IngresaPaciente($value2['name'],$value2['telefono'],
+                $pac=IngresaPaciente($value2['name'],$value2['telefono'],
                 $value2['email'],$value2['fecha'],$empresa);
+                $idpaciente=IngresaFolio($pac,1,82,'EXT',1);
                 echo $value2['doctor'];
                 echo $value2['procedencia'];
                 echo $value2['telefono'];
