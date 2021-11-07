@@ -5,8 +5,9 @@
     include("folio.php");
     include("librerias/conection.php");
     if ($_SERVER['REQUEST_METHOD']=='POST' && isset($_FILES['upload']['type'])) {
-        echo 'Verdadero '.$_FILES["upload"]["tmp_name"];
-    
+        
+        $fecha=$_POST["fecha"];
+        echo $fecha;
         // // Read the JSON file
         $json = file_get_contents('C:\xampp\htdocs\MSLAB\WEB\ingreso.json');
 
@@ -21,7 +22,7 @@
                 echo $value2['name'];
                 $pac=IngresaPaciente($value2['name'],$value2['telefono'],
                 $value2['email'],$value2['fecha'],$empresa);
-                $idpaciente=IngresaFolio($pac,1,82,'EXT',1);
+                $idpaciente=IngresaFolio($pac,1,82,'EXT',1,$fecha);
                 echo $value2['doctor'];
                 echo $value2['procedencia'];
                 echo $value2['telefono'];

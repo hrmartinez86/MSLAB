@@ -67,20 +67,29 @@ include('Librerias/conection.php');
         $(".upload-msg").text("Cargando....")
         var inputJson=document.getElementById('upload')
         var file=inputJson.files[0]
-        var data= new FormData()
-        data.append('upload',file)
-
-        $.ajax({
-            url:'upload.php',
-            type:'post',
-            data:data,
-            contentType:false,
-            cache:false,
-            processData:false,
-            success:function(data){
-                $(".upload-msg").html(data)
-            }
-        })
+        var fecha=document.getElementById('fecha_orden').value;
+        
+        if (fecha!='') {
+          var data= new FormData()
+          data.append('upload',file)
+          data.append('fecha',fecha)
+          
+          $.ajax({
+              url:'upload.php',
+              type:'post',
+              data:data,
+              contentType:false,
+              cache:false,
+              processData:false,
+              success:function(data){
+                  $(".upload-msg").html(data)
+              }
+          })
+        }
+        else {
+          alert("ingrese la fecha que tendra la atención");
+          $(".upload-msg").text("fail!!")
+        }
     }
   </script>
 </body>
