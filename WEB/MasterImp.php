@@ -2,7 +2,10 @@
 header('Content-Type: text/html; charset=UTF-8');
 session_start();
 $examenes=$_POST['lf'];
-// echo $examenes;
+$examenesCodigo=$_POST['llave'];
+$examenesDescripcion=$_POST['descripcion_'];
+
+// echo $examenesCodigo;
 $idPaciente=$_POST['i'];
 $imagen=$_POST['imagen'];
 
@@ -139,6 +142,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         $this->WriteText('',$anchoPagina,2,'',8,'Arial',false,false);
         $this->WriteText('NOMBRE DEL EXAMEN',$inicioIMp,0,'B',8,'Arial',false,false);
         $this->WriteText('RESULTADOS',80,0,'B',8,'Arial',false,false);
+        $this->WriteText('UNIDADES',110,0,'B',8,'Arial',false,false);
         $this->WriteText('VALOR DE REFERENCIA',140,6,'B',8,'Arial',false,false);
         
         // Guardar ordenada
@@ -161,7 +165,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         {
             if($examArray[$i]['Res']!=''){
                 $this->WriteText(utf8_decode($examArray[$i]['Info']),$xRes,0,'',8,'Arial',false,false);
-                $this->WriteText(utf8_decode($examArray[$i]['um']),140,0,'',8,'Arial',false,false);
+                $this->WriteText(utf8_decode($examArray[$i]['um']),110,0,'',8,'Arial',false,false);
                 if ($examArray[$i]['rt']!="") {
                     $this->WriteText($examArray[$i]['rt'],140,0,'',8,'Arial',false,false);
                 }
@@ -185,30 +189,42 @@ protected $y0;      // Ordenada de comienzo de la columna
         }
     }
 
-    function ChapterBody($examenes,$idPaciente,$anchoPagina,$imagen)
+    function ChapterBody($examenes,$idPaciente,$anchoPagina,$imagen,$examenesDescripcion)
     {
         // Fuente
         $this->SetFont('Times','',8);
         $this->SetX(90);
-        $x=count($examenes);
-        $this->Ln(1);
-        $this->WriteText($x,9,6,'',10,'Arial',false,false);
+        // echo $examenes;
+        // echo $examenesDescripcion;
+        $evalua=true;
+        if($evalua==true){
+            $cod=explode(",",$examenes);
+            $desc=explode(",",$examenesDescripcion);
+            $x=count($cod);
+            // echo "<br>".$x;
+            // $this->WriteText($x,9,6,'',10,'Arial',false,false);
         
-        for ($i=0; $i <$x ; $i++) { 
-        //     //nombre del estudio
-        //     $this->ChapterTitle($examenes[$i]['nombre'],$anchoPagina,$imagen);
-        //     //pruebas en el estudio
-            $this->ChapterConten($examenes[$i],$idPaciente,$imagen);
+            for ($i=0; $i <$x ; $i++) { 
+                //nombre del estudio
+                $this->ChapterTitle($desc[$i],$anchoPagina,$imagen);
+                //pruebas en el estudio
+                $this->ChapterConten($cod[$i],$idPaciente,$imagen);
+            }
         }
-        
+        else{
+            
+            $this->ChapterTitle($examenesDescripcion,$anchoPagina,$imagen);
+            $this->ChapterConten($examenes,$idPaciente,$imagen);
+        }
+        $this->Ln(1);
         
     }
 
-    function PrintChapter($title, $examenes,$idPaciente,$imagen)
+    function PrintChapter($title, $examenes,$idPaciente,$imagen,$examenesDescripcion)
     {
         // Añadir capítulo
         $anchoPagina=210;
-        $this->ChapterBody($examenes,$idPaciente,$anchoPagina,$imagen);
+        $this->ChapterBody($examenes,$idPaciente,$anchoPagina,$imagen,$examenesDescripcion);
         
     }
 }
@@ -218,13 +234,12 @@ $pdf = new PDF();
 $pdf->SetAuthor('MSLAB');
 //descomponer el array de los estudios
 $pdf->AddPage();
-$pdf->WriteText($examenes,10,6,'',10,'Arial',false,false);
-
+// $pdf->WriteText($examenes,10,6,'',10,'Arial',false,false);
 // $examen=explode(",",$examenes);
 $y=$pdf->GetY();
 $pdf->SetY($y);
 
-$pdf->PrintChapter($title,$examenes,$idPaciente,$imagen);
+$pdf->PrintChapter($title,$examenes,$idPaciente,$imagen,$examenesDescripcion);
 
 $pdf->Output();
 
