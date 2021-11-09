@@ -21,8 +21,8 @@
             foreach ($value as $key2 => $value2) {
                 $procedencia=IngresaProcedencia($value2['procedencia']);
                 echo $value2['id'];
-                echo $value2['name'];
-                $pac=IngresaPaciente($value2['name'],$value2['telefono'],
+                echo $value2['nombre'];
+                $pac=IngresaPaciente($value2['nombre'],$value2['telefono'],
                 $value2['email'],$value2['fecha'],$empresa);
                 $idpaciente=IngresaFolio($pac,1,$procedencia,'EXT',1,$fecha);
                 IngresarCajDetPrestaciones($idpaciente,$fecha);
