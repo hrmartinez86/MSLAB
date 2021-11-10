@@ -189,3 +189,12 @@ function editar(id){
 	x=open('../WEB/datospacientexfolio.php?folio='+ folio ,'' ,'width=800,height=550'); 
 
 }
+
+function imprimeEtiquetas(id)
+{
+    var str=id
+    var folio=str.toString();
+    folio=folio.substr(10);
+	x=open('../WEB/Etiqueta.php?num='+ folio ,'' ,'width=800,height=550'); 
+
+}

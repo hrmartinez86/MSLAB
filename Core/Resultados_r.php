@@ -326,7 +326,7 @@ FROM         lab_relacion_laboratorio_seccion INNER JOIN
                                                                                                                 } else {
                                                                                                                   echo $idpac;
                                                                                                                 } ?>)" title="Editar"> </td>
-            <td><input type="image" src="../WEB/images/codigo_b.png" width="52" height="50" name="Ant" onClick="editar(<?php if ($idpac == "") {
+            <td><input type="image" src="../WEB/images/codigo_b.png" width="52" height="50" name="Ant" onClick="imprimeEtiquetas(<?php if ($idpac == "") {
                                                                                                                   echo $paciente[0];
                                                                                                                 } else {
                                                                                                                   echo $idpac;
