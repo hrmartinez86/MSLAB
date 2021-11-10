@@ -12,3 +12,11 @@ function cmbioEdad() {
     document.getElementById('Fecha').value=yyyy + "-" + MM + "-" + dd;
 }
 
+function ComprobanteAtencion(){
+    // alert('comprobante');
+    // document.getElementById('ComprobanteAtencion').submit();
+    form=document.getElementById('ComprobanteAtencion');
+    form.target='_blank';
+    form.submit();
+    
+}

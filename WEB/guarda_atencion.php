@@ -235,7 +235,7 @@ $ex = explode(" ", $examenes);
 $j = count($ex);
 //almacenamos el numero consecutivo diario
 $numeroDiario=numeroDiario($fecha)+1;
-$_SESSION['numero']=$numeroDiario;
+// $_SESSION['numero']=$numeroDiario;
 $folioComprobante=str_pad($numeroDiario, 3, "0", STR_PAD_LEFT);
 
 echo "<script> console.log('".$numeroDiario."');</script>";
@@ -506,7 +506,61 @@ WHERE     (id = " . $CitasProcedencia . ")";
     </tr>
 
   </table>
-  <a href="imprimirComprobante.php" target="_blank"><img title="Imprimir" width="32" height="32" style="BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px" alt="{Link4}" src="images/fileprint.gif"></a>
+  <form action="imprimirComprobante.php" method="post" id="ComprobanteAtencion">
+    <table>
+      <tr>
+        <td>
+          <input type="hidden" id="nombrePaciente" name="nombrePaciente" value="<?php echo $nombre;?>">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="hidden" id="notaCuenta"  name="notaCuenta" value="<?php echo $nota;?>">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="hidden" id="totalCuenta" name="totalCuenta" value="<?php echo $total;?>">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="hidden" id="pendienteCuenta" name="pendienteCuenta" value="<?php echo $pendiente;?>">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="hidden" id="adelantoCuenta" name="adelantoCuenta" value="<?php echo $adelanto;?>">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="hidden" id="examenesCuenta" name="examenesCuenta" value="<?php  echo implode(",", $examenesTotal);?>">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="hidden" id="numeroCuenta" name="numeroCuenta" value="<?php  echo $numeroDiario;?>">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="hidden" id="fpCuenta" name="fpCuenta" value="<?php  echo $formaPago;?>">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="hidden" id="feCuenta" name="feCuenta" value="<?php  echo $fechaEntrega;?>">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="hidden" id="heCuenta" name="heCuenta" value="<?php  echo $horaEntrega;?>">
+        </td>
+      </tr>
+    </table>
+  </form>
+  <img title="Imprimir" onclick="ComprobanteAtencion()" width="32" height="32" style="BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px" alt="{Link4}" src="images/fileprint.gif">
   <a href="atenciones.php"><img title="Nueva Atenci&oacute;n" width="32" height="32" style="BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px" alt="{Link4}" src="images/regresar.jpg"></a>
   <a href="Main.php"><img title="Principal" width="32" height="32" style="BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BORDER-TOP: 0px; BORDER-RIGHT: 0px" alt="{Link4}" src="images/home.gif"></a>
 

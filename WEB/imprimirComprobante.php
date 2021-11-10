@@ -1,14 +1,15 @@
 <?php
 session_start();
-$nombre=$_SESSION['nombre'];
-$examenes=$_SESSION['examenes'];
-$nota=$_SESSION['nota'];
-$pendiente=$_SESSION['pendiente'];
-$total=$_SESSION['total'];
-$adelanto=$_SESSION['adelanto'];
-$fp=$_SESSION['formaPago'];
-$fe=$_SESSION['fechaEntrega'];
-$he=$_SESSION['horaEntrega'];
+$nombre=$_POST['nombrePaciente'];
+$examenes_=$_POST['examenesCuenta'];
+$examenes=explode(",",$examenes_);
+$nota=$_POST['notaCuenta'];
+$pendiente=$_POST['pendienteCuenta'];
+$total=$_POST['totalCuenta'];
+$adelanto=$_POST['adelantoCuenta'];
+$fp=$_POST['fpCuenta'];
+$fe=$_POST['feCuenta'];
+$he=$_POST['heCuenta'];
 require('FPDF/fpdf.php');
 define ('FPDF_FONTPATH','FPDF/font/');
 class PDF extends FPDF
@@ -23,7 +24,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         $this->WriteText('Emilio Carranza No.208 Ote.Zona Centro Cd. Madero,Tam.',210,5,'',10,'Arial',true);
         $this->WriteText('C.P. 89400 Tel. 2-10-22-98 y 2-15-01-82',210,5,'',10,'Arial',true);
         $this->WriteText('RFC.SAFG-7200203-IM0 UNE D.G.P. Num. 2530411',210,5,'',10,'Arial',true);
-        $numero=$_SESSION['numero'];
+        $numero=$_POST['numeroCuenta'];
         $diassemana = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
         $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
         $this->WriteText('',210,6,'',10,'Arial',false);

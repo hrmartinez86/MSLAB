@@ -330,7 +330,12 @@ FROM         lab_relacion_laboratorio_seccion INNER JOIN
                                                                                                                   echo $paciente[0];
                                                                                                                 } else {
                                                                                                                   echo $idpac;
-                                                                                                                } ?>)" title="Editar"> </td>                                                                        
+                                                                                                                } ?>)" title="Etiquetas"> </td>
+            <td><input type="image" src="images/Core/botones/comprobante.jpg" width="52" height="50" name="Ant" onClick="imprimeComprobante(<?php if ($idpac == "") {
+                                                                                                                  echo $paciente[0];
+                                                                                                                } else {
+                                                                                                                  echo $idpac;
+                                                                                                                } ?>)" title="Comprobante Atención"> </td> 
           </tr>
         </table>
         <table align="center" border="0" cellspacing="0" cellpadding="0" width="100">
