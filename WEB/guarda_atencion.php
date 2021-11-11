@@ -292,7 +292,10 @@ $sql_1 = "INSERT INTO dat_dfipa (cod_empresa, fecha, hora, numero,
            total,
            anticipo,
            pendiente,
-           cuentaEstado) 
+           cuentaEstado,
+           fechaEntrega,
+           horaEntrega,
+           FormaPago) 
            vALUES (" . $_SESSION['empresa'] . ",
            '" . $fecha . "', 
            '" . $hora . "', 
@@ -323,7 +326,10 @@ $sql_1 = "INSERT INTO dat_dfipa (cod_empresa, fecha, hora, numero,
            ".$total.",
            ".$adelanto.",
            ".$pendiente.",
-           '".$estatusCuenta."')";
+           '".$estatusCuenta."',
+           '". date("d/m/Y",strtotime($fechaEntrega))."',
+           '".$horaEntrega."',
+           '".$formaPago."')";
 
 
            $query_result = odbc_exec($db_conn, $sql_1) or

@@ -10,6 +10,33 @@ $adelanto=$_POST['adelantoCuenta'];
 $fp=$_POST['fpCuenta'];
 $fe=$_POST['feCuenta'];
 $he=$_POST['heCuenta'];
+$nombre=$_POST['nombrePaciente'];
+$examenes_=$_POST['examenesCuenta'];
+$examenes=explode(",",$examenes_);
+$nota=$_POST['notaCuenta'];
+$pendiente=$_POST['pendienteCuenta'];
+$total=$_POST['totalCuenta'];
+$adelanto=$_POST['adelantoCuenta'];
+$fp=$_POST['fpCuenta'];
+if ($fp!='') {
+
+    switch ($fp) {
+      case 'efe':
+        $fp="Efectivo";
+        break;
+      case 'tc':
+        $fp="Tarjeta de crédito";
+        break;
+      case 'td':
+        $fp="Tarjeta de debito";
+        break;
+      default:
+        $fp="";
+        break;
+    }}
+    // echo $fp;
+$fe=$_POST['feCuenta'];
+$he=$_POST['heCuenta'];
 require('FPDF/fpdf.php');
 define ('FPDF_FONTPATH','FPDF/font/');
 class PDF extends FPDF
@@ -29,8 +56,19 @@ protected $y0;      // Ordenada de comienzo de la columna
         $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
         $this->WriteText('',210,6,'',10,'Arial',false);
         $this->WriteText('Folio:'.str_pad($numero,3,"0",STR_PAD_LEFT),155,6,'B',12,'Arial',false);
-        $hoy=utf8_decode($diassemana[date('w')])." ".date('d')." de ".$meses[date('n')-1]. " del ".date('Y') . " " . date('g:ia') ;
-        $this->WriteText($hoy,130,6,'',10,'Arial',false);
+        if (isset($_POST['fechaIngreso'])) {
+            
+            $hoy=date("d/m/Y",strtotime($_POST['fechaIngreso']));   
+            $xx=155; 
+            // echo $hoy;
+        }
+        else
+        {
+            $hoy=utf8_decode($diassemana[date('w')])." ".date('d')." de ".$meses[date('n')-1]. " del ".date('Y') . " " . date('g:ia') ;
+            $xx=130;
+        }
+        
+        $this->WriteText($hoy,$xx,6,'',10,'Arial',false);
 
         
     }
@@ -125,9 +163,18 @@ protected $y0;      // Ordenada de comienzo de la columna
     {
         // Fuente
         $this->SetFont('Times','',12);
-        $hoy=date('d/m/Y g:ia');
+        if (isset($_POST['fechaIngreso'])) {
+            $hoy=date("d/m/Y",strtotime($_POST['fechaIngreso'])); 
+        }
+        else
+        {
+            $hoy=date('d/m/Y g:ia');
+        }
+        if (isset($_POST['feCuenta'])) {
+            $fe=date("d/m/Y",strtotime($_POST['feCuenta'])); 
+        }
         $this->WriteText('Fecha Ingreso:'.$hoy ,130,8,'B',10,'Arial',false);
-        $this->WriteText('Fecha Entrega:'.$fe.' '.$he ,130,8,'B',10,'Arial',false);
+        $this->WriteText('Fecha Entrega:'.$fe ,130,8,'B',10,'Arial',false);
         if ($fp!='') {
             $this->WriteText('Forma de pago:'.$fp ,130,8,'B',10,'Arial',false);
         }

@@ -198,3 +198,9 @@ function imprimeEtiquetas(id)
 	x=open('../WEB/Etiqueta.php?num='+ folio ,'' ,'width=800,height=550'); 
 
 }
+
+function imprimeComprobante(id){
+	form=document.getElementById('ComprobanteAtencion');
+    form.target='_blank';
+    form.submit();
+}

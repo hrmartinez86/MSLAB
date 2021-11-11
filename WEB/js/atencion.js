@@ -13,10 +13,7 @@ function cmbioEdad() {
 }
 
 function ComprobanteAtencion(){
-    // alert('comprobante');
-    // document.getElementById('ComprobanteAtencion').submit();
     form=document.getElementById('ComprobanteAtencion');
     form.target='_blank';
     form.submit();
-    
 }

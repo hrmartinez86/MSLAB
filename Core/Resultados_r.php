@@ -12,6 +12,7 @@ if ($_SESSION['estado'] == "ok") {
 include('Librerias/conection.php');    //ESTABLACE LA CADENA DE CONEXION CON EL SERVIDOR MSSQL .   
 
 $ODBC = $_SESSION["ODBC"];
+$examenesArray=array();
 echo '<script>';
 echo 'console.log(' . json_encode($ODBC) . ');';
 echo '</script>';
@@ -325,13 +326,13 @@ FROM         lab_relacion_laboratorio_seccion INNER JOIN
                                                                                                                   echo $paciente[0];
                                                                                                                 } else {
                                                                                                                   echo $idpac;
-                                                                                                                } ?>)" title="Editar"> </td>
+                                                                                                                } ?>)" title="Editar paciente"> </td>
             <td><input type="image" src="../WEB/images/codigo_b.png" width="52" height="50" name="Ant" onClick="imprimeEtiquetas(<?php if ($idpac == "") {
                                                                                                                   echo $paciente[0];
                                                                                                                 } else {
                                                                                                                   echo $idpac;
                                                                                                                 } ?>)" title="Etiquetas"> </td>
-            <td><input type="image" src="images/Core/botones/comprobante.jpg" width="52" height="50" name="Ant" onClick="imprimeComprobante(<?php if ($idpac == "") {
+            <td><input type="image" src="../images/Core/botones/papel.png" width="52" height="50" name="Ant" onClick="imprimeComprobante(<?php if ($idpac == "") {
                                                                                                                   echo $paciente[0];
                                                                                                                 } else {
                                                                                                                   echo $idpac;
@@ -387,7 +388,7 @@ FROM         lab_relacion_laboratorio_seccion INNER JOIN
             $sql_1 = "EXECUTE SISTEMA_RESULTADOS_WEB_EDIT '" . $VL_Buscar . "'";
           }
           $i = 0;
-          //  echo $sql_1;
+           echo $sql_1;
           $query_result = odbc_exec($db_conn, $sql_1) or
             die("ERROR : No se puede ejecutar la consulta." . odbc_errormsg() . "<br>" . $sql_1);
           if (odbc_num_rows($query_result) != 0) {
@@ -404,7 +405,7 @@ FROM         lab_relacion_laboratorio_seccion INNER JOIN
                 $VL_Sexo = $result["SEXO"];
                 $VL_Edad = $result["ANOS"];
                 $VL_Procedencia = $result["DESC_PROCEDENCIA"];
-                // echo "<script> console.log('".$VL_Procedencia."');</script>";
+                $VL_FormaPago=$result["FORMAPAGO"];
                 $VL_NombreMedico = $result["NOMBRE_MEDICO"];
                 $llave = $result["LLAVE_PRUEBA"];
                 $perfil = $result["LLAVE_PERFIL"];
@@ -413,7 +414,18 @@ FROM         lab_relacion_laboratorio_seccion INNER JOIN
                 $alto = $result["VALOR_HASTA"];
                 $bajo = $result["VALOR_DESDE"];
                 $numero_registro=str_pad($result["NUMERO_REGISTRO"],3,"0",STR_PAD_LEFT);
-                echo "<script> console.log('".$numero_registro."');</script>";
+                $total=$result["TOTAL"];
+                $anticipo=$result["ANTICIPO"];
+                $pendiente=$result["PENDIENTE"];
+                $cuentaEstado=$result["CUENTAESTADO"];
+                $fechaEntrega=$result['FECHAENTREGA'];
+                if ($cuentaEstado=='X') {
+                  $cuentaEstado='PAGADO';
+                }
+                else {
+                  $cuentaEstado='PENDIENTE';
+                }
+                
 
           ?>
                 <!-- <img src="../images/globulos.jpg" width="1206" height="150"></div> -->
@@ -657,7 +669,9 @@ FROM         lab_relacion_laboratorio_seccion INNER JOIN
                                                       <div align="center">
                                                         <font color=#000000 face="Arial, Helvetica, sans-serif" size=2>
                                                           <b>
-                                                            <?php echo (strtoupper($result["NOMBRE_FONASA"])); ?>
+                                                            <?php echo (strtoupper($result["NOMBRE_FONASA"]));
+                                                                  array_push($examenesArray,$result["NOMBRE_FONASA"]);
+                                                            ?>
                                                           </b>
                                                         </font>
                                                       </div>
@@ -836,6 +850,65 @@ FROM         lab_relacion_laboratorio_seccion INNER JOIN
                     </TR>
                   </TBODY>
                 </TABLE>
+                <form action="../WEB/imprimirComprobante.php" method="post" id="ComprobanteAtencion">
+    <table>
+      <tr>
+        <td>
+          <input type="text" id="nombrePaciente" name="nombrePaciente" value="<?php echo $VL_Nombre;?>">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="text" id="notaCuenta"  name="notaCuenta" value="<?php echo $cuentaEstado;?>">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="text" id="totalCuenta" name="totalCuenta" value="<?php echo $total;?>">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="text" id="pendienteCuenta" name="pendienteCuenta" value="<?php echo $pendiente;?>">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="text" id="adelantoCuenta" name="adelantoCuenta" value="<?php echo $anticipo;?>">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="text" id="examenesCuenta" name="examenesCuenta" value="<?php  echo implode(",", $examenesArray);?>">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="text" id="numeroCuenta" name="numeroCuenta" value="<?php  echo $numero_registro;?>">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="text" id="fpCuenta" name="fpCuenta" value="<?php  echo $VL_FormaPago;?>">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="text" id="feCuenta" name="feCuenta" value="<?php  echo $fechaEntrega;?>">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="text" id="heCuenta" name="heCuenta" value="<?php  echo $horaEntrega;?>">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="text" id="fechaIngreso" name="fechaIngreso" value="<?php  echo $VL_Admision;?>">
+        </td>
+      </tr>
+    </table>
+  </form>
               <?php
             } else {
               ?>
