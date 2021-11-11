@@ -854,47 +854,47 @@ FROM         lab_relacion_laboratorio_seccion INNER JOIN
     <table>
       <tr>
         <td>
-          <input type="text" id="nombrePaciente" name="nombrePaciente" value="<?php echo $VL_Nombre;?>">
+          <input type="hidden" id="nombrePaciente" name="nombrePaciente" value="<?php echo $VL_Nombre;?>">
         </td>
       </tr>
       <tr>
         <td>
-          <input type="text" id="notaCuenta"  name="notaCuenta" value="<?php echo $cuentaEstado;?>">
+          <input type="hidden" id="notaCuenta"  name="notaCuenta" value="<?php echo $cuentaEstado;?>">
         </td>
       </tr>
       <tr>
         <td>
-          <input type="text" id="totalCuenta" name="totalCuenta" value="<?php echo $total;?>">
+          <input type="hidden" id="totalCuenta" name="totalCuenta" value="<?php echo $total;?>">
         </td>
       </tr>
       <tr>
         <td>
-          <input type="text" id="pendienteCuenta" name="pendienteCuenta" value="<?php echo $pendiente;?>">
+          <input type="hidden" id="pendienteCuenta" name="pendienteCuenta" value="<?php echo $pendiente;?>">
         </td>
       </tr>
       <tr>
         <td>
-          <input type="text" id="adelantoCuenta" name="adelantoCuenta" value="<?php echo $anticipo;?>">
+          <input type="hidden" id="adelantoCuenta" name="adelantoCuenta" value="<?php echo $anticipo;?>">
         </td>
       </tr>
       <tr>
         <td>
-          <input type="text" id="examenesCuenta" name="examenesCuenta" value="<?php  echo implode(",", $examenesArray);?>">
+          <input type="hidden" id="examenesCuenta" name="examenesCuenta" value="<?php  echo implode(",", $examenesArray);?>">
         </td>
       </tr>
       <tr>
         <td>
-          <input type="text" id="numeroCuenta" name="numeroCuenta" value="<?php  echo $numero_registro;?>">
+          <input type="hidden" id="numeroCuenta" name="numeroCuenta" value="<?php  echo $numero_registro;?>">
         </td>
       </tr>
       <tr>
         <td>
-          <input type="text" id="fpCuenta" name="fpCuenta" value="<?php  echo $VL_FormaPago;?>">
+          <input type="hidden" id="fpCuenta" name="fpCuenta" value="<?php  echo $VL_FormaPago;?>">
         </td>
       </tr>
       <tr>
         <td>
-          <input type="text" id="feCuenta" name="feCuenta" value="<?php  echo $fechaEntrega;?>">
+          <input type="hidden" id="feCuenta" name="feCuenta" value="<?php  echo $fechaEntrega;?>">
         </td>
       </tr>
       <tr>
