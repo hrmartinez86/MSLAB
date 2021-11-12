@@ -254,7 +254,11 @@ $fecha = date('d/m/Y');
                     echo '<option value="' . $result['codigo_fonasa'] . '">' . $result['nombre'] . ' --> ' . $result['codigo_fonasa'] . '-->$' . $result['precio'] . '</option>';
                   }
                   //agrupaciones
-                  
+                  $sql = "select codigo,descripcion,precio from agrupaciones where activo='S' order by id ";
+                  $query = odbc_exec($conection, $sql);
+                  while ($result = odbc_fetch_array($query)) {
+                    echo '<option value="' . $result['codigo'] . '-">' . $result['descripcion'] . ' --> ' . $result['codigo'] . ' -->$' . $result['precio'] . '</option>';
+                  }
                   ?>
                 </select>
                 </td>

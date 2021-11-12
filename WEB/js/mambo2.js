@@ -77,11 +77,11 @@ function unChoose() {
     if(confirm('¿Desea Eliminar el estudio '+ document.getElementById('ExamenSeleccionado').value+' ?')){
     	var el=srcList.value;
     	elimina(el);
-    for (var i=srcLen-1; i > -1; i--) {
-		if (srcList.options[i].selected) {
-			srcList.options[i] = null;
+		for (var i=srcLen-1; i > -1; i--) {
+			if (srcList.options[i].selected) {
+				srcList.options[i] = null;
+			}
 		}
-	}
     }
     }
 
@@ -171,16 +171,20 @@ function agregaest(e,n)
 {
 	ajax=objetoAjax();
 	
+	alert(e);
+
     var val="librerias/agregaestudio.php?est="+ e + "&folio=" + 
 			document.getElementById('folio').value + "&idpaciente=" + 
 			document.getElementById('idpaciente').value + "&num=" + n;
 	//alert(val);
+	console.log(val);
 	ajax.open("GET", val);
     ajax.onreadystatechange=function() {
 	if (ajax.readyState==4) {
-	valor.innerHTML = ajax.responseText
-	  }
-     }
+		valor.innerHTML = ajax.responseText;
+		alert(ajax.responseText);
+	}
+	}
     ajax.send(null)
 	
 }
