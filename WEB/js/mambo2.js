@@ -170,8 +170,6 @@ function elimina(e)
 function agregaest(e,n)
 {
 	ajax=objetoAjax();
-	
-	alert(e);
 
     var val="librerias/agregaestudio.php?est="+ e + "&folio=" + 
 			document.getElementById('folio').value + "&idpaciente=" + 
@@ -182,7 +180,6 @@ function agregaest(e,n)
     ajax.onreadystatechange=function() {
 	if (ajax.readyState==4) {
 		valor.innerHTML = ajax.responseText;
-		alert(ajax.responseText);
 	}
 	}
     ajax.send(null)
