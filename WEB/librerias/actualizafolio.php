@@ -5,7 +5,10 @@
     $fecha=date("d/m/Y");
     $hora=date("H:i:s");
     $fh=$fecha." ".$hora; 
-   
+    $procedencia=$_GET['procedencia'];
+	$idpaciente=$_GET['folio'];
+
+	//actualizacion de paciente
 	$sql_="UPDATE DAT_PACIENTE SET sexo ='".$_GET['sex']."', 
 	nombre ='".$_GET['nom']."', 
 	telefono ='".$_GET['telefono']."', 
@@ -14,4 +17,8 @@
 	WHERE rut=".$_GET['rut'];
 	$eje=odbc_exec($conection,$sql_);
 	
+	//actualiza procedencias
+	$sql_="update dat_dfipa set procedencia_muestra=".$procedencia." where idpaciente=".$idpaciente;
+	echo $sql_;
+	$eje=odbc_exec($conection,$sql_);
 ?>

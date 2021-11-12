@@ -150,32 +150,52 @@ $fecha = date('d/m/Y');
         <td></td>
       </tr>
 
-      <!-- <tr class="Controls">
+      <tr class="Controls">
         <td class="th"><label for="Doctor">M&eacute;dico:</label></td>
         <td><select id="Doctor" name="Doctor"> -->
             <?php
             //obtenemos la llave del doctor
-            // $sql = "select doctor from dat_dfipa where numero='" . $folio . "'";
-            // $query = odbc_exec($conection, $sql);
+            $sql = "select doctor from dat_dfipa where numero='" . $folio . "'";
+            $query = odbc_exec($conection, $sql);
 
-            // while ($result = odbc_fetch_array($query)) {
-            //   $doctor = $result['doctor'];
-            // }
+            while ($result = odbc_fetch_array($query)) {
+              $doctor = $result['doctor'];
+            }
 
-            // $sql = "select nombre + ' ' + apellidos as Nombre,llave_doctor from dat_doctores  order by Nombre ";
-            // $query = odbc_exec($conection, $sql);
+            $sql = "select nombre + ' ' + apellidos as Nombre,llave_doctor from dat_doctores  order by Nombre ";
+            $query = odbc_exec($conection, $sql);
 
-            // while ($result = odbc_fetch_array($query)) {
-            //   if ($result['llave_doctor'] == $doctor) {
-            //     echo '<option value="' . $result['llave_doctor'] . '" selected>' . $result['Nombre'] . '</option>';
-            //   } else {
-            //     echo '<option value="' . $result['llave_doctor'] . '">' . $result['Nombre'] . '</option>';
-            //   }
-            // }
+            while ($result = odbc_fetch_array($query)) {
+              if ($result['llave_doctor'] == $doctor) {
+                echo '<option value="' . $result['llave_doctor'] . '" selected>' . $result['Nombre'] . '</option>';
+              } else {
+                echo '<option value="' . $result['llave_doctor'] . '">' . $result['Nombre'] . '</option>';
+              }
+            }
             ?>
-          <!-- </select>
+          </select>
         </td>
-      </tr> -->
+      </tr>
+
+      <tr class="Controls">
+        <td class="th"><label for="Procedencia">Procedencia:</label></td>
+        <td><select class="selectpicker" data-show-subtext="true" data-live-search="true" id="procedencia" name="procedencia"> -->
+            <?php
+            
+            $sql = "select id,descripcion from procedencia_muestra order by descripcion";
+            $query = odbc_exec($conection, $sql);
+
+            while ($result = odbc_fetch_array($query)) {
+              if ($result['id'] == $procedencia) {
+                echo '<option value="' . $result['id'] . '" selected>' . $result['descripcion'] . '</option>';
+              } else {
+                echo '<option value="' . $result['id'] . '">' . $result['descripcion'] . '</option>';
+              }
+            }
+            ?>
+          </select>
+        </td>
+      </tr>
 
 
       <tr class="Controls">
@@ -221,7 +241,7 @@ $fecha = date('d/m/Y');
                 <td class="HeaderRight"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td>
               </tr>
             </table>
-            <table height="200" width="800" cellpadding="0" cellspacing="0" class="Record">
+            <table height="200" width="500" cellpadding="0" cellspacing="0" class="Record">
               <tr class="Controls">
                 
                 <td>
@@ -261,7 +281,7 @@ $fecha = date('d/m/Y');
 
             </table>
 
-            <input type="image" src="img/icons/bagregpac.jpg" onClick="actualizafolio(<?php echo $folio; ?>)" />
+            <input type="image" src="img/icons/bagregpac.jpg" onClick="actualizafolio(<?php echo $idpaciente; ?>)" />
 
 
 

@@ -99,7 +99,8 @@ function actualizafolio(folio)
             "&fecha=" + document.getElementById('Fecha').value + 
             "&rut=" + document.getElementById('Rut').value + "&folio=" + folio+
             "&telefono=" + document.getElementById('telefono').value+
-            "&email=" + document.getElementById('email').value;
+            "&email=" + document.getElementById('email').value+
+            "&procedencia=" + document.getElementById('procedencia').value;
 	ajax.open("GET", val);
     ajax.onreadystatechange=function() {
 	if (ajax.readyState==4) {
