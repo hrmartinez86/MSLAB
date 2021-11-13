@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	$ODBC=$_SESSION['ODBC'];
-	$conection = odbc_connect($ODBC, "sa", "Demo123.") or  die ("<h1 align='center'>ERROR EN LA IDENTIFICACION DE USUARIO EN LA BASE DE DATOS FAVOR DE CONSULTAR A SU PROVEEDOR</h1><br> <a href=\"../index.php\" title=\"Regresar a la pagina principal\" target=\"_self\"><center>REGRESAR</center></a>");
+	$conection = odbc_connect($ODBC, "sa", "") or  die ("<h1 align='center'>ERROR EN LA IDENTIFICACION DE USUARIO EN LA BASE DE DATOS FAVOR DE CONSULTAR A SU PROVEEDOR</h1><br> <a href=\"../index.php\" title=\"Regresar a la pagina principal\" target=\"_self\"><center>REGRESAR</center></a>");
 
 
 	$sql_paciente="select top 1* from dat_paciente where expediente ='".$_GET['exp']."'";
@@ -14,8 +14,8 @@
 	else
 		$sexo="Femenino";
 		
-	$fec=split(" ",$res['fecha_nacimiento']);
-	$fecs=split("-",$fec[0]);
+	$fec=explode(" ",$res['fecha_nacimiento']);
+	$fecs=explode("-",$fec[0]);
 	$fm= $fecs[2]."/".$fecs[1]."/".$fecs[0];
 	echo '
 	     <input type="hidden" value="1" id="p" name="paciente"/>
