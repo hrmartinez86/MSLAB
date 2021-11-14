@@ -136,7 +136,7 @@ $db_conn = conectar($ODBC);
 
                 if ($_GET['t'] == 0) {
                   
-                  $sql = "EXECUTE LISTA_RESULTADOS_WEB @TIPO='" . $tipo . "',@PROCEDENCIA='" . $proc . "',@SECCION='" . $sec . "',@FECHA_DESDE='" . $fecha . "',@FECHA_HASTA='" . $fecha . "',@EXP='" . $exp . "',@NOMBRE='" . $nombre . "',@APELLIDO='" . $ape . "'";
+                  $sql = "EXECUTE LISTA_RESULTADOS_WEB @TIPO='" . $tipo . "',@PROCEDENCIA='" . $proc . "',@SECCION='" . $sec . "',@FECHA_DESDE=convert(datetime,'" . $fecha . "',103),@FECHA_HASTA=conver(datetime,'" . $fecha . "',103),@EXP='" . $exp . "',@NOMBRE='" . $nombre . "',@APELLIDO='" . $ape . "'";
                 }
 
                 if ($_GET['t'] == 3) {
