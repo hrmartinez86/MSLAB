@@ -216,7 +216,7 @@ $db_conn = conectar($ODBC);
                   $fecha = date("d/m/Y");
 
                   if ($_GET['t'] == 0) {
-                    $sql = "SELECT     idpaciente AS id FROM         dat_dfipa WHERE     (fecha = CONVERT(varchar(10), '" . $fecha . "', 103))";
+                    $sql = "SELECT     idpaciente AS id FROM         dat_dfipa WHERE     (fecha = CONVERT(datetime, '" . $fecha . "', 103))";
                   } else
 
             	if ($_GET['t'] == 1) {
