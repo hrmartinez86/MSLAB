@@ -109,8 +109,8 @@ if (odbc_num_rows($query_result) != 0) {
   $sql_1 = "INSERT INTO dat_paciente (cod_empresa, rut, expediente , nombre, apellidos, fecha_nacimiento, 
   calle, telefono, fono_urgencia, contraindicaciones, sexo, ciudad, fecha_ult_examen,curp,rfc,email) 
     VALUES (" . $_SESSION['empresa'] . ", '" . $correPac . "', '" . $Expediente . "','" . $nombre . "', 
-    '" . $apellidos . "', '" . $fecha_de_nacimiento . "', '" . $Direccion . "', '" . $Telefono . "', '', ''
-    , '" . $Sexo . "', '1', CONVERT(DATETIME, GETDATE(), 103), '" . $CitasCURP . "', '" . $CitasRFC . "','".$Email."')";
+    '" . $apellidos . "', convert(datetime,'" . $fecha_de_nacimiento . "',103), '" . $Direccion . "', '" . $Telefono . "', '', ''
+    , '" . $Sexo . "', '1',  convert(datetime,GETDATE(),103), '" . $CitasCURP . "', '" . $CitasRFC . "','".$Email."')";
 
   $rut = $correPac;
   echo $sql_1;
