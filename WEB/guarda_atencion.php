@@ -113,7 +113,7 @@ if (odbc_num_rows($query_result) != 0) {
     , '" . $Sexo . "', '1', CONVERT(DATETIME, GETDATE(), 103), '" . $CitasCURP . "', '" . $CitasRFC . "','".$Email."')";
 
   $rut = $correPac;
-  // echo $sql_1;
+  echo $sql_1;
   $query_result = odbc_exec($db_conn, $sql_1) or
     die("ERROR : No se puede ejecutar la consulta_PACIENTE.<br>".odbc_error());
 }
