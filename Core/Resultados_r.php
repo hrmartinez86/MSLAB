@@ -154,7 +154,7 @@ $db_conn = conectar($ODBC);
                   
                   echo "<script> console.log('".$sql."');</script>";
                 }
-                
+                echo $sql;
                 $query = odbc_exec($db_conn, $sql);
                 $idpac = $_GET['id'];
 
