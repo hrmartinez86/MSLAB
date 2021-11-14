@@ -252,7 +252,7 @@ FROM         lab_relacion_laboratorio_seccion INNER JOIN
                     }
                   }
                   $query = odbc_exec($db_conn, $sql);
-
+                  echo $sql;
                   while ($result = odbc_fetch_array($query)) {
 
                     if ($result['codigo'] == $_GET['Secciond']) {
