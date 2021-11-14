@@ -122,7 +122,7 @@ $db_conn = conectar($ODBC);
 
                 $fecha = date("d/m/Y");
                 //primero checo si hay referencia de folios
-
+                echo "forma folio";
                 if ($_GET['t'] == 1) {
                   if ($_GET['folioh'] == "") {
                     $sql = "SELECT     idpaciente AS id , numero FROM dat_dfipa WHERE     numero =" . $fxini . " order by numero";
