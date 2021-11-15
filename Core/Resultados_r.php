@@ -154,7 +154,7 @@ $db_conn = conectar($ODBC);
                   
                   echo "<script> console.log('".$sql."');</script>";
                 }
-                echo $sql;
+                // echo $sql;
                 $query = odbc_exec($db_conn, $sql);
                 $idpac = $_GET['id'];
 
@@ -252,7 +252,7 @@ FROM         lab_relacion_laboratorio_seccion INNER JOIN
                     }
                   }
                   $query = odbc_exec($db_conn, $sql);
-                  echo $sql;
+                  echo "<p>". $sql ."</p>";
                   while ($result = odbc_fetch_array($query)) {
 
                     if ($result['codigo'] == $_GET['Secciond']) {
