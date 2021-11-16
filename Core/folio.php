@@ -64,7 +64,7 @@
         num_cama,
         numero_registro) 
         vALUES (" . $empresa . ",
-        conert(datetime,'" . $fi . "',103), 
+        convert(datetime,'" . $fi . "',103), 
         '', 
         '" . $folio . "', 
         '" . $paciente . "', 
