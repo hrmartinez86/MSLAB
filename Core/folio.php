@@ -83,7 +83,7 @@
         0, 
         1, 
         '0',
-        convert(datetime,'" . $fecha . "',103), 
+        convert(datetime,'" . $fi . "',103), 
         " . $procedencia . ", 
         '', 
         1, 
