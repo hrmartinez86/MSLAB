@@ -141,8 +141,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         $this->Cell(0,$inicioIMp,$label,0,10,'B',false);
         $this->WriteText('',$anchoPagina,2,'',8,'Arial',false,false);
         $this->WriteText('NOMBRE DEL EXAMEN',$inicioIMp,0,'B',8,'Arial',false,false);
-        $this->WriteText('RESULTADOS',60,0,'B',8,'Arial',false,false);
-        $this->WriteText('UNIDADES',110,0,'B',8,'Arial',false,false);
+        $this->WriteText('RESULTADOS',80,0,'B',8,'Arial',false,false);
         $this->WriteText('VALOR DE REFERENCIA',140,6,'B',8,'Arial',false,false);
         
         // Guardar ordenada
@@ -186,7 +185,7 @@ protected $y0;      // Ordenada de comienzo de la columna
                     $this->WriteText($examArray[$i]['vd']." - ".$examArray[$i]['vh'],160,0,'',8,'Arial',false,false);
                 }
                 
-                $this->WriteText($examArray[$i]['Res'],60,0,'',8,'Arial',false,false);
+                $this->WriteText($examArray[$i]['Res'],80,0,'',8,'Arial',false,false);
  
                 $this->Ln(4);
             }
