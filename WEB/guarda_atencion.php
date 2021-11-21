@@ -109,7 +109,7 @@ if (odbc_num_rows($query_result) != 0) {
   $sql_1 = "INSERT INTO dat_paciente (cod_empresa, rut, expediente , nombre, apellidos, fecha_nacimiento, 
   calle, telefono, fono_urgencia, contraindicaciones, sexo, ciudad, fecha_ult_examen,curp,rfc,email) 
     VALUES (" . $_SESSION['empresa'] . ", '" . $correPac . "', '" . $Expediente . "','" . $nombre . "', 
-    '" . $apellidos . "', '" . $fecha_de_nacimiento . "', '" . $Direccion . "', '" . $Telefono . "', '', ''
+    '" . $apellidos . "', CONVERT(DATETIME,'" . $fecha_de_nacimiento . "',103), '" . $Direccion . "', '" . $Telefono . "', '', ''
     , '" . $Sexo . "', '1', CONVERT(DATETIME, GETDATE(), 103), '" . $CitasCURP . "', '" . $CitasRFC . "','".$Email."')";
 
   $rut = $correPac;
@@ -297,7 +297,7 @@ $sql_1 = "INSERT INTO dat_dfipa (cod_empresa, fecha, hora, numero,
            horaEntrega,
            FormaPago) 
            vALUES (" . $_SESSION['empresa'] . ",
-           '" . $fecha . "', 
+           CONVERT(DATETIME,'" . $fecha . "',103), 
            '" . $hora . "', 
            '" . $folio . "', 
            '" . $rut . "', 
@@ -316,7 +316,7 @@ $sql_1 = "INSERT INTO dat_dfipa (cod_empresa, fecha, hora, numero,
            " . $meses . ", 
            " . $dias . ", 
            '0',
-           '" . $fecha . "', 
+           CONVERT(DATETIME,'" . $fecha . "',103), 
            " . $CitasProcedencia . ", 
            '', 
            1, 
