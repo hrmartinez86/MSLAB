@@ -84,7 +84,7 @@ Description: A wide two-column design suitable for blogs and small websites.
 						$nivel = odbc_result($re, "usuario");
 						$nombre2 = "";
 						$apellidos = "";
-						$conec = odbc_connect($ODBC, "sa", "") or die("<h1 align='center'>ERROR EN LA IDENTIFICACION DE USUARIO EN LA BASE DE DATOS FAVOR DE CONSULTAR A SU PROVEEDOR</h1><br> <a href=\"index.php\" title=\"Regresar a la pagina principal\" target=\"_self\"><center>REGRESAR</center></a>");
+						$conec = odbc_connect($ODBC, "sa", "Kapi312") or die("<h1 align='center'>ERROR EN LA IDENTIFICACION DE USUARIO EN LA BASE DE DATOS FAVOR DE CONSULTAR A SU PROVEEDOR</h1><br> <a href=\"index.php\" title=\"Regresar a la pagina principal\" target=\"_self\"><center>REGRESAR</center></a>");
 
 						$sql_1 = "SELECT * FROM lab_usuarios WHERE     (lab_usuarios.usuario = '" . $usuario . "') AND (lab_usuarios.clave = '" . $password . "')";
 						$re =  odbc_exec($conec, $sql_1) or die("no hay resultados");
