@@ -22,45 +22,49 @@ protected $y0;      // Ordenada de comienzo de la columna
         
         if ($imagen==TRUE) {
             $this->Image('marco.jpg',0,0,220,0,'','');
-            $x1=10;
-            $x2=200;
-            
+            $x1=10;          
         }
         else
         {
-            $x1=5;
-            $x2=200;
-            
+            $x1=5;   
         }
+
+        $x2=200;
+
         $this->Ln(10);
 		$nombre=$_POST['nombrePaciente'];
 		$doctor=$_POST['doc'];
         $procedencia=$_POST['procedencia'];
         $numero=$_POST['folioPaciente'];
         $fecha=$_POST['fecha'];
-        $this->WriteText('LABORATORIO SALAS FERNANDEZ',$anchoPagina,5,'B',13,'Arial',true,false);
-        $this->WriteText('QUIMICO RESPONSABLE',$anchoPagina,5,'',8,'Arial',true,false);
-        $this->WriteText('Q.F.B. GERARDO SALAS FERNANDEZ',$anchoPagina,5,'B',8,'Arial',true,false);
-        $this->WriteText('Emilio Carranza No.208 Ote.Zona Centro Cd. Madero,Tam.',$anchoPagina,5,'',8,'Arial',true,false);
-        $this->WriteText('C.P. 89400 Tel. 2-10-22-98 y 2-15-01-82',$anchoPagina,5,'',8,'Arial',true,false);
-        $this->WriteText('RFC.SAFG-7200203-IM0 UNE D.G.P. Num. 2530411',$anchoPagina,5,'',8,'Arial',true,false);
+        //fuentes
+        $fontTitle='Arial';
+        $fontSizeTitle=13;
+        $font='Arial';
+        $fontSize=10;
+
+        $this->WriteText('LABORATORIO SALAS FERNANDEZ',$anchoPagina,5,'B',$fontSizeTitle,$fontTitle,true,false);
+        $this->WriteText('QUIMICO RESPONSABLE',$anchoPagina,5,'',$fontSize,$font,true,false);
+        $this->WriteText('Q.F.B. GERARDO SALAS FERNANDEZ',$anchoPagina,5,'B',$fontSize,$font,true,false);
+        $this->WriteText('Emilio Carranza No.208 Ote.Zona Centro Cd. Madero,Tam.',$anchoPagina,5,'',$fontSize,$font,true,false);
+        $this->WriteText('C.P. 89400 Tel. 2-10-22-98 y 2-15-01-82',$anchoPagina,5,'',$fontSize,$font,true,false);
+        $this->WriteText('RFC.SAFG-7200203-IM0 UNE D.G.P. Num. 2530411',$anchoPagina,5,'',$fontSize,$font,true,false);
         
         $diassemana = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
         $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
-        $this->WriteText('',180,6,'',8,'Arial',false,false);
+        $this->WriteText('',180,6,'',8,$font,false,false);
 
-        $this->WriteText($numero,160,6,'B',8,'Arial',false,false);
+        $this->WriteText($numero,160,6,'B',$fontSize,$font,false,false);
         
         $hoy=utf8_decode($diassemana[date('w')])." ".date('d')." de ".$meses[date('n')-1]. " del ".date('Y') . " " . date('g:ia') ;
-        $hoy=utf8_decode('Fecha de Atención:'.$fecha);
-        $this->WriteText($hoy,125,6,'',8,'Arial',false,false);
+        $hoy='Fecha de Atención:'.$fecha;
+        $this->WriteText($hoy,125,6,'',$fontSize,$font,false,false);
         
-		$this->WriteText("NOMBRE DEL PACIENTE:".utf8_decode($nombre),10,10,'B',8,'Arial',false,false);
-		$this->WriteText("NOMBRE DEL DOCTOR:".utf8_decode($doctor),10,0,'B',8,'Arial',false,false);
-        $this->WriteText($procedencia,130,5,'B',8,'Arial',false,false);
-        $y1=$this->GetY();
-		$this->Line($x1,  $y1,  $x2, $y1);
-
+		$this->WriteText("NOMBRE DEL PACIENTE:".$nombre,10,10,'B',$fontSize,$font,false,false);
+		$this->WriteText("NOMBRE DEL DOCTOR:".$doctor,10,0,'B',$fontSize,$font,false,false);
+        $this->WriteText($procedencia,130,5,'B',$fontSize,$font,false,false);
+        $this->Ln(5);
+        
     }
     function Header()
     {    
@@ -100,7 +104,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         }
         else
         {
-            $this->Cell(0,0,$text,0,0);
+            $this->Cell(0,0,utf8_decode($text),0,0);
         }
         
         $this->Ln($s);
@@ -129,6 +133,11 @@ protected $y0;      // Ordenada de comienzo de la columna
 
     function ChapterTitle($label,$anchoPagina,$imagen)
     {
+        $font='Arial';
+        $fontSize=10;
+        $fontTitle=$font;
+        $fontSizeTitle=10;
+
         if ($imagen==TRUE) {
             $inicioIMp=10;
         }
@@ -136,14 +145,22 @@ protected $y0;      // Ordenada de comienzo de la columna
         {
             $inicioIMp=5;
         }
-        $this->SetFont('Arial','',8);
+        $this->SetFont($fontTitle,'B',$fontSizeTitle);
         // $this->SetFillColor(208,211,212);
-        $this->Cell(0,$inicioIMp,$label,0,10,'B',false);
-        $this->WriteText('',$anchoPagina,2,'',8,'Arial',false,false);
-        $this->WriteText('NOMBRE DEL EXAMEN',$inicioIMp,0,'B',8,'Arial',false,false);
-        $this->WriteText('RESULTADOS',80,0,'B',8,'Arial',false,false);
-        $this->WriteText('VALOR DE REFERENCIA',140,6,'B',8,'Arial',false,false);
+        // $this->Cell(0,$inicioIMp,$label,0,5,'B',false);
+        $this->WriteText($label,$inicioIMp,2,'B',$fontSizeTitle,$fontTitle,false,false);
         
+        $this->Ln(1);
+
+        $y1=$this->GetY();
+		$this->Line($inicioIMp,  $y1,  200, $y1);
+
+        $this->WriteText('',$anchoPagina,2,'',$fontSize,$font,false,false);
+        $this->WriteText('EXAMEN',$inicioIMp,0,'B',$fontSize,$font,false,false);
+        $this->WriteText('RESULTADOS',80,0,'B',$fontSize,$font,false,false);
+        $this->WriteText('VALOR DE REFERENCIA',140,6,'B',$fontSize,$font,false,false);
+        
+        $this->Ln(2);
         // Guardar ordenada
         $this->y0 = $this->GetY();
     }
@@ -171,51 +188,60 @@ protected $y0;      // Ordenada de comienzo de la columna
         {
             $xRes=5;
         }
-        
+        $font='Arial';
+        $sizeFont=9;
+        $interLine=0;
+        $interLinell=5;
+        $xResVal=80;
+        $xUM=110;
+        $xRT=140;
+        $xVd=140;
         for ($i=0;$i<count($examArray);$i++)
         {
             if($examArray[$i]['Res']!=''){
-                $this->WriteText(utf8_decode($examArray[$i]['Info']),$xRes,0,'',8,'Arial',false,false);
-                $this->WriteText(utf8_decode($examArray[$i]['um']),110,0,'',8,'Arial',false,false);
+                $this->WriteText($examArray[$i]['Info'],$xRes,$interLine,'',$sizeFont,$font,false,false);
+                
                 if ($examArray[$i]['rt']!="") {
-                    $this->WriteText($examArray[$i]['rt'],140,0,'',8,'Arial',false,false);
+                    $this->WriteText($examArray[$i]['rt'],$xRT,$interLine,'',$sizeFont,$font,false,false);
                 }
                 else
                 {
-                    $this->WriteText($examArray[$i]['vd']." - ".$examArray[$i]['vh'],160,0,'',8,'Arial',false,false);
+                    $umV=utf8_encode($examArray[$i]['um']);
+                    
+                    $this->WriteText(number_format($examArray[$i]['vd'],2) ." - ".number_format($examArray[$i]['vh'],2)." " . 
+                    $umV,
+                    $xVd,$interLine,'',$sizeFont,$font,false,false);
+                    
                 }
                 
-                $this->WriteText($examArray[$i]['Res'],80,0,'',8,'Arial',false,false);
+                $this->WriteText($examArray[$i]['Res'],$xResVal,$interLine,'',$sizeFont,$font,false,false);
  
-                $this->Ln(4);
+                $this->Ln($interLinell);
             }
         }
         $metodo=metodo($llave);
         if ($metodo!=""){
-            $this->WriteText(metodo($llave),$xRes,5,'B',8,'Arial',false,true);
+            $this->WriteText(metodo($llave),$xRes,5,'B',8,$font,false,true);
         }
         $nota=nota($llave);
         if ($nota!=""){
-            $this->WriteText($nota ,$xRes,0,'',6,'Arial',false,true);
+            $this->WriteText($nota ,$xRes,0,'',6,$font,false,true);
         }
+
+        $this->Ln(5);
     }
 
     function ChapterBody($examenes,$idPaciente,$anchoPagina,$imagen,$examenesDescripcion)
     {
         // Fuente
-        $this->SetFont('Times','',8);
-        $this->SetX(90);
-        // echo $examenes;
-        // echo $examenesDescripcion;
+        $this->SetFont('Times','',12);
+        $this->SetX(5);
+
         $evalua=true;
         if($evalua==true){
             $cod=explode(",",$examenes);
             $desc=explode(",",$examenesDescripcion);
             $x=count($cod);
-            // echo "<br>".$x;
-            // $this->WriteText($x,9,6,'',10,'Arial',false,false);
-            
-            
 
             for ($i=0; $i <$x ; $i++) { 
                 $examArray=resultados($cod[$i],$idPaciente);
@@ -238,7 +264,7 @@ protected $y0;      // Ordenada de comienzo de la columna
     function PrintChapter($title, $examenes,$idPaciente,$imagen,$examenesDescripcion)
     {
         // Añadir capítulo
-        $anchoPagina=210;
+        $anchoPagina=1;
         $this->ChapterBody($examenes,$idPaciente,$anchoPagina,$imagen,$examenesDescripcion);
         
     }
@@ -249,7 +275,7 @@ $pdf = new PDF();
 $pdf->SetAuthor('MSLAB');
 //descomponer el array de los estudios
 $pdf->AddPage();
-// $pdf->WriteText($examenes,10,6,'',10,'Arial',false,false);
+// $pdf->WriteText($examenes,10,6,'',10,$font,false,false);
 // $examen=explode(",",$examenes);
 $y=$pdf->GetY();
 $pdf->SetY($y);

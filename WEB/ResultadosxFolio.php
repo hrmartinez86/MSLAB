@@ -24,11 +24,10 @@ OBSTOMAMUESTRA, DESCRIPCION, RUT_PACIENTE, NOMBRE, APELLIDOS, SEXO, TELEFONO, FE
 FOLIO_HOST, NUM_CAMA 
 FROM SISTEMA_TOMA_MUESTRAS_PACIENTE WHERE (idpaciente = '".$idpaciente."')";
 $query=odbc_exec($conection,$sql);  
-    
 while ($result=odbc_fetch_array($query))
 {
   $idpaciente=$result['IDPACIENTE'];
-  $nombre=utf8_encode($result['NOMBRE'])." ".utf8_encode($result['APELLIDOS']);
+  $nombre=$result['NOMBRE']." ".$result['APELLIDOS'];
   $folio=str_pad($result['NUMERO_REGISTRO'],3,"0",STR_PAD_LEFT);
   $doctor=$result['NOMBRE_DOCTOR'];
   $procedencia=$result['PROCEDENCIA_MUESTRA'];
@@ -130,7 +129,7 @@ while ($result=odbc_fetch_array($query))
           <?php $sql="select cdp.llave_fonasa,cf.codigo_fonasa,cf.nombre as nombre_prestacion, cdp.idpaciente,cdp.liberado 
            from caj_det_prestaciones cdp
 inner join caj_codigos_fonasa cf on cf.llave_fonasa=cdp.llave_fonasa
-where idpaciente='".$idpaciente."' ORDER BY cf.codigo_fonasa desc";
+where idpaciente='".$idpaciente."' ORDER BY cf.valor_particular,cf.codigo_fonasa desc";
           $query=odbc_exec($conection,$sql);  
           
           $i=0;
