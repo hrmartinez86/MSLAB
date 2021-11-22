@@ -22,17 +22,15 @@ protected $y0;      // Ordenada de comienzo de la columna
         
         if ($imagen==TRUE) {
             $this->Image('marco.jpg',0,0,220,0,'','');
-            $x1=10;
-            
-            
+            $x1=10;          
         }
         else
         {
-            $x1=5;
-            
-            
+            $x1=5;   
         }
+
         $x2=200;
+
         $this->Ln(10);
 		$nombre=$_POST['nombrePaciente'];
 		$doctor=$_POST['doc'];
@@ -65,6 +63,7 @@ protected $y0;      // Ordenada de comienzo de la columna
 		$this->WriteText("NOMBRE DEL PACIENTE:".utf8_decode($nombre),10,10,'B',$fontSize,$font,false,false);
 		$this->WriteText("NOMBRE DEL DOCTOR:".utf8_decode($doctor),10,0,'B',$fontSize,$font,false,false);
         $this->WriteText($procedencia,130,5,'B',$fontSize,$font,false,false);
+        $this->Ln(5);
         
     }
     function Header()
@@ -148,14 +147,13 @@ protected $y0;      // Ordenada de comienzo de la columna
         }
         $this->SetFont($fontTitle,'B',$fontSizeTitle);
         // $this->SetFillColor(208,211,212);
-        $this->Cell(0,$inicioIMp,$label,0,5,'B',false);
+        // $this->Cell(0,$inicioIMp,$label,0,5,'B',false);
+        $this->WriteText($label,$inicioIMp,2,'B',$fontSizeTitle,$fontTitle,false,false);
         
         $this->Ln(1);
 
         $y1=$this->GetY();
-		$this->Line(5,  $y1,  200, $y1);
-
-        
+		$this->Line($inicioIMp,  $y1,  200, $y1);
 
         $this->WriteText('',$anchoPagina,2,'',$fontSize,$font,false,false);
         $this->WriteText('EXAMEN',$inicioIMp,0,'B',$fontSize,$font,false,false);
@@ -202,13 +200,16 @@ protected $y0;      // Ordenada de comienzo de la columna
         {
             if($examArray[$i]['Res']!=''){
                 $this->WriteText(utf8_decode($examArray[$i]['Info']),$xRes,$interLine,'',$sizeFont,$font,false,false);
-                // $this->WriteText(utf8_decode($examArray[$i]['um']),$xUM,$interLine,'',$sizeFont,$font,false,false);
+                
                 if ($examArray[$i]['rt']!="") {
                     $this->WriteText($examArray[$i]['rt'],$xRT,$interLine,'',$sizeFont,$font,false,false);
                 }
                 else
                 {
-                    $this->WriteText($examArray[$i]['vd']." - ".$examArray[$i]['vh']." " . utf8_decode($examArray[$i]['um']),$xVd,$interLine,'',$sizeFont,$font,false,false);
+                    $this->WriteText(number_format($examArray[$i]['vd'],2) ." - ".number_format($examArray[$i]['vh'],2)." " . 
+                    utf8_decode($examArray[$i]['um']),
+                    $xVd,$interLine,'',$sizeFont,$font,false,false);
+                    // iconv('UTF-8', 'windows-1252', $str);
                 }
                 
                 $this->WriteText($examArray[$i]['Res'],$xResVal,$interLine,'',$sizeFont,$font,false,false);
@@ -224,6 +225,8 @@ protected $y0;      // Ordenada de comienzo de la columna
         if ($nota!=""){
             $this->WriteText($nota ,$xRes,0,'',6,$font,false,true);
         }
+
+        $this->Ln(5);
     }
 
     function ChapterBody($examenes,$idPaciente,$anchoPagina,$imagen,$examenesDescripcion)
@@ -231,8 +234,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         // Fuente
         $this->SetFont('Times','',12);
         $this->SetX(5);
-        // echo $examenes;
-        // echo $examenesDescripcion;
+
         $evalua=true;
         if($evalua==true){
             $cod=explode(",",$examenes);
