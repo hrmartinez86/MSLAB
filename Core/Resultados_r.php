@@ -137,6 +137,7 @@ $db_conn = conectar($ODBC);
                 if ($_GET['t'] == 0) {
                   
                   $sql = "EXECUTE LISTA_RESULTADOS_WEB @TIPO='" . $tipo . "',@PROCEDENCIA='" . $proc . "',@SECCION='" . $sec . "',@FECHA_DESDE='" . $fecha . "',@FECHA_HASTA='" . $fecha . "',@EXP='" . $exp . "',@NOMBRE='" . $nombre . "',@APELLIDO='" . $ape . "'";
+                  // echo '<script> console.log("'.$sql.'");</script>';
                 }
 
                 if ($_GET['t'] == 3) {
@@ -216,7 +217,8 @@ $db_conn = conectar($ODBC);
                   $fecha = date("d/m/Y");
 
                   if ($_GET['t'] == 0) {
-                    $sql = "SELECT     idpaciente AS id FROM         dat_dfipa WHERE     (fecha = CONVERT(varchar(10), '" . $fecha . "', 103))";
+                    $sql = "SELECT     idpaciente AS id FROM         dat_dfipa WHERE     (fecha = CONVERT(datetime, '" . $fecha . "', 103))";
+                    // echo '<script> console.log("'.$sql.'");</script>';
                   } else
 
             	if ($_GET['t'] == 1) {
