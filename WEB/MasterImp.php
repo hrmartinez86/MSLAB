@@ -57,11 +57,11 @@ protected $y0;      // Ordenada de comienzo de la columna
         $this->WriteText($numero,160,6,'B',$fontSize,$font,false,false);
         
         $hoy=utf8_decode($diassemana[date('w')])." ".date('d')." de ".$meses[date('n')-1]. " del ".date('Y') . " " . date('g:ia') ;
-        $hoy=utf8_decode('Fecha de Atención:'.$fecha);
+        $hoy='Fecha de Atención:'.$fecha;
         $this->WriteText($hoy,125,6,'',$fontSize,$font,false,false);
         
-		$this->WriteText("NOMBRE DEL PACIENTE:".utf8_decode($nombre),10,10,'B',$fontSize,$font,false,false);
-		$this->WriteText("NOMBRE DEL DOCTOR:".utf8_decode($doctor),10,0,'B',$fontSize,$font,false,false);
+		$this->WriteText("NOMBRE DEL PACIENTE:".$nombre,10,10,'B',$fontSize,$font,false,false);
+		$this->WriteText("NOMBRE DEL DOCTOR:".$doctor,10,0,'B',$fontSize,$font,false,false);
         $this->WriteText($procedencia,130,5,'B',$fontSize,$font,false,false);
         $this->Ln(5);
         
@@ -104,7 +104,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         }
         else
         {
-            $this->Cell(0,0,$text,0,0);
+            $this->Cell(0,0,utf8_decode($text),0,0);
         }
         
         $this->Ln($s);
@@ -199,17 +199,19 @@ protected $y0;      // Ordenada de comienzo de la columna
         for ($i=0;$i<count($examArray);$i++)
         {
             if($examArray[$i]['Res']!=''){
-                $this->WriteText(utf8_decode($examArray[$i]['Info']),$xRes,$interLine,'',$sizeFont,$font,false,false);
+                $this->WriteText($examArray[$i]['Info'],$xRes,$interLine,'',$sizeFont,$font,false,false);
                 
                 if ($examArray[$i]['rt']!="") {
                     $this->WriteText($examArray[$i]['rt'],$xRT,$interLine,'',$sizeFont,$font,false,false);
                 }
                 else
                 {
+                    $umV=utf8_encode($examArray[$i]['um']);
+                    
                     $this->WriteText(number_format($examArray[$i]['vd'],2) ." - ".number_format($examArray[$i]['vh'],2)." " . 
-                    utf8_decode($examArray[$i]['um']),
+                    $umV,
                     $xVd,$interLine,'',$sizeFont,$font,false,false);
-                    // iconv('UTF-8', 'windows-1252', $str);
+                    
                 }
                 
                 $this->WriteText($examArray[$i]['Res'],$xResVal,$interLine,'',$sizeFont,$font,false,false);
