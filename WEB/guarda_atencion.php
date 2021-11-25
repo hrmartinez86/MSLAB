@@ -109,8 +109,8 @@ if (odbc_num_rows($query_result) != 0) {
   $sql_1 = "INSERT INTO dat_paciente (cod_empresa, rut, expediente , nombre, apellidos, fecha_nacimiento, 
   calle, telefono, fono_urgencia, contraindicaciones, sexo, ciudad, fecha_ult_examen,curp,rfc,email) 
     VALUES (" . $_SESSION['empresa'] . ", '" . $correPac . "', '" . $Expediente . "','" . $nombre . "', 
-    '" . $apellidos . "', CONVERT(DATETIME,'" . $fecha_de_nacimiento . "',103), '" . $Direccion . "', '" . $Telefono . "', '', ''
-    , '" . $Sexo . "', '1', CONVERT(DATETIME, GETDATE(), 103), '" . $CitasCURP . "', '" . $CitasRFC . "','".$Email."')";
+    '" . $apellidos . "', convert(datetime,'" . $fecha_de_nacimiento . "',103), '" . $Direccion . "', '" . $Telefono . "', '', ''
+    , '" . $Sexo . "', '1',  convert(datetime,GETDATE(),103), '" . $CitasCURP . "', '" . $CitasRFC . "','".$Email."')";
 
   $rut = $correPac;
   // echo $sql_1;
@@ -297,7 +297,7 @@ $sql_1 = "INSERT INTO dat_dfipa (cod_empresa, fecha, hora, numero,
            horaEntrega,
            FormaPago) 
            vALUES (" . $_SESSION['empresa'] . ",
-           CONVERT(DATETIME,'" . $fecha . "',103), 
+           convert(datetime,'" . $fecha . "',103) , 
            '" . $hora . "', 
            '" . $folio . "', 
            '" . $rut . "', 
@@ -316,7 +316,7 @@ $sql_1 = "INSERT INTO dat_dfipa (cod_empresa, fecha, hora, numero,
            " . $meses . ", 
            " . $dias . ", 
            '0',
-           CONVERT(DATETIME,'" . $fecha . "',103), 
+           convert(datetime,'" . $fecha . "',103), 
            " . $CitasProcedencia . ", 
            '', 
            1, 
@@ -327,7 +327,7 @@ $sql_1 = "INSERT INTO dat_dfipa (cod_empresa, fecha, hora, numero,
            ".$adelanto.",
            ".$pendiente.",
            '".$estatusCuenta."',
-           '". date("d/m/Y",strtotime($fechaEntrega))."',
+           convert(datetime,'". date("d/m/Y",strtotime($fechaEntrega))."',103),
            '".$horaEntrega."',
            '".$formaPago."')";
 
@@ -350,7 +350,7 @@ for ($i = 0; $i < $numFinal; $i++) {
   ///hay que evaluar si es una agrupación
   $contEs=$i+1;
   $sql_1 = "INSERT INTO CAJ_DET_PRESTACIONES (cod_empresa,IDPACIENTE, ID, LLAVE_FONASA, VALOR_PARTICULAR, VALOR_PREVISION, VALOR_PAGADO, USUARIO_CREACION, FECHA_ENTREGA, URGENTE, FECHA_CREACION,LIBERADO) 
-		            VALUES (" . $_SESSION['empresa'] . ", '" . $idpaciente . "', " . $contEs . ", " . $llave . ", 0, 0, 0, '" . $_SESSION['nivel'] . "', '" . $fecha . "', '', CONVERT(DATETIME, GETDATE(), 103),'N' )";
+		            VALUES (" . $_SESSION['empresa'] . ", '" . $idpaciente . "', " . $contEs . ", " . $llave . ", 0, 0, 0, '" . $_SESSION['nivel'] . "', convert(datetime,'" . $fecha . "',103), '', CONVERT(DATETIME, GETDATE(), 103),'N' )";
   $query_result = odbc_exec($db_conn, $sql_1) or
     die("ERROR : No se puede ejecutar la consulta.5" . odbc_errormsg());
 

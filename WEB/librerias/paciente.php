@@ -14,8 +14,8 @@
 	else
 		$sexo="Femenino";
 		
-	$fec=split(" ",$res['fecha_nacimiento']);
-	$fecs=split("-",$fec[0]);
+	$fec=explode(" ",$res['fecha_nacimiento']);
+	$fecs=explode("-",$fec[0]);
 	$fm= $fecs[2]."/".$fecs[1]."/".$fecs[0];
 	echo '
 	     <input type="hidden" value="1" id="p" name="paciente"/>

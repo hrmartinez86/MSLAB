@@ -14,7 +14,7 @@ include('Librerias/conection.php');    //ESTABLACE LA CADENA DE CONEXION CON EL 
 $ODBC = $_SESSION["ODBC"];
 $examenesArray=array();
 echo '<script>';
-echo 'console.log(' . json_encode($ODBC) . ');';
+// echo 'console.log(' . json_encode($ODBC) . ');';
 echo '</script>';
 //$conection=conectar($ODBC);
 $db_conn = conectar($ODBC);
@@ -80,7 +80,6 @@ $db_conn = conectar($ODBC);
       <?php if ($_GET['t'] == 1) {
         $sql = "select codigo from lab_procedencia where ODBC='" . $ODBC . "'";
         echo '<script>';
-        echo 'console.log(' . json_encode($sql) . ');';
         echo '</script>';
 
         $query = odbc_exec($db_conn, $sql);
@@ -122,7 +121,7 @@ $db_conn = conectar($ODBC);
 
                 $fecha = date("d/m/Y");
                 //primero checo si hay referencia de folios
-
+                
                 if ($_GET['t'] == 1) {
                   if ($_GET['folioh'] == "") {
                     $sql = "SELECT     idpaciente AS id , numero FROM dat_dfipa WHERE     numero =" . $fxini . " order by numero";
@@ -153,9 +152,8 @@ $db_conn = conectar($ODBC);
 
                   $sql = "EXECUTE LISTA_RESULTADOS_WEB @TIPO='" . $tipo . "',@PROCEDENCIA='" . $proc . "',@SECCION='" . $sec . "',@FECHA_DESDE='" . $ini . "',@FECHA_HASTA='" . $fin . "',@EXP='" . $exp . "',@NOMBRE='" . $nombre . "',@APELLIDO='" . $ape . "'";
                   
-                  echo "<script> console.log('".$sql."');</script>";
                 }
-                
+                // echo '<script> console.log("'.$sql.'");</script>';
                 $query = odbc_exec($db_conn, $sql);
                 $idpac = $_GET['id'];
 
@@ -218,7 +216,6 @@ $db_conn = conectar($ODBC);
 
                   if ($_GET['t'] == 0) {
                     $sql = "SELECT     idpaciente AS id FROM         dat_dfipa WHERE     (fecha = CONVERT(datetime, '" . $fecha . "', 103))";
-                    // echo '<script> console.log("'.$sql.'");</script>';
                   } else
 
             	if ($_GET['t'] == 1) {
@@ -232,7 +229,8 @@ $db_conn = conectar($ODBC);
                   if ($_GET['t'] == 3) {
                     $sql = "EXECUTE LISTA_RESULTADOS_WEB @TIPO='" . $tipo . "',@PROCEDENCIA='" . $proc . "',@SECCION='" . $sec . "',@FECHA_DESDE='" . $ini . "',@FECHA_HASTA='" . $fin . "',@EXP='" . $exp . "',@NOMBRE='" . $nombre . "',@APELLIDO='" . $ape . "'";
                   }
-                  echo $sql;
+                  // echo '<script> console.log("'.$sql.'");</script>';
+                  
                   $query = odbc_exec($db_conn, $sql);
 
                   while ($result = odbc_fetch_array($query)) {
@@ -254,7 +252,7 @@ FROM         lab_relacion_laboratorio_seccion INNER JOIN
                     }
                   }
                   $query = odbc_exec($db_conn, $sql);
-
+                  echo "<p value='prueba'>". $sql ."</p>";
                   while ($result = odbc_fetch_array($query)) {
 
                     if ($result['codigo'] == $_GET['Secciond']) {
@@ -390,7 +388,7 @@ FROM         lab_relacion_laboratorio_seccion INNER JOIN
             $sql_1 = "EXECUTE SISTEMA_RESULTADOS_WEB_EDIT '" . $VL_Buscar . "'";
           }
           $i = 0;
-          //  echo $sql_1;
+          
           $query_result = odbc_exec($db_conn, $sql_1) or
             die("ERROR : No se puede ejecutar la consulta." . odbc_errormsg() . "<br>" . $sql_1);
           if (odbc_num_rows($query_result) != 0) {
@@ -611,7 +609,7 @@ FROM         lab_relacion_laboratorio_seccion INNER JOIN
                                                           if ((empty($result["VALOR_DESDE"])) or (trim($result["VALOR_DESDE"]) == "")) {
                                                             echo ("-");
                                                           } else {
-                                                            echo "<script> console.log('".$_SESSION['perfil']."');</script>";
+                                                            //echo "<script> console.log('".$_SESSION['perfil']."');</script>";
                                                             if ($_SESSION['perfil']==5){
                                                               echo '<input size="4" type="text" id="'.$llave2.'d"
                                                                     value="'.number_format($result["VALOR_DESDE"], $result["DECIMALES"], ".", ".").'">
@@ -767,7 +765,7 @@ FROM         lab_relacion_laboratorio_seccion INNER JOIN
                                                           if ((empty($result["VALOR_DESDE"])) or (trim($result["VALOR_DESDE"]) == "")) {
                                                             echo ("-");
                                                           } else {
-                                                            echo "<script> console.log('".$_SESSION['perfil']."');</script>";
+                                                            // echo "<script> console.log('".$_SESSION['perfil']."');</script>";
                                                             if ($_SESSION['perfil']==5){
                                                               echo '<input size="4" type="text" id="'.$llave.'d"
                                                                     value="'.number_format($result["VALOR_DESDE"], $result["DECIMALES"], ".", ".").'">
