@@ -13,7 +13,7 @@
 	nombre ='".$_GET['nom']."', 
 	telefono ='".$_GET['telefono']."', 
 	email ='".$_GET['email']."', "
-    . "fecha_nacimiento ='".$_GET['fecha']."' 
+    . "fecha_nacimiento =convert(datetime,'".$_GET['fecha']."',103) 
 	WHERE rut=".$_GET['rut'];
 	$eje=odbc_exec($conection,$sql_);
 	
