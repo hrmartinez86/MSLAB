@@ -27,7 +27,7 @@
 
         // //almacenamos el numero consecutivo diario
         // $numeroDiario=numeroDiario($fecha)+1;
-        $sql="select max(numero_registro) as numero_registro from dat_dfipa where fecha='".$fi."'";
+        $sql="select max(numero_registro) as numero_registro from dat_dfipa where fecha=CONVERT(datetime,'".$fi."',103)";
 
         $eje=odbc_exec($db_conn,$sql);
 	
