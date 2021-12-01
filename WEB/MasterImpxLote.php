@@ -226,7 +226,7 @@ $fechaIni=$fecha_array[2]."/". $fecha_array[1] ."/". $fecha_array[0];
 $fecha_array_ = explode("-", $fechaFin);
 $fechaFin=$fecha_array_[2]."/". $fecha_array_[1] ."/". $fecha_array_[0];
 
-$xE=15;
+$xE=18;
 $procedencia=$_GET['CitasProcedencia'];
 $tipo=$_GET['Tipo'];
 $idspaciente=pacientes($fechaIni,$fechaFin,$tipo,$procedencia);
@@ -245,7 +245,7 @@ for ($i=0; $i < count($idspaciente) ; $i++) {
 
         $pdf->AddPage();
         //comienzo de impresion
-        $xE=15;
+        $xE=18;
         $pdf->encabezado($idspaciente[$i]['nombrePaciente'],$idspaciente[$i]['doctor'],
         $idspaciente[$i]['procedencia'],$idspaciente[$i]['fecha'],str_pad($idspaciente[$i]['numero'],3,"0",STR_PAD_LEFT),$xE);
 
