@@ -86,7 +86,33 @@ protected $y0;      // Ordenada de comienzo de la columna
         }
         else
         {
-            $this->Cell(0,0,$text,0,0);
+            $find=';';
+            $sep=strpos($text,$find);
+            if($sep>0)
+            {
+                ///vemos las porciones a imprimir
+                $porciones = explode(";", $text);
+                            
+                for ($xxx = 0; $xxx < 100; $xxx++) 
+                {   
+                    if ($porciones[$xxx]!='')
+                    {
+                        $texto=$porciones[$xxx];
+                        if ($xxx>0)
+                        {
+                        $this->Ln(4);
+                        }
+                        $this->setX(80);
+                        $this->Cell(0, 0, utf8_decode($texto), 0, 0);
+                        $texto='';
+                    }
+                }
+            }
+            else
+            {
+                $this->Cell(0,0,utf8_decode($text),0,0);
+            }
+            
         }
         
         $this->Ln($s);
