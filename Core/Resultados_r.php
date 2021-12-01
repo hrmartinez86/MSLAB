@@ -388,7 +388,7 @@ FROM         lab_relacion_laboratorio_seccion INNER JOIN
             $sql_1 = "EXECUTE SISTEMA_RESULTADOS_WEB_EDIT '" . $VL_Buscar . "'";
           }
           $i = 0;
-          
+          echo '<script> console.log("'.$sql_1.'");</script>';
           $query_result = odbc_exec($db_conn, $sql_1) or
             die("ERROR : No se puede ejecutar la consulta." . odbc_errormsg() . "<br>" . $sql_1);
           if (odbc_num_rows($query_result) != 0) {
@@ -564,7 +564,7 @@ FROM         lab_relacion_laboratorio_seccion INNER JOIN
 
                                                     <td bgcolor=#5c7ec3 height=25 align="center" valign=middle width="20%">
                                                       <!--estado p-->
-                                                      <input <?php if ($result["ESTADO"] == 'P' || $result["ESTADO"] == ' ' || $result["ESTADO"] == '') {
+                                                      <textarea <?php if ($result["ESTADO"] == 'P' || $result["ESTADO"] == ' ' || $result["ESTADO"] == '') {
                                                               } else {
                                                                 echo "readonly";
                                                               } ?> style="background-color:<?php echo $color; ?>;" type="text" name="res" id="<?php echo $llave2; ?>" onChange="valor('<?php echo $llave2; ?>',
@@ -573,7 +573,7 @@ FROM         lab_relacion_laboratorio_seccion INNER JOIN
                                         '<?php echo $tipo; ?>',
                                         '<?php echo $alto; ?>',
                                         '<?php echo $bajo; ?>',
-                                        '<?php echo $result["ESTADO"]; ?>'); javascript: return false;" value='<?php echo ($result["RESULTADO"]); ?>'></input>
+                                        '<?php echo $result["ESTADO"]; ?>'); javascript: return false;" ><?php echo ($result["RESULTADO"]); ?></textarea>
                                                       <input type="hidden" name="perfil" value="<?php echo $perfil ?>">
                                                       <input type="hidden" name="estudio" value="<?php echo $result["LLAVE_FONASA"]; ?>">
                                                     </td>
@@ -722,16 +722,20 @@ FROM         lab_relacion_laboratorio_seccion INNER JOIN
                                                     </td>
 
                                                     <td bgcolor=#5c7ec3 height=25 align=center valign=middle width="20%">
-                                                      <input <?php if ($result["ESTADO"] == 'P' || $result["ESTADO"] == ' ' || $result["ESTADO"] == '') {
+                                                      <textarea <?php if ($result["ESTADO"] == 'P' || $result["ESTADO"] == ' ' || $result["ESTADO"] == '') {
                                                               } else {
                                                                 echo "readonly";
-                                                              } ?> style="background-color:<?php echo $color; ?>;" type="text" name="res2" id="<?php echo $llave; ?>" onChange="valor('<?php echo $llave; ?>','<?php echo $perfil; ?>','<?php echo $paciente; ?>','<?php echo $tipo; ?>','<?php echo $alto; ?>','<?php echo $bajo; ?>','<?php echo $result["ESTADO"]; ?>'); javascript: return false;" value='<?php echo ($result["RESULTADO"]); ?>'>
-                                                      </input>
+                                                              } ?> style="background-color:<?php echo $color; ?>;" type="text" name="res2" 
+                                                              id="<?php echo $llave; ?>" onChange="valor('<?php echo $llave; ?>',
+                                                              '<?php echo $perfil; ?>','<?php echo $paciente; ?>','<?php echo $tipo; ?>',
+                                                              '<?php echo $alto; ?>','<?php echo $bajo; ?>','<?php echo $result["ESTADO"]; ?>'); 
+                                                              javascript: return false;"><?php echo ($result["RESULTADO"]); ?>
+                                                      </textarea>
                                                       <input type="hidden" name="perfil2" value="<?php echo $perfil; ?>">
                                                       <input type="hidden" name="estudio2" value="<?php echo $result["LLAVE_FONASA"]; ?>">
                                                     </td>
                                                     <td bgcolor=#5c7ec3 height=15 align=center valign=middle width="5%">
-                                                      <input type="checkbox" width="12" height="12" name="des2" <?php if ($result["ESTADO"] == ' ' || $result["ESTADO"] == '' || $result["ESTADO"] == 'T') {
+                                                      <input type="checkbox" width="12" height="12" name="des" <?php if ($result["ESTADO"] == 'P' || $result["ESTADO"] == ' ' || $result["ESTADO"] == '' || $result["ESTADO"] == 'T') {
                                                                                                                   echo "disabled";
                                                                                                                 } ?>>
                                                     </td>

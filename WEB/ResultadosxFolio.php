@@ -31,7 +31,7 @@ while ($result=odbc_fetch_array($query))
   $folio=str_pad($result['NUMERO_REGISTRO'],3,"0",STR_PAD_LEFT);
   $doctor=$result['NOMBRE_DOCTOR'];
   $procedencia=$result['PROCEDENCIA_MUESTRA'];
-  $fechaAtencion=$result['FECHA'];
+  $fechaAtencion= $result['FECHA'];
 }
 
 ?> 
@@ -111,7 +111,7 @@ while ($result=odbc_fetch_array($query))
             <td class="th"><input type="hidden" value="<?php echo $folio;?>" name="folioPaciente" id="folioPaciente"></td>
             <td class="th"><input type="hidden" value="<?php echo $doctor;?>" name="doc" id="doc"></td>
             <td class="th"><input type="hidden" value="<?php echo $procedencia;?>" name="procedencia" id="procedencia"></td>
-            <td class="th"><input type="hidden" value="<?php echo $fecha;?>" name="fecha" id="fecha"></td>
+            <td class="th"><input type="hidden" value="<?php echo $fechaAtencion;?>" name="fecha" id="fecha"></td>
           </tr>
         </table>
  
