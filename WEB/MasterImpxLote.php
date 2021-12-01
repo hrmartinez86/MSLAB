@@ -12,7 +12,7 @@ class PDF extends FPDF
 protected $col = 0; // Columna actual
 protected $y0;      // Ordenada de comienzo de la columna
 
-    function encabezado($nombre,$doctor,$procedencia,$fecha,$numero){
+    function encabezado($nombre,$doctor,$procedencia,$fecha,$numero,$xE){
         $this->Ln(10);
 
         $this->WriteText('LABORATORIO SALAS FERNANDEZ',210,5,'B',13,'Arial',true,false);
@@ -32,10 +32,10 @@ protected $y0;      // Ordenada de comienzo de la columna
         .$meses[date('n',strtotime($fecha))-1]. " del ".date('Y',strtotime($fecha))  ;
         $this->WriteText($hoy,130,6,'',8,'Arial',false,false);
         
-		$this->WriteText("NOMBRE DEL PACIENTE:".str_replace("?","Ñ",$nombre),10,10,'B',8,'Arial',false,false);
-		$this->WriteText("NOMBRE DEL DOCTOR:".utf8_decode($doctor),10,0,'B',8,'Arial',false,false);
+		$this->WriteText("NOMBRE DEL PACIENTE:".str_replace("?","Ñ",$nombre),$xE,10,'B',8,'Arial',false,false);
+		$this->WriteText("NOMBRE DEL DOCTOR:".utf8_decode($doctor),$xE,0,'B',8,'Arial',false,false);
         $this->WriteText($procedencia,130,5,'B',8,'Arial',false,false);
-		$x1=5;
+		$x1=10;
 		$x2=200;
 		$y1=$this->GetY();
 		$this->Line($x1,  $y1,  $x2, $y1);
@@ -239,9 +239,10 @@ for ($i=0; $i < count($idspaciente) ; $i++) {
         $idPacienteComp=$idspaciente[$i]['idpaciente'];
 
         $pdf->AddPage();
-
+        //comienzo de impresion
+        $xE=15;
         $pdf->encabezado($idspaciente[$i]['nombrePaciente'],$idspaciente[$i]['doctor'],
-        $idspaciente[$i]['procedencia'],$idspaciente[$i]['fecha'],str_pad($idspaciente[$i]['numero'],3,"0",STR_PAD_LEFT));
+        $idspaciente[$i]['procedencia'],$idspaciente[$i]['fecha'],str_pad($idspaciente[$i]['numero'],3,"0",STR_PAD_LEFT),$xE);
 
         $pdf->ChapterTitle($idspaciente[$i]['nombre']);
 
