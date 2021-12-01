@@ -17,7 +17,13 @@ class PDF extends FPDF
 {
 protected $col = 0; // Columna actual
 protected $y0;      // Ordenada de comienzo de la columna
-
+    function divide($fechaAtencion)
+    {
+        $fh=explode(" ",$fechaAtencion);
+        $fd=explode("-",$fh[0]);
+        $fecha=$fd[2].'/'.$fd[1].'/'.$fd[0];
+        return $fecha;
+    }
     function encabezado($imagen,$anchoPagina){
         
         if ($imagen==TRUE) {
@@ -36,7 +42,7 @@ protected $y0;      // Ordenada de comienzo de la columna
 		$doctor=$_POST['doc'];
         $procedencia=$_POST['procedencia'];
         $numero=$_POST['folioPaciente'];
-        $fecha=$_POST['fecha'];
+        $fecha=$this->divide($_POST['fecha']);
         //fuentes
         $fontTitle='Arial';
         $fontSizeTitle=13;
