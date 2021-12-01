@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    
+    header('Content-Type: text/html; charset=UTF-8');
     //header("Cache-control: private"); //Arregla IE 6 
     //include_once(RelativePath . "/Barra.php");       
     if ($_SESSION['estado']=="ok" ) {
@@ -14,7 +14,7 @@
         //llave id paciente
         $ODBC=$_SESSION["ODBC"];
         $link=conectar($ODBC);
-        $sql="select df.idpaciente,cf.llave_fonasa,cf.nombre,dpc.nombre + ' ' + dpc.apellidos as NombrePaciente,
+        $sql="select df.idpaciente,cf.llave_fonasa,cf.nombre,REPLACE(dpc.nombre,'Ã‘','Ñ') + ' ' + REPLACE(dpc.apellidos,'Ã‘','Ñ')  as NombrePaciente,
         pm.descripcion as procedencia,doc.nombre as doctor,df.fecha,df.numero_registro as numero
          from dat_dpcod dp 
         inner join dat_dfipa df on df.idpaciente=dp.idpaciente
@@ -45,7 +45,7 @@
                          'doctor'=>$row['doctor'],
                          'fecha'=>$row['fecha'],
                          'numero'=>$row['numero']);
-
+            // var_dump($pac);
         }
         return $pac;
     }

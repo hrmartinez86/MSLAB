@@ -32,7 +32,11 @@ protected $y0;      // Ordenada de comienzo de la columna
         .$meses[date('n',strtotime($fecha))-1]. " del ".date('Y',strtotime($fecha))  ;
         $this->WriteText($hoy,130,6,'',8,'Arial',false,false);
         
-		$this->WriteText("NOMBRE DEL PACIENTE:".str_replace("?","Ñ",$nombre),$xE,10,'B',8,'Arial',false,false);
+        ///tratamiento caracter
+    
+		//nombre con  $this->WriteText("NOMBRE DEL PACIENTE:".utf8_encode($nombre),$xE,10,'B',8,'Arial',false,false);
+        
+		$this->WriteText("NOMBRE DEL PACIENTE:".utf8_encode($nombre),$xE,10,'B',8,'Arial',false,false);
 		$this->WriteText("NOMBRE DEL DOCTOR:".utf8_decode($doctor),$xE,0,'B',8,'Arial',false,false);
         $this->WriteText($procedencia,130,5,'B',8,'Arial',false,false);
 		$x2=200;
@@ -54,7 +58,7 @@ protected $y0;      // Ordenada de comienzo de la columna
     {
 		
 		$this->SetY(-15);
-        $this->WriteText(utf8_decode('Q.F.B. Gerardo Salas Fernández'),140,0,'',8,'Arial',false,false);
+        $this->WriteText(utf8_encode('Q.F.B. Gerardo Salas Fernández'),140,0,'',8,'Arial',false,false);
 		$this->SetY(-11);
 		$this->WriteText('UNE D.G.P. Num.2530411',145,0,'',8,'Arial',false,false);
 		$this->SetY(-7);
@@ -137,7 +141,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         {
             if($examArray[$i]['Res']!=''){
                 $this->WriteText(utf8_decode($examArray[$i]['Info']),$xE,0,'',8,'Arial',false,false);
-                $this->WriteText(utf8_decode($examArray[$i]['um']),140,0,'',8,'Arial',false,false);
+                $this->WriteText(utf8_encode($examArray[$i]['um']),140,0,'',8,'Arial',false,false);
                 if ($examArray[$i]['rt']!="") {
                     $this->WriteText($examArray[$i]['rt'],140,0,'',8,'Arial',false,false);
                 }
