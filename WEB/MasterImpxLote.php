@@ -35,10 +35,9 @@ protected $y0;      // Ordenada de comienzo de la columna
 		$this->WriteText("NOMBRE DEL PACIENTE:".str_replace("?","Ñ",$nombre),$xE,10,'B',8,'Arial',false,false);
 		$this->WriteText("NOMBRE DEL DOCTOR:".utf8_decode($doctor),$xE,0,'B',8,'Arial',false,false);
         $this->WriteText($procedencia,130,5,'B',8,'Arial',false,false);
-		$x1=10;
 		$x2=200;
 		$y1=$this->GetY();
-		$this->Line($x1,  $y1,  $x2, $y1);
+		$this->Line($xE,  $y1,  $x2, $y1);
 
     }
     function Header()
@@ -113,13 +112,15 @@ protected $y0;      // Ordenada de comienzo de la columna
         }
     }
 
-    function ChapterTitle($label)
+    function ChapterTitle($label,$xE)
     {
         $this->SetFont('Arial','',8);
         // $this->SetFillColor(208,211,212);
-        $this->Cell(0,6,$label,0,10,'B',false);
+        // $this->Cell(0,6,$label,0,10,'B',false);
+        $this->Ln(5);
+        $this->WriteText($label,$xE,6,'B',8,'Arial',false,false);
         $this->WriteText('',210,2,'',8,'Arial',false,false);
-        $this->WriteText('NOMBRE DEL EXAMEN',5,0,'B',8,'Arial',false,false);
+        $this->WriteText('NOMBRE DEL EXAMEN',$xE,0,'B',8,'Arial',false,false);
         $this->WriteText('RESULTADOS',80,0,'B',8,'Arial',false,false);
         $this->WriteText('VALOR DE REFERENCIA',140,6,'B',8,'Arial',false,false);
         
@@ -127,7 +128,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         $this->y0 = $this->GetY();
     }
 
-    function ChapterConten($llave,$idPaciente)
+    function ChapterConten($llave,$idPaciente,$xE)
     {
         
         $examArray=resultados($llave,$idPaciente);
@@ -135,7 +136,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         for ($i=0;$i<count($examArray);$i++)
         {
             if($examArray[$i]['Res']!=''){
-                $this->WriteText(utf8_decode($examArray[$i]['Info']),5,0,'',8,'Arial',false,false);
+                $this->WriteText(utf8_decode($examArray[$i]['Info']),$xE,0,'',8,'Arial',false,false);
                 $this->WriteText(utf8_decode($examArray[$i]['um']),140,0,'',8,'Arial',false,false);
                 if ($examArray[$i]['rt']!="") {
                     $this->WriteText($examArray[$i]['rt'],140,0,'',8,'Arial',false,false);
@@ -167,15 +168,15 @@ protected $y0;      // Ordenada de comienzo de la columna
         }
         $metodo=metodo($llave);
         if ($metodo!=""){
-            $this->WriteText(metodo($llave),5,5,'B',8,'Arial',false,true);
+            $this->WriteText(metodo($llave),$xE,5,'B',8,'Arial',false,true);
         }
         $nota=nota($llave);
         if ($nota!=""){
-            $this->WriteText($nota ,5,0,'',6,'Arial',false,true);
+            $this->WriteText($nota ,$xE,0,'',6,'Arial',false,true);
         }
     }
 
-    function ChapterBody($examenes,$idPaciente)
+    function ChapterBody($examenes,$idPaciente,$xE)
     {
         // Fuente
         $this->SetFont('Times','',8);
@@ -191,19 +192,19 @@ protected $y0;      // Ordenada de comienzo de la columna
         for ($i=0; $i <$x ; $i++) { 
             //nombre del estudio
             echo $examenes[$i]['nombre'];
-            $this->ChapterTitle($examenes[$i]['nombre']);
+            $this->ChapterTitle($examenes[$i]['nombre'],$xE);
             //pruebas en el estudio
-            $this->ChapterConten($examenes[$i]['llave'],$idPaciente);
+            $this->ChapterConten($examenes[$i]['llave'],$idPaciente,$xE);
         }
         
         
     }
 
-    function PrintChapter($examenes,$idPaciente)
+    function PrintChapter($examenes,$idPaciente,$xE)
     {
         // Añadir capítulo
 
-        $this->ChapterBody($examenes,$idPaciente);
+        $this->ChapterBody($examenes,$idPaciente,$xE);
         
     }
 }
@@ -221,7 +222,7 @@ $fechaIni=$fecha_array[2]."/". $fecha_array[1] ."/". $fecha_array[0];
 $fecha_array_ = explode("-", $fechaFin);
 $fechaFin=$fecha_array_[2]."/". $fecha_array_[1] ."/". $fecha_array_[0];
 
-
+$xE=15;
 $procedencia=$_GET['CitasProcedencia'];
 $tipo=$_GET['Tipo'];
 $idspaciente=pacientes($fechaIni,$fechaFin,$tipo,$procedencia);
@@ -230,9 +231,9 @@ $idspaciente=pacientes($fechaIni,$fechaFin,$tipo,$procedencia);
 for ($i=0; $i < count($idspaciente) ; $i++) { 
     if($idPacienteComp==$idspaciente[$i]['idpaciente'])
     {
-        $pdf->ChapterTitle($idspaciente[$i]['nombre']);
+        $pdf->ChapterTitle($idspaciente[$i]['nombre'],$xE);
 
-        $pdf->ChapterConten($idspaciente[$i]['llave_fonasa'],$idspaciente[$i]['idpaciente']);
+        $pdf->ChapterConten($idspaciente[$i]['llave_fonasa'],$idspaciente[$i]['idpaciente'],$xE);
     }
     else
     {
@@ -244,9 +245,9 @@ for ($i=0; $i < count($idspaciente) ; $i++) {
         $pdf->encabezado($idspaciente[$i]['nombrePaciente'],$idspaciente[$i]['doctor'],
         $idspaciente[$i]['procedencia'],$idspaciente[$i]['fecha'],str_pad($idspaciente[$i]['numero'],3,"0",STR_PAD_LEFT),$xE);
 
-        $pdf->ChapterTitle($idspaciente[$i]['nombre']);
+        $pdf->ChapterTitle($idspaciente[$i]['nombre'],$xE);
 
-        $pdf->ChapterConten($idspaciente[$i]['llave_fonasa'],$idspaciente[$i]['idpaciente']);
+        $pdf->ChapterConten($idspaciente[$i]['llave_fonasa'],$idspaciente[$i]['idpaciente'],$xE);
 
     }
     
