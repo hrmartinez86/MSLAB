@@ -86,7 +86,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         }
         else
         {
-            $this->Cell(0,0,$text,0,0);
+            $this->Cell(0,0,utf8_decode($text),0,0);
         }
         
         $this->Ln($s);
