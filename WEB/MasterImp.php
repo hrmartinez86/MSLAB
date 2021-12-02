@@ -32,7 +32,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         }
         else
         {
-            $x1=5;   
+            $x1=20;   
         }
 
         $x2=200;
@@ -66,8 +66,8 @@ protected $y0;      // Ordenada de comienzo de la columna
         $hoy='Fecha de Atención:'.$fecha;
         $this->WriteText($hoy,125,6,'',$fontSize,$font,false,false);
         
-		$this->WriteText("NOMBRE DEL PACIENTE:".$nombre,10,10,'B',$fontSize,$font,false,false);
-		$this->WriteText("NOMBRE DEL DOCTOR:".$doctor,10,0,'B',$fontSize,$font,false,false);
+		$this->WriteText("NOMBRE DEL PACIENTE:".$nombre,$x1,10,'B',$fontSize,$font,false,false);
+		$this->WriteText("NOMBRE DEL DOCTOR:".$doctor,$x1,0,'B',$fontSize,$font,false,false);
         $this->WriteText($procedencia,130,5,'B',$fontSize,$font,false,false);
         $this->Ln(5);
         
@@ -175,7 +175,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         }
         else
         {
-            $inicioIMp=5;
+            $inicioIMp=20;
         }
         $this->SetFont($fontTitle,'B',$fontSizeTitle);
         // $this->SetFillColor(208,211,212);
@@ -218,7 +218,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         }
         else
         {
-            $xRes=5;
+            $xRes=20;
         }
         $font='Arial';
         $sizeFont=9;
