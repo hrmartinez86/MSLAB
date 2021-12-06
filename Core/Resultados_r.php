@@ -124,9 +124,9 @@ $db_conn = conectar($ODBC);
                 
                 if ($_GET['t'] == 1) {
                   if ($_GET['folioh'] == "") {
-                    $sql = "SELECT     idpaciente AS id , numero FROM dat_dfipa WHERE     numero =" . $fxini . " order by numero";
+                    $sql = "SELECT     idpaciente AS id , numero FROM dat_dfipa WHERE     numero =" . $fxini . " order by numero_registro";
                   } else {
-                    $sql = "SELECT     idpaciente AS id , numero FROM dat_dfipa WHERE     numero between " . $fxini . " and " . $fxfin . " order by numero";
+                    $sql = "SELECT     idpaciente AS id , numero FROM dat_dfipa WHERE     numero between " . $fxini . " and " . $fxfin . " order by numero_registro";
                   }
                 }
 
