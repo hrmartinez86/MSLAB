@@ -141,7 +141,37 @@ protected $y0;      // Ordenada de comienzo de la columna
         
         $this->Ln($s);
     }
+    function evaluaLen($text,$cant)
+    {
+        $arrTotl=array();
+        $arrTot='';
+        if(strlen($text)>$cant)
+        {
+            // echo strlen($text);
+            // echo '<br>'.$text;
+            $arryRes=explode(" ",$text);
+            $arrTot="";
+            foreach ($arryRes as $l) {
+                // echo $l."<br>";
+                $x=strlen($l);
+                $y=strlen($arrTot);
+                if(($x+$y)<=$cant)
+                {
+                    $arrTot=$arrTot . " " .$l;
+                    // echo $arrTot."<br>";
+                }
+                else
+                {
+                    $arrayTotl[0]=$arrTot;
+                    $arrayTotl[1]=$l;
+                }
 
+                
+            }
+        }
+        // var_dump($arrayTotl);
+        return $arrTotl;
+    }
     function AcceptPageBreak()
     {
         // Método que acepta o no el salto autom�tico de p�gina
@@ -221,16 +251,22 @@ protected $y0;      // Ordenada de comienzo de la columna
             $xRes=20;
         }
         $font='Arial';
-        $sizeFont=9;
+        $sizeFont=8;
         $interLine=0;
         $interLinell=5;
-        $xResVal=80;
+        $xResVal=85;
         $xUM=110;
         $xRT=140;
         $xVd=140;
+        // var_dump($examArray);
         for ($i=0;$i<count($examArray);$i++)
         {
             if($examArray[$i]['Res']!=''){
+                // $linesName=$this->evaluaLen($examArray[$i]['Info'],30);
+                // foreach ($linesName as $line) {
+                //     $this->WriteText($line,$xRes,$interLine,'',$sizeFont,$font,false,false);
+                //     $this->Ln(5);
+                // }
                 $this->WriteText($examArray[$i]['Info'],$xRes,$interLine,'',$sizeFont,$font,false,false);
                 
                 if ($examArray[$i]['rt']!="") {
