@@ -23,6 +23,7 @@ FECHARECEPCIONMUESTRA, ESTADOTOMAMUESTRA, ESTADORECEPCIONMUESTRA, HORARECEPCIONM
 OBSTOMAMUESTRA, DESCRIPCION, RUT_PACIENTE, NOMBRE, APELLIDOS, SEXO, TELEFONO, FECHA_NACIMIENTO, PREVISION, CONTRAINDICACIONES, PROCEDENCIA_MUESTRA, 
 FOLIO_HOST, NUM_CAMA 
 FROM SISTEMA_TOMA_MUESTRAS_PACIENTE WHERE (idpaciente = '".$idpaciente."')";
+// echo $sql;
 $query=odbc_exec($conection,$sql);  
 while ($result=odbc_fetch_array($query))
 {
@@ -129,7 +130,8 @@ while ($result=odbc_fetch_array($query))
           <?php $sql="select cdp.llave_fonasa,cf.codigo_fonasa,cf.nombre as nombre_prestacion, cdp.idpaciente,cdp.liberado 
            from caj_det_prestaciones cdp
 inner join caj_codigos_fonasa cf on cf.llave_fonasa=cdp.llave_fonasa
-where idpaciente='".$idpaciente."' ORDER BY cf.valor_particular,cf.codigo_fonasa desc";
+where idpaciente='".$idpaciente."' ORDER BY cf.valor_particular";
+// echo $sql;
           $query=odbc_exec($conection,$sql);  
           
           $i=0;
@@ -137,7 +139,7 @@ where idpaciente='".$idpaciente."' ORDER BY cf.valor_particular,cf.codigo_fonasa
 			      while ($result=odbc_fetch_array($query))
 			          {
 			          	$codigos[$i]=$result['llave_fonasa'];
-			          	 		
+			          //  echo $result['nombre_prestacion']; 	 		
 			          
 			        	$llave=$result['codigo_fonasa'];
 			        	$id=$result['idpaciente'];
@@ -150,7 +152,6 @@ where idpaciente='".$idpaciente."' ORDER BY cf.valor_particular,cf.codigo_fonasa
                     <td><input type="hidden" value="<?php echo $llave;?>" name="codigos"/></td>
                     <td><input type="hidden" value="<?php echo $result['nombre_prestacion'];?>" name="descripcion"/></td>
                     <td><?php echo $result['nombre_prestacion'];?></td>
-                    <?php echo "<script> console.log('". $result['liberado']."');</script>";?>
                     <td ><input   type="checkbox" name="option" align="middle" value="
                     <?php echo $result['liberado'];?>" 
                     <?php if ($result['liberado']=='N'){echo "disabled";}else{$examenes[]=array('codigo'=>$result['codigo_fonasa'],'nombre'=>$result['nombre_prestacion'],'llave'=>$result['llave_fonasa']);} ?>> </td>
