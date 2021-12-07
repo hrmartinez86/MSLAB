@@ -133,7 +133,7 @@ inner join caj_codigos_fonasa cf on cf.llave_fonasa=cdp.llave_fonasa
 inner join lab_relac_fonasa_perfil rfp on rfp.llave_fonasa=cdp.llave_fonasa
 inner join lab_RLS_perfiles rlsp on rlsp.llave_perfil=rfp.llave_perfil
 where idpaciente='".$idpaciente."' ORDER BY  rlsp.cod_llave,cf.valor_particular ";
- echo $sql;
+//  echo $sql;
           $query=odbc_exec($conection,$sql);  
           
           $i=0;
