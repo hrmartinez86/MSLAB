@@ -48,7 +48,8 @@ protected $y0;      // Ordenada de comienzo de la columna
         $fontSizeTitle=11;
         $font='Arial';
         $fontSize=8;
-
+        
+        $this->WriteText('',180,6,'',8,$font,false,false);
         $this->WriteText('LABORATORIO SALAS FERNANDEZ',$anchoPagina,5,'B',$fontSizeTitle,$fontTitle,true,false);
         $this->WriteText('QUIMICO RESPONSABLE',$anchoPagina,5,'',$fontSize,$font,true,false);
         $this->WriteText('Q.F.B. GERARDO SALAS FERNANDEZ',$anchoPagina,5,'B',$fontSize,$font,true,false);
