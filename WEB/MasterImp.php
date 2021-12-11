@@ -37,7 +37,7 @@ protected $y0;      // Ordenada de comienzo de la columna
 
         $x2=200;
 
-        $this->Ln(10);
+        $this->Ln(1);
 		$nombre=$_POST['nombrePaciente'];
 		$doctor=$_POST['doc'];
         $procedencia=$_POST['procedencia'];
@@ -45,9 +45,9 @@ protected $y0;      // Ordenada de comienzo de la columna
         $fecha=$this->divide($_POST['fecha']);
         //fuentes
         $fontTitle='Arial';
-        $fontSizeTitle=13;
+        $fontSizeTitle=11;
         $font='Arial';
-        $fontSize=10;
+        $fontSize=8;
 
         $this->WriteText('LABORATORIO SALAS FERNANDEZ',$anchoPagina,5,'B',$fontSizeTitle,$fontTitle,true,false);
         $this->WriteText('QUIMICO RESPONSABLE',$anchoPagina,5,'',$fontSize,$font,true,false);
@@ -58,16 +58,17 @@ protected $y0;      // Ordenada de comienzo de la columna
         
         $diassemana = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
         $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
-        $this->WriteText('',180,6,'',8,$font,false,false);
-
-        $this->WriteText($numero,160,6,'B',$fontSize,$font,false,false);
+        // $this->WriteText('',180,6,'',8,$font,false,false);
         
+        $this->WriteText("No.".$numero,160,3,'B',$fontSize,$font,false,false);
+
         $hoy=utf8_decode($diassemana[date('w')])." ".date('d')." de ".$meses[date('n')-1]. " del ".date('Y') . " " . date('g:ia') ;
         $hoy='Fecha de Atención:'.$fecha;
-        $this->WriteText($hoy,125,6,'',$fontSize,$font,false,false);
-        
-		$this->WriteText("NOMBRE DEL PACIENTE:".$nombre,$x1,10,'B',$fontSize,$font,false,false);
-		$this->WriteText("NOMBRE DEL DOCTOR:".$doctor,$x1,0,'B',$fontSize,$font,false,false);
+        $this->WriteText($hoy,131,6,'',$fontSize,$font,false,false);
+
+        $this->WriteText("PACIENTE:".$nombre,$x1,3,'B',$fontSize,$font,false,false);
+        $this->WriteText("DOCTOR:".$doctor,$x1,0,'B',$fontSize,$font,false,false);	
+		
         $this->WriteText($procedencia,130,5,'B',$fontSize,$font,false,false);
         $this->Ln(5);
         
@@ -196,9 +197,9 @@ protected $y0;      // Ordenada de comienzo de la columna
     function ChapterTitle($label,$anchoPagina,$imagen)
     {
         $font='Arial';
-        $fontSize=10;
+        $fontSize=9;
         $fontTitle=$font;
-        $fontSizeTitle=10;
+        $fontSizeTitle=9;
 
         if ($imagen==TRUE) {
             $inicioIMp=10;

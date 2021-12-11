@@ -30,7 +30,7 @@ protected $y0;      // Ordenada de comienzo de la columna
 
         $hoy=utf8_decode($diassemana[date('w',strtotime($fecha))])." ".date('d',strtotime($fecha))." de "
         .$meses[date('n',strtotime($fecha))-1]. " del ".date('Y',strtotime($fecha))  ;
-        $this->WriteText($hoy,130,6,'',8,'Arial',false,false);
+        //$this->WriteText($hoy,130,6,'',8,'Arial',false,false);
         
         ///tratamiento caracter
     
@@ -193,6 +193,8 @@ protected $y0;      // Ordenada de comienzo de la columna
         echo '<br>';
         echo $x;
         echo $examenes[0]['llave'];
+        /////evaluamos el tamano de la hoja
+
         for ($i=0; $i <$x ; $i++) { 
             //nombre del estudio
             echo $examenes[$i]['nombre'];
