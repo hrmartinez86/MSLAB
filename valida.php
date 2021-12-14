@@ -74,7 +74,7 @@ Description: A wide two-column design suitable for blogs and small websites.
 						//$sql_1="select * from procedencia_muestra where descripcion='".$login."' and codigo='".$password."' and id=".$id;
 						//		$sql_1= "SELECT lab_procedencia.ODBC as ODBC ,descripcion,codigo FROM lab_procedencia WHERE     (lab_procedencia.descripcion = '" .$centro. "')";
 						//		$re =  odbc_exec($conection,$sql_1) or die ("no hay resultados");
-						$ODBC = "laboratorio";
+						$ODBC = "laboratorio_demo";
 						$empresa = 1;
 						$nombre = "laboratorio";
 						$sql_1 = "SELECT * FROM lab_usuarios WHERE     (lab_usuarios.usuario = '" . $usuario . "') AND (lab_usuarios.clave = '" . $password . "')";
@@ -187,7 +187,6 @@ Description: A wide two-column design suitable for blogs and small websites.
 	<!-- end page -->
 	<div id="footer">
 		<p id="legal">&copy;2008 MultiSystems S.A. de C.V., All Rights Reserved. Designed by <a href="http://www.MultiSystems.com.mx">T.I</a></p>
-		<p id="links"><a href="http://www.deltalab.com.mx/bioquimica">Principal</a>&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; <a href="#">Terms</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; <a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a> &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="http://jigsaw.w3.org/css-validator/check/referer" title="This page validates as CSS"><abbr title="Cascading Style Sheets">CSS</abbr></a></p>
 	</div>
 </body>
 
