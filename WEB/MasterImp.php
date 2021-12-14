@@ -50,12 +50,12 @@ protected $y0;      // Ordenada de comienzo de la columna
         $fontSize=8;
         
         $this->WriteText('',180,8,'',8,$font,false,false);
-        $this->WriteText('LABORATORIO SALAS FERNANDEZ',$anchoPagina,5,'B',$fontSizeTitle,$fontTitle,true,false);
+        $this->WriteText('LABORATORIO demo',$anchoPagina,5,'B',$fontSizeTitle,$fontTitle,true,false);
         $this->WriteText('QUIMICO RESPONSABLE',$anchoPagina,5,'',$fontSize,$font,true,false);
-        $this->WriteText('Q.F.B. GERARDO SALAS FERNANDEZ',$anchoPagina,5,'B',$fontSize,$font,true,false);
-        $this->WriteText('Emilio Carranza No.208 Ote.Zona Centro Cd. Madero,Tam.',$anchoPagina,5,'',$fontSize,$font,true,false);
-        $this->WriteText('C.P. 89400 Tel. 2-10-22-98 y 2-15-01-82',$anchoPagina,5,'',$fontSize,$font,true,false);
-        $this->WriteText('RFC.SAFG-7200203-IM0 UNE D.G.P. Num. 2530411',$anchoPagina,5,'',$fontSize,$font,true,false);
+        $this->WriteText('Q.F.B. xxxxx xxxxx xxxxx',$anchoPagina,5,'B',$fontSize,$font,true,false);
+        $this->WriteText('Direccion del laboratorio',$anchoPagina,5,'',$fontSize,$font,true,false);
+        $this->WriteText('Telefono',$anchoPagina,5,'',$fontSize,$font,true,false);
+        $this->WriteText('Datos Facturacion',$anchoPagina,5,'',$fontSize,$font,true,false);
         
         $diassemana = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
         $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
