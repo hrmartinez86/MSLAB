@@ -14,19 +14,24 @@ protected $y0;      // Ordenada de comienzo de la columna
 
     function encabezado($nombre,$doctor,$procedencia,$fecha,$numero,$xE){
         $this->Ln(10);
-
-        $this->WriteText('LABORATORIO SALAS FERNANDEZ',210,5,'B',13,'Arial',true,false);
-        $this->WriteText('QUIMICO RESPONSABLE',210,5,'',8,'Arial',true,false);
-        $this->WriteText('Q.F.B. GERARDO SALAS FERNANDEZ',210,5,'B',8,'Arial',true,false);
-        $this->WriteText('Emilio Carranza No.208 Ote.Zona Centro Cd. Madero,Tam.',210,5,'',8,'Arial',true,false);
-        $this->WriteText('C.P. 89400 Tel. 2-10-22-98 y 2-15-01-82',210,5,'',8,'Arial',true,false);
-        $this->WriteText('RFC.SAFG-7200203-IM0 UNE D.G.P. Num. 2530411',210,5,'',8,'Arial',true,false);
+        $anchoPagina=210;
+        $fontSizeTitle=10;
+        $fontTitle='Arial';
+        $fontSize=8;
+        $font='Arial';
+        $this->WriteText('LABORATORIO SALAS FERNANDEZ',$anchoPagina,5,'B',$fontSizeTitle,$fontTitle,true,false);
+        $this->WriteText('QUIMICO RESPONSABLE',$anchoPagina,5,'',$fontSize,$font,true,false);
+        $this->WriteText('Q.F.B. GERARDO SALAS FERNANDEZ',$anchoPagina,5,'B',$fontSize,$font,true,false);
+        $this->WriteText('Emilio Carranza No.208 Ote.Zona Centro Cd. Madero,Tam.',$anchoPagina,5,'',$fontSize,$font,true,false);
+        $this->WriteText('C.P. 89400 Tel. 2-10-22-98 y 2-15-01-82',$anchoPagina,5,'',$fontSize,$font,true,false);
+        $this->WriteText('RFC.SAFG-7200203-IM0 UNE D.G.P. Num. 2530411',$anchoPagina,5,'',$fontSize,$font,true,false);
+        
         
         $diassemana = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
         $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
         $this->WriteText('',200,6,'',8,'Arial',false,false);
 
-        $this->WriteText($numero,160,6,'B',8,'Arial',false,false);
+        $this->WriteText("No.".$numero,160,3,'B',$fontSize,$font,false,false);
 
         $hoy=utf8_decode($diassemana[date('w',strtotime($fecha))])." ".date('d',strtotime($fecha))." de "
         .$meses[date('n',strtotime($fecha))-1]. " del ".date('Y',strtotime($fecha))  ;
@@ -35,13 +40,16 @@ protected $y0;      // Ordenada de comienzo de la columna
         ///tratamiento caracter
     
 		//nombre con  $this->WriteText("NOMBRE DEL PACIENTE:".utf8_encode($nombre),$xE,10,'B',8,'Arial',false,false);
-        
-		$this->WriteText("NOMBRE DEL PACIENTE:".utf8_encode($nombre),$xE,10,'B',8,'Arial',false,false);
-		$this->WriteText("NOMBRE DEL DOCTOR:".utf8_decode($doctor),$xE,0,'B',8,'Arial',false,false);
-        $this->WriteText($procedencia,130,5,'B',8,'Arial',false,false);
+        $this->WriteText("PACIENTE:".$nombre,$xE,3,'B',$fontSize,$font,false,false);
+        $this->WriteText("DOCTOR:".$doctor,$xE,0,'B',$fontSize,$font,false,false);	
+		
+        $this->WriteText($procedencia,130,5,'B',$fontSize,$font,false,false);
+		// $this->WriteText("NOMBRE DEL PACIENTE:".$nombre,$xE,10,'B',8,'Arial',false,false);
+		// $this->WriteText("NOMBRE DEL DOCTOR:".utf8_decode($doctor),$xE,0,'B',8,'Arial',false,false);
+        // $this->WriteText($procedencia,130,5,'B',8,'Arial',false,false);
 		$x2=200;
 		$y1=$this->GetY();
-		$this->Line($xE,  $y1,  $x2, $y1);
+		// $this->Line($xE,  $y1,  $x2, $y1);
 
     }
     function Header()
@@ -121,8 +129,12 @@ protected $y0;      // Ordenada de comienzo de la columna
         $this->SetFont('Arial','',8);
         // $this->SetFillColor(208,211,212);
         // $this->Cell(0,6,$label,0,10,'B',false);
+        $inicioIMp=20;
+        
         $this->Ln(5);
-        $this->WriteText($label,$xE,6,'B',8,'Arial',false,false);
+        $this->WriteText($label,$xE,2,'B',8,'Arial',false,false);
+        $y1=$this->GetY();
+        $this->Line($inicioIMp,  $y1,  200, $y1);
         $this->WriteText('',210,2,'',8,'Arial',false,false);
         $this->WriteText('NOMBRE DEL EXAMEN',$xE,0,'B',8,'Arial',false,false);
         $this->WriteText('RESULTADOS',80,0,'B',8,'Arial',false,false);
