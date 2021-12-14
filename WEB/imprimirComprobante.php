@@ -45,12 +45,12 @@ protected $col = 0; // Columna actual
 protected $y0;      // Ordenada de comienzo de la columna
 
     function encabezado(){
-        $this->WriteText('LABORATORIO SALAS FERNANDEZ',210,5,'B',13,'Arial',true);
+        $this->WriteText('LABORATORIO demo',210,5,'B',13,'Arial',true);
         $this->WriteText('QUIMICO RESPONSABLE',210,5,'',10,'Arial',true);
-        $this->WriteText('Q.F.B. GERARDO SALAS FERNANDEZ',210,5,'B',10,'Arial',true);
-        $this->WriteText('Emilio Carranza No.208 Ote.Zona Centro Cd. Madero,Tam.',210,5,'',10,'Arial',true);
-        $this->WriteText('C.P. 89400 Tel. 2-10-22-98 y 2-15-01-82',210,5,'',10,'Arial',true);
-        $this->WriteText('RFC.SAFG-7200203-IM0 UNE D.G.P. Num. 2530411',210,5,'',10,'Arial',true);
+        $this->WriteText('Q.F.B. xxxxx xxxx xxxx',210,5,'B',10,'Arial',true);
+        $this->WriteText('Direccion del negocio',210,5,'',10,'Arial',true);
+        $this->WriteText('Telefono',210,5,'',10,'Arial',true);
+        $this->WriteText('datos factura',210,5,'',10,'Arial',true);
         $numero=$_POST['numeroCuenta'];
         $diassemana = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
         $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
@@ -79,7 +79,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         // echo $numero;
         $this->encabezado();
         
-        $this->Image('images/logo_laboratorio.jpeg',10,5,40,0,'JPEG');
+        //$this->Image('images/logo_laboratorio.jpeg',10,5,40,0,'JPEG');
         // Guardar ordenada
         $this->y0 = $this->GetY();
     }
