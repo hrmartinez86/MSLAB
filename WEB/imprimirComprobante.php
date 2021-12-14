@@ -79,7 +79,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         // echo $numero;
         $this->encabezado();
         
-        //$this->Image('images/logo_laboratorio.jpeg',10,5,40,0,'JPEG');
+        $this->Image('images/Hospital General.png',10,5,40,0,'JPEG');
         // Guardar ordenada
         $this->y0 = $this->GetY();
     }
@@ -201,7 +201,7 @@ $pdf->SetAuthor('MSLAB');
 $pdf->AddPage();
 $pdf->PrintChapter($nombre,$examenes,$nota,$total,$adelanto,$pendiente,70,$fp,$fe,$he);
 $pdf->SetY(160);
-// $pdf->Image('images/logo_laboratorio.jpeg',10,160,40,0,'JPEG');
+$pdf->Image('images/Hospital General.png',10,160,40,0,'JPEG');
 $pdf->encabezado();
 $pdf->PrintChapter($nombre,$examenes,$nota,$total,$adelanto,$pendiente,222,$fp,$fe,$he);
 $pdf->SetY(160);
