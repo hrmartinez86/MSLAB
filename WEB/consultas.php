@@ -8,7 +8,7 @@ function consulta($idpaciente,$llave,$usuario,$No_pc)
 	$llaves=explode("-", $llave);	
 	$cont=count($llaves)-2;
 	$Consulta="SISTEMA_WEB_RESULTADOS ".$idpaciente.",".$llaves[0].",".$usuario.",".$No_pc;
-	#echo $Consulta."<br>";
+	echo $Consulta."<br>";
 	$TMP_RecordSet = odbc_exec($link,$Consulta); 
 	
 
