@@ -19,12 +19,12 @@ protected $y0;      // Ordenada de comienzo de la columna
         $fontTitle='Arial';
         $fontSize=8;
         $font='Arial';
-        $this->WriteText('LABORATORIO SALAS FERNANDEZ',$anchoPagina,5,'B',$fontSizeTitle,$fontTitle,true,false);
+        $this->WriteText('LABORATORIO .',$anchoPagina,5,'B',$fontSizeTitle,$fontTitle,true,false);
         $this->WriteText('QUIMICO RESPONSABLE',$anchoPagina,5,'',$fontSize,$font,true,false);
-        $this->WriteText('Q.F.B. GERARDO SALAS FERNANDEZ',$anchoPagina,5,'B',$fontSize,$font,true,false);
-        $this->WriteText('Emilio Carranza No.208 Ote.Zona Centro Cd. Madero,Tam.',$anchoPagina,5,'',$fontSize,$font,true,false);
-        $this->WriteText('C.P. 89400 Tel. 2-10-22-98 y 2-15-01-82',$anchoPagina,5,'',$fontSize,$font,true,false);
-        $this->WriteText('RFC.SAFG-7200203-IM0 UNE D.G.P. Num. 2530411',$anchoPagina,5,'',$fontSize,$font,true,false);
+        $this->WriteText('Q.F.B. . .',$anchoPagina,5,'B',$fontSize,$font,true,false);
+        $this->WriteText('Direccion del laboratorio',$anchoPagina,5,'',$fontSize,$font,true,false);
+        $this->WriteText('C.P. 00000 Tel. 00000000000',$anchoPagina,5,'',$fontSize,$font,true,false);
+        $this->WriteText('',$anchoPagina,5,'',$fontSize,$font,true,false);
         
         
         $diassemana = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
@@ -66,7 +66,7 @@ protected $y0;      // Ordenada de comienzo de la columna
     {
 		
 		$this->SetY(-15);
-        $this->WriteText(utf8_encode('Q.F.B. Gerardo Salas Fernández'),140,0,'',8,'Arial',false,false);
+        $this->WriteText(utf8_encode('Q.F.B. . Salas Fernández'),140,0,'',8,'Arial',false,false);
 		$this->SetY(-11);
 		$this->WriteText('UNE D.G.P. Num.2530411',145,0,'',8,'Arial',false,false);
 		$this->SetY(-7);
