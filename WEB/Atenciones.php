@@ -104,7 +104,7 @@ $fecha = date('d/m/Y');
   </style>
   <meta name="GENERATOR" content="CodeCharge Studio 4.2.00.040">
 
-  <link rel="stylesheet" type="text/css" href="Styles/Core/Style_doctype.css">
+  <!-- <link rel="stylesheet" type="text/css" href="Styles/Core/Style_doctype.css"> -->
   <link rel="icon" type="image/gif" href="../images/core/icon.png">
   <link type="text/css" rel="stylesheet" href="dhtmlgoodies_calendar/dhtmlgoodies_calendar.css?random=20051112" media="screen">
   </LINK>
@@ -249,9 +249,21 @@ $fecha = date('d/m/Y');
                   <option value="tc">Tarjeta de crédito</option>
                   <option value="td">Tarjeta de debito</option>
                 </select></td>
-              <td></td>
+              
             </tr>
+            <tr class="Controls">
+              <td class="th"><label for="Diagnostico">Diagnostico:</label></td>
+              
+              
+              <td><input name="diagnostico" id="diagnostico" class="Controls" value="" style="width:98%; "></td>
+              
+             
+            </tr>
+            <tr class="Controls">
+              <td class="th"><label for="Correo">Observaciones:</label></td>
+              <td><input name="observaciones" id="observaciones" class="Controls" value="" style="width:98%; "></td>
 
+            </tr>
           </table>
           <br>
           <table class="Header" border="0" cellspacing="0" cellpadding="0" width="40%">
@@ -268,7 +280,7 @@ $fecha = date('d/m/Y');
               <td>
                 <!--c-->
                 <strong>Descripción</strong>
-                <select class="selectpicker" data-show-subtext="true" data-live-search="true" size="5" style="width: 450px;" id="ExamenCatalogo"  onchange="seleccionaEstudio()">
+                <select class="selectpicker" style="color:gray"  data-show-subtext="false" data-live-search="true" size="5" style="width: 450px;" id="ExamenCatalogo"  onchange="seleccionaEstudio()">
                   <?php
                   ///estudios
                   $sql = "select codigo_fonasa,nombre,costo_examen as precio from caj_codigos_fonasa where activo='S' AND CODIGO_FONASA NOT LIKE 'ANTV%' order by CODIGO_FONASA ";

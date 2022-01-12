@@ -31,7 +31,7 @@
 	}
 
 .DataFontColor {
-	color: #3c7186;
+	color: #e7eff1;
 	}
 
 .LinkColor {
@@ -47,7 +47,7 @@
 	}
 
 .ColorBgButton {
-	background-color: #46839b;
+	background-color: #e7eff1;
 }
 
 .ColorFontButton {
@@ -249,7 +249,7 @@ html>body .Header th {
 	}
 
 .Caption th { 
-	font-size: 80%; 	text-align: left; vertical-align: top;
+	font-size: 80%; 	text-aign: left; vertical-align: top;
 	padding: 2px;
 	border-bottom: solid 1px #8ec6c6;
 	background-color: #e7eff1; color: #3c7186;

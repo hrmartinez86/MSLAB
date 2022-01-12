@@ -50,6 +50,7 @@ $formaPago=htmlspecialchars($_POST['FormaPago']);
 $examenesArray = array();
 $fechaEntrega=htmlspecialchars($_POST['fechaEntrega']);
 $horaEntrega=htmlspecialchars($_POST['horaEntrega']);
+$diagnostico=htmlspecialchars($_POST['diagnostico']);
 $_SESSION['Tipo'] = $Tipo;
 $_SESSION['nombre'] = $nombre;
 $_SESSION['doctor'] = $Doctor;
@@ -295,7 +296,8 @@ $sql_1 = "INSERT INTO dat_dfipa (cod_empresa, fecha, hora, numero,
            cuentaEstado,
            fechaEntrega,
            horaEntrega,
-           FormaPago) 
+           FormaPago,
+           diagnostico) 
            vALUES (" . $_SESSION['empresa'] . ",
            convert(datetime,'" . $fecha . "',103) , 
            '" . $hora . "', 
@@ -329,7 +331,8 @@ $sql_1 = "INSERT INTO dat_dfipa (cod_empresa, fecha, hora, numero,
            '".$estatusCuenta."',
            convert(datetime,'". date("d/m/Y",strtotime($fechaEntrega))."',103),
            '".$horaEntrega."',
-           '".$formaPago."')";
+           '".$formaPago."',
+           '".$diagnostico."')";
 
 
            $query_result = odbc_exec($db_conn, $sql_1) or
