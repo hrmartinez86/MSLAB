@@ -109,12 +109,12 @@ $db_conn = conectar($ODBC);
         }
       }
 
-
+ 
 
       ?>
       <form id="Foliof" method="get" name="Foliof" action="">
-        <table border="0" cellspacing="0" cellpadding="0" width="1154">
-
+        <table border="0" cellspacing="0" cellpadding="0" width="100%">
+          <tr><th style="width: 70%;"></th><th style="width: 30%;"></th></tr>                                                                  
           <tr>
 
             <td> <select id="Folio" name="Folio" onchange="folio()">
@@ -183,11 +183,10 @@ $db_conn = conectar($ODBC);
                                                                         } else {
                                                                           echo $idpac;
                                                                         }; ?>"></td>
+                                                                        <td></td>
             
           </tr>
-          <tr>
-            <!-- <td><input type="submit" value="Enviar" /></td> -->
-          </tr>
+     
 
 
         </table>
@@ -208,10 +207,9 @@ $db_conn = conectar($ODBC);
 
         <!-- <form id="Seccionf" method="get" name="Seccion" action="Resultadosxsec.php">   -->
         <form id="Seccionf" method="get" name="Seccion" action="Resultados_r.php">
-          <table border="0" cellspacing="0" cellpadding="0" width="300">
-
+          <table border="0" cellspacing="0" cellpadding="0" width="100%">
+            <tr><th style="width: 70%;"></th><th style="width: 30%;"></th></tr>                                                                  
             <tr>
-
               <td> <select id="Secciond" name="Secciond" onchange="javascript:Seccionf.submit()">
                   <?php
                   $m = 0;
@@ -221,7 +219,7 @@ $db_conn = conectar($ODBC);
                     $sql = "SELECT     idpaciente AS id FROM         dat_dfipa WHERE     (fecha = CONVERT(datetime, '" . $fecha . "', 103))";
                   } else
 
-            	if ($_GET['t'] == 1) {
+            	    if ($_GET['t'] == 1) {
                     if ($_GET['folioh'] == "") {
                       $sql = "SELECT     idpaciente AS id FROM         dat_dfipa WHERE     numero = '" . $fxini . "'";
                     } else {
@@ -245,7 +243,7 @@ $db_conn = conectar($ODBC);
                   echo '<option value="1">"TODOS"</option>';
                   if ($_GET['Seccion'] != "") {
                     $sql = "SELECT     lab_relacion_laboratorio_seccion.cod_llave AS codigo, lab_secciones.descripcion AS descripcion
-FROM         lab_relacion_laboratorio_seccion INNER JOIN
+                  FROM         lab_relacion_laboratorio_seccion INNER JOIN
                       lab_secciones ON lab_relacion_laboratorio_seccion.seccion = lab_secciones.codigo where lab_relacion_laboratorio_seccion.cod_llave='" . $_GET['Seccion'] . "'";
                   } else {
                     if ($idpac == "") {
