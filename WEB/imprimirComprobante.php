@@ -78,8 +78,8 @@ protected $y0;      // Ordenada de comienzo de la columna
         
         // echo $numero;
         $this->encabezado();
-        
-        $this->Image('images/logo_laboratorio.jpeg',10,5,40,0,'JPEG');
+        $this->Image('http://chart.googleapis.com/chart?chs=100x100&cht=qr&chl=SoyUnDios&.png',20,20,20,20);
+        // $this->Image('images/QR.jpEg',10,5,40,0,'JPEG');
         // Guardar ordenada
         $this->y0 = $this->GetY();
     }
@@ -201,7 +201,7 @@ $pdf->SetAuthor('MSLAB');
 $pdf->AddPage();
 $pdf->PrintChapter($nombre,$examenes,$nota,$total,$adelanto,$pendiente,70,$fp,$fe,$he);
 $pdf->SetY(160);
-$pdf->Image('images/logo_laboratorio.jpeg',10,160,40,0,'JPEG');
+// $pdf->Image('images/logo_laboratorio.jpeg',10,160,40,0,'JPEG');
 $pdf->encabezado();
 $pdf->PrintChapter($nombre,$examenes,$nota,$total,$adelanto,$pendiente,222,$fp,$fe,$he);
 $pdf->SetY(160);

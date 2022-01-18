@@ -51,6 +51,7 @@ $examenesArray = array();
 $fechaEntrega=htmlspecialchars($_POST['fechaEntrega']);
 $horaEntrega=htmlspecialchars($_POST['horaEntrega']);
 $diagnostico=htmlspecialchars($_POST['diagnostico']);
+$observaciones=htmlspecialchars($_POST['observaciones']);
 $_SESSION['Tipo'] = $Tipo;
 $_SESSION['nombre'] = $nombre;
 $_SESSION['doctor'] = $Doctor;
@@ -307,7 +308,7 @@ $sql_1 = "INSERT INTO dat_dfipa (cod_empresa, fecha, hora, numero,
            '" . $_SESSION['nivel'] . "', 
            '0', 
            '0', 
-           '', 
+           '".$observaciones."', 
            '" . $Tipo . "', 
            'K', 
            'R', 
