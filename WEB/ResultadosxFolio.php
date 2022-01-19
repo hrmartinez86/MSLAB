@@ -21,9 +21,9 @@ $folio= $cod.$folio;
 $sql="SELECT FECHA, HORA, NUMERO, NUMERO_REGISTRO, RUT, USUARIO_CREACION, NOMBRE_USUARIO, AnOS, NOMBRE_DOCTOR, FECHATOMAMUESTRA, 
 FECHARECEPCIONMUESTRA, ESTADOTOMAMUESTRA, ESTADORECEPCIONMUESTRA, HORARECEPCIONMUESTRA, FECHA_REGISTRO, IDPACIENTE, ORI_PAC, TIPO_DE_URGENCIA, 
 OBSTOMAMUESTRA, DESCRIPCION, RUT_PACIENTE, NOMBRE, APELLIDOS, SEXO, TELEFONO, FECHA_NACIMIENTO, PREVISION, CONTRAINDICACIONES, PROCEDENCIA_MUESTRA, 
-FOLIO_HOST, NUM_CAMA 
+FOLIO_HOST, NUM_CAMA ,DIAGNOSTICO
 FROM SISTEMA_TOMA_MUESTRAS_PACIENTE WHERE (idpaciente = '".$idpaciente."')";
-// echo $sql;
+//echo $sql;
 $query=odbc_exec($conection,$sql);  
 while ($result=odbc_fetch_array($query))
 {
@@ -33,6 +33,7 @@ while ($result=odbc_fetch_array($query))
   $doctor=$result['NOMBRE_DOCTOR'];
   $procedencia=$result['PROCEDENCIA_MUESTRA'];
   $fechaAtencion= $result['FECHA'];
+  $diagnostico=$result['DIAGNOSTICO'];
 }
 
 ?> 
@@ -113,6 +114,7 @@ while ($result=odbc_fetch_array($query))
             <td class="th"><input type="hidden" value="<?php echo $doctor;?>" name="doc" id="doc"></td>
             <td class="th"><input type="hidden" value="<?php echo $procedencia;?>" name="procedencia" id="procedencia"></td>
             <td class="th"><input type="hidden" value="<?php echo $fechaAtencion;?>" name="fecha" id="fecha"></td>
+            <td class="th"><input type="hidden" value="<?php echo $diagnostico;?>" name="diagnostico" id="diagnostico"></td>
           </tr>
         </table>
  

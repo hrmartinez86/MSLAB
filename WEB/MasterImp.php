@@ -43,6 +43,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         $procedencia=$_POST['procedencia'];
         $numero=$_POST['folioPaciente'];
         $fecha=$this->divide($_POST['fecha']);
+        $diagnostico=$_POST['diagnostico'];
         //fuentes
         $fontTitle='Arial';
         $fontSizeTitle=11;
@@ -68,8 +69,8 @@ protected $y0;      // Ordenada de comienzo de la columna
         $this->WriteText($hoy,131,6,'',$fontSize,$font,false,false);
 
         $this->WriteText("PACIENTE:".$nombre,$x1,3,'B',$fontSize,$font,false,false);
-        $this->WriteText("DOCTOR:".$doctor,$x1,0,'B',$fontSize,$font,false,false);	
-		
+        $this->WriteText("DOCTOR:".$doctor,$x1,3,'B',$fontSize,$font,false,false);	
+		// $this->WriteText("DIANOSTICO:".$diagnostico,$x1,0,'B',$fontSize,$font,false,false);	
         $this->WriteText($procedencia,130,5,'B',$fontSize,$font,false,false);
         $this->Ln(5);
         
