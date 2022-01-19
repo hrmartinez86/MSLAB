@@ -52,10 +52,6 @@ protected $y0;      // Ordenada de comienzo de la columna
         
         $this->WriteText('',180,8,'',8,$font,false,false);
         $this->WriteText('LABORATORIO .',$anchoPagina,5,'B',$fontSizeTitle,$fontTitle,true,false);
-        $this->WriteText('QUIMICO RESPONSABLE',$anchoPagina,5,'',$fontSize,$font,true,false);
-        $this->WriteText('Q.F.B. . .',$anchoPagina,5,'B',$fontSize,$font,true,false);
-        $this->WriteText('Direccion del laboratorio',$anchoPagina,5,'',$fontSize,$font,true,false);
-        $this->WriteText('C.P. 00000 Tel. 00000000000',$anchoPagina,5,'',$fontSize,$font,true,false);
         $this->WriteText('',$anchoPagina,5,'',$fontSize,$font,true,false);
         
         $diassemana = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
@@ -85,7 +81,12 @@ protected $y0;      // Ordenada de comienzo de la columna
 
     function Footer()
     {
-		
+        // Go to 1.5 cm from bottom
+    $this->SetY(-15);
+    // Select Arial italic 8
+    $this->SetFont('Arial','I',8);
+    // Print centered page number
+    $this->Cell(0,10,'Quimico Responsable',0,0,'R');
 
     }
 
