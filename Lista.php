@@ -220,6 +220,7 @@ $ODBC=$_SESSION["ODBC"];
                         <div align="center">Folio
                           <input type="text" name="folio" id="folio" />
                         </div>
+                        
                         <div align="center">
                           <input type="submit" value="Enviar" />
                           <input type="reset"	value="Borrar" name="B" />
