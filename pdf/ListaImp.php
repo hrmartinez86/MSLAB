@@ -186,23 +186,28 @@ while ($result=odbc_fetch_array($query))
         
         $pdf->SetFont('Arial','',9);
 
-        $paciente=$result['folio'];
-        
-        $pdf->SetX(0);	
-        $pdf->Cell(0,0,"____________________________________________________________________________________________________________________",0,0);	
-        $pdf->SetX(10);	
-        $pdf->Cell(0,0,$paciente,0,0);
-        $pdf->SetX(24);
-        $pdf->Cell(0,0,$result['nombre'],0,0);
+        $paciente[$i]=$result['idpaciente'];
 
-        $pdf->SetX(80);
-        $pdf->Cell(0,0,$result['tipo_paciente'],0,0);
+        if ($paciente[$i-1]!=$result['idpaciente'])
+        {
+            $pdf->SetX(0);	
+            $pdf->Cell(0,0,"____________________________________________________________________________________________________________________",0,0);	
+            $pdf->SetX(10);	
+            $pdf->Cell(0,0,$result['numero_registro'],0,0);
+            $pdf->SetX(24);
+            $pdf->Cell(0,0,$result['nombre'],0,0);
 
-        $pdf->SetX(120);
-        $pdf->Cell(0,0,$result['procedencia'],0,0);
+            $pdf->SetX(80);
+            $pdf->Cell(0,0,$result['tipo_paciente'],0,0);
 
-        $pdf->SetX(170);
-        $pdf->Cell(0,0,$result['Estudio']."_________",0,0); 
+            $pdf->SetX(120);
+            $pdf->Cell(0,0,$result['procedencia'],0,0);
+
+            $pdf->SetX(170);
+            $pdf->Cell(0,0,$result['Estudio']."_________",0,0); 
+            $pdf->Ln(5);
+        }
+        $i++;
         $pdf->Ln(5);
         
     
