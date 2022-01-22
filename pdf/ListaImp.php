@@ -147,6 +147,7 @@ $estudios="";
 $impSeccion=false;
 while ($result=odbc_fetch_array($query))
     {
+        
         if($seccion != $result['cod_llave']&&$seccion!='')
         {
             $pdf->AddPage();
@@ -175,14 +176,13 @@ while ($result=odbc_fetch_array($query))
             
             $pdf->Cell(0,10,"Procedencia de Muestra",0,0);
 
-            $pdf->Ln(5);
+            $pdf->SetX(0);
+            $pdf->Cell(0,10,"____________________________________________________________________________________________________________________",0,0);	
 
             $impSeccion=true;
         }
         
         $seccion=$result['cod_llave'];
-        
-        $pdf->Ln(5);
         
         $pdf->SetFont('Arial','',9);
 
@@ -190,8 +190,9 @@ while ($result=odbc_fetch_array($query))
 
         if ($paciente[$i-1]!=$result['idpaciente'])
         {
+            $pdf->Ln(10);
             $pdf->SetX(0);	
-            $pdf->Cell(0,0,"____________________________________________________________________________________________________________________",0,0);	
+            $pdf->Cell(0,-10,"____________________________________________________________________________________________________________________",0,0);	
             $pdf->SetX(10);	
             $pdf->Cell(0,0,$result['numero_registro'],0,0);
             $pdf->SetX(24);
@@ -203,12 +204,19 @@ while ($result=odbc_fetch_array($query))
             $pdf->SetX(120);
             $pdf->Cell(0,0,$result['procedencia'],0,0);
 
-            $pdf->SetX(170);
-            $pdf->Cell(0,0,$result['Estudio']."_________",0,0); 
+            $xe=10;
             $pdf->Ln(5);
+            $pdf->SetX($xe);
+            $pdf->Cell(0,0,$result['Estudio']."_________",0,0); 
+        }
+        else
+        {
+            $xe=$xe+35;
+            $pdf->SetX($xe);
+            $pdf->Cell(0,0,$result['Estudio']."_________",0,0); 
         }
         $i++;
-        $pdf->Ln(5);
+        
         
     
 }
