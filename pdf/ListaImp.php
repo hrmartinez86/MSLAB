@@ -145,10 +145,12 @@ $query=odbc_exec($conection,$sql);
 $i=0;
 $estudios="";
 $impSeccion=false;
+$limiteY=250;
 while ($result=odbc_fetch_array($query))
     {
-        
-        if($seccion != $result['cod_llave']&&$seccion!='')
+        $y=$pdf->GetY();
+
+        if(($seccion != $result['cod_llave']&&$seccion!='')||$y>$limiteY)
         {
             $pdf->AddPage();
             $impSeccion=false;
