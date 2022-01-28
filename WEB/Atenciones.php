@@ -141,6 +141,11 @@ $fecha = date('d/m/Y');
           </table>
 
           <table cellpadding="0" cellspacing="0" class="Record">
+          <tr class="Controls">
+              <td class="th"><label for="expediente">Expediente:</label></td>
+              <td><input name="expediente" id="expediente" value="" style="width:100%;"></td>
+              <td></td>
+            </tr>
 
             <tr class="Controls">
               <td class="th"><label for="CitasNombres">Nombre del paciente:</label></td>
@@ -255,7 +260,7 @@ $fecha = date('d/m/Y');
               <td class="th"><label for="Diagnostico">Diagnostico:</label></td>
               
               
-              <td><input name="diagnostico" id="diagnostico" class="Controls" value="" style="width:98%; "></td>
+              <td><input name="diagnostico" id="observaciones" class="Controls" value="" style="width:98%; "></td>
               
              
             </tr>

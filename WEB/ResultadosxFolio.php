@@ -23,7 +23,7 @@ FECHARECEPCIONMUESTRA, ESTADOTOMAMUESTRA, ESTADORECEPCIONMUESTRA, HORARECEPCIONM
 OBSTOMAMUESTRA, DESCRIPCION, RUT_PACIENTE, NOMBRE, APELLIDOS, SEXO, TELEFONO, FECHA_NACIMIENTO, PREVISION, CONTRAINDICACIONES, PROCEDENCIA_MUESTRA, 
 FOLIO_HOST, NUM_CAMA ,DIAGNOSTICO
 FROM SISTEMA_TOMA_MUESTRAS_PACIENTE WHERE (idpaciente = '".$idpaciente."')";
-//echo $sql;
+// echo $sql;
 $query=odbc_exec($conection,$sql);  
 while ($result=odbc_fetch_array($query))
 {
@@ -34,6 +34,8 @@ while ($result=odbc_fetch_array($query))
   $procedencia=$result['PROCEDENCIA_MUESTRA'];
   $fechaAtencion= $result['FECHA'];
   $diagnostico=$result['DIAGNOSTICO'];
+  $anos=$result['AnOS'];
+  $expediente=$result['expediente'];
 }
 
 ?> 
@@ -115,6 +117,8 @@ while ($result=odbc_fetch_array($query))
             <td class="th"><input type="hidden" value="<?php echo $procedencia;?>" name="procedencia" id="procedencia"></td>
             <td class="th"><input type="hidden" value="<?php echo $fechaAtencion;?>" name="fecha" id="fecha"></td>
             <td class="th"><input type="hidden" value="<?php echo $diagnostico;?>" name="diagnostico" id="diagnostico"></td>
+            <td><input type="hidden" value="<?php echo $anos;?>" name="anos" id="anos"></td>
+            <td><input type="hidden" value="<?php echo $expediente;?>" name="expediente" id="expediente"></td>
           </tr>
         </table>
  
@@ -176,10 +180,10 @@ where idpaciente='".$idpaciente."' ORDER BY  rlsp.cod_llave,cf.valor_particular 
                 <td><input type="hidden" value="<?php echo $result['nombre_prestacion'];?>" name="descripcion_" id="descripcion_" /></td></tr>
           </table>
           <tr>
-            <td>
+            <!-- <td>
               <p><label for="imagen">Imprime marco del resultado</label><input type="checkbox" name="imagen" id="imagen"></p>
               
-            </td>
+            </td> -->
           </tr>
           </table>
 </form>

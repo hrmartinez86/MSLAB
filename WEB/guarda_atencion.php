@@ -32,7 +32,7 @@ $db_conn = conectar($ODBC);
 //captura de variables post
 $Tipo = htmlspecialchars($_POST["Tipo"]);
 $Doctor = htmlspecialchars($_POST["Doctor"]);
-$Expediente = htmlspecialchars($_POST["Expediente"]);
+$Expediente = htmlspecialchars($_POST["expediente"]);
 $Sexo = htmlspecialchars($_POST["Sexo"]);
 $nombre = htmlspecialchars($_POST["nombre"]);
 $fecha_de_nacimiento = htmlspecialchars($_POST["theDate2"]);
