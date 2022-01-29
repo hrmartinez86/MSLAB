@@ -18,7 +18,7 @@ $idpaciente=$_GET['id'];
 $num= $_GET['num'];
 $folio=str_pad($num, 6, "0", STR_PAD_LEFT); 
 $folio= $cod.$folio;
-$sql="SELECT FECHA, HORA, NUMERO, NUMERO_REGISTRO, RUT, USUARIO_CREACION, NOMBRE_USUARIO, AnOS, NOMBRE_DOCTOR, FECHATOMAMUESTRA, 
+$sql="SELECT expediente,FECHA, HORA, NUMERO, NUMERO_REGISTRO, RUT, USUARIO_CREACION, NOMBRE_USUARIO, AnOS, NOMBRE_DOCTOR, FECHATOMAMUESTRA, 
 FECHARECEPCIONMUESTRA, ESTADOTOMAMUESTRA, ESTADORECEPCIONMUESTRA, HORARECEPCIONMUESTRA, FECHA_REGISTRO, IDPACIENTE, ORI_PAC, TIPO_DE_URGENCIA, 
 OBSTOMAMUESTRA, DESCRIPCION, RUT_PACIENTE, NOMBRE, APELLIDOS, SEXO, TELEFONO, FECHA_NACIMIENTO, PREVISION, CONTRAINDICACIONES, PROCEDENCIA_MUESTRA, 
 FOLIO_HOST, NUM_CAMA ,DIAGNOSTICO
@@ -36,6 +36,7 @@ while ($result=odbc_fetch_array($query))
   $diagnostico=$result['DIAGNOSTICO'];
   $anos=$result['AnOS'];
   $expediente=$result['expediente'];
+  $sexo=$result['SEXO'];
 }
 
 ?> 
@@ -119,6 +120,7 @@ while ($result=odbc_fetch_array($query))
             <td class="th"><input type="hidden" value="<?php echo $diagnostico;?>" name="diagnostico" id="diagnostico"></td>
             <td><input type="hidden" value="<?php echo $anos;?>" name="anos" id="anos"></td>
             <td><input type="hidden" value="<?php echo $expediente;?>" name="expediente" id="expediente"></td>
+            <td><input type="hidden" value="<?php if($sexo=='M') {echo 'Masculino';} else echo 'Femenino';?>" name="sexo" id="sexo"></td>
           </tr>
         </table>
  

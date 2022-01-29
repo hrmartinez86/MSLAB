@@ -40,6 +40,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         $this->Ln(50);
 		$nombre=$_POST['nombrePaciente'];
         $edad=$_POST['anos'];
+        $sexo=$_POST['sexo'];
         $expediente=$_POST['expediente'];
 		$doctor=$_POST['doc'];
         $procedencia=$_POST['procedencia'];
@@ -56,6 +57,8 @@ protected $y0;      // Ordenada de comienzo de la columna
         $this->WriteText($nombre,$x1+30,3,'B',$fontSize,$font,false,false);
         $this->WriteText("Edad:",$x1,0,'B',$fontSize,$font,false,false);
         $this->WriteText($edad,$x1+30,3,'B',$fontSize,$font,false,false);
+        $this->WriteText("Sexo:",$x1,0,'B',$fontSize,$font,false,false);
+        $this->WriteText($sexo,$x1+30,3,'B',$fontSize,$font,false,false);
         $this->WriteText("Fecha:",$x1,0,'B',$fontSize,$font,false,false);
         $this->WriteText($fecha,$x1+30,3,'B',$fontSize,$font,false,false);
         $this->WriteText("Expediente:",$x1,0,'B',$fontSize,$font,false,false);
