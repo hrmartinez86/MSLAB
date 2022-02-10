@@ -341,7 +341,7 @@ $sql_1 = "INSERT INTO dat_dfipa (cod_empresa, fecha, hora, numero,
            $query_result = odbc_exec($db_conn, $sql_1) or
   die("ERROR : No se puede ejecutar la consulta.2" . odbc_errormsg() . $sql_1);
 
-for ($i = 1; $i < $numFinal; $i++) {
+for ($i = 0; $i < $numFinal; $i++) {
   //--Para el Ingreso de los Estudios                 
   $sql_1 = "SELECT llave_fonasa FROM CAJ_codigos_fonasa where codigo_fonasa='" . trim($final[$i]) . "'
             and activo='S'";
