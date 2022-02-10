@@ -40,7 +40,6 @@ $array_nacimiento = explode("-", $fecha_de_nacimiento);
 $fecha_de_nacimiento=$array_nacimiento[2]."/". $array_nacimiento[1] ."/". $array_nacimiento[0];
 $examenes = htmlspecialchars($_POST["examenes"]);
 $examenesTotal =htmlspecialchars($_POST["examenesDescripcion"]);
-echo $examenesTotal;
 $Telefono=htmlspecialchars($_POST["telefono"]);
 $Email=htmlspecialchars($_POST["correo"]);
 $adelanto=htmlspecialchars($_POST['adelanto']);
