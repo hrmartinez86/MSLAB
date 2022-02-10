@@ -39,6 +39,7 @@ $fecha_de_nacimiento = htmlspecialchars($_POST["theDate2"]);
 $array_nacimiento = explode("-", $fecha_de_nacimiento);
 $fecha_de_nacimiento=$array_nacimiento[2]."/". $array_nacimiento[1] ."/". $array_nacimiento[0];
 $examenes = htmlspecialchars($_POST["examenes"]);
+echo $examenes;
 $examenesTotal =json_decode($_POST["examenesDescripcion"],false);
 $Telefono=htmlspecialchars($_POST["telefono"]);
 $Email=htmlspecialchars($_POST["correo"]);
