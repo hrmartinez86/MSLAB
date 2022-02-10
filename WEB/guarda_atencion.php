@@ -244,7 +244,7 @@ $folioComprobante=str_pad($numeroDiario, 3, "0", STR_PAD_LEFT);
 
 echo "<script> console.log('".$numeroDiario."');</script>";
 
-for ($i = 0; $i < $j; $i++) {
+for ($i = 1; $i < $j; $i++) {
   $lastChar = substr($ex[$i], -1);
   //verificar si es agrupación
   if ($lastChar == '-') {
