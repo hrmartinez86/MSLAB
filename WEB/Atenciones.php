@@ -291,44 +291,42 @@ $fecha = date('d/m/Y');
                   $sql = "select codigo_fonasa,nombre,costo_examen as precio from caj_codigos_fonasa where activo='S' AND CODIGO_FONASA NOT LIKE 'ANTV%' order by CODIGO_FONASA ";
                   $query = odbc_exec($conection, $sql);
                   while ($result = odbc_fetch_array($query)) {
-                    echo '<option value="' . $result['codigo_fonasa'] . '">' . $result['nombre'] . ' --> ' . $result['codigo_fonasa'] . '-->$' . $result['precio'] . '</option>';
+                    echo '<option value="' . $result['codigo_fonasa'] . '">' . $result['nombre'] . ' --> ' . $result['codigo_fonasa'] . '-->' . $result['precio'] . '</option>';
                   }
                   //agrupaciones
                   $sql = "select codigo,descripcion,precio from agrupaciones where activo='S' order by id ";
                   $query = odbc_exec($conection, $sql);
                   while ($result = odbc_fetch_array($query)) {
-                    echo '<option value="' . $result['codigo'] . '-">' . $result['descripcion'] . ' --> ' . $result['codigo'] . ' -->$' . $result['precio'] . '</option>';
+                    echo '<option value="' . $result['codigo'] . '-">' . $result['descripcion'] . ' --> ' . $result['codigo'] . ' -->' . $result['precio'] . '</option>';
                   }
                   ?>
                 </select>
-                <input type="image" src="img/icons/flechder1.jpg" name="test" value=">>" onClick="Choose(); javascript: return false;" />
-
-
-                <input type="image" src="img/icons/flechizq1.jpg" name="test2" value="<<" onClick="unChoose(); javascript: return false;" />
-                <label for="fechaEntrega">Fecha de entrega:</label><input type="date" name="fechaEntrega" id="fechaEntrega"><input type="time" name="horaEntrega" id="horaEntrega">
+               
               </td>
-              <td></td>
+              <td><input type="text" name="adelanto" id="adelanto" value="0" size="5" >Anticipo</td><td><input type="text" name="precioTotal" id="precioTotal" value="0" size="5" >Total</td>
 
     
 
             </tr>
             <tr class="Controls">
 
-              <td style="width:10%">
-                <select  name="ExamenSeleccionado" multiple="multiple" size="5" style="width: 900px;" id="ExamenSeleccionado" multiple required>
-                </select> <input required type="hidden"  name="examenes" value="" /><input required type="hidden" name="examenesDescripcion">
+              <td colspan="3">
+              <table id="tablaExamen">
+                <tr>
+                  <th></th>
+                  <th>Codigo</th>
+                  <th>Estudio</th>
+                  <th>Precio</th>
+                  <th>Fecha Entrega</th>
+                </tr>
+
+              </table>
               </td>
-              <td>
-                <table>
-                  <tr>
-                    <td><input type="text" name="precioTotal" id="precioTotal" value="0" size="5" >Total</td>
-                  </tr>
-                  <tr>
-                    <td><input type="text" name="adelanto" id="adelanto" value="0" size="5" >Anticipo</td>
-                  </tr>
-                </table>
-                
-              </td>
+                <!-- <select  name="ExamenSeleccionado" multiple="multiple" size="5" style="width: 900px;" id="ExamenSeleccionado" multiple required>
+                </select>  -->
+                <input required type="text"  name="examenes" value="" /><input required type="text" name="examenesDescripcion">
+              
+              
 
             </tr>
 
