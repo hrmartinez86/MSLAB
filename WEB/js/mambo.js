@@ -78,11 +78,13 @@ function Choose() {
   var textOption=element.options[element.selectedIndex].text;
   const atributes=textOption.split('-->');
   addRow("tablaExamen", atributes[1], atributes[0], atributes[2], fecha);
+  var codigoExamen=document.getElementById("examenes");
   var totalInput=document.getElementById("precioTotal");
   var anticipo=document.getElementById("adelanto");
   var precioTotal=parseInt(atributes[2])+parseInt(totalInput.value);
   totalInput.value=precioTotal;
   adelanto.value=precioTotal;
+  codigoExamen.value=atributes[1];
   console.log(precioTotal);
   //Construye un arreglo de elementos blanco
   for (var i = tgtLen - 1; i > -1; i--) {
