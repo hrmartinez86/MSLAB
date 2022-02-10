@@ -235,6 +235,7 @@ $query_result = odbc_exec($db_conn, $sql_1) or
 $final = array();
 //rescatamos el listado de peticiones
 $ex = explode(",", $examenes);
+$et=explode(",",$examenesTotal);
 $j = count($ex);
 //almacenamos el numero consecutivo diario
 $numeroDiario=numeroDiario($fecha)+1;
@@ -471,12 +472,12 @@ WHERE     (id = " . $CitasProcedencia . ")";
 
   <table height="10" cellpadding="0" cellspacing="0" class="Record">
     <?php
-    for ($i = 0; $i < count($examenesTotal); $i++) {
+    for ($i = 0; $i < count($et); $i++) {
 
     ?>
       <tr class="Controls">
-        <TD ALIGN="right" WIDTH=200> <?php echo $examenesTotal[$i];
-                                      array_push($datosPaciente, $examenesTotal[$i]); ?></TD>
+        <TD ALIGN="right" WIDTH=200> <?php echo $et[$i];
+                                      array_push($datosPaciente, $et[$i]); ?></TD>
 
       </tr>
     <?php
