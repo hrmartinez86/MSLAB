@@ -345,7 +345,6 @@ for ($i = 0; $i < $numFinal; $i++) {
   //--Para el Ingreso de los Estudios                 
   $sql_1 = "SELECT llave_fonasa FROM CAJ_codigos_fonasa where codigo_fonasa='" . trim($final[$i]) . "'
             and activo='S'";
-  echo $sql_1;
   $query_result = odbc_exec($db_conn, $sql_1) or
     die("ERROR : No se puede ejecutar la consulta.4");
 
@@ -357,7 +356,6 @@ for ($i = 0; $i < $numFinal; $i++) {
   $contEs=$i+1;
   $sql_1 = "INSERT INTO CAJ_DET_PRESTACIONES (cod_empresa,IDPACIENTE, ID, LLAVE_FONASA, VALOR_PARTICULAR, VALOR_PREVISION, VALOR_PAGADO, USUARIO_CREACION, FECHA_ENTREGA, URGENTE, FECHA_CREACION,LIBERADO) 
 		            VALUES (" . $_SESSION['empresa'] . ", '" . $idpaciente . "', " . $contEs . ", " . $llave . ", 0, 0, 0, '" . $_SESSION['nivel'] . "', convert(datetime,'" . $fecha . "',103), '', CONVERT(DATETIME, GETDATE(), 103),'N' )";
-  echo $sql_1;
   $query_result = odbc_exec($db_conn, $sql_1) or
     die("ERROR : No se puede ejecutar la consulta.5" . odbc_errormsg());
 
