@@ -234,7 +234,7 @@ $query_result = odbc_exec($db_conn, $sql_1) or
 
 $final = array();
 //rescatamos el listado de peticiones
-$ex = explode(" ", $examenes);
+$ex = explode(",", $examenes);
 $j = count($ex);
 //almacenamos el numero consecutivo diario
 $numeroDiario=numeroDiario($fecha)+1;
