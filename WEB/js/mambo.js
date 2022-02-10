@@ -85,7 +85,7 @@ function Choose() {
   var precioTotal=parseInt(atributes[2])+parseInt(totalInput.value);
   totalInput.value=precioTotal;
   adelanto.value=precioTotal;
-  codigoExamen.value+=' '+atributes[1];
+  codigoExamen.value+=','+atributes[1];
   nombreExamen.value=atributes[0];
   console.log(precioTotal);
   //Construye un arreglo de elementos blanco
