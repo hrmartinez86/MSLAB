@@ -77,8 +77,6 @@ function Choose() {
   var element = document.getElementById("ExamenCatalogo");
   var textOption=element.options[element.selectedIndex].text;
   const atributes=textOption.split('-->');
-  console.log(atributes[0]);
-  console.log(textOption);
   addRow("tablaExamen", atributes[1], atributes[0], atributes[2], fecha);
   var totalInput=document.getElementById("precioTotal");
   var anticipo=document.getElementById("adelanto");
