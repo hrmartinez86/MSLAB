@@ -86,7 +86,7 @@ function Choose() {
   totalInput.value=precioTotal;
   adelanto.value=precioTotal;
   codigoExamen.value+=','+atributes[1];
-  nombreExamen.value=atributes[0];
+  nombreExamen.value+=','+atributes[0];
   console.log(precioTotal);
   //Construye un arreglo de elementos blanco
   for (var i = tgtLen - 1; i > -1; i--) {
