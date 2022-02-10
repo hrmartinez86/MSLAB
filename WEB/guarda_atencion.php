@@ -343,7 +343,7 @@ $sql_1 = "INSERT INTO dat_dfipa (cod_empresa, fecha, hora, numero,
 
 for ($i = 1; $i < $numFinal; $i++) {
   //--Para el Ingreso de los Estudios                 
-  $sql_1 = "SELECT llave_fonasa FROM CAJ_codigos_fonasa where codigo_fonasa='" . $final[$i] . "'
+  $sql_1 = "SELECT llave_fonasa FROM CAJ_codigos_fonasa where codigo_fonasa='" . trim($final[$i]) . "'
             and activo='S'";
   echo $sql_1;
   $query_result = odbc_exec($db_conn, $sql_1) or
