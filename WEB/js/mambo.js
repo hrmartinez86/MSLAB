@@ -35,8 +35,8 @@ function addRow(tableID, codigo, estudio, precio, fecha,fur) {
   btn.innerHTML = "-";
   btn.title = "Eliminar estudio";
   let DateTextFur = document.createElement("input");
-  DateText.type = "date";
-  DateText.value = fecha;
+  DateTextFur.type = "date";
+  DateTextFur.value = fecha;
 
   newCodigo.appendChild(newCodigoText);
   newEstudio.appendChild(newEstudioText);
