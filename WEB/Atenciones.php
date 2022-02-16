@@ -107,7 +107,7 @@ $fecha = date('d/m/Y');
   <!-- <link rel="stylesheet" type="text/css" href="Styles/Core/Style_doctype.css"> -->
   <link rel="icon" type="image/gif" href="../images/core/icon.png">
   </LINK>
-  <script type="text/javascript" src="dhtmlgoodies_calendar/dhtmlgoodies_calendar.js?random=20060118"></script>
+  <!-- <script type="text/javascript" src="dhtmlgoodies_calendar/dhtmlgoodies_calendar.js?random=20060118"></script> -->
   <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
   <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/css/bootstrap-select.min.css'>
 
