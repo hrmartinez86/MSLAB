@@ -7,7 +7,7 @@
  * @ Released under GNU/GPL License : http://www.gnu.org/copyleft/gpl.html
  * @version $Revision: 1.16 $
  */
-function addRow(tableID, codigo, estudio, precio, fecha) {
+function addRow(tableID, codigo, estudio, precio, fecha,fur) {
   // Get a reference to the table
   let tableRef = document.getElementById(tableID);
 
@@ -20,6 +20,7 @@ function addRow(tableID, codigo, estudio, precio, fecha) {
   let newEstudio = newRow.insertCell(2);
   let newPrecio = newRow.insertCell(3);
   let newDate = newRow.insertCell(4);
+  let newFur=newRow.insertCell(5);
 
   // Append a text node to the cell
   let newCodigoText = document.createTextNode(codigo);
@@ -33,12 +34,16 @@ function addRow(tableID, codigo, estudio, precio, fecha) {
   DateText.value = fecha;
   btn.innerHTML = "-";
   btn.title = "Eliminar estudio";
+  let DateTextFur = document.createElement("input");
+  DateText.type = "date";
+  DateText.value = fecha;
 
   newCodigo.appendChild(newCodigoText);
   newEstudio.appendChild(newEstudioText);
   newPrecio.appendChild(newPrecioText);
   newBtn.appendChild(btn);
   newDate.appendChild(DateText);
+  newFur.appendChild(DateTextFur);
 }
 /******************************************************************************/
 /* Funcion Choose()		                                                      */
@@ -79,7 +84,7 @@ function Choose() {
   var textOption=element.options[element.selectedIndex].text;
   const atributes=textOption.split('-->');
   console.log(atributes[3]);
-  addRow("tablaExamen", atributes[1], atributes[0], atributes[2], fecha);
+  addRow("tablaExamen", atributes[1], atributes[0], atributes[2], fecha,atributes[3]);
   var codigoExamen=document.getElementById("examenes");
   var nombreExamen=document.getElementById("examenesDescripcion");
   var totalInput=document.getElementById("precioTotal");
