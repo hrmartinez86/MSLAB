@@ -317,6 +317,7 @@ $fecha = date('d/m/Y');
                   <th>Estudio</th>
                   <th>Precio</th>
                   <th>Fecha Entrega</th>
+                  <th>FUR</th>
                 </tr>
 
               </table>
