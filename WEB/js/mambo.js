@@ -77,7 +77,7 @@ function Choose() {
   var element = document.getElementById("ExamenCatalogo");
   var textOption=element.options[element.selectedIndex].text;
   const atributes=textOption.split('-->');
-  JSON.stringify(atributes);
+  console.log(atributes[3]);
   addRow("tablaExamen", atributes[1], atributes[0], atributes[2], fecha);
   var codigoExamen=document.getElementById("examenes");
   var nombreExamen=document.getElementById("examenesDescripcion");
