@@ -290,7 +290,7 @@ $fecha = date('d/m/Y');
                   $sql = "select codigo_fonasa,nombre,costo_examen as precio,nivel_1 from caj_codigos_fonasa where activo='S' AND CODIGO_FONASA NOT LIKE 'ANTV%' order by CODIGO_FONASA ";
                   $query = odbc_exec($conection, $sql);
                   while ($result = odbc_fetch_array($query)) {
-                    echo '<option value="' . $result['codigo_fonasa'] . '">' . $result['nombre'] . ' --> ' . $result['codigo_fonasa'] . '-->' . $result['precio'] . '-->' . $result['nivel_1'] . '</option>';
+                    echo '<option value="' . $result['nombre'] . ' --> ' . $result['codigo_fonasa'] . '-->' . $result['precio'] . '-->' . $result['nivel_1'] . '">' . $result['codigo_fonasa'] . '</option>';
                   }
                   //agrupaciones
                   $sql = "select codigo,descripcion,precio from agrupaciones where activo='S' order by id ";
