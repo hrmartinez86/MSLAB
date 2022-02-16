@@ -77,7 +77,7 @@ function objetoAjax() {
 }
 function Choose() {
   var now = new Date();
-  
+
   console.log(now);
   var dia = now.getDay();
   var mes = now.getMonth() + 1;
@@ -492,6 +492,7 @@ function EvaluaFecha(d, m, y, a, dd) {
   }
   fecha = y + "-" + zfill(m, 2) + "-" + zfill(dt, 2);
   // fecha='2021-11-04';
+  console.log(fecha);
   return fecha;
 
   //enero 31 1-
