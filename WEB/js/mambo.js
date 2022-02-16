@@ -78,6 +78,7 @@ function Choose() {
   var element = document.getElementById("ExamenCatalogo");
   var textOption=element.options[element.selectedIndex].text;
   const atributes=textOption.split('-->');
+  console.log(atributes[3]);
   addRow("tablaExamen", atributes[1], atributes[0], atributes[2], fecha);
   var codigoExamen=document.getElementById("examenes");
   var nombreExamen=document.getElementById("examenesDescripcion");
@@ -88,12 +89,6 @@ function Choose() {
   adelanto.value=precioTotal;
   codigoExamen.value+=','+atributes[1];
   nombreExamen.value+=','+atributes[0];
-  console.log(precioTotal);
-  //Construye un arreglo de elementos blanco
-  // for (var i = tgtLen - 1; i > -1; i--) {
-  //   tgt += "," + tgtList.options[i].value + ",";
-  // }
-  // var precioTotal = parseFloat(document.getElementById("precioTotal").value);
   displayTime = "18" + ":" + "00";
   document.getElementById("fechaEntrega").value = fecha;
   document.getElementById("horaEntrega").value = displayTime;
