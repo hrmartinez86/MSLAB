@@ -73,14 +73,11 @@ function Choose() {
   var mes = now.getMonth() + 1;
   var ano = now.getFullYear();
   var diaActual = now.getUTCDay();
+  console.log(diaActual);
   fecha = EvaluaFecha(dia, mes, ano, 0, diaActual);
-  alert(fecha);
   var element = document.getElementById("ExamenCatalogo");
   var textOption=element.options[element.selectedIndex].text;
   const atributes=textOption.split('-->');
-  console.log(atributes[3]);
-  console.log(atributes[0]);
-  alert('tributes[0]');
   addRow("tablaExamen", atributes[1], atributes[0], atributes[2], fecha);
   var codigoExamen=document.getElementById("examenes");
   var nombreExamen=document.getElementById("examenesDescripcion");
@@ -97,9 +94,6 @@ function Choose() {
     tgt += "," + tgtList.options[i].value + ",";
   }
   // var precioTotal = parseFloat(document.getElementById("precioTotal").value);
-
-  console.log(fecha);
-
   displayTime = "18" + ":" + "00";
   document.getElementById("fechaEntrega").value = fecha;
   document.getElementById("horaEntrega").value = displayTime;
