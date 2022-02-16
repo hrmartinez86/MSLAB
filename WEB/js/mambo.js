@@ -86,7 +86,7 @@ function Choose() {
   console.log(diaActual);
   fecha = EvaluaFecha(dia, mes, ano, 0, diaActual);
   var element = document.getElementById("ExamenCatalogo");
-  var textOption=element.options[element.selectedIndex].text;
+  var textOption=element.options[element.selectedIndex].value;
   const atributes=textOption.split('-->');
   console.log(atributes[3]);
   console.log(fecha);
