@@ -465,9 +465,9 @@ function actualiza_fecha(id, llave) {
 }
 function EvaluaFecha(d, m, y, a, dd) {
   if (dd != 6) {
-    dt = d + a;
+    dt = dd + a;
   } else {
-    dt = d + 2;
+    dt = dd + 2;
   }
 
   if (
