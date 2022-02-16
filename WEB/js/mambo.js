@@ -77,6 +77,7 @@ function objetoAjax() {
 }
 function Choose() {
   var now = new Date();
+  console.log(now);
   var dia = now.getDay();
   var mes = now.getMonth() + 1;
   var ano = now.getFullYear();
