@@ -90,9 +90,9 @@ function Choose() {
   nombreExamen.value+=','+atributes[0];
   console.log(precioTotal);
   //Construye un arreglo de elementos blanco
-  for (var i = tgtLen - 1; i > -1; i--) {
-    tgt += "," + tgtList.options[i].value + ",";
-  }
+  // for (var i = tgtLen - 1; i > -1; i--) {
+  //   tgt += "," + tgtList.options[i].value + ",";
+  // }
   // var precioTotal = parseFloat(document.getElementById("precioTotal").value);
   displayTime = "18" + ":" + "00";
   document.getElementById("fechaEntrega").value = fecha;
