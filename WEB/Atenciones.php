@@ -287,10 +287,10 @@ $fecha = date('d/m/Y');
                 <select class="selectpicker" style="color:gray"  data-show-subtext="false" data-live-search="true" size="5" style="width: 450px;" id="ExamenCatalogo"  onchange="seleccionaEstudio()">
                   <?php
                   ///estudios
-                  $sql = "select codigo_fonasa,nombre,costo_examen as precio,nivel_1 from caj_codigos_fonasa where activo='S' AND CODIGO_FONASA NOT LIKE 'ANTV%' order by CODIGO_FONASA ";
+                  $sql = "select codigo_fonasa,nombre,costo_examen as precio,nivel_1,dias_proceso  from caj_codigos_fonasa where activo='S' AND CODIGO_FONASA NOT LIKE 'ANTV%' order by CODIGO_FONASA ";
                   $query = odbc_exec($conection, $sql);
                   while ($result = odbc_fetch_array($query)) {
-                    echo '<option value="' . $result['nombre'] . ' --> ' . $result['codigo_fonasa'] . '-->' . $result['precio'] . '-->' . $result['nivel_1'] . '">' . $result['codigo_fonasa'] . ' --> '  . $result['nombre'] .  '</option>';
+                    echo '<option value="' . $result['nombre'] . ' --> ' . $result['codigo_fonasa'] . '-->' . $result['precio'] . '-->' . $result['nivel_1'] . '-->' . $result['dias_proceso'] . '">' . $result['codigo_fonasa'] . ' --> '  . $result['nombre'] .  '</option>';
                   }
                   //agrupaciones
                   $sql = "select codigo,descripcion,precio from agrupaciones where activo='S' order by id ";

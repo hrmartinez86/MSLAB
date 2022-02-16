@@ -84,12 +84,12 @@ function Choose() {
   var ano = now.getFullYear();
   var diaActual = now.getDate();
   console.log(diaActual);
-  fecha = EvaluaFecha(dia, mes, ano, 0, diaActual);
+  
   var element = document.getElementById("ExamenCatalogo");
   var textOption=element.options[element.selectedIndex].value;
   const atributes=textOption.split('-->');
-  console.log(textOption);
-  console.log(fecha);
+
+  fecha = EvaluaFecha(dia, mes, ano, atributes[4], diaActual);
   addRow("tablaExamen", atributes[1], atributes[0], atributes[2], fecha,atributes[3]);
   var codigoExamen=document.getElementById("examenes");
   var nombreExamen=document.getElementById("examenesDescripcion");
