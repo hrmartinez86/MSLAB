@@ -88,7 +88,7 @@ function Choose() {
   var element = document.getElementById("ExamenCatalogo");
   var textOption=element.options[element.selectedIndex].value;
   const atributes=textOption.split('-->');
-
+  console.log(atributes[4]);
   fecha = EvaluaFecha(dia, mes, ano, atributes[4], diaActual);
   addRow("tablaExamen", atributes[1], atributes[0], atributes[2], fecha,atributes[3]);
   var codigoExamen=document.getElementById("examenes");
