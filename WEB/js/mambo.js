@@ -43,7 +43,7 @@ function addRow(tableID, codigo, estudio, precio, fecha,fur) {
   newPrecio.appendChild(newPrecioText);
   newBtn.appendChild(btn);
   newDate.appendChild(DateText);
-  if (fur===1) {
+  if (fur==1) {
     newFur.appendChild(DateTextFur);
   }
   
