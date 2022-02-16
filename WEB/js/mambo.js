@@ -74,6 +74,7 @@ function Choose() {
   var ano = now.getFullYear();
   var diaActual = now.getUTCDay();
   fecha = EvaluaFecha(dia, mes, ano, 0, diaActual);
+  alert(fecha);
   var element = document.getElementById("ExamenCatalogo");
   var textOption=element.options[element.selectedIndex].text;
   const atributes=textOption.split('-->');
