@@ -82,7 +82,7 @@ function Choose() {
   var mes = now.getMonth() + 1;
   var ano = now.getFullYear();
   var diaActual = now.getUTCDay();
-  console.log(diaActual);
+  console.log(dia);
   fecha = EvaluaFecha(dia, mes, ano, 0, diaActual);
   var element = document.getElementById("ExamenCatalogo");
   var textOption=element.options[element.selectedIndex].text;
