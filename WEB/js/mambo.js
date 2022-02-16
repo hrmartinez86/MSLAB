@@ -79,6 +79,7 @@ function Choose() {
   const atributes=textOption.split('-->');
   console.log(atributes[3]);
   console.log(atributes[0]);
+  alert(atributes[0]);
   addRow("tablaExamen", atributes[1], atributes[0], atributes[2], fecha);
   var codigoExamen=document.getElementById("examenes");
   var nombreExamen=document.getElementById("examenesDescripcion");
