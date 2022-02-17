@@ -142,8 +142,8 @@ $fecha = date('d/m/Y');
           <table cellpadding="0" cellspacing="0" class="Record">
 
             <tr class="Controls">
-              <td class="th"><label for="expediente">Expediente:</label></td>
-              <td><input name="expediente" id="expediente" value="" style="width:100%;"></td>
+              <td colspan="2" class="th"><label for="expediente">Expediente:</label></td>
+              <td colspan="2"><input name="expediente" id="expediente" value="" style="width:100%;"></td>
             </tr>
 
             <tr class="Controls">
@@ -268,7 +268,7 @@ $fecha = date('d/m/Y');
               <td><input name="observaciones" id="observaciones" class="Controls" value="" style="width:98%; "></td>
 
             </tr>
-            
+
             <tr class="Controls">
               <td class="th"><label for="urgente">Urgente:</label></td>
               <td><input type="checkbox" name="urgente" id="urgente" class="Controls" value="" style="width:98%; "></td>
