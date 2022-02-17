@@ -264,6 +264,14 @@ $fecha = date('d/m/Y');
              
             </tr>
             <tr class="Controls">
+              <td class="th"><label for="Diagnostico">Diagnostico:</label></td>
+              
+              
+              <td><input name="diagnostico" id="observaciones" class="Controls" value="" style="width:98%; "></td>
+              
+             
+            </tr>
+            <tr class="Controls">
               <td class="th"><label for="Correo">Observaciones:</label></td>
               <td><input name="observaciones" id="observaciones" class="Controls" value="" style="width:98%; "></td>
 
