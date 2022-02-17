@@ -147,13 +147,13 @@ $fecha = date('d/m/Y');
             </tr>
 
             <tr class="Controls">
-              <td class="th"><label for="nombre">Nombre del paciente:</label></td>
-              <td><input name="nombre" id="nombre" value="" style="width:100%;" required></td>
+              <td colspan="1" class="th"><label for="nombre">Nombre del paciente:</label></td>
+              <td colspan="3"><input name="nombre" id="nombre" value="" style="width:100%;" required></td>
             </tr>
 
             <tr class="Controls">
-              <td class="th"><label for="CitasSexo">Sexo:</label></td>
-              <td><select id="Sexo" name="Sexo" style="width:100%;" required>
+              <td colspan="1"class="th"><label for="CitasSexo">Sexo:</label></td>
+              <td colspan="3"><select id="Sexo" name="Sexo" style="width:100%;" required>
                   <option value="" selected></option>
                   <option value="M">Masculino</option>
                   <option value="F">Femenino</option>
@@ -162,18 +162,18 @@ $fecha = date('d/m/Y');
             </tr>
 
             <tr class="Controls">
-              <td class="th"><label for="edad">Edad:</label></td>
-              <td> <input type="text" id="edad" onChange="cmbioEdad()" >Años</td>
+              <td colspan="1" class="th"><label for="edad">Edad:</label></td>
+              <td colspan="3"> <input type="text" id="edad" onChange="cmbioEdad()" >Años</td>
             </tr>
 
             <tr class="Controls">
-              <td class="th"><label for="Fecha">Fecha de nacimiento:</label></td>
-              <td><input required style="width:50%; " type="date" id="Fecha" value="<?php echo $fecha; ?>" name="theDate2"></td>
+              <td colspan="1"class="th"><label for="Fecha">Fecha de nacimiento:</label></td>
+              <td colspan="3"><input required style="width:50%; " type="date" id="Fecha" value="<?php echo $fecha; ?>" name="theDate2"></td>
             </tr>
 
             <tr class="Controls">
-              <td class="th"><label for="CitasProcedencia">Procedencia:</label></td>
-              <td><select required id="CitasProcedencia" name="CitasProcedencia" style="width:100%; ">
+              <td colspan="1" class="th"><label for="CitasProcedencia">Procedencia:</label></td>
+              <td colspan="3"><select required id="CitasProcedencia" name="CitasProcedencia" style="width:100%; ">
                   <?php
                   echo '<option value="" </option>';
                   $sql = "select * from Procedencia_muestra where activo='S' order by descripcion ";
@@ -196,8 +196,8 @@ $fecha = date('d/m/Y');
             </tr>
 
             <tr class="Controls">
-              <td class="th"><label for="Tipo">Tipo de Paciente:</label></td>
-              <td><select id="Tipo" name="Tipo" style="width:100%; " required>
+              <td colspan="1"class="th"><label for="Tipo">Tipo de Paciente:</label></td>
+              <td colspan="3"><select id="Tipo" name="Tipo" style="width:100%; " required>
                   <?php
                   echo '<option value="" </option>';
                   $sql = "select * from lab_tipo_paciente where clase='B' order by descripcion ";
@@ -215,8 +215,8 @@ $fecha = date('d/m/Y');
             </tr>
 
             <tr class="Controls">
-              <td class="th"><label for="Doctor">M&eacute;dico:</label></td>
-              <td><select id="Doctor" name="Doctor" style="width:100%; " required>
+              <td colspan="1"class="th"><label for="Doctor">M&eacute;dico:</label></td>
+              <td colspan="3"><select id="Doctor" name="Doctor" style="width:100%; " required>
                   <?php
                   $sql = "select nombre + ' ' + apellidos as Nombre,llave_doctor from dat_doctores  order by Nombre ";
                   $query = odbc_exec($conection, $sql);
@@ -231,20 +231,20 @@ $fecha = date('d/m/Y');
             
 
             <tr class="Controls">
-              <td class="th"><label for="Correo">Telefono:</label></td>
-              <td><input name="telefono" id="telefono" class="Controls" value="" style="width:98%; "></td>
+              <td colspan="1"class="th"><label for="Correo">Telefono:</label></td>
+              <td colspan="3"><input name="telefono" id="telefono" class="Controls" value="" style="width:98%; "></td>
 
             </tr>
 
             <tr class="Controls">
-              <td class="th"><label for="Correo">Email:</label></td>
-              <td><input name="correo" id="correo" class="Controls" value="" style="width:98%; "></td>
+              <td colspan="1" class="th"><label for="Correo">Email:</label></td>
+              <td colspan="3" ><input name="correo" id="correo" class="Controls" value="" style="width:98%; "></td>
 
             </tr>
 
             <tr class="Controls">
-              <td class="th"><label for="FormaPago">Forma de pago:</label></td>
-              <td><select id="FormaPago" name="FormaPago" style="width:100%; ">
+              <td colspan="1" class="th"><label for="FormaPago">Forma de pago:</label></td>
+              <td colspan="3"><select id="FormaPago" name="FormaPago" style="width:100%; ">
                   <option value="" selected></option>
                   <option value="efe">Efectivo</option>
                   <option value="tc">Tarjeta de crédito</option>
@@ -255,25 +255,25 @@ $fecha = date('d/m/Y');
             </tr>
 
             <tr class="Controls">
-              <td class="th"><label for="Diagnostico">Diagnostico:</label></td>
+              <td colspan="1" class="th"><label for="Diagnostico">Diagnostico:</label></td>
               
               
-              <td><input name="diagnostico" id="diagnostico" class="Controls" value="" style="width:98%; "></td>
+              <td colspan="3"><input name="diagnostico" id="diagnostico" class="Controls" value="" style="width:98%; "></td>
               
              
             </tr>
             
             <tr class="Controls">
-              <td class="th"><label for="observaciones">Observaciones:</label></td>
-              <td><input name="observaciones" id="observaciones" class="Controls" value="" style="width:98%; "></td>
+              <td colspan="1" class="th"><label for="observaciones">Observaciones:</label></td>
+              <td colspan="3"><input name="observaciones" id="observaciones" class="Controls" value="" style="width:98%; "></td>
 
             </tr>
 
             <tr class="Controls">
-              <td class="th"><label for="urgente">Urgente:</label></td>
-              <td><input type="checkbox" name="urgente" id="urgente" class="Controls" value="" style="width:98%; "></td>
-              <td class="th"><label for="whatsApp">WhatsApp:</label></td>
-              <td><input type="checkbox" name="whatsApp" id="whatsApp" class="Controls" value="" style="width:98%; "></td>        
+              <td colspan="2" class="th"><label for="urgente">Urgente:</label>
+              <input type="checkbox" name="urgente" id="urgente" class="Controls" value="" style="width:98%; "></td>
+              <td colspan="2" class="th"><label for="whatsApp">WhatsApp:</label>
+              <input type="checkbox" name="whatsApp" id="whatsApp" class="Controls" value="" style="width:98%; "></td>        
             </tr>
           </table>
           <br>
