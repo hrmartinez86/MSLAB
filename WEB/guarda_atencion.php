@@ -53,6 +53,7 @@ $horaEntrega=htmlspecialchars($_POST['horaEntrega']);
 $diagnostico=htmlspecialchars($_POST['diagnostico']);
 $observaciones=htmlspecialchars($_POST['observaciones']);
 $urgente=htmlspecialchars($_POST['urgente']);
+echo "<script> console.log('".$urgente."');</script>";
 echo $_POST['urgente'];
 $_SESSION['Tipo'] = $Tipo;
 $_SESSION['nombre'] = $nombre;
