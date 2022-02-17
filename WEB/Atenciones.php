@@ -140,16 +140,15 @@ $fecha = date('d/m/Y');
           </table>
 
           <table cellpadding="0" cellspacing="0" class="Record">
-          <tr class="Controls">
+
+            <tr class="Controls">
               <td class="th"><label for="expediente">Expediente:</label></td>
               <td><input name="expediente" id="expediente" value="" style="width:100%;"></td>
-              <td></td>
             </tr>
 
             <tr class="Controls">
-              <td class="th"><label for="CitasNombres">Nombre del paciente:</label></td>
-              <td><input name="nombre" id="CitasNombres" value="" style="width:100%;" required></td>
-              <td></td>
+              <td class="th"><label for="nombre">Nombre del paciente:</label></td>
+              <td><input name="nombre" id="nombre" value="" style="width:100%;" required></td>
             </tr>
 
             <tr class="Controls">
@@ -160,14 +159,13 @@ $fecha = date('d/m/Y');
                   <option value="F">Femenino</option>
 
                 </select></td>
-              <td></td>
             </tr>
 
             <tr class="Controls">
               <td class="th"><label for="edad">Edad:</label></td>
               <td> <input type="text" id="edad" onChange="cmbioEdad()" >Años</td>
-
             </tr>
+
             <tr class="Controls">
               <td class="th"><label for="Fecha">Fecha de nacimiento:</label></td>
               <td><input required style="width:50%; " type="date" id="Fecha" value="<?php echo $fecha; ?>" name="theDate2"></td>
@@ -195,7 +193,6 @@ $fecha = date('d/m/Y');
                 </select>
 
               </td>
-              <td></td>
             </tr>
 
             <tr class="Controls">
@@ -252,9 +249,11 @@ $fecha = date('d/m/Y');
                   <option value="efe">Efectivo</option>
                   <option value="tc">Tarjeta de crédito</option>
                   <option value="td">Tarjeta de debito</option>
-                </select></td>
+                </select>
+              </td>
               
             </tr>
+
             <tr class="Controls">
               <td class="th"><label for="Diagnostico">Diagnostico:</label></td>
               
@@ -269,6 +268,7 @@ $fecha = date('d/m/Y');
               <td><input name="observaciones" id="observaciones" class="Controls" value="" style="width:98%; "></td>
 
             </tr>
+            
             <tr class="Controls">
               <td class="th"><label for="urgente">Urgente:</label></td>
               <td><input type="checkbox" name="urgente" id="urgente" class="Controls" value="" style="width:98%; "></td>
