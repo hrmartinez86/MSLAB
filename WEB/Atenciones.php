@@ -231,7 +231,7 @@ $fecha = date('d/m/Y');
             
 
             <tr class="Controls">
-              <td colspan="1"class="th"><label for="Correo">Telefono:</label></td>
+              <td colspan="1"class="th"><label for="telefono">Telefono:</label></td>
               <td colspan="3"><input name="telefono" id="telefono" class="Controls" value="" style="width:98%; "></td>
 
             </tr>
@@ -270,11 +270,14 @@ $fecha = date('d/m/Y');
             </tr>
 
             <tr class="Controls">
-              <td colspan="2" class="th"><label for="urgente">Urgente:</label>
+              <td colspan="1" class="th"><label for="urgente">Urgente:</label>
               <input type="checkbox" name="urgente" id="urgente" class="Controls" value="" style="width:98%; "></td>
               <td colspan="2" class="th"><label for="whatsApp">WhatsApp:</label>
               <input type="checkbox" name="whatsApp" id="whatsApp" class="Controls" value="" style="width:98%; "></td>        
+              <td colspan="1" class="th"><label for="correoOp">Correo:</label>
+              <input type="checkbox" name="correoOp" id="correoOp" class="Controls" value="" style="width:98%; "></td>        
             </tr>
+
           </table>
           <br>
           <table class="Header" border="0" cellspacing="0" cellpadding="0" width="40%">
