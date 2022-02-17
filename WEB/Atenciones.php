@@ -142,8 +142,8 @@ $fecha = date('d/m/Y');
           <table cellpadding="0" cellspacing="0" class="Record">
 
             <tr class="Controls">
-              <td colspan="2" class="th"><label for="expediente">Expediente:</label></td>
-              <td colspan="2"><input name="expediente" id="expediente" value="" style="width:100%;"></td>
+              <td colspan="1" class="th"><label for="expediente">Expediente:</label></td>
+              <td colspan="3"><input name="expediente" id="expediente" value="" style="width:100%;"></td>
             </tr>
 
             <tr class="Controls">
