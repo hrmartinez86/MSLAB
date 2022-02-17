@@ -53,7 +53,7 @@ $horaEntrega=htmlspecialchars($_POST['horaEntrega']);
 $diagnostico=htmlspecialchars($_POST['diagnostico']);
 $observaciones=htmlspecialchars($_POST['observaciones']);
 if (isset($_POST['urgente'])) {
-  echo 'sol';
+  echo 'urgente';
 }
 $urgente=$_POST['urgente'];
 echo "<script> console.log('".$urgente."');</script>";
