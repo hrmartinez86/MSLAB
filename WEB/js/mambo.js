@@ -259,7 +259,7 @@ function Valida1() {
   var i = 0;
 
   i = document.Citas.ExamenSeleccionado.length;
-
+alert(document.Citas.getElementById("urgente"));
   if (i == 0) {
     document.getElementById("ExamenCatalogo").focus();
     return false;
