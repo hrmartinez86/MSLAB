@@ -52,6 +52,14 @@ $fechaEntrega=htmlspecialchars($_POST['fechaEntrega']);
 $horaEntrega=htmlspecialchars($_POST['horaEntrega']);
 $diagnostico=htmlspecialchars($_POST['diagnostico']);
 $observaciones=htmlspecialchars($_POST['observaciones']);
+
+if (isset($_POST['urgente'])) {
+  $urgente= 'urgente';
+}
+else{
+  $urgente='';
+}
+
 echo "<script> console.log('".$urgente."');</script>";
 echo $_POST['urgente'];
 $_SESSION['Tipo'] = $Tipo;
@@ -301,7 +309,8 @@ $sql_1 = "INSERT INTO dat_dfipa (cod_empresa, fecha, hora, numero,
            fechaEntrega,
            horaEntrega,
            FormaPago,
-           diagnostico) 
+           diagnostico,
+           usuario_observacion) 
            vALUES (" . $_SESSION['empresa'] . ",
            convert(datetime,'" . $fecha . "',103) , 
            '" . $hora . "', 
@@ -336,13 +345,8 @@ $sql_1 = "INSERT INTO dat_dfipa (cod_empresa, fecha, hora, numero,
            convert(datetime,'". date("d/m/Y",strtotime($fechaEntrega))."',103),
            '".$horaEntrega."',
            '".$formaPago."',
-           '".$diagnostico."','";
-           if (isset($_POST['urgente'])) {
-            sql_1=sql_1."urgente'";
-          }
-          else{
-            sql_1=sql_1."')";
-          }
+           '".$diagnostico."',
+           '".$urgente."')";
 
 
            $query_result = odbc_exec($db_conn, $sql_1) or
