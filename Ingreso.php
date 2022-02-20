@@ -146,12 +146,8 @@ $varsql="otro";
 	<div id="gridContainer">
         <table  id="gridSource">
                 <tbody>
-				  <?php  
-				  $carpeta=$_SESSION['nombre'];     
-				  
-				  fwrite($file,$poner);        
-				  
-                       
+				  <?php    
+				                       
 					echo
 					'<tr>
 						<td width="*" class="zpGridTypeInt">Folio</td>
@@ -202,6 +198,7 @@ $varsql="otro";
 							<procedencia>".$rows['procedencia']."</procedencia>
 							<sexo>".$sexo."</sexo>
 							<doctor>".$rows['Medico']."</doctor>
+							<urgente>".$rows['urgente']."</urgente>
 						</Paciente>	
 						";
 						fwrite($file,$cadena);
