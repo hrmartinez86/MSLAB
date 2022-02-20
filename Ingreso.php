@@ -27,8 +27,8 @@ if(isset($_GET['FI']) and isset($_GET['ff']))
 <script type='text/javascript' src='grid/utils/zapatec.js'></script>
 
 	<!-- Custom includes -->	
-<!--<script type="text/javascript" src="grid/src/zpgrid.js"></script>
-<script type="text/javascript" src="grid/demor.js"></script> -->
+<script type="text/javascript" src="grid/src/zpgrid.js"></script>
+<!-- <script type="text/javascript" src="grid/demor.js"></script> -->
 
 	<!-- ALL demos need these css -->
 	<link rel="SHORTCUT ICON" href="icon.png">
