@@ -97,7 +97,7 @@ if(isset($_GET['FI']) and isset($_GET['ff']))
 	$f_fin=date("d/m/Y");
 	
 	$sql="EXECUTE CONSULTA_RESULTADOS_WEB @FECHAINI = '".$finicio."', @FECHAFIN='".$f_fin."'";
-		// echo $sql;
+	echo $sql;
 	if (!isset($_GET['Paciente']))
 	{
 		$ver_botones=TRUE;
@@ -161,7 +161,7 @@ $varsql="otro";
 						<td width="87">Procedencia</td>
 						<td width="87">Tipo de Paciente</td>
 						<td width="47" class="zpGridTypeInt">Sexo</td>
-						<td width="80" class="zpGridTypeFloat">Medico</td>
+						<td width="80" class="zpGridTypeFloat">Médico</td>
 					</tr>';					
 				
 					$result=odbc_exec($conection,$sql);
