@@ -162,6 +162,7 @@ $varsql="otro";
 						<td width="87">Tipo de Paciente</td>
 						<td width="47" class="zpGridTypeInt">Sexo</td>
 						<td width="80" class="zpGridTypeFloat">Médico</td>
+						<td width="8" class="zpGridTypeFloat">Urgente</td>
 					</tr>';					
 				
 					$result=odbc_exec($conection,$sql);
@@ -188,6 +189,7 @@ $varsql="otro";
 							<td>'.$rows['Tipo'].'</td>
 							<td>'.$rows['Sexo'].'</td>
 							<td>'.$rows['Medico'].'</td>
+							<td>'.$rows['urgente'].'</td>
 							</tr>										
 						';
 						$cadena="
