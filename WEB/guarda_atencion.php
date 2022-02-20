@@ -60,7 +60,12 @@ else{
   $urgente=0;
 }
 
-echo "<script> console.log('".$urgente."');</script>";
+if (isset($_POST['whatsapp'])) {
+  $whatsapp= 1;
+}
+else{
+  $whatsapp=0;
+}
 
 $_SESSION['Tipo'] = $Tipo;
 $_SESSION['nombre'] = $nombre;
@@ -310,7 +315,8 @@ $sql_1 = "INSERT INTO dat_dfipa (cod_empresa, fecha, hora, numero,
            horaEntrega,
            FormaPago,
            diagnostico,
-           urgente) 
+           urgente,
+           whatsapp) 
            vALUES (" . $_SESSION['empresa'] . ",
            convert(datetime,'" . $fecha . "',103) , 
            '" . $hora . "', 
@@ -346,7 +352,8 @@ $sql_1 = "INSERT INTO dat_dfipa (cod_empresa, fecha, hora, numero,
            '".$horaEntrega."',
            '".$formaPago."',
            '".$diagnostico."',
-           ".$urgente.")";
+           ".$urgente.",
+           ".$whatsapp.")";
 
 
            $query_result = odbc_exec($db_conn, $sql_1) or
