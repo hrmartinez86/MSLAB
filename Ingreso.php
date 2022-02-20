@@ -97,7 +97,7 @@ if(isset($_GET['FI']) and isset($_GET['ff']))
 	$f_fin=date("d/m/Y");
 	
 	$sql="EXECUTE CONSULTA_RESULTADOS_WEB @FECHAINI = '".$finicio."', @FECHAFIN='".$f_fin."'";
-	echo $sql;
+	// echo $sql;
 	if (!isset($_GET['Paciente']))
 	{
 		$ver_botones=TRUE;
@@ -176,7 +176,7 @@ $varsql="otro";
 					$creacion=$creaci[2]."/".$creaci[1]."/".$creaci[0];
 					 	echo 
 						'
-							<tr>
+							<tr background-color: yellow;>
 							<td>'.str_pad($rows['numero_registro'],3,"0",STR_PAD_LEFT).'</td>
 							<td>'.$creacion.'</td>
 							<td>'.$rows['Nombre'].'</td>
