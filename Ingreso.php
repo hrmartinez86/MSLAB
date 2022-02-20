@@ -23,12 +23,12 @@ if(isset($_GET['FI']) and isset($_GET['ff']))
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link rel="stylesheet" type="text/css" href="WEB/Styles/Core/Style_doctype.css">
-	<!-- Common JS files -->
+	<!-- Common JS files
 <script type='text/javascript' src='grid/utils/zapatec.js'></script>
 
-	<!-- Custom includes -->	
+	<!-- Custom includes -	
 <script type="text/javascript" src="grid/src/zpgrid.js"></script>
-<script type="text/javascript" src="grid/demor.js"></script>
+<script type="text/javascript" src="grid/demor.js"></script> -->
 
 	<!-- ALL demos need these css -->
 	<link rel="SHORTCUT ICON" href="icon.png">
@@ -201,8 +201,7 @@ $varsql="otro";
 							<urgente>".$rows['urgente']."</urgente>
 						</Paciente>	
 						";
-						fwrite($file,$cadena);
-						$_SESSION['tagnames'] = '';
+					
 						$i++;
 						
 					 
