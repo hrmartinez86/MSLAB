@@ -294,7 +294,7 @@ $fecha = date('d/m/Y');
               <td>
                 <!--c-->
                 <strong>Descripción</strong>
-                <select class="selectpicker" style="color:gray"  data-show-subtext="false" data-live-search="true" size="5" style="width: 450px;" id="ExamenCatalogo"  onchange="seleccionaEstudio()">
+                <select class="selectpicker"  data-show-subtext="false" data-live-search="true" size="5" style="width: 450px;" id="ExamenCatalogo"  onchange="seleccionaEstudio()">
                   <?php
                   ///estudios
                   $sql = "select codigo_fonasa,nombre,costo_examen as precio,nivel_1,dias_proceso  from caj_codigos_fonasa where activo='S' AND CODIGO_FONASA NOT LIKE 'ANTV%' order by CODIGO_FONASA ";
