@@ -69,7 +69,7 @@ $fecha = date('d/m/Y');
       <h1>Atenciones</h1>
     </div>
     <div class="container p-3 my-3 border">
-      <div class="form-group lg">
+      <div class="form-group-lg">
         <label for="expediente">Expediente</label>
         <input type="text" class="form-control" name="" id="" aria-describedby="emailHelpId" placeholder="expediente">
         
