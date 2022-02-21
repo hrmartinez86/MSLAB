@@ -38,7 +38,7 @@ $fecha = date('d/m/Y');
 
   <meta name="GENERATOR" content="CodeCharge Studio 4.2.00.040">
 
-  <link rel="stylesheet" type="text/css" href="Styles/Core/Style_doctype.css">
+  <!-- <link rel="stylesheet" type="text/css" href="Styles/Core/Style_doctype.css"> -->
   <link rel="icon" type="image/gif" href="../images/core/icon.png">
   </LINK>
   <!-- <script type="text/javascript" src="dhtmlgoodies_calendar/dhtmlgoodies_calendar.js?random=20060118"></script> -->
