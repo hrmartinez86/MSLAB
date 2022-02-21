@@ -23,7 +23,7 @@
 }
 
 .DataBgColorCore {
-  background-color: #e7eff1;
+  background-color: #3c7186;
 }
 
 .AltDataBgColorCore {
@@ -31,7 +31,7 @@
 }
 
 .DataFontColorCore {
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 .LinkColorCore {
@@ -134,8 +134,8 @@
   vertical-align: top;
   padding: 2px;
   border-bottom: solid 1px #8ec6c6;
-  background-color: #e7eff1;
-  color: #e7eff1;
+  background-color: #3c7186;
+  color: #3c7186;
   white-space: nowrap;
 }
 
@@ -146,8 +146,8 @@
   vertical-align: top;
   padding: 2px;
   border-bottom: solid 1px #8ec6c6;
-  background-color: #e7eff1;
-  color: #e7eff1;
+  background-color: #3c7186;
+  color: #3c7186;
   white-space: nowrap;
 }
 
@@ -162,11 +162,11 @@
 /*end*/
 
 .CaptionCore a:link {
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 .CaptionCore a:visited {
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 .CaptionCore a:hover,
@@ -191,10 +191,10 @@
   vertical-align: top;
   padding: 2px;
   border-bottom: solid 1px #8ec6c6;
-  background-color: #e7eff1;
-  color: #e7eff1;
+  background-color: #3c7186;
+  color: #3c7186;
   white-space: nowrap;
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 .RowCore td {
@@ -204,8 +204,8 @@
   border-bottom: solid 1px #8ec6c6;
   text-align: left;
   vertical-align: top;
-  background-color: #e7eff1;
-  color: #e7eff1;
+  background-color: #3c7186;
+  color: #3c7186;
 }
 
 /*ie6*/
@@ -224,8 +224,8 @@ caption.RowCore {
   border-bottom: 0px;
   text-align: left;
   vertical-align: top;
-  background-color: #e7eff1;
-  color: #e7eff1;
+  background-color: #3c7186;
+  color: #3c7186;
 }
 
 /*ie6*/
@@ -264,10 +264,10 @@ caption.RowCore {
   vertical-align: top;
   padding: 2px;
   border-bottom: solid 1px #8ec6c6;
-  background-color: #e7eff1;
-  color: #e7eff1;
+  background-color: #3c7186;
+  color: #3c7186;
   white-space: nowrap;
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 .AltRowCore td {
@@ -278,7 +278,7 @@ caption.RowCore {
   text-align: left;
   vertical-align: top;
   background-color: #cadde4;
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 /*ie6*/
@@ -308,8 +308,8 @@ caption.RowCore {
   padding: 2px;
   border-bottom: solid 1px #8ec6c6;
   text-align: left;
-  background-color: #e7eff1;
-  color: #e7eff1;
+  background-color: #3c7186;
+  color: #3c7186;
   vertical-align: top;
 }
 
@@ -318,12 +318,12 @@ caption.RowCore {
   font-size: 80%;
   padding: 2px;
   border-bottom: solid 1px #8ec6c6;
-  background-color: #e7eff1;
-  color: #e7eff1;
+  background-color: #3c7186;
+  color: #3c7186;
   text-align: center;
   vertical-align: middle;
   white-space: nowrap;
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 /*ie6*/
@@ -372,7 +372,7 @@ caption.RowCore {
   text-align: left;
   color: #ff0000;
   vertical-align: top;
-  background-color: #e7eff1;
+  background-color: #3c7186;
 }
 
 /*ie6*/
@@ -390,10 +390,10 @@ caption.RowCore {
   vertical-align: top;
   padding: 2px;
   border-bottom: solid 1px #8ec6c6;
-  background-color: #e7eff1;
-  color: #e7eff1;
+  background-color: #3c7186;
+  color: #3c7186;
   white-space: nowrap;
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 .ControlsCore td {
@@ -403,8 +403,8 @@ caption.RowCore {
   border-bottom: solid 1px #8ec6c6;
   text-align: left;
   vertical-align: top;
-  background-color: #e7eff1;
-  color: #e7eff1;
+  background-color: #3c7186;
+  color: #3c7186;
 }
 
 .BottomCore td {
@@ -412,12 +412,12 @@ caption.RowCore {
   font-size: 80%;
   padding: 2px;
   border-bottom: solid 1px #8ec6c6;
-  background-color: #e7eff1;
-  color: #e7eff1;
+  background-color: #3c7186;
+  color: #3c7186;
   text-align: right;
   vertical-align: middle;
   white-space: nowrap;
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 /*ie6*/
@@ -463,7 +463,7 @@ caption.RowCore {
   vertical-align: top;
   font-weight: bold;
   background-color: #cadde4;
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 .GroupCaptionCore td {
@@ -474,8 +474,8 @@ caption.RowCore {
   text-align: left;
   vertical-align: top;
   font-weight: bold;
-  background-color: #e7eff1;
-  color: #e7eff1;
+  background-color: #3c7186;
+  color: #3c7186;
 }
 
 /*ie6*/
@@ -487,11 +487,11 @@ caption.RowCore {
 /*end*/
 
 .GroupCaptionCore a:link {
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 .GroupCaptionCore a:visited {
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 .GroupCaptionCore a:hover,
@@ -508,7 +508,7 @@ caption.RowCore {
   vertical-align: middle;
   white-space: nowrap;
   background-color: #8ec6c6;
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 /*ie6*/
@@ -550,7 +550,7 @@ caption.RowCore {
   vertical-align: top;
   font-weight: bold;
   background-color: #cadde4;
-  color: #e7eff1;
+  color: #3c7186;
   border-bottom: 2px solid #46839b;
 }
 
@@ -584,7 +584,7 @@ caption.RowCore {
   white-space: nowrap;
   font-weight: bold;
   background-color: #cadde4;
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 /*ie6*/
@@ -635,7 +635,7 @@ caption.RowCore {
   vertical-align: top;
   white-space: nowrap;
   background-color: #cadde4;
-  color: #e7eff1;
+  color: #3c7186;
   font-weight: normal;
 }
 
@@ -668,7 +668,7 @@ caption.RowCore {
   text-align: center;
   vertical-align: top;
   background-color: #cadde4;
-  color: #e7eff1;
+  color: #3c7186;
   font-weight: normal;
 }
 
@@ -680,11 +680,11 @@ caption.RowCore {
 /*end*/
 
 .CalendarWeekendNameCore a:link {
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 .CalendarWeekendNameCore a:visited {
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 .CalendarWeekendNameCore a:link,
@@ -699,8 +699,8 @@ caption.RowCore {
   padding: 2px;
   border-bottom: solid 1px #8ec6c6;
   text-align: center;
-  background-color: #e7eff1;
-  color: #e7eff1;
+  background-color: #3c7186;
+  color: #3c7186;
 }
 
 /*ie6*/
@@ -731,7 +731,7 @@ caption.RowCore {
   border-bottom: solid 1px #8ec6c6;
   text-align: center;
   background-color: #cadde4;
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 /*ie6*/
@@ -762,8 +762,8 @@ caption.RowCore {
   border: 2px solid #8ec6c6;
   border-top: 1px solid #8ec6c6;
   text-align: center;
-  background-color: #e7eff1;
-  color: #e7eff1;
+  background-color: #3c7186;
+  color: #3c7186;
 }
 
 /*ie6*/
@@ -795,7 +795,7 @@ caption.RowCore {
   border-top: 1px solid #8ec6c6;
   text-align: center;
   background-color: #cadde4;
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 /*ie6*/
@@ -825,7 +825,7 @@ caption.RowCore {
   padding: 2px;
   border-bottom: solid 1px #8ec6c6;
   text-align: center;
-  background-color: #e7eff1;
+  background-color: #3c7186;
   color: #46839b;
 }
 
@@ -857,7 +857,7 @@ caption.RowCore {
   border: 2px solid #8ec6c6;
   border-top: 1px solid #8ec6c6;
   text-align: center;
-  background-color: #e7eff1;
+  background-color: #3c7186;
   color: #46839b;
 }
 
@@ -964,11 +964,11 @@ caption.RowCore {
 /*end*/
 
 .CalendarSelectedDayCore a:link {
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 .CalendarSelectedDayCore a:visited {
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 .CalendarSelectedDayCore a:hover,
@@ -981,12 +981,12 @@ caption.RowCore {
   font-family: Verdana;
   font-size: 80%;
   padding: 2px;
-  background-color: #e7eff1;
-  color: #e7eff1;
+  background-color: #3c7186;
+  color: #3c7186;
   text-align: center;
   vertical-align: middle;
   white-space: nowrap;
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 /*ie6*/
@@ -1105,8 +1105,8 @@ table tr td strong {
   vertical-align: top;
   padding: 2px;
   border-bottom: solid 1px #8ec6c6;
-  background-color: #e7eff1;
-  color: #e7eff1;
+  background-color: #3c7186;
+  color: #3c7186;
   white-space: nowrap;
 }
 
@@ -1127,10 +1127,10 @@ table tr td strong {
   vertical-align: top;
   padding: 2px;
   border-bottom: solid 1px #8ec6c6;
-  background-color: #e7eff1;
-  color: #e7eff1;
+  background-color: #3c7186;
+  color: #3c7186;
   white-space: nowrap;
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 .AltRowCore .thCore {
@@ -1141,10 +1141,10 @@ table tr td strong {
   vertical-align: top;
   padding: 2px;
   border-bottom: solid 1px #8ec6c6;
-  background-color: #e7eff1;
-  color: #e7eff1;
+  background-color: #3c7186;
+  color: #3c7186;
   white-space: nowrap;
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 .ControlsCore .thCore {
@@ -1155,10 +1155,10 @@ table tr td strong {
   vertical-align: top;
   padding: 2px;
   border-bottom: solid 1px #8ec6c6;
-  background-color: #e7eff1;
-  color: #e7eff1;
+  background-color: #3c7186;
+  color: #3c7186;
   white-space: nowrap;
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 .GroupCaptionCore .thCore {
@@ -1171,7 +1171,7 @@ table tr td strong {
   vertical-align: top;
   font-weight: bold;
   background-color: #cadde4;
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 /*ie6*/
