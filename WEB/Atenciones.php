@@ -67,6 +67,11 @@ $fecha = date('d/m/Y');
       <input type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
       <small id="helpId" class="text-muted">Help text</small>
     </div>
+    <div class="form-group">
+      <label for=""></label>
+      <input type="email" class="form-control" name="" id="" aria-describedby="emailHelpId" placeholder="">
+      <small id="emailHelpId" class="form-text text-muted">Help text</small>
+    </div>
     <table align="center" border="0" cellspacing="0" cellpadding="10" width="60%">
       <tr>
         <td valign="top">
