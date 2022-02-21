@@ -63,7 +63,7 @@ $fecha = date('d/m/Y');
   <br>
   <form id="Citas" method="post" name="Citas" action="guarda_atencion.php" onsubmit="Valida1()">
     <div class="container">
-      <div class="row">
+      <div class="row justify-content-md-center">
         <div class="col-md-1-6">
           <div class="form-group">
             <label for="expediente"></label>
