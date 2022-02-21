@@ -70,26 +70,17 @@ $fecha = date('d/m/Y');
     </div>
     <div class="container p-3 my-3 border">
       <div class="form-group-lg">
-        <div class="container">
-          <form>
-            <div class="form-group row">
-              <label for="expediente" class="col-sm-1-12 col-form-label"></label>
-              <div class="col-sm-1-12">
-                <input type="text" class="form-control" name="expediente" id="expediente" placeholder="expediente">
-              </div>
-            </div>
-            <fieldset class="form-group row">
-              <legend class="col-form-legend col-sm-1-12">Group name</legend>
-              <div class="col-sm-1-12">
-                
-              </div>
-            </fieldset>
-            <div class="form-group row">
-              <div class="offset-sm-2 col-sm-10">
-                <button type="submit" class="btn btn-primary">Action</button>
-              </div>
-            </div>
-          </form>
+        <div class="col-lg-1-12">
+          <div class="form-group">
+            <label for=""></label>
+            <textarea class="form-control" name="" id="" rows="3"></textarea>
+          </div>
+        </div>
+        <div class="col-lg-1-12">
+          <div class="form-group">
+            <label for=""></label>
+            <textarea class="form-control" name="" id="" rows="3"></textarea>
+          </div>
         </div>
        
         <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="emailHelpId" placeholder="">
