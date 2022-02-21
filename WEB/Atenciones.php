@@ -35,73 +35,7 @@ $fecha = date('d/m/Y');
   <meta content="text/html; charset=windows-1252" http-equiv="content-type">
 
   <title>**Atenciones**</title>
-  <style type="text/css">
-    #ad {
-      padding-top: 220px;
-      padding-left: 10px;
-    }
 
-    .button {
-      -moz-appearance: none;
-      -webkit-appearance: none;
-      -webkit-box-align: center;
-      -webkit-align-items: center;
-      -ms-flex-align: center;
-      align-items: center;
-      background-color: white;
-      border: 1px solid #d3d6db;
-      border-radius: 3px;
-      color: #222324;
-      display: -webkit-inline-box;
-      display: -webkit-inline-flex;
-      display: -ms-inline-flexbox;
-      display: inline-flex;
-      font-size: 14px;
-      height: 32px;
-      -webkit-box-pack: start;
-      -webkit-justify-content: flex-start;
-      -ms-flex-pack: start;
-      justify-content: flex-start;
-      line-height: 24px;
-      padding-left: 8px;
-      padding-right: 8px;
-      position: relative;
-      vertical-align: top;
-      -webkit-box-pack: center;
-      -webkit-justify-content: center;
-      -ms-flex-pack: center;
-      justify-content: center;
-      padding-left: 10px;
-      padding-right: 10px;
-      text-align: center;
-      white-space: nowrap;
-    }
-
-    .button.is-white.is-outlined {
-      background-color: transparent;
-      border-color: #fff;
-      color: #fff;
-    }
-
-    .button.is-info.is-outlined {
-      background-color: transparent;
-      border-color: #42afe3;
-      color: #42afe3;
-    }
-
-    .button.is-info.is-outlined:hover,
-    .button.is-info.is-outlined:focus {
-      background-color: #42afe3;
-      border-color: #42afe3;
-      color: white;
-    }
-
-    #Citas table tr td .Record .Bottom td {
-
-
-      text-align: left;
-    }
-  </style>
   <meta name="GENERATOR" content="CodeCharge Studio 4.2.00.040">
 
   <!-- <link rel="stylesheet" type="text/css" href="Styles/Core/Style_doctype.css"> -->
