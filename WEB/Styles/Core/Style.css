@@ -23,7 +23,7 @@
 }
 
 .DataBgColor {
-  background-color: #e7eff1;
+  background-color: #3c7186;
 }
 
 .AltDataBgColor {
@@ -31,7 +31,7 @@
 }
 
 .DataFontColor {
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 .LinkColor {
@@ -84,7 +84,7 @@ body {
 /*end*/
 
 .text {
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 a.menulink:link,
@@ -257,8 +257,8 @@ html>body input, html>body select, html>body textarea {
   vertical-align: top;
   padding: 2px;
   border-bottom: solid 1px #8ec6c6;
-  background-color: #e7eff1;
-  color: #e7eff1;
+  background-color: #3c7186;
+  color: #3c7186;
   white-space: nowrap;
 }
 
@@ -268,8 +268,8 @@ html>body input, html>body select, html>body textarea {
   vertical-align: top;
   padding: 2px;
   border-bottom: solid 1px #8ec6c6;
-  background-color: #e7eff1;
-  color: #e7eff1;
+  background-color: #3c7186;
+  color: #3c7186;
   white-space: nowrap;
 }
 
@@ -283,11 +283,11 @@ html>body input, html>body select, html>body textarea {
 /*end*/
 
 .Caption a:link {
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 .Caption a:visited {
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 .Caption a:hover,
@@ -311,10 +311,10 @@ html>body input, html>body select, html>body textarea {
   vertical-align: top;
   padding: 2px;
   border-bottom: solid 1px #8ec6c6;
-  background-color: #e7eff1;
-  color: #e7eff1;
+  background-color: #3c7186;
+  color: #3c7186;
   white-space: nowrap;
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 .Row td {
@@ -323,8 +323,8 @@ html>body input, html>body select, html>body textarea {
   border-bottom: solid 1px #8ec6c6;
   text-align: left;
   vertical-align: top;
-  background-color: #e7eff1;
-  color: #e7eff1;
+  background-color: #3c7186;
+  color: #3c7186;
 }
 
 /*ie6*/
@@ -341,8 +341,8 @@ caption.Row {
   border-bottom: 0px;
   text-align: left;
   vertical-align: top;
-  background-color: #e7eff1;
-  color: #e7eff1;
+  background-color: #3c7186;
+  color: #3c7186;
 }
 
 /*ie6*/
@@ -379,10 +379,10 @@ caption.Row {
   vertical-align: top;
   padding: 2px;
   border-bottom: solid 1px #8ec6c6;
-  background-color: #e7eff1;
-  color: #e7eff1;
+  background-color: #3c7186;
+  color: #3c7186;
   white-space: nowrap;
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 .AltRow td {
@@ -392,7 +392,7 @@ caption.Row {
   text-align: left;
   vertical-align: top;
   background-color: #cadde4;
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 /*ie6*/
@@ -420,8 +420,8 @@ caption.Row {
   padding: 2px;
   border-bottom: solid 1px #8ec6c6;
   text-align: left;
-  background-color: #e7eff1;
-  color: #e7eff1;
+  background-color: #3c7186;
+  color: #3c7186;
   vertical-align: top;
 }
 
@@ -429,12 +429,12 @@ caption.Row {
   font-size: 80%;
   padding: 2px;
   border-bottom: solid 1px #8ec6c6;
-  background-color: #e7eff1;
-  color: #e7eff1;
+  background-color: #3c7186;
+  color: #3c7186;
   text-align: center;
   vertical-align: middle;
   white-space: nowrap;
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 /*ie6*/
@@ -481,7 +481,7 @@ caption.Row {
   text-align: left;
   color: #ff0000;
   vertical-align: top;
-  background-color: #e7eff1;
+  background-color: #3c7186;
 }
 
 /*ie6*/
@@ -497,10 +497,10 @@ caption.Row {
   vertical-align: top;
   padding: 2px;
   border-bottom: solid 1px #8ec6c6;
-  background-color: #e7eff1;
-  color: #e7eff1;
+  background-color: #3c7186;
+  color: #3c7186;
   white-space: nowrap;
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 .Controls td {
@@ -509,20 +509,20 @@ caption.Row {
   border-bottom: solid 1px #8ec6c6;
   text-align: left;
   vertical-align: top;
-  background-color: #e7eff1;
-  color: #e7eff1;
+  background-color: #3c7186;
+  color: #3c7186;
 }
 
 .Bottom td {
   font-size: 80%;
   padding: 2px;
   border-bottom: solid 1px #8ec6c6;
-  background-color: #e7eff1;
-  color: #e7eff1;
+  background-color: #3c7186;
+  color: #3c7186;
   text-align: right;
   vertical-align: middle;
   white-space: nowrap;
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 /*ie6*/
@@ -566,7 +566,7 @@ caption.Row {
   vertical-align: top;
   font-weight: bold;
   background-color: #cadde4;
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 .GroupCaption td {
@@ -576,8 +576,8 @@ caption.Row {
   text-align: left;
   vertical-align: top;
   font-weight: bold;
-  background-color: #e7eff1;
-  color: #e7eff1;
+  background-color: #3c7186;
+  color: #3c7186;
 }
 
 /*ie6*/
@@ -588,11 +588,11 @@ caption.Row {
 /*end*/
 
 .GroupCaption a:link {
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 .GroupCaption a:visited {
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 .GroupCaption a:hover,
@@ -608,7 +608,7 @@ caption.Row {
   vertical-align: middle;
   white-space: nowrap;
   background-color: #8ec6c6;
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 /*ie6*/
@@ -648,7 +648,7 @@ caption.Row {
   vertical-align: top;
   font-weight: bold;
   background-color: #cadde4;
-  color: #e7eff1;
+  color: #3c7186;
   border-bottom: 2px solid #46839b;
 }
 
@@ -680,7 +680,7 @@ caption.Row {
   white-space: nowrap;
   font-weight: bold;
   background-color: #cadde4;
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 /*ie6*/
@@ -729,7 +729,7 @@ caption.Row {
   vertical-align: top;
   white-space: nowrap;
   background-color: #cadde4;
-  color: #e7eff1;
+  color: #3c7186;
   font-weight: normal;
 }
 
@@ -760,7 +760,7 @@ caption.Row {
   text-align: center;
   vertical-align: top;
   background-color: #cadde4;
-  color: #e7eff1;
+  color: #3c7186;
   font-weight: normal;
 }
 
@@ -771,11 +771,11 @@ caption.Row {
 /*end*/
 
 .CalendarWeekendName a:link {
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 .CalendarWeekendName a:visited {
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 .CalendarWeekendName a:link,
@@ -789,8 +789,8 @@ caption.Row {
   padding: 2px;
   border-bottom: solid 1px #8ec6c6;
   text-align: center;
-  background-color: #e7eff1;
-  color: #e7eff1;
+  background-color: #3c7186;
+  color: #3c7186;
 }
 
 /*ie6*/
@@ -819,7 +819,7 @@ caption.Row {
   border-bottom: solid 1px #8ec6c6;
   text-align: center;
   background-color: #cadde4;
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 /*ie6*/
@@ -848,8 +848,8 @@ caption.Row {
   border: 2px solid #8ec6c6;
   border-top: 1px solid #8ec6c6;
   text-align: center;
-  background-color: #e7eff1;
-  color: #e7eff1;
+  background-color: #3c7186;
+  color: #3c7186;
 }
 
 /*ie6*/
@@ -879,7 +879,7 @@ caption.Row {
   border-top: 1px solid #8ec6c6;
   text-align: center;
   background-color: #cadde4;
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 /*ie6*/
@@ -907,7 +907,7 @@ caption.Row {
   padding: 2px;
   border-bottom: solid 1px #8ec6c6;
   text-align: center;
-  background-color: #e7eff1;
+  background-color: #3c7186;
   color: #46839b;
 }
 
@@ -937,7 +937,7 @@ caption.Row {
   border: 2px solid #8ec6c6;
   border-top: 1px solid #8ec6c6;
   text-align: center;
-  background-color: #e7eff1;
+  background-color: #3c7186;
   color: #46839b;
 }
 
@@ -1037,11 +1037,11 @@ caption.Row {
 /*end*/
 
 .CalendarSelectedDay a:link {
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 .CalendarSelectedDay a:visited {
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 .CalendarSelectedDay a:hover,
@@ -1053,12 +1053,12 @@ caption.Row {
 .CalendarNavigator {
   font-size: 80%;
   padding: 2px;
-  background-color: #e7eff1;
-  color: #e7eff1;
+  background-color: #3c7186;
+  color: #3c7186;
   text-align: center;
   vertical-align: middle;
   white-space: nowrap;
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 /*ie6*/
@@ -1168,8 +1168,8 @@ table tr td strong {
   vertical-align: top;
   padding: 2px;
   border-bottom: solid 1px #8ec6c6;
-  background-color: #e7eff1;
-  color: #e7eff1;
+  background-color: #3c7186;
+  color: #3c7186;
   white-space: nowrap;
 }
 
@@ -1188,10 +1188,10 @@ table tr td strong {
   vertical-align: top;
   padding: 2px;
   border-bottom: solid 1px #8ec6c6;
-  background-color: #e7eff1;
-  color: #e7eff1;
+  background-color: #3c7186;
+  color: #3c7186;
   white-space: nowrap;
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 .AltRow .th {
@@ -1201,10 +1201,10 @@ table tr td strong {
   vertical-align: top;
   padding: 2px;
   border-bottom: solid 1px #8ec6c6;
-  background-color: #e7eff1;
-  color: #e7eff1;
+  background-color: #3c7186;
+  color: #3c7186;
   white-space: nowrap;
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 .Controls .th {
@@ -1214,10 +1214,10 @@ table tr td strong {
   vertical-align: top;
   padding: 2px;
   border-bottom: solid 1px #8ec6c6;
-  background-color: #e7eff1;
-  color: #e7eff1;
+  background-color: #3c7186;
+  color: #3c7186;
   white-space: nowrap;
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 .GroupCaption .th {
@@ -1229,7 +1229,7 @@ table tr td strong {
   vertical-align: top;
   font-weight: bold;
   background-color: #cadde4;
-  color: #e7eff1;
+  color: #3c7186;
 }
 
 /*ie6*/
