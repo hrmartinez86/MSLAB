@@ -86,6 +86,9 @@ $fecha = date('d/m/Y');
         <div class="form-group">
           <input type="text" name="edad" id="edad" class="form-control" placeholder="Edad del paciente" aria-describedby="helpId" onChange="cmbioEdad()" >
         </div>
+        <div class="form-group">
+          <input type="date" name="theDate2" id="theDate2" class="form-control" placeholder="" aria-describedby="helpId" onChange="cmbioEdad()" >
+        </div>
       </div>
     </div>
     
