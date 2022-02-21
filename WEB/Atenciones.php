@@ -66,8 +66,9 @@ $fecha = date('d/m/Y');
   <br>
   <form id="Citas" method="post" name="Citas" action="guarda_atencion.php" onsubmit="Valida1()">
     <div class="container p-3 my-3 bg-primary text-white">
-      <h1>My First Bootstrap Page</h1>
-      <p>This container has a dark background color and a white text, and some extra padding and margins.</p>
+      <h1>Atenciones</h1>
+    </div>
+    <div class="container p-3 my-3 border">
       <div class="form-group">
         <label for=""></label>
         <input type="email" class="form-control" name="" id="" aria-describedby="emailHelpId" placeholder="">
