@@ -78,10 +78,31 @@ $fecha = date('d/m/Y');
         </div>
         <div class="form-group">
           <select class="form-control" name="sexo" id="sexo">
-            <option value="" selected></option>
+            <option value="Sexo..." selected></option>
             <option value="M">Masculino</option>
             <option value="F">Femenino</option>
           </select>
+        </div>
+        <div class="container">
+          <form>
+            <div class="form-group row">
+              <label for="inputName" class="col-sm-1-12 col-form-label"></label>
+              <div class="col-sm-1-12">
+                <input type="text" class="form-control" name="inputName" id="inputName" placeholder="">
+              </div>
+            </div>
+            <fieldset class="form-group row">
+              <legend class="col-form-legend col-sm-1-12">Group name</legend>
+              <div class="col-sm-1-12">
+                
+              </div>
+            </fieldset>
+            <div class="form-group row">
+              <div class="offset-sm-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">Action</button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
