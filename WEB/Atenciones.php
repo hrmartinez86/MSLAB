@@ -62,11 +62,18 @@ $fecha = date('d/m/Y');
   </table>
   <br>
   <form id="Citas" method="post" name="Citas" action="guarda_atencion.php" onsubmit="Valida1()">
-    <div class="form-group">
-      <label for="expediente">Expediente:</label>
-      <input type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
-      <small id="helpId" class="text-muted">Help text</small>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-1-12">
+          <div class="form-group">
+            <label for=""></label>
+            <input type="email" class="form-control" name="" id="" aria-describedby="emailHelpId" placeholder="">
+            <small id="emailHelpId" class="form-text text-muted">Help text</small>
+          </div>
+        </div>
+      </div>
     </div>
+    
     <div class="form-group">
       <label for=""></label>
       <input type="email" class="form-control" name="" id="" aria-describedby="emailHelpId" placeholder="">
