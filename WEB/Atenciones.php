@@ -71,12 +71,11 @@ $fecha = date('d/m/Y');
     <div class="container p-3 my-3 border">
       <div class="form-group-lg">
         <div class="form-group">
-          <label for="expediente">Expediente</label>
           <input type="text" class="form-control" name="expediente" id="expediente" aria-describedby="helpId" placeholder="Expediente">
         </div>
-
-        <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="emailHelpId" placeholder="">
-        
+        <div class="form-group">
+          <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="helpId" placeholder="Nombre del paciente">
+        </div>
       </div>
     </div>
     
