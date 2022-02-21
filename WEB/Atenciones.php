@@ -76,6 +76,13 @@ $fecha = date('d/m/Y');
         <div class="form-group">
           <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="helpId" placeholder="Nombre del paciente">
         </div>
+        <div class="form-group">
+          <select class="form-control" name="sexo" id="sexo">
+            <option value="" selected></option>
+            <option value="M">Masculino</option>
+            <option value="F">Femenino</option>
+          </select>
+        </div>
       </div>
     </div>
     
