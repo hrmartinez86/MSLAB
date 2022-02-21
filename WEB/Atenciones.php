@@ -64,16 +64,22 @@ $fecha = date('d/m/Y');
   <form id="Citas" method="post" name="Citas" action="guarda_atencion.php" onsubmit="Valida1()">
     <div class="container">
       <div class="row justify-content-md-center">
-        <div class="col-md-1-6">
+        <div class="col">
           <div class="form-group">
             <label for="expediente"></label>
             <input type="text" class="form-control" name="expediente" id="expediente" placeholder="Expediente">
           </div>
         </div>
-        <div class="col-md-1-6">
+        <div class="col-6">
           <div class="form-group">
             <label for="nombre"></label>
             <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombre del paciente" aria-describedby="helpId">
+          </div>
+        </div>
+        <div class="col-xl">
+          <div class="form-group">
+            <label for=""></label>
+            <input type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
           </div>
         </div>
       </div>
