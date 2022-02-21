@@ -65,16 +65,17 @@ $fecha = date('d/m/Y');
   </table>
   <br>
   <form id="Citas" method="post" name="Citas" action="guarda_atencion.php" onsubmit="Valida1()">
-    <div class="container p-3 my-3 bg-dark text-white">
+    <div class="container p-3 my-3 bg-primary text-white">
       <h1>My First Bootstrap Page</h1>
       <p>This container has a dark background color and a white text, and some extra padding and margins.</p>
+      <div class="form-group">
+        <label for=""></label>
+        <input type="email" class="form-control" name="" id="" aria-describedby="emailHelpId" placeholder="">
+        <small id="emailHelpId" class="form-text text-muted">Help text</small>
+      </div>
     </div>
     
-    <div class="form-group">
-      <label for=""></label>
-      <input type="email" class="form-control" name="" id="" aria-describedby="emailHelpId" placeholder="">
-      <small id="emailHelpId" class="form-text text-muted">Help text</small>
-    </div>
+    
     <table align="center" border="0" cellspacing="0" cellpadding="10" width="60%">
       <tr>
         <td valign="top">
