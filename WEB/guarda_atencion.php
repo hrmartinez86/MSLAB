@@ -32,14 +32,14 @@ $db_conn = conectar($ODBC);
 //captura de variables post
 $Tipo = htmlspecialchars($_POST["Tipo"]);
 $Doctor = htmlspecialchars($_POST["Doctor"]);
-$Expediente = htmlspecialchars($_POST["Expediente"]);
+$Expediente = htmlspecialchars($_POST["expediente"]);
 $Sexo = htmlspecialchars($_POST["Sexo"]);
 $nombre = htmlspecialchars($_POST["nombre"]);
 $fecha_de_nacimiento = htmlspecialchars($_POST["theDate2"]);
 $array_nacimiento = explode("-", $fecha_de_nacimiento);
 $fecha_de_nacimiento=$array_nacimiento[2]."/". $array_nacimiento[1] ."/". $array_nacimiento[0];
 $examenes = htmlspecialchars($_POST["examenes"]);
-$examenesTotal =json_decode($_POST["examenesDescripcion"],false);
+$examenesTotal =htmlspecialchars($_POST["examenesDescripcion"]);
 $Telefono=htmlspecialchars($_POST["telefono"]);
 $Email=htmlspecialchars($_POST["correo"]);
 $adelanto=htmlspecialchars($_POST['adelanto']);
@@ -50,6 +50,30 @@ $formaPago=htmlspecialchars($_POST['FormaPago']);
 $examenesArray = array();
 $fechaEntrega=htmlspecialchars($_POST['fechaEntrega']);
 $horaEntrega=htmlspecialchars($_POST['horaEntrega']);
+$diagnostico=htmlspecialchars($_POST['diagnostico']);
+$observaciones=htmlspecialchars($_POST['observaciones']);
+
+if (isset($_POST['urgente'])) {
+  $urgente= 1;
+}
+else{
+  $urgente=0;
+}
+
+if (isset($_POST['whatsapp'])) {
+  $whatsapp= 1;
+}
+else{
+  $whatsapp=0;
+}
+if (isset($_POST['correoOp'])) {
+  $correoOp= 1;
+}
+else{
+  $correoOp=0;
+}
+
+
 $_SESSION['Tipo'] = $Tipo;
 $_SESSION['nombre'] = $nombre;
 $_SESSION['doctor'] = $Doctor;
@@ -231,7 +255,8 @@ $query_result = odbc_exec($db_conn, $sql_1) or
 
 $final = array();
 //rescatamos el listado de peticiones
-$ex = explode(" ", $examenes);
+$ex = explode(",", $examenes);
+$et=explode(",",$examenesTotal);
 $j = count($ex);
 //almacenamos el numero consecutivo diario
 $numeroDiario=numeroDiario($fecha)+1;
@@ -240,7 +265,7 @@ $folioComprobante=str_pad($numeroDiario, 3, "0", STR_PAD_LEFT);
 
 echo "<script> console.log('".$numeroDiario."');</script>";
 
-for ($i = 0; $i < $j; $i++) {
+for ($i = 1; $i < $j; $i++) {
   $lastChar = substr($ex[$i], -1);
   //verificar si es agrupación
   if ($lastChar == '-') {
@@ -295,7 +320,11 @@ $sql_1 = "INSERT INTO dat_dfipa (cod_empresa, fecha, hora, numero,
            cuentaEstado,
            fechaEntrega,
            horaEntrega,
-           FormaPago) 
+           FormaPago,
+           diagnostico,
+           urgente,
+           whatsapp,
+           correoOp) 
            vALUES (" . $_SESSION['empresa'] . ",
            convert(datetime,'" . $fecha . "',103) , 
            '" . $hora . "', 
@@ -305,7 +334,7 @@ $sql_1 = "INSERT INTO dat_dfipa (cod_empresa, fecha, hora, numero,
            '" . $_SESSION['nivel'] . "', 
            '0', 
            '0', 
-           '', 
+           '".$observaciones."', 
            '" . $Tipo . "', 
            'K', 
            'R', 
@@ -329,7 +358,11 @@ $sql_1 = "INSERT INTO dat_dfipa (cod_empresa, fecha, hora, numero,
            '".$estatusCuenta."',
            convert(datetime,'". date("d/m/Y",strtotime($fechaEntrega))."',103),
            '".$horaEntrega."',
-           '".$formaPago."')";
+           '".$formaPago."',
+           '".$diagnostico."',
+           ".$urgente.",
+           ".$whatsapp.",
+           ".$correoOp.")";
 
 
            $query_result = odbc_exec($db_conn, $sql_1) or
@@ -337,9 +370,8 @@ $sql_1 = "INSERT INTO dat_dfipa (cod_empresa, fecha, hora, numero,
 
 for ($i = 0; $i < $numFinal; $i++) {
   //--Para el Ingreso de los Estudios                 
-  $sql_1 = "SELECT llave_fonasa FROM CAJ_codigos_fonasa where codigo_fonasa='" . $final[$i] . "'
+  $sql_1 = "SELECT llave_fonasa FROM CAJ_codigos_fonasa where codigo_fonasa='" . trim($final[$i]) . "'
             and activo='S'";
-
   $query_result = odbc_exec($db_conn, $sql_1) or
     die("ERROR : No se puede ejecutar la consulta.4");
 
@@ -467,12 +499,12 @@ WHERE     (id = " . $CitasProcedencia . ")";
 
   <table height="10" cellpadding="0" cellspacing="0" class="Record">
     <?php
-    for ($i = 0; $i < count($examenesTotal); $i++) {
+    for ($i = 0; $i < count($et); $i++) {
 
     ?>
       <tr class="Controls">
-        <TD ALIGN="right" WIDTH=200> <?php echo $examenesTotal[$i];
-                                      array_push($datosPaciente, $examenesTotal[$i]); ?></TD>
+        <TD ALIGN="right" WIDTH=200> <?php echo $et[$i];
+                                      array_push($datosPaciente, $et[$i]); ?></TD>
 
       </tr>
     <?php

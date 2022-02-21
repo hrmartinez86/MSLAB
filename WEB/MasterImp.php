@@ -37,40 +37,37 @@ protected $y0;      // Ordenada de comienzo de la columna
 
         $x2=200;
 
-        $this->Ln(1);
+        $this->Ln(50);
 		$nombre=$_POST['nombrePaciente'];
+        $edad=$_POST['anos'];
+        $sexo=$_POST['sexo'];
+        $expediente=$_POST['expediente'];
 		$doctor=$_POST['doc'];
         $procedencia=$_POST['procedencia'];
         $numero=$_POST['folioPaciente'];
         $fecha=$this->divide($_POST['fecha']);
+        $diagnostico=$_POST['diagnostico'];
         //fuentes
         $fontTitle='Arial';
         $fontSizeTitle=11;
         $font='Arial';
         $fontSize=8;
-        
-        $this->WriteText('',180,8,'',8,$font,false,false);
-        $this->WriteText('LABORATORIO SALAS FERNANDEZ',$anchoPagina,5,'B',$fontSizeTitle,$fontTitle,true,false);
-        $this->WriteText('QUIMICO RESPONSABLE',$anchoPagina,5,'',$fontSize,$font,true,false);
-        $this->WriteText('Q.F.B. GERARDO SALAS FERNANDEZ',$anchoPagina,5,'B',$fontSize,$font,true,false);
-        $this->WriteText('Emilio Carranza No.208 Ote.Zona Centro Cd. Madero,Tam.',$anchoPagina,5,'',$fontSize,$font,true,false);
-        $this->WriteText('C.P. 89400 Tel. 2-10-22-98 y 2-15-01-82',$anchoPagina,5,'',$fontSize,$font,true,false);
-        $this->WriteText('RFC.SAFG-7200203-IM0 UNE D.G.P. Num. 2530411',$anchoPagina,5,'',$fontSize,$font,true,false);
-        
-        $diassemana = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
-        $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
-        // $this->WriteText('',180,6,'',8,$font,false,false);
-        
-        $this->WriteText("No.".$numero,160,3,'B',$fontSize,$font,false,false);
 
-        $hoy=utf8_decode($diassemana[date('w')])." ".date('d')." de ".$meses[date('n')-1]. " del ".date('Y') . " " . date('g:ia') ;
-        $hoy='Fecha de Atención:'.$fecha;
-        $this->WriteText($hoy,131,6,'',$fontSize,$font,false,false);
-
-        $this->WriteText("PACIENTE:".$nombre,$x1,3,'B',$fontSize,$font,false,false);
-        $this->WriteText("DOCTOR:".$doctor,$x1,0,'B',$fontSize,$font,false,false);	
-		
-        $this->WriteText($procedencia,130,5,'B',$fontSize,$font,false,false);
+        $this->WriteText("Paciente:",$x1,0,'B',$fontSize,$font,false,false);
+        $this->WriteText($nombre,$x1+30,3,'B',$fontSize,$font,false,false);
+        $this->WriteText("Edad:",$x1,0,'B',$fontSize,$font,false,false);
+        $this->WriteText($edad,$x1+30,3,'B',$fontSize,$font,false,false);
+        $this->WriteText("Sexo:",$x1,0,'B',$fontSize,$font,false,false);
+        $this->WriteText($sexo,$x1+30,3,'B',$fontSize,$font,false,false);
+        $this->WriteText("Fecha:",$x1,0,'B',$fontSize,$font,false,false);
+        $this->WriteText($fecha,$x1+30,3,'B',$fontSize,$font,false,false);
+        $this->WriteText("Expediente:",$x1,0,'B',$fontSize,$font,false,false);
+        $this->WriteText($expediente,$x1+30,3,'B',$fontSize,$font,false,false);
+        $this->WriteText("Doctor:",$x1,0,'B',$fontSize,$font,false,false);	
+        $this->WriteText($doctor,$x1+30,3,'B',$fontSize,$font,false,false);
+        $this->WriteText('Procedencia:',$x1,0,'B',$fontSize,$font,false,false);
+        $this->WriteText($procedencia,$x1+30,5,'B',$fontSize,$font,false,false);
+        
         $this->Ln(5);
         
     }
@@ -84,8 +81,21 @@ protected $y0;      // Ordenada de comienzo de la columna
 
     function Footer()
     {
-		
-
+        // Go to 1.5 cm from bottom
+    $this->SetY(-35);
+    // Select Arial italic 8
+    $this->SetFont('Arial','',8);
+    $responsableSanitario=utf8_decode('RESPONSABLE SANITARIO:Q.F.B. José Justiano Sánchez Hernández R.F.C. SAHJ580905EM1 Ced. Prof. No. 871857 U.A.P.');
+    $direccion=utf8_decode('Av. Lerdo de Tejada No. 19 2do. Piso 202 Secc. 2da. Zacatelco;Tlaxcala Teléfono (246) 497 0588                      E-Mail: lasines@prodigy.net.mx');
+    $telefono=utf8_decode('Tel. Celular: (246) 116 9861 / (246) 101 0155                                   Urgencias Tel.:(246) 497 2619');
+    $this->Cell(0,10,$responsableSanitario,0,0,'L');
+    $y=$this->GetY()+10;
+    $this->SetLineWidth(1);
+    $this->Line(10,$y,192,$y);
+    $this->SetY(-25);
+    $this->Cell(0,10,$direccion,0,0,'L');   
+    $this->SetY(-20);
+    $this->Cell(0,10,$telefono,0,0,'L');   
     }
 
     function SetCol($col)
@@ -200,7 +210,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         $font='Arial';
         $fontSize=9;
         $fontTitle=$font;
-        $fontSizeTitle=9;
+        $fontSizeTitle=16;
 
         if ($imagen==TRUE) {
             $inicioIMp=10;
@@ -212,12 +222,14 @@ protected $y0;      // Ordenada de comienzo de la columna
         $this->SetFont($fontTitle,'B',$fontSizeTitle);
         // $this->SetFillColor(208,211,212);
         // $this->Cell(0,$inicioIMp,$label,0,5,'B',false);
-        $this->WriteText($label,$inicioIMp,2,'B',$fontSizeTitle,$fontTitle,false,false);
+        $y=$this->GetY();
+        $this->SetY($y-15);
+        $this->WriteText($label,120,20,'B',$fontSizeTitle,$fontTitle,false,false);
         
         $this->Ln(1);
 
         $y1=$this->GetY();
-		$this->Line($inicioIMp,  $y1,  200, $y1);
+		// $this->Line($inicioIMp,  $y1,  200, $y1);
 
         $this->WriteText('',$anchoPagina,2,'',$fontSize,$font,false,false);
         $this->WriteText('EXAMEN',$inicioIMp,0,'B',$fontSize,$font,false,false);

@@ -23,7 +23,7 @@ if(isset($_GET['FI']) and isset($_GET['ff']))
 <meta name="keywords" content="" />
 <meta name="description" content="" />
 <link rel="stylesheet" type="text/css" href="WEB/Styles/Core/Style_doctype.css">
-	<!-- Common JS files -->
+	<!-- Common JS files-->
 <script type='text/javascript' src='grid/utils/zapatec.js'></script>
 
 	<!-- Custom includes -->	
@@ -97,7 +97,7 @@ if(isset($_GET['FI']) and isset($_GET['ff']))
 	$f_fin=date("d/m/Y");
 	
 	$sql="EXECUTE CONSULTA_RESULTADOS_WEB @FECHAINI = '".$finicio."', @FECHAFIN='".$f_fin."'";
-		// echo $sql;
+	// echo $sql;
 	if (!isset($_GET['Paciente']))
 	{
 		$ver_botones=TRUE;
@@ -146,12 +146,8 @@ $varsql="otro";
 	<div id="gridContainer">
         <table  id="gridSource">
                 <tbody>
-				  <?php  
-				  $carpeta=$_SESSION['nombre'];     
-				  
-				  fwrite($file,$poner);        
-				  
-                       
+				  <?php    
+				                       
 					echo
 					'<tr>
 						<td width="*" class="zpGridTypeInt">Folio</td>
@@ -161,7 +157,8 @@ $varsql="otro";
 						<td width="87">Procedencia</td>
 						<td width="87">Tipo de Paciente</td>
 						<td width="47" class="zpGridTypeInt">Sexo</td>
-						<td width="80" class="zpGridTypeFloat">Medico</td>
+						<td width="80" class="zpGridTypeFloat">Médico</td>
+						<td width="8" class="zpGridTypeFloat">Urgente</td>
 					</tr>';					
 				
 					$result=odbc_exec($conection,$sql);
@@ -179,7 +176,7 @@ $varsql="otro";
 					$creacion=$creaci[2]."/".$creaci[1]."/".$creaci[0];
 					 	echo 
 						'
-							<tr>
+							<tr background-color: yellow;>
 							<td>'.str_pad($rows['numero_registro'],3,"0",STR_PAD_LEFT).'</td>
 							<td>'.$creacion.'</td>
 							<td>'.$rows['Nombre'].'</td>
@@ -188,6 +185,7 @@ $varsql="otro";
 							<td>'.$rows['Tipo'].'</td>
 							<td>'.$rows['Sexo'].'</td>
 							<td>'.$rows['Medico'].'</td>
+							<td>'.$rows['urgente'].'</td>
 							</tr>										
 						';
 						$cadena="
@@ -200,10 +198,10 @@ $varsql="otro";
 							<procedencia>".$rows['procedencia']."</procedencia>
 							<sexo>".$sexo."</sexo>
 							<doctor>".$rows['Medico']."</doctor>
+							<urgente>".$rows['urgente']."</urgente>
 						</Paciente>	
 						";
-						fwrite($file,$cadena);
-						$_SESSION['tagnames'] = '';
+					
 						$i++;
 						
 					 

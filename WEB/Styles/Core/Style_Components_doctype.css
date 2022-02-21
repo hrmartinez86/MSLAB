@@ -3,1222 +3,1383 @@
 
 /* Colors */
 .PageBgColorCore {
-	background-color: #cfdcde;
-	}
+  background-color: #cfdcde;
+}
 
 .FormTitleBgColorCore {
-	background-color: #46839b;
-	}
+  background-color: #46839b;
+}
 
 .FormTitleFontColorCore {
-	color: #eff5f6;
-	}
+  color: #eff5f6;
+}
 
 .CaptionBgColorCore {
-	background-color: #8ec6c6;
-	}
+  background-color: #8ec6c6;
+}
 
 .CaptionFontColorCore {
-	color: #2d5464;
-	}
+  color: #2d5464;
+}
 
 .DataBgColorCore {
-	background-color: #e7eff1;
-	}
+  background-color: #e7eff1;
+}
 
 .AltDataBgColorCore {
-	background-color: #cadde4;
-	}
+  background-color: #cadde4;
+}
 
 .DataFontColorCore {
-	color: #3c7186;
-	}
+  color: #e7eff1;
+}
 
 .LinkColorCore {
-	color: #0000f7;
-	}
+  color: #0000f7;
+}
 
 .VisitedLinkColorCore {
-	color: #157d72;
-	}
+  color: #157d72;
+}
 
 .HoverLinkColorCore {
-	color: #be0147;
-	}
+  color: #be0147;
+}
 
 .ColorBgButtonCore {
-	background-color: #46839b;
+  background-color: #46839b;
 }
 
 .ColorFontButtonCore {
-	color: #eff5f6;
+  color: #eff5f6;
 }
 
 .ColorBgButtonPassiveCore {
-	background-color: #91c4d9;
+  background-color: #91c4d9;
 }
 
 .ColorFontButtonPassiveCore {
-	color: #f8fbfc;
+  color: #f8fbfc;
 }
-
-
 
 .HeaderCore {
-	width: 100%;
-	}
-
-.HeaderCore th { 
-	font-family: Verdana; font-size: 110%; font-weight: bold; text-align: left;
-	padding: 2px;
-	background-color: #46839b; color: #eff5f6;
-	width: 100%;
-	white-space: nowrap;
-	background-position: right top; padding-left: 8px;
-	}
-
-
-html>body .HeaderCore th {
-	font-family: Verdana; font-size: 140%; font-weight: bold; text-align: left;
+  width: 100%;
 }
 
+.HeaderCore th {
+  font-family: Verdana;
+  font-size: 110%;
+  font-weight: bold;
+  text-align: left;
+  padding: 2px;
+  background-color: #46839b;
+  color: #eff5f6;
+  width: 100%;
+  white-space: nowrap;
+  background-position: right top;
+  padding-left: 8px;
+}
+
+html > body .HeaderCore th {
+  font-family: Verdana;
+  font-size: 140%;
+  font-weight: bold;
+  text-align: left;
+}
 
 /*ie6*/
 * html body .HeaderCore th {
-	font-family: Verdana; font-size: 140%; font-weight: bold; text-align: left;
+  font-family: Verdana;
+  font-size: 140%;
+  font-weight: bold;
+  text-align: left;
 }
 /*end*/
 
-.HeaderCore a:link { 
-	color: #eff5f6;
-	}
+.HeaderCore a:link {
+  color: #eff5f6;
+}
 
-.HeaderCore a:visited { 
-	color: #eff5f6;
-	}
+.HeaderCore a:visited {
+  color: #eff5f6;
+}
 
-.HeaderCore a:hover, .CaptionCore a:active { 
-	color: #eff5f6; text-decoration: none;
-	}
+.HeaderCore a:hover,
+.CaptionCore a:active {
+  color: #eff5f6;
+  text-decoration: none;
+}
 
-.HeaderLeftCore { 
-	background-image: url('Images/HeaderLeft.gif');
-	}
+.HeaderLeftCore {
+  background-image: url("Images/HeaderLeft.gif");
+}
 
-.HeaderRightCore { 
-	background-image: url('Images/HeaderRight.gif');
-	background-position: right top;
-	}
+.HeaderRightCore {
+  background-image: url("Images/HeaderRight.gif");
+  background-position: right top;
+}
 
-.HeaderLeftCore img{
-	width: 1px;
-	}
+.HeaderLeftCore img {
+  width: 1px;
+}
 
-.HeaderRightCore img{
-	width: 14px;
-	}
-
+.HeaderRightCore img {
+  width: 14px;
+}
 
 /* Grid Options */
-.GridCore { 
-	border: solid 1px #8ec6c6; border-bottom: 0px;
-	width: 100%;
-	}
-
-.CaptionCore th { 
-	font-family: Verdana; font-size: 80%; text-align: left; vertical-align: top;
-	padding: 2px;
-	border-bottom: solid 1px #8ec6c6;
-	background-color: #e7eff1; color: #3c7186;
-	white-space: nowrap;
-	}
-
-.CaptionCore td { 
-	font-family: Verdana; font-size: 80%; text-align: left; vertical-align: top;
-	padding: 2px;
-	border-bottom: solid 1px #8ec6c6;
-	background-color: #e7eff1; color: #3c7186;
-	white-space: nowrap;
-	}
-
-
-html>body .CaptionCore th, html>body .CaptionCore td {
-	font-family: Verdana; font-size: 100%; text-align: left; vertical-align: top;
+.GridCore {
+  border: solid 1px #8ec6c6;
+  border-bottom: 0px;
+  width: 100%;
 }
 
+.CaptionCore th {
+  font-family: Verdana;
+  font-size: 80%;
+  text-align: left;
+  vertical-align: top;
+  padding: 2px;
+  border-bottom: solid 1px #8ec6c6;
+  background-color: #e7eff1;
+  color: #e7eff1;
+  white-space: nowrap;
+}
+
+.CaptionCore td {
+  font-family: Verdana;
+  font-size: 80%;
+  text-align: left;
+  vertical-align: top;
+  padding: 2px;
+  border-bottom: solid 1px #8ec6c6;
+  background-color: #e7eff1;
+  color: #e7eff1;
+  white-space: nowrap;
+}
+
+html > body .CaptionCore th,
+html > body .CaptionCore td {
+  font-family: Verdana;
+  font-size: 100%;
+  text-align: left;
+  vertical-align: top;
+}
 
 /*ie6*/
-* html body .CaptionCore th, * html body .CaptionCore td {
-	font-family: Verdana; font-size: 100%; text-align: left; vertical-align: top;
+* html body .CaptionCore th,
+* html body .CaptionCore td {
+  font-family: Verdana;
+  font-size: 100%;
+  text-align: left;
+  vertical-align: top;
 }
 /*end*/
 
-.CaptionCore a:link { 
-	color: #3c7186;
-	}
+.CaptionCore a:link {
+  color: #e7eff1;
+}
 
-.CaptionCore a:visited { 
-	color: #3c7186;
-	}
+.CaptionCore a:visited {
+  color: #e7eff1;
+}
 
-.CaptionCore a:hover, .CaptionCore a:active { 
-	color: #be0147;
-	}
+.CaptionCore a:hover,
+.CaptionCore a:active {
+  color: #be0147;
+}
 
 .CaptionCore img {
-	margin: 2px; 
-	vertical-align: middle;
-	}
-
-.CaptionCore input {
-	vertical-align: middle;
-	}
-
-.RowCore th { 
-	font-family: Verdana; font-size: 80%; font-weight: normal; text-align: left; vertical-align: top;
-	padding: 2px;
-	border-bottom: solid 1px #8ec6c6;
-	background-color: #e7eff1; color: #3c7186;
-	white-space: nowrap;
-	color: #3c7186;
-	}
-
-.RowCore td { 
-	font-family: Verdana; font-size: 80%;
-	padding: 2px;
-	border-bottom: solid 1px #8ec6c6;
-	text-align: left;
-	vertical-align: top;
-	background-color: #e7eff1; 
-	color: #3c7186;
-	}
-	
-
-html>body .RowCore th, html>body .RowCore td {
-	font-family: Verdana; font-size: 100%;
+  margin: 2px;
+  vertical-align: middle;
 }
 
+.CaptionCore input {
+  vertical-align: middle;
+}
+
+.RowCore th {
+  font-family: Verdana;
+  font-size: 80%;
+  font-weight: normal;
+  text-align: left;
+  vertical-align: top;
+  padding: 2px;
+  border-bottom: solid 1px #8ec6c6;
+  background-color: #e7eff1;
+  color: #e7eff1;
+  white-space: nowrap;
+  color: #e7eff1;
+}
+
+.RowCore td {
+  font-family: Verdana;
+  font-size: 80%;
+  padding: 2px;
+  border-bottom: solid 1px #8ec6c6;
+  text-align: left;
+  vertical-align: top;
+  background-color: #e7eff1;
+  color: #e7eff1;
+}
+
+html > body .RowCore th,
+html > body .RowCore td {
+  font-family: Verdana;
+  font-size: 100%;
+}
 
 /*ie6*/
-* html body .RowCore th, * html body .RowCore td {
-	font-family: Verdana; font-size: 100%;
+* html body .RowCore th,
+* html body .RowCore td {
+  font-family: Verdana;
+  font-size: 100%;
 }
 /*end*/
 
-caption.RowCore { 
-	font-family: Verdana; font-size: 80%;
-	padding: 2px;
-	border: solid 1px #8ec6c6; border-bottom: 0px;
-	text-align: left;
-	vertical-align: top;
-	background-color: #e7eff1; 
-	color: #3c7186;
-	}
-
-
-html>body caption.RowCore {
-	font-family: Verdana; font-size: 100%;
+caption.RowCore {
+  font-family: Verdana;
+  font-size: 80%;
+  padding: 2px;
+  border: solid 1px #8ec6c6;
+  border-bottom: 0px;
+  text-align: left;
+  vertical-align: top;
+  background-color: #e7eff1;
+  color: #e7eff1;
 }
 
+html > body caption.RowCore {
+  font-family: Verdana;
+  font-size: 100%;
+}
 
 /*ie6*/
 * html body caption.RowCore {
-	font-family: Verdana; font-size: 100%;
+  font-family: Verdana;
+  font-size: 100%;
 }
 /*end*/
 
-.RowCore a:link { 
-	color: #0000f7;
-	}
-
-.RowCore a:visited { 
-	color: #157d72;
-	}
-
-.RowCore a:hover, .RowCore a:active { 
-	color: #be0147;
-	}
-
-.SeparatorCore{
-	color: #46839b;
-	}
-
-.SeparatorCore td{
-	height: 1px;
-	}
-
-
-.AltRowCore th { 
-	font-family: Verdana; font-size: 80%; font-weight: normal; text-align: left; vertical-align: top;
-	padding: 2px;
-	border-bottom: solid 1px #8ec6c6;
-	background-color: #e7eff1; color: #3c7186;
-	white-space: nowrap;
-	color: #3c7186;
-	}
-
-.AltRowCore td { 
-	font-family: Verdana; font-size: 80%;
-	padding: 2px;
-	border-bottom: solid 1px #8ec6c6;
-	text-align: left;
-	vertical-align: top;
-	background-color: #cadde4; 
-	color: #3c7186;
-	}
-
-
-html>body .AltRowCore th, html>body .AltRowCore td {
-	font-family: Verdana; font-size: 100%;
+.RowCore a:link {
+  color: #0000f7;
 }
 
+.RowCore a:visited {
+  color: #157d72;
+}
+
+.RowCore a:hover,
+.RowCore a:active {
+  color: #be0147;
+}
+
+.SeparatorCore {
+  color: #46839b;
+}
+
+.SeparatorCore td {
+  height: 1px;
+}
+
+.AltRowCore th {
+  font-family: Verdana;
+  font-size: 80%;
+  font-weight: normal;
+  text-align: left;
+  vertical-align: top;
+  padding: 2px;
+  border-bottom: solid 1px #8ec6c6;
+  background-color: #e7eff1;
+  color: #e7eff1;
+  white-space: nowrap;
+  color: #e7eff1;
+}
+
+.AltRowCore td {
+  font-family: Verdana;
+  font-size: 80%;
+  padding: 2px;
+  border-bottom: solid 1px #8ec6c6;
+  text-align: left;
+  vertical-align: top;
+  background-color: #cadde4;
+  color: #e7eff1;
+}
+
+html > body .AltRowCore th,
+html > body .AltRowCore td {
+  font-family: Verdana;
+  font-size: 100%;
+}
 
 /*ie6*/
-* html body .AltRowCore th, * html body .AltRowCore td {
-	font-family: Verdana; font-size: 100%;
+* html body .AltRowCore th,
+* html body .AltRowCore td {
+  font-family: Verdana;
+  font-size: 100%;
 }
 /*end*/
 
-.AltRowCore a:link { 
-	color: #0000f7;
-	}
-
-.AltRowCore a:visited { 
-	color: #157d72;
-	}
-
-.AltRowCore a:hover, .AltRowCore a:active { 
-	color: #be0147;
-	}
-
-.NoRecordsCore td { 
-	font-family: Verdana; font-size: 80%;
-	padding: 2px;
-	border-bottom: solid 1px #8ec6c6;
-	text-align: left;
-	background-color: #e7eff1; 
-	color: #3c7186;
-	vertical-align: top;
-	}
-
-.FooterCore td { 
-	font-family: Verdana; font-size: 80%;
-	padding: 2px;
-	border-bottom: solid 1px #8ec6c6;
-	background-color: #e7eff1; color: #3c7186;
-	text-align: center;
-	vertical-align: middle;
-	white-space: nowrap;
-	color: #3c7186;
-	}
-
-
-html>body .NoRecordsCore td, html>body .FooterCore td {
-	font-family: Verdana; font-size: 100%;
+.AltRowCore a:link {
+  color: #0000f7;
 }
 
+.AltRowCore a:visited {
+  color: #157d72;
+}
+
+.AltRowCore a:hover,
+.AltRowCore a:active {
+  color: #be0147;
+}
+
+.NoRecordsCore td {
+  font-family: Verdana;
+  font-size: 80%;
+  padding: 2px;
+  border-bottom: solid 1px #8ec6c6;
+  text-align: left;
+  background-color: #e7eff1;
+  color: #e7eff1;
+  vertical-align: top;
+}
+
+.FooterCore td {
+  font-family: Verdana;
+  font-size: 80%;
+  padding: 2px;
+  border-bottom: solid 1px #8ec6c6;
+  background-color: #e7eff1;
+  color: #e7eff1;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  color: #e7eff1;
+}
+
+html > body .NoRecordsCore td,
+html > body .FooterCore td {
+  font-family: Verdana;
+  font-size: 100%;
+}
 
 /*ie6*/
-* html body .NoRecordsCore td, * html body .FooterCore td {
-	font-family: Verdana; font-size: 100%;
+* html body .NoRecordsCore td,
+* html body .FooterCore td {
+  font-family: Verdana;
+  font-size: 100%;
 }
 /*end*/
 
-.FooterCore a:link { 
-	color: #0000f7;
-	}
+.FooterCore a:link {
+  color: #0000f7;
+}
 
-.FooterCore a:visited { 
-	color: #157d72;
-	}
+.FooterCore a:visited {
+  color: #157d72;
+}
 
-.FooterCore a:hover, .FooterCore a:active { 
-	color: #be0147;
-	}
+.FooterCore a:hover,
+.FooterCore a:active {
+  color: #be0147;
+}
 
 .FooterCore img {
-	margin: 2px; 
-	vertical-align: middle;
-	}
-
-.FooterCore input {
-	margin: 2px;
-	vertical-align: middle;
-	}
-
-/* Record Options */
-.RecordCore { 
-	border: solid 1px #8ec6c6; border-bottom: 0px;
-	width: 100%;
-	}
-
-.ErrorCore td { 
-	font-family: Verdana; font-size: 80%;
-	padding: 2px;
-	border-bottom: solid 1px #8ec6c6;
-	text-align: left;
-	color: #FF0000;
-	vertical-align: top;
-	background-color: #e7eff1; 
-	}
-
-
-* html>body .ErrorCore td {
-	font-family: Verdana; font-size: 100%;
+  margin: 2px;
+  vertical-align: middle;
 }
 
+.FooterCore input {
+  margin: 2px;
+  vertical-align: middle;
+}
+
+/* Record Options */
+.RecordCore {
+  border: solid 1px #8ec6c6;
+  border-bottom: 0px;
+  width: 100%;
+}
+
+.ErrorCore td {
+  font-family: Verdana;
+  font-size: 80%;
+  padding: 2px;
+  border-bottom: solid 1px #8ec6c6;
+  text-align: left;
+  color: #ff0000;
+  vertical-align: top;
+  background-color: #e7eff1;
+}
+
+* html > body .ErrorCore td {
+  font-family: Verdana;
+  font-size: 100%;
+}
 
 /*ie6*/
 * html body .ErrorCore td {
-	font-family: Verdana; font-size: 100%;
+  font-family: Verdana;
+  font-size: 100%;
 }
 /*end*/
 
-.ControlsCore th { 
-	font-family: Verdana; font-size: 80%; font-weight: normal; text-align: left; vertical-align: top;
-	padding: 2px;
-	border-bottom: solid 1px #8ec6c6;
-	background-color: #e7eff1; color: #3c7186;
-	white-space: nowrap;
-	color: #3c7186;
-	}
-
-.ControlsCore td { 
-	font-family: Verdana; font-size: 80%;
-	padding: 2px;
-	border-bottom: solid 1px #8ec6c6;
-	text-align: left;
-	vertical-align: top;
-	background-color: #e7eff1; 
-	color: #3c7186;
-	}
-	
-.BottomCore td { 
-	font-family: Verdana; font-size: 80%;
-	padding: 2px;
-	border-bottom: solid 1px #8ec6c6;
-	background-color: #e7eff1; color: #3c7186;
-	text-align: right;
-	vertical-align: middle;
-	white-space: nowrap;
-	color: #3c7186;
-	}
-
-
-html>body .ControlsCore th, html>body .ControlsCore td, html>body .BottomCore td {
-	font-family: Verdana; font-size: 100%;
+.ControlsCore th {
+  font-family: Verdana;
+  font-size: 80%;
+  font-weight: normal;
+  text-align: left;
+  vertical-align: top;
+  padding: 2px;
+  border-bottom: solid 1px #8ec6c6;
+  background-color: #e7eff1;
+  color: #e7eff1;
+  white-space: nowrap;
+  color: #e7eff1;
 }
 
+.ControlsCore td {
+  font-family: Verdana;
+  font-size: 80%;
+  padding: 2px;
+  border-bottom: solid 1px #8ec6c6;
+  text-align: left;
+  vertical-align: top;
+  background-color: #e7eff1;
+  color: #e7eff1;
+}
+
+.BottomCore td {
+  font-family: Verdana;
+  font-size: 80%;
+  padding: 2px;
+  border-bottom: solid 1px #8ec6c6;
+  background-color: #e7eff1;
+  color: #e7eff1;
+  text-align: right;
+  vertical-align: middle;
+  white-space: nowrap;
+  color: #e7eff1;
+}
+
+html > body .ControlsCore th,
+html > body .ControlsCore td,
+html > body .BottomCore td {
+  font-family: Verdana;
+  font-size: 100%;
+}
 
 /*ie6*/
-* html body .ControlsCore th, * html body .ControlsCore td, * html body .BottomCore td {
-	font-family: Verdana; font-size: 100%;
+* html body .ControlsCore th,
+* html body .ControlsCore td,
+* html body .BottomCore td {
+  font-family: Verdana;
+  font-size: 100%;
 }
 /*end*/
 
-.BottomCore a:link { 
-	color: #0000f7;
-	}
+.BottomCore a:link {
+  color: #0000f7;
+}
 
-.BottomCore a:visited { 
-	color: #157d72;
-	}
+.BottomCore a:visited {
+  color: #157d72;
+}
 
-.BottomCore a:hover, .CaptionCore a:active { 
-	color: #be0147;
-	}
+.BottomCore a:hover,
+.CaptionCore a:active {
+  color: #be0147;
+}
 
 .BottomCore img {
-	margin: 2px;
-	vertical-align: middle; 
-	}
-
-.BottomCore input {
-	margin: 2px;
-	vertical-align: middle;
-	}
-
-/* Report */
-.GroupCaptionCore th{
-	font-family: Verdana; font-size: 80%;
-	padding: 2px;
-	border-bottom: solid 1px #8ec6c6;
-	white-space: nowrap;
-	text-align: left;
-	vertical-align: top;
-	font-weight: bold;
-	background-color: #cadde4; 
-	color: #3c7186;
-	}
-
-.GroupCaptionCore td{
-	font-family: Verdana; font-size: 80%;
-	padding: 2px;
-	border-bottom: solid 1px #8ec6c6;
-	text-align: left;
-	vertical-align: top;
-	font-weight: bold;
-	background-color: #e7eff1; 
-	color: #3c7186;
-	}
-
-
-html>body .GroupCaptionCore th, html>body .GroupCaptionCore td {
-	font-family: Verdana; font-size: 100%;
+  margin: 2px;
+  vertical-align: middle;
 }
 
+.BottomCore input {
+  margin: 2px;
+  vertical-align: middle;
+}
+
+/* Report */
+.GroupCaptionCore th {
+  font-family: Verdana;
+  font-size: 80%;
+  padding: 2px;
+  border-bottom: solid 1px #8ec6c6;
+  white-space: nowrap;
+  text-align: left;
+  vertical-align: top;
+  font-weight: bold;
+  background-color: #cadde4;
+  color: #e7eff1;
+}
+
+.GroupCaptionCore td {
+  font-family: Verdana;
+  font-size: 80%;
+  padding: 2px;
+  border-bottom: solid 1px #8ec6c6;
+  text-align: left;
+  vertical-align: top;
+  font-weight: bold;
+  background-color: #e7eff1;
+  color: #e7eff1;
+}
+
+html > body .GroupCaptionCore th,
+html > body .GroupCaptionCore td {
+  font-family: Verdana;
+  font-size: 100%;
+}
 
 /*ie6*/
-* html body .GroupCaptionCore th, * html body .GroupCaptionCore td {
-	font-family: Verdana; font-size: 100%;
+* html body .GroupCaptionCore th,
+* html body .GroupCaptionCore td {
+  font-family: Verdana;
+  font-size: 100%;
 }
 /*end*/
 
 .GroupCaptionCore a:link {
-	color: #3c7186;
-	}
-
-.GroupCaptionCore a:visited{
-	color: #3c7186;
-	}
-
-.GroupCaptionCore a:hover, .GroupCaptionCore a:active{
-	color: #be0147;
-	}
-
-.GroupFooterCore td{
-	font-family: Verdana; font-size: 80%;
-	padding: 2px;
-	border-bottom: solid 1px #8ec6c6;
-	text-align: center;
-	vertical-align: middle;
-	white-space: nowrap;
-	background-color: #8ec6c6; 
-	color: #3c7186;
-	}
-
-
-html>body .GroupFooterCore td {
-	font-family: Verdana; font-size: 100%;
+  color: #e7eff1;
 }
 
+.GroupCaptionCore a:visited {
+  color: #e7eff1;
+}
+
+.GroupCaptionCore a:hover,
+.GroupCaptionCore a:active {
+  color: #be0147;
+}
+
+.GroupFooterCore td {
+  font-family: Verdana;
+  font-size: 80%;
+  padding: 2px;
+  border-bottom: solid 1px #8ec6c6;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  background-color: #8ec6c6;
+  color: #e7eff1;
+}
+
+html > body .GroupFooterCore td {
+  font-family: Verdana;
+  font-size: 100%;
+}
 
 /*ie6*/
 * html body .GroupFooterCore td {
-	font-family: Verdana; font-size: 100%;
+  font-family: Verdana;
+  font-size: 100%;
 }
 /*end*/
 
 .GroupFooterCore a:link {
-	color: #0000f7;
-	}
-
-.GroupFooterCore a:visited{
-	color: #157d72;
-	}
-
-.GroupFooterCore a:hover, .GroupFooterCore a:active{
-	color: #be0147;
-	}
-
-.GroupFooterCore img {
-	margin: 2px; 
-	vertical-align: middle;
-	}
-
-.GroupFooterCore input {
-	margin: 2px;
-	vertical-align: middle;
-	}
-
-.SubTotalCore td{
-	font-family: Verdana; font-size: 80%;
-	padding: 2px;
-	border-bottom: solid 1px #8ec6c6;
-	text-align: left;
-	vertical-align: top;
-	font-weight: bold;
-	background-color: #cadde4; 
-	color: #3c7186;
-	border-bottom: 2px solid #46839b;
-	}
-
-
-html>body .SubTotalCore td {
-	font-family: Verdana; font-size: 100%;
+  color: #0000f7;
 }
 
+.GroupFooterCore a:visited {
+  color: #157d72;
+}
+
+.GroupFooterCore a:hover,
+.GroupFooterCore a:active {
+  color: #be0147;
+}
+
+.GroupFooterCore img {
+  margin: 2px;
+  vertical-align: middle;
+}
+
+.GroupFooterCore input {
+  margin: 2px;
+  vertical-align: middle;
+}
+
+.SubTotalCore td {
+  font-family: Verdana;
+  font-size: 80%;
+  padding: 2px;
+  border-bottom: solid 1px #8ec6c6;
+  text-align: left;
+  vertical-align: top;
+  font-weight: bold;
+  background-color: #cadde4;
+  color: #e7eff1;
+  border-bottom: 2px solid #46839b;
+}
+
+html > body .SubTotalCore td {
+  font-family: Verdana;
+  font-size: 100%;
+}
 
 /*ie6*/
 * html body .SubTotalCore td {
-	font-family: Verdana; font-size: 100%;
+  font-family: Verdana;
+  font-size: 100%;
 }
 /*end*/
 
 .SubTotalCore a:link {
-	color: #0000f7;
-	}
-
-.SubTotalCore a:visited{
-	color: #157d72;
-	}
-
-.SubTotalCore a:hover, .SubTotalCore a:active{
-	color: #be0147;
-	}
-
-.TotalCore td{
-	font-family: Verdana; font-size: 80%;
-	padding: 2px;
-	border-bottom: solid 1px #8ec6c6;
-	text-align: left;
-	vertical-align: top;
-	white-space: nowrap;
-	font-weight: bold;
-	background-color: #cadde4; 
-	color: #3c7186;
-	}
-
-
-html>body .TotalCore td {
-	font-family: Verdana; font-size: 100%;
+  color: #0000f7;
 }
 
+.SubTotalCore a:visited {
+  color: #157d72;
+}
+
+.SubTotalCore a:hover,
+.SubTotalCore a:active {
+  color: #be0147;
+}
+
+.TotalCore td {
+  font-family: Verdana;
+  font-size: 80%;
+  padding: 2px;
+  border-bottom: solid 1px #8ec6c6;
+  text-align: left;
+  vertical-align: top;
+  white-space: nowrap;
+  font-weight: bold;
+  background-color: #cadde4;
+  color: #e7eff1;
+}
+
+html > body .TotalCore td {
+  font-family: Verdana;
+  font-size: 100%;
+}
 
 /*ie6*/
 * html body .TotalCore td {
-	font-family: Verdana; font-size: 100%;
+  font-family: Verdana;
+  font-size: 100%;
 }
 /*end*/
 
 .TotalCore a:link {
-	color: #0000f7;
-	}
+  color: #0000f7;
+}
 
-.TotalCore a:visited{
-	color: #157d72;
-	}
+.TotalCore a:visited {
+  color: #157d72;
+}
 
-.TotalCore a:hover, .TotalCore a:active{
-	color: #be0147;
-	}
+.TotalCore a:hover,
+.TotalCore a:active {
+  color: #be0147;
+}
 
 /* Form Options */
-.ButtonCore { 
-	background-color: #cadde4; color: #2d5464; border: solid 1px #46839b; padding: 2px; font-weight: bold; font-family: Tahoma; font-size: 11px; font-weight: bold;
-	}
+.ButtonCore {
+  background-color: #cadde4;
+  color: #2d5464;
+  border: solid 1px #46839b;
+  padding: 2px;
+  font-weight: bold;
+  font-family: Tahoma;
+  font-size: 11px;
+  font-weight: bold;
+}
 
 /* Calendar */
 
-.CalendarCore { 
-	border: solid 1px #8ec6c6;
-	width: 100%;
-	}
-
-.CalendarWeekdayNameCore{
-	font-family: Verdana; font-size: 80%;
-	padding: 2px;
-	border-bottom: solid 1px #8ec6c6;
-	text-align: center; 
-	vertical-align: top;
-	white-space: nowrap;
-	background-color: #cadde4; 
-	color: #3c7186;
-	font-weight: normal;
-	}
-
-
-html>body .CalendarWeekdayNameCore {
-	font-family: Verdana; font-size: 100%;
+.CalendarCore {
+  border: solid 1px #8ec6c6;
+  width: 100%;
 }
 
+.CalendarWeekdayNameCore {
+  font-family: Verdana;
+  font-size: 80%;
+  padding: 2px;
+  border-bottom: solid 1px #8ec6c6;
+  text-align: center;
+  vertical-align: top;
+  white-space: nowrap;
+  background-color: #cadde4;
+  color: #e7eff1;
+  font-weight: normal;
+}
+
+html > body .CalendarWeekdayNameCore {
+  font-family: Verdana;
+  font-size: 100%;
+}
 
 /*ie6*/
 * html body .CalendarWeekdayNameCore {
-	font-family: Verdana; font-size: 100%;
+  font-family: Verdana;
+  font-size: 100%;
 }
 /*end*/
 
 .CalendarWeekdayNameCore a:link {
-	color: #0000f7;
-	}
-
-.CalendarWeekdayNameCore a:visited{
-	color: #157d72;
-	}
-
-.CalendarWeekdayNameCore a:hover, .CalendarWeekdayNameCore a:active{
-	color: #be0147;
-	}
-
-.CalendarWeekendNameCore{
-	font-family: Verdana; font-size: 80%;
-	padding: 2px;
-	border-bottom: solid 1px #8ec6c6;
-	white-space: nowrap;
-	text-align: center; 
-	vertical-align: top;
-	background-color: #cadde4;	
-	color: #3c7186;
-	font-weight: normal;
-	}
-
-
-html>body .CalendarWeekendNameCore {
-	font-family: Verdana; font-size: 100%;
+  color: #0000f7;
 }
 
+.CalendarWeekdayNameCore a:visited {
+  color: #157d72;
+}
+
+.CalendarWeekdayNameCore a:hover,
+.CalendarWeekdayNameCore a:active {
+  color: #be0147;
+}
+
+.CalendarWeekendNameCore {
+  font-family: Verdana;
+  font-size: 80%;
+  padding: 2px;
+  border-bottom: solid 1px #8ec6c6;
+  white-space: nowrap;
+  text-align: center;
+  vertical-align: top;
+  background-color: #cadde4;
+  color: #e7eff1;
+  font-weight: normal;
+}
+
+html > body .CalendarWeekendNameCore {
+  font-family: Verdana;
+  font-size: 100%;
+}
 
 /*ie6*/
 * html body .CalendarWeekendNameCore {
-	font-family: Verdana; font-size: 100%;
+  font-family: Verdana;
+  font-size: 100%;
 }
 /*end*/
 
 .CalendarWeekendNameCore a:link {
-	color: #3c7186;
-	}
-
-.CalendarWeekendNameCore a:visited{
-	color: #3c7186;
-	}
-
-.CalendarWeekendNameCore a:link, .CalendarWeekendNameCore a:visited{
-	color: #be0147;
-	}
-
-/* Calendar Day */
-.CalendarDayCore{
-	font-family: Verdana; font-size: 80%;
-	padding: 2px;
-	border-bottom: solid 1px #8ec6c6;
-	text-align: center;
-	background-color: #e7eff1;	
-	color: #3c7186;
-	}
-
-
-html>body .CalendarDayCore {
-	font-family: Verdana; font-size: 100%;
+  color: #e7eff1;
 }
 
+.CalendarWeekendNameCore a:visited {
+  color: #e7eff1;
+}
+
+.CalendarWeekendNameCore a:link,
+.CalendarWeekendNameCore a:visited {
+  color: #be0147;
+}
+
+/* Calendar Day */
+.CalendarDayCore {
+  font-family: Verdana;
+  font-size: 80%;
+  padding: 2px;
+  border-bottom: solid 1px #8ec6c6;
+  text-align: center;
+  background-color: #e7eff1;
+  color: #e7eff1;
+}
+
+html > body .CalendarDayCore {
+  font-family: Verdana;
+  font-size: 100%;
+}
 
 /*ie6*/
 * html body .CalendarDayCore {
-	font-family: Verdana; font-size: 100%;
+  font-family: Verdana;
+  font-size: 100%;
 }
 /*end*/
 
 .CalendarDayCore a:link {
-	color: #0000f7;
-	}
-
-.CalendarDayCore a:visited{
-	color: #157d72;
-	}
-
-.CalendarDayCore a:hover, .CalendarDayCore a:active{
-	color: #be0147;
-	}
-
-/* Calendar Weekend */
-.CalendarWeekendCore{
-	font-family: Verdana; font-size: 80%;
-	padding: 2px;
-	border-bottom: solid 1px #8ec6c6;
-	text-align: center;
-	background-color: #cadde4;	
-	color: #3c7186;
-	}
-
-
-html>body .CalendarWeekendCore {
-	font-family: Verdana; font-size: 100%;
+  color: #0000f7;
 }
 
+.CalendarDayCore a:visited {
+  color: #157d72;
+}
+
+.CalendarDayCore a:hover,
+.CalendarDayCore a:active {
+  color: #be0147;
+}
+
+/* Calendar Weekend */
+.CalendarWeekendCore {
+  font-family: Verdana;
+  font-size: 80%;
+  padding: 2px;
+  border-bottom: solid 1px #8ec6c6;
+  text-align: center;
+  background-color: #cadde4;
+  color: #e7eff1;
+}
+
+html > body .CalendarWeekendCore {
+  font-family: Verdana;
+  font-size: 100%;
+}
 
 /*ie6*/
 * html body .CalendarWeekendCore {
-	font-family: Verdana; font-size: 100%;
+  font-family: Verdana;
+  font-size: 100%;
 }
 /*end*/
 
 .CalendarWeekendCore a:link {
-	color: #0000f7;
-	}
+  color: #0000f7;
+}
 
-.CalendarWeekendCore a:visited{
-	color: #157d72;
-	}
+.CalendarWeekendCore a:visited {
+  color: #157d72;
+}
 
-.CalendarWeekendCore a:hover, .CalendarWeekendCore a:active{
-	color: #be0147;
-	}
+.CalendarWeekendCore a:hover,
+.CalendarWeekendCore a:active {
+  color: #be0147;
+}
 
 /* Calendar Today */
 .CalendarTodayCore {
-	font-family: Verdana; font-size: 80%;
-	padding: 0px;
-	border: 2px solid #8ec6c6; border-top: 1px solid #8ec6c6;
-	text-align: center;
-	background-color: #e7eff1;	
-	color: #3c7186;
-	}
-
-
-html>body .CalendarTodayCore {
-	font-family: Verdana; font-size: 100%;
+  font-family: Verdana;
+  font-size: 80%;
+  padding: 0px;
+  border: 2px solid #8ec6c6;
+  border-top: 1px solid #8ec6c6;
+  text-align: center;
+  background-color: #e7eff1;
+  color: #e7eff1;
 }
 
+html > body .CalendarTodayCore {
+  font-family: Verdana;
+  font-size: 100%;
+}
 
 /*ie6*/
 * html body .CalendarTodayCore {
-	font-family: Verdana; font-size: 100%;
+  font-family: Verdana;
+  font-size: 100%;
 }
 /*end*/
 
 .CalendarTodayCore a:link {
-	color: #0000f7;
-	}
+  color: #0000f7;
+}
 
-.CalendarTodayCore a:visited{
-	color: #157d72;
-	}
+.CalendarTodayCore a:visited {
+  color: #157d72;
+}
 
-.CalendarTodayCore a:hover, .CalendarTodayCore a:active {
-	color: #be0147;
-	}
+.CalendarTodayCore a:hover,
+.CalendarTodayCore a:active {
+  color: #be0147;
+}
 
 /* Calendar Weekend Today */
 .CalendarWeekendTodayCore {
-	font-family: Verdana; font-size: 80%;
-	padding: 0px;
-	border: 2px solid #8ec6c6; border-top: 1px solid #8ec6c6;
-	text-align: center;
-	background-color: #cadde4;	
-	color: #3c7186;
-	}
-
-
-html>body .CalendarWeekendTodayCore {
-	font-family: Verdana; font-size: 100%;
+  font-family: Verdana;
+  font-size: 80%;
+  padding: 0px;
+  border: 2px solid #8ec6c6;
+  border-top: 1px solid #8ec6c6;
+  text-align: center;
+  background-color: #cadde4;
+  color: #e7eff1;
 }
 
+html > body .CalendarWeekendTodayCore {
+  font-family: Verdana;
+  font-size: 100%;
+}
 
 /*ie6*/
 * html body .CalendarWeekendTodayCore {
-	font-family: Verdana; font-size: 100%;
+  font-family: Verdana;
+  font-size: 100%;
 }
 /*end*/
 
 .CalendarWeekendTodayCore a:link {
-	color: #0000f7;
-	}
-
-.CalendarWeekendTodayCore a:visited{
-	color: #157d72;
-	}
-
-.CalendarWeekendTodayCore a:hover, .CalendarWeekendTodayCore a:active{
-	color: #be0147;
-	}
-
-/* Calendar Other Month's Day */
-.CalendarOtherMonthDayCore{
-	font-family: Verdana; font-size: 80%;
-	padding: 2px;
-	border-bottom: solid 1px #8ec6c6;
-	text-align: center;
-	background-color: #e7eff1;	
-	color: #46839b;
-	}
-
-
-html>body .CalendarOtherMonthDayCore {
-	font-family: Verdana; font-size: 100%;
+  color: #0000f7;
 }
 
+.CalendarWeekendTodayCore a:visited {
+  color: #157d72;
+}
+
+.CalendarWeekendTodayCore a:hover,
+.CalendarWeekendTodayCore a:active {
+  color: #be0147;
+}
+
+/* Calendar Other Month's Day */
+.CalendarOtherMonthDayCore {
+  font-family: Verdana;
+  font-size: 80%;
+  padding: 2px;
+  border-bottom: solid 1px #8ec6c6;
+  text-align: center;
+  background-color: #e7eff1;
+  color: #46839b;
+}
+
+html > body .CalendarOtherMonthDayCore {
+  font-family: Verdana;
+  font-size: 100%;
+}
 
 /*ie6*/
 * html body .CalendarOtherMonthDayCore {
-	font-family: Verdana; font-size: 100%;
+  font-family: Verdana;
+  font-size: 100%;
 }
 /*end*/
 
 .CalendarOtherMonthDayCore a:link {
-	color: #46839b;
-	}
+  color: #46839b;
+}
 
-.CalendarOtherMonthDayCore a:visited{
-	color: #46839b;
-	}
+.CalendarOtherMonthDayCore a:visited {
+  color: #46839b;
+}
 
-.CalendarOtherMonthDayCore a:hover, .CalendarOtherMonthDayCore a:active{
-	color: #be0147;
-	}
+.CalendarOtherMonthDayCore a:hover,
+.CalendarOtherMonthDayCore a:active {
+  color: #be0147;
+}
 
 /* Calendar Other Month's Today */
 .CalendarOtherMonthTodayCore {
-	font-family: Verdana; font-size: 80%;
-	padding: 0px;
-	border: 2px solid #8ec6c6; border-top: 1px solid #8ec6c6;
-	text-align: center;
-	background-color: #e7eff1;	
-	color: #46839b;
-	}
-
-
-html>body .CalendarOtherMonthTodayCore {
-	font-family: Verdana; font-size: 100%;
+  font-family: Verdana;
+  font-size: 80%;
+  padding: 0px;
+  border: 2px solid #8ec6c6;
+  border-top: 1px solid #8ec6c6;
+  text-align: center;
+  background-color: #e7eff1;
+  color: #46839b;
 }
 
+html > body .CalendarOtherMonthTodayCore {
+  font-family: Verdana;
+  font-size: 100%;
+}
 
 /*ie6*/
 * html body .CalendarOtherMonthTodayCore {
-	font-family: Verdana; font-size: 100%;
+  font-family: Verdana;
+  font-size: 100%;
 }
 /*end*/
 
 .CalendarOtherMonthTodayCore a:link {
-	color: #46839b;
-	}
+  color: #46839b;
+}
 
-.CalendarOtherMonthTodayCore a:visited{
-	color: #46839b;
-	}
+.CalendarOtherMonthTodayCore a:visited {
+  color: #46839b;
+}
 
-.CalendarOtherMonthTodayCore a:hover, .CalendarOtherMonthTodayCore a:active{
-	color: #be0147;
-	}
+.CalendarOtherMonthTodayCore a:hover,
+.CalendarOtherMonthTodayCore a:active {
+  color: #be0147;
+}
 
 /* Calendar Other Month's Weekend */
 .CalendarOtherMonthWeekendCore {
-	font-family: Verdana; font-size: 80%;
-	padding: 2px;
-	border-bottom: solid 1px #8ec6c6;
-	text-align: center;
-	background-color: #cadde4;	
-	color: #46839b;
-	}
-
-
-html>body .CalendarOtherMonthWeekendCore {
-	font-family: Verdana; font-size: 100%;
+  font-family: Verdana;
+  font-size: 80%;
+  padding: 2px;
+  border-bottom: solid 1px #8ec6c6;
+  text-align: center;
+  background-color: #cadde4;
+  color: #46839b;
 }
 
+html > body .CalendarOtherMonthWeekendCore {
+  font-family: Verdana;
+  font-size: 100%;
+}
 
 /*ie6*/
 * html body .CalendarOtherMonthWeekendCore {
-	font-family: Verdana; font-size: 100%;
+  font-family: Verdana;
+  font-size: 100%;
 }
 /*end*/
 
 .CalendarOtherMonthWeekendCore a:link {
-	color: #46839b;
-	}
+  color: #46839b;
+}
 
-.CalendarOtherMonthWeekendCore a:visited{
-	color: #46839b;
-	}
+.CalendarOtherMonthWeekendCore a:visited {
+  color: #46839b;
+}
 
-.CalendarOtherMonthWeekendCore a:hover, .CalendarOtherMonthWeekendCore a:active{
-	color: #be0147;
-	}
+.CalendarOtherMonthWeekendCore a:hover,
+.CalendarOtherMonthWeekendCore a:active {
+  color: #be0147;
+}
 
 /* Calendar Other Month's Weekend Today */
 .CalendarOtherMonthWeekendTodayCore {
-	font-family: Verdana; font-size: 80%;
-	padding: 0px;
-	border: 2px solid #8ec6c6; border-top: 1px solid #8ec6c6;
-	text-align: center;
-	color: #46839b;
-	background-color: #cadde4;	
-	}
-	
-
-html>body .CalendarOtherMonthWeekendTodayCore {
-	font-family: Verdana; font-size: 100%;
+  font-family: Verdana;
+  font-size: 80%;
+  padding: 0px;
+  border: 2px solid #8ec6c6;
+  border-top: 1px solid #8ec6c6;
+  text-align: center;
+  color: #46839b;
+  background-color: #cadde4;
 }
 
+html > body .CalendarOtherMonthWeekendTodayCore {
+  font-family: Verdana;
+  font-size: 100%;
+}
 
 /*ie6*/
 * html body .CalendarOtherMonthWeekendTodayCore {
-	font-family: Verdana; font-size: 100%;
+  font-family: Verdana;
+  font-size: 100%;
 }
 /*end*/
 
 .CalendarOtherMonthWeekendTodayCore a:link {
-	color: #46839b;
-	}
-
-.CalendarOtherMonthWeekendTodayCore a:visited{
-	color: #46839b;
-	}
-
-.CalendarOtherMonthWeekendTodayCore a:hover, .CalendarOtherMonthWeekendTodayCore a:active{
-	color: #be0147;
-	}
-
-/* Calendar Selected Day (for DatePicker) */
-.CalendarSelectedDayCore{
-	font-family: Verdana; font-size: 80%;
-	padding: 2px;
-	border-bottom: solid 1px #8ec6c6;
-	background-color: #8ec6c6;
-	color: #2d5464;
-	text-align: center;
-	font-weight: bold;
-	}
-	
-
-html>body .CalendarSelectedDayCore {
-	font-family: Verdana; font-size: 100%;
+  color: #46839b;
 }
 
+.CalendarOtherMonthWeekendTodayCore a:visited {
+  color: #46839b;
+}
+
+.CalendarOtherMonthWeekendTodayCore a:hover,
+.CalendarOtherMonthWeekendTodayCore a:active {
+  color: #be0147;
+}
+
+/* Calendar Selected Day (for DatePicker) */
+.CalendarSelectedDayCore {
+  font-family: Verdana;
+  font-size: 80%;
+  padding: 2px;
+  border-bottom: solid 1px #8ec6c6;
+  background-color: #8ec6c6;
+  color: #2d5464;
+  text-align: center;
+  font-weight: bold;
+}
+
+html > body .CalendarSelectedDayCore {
+  font-family: Verdana;
+  font-size: 100%;
+}
 
 /*ie6*/
 * html body .CalendarSelectedDayCore {
-	font-family: Verdana; font-size: 100%;
+  font-family: Verdana;
+  font-size: 100%;
 }
 /*end*/
 
 .CalendarSelectedDayCore a:link {
-	color: #3c7186;
-	}
+  color: #e7eff1;
+}
 
-.CalendarSelectedDayCore a:visited{
-	color: #3c7186;
-	}
+.CalendarSelectedDayCore a:visited {
+  color: #e7eff1;
+}
 
-.CalendarSelectedDayCore a:hover, .CalendarSelectedDayCore a:active{
-	color: #be0147;
-	}
+.CalendarSelectedDayCore a:hover,
+.CalendarSelectedDayCore a:active {
+  color: #be0147;
+}
 
 /* Calendar Navigator */
 .CalendarNavigatorCore {
-	font-family: Verdana; font-size: 80%;
-	padding: 2px;
-	background-color: #e7eff1; color: #3c7186;
-	text-align: center;
-	vertical-align: middle;
-	white-space: nowrap;
-	color: #3c7186;
-	}
-
-
-html>body .CalendarNavigatorCore {
-	font-family: Verdana; font-size: 100%;
+  font-family: Verdana;
+  font-size: 80%;
+  padding: 2px;
+  background-color: #e7eff1;
+  color: #e7eff1;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  color: #e7eff1;
 }
 
+html > body .CalendarNavigatorCore {
+  font-family: Verdana;
+  font-size: 100%;
+}
 
 /*ie6*/
 * html body .CalendarNavigatorCore {
-	font-family: Verdana; font-size: 100%;
+  font-family: Verdana;
+  font-size: 100%;
 }
 /*end*/
 
 .CalendarNavigatorCore a:link {
-	color: #0000f7;
-	}
-
-.CalendarNavigatorCore a:visited{
-	color: #157d72;
-	}
-
-.CalendarNavigatorCore a:hover, .CalendarNavigatorCore a:active{
-	color: #be0147;
-	}
-
-.CalendarNavigatorCore img{
-	margin: 2px;
-	vertical-align: middle; 	
-	}
-
-.CalendarNavigatorCore td {
-	font-family: Verdana; font-size: 80%;
-	}
-
-.CalendarNavigatorCore th {
-	font-family: Verdana; font-size: 80%;
-	}
-
-
-html>body .CalendarNavigatorCore th, html>body .CalendarNavigatorCore td {
-	font-family: Verdana; font-size: 100%;
+  color: #0000f7;
 }
 
+.CalendarNavigatorCore a:visited {
+  color: #157d72;
+}
+
+.CalendarNavigatorCore a:hover,
+.CalendarNavigatorCore a:active {
+  color: #be0147;
+}
+
+.CalendarNavigatorCore img {
+  margin: 2px;
+  vertical-align: middle;
+}
+
+.CalendarNavigatorCore td {
+  font-family: Verdana;
+  font-size: 80%;
+}
+
+.CalendarNavigatorCore th {
+  font-family: Verdana;
+  font-size: 80%;
+}
+
+html > body .CalendarNavigatorCore th,
+html > body .CalendarNavigatorCore td {
+  font-family: Verdana;
+  font-size: 100%;
+}
 
 /*ie6*/
-* html body .CalendarNavigatorCore th, * html body .CalendarNavigatorCore td {
-	font-family: Verdana; font-size: 100%;
+* html body .CalendarNavigatorCore th,
+* html body .CalendarNavigatorCore td {
+  font-family: Verdana;
+  font-size: 100%;
 }
 /*end*/
 
 /* Calendar Extra */
-.CalendarEventCore{
-	font-family: Verdana; font-size: 80%;
-	text-align: left;
-	}
-
-
-html>body .CalendarEventCore {
-	font-family: Verdana; font-size: 100%;
+.CalendarEventCore {
+  font-family: Verdana;
+  font-size: 80%;
+  text-align: left;
 }
 
+html > body .CalendarEventCore {
+  font-family: Verdana;
+  font-size: 100%;
+}
 
 /*ie6*/
 * html body .CalendarEventCore {
-	font-family: Verdana; font-size: 100%;
+  font-family: Verdana;
+  font-size: 100%;
 }
 /*end*/
 
 .CalendarEventCore a:link {
-	color: #0000f7;
-	}
+  color: #0000f7;
+}
 
-.CalendarEventCore a:visited{
-	color: #157d72;
-	}
+.CalendarEventCore a:visited {
+  color: #157d72;
+}
 
-.CalendarEventCore a:hover, .CalendarEventCore a:active{
-	color: #be0147;
-	}
+.CalendarEventCore a:hover,
+.CalendarEventCore a:active {
+  color: #be0147;
+}
 
 /* Changes for Section508 */
 table tr td strong {
-	padding: 0px;
-	margin: 0px;
+  padding: 0px;
+  margin: 0px;
 }
 
-.thCore { 
-	font-family: Verdana; font-size: 80%;
-	font-weight: bold;
+.thCore {
+  font-family: Verdana;
+  font-size: 80%;
+  font-weight: bold;
 }
 
-
-html>body .thCore {
-	font-size: 100%;
+html > body .thCore {
+  font-size: 100%;
 }
-
 
 /*ie6*/
 * html body .thCore {
-	font-size: 100%;
+  font-size: 100%;
 }
 /*end*/
 
-.HeaderCore .thCore { 
-	font-family: Verdana; font-size: 110%; font-weight: bold; text-align: left;
-	padding: 2px;
-	background-color: #46839b; color: #eff5f6;
-	width: 100%;
-	white-space: nowrap;
+.HeaderCore .thCore {
+  font-family: Verdana;
+  font-size: 110%;
+  font-weight: bold;
+  text-align: left;
+  padding: 2px;
+  background-color: #46839b;
+  color: #eff5f6;
+  width: 100%;
+  white-space: nowrap;
 }
 
-
-html>body .HeaderCore .thCore {
-	font-family: Verdana; font-size: 140%; font-weight: bold; text-align: left;
+html > body .HeaderCore .thCore {
+  font-family: Verdana;
+  font-size: 140%;
+  font-weight: bold;
+  text-align: left;
 }
-
 
 /*ie6*/
 * html body .HeaderCore .thCore {
-	font-family: Verdana; font-size: 140%; font-weight: bold; text-align: left;
+  font-family: Verdana;
+  font-size: 140%;
+  font-weight: bold;
+  text-align: left;
 }
 /*end*/
 
-.CaptionCore .thCore { 
-	font-family: Verdana; font-size: 80%; text-align: left; vertical-align: top;
-	padding: 2px;
-	border-bottom: solid 1px #8ec6c6;
-	background-color: #e7eff1; color: #3c7186;
-	white-space: nowrap;
+.CaptionCore .thCore {
+  font-family: Verdana;
+  font-size: 80%;
+  text-align: left;
+  vertical-align: top;
+  padding: 2px;
+  border-bottom: solid 1px #8ec6c6;
+  background-color: #e7eff1;
+  color: #e7eff1;
+  white-space: nowrap;
 }
 
-
-html>body .CaptionCore .thCore {
-	font-family: Verdana; font-size: 100%; text-align: left; vertical-align: top;
+html > body .CaptionCore .thCore {
+  font-family: Verdana;
+  font-size: 100%;
+  text-align: left;
+  vertical-align: top;
 }
-
 
 /*ie6*/
 * html body .CaptionCore .thCore {
-	font-family: Verdana; font-size: 100%; text-align: left; vertical-align: top;
+  font-family: Verdana;
+  font-size: 100%;
+  text-align: left;
+  vertical-align: top;
 }
 /*end*/
 
-.RowCore .thCore { 
-	font-family: Verdana; font-size: 80%; font-weight: normal; text-align: left; vertical-align: top;
-	padding: 2px;
-	border-bottom: solid 1px #8ec6c6;
-	background-color: #e7eff1; color: #3c7186;
-	white-space: nowrap;
-	color: #3c7186;
+.RowCore .thCore {
+  font-family: Verdana;
+  font-size: 80%;
+  font-weight: normal;
+  text-align: left;
+  vertical-align: top;
+  padding: 2px;
+  border-bottom: solid 1px #8ec6c6;
+  background-color: #e7eff1;
+  color: #e7eff1;
+  white-space: nowrap;
+  color: #e7eff1;
 }
 
-.AltRowCore .thCore { 
-	font-family: Verdana; font-size: 80%; font-weight: normal; text-align: left; vertical-align: top;
-	padding: 2px;
-	border-bottom: solid 1px #8ec6c6;
-	background-color: #e7eff1; color: #3c7186;
-	white-space: nowrap;
-	color: #3c7186;
+.AltRowCore .thCore {
+  font-family: Verdana;
+  font-size: 80%;
+  font-weight: normal;
+  text-align: left;
+  vertical-align: top;
+  padding: 2px;
+  border-bottom: solid 1px #8ec6c6;
+  background-color: #e7eff1;
+  color: #e7eff1;
+  white-space: nowrap;
+  color: #e7eff1;
 }
 
-.ControlsCore .thCore { 
-	font-family: Verdana; font-size: 80%; font-weight: normal; text-align: left; vertical-align: top;
-	padding: 2px;
-	border-bottom: solid 1px #8ec6c6;
-	background-color: #e7eff1; color: #3c7186;
-	white-space: nowrap;
-	color: #3c7186;
+.ControlsCore .thCore {
+  font-family: Verdana;
+  font-size: 80%;
+  font-weight: normal;
+  text-align: left;
+  vertical-align: top;
+  padding: 2px;
+  border-bottom: solid 1px #8ec6c6;
+  background-color: #e7eff1;
+  color: #dfedf3;
+  white-space: nowrap;
+  color: #e7eff1;
 }
 
 .GroupCaptionCore .thCore {
-	font-family: Verdana; font-size: 80%;
-	padding: 2px;
-	border-bottom: solid 1px #8ec6c6;
-	text-align: left;
-	white-space: nowrap;
-	vertical-align: top;
-	font-weight: bold;
-	background-color: #cadde4; 
-	color: #3c7186;
+  font-family: Verdana;
+  font-size: 80%;
+  padding: 2px;
+  border-bottom: solid 1px #8ec6c6;
+  text-align: left;
+  white-space: nowrap;
+  vertical-align: top;
+  font-weight: bold;
+  background-color: #cadde4;
+  color: #e7eff1;
 }
 
-
-html>body .GroupCaptionCore .thCore {
-	font-family: Verdana; font-size: 100%;
+html > body .GroupCaptionCore .thCore {
+  font-family: Verdana;
+  font-size: 100%;
 }
 
-html>body .RowCore .thCore, html>body .AltRowCore .thCore, html>body .ControlsCore .thCore {
-	font-family: Verdana; font-size: 100%; font-weight: normal; text-align: left; vertical-align: top;
+html > body .RowCore .thCore,
+html > body .AltRowCore .thCore,
+html > body .ControlsCore .thCore {
+  font-family: Verdana;
+  font-size: 100%;
+  font-weight: normal;
+  text-align: left;
+  vertical-align: top;
 }
-
 
 /*ie6*/
 * html body .GroupCaptionCore .thCore {
-	font-family: Verdana; font-size: 100%;
+  font-family: Verdana;
+  font-size: 100%;
 }
 
-* html body .RowCore .thCore, * html body .AltRowCore .thCore, * html body .ControlsCore .thCore {
-	font-family: Verdana; font-size: 100%; font-weight: normal; text-align: left; vertical-align: top;
+* html body .RowCore .thCore,
+* html body .AltRowCore .thCore,
+* html body .ControlsCore .thCore {
+  font-family: Verdana;
+  font-size: 100%;
+  font-weight: normal;
+  text-align: left;
+  vertical-align: top;
 }
 /*end*/
 
 /* Class for Application Builder Menu */
 .simpleMenuCore td {
-	font-family: Verdana; font-size: 80%;
+  font-family: Verdana;
+  font-size: 80%;
 }
 
-
-html>body .simpleMenuCore td {
-	font-family: Verdana; font-size: 100%;
-} 
-
+html > body .simpleMenuCore td {
+  font-family: Verdana;
+  font-size: 100%;
+}
 
 /*ie6*/
 * html body .simpleMenuCore td {
-	font-family: Verdana; font-size: 100%;
-} 
+  font-family: Verdana;
+  font-size: 100%;
+}
 /*end*/

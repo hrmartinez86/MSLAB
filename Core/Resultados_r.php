@@ -66,6 +66,7 @@ $db_conn = conectar($ODBC);
   <br></br>
   <table border="0" cellspacing="0" cellpadding="0">
     <tr>
+      
       <!--      <td valign="top">-->
       <table class="Header" border="0" cellspacing="0" cellpadding="0" width="30">
         <tr>
@@ -108,12 +109,12 @@ $db_conn = conectar($ODBC);
         }
       }
 
-
+ 
 
       ?>
       <form id="Foliof" method="get" name="Foliof" action="">
-        <table border="0" cellspacing="0" cellpadding="0" width="1154">
-
+        <table border="0" cellspacing="0" cellpadding="0" width="100%">
+          <tr><th style="width: 70%;"></th><th style="width: 30%;"></th></tr>                                                                  
           <tr>
 
             <td> <select id="Folio" name="Folio" onchange="folio()">
@@ -153,7 +154,7 @@ $db_conn = conectar($ODBC);
                   $sql = "EXECUTE LISTA_RESULTADOS_WEB @TIPO='" . $tipo . "',@PROCEDENCIA='" . $proc . "',@SECCION='" . $sec . "',@FECHA_DESDE='" . $ini . "',@FECHA_HASTA='" . $fin . "',@EXP='" . $exp . "',@NOMBRE='" . $nombre . "',@APELLIDO='" . $ape . "'";
                   
                 }
-                // echo '<script> console.log("'.$sql.'");</script>';
+              //  echo '<script> console.log("'.$sql.'");</script>';
                 $query = odbc_exec($db_conn, $sql);
                 $idpac = $_GET['id'];
 
@@ -173,6 +174,7 @@ $db_conn = conectar($ODBC);
                 ?>
               </select>
             </td>
+            <td><div id="diagnostico"></div><td>
           </tr>
           <tr>
 
@@ -181,10 +183,10 @@ $db_conn = conectar($ODBC);
                                                                         } else {
                                                                           echo $idpac;
                                                                         }; ?>"></td>
+                                                                        <td></td>
+            
           </tr>
-          <tr>
-            <!-- <td><input type="submit" value="Enviar" /></td> -->
-          </tr>
+     
 
 
         </table>
@@ -205,10 +207,9 @@ $db_conn = conectar($ODBC);
 
         <!-- <form id="Seccionf" method="get" name="Seccion" action="Resultadosxsec.php">   -->
         <form id="Seccionf" method="get" name="Seccion" action="Resultados_r.php">
-          <table border="0" cellspacing="0" cellpadding="0" width="300">
-
+          <table border="0" cellspacing="0" cellpadding="0" width="100%">
+            <tr><th style="width: 70%;"></th><th style="width: 30%;"></th></tr>                                                                  
             <tr>
-
               <td> <select id="Secciond" name="Secciond" onchange="javascript:Seccionf.submit()">
                   <?php
                   $m = 0;
@@ -218,7 +219,7 @@ $db_conn = conectar($ODBC);
                     $sql = "SELECT     idpaciente AS id FROM         dat_dfipa WHERE     (fecha = CONVERT(datetime, '" . $fecha . "', 103))";
                   } else
 
-            	if ($_GET['t'] == 1) {
+            	    if ($_GET['t'] == 1) {
                     if ($_GET['folioh'] == "") {
                       $sql = "SELECT     idpaciente AS id FROM         dat_dfipa WHERE     numero = '" . $fxini . "'";
                     } else {
@@ -242,7 +243,7 @@ $db_conn = conectar($ODBC);
                   echo '<option value="1">"TODOS"</option>';
                   if ($_GET['Seccion'] != "") {
                     $sql = "SELECT     lab_relacion_laboratorio_seccion.cod_llave AS codigo, lab_secciones.descripcion AS descripcion
-FROM         lab_relacion_laboratorio_seccion INNER JOIN
+                  FROM         lab_relacion_laboratorio_seccion INNER JOIN
                       lab_secciones ON lab_relacion_laboratorio_seccion.seccion = lab_secciones.codigo where lab_relacion_laboratorio_seccion.cod_llave='" . $_GET['Seccion'] . "'";
                   } else {
                     if ($idpac == "") {
@@ -268,6 +269,7 @@ FROM         lab_relacion_laboratorio_seccion INNER JOIN
                 </select>
 
               </td>
+              <td><div id="observaciones"></div><td>
             </tr>
             <tr>
 
@@ -388,7 +390,10 @@ FROM         lab_relacion_laboratorio_seccion INNER JOIN
             $sql_1 = "EXECUTE SISTEMA_RESULTADOS_WEB_EDIT '" . $VL_Buscar . "'";
           }
           $i = 0;
+          echo '<script> console.log("'.$sql_1.'");</script>';
+          ?>
           
+          <?php 
           $query_result = odbc_exec($db_conn, $sql_1) or
             die("ERROR : No se puede ejecutar la consulta." . odbc_errormsg() . "<br>" . $sql_1);
           if (odbc_num_rows($query_result) != 0) {
@@ -414,6 +419,9 @@ FROM         lab_relacion_laboratorio_seccion INNER JOIN
                 $alto = $result["VALOR_HASTA"];
                 $bajo = $result["VALOR_DESDE"];
                 $numero_registro=str_pad($result["NUMERO_REGISTRO"],3,"0",STR_PAD_LEFT);
+                echo '<script>diagnostico = document.getElementById("diagnostico");diagnostico.innerHTML="Diagnostico:'. $result["DIAGNOSTICO"].'";</script>';
+                echo '<script>observaciones = document.getElementById("observaciones");observaciones.innerHTML="Observaciones:'. $result["OBSERVACIONES"].'";</script>';
+              
                 $total=$result["TOTAL"];
                 $anticipo=$result["ANTICIPO"];
                 $pendiente=$result["PENDIENTE"];

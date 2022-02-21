@@ -18,10 +18,10 @@ $idpaciente=$_GET['id'];
 $num= $_GET['num'];
 $folio=str_pad($num, 6, "0", STR_PAD_LEFT); 
 $folio= $cod.$folio;
-$sql="SELECT FECHA, HORA, NUMERO, NUMERO_REGISTRO, RUT, USUARIO_CREACION, NOMBRE_USUARIO, AnOS, NOMBRE_DOCTOR, FECHATOMAMUESTRA, 
+$sql="SELECT expediente,FECHA, HORA, NUMERO, NUMERO_REGISTRO, RUT, USUARIO_CREACION, NOMBRE_USUARIO, AnOS, NOMBRE_DOCTOR, FECHATOMAMUESTRA, 
 FECHARECEPCIONMUESTRA, ESTADOTOMAMUESTRA, ESTADORECEPCIONMUESTRA, HORARECEPCIONMUESTRA, FECHA_REGISTRO, IDPACIENTE, ORI_PAC, TIPO_DE_URGENCIA, 
 OBSTOMAMUESTRA, DESCRIPCION, RUT_PACIENTE, NOMBRE, APELLIDOS, SEXO, TELEFONO, FECHA_NACIMIENTO, PREVISION, CONTRAINDICACIONES, PROCEDENCIA_MUESTRA, 
-FOLIO_HOST, NUM_CAMA 
+FOLIO_HOST, NUM_CAMA ,DIAGNOSTICO
 FROM SISTEMA_TOMA_MUESTRAS_PACIENTE WHERE (idpaciente = '".$idpaciente."')";
 // echo $sql;
 $query=odbc_exec($conection,$sql);  
@@ -33,6 +33,10 @@ while ($result=odbc_fetch_array($query))
   $doctor=$result['NOMBRE_DOCTOR'];
   $procedencia=$result['PROCEDENCIA_MUESTRA'];
   $fechaAtencion= $result['FECHA'];
+  $diagnostico=$result['DIAGNOSTICO'];
+  $anos=$result['AnOS'];
+  $expediente=$result['expediente'];
+  $sexo=$result['SEXO'];
 }
 
 ?> 
@@ -113,6 +117,10 @@ while ($result=odbc_fetch_array($query))
             <td class="th"><input type="hidden" value="<?php echo $doctor;?>" name="doc" id="doc"></td>
             <td class="th"><input type="hidden" value="<?php echo $procedencia;?>" name="procedencia" id="procedencia"></td>
             <td class="th"><input type="hidden" value="<?php echo $fechaAtencion;?>" name="fecha" id="fecha"></td>
+            <td class="th"><input type="hidden" value="<?php echo $diagnostico;?>" name="diagnostico" id="diagnostico"></td>
+            <td><input type="hidden" value="<?php echo $anos;?>" name="anos" id="anos"></td>
+            <td><input type="hidden" value="<?php echo $expediente;?>" name="expediente" id="expediente"></td>
+            <td><input type="hidden" value="<?php if($sexo=='M') {echo 'Masculino';} else echo 'Femenino';?>" name="sexo" id="sexo"></td>
           </tr>
         </table>
  
@@ -174,10 +182,10 @@ where idpaciente='".$idpaciente."' ORDER BY  rlsp.cod_llave,cf.valor_particular 
                 <td><input type="hidden" value="<?php echo $result['nombre_prestacion'];?>" name="descripcion_" id="descripcion_" /></td></tr>
           </table>
           <tr>
-            <td>
+            <!-- <td>
               <p><label for="imagen">Imprime marco del resultado</label><input type="checkbox" name="imagen" id="imagen"></p>
               
-            </td>
+            </td> -->
           </tr>
           </table>
 </form>

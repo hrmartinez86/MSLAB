@@ -108,11 +108,6 @@ function Header()
     $this->Ln(5);
     $this->Cell(80);
     
-    $this->Cell(30,10,'Secci�n:'.$sec_d,0,0,'C');
-    
-    $this->Ln(5);
-    $this->Cell(80);
-    
     $this->Cell(30,10,'Tipo de Paciente:'.$tipo_d,0,0,'C');
     
     $this->Ln(5);
@@ -121,20 +116,7 @@ function Header()
     $this->Cell(30,10,'Procedencia de Muestra:'.$proc_d,0,0,'C');
     //Salto de l�nea
     $this->Ln(5);
-    $this->SetX(13);
     
-    $this->Cell(0,10,"Folio",0,0);
-    
-    $this->SetX(37);
-    
-    $this->Cell(0,10,"Nombre Completo",0,0);
-    $this->SetX(85);
-    
-    $this->Cell(0,10,"Tipo de Paciente",0,0);
-    
-    $this->SetX(125);
-    
-    $this->Cell(0,10,"Procedencia de Muestra",0,0);
    // $this->SetX(10);
     //$this->Cell(30,10,"Nombre",0,0,'C');
 $this->Ln(10);
@@ -159,63 +141,87 @@ $pdf->AddPage();
 $pdf->SetFont('Times','',8);
 $sql="execute LISTA_DE_TRABAJO_WEB @TIPO='".$tipo."',@PROCEDENCIA=".$proc.",@SECCION='".$sec."',@FECHA_DESDE='".$ini."',@FECHA_HASTA='".$fin."'";
 $query=odbc_exec($conection,$sql); 
-//echo $sql;
+
 $i=0;
 $estudios="";
+$impSeccion=false;
+$limiteY=250;
 while ($result=odbc_fetch_array($query))
-			          {
-			        	$paciente[$i]=$result['folio'];
-			        	
-			        	
-			        	{
-			          	//$pdf->Ln(5);
-			          	
-			          	//$pdf->Cell(0,0,$result['folio'],0,0);
-			          	$folion=$result['folio'];
-			          	//$pdf->SetX(22);
-			          	//$pdf->Cell(0,0,$result['nombre'],0,0);
-			          	
-			          	//$pdf->SetX(80);
-			          	//$pdf->Cell(0,0,$result['tipo_paciente'],0,0);
-			          	
-			          	//$pdf->SetX(120);
-			          	//$pdf->Cell(0,0,$result['procedencia'],0,0);
-			          	
-			          	//$pdf->SetX(150);
-			          	//$pdf->Cell(0,0,$estudios,0,0);
-			        	if ($paciente[$i-1]!=$result['folio'])
-			        	{
-			        	$pdf->SetX(0);	
-			            $pdf->Cell(0,0,"____________________________________________________________________________________________________________________",0,0);	
-			        	$pdf->SetX(10);	
-			            $pdf->Cell(0,0,$paciente[$i],0,0);
-			        	$pdf->SetX(24);
-			          	$pdf->Cell(0,0,$result['nombre'],0,0);
-			          	
-			          	$pdf->SetX(80);
-			          	$pdf->Cell(0,0,$result['tipo_paciente'],0,0);
-			          	
-			          	$pdf->SetX(120);
-			          	$pdf->Cell(0,0,$result['procedencia'],0,0);
-			          	
-			        	$pdf->SetX(170);
-			        	$pdf->Cell(0,0,$result['Estudio']."_________",0,0); 
-			        	$pdf->Ln(5);
-			        	}
-			        	
-			        	else
-			        	{
-			        		$pdf->SetX(170);
-			        	    $pdf->Cell(0,0,$result['Estudio']."_________",0,0);
-			        	    $pdf->Ln(5);
-			        	}
-			        	$i=$i+1;
-			        	}
-			          }
-//for($i=1;$i<=400;$i++)
-//{    
-   $pdf->Cell(0,5,$paciente[$i],0,1);
-    //$pdf->Cell(0,0,'que jalada '.$i,0,0);
-//}
+    {
+        $y=$pdf->GetY();
+
+        if(($seccion != $result['cod_llave']&&$seccion!='')||$y>$limiteY)
+        {
+            $pdf->AddPage();
+            $impSeccion=false;
+        }
+        
+        if ($impSeccion==false) {
+
+            $pdf->SetFont('Arial','B',14);
+
+            $pdf->Cell(0,0,$result['seccion'],0,0,'C',false,'');
+            $pdf->SetX(5);
+            
+            $pdf->SetFont('Arial','',11);
+            
+            $pdf->Cell(0,10,"Folio",0,0);
+            
+            $pdf->SetX(23);
+            
+            $pdf->Cell(0,10,"Nombre Completo",0,0);
+            $pdf->SetX(80);
+            
+            $pdf->Cell(0,10,"Tipo de Paciente",0,0);
+            
+            $pdf->SetX(120);
+            
+            $pdf->Cell(0,10,"Procedencia de Muestra",0,0);
+
+            $pdf->SetX(0);
+            $pdf->Cell(0,10,"____________________________________________________________________________________________________________________",0,0);	
+
+            $impSeccion=true;
+        }
+        
+        $seccion=$result['cod_llave'];
+        
+        $pdf->SetFont('Arial','',9);
+
+        $paciente[$i]=$result['idpaciente'];
+
+        if ($paciente[$i-1]!=$result['idpaciente'])
+        {
+            $pdf->Ln(10);
+            $pdf->SetX(0);	
+            $pdf->Cell(0,-10,"____________________________________________________________________________________________________________________",0,0);	
+            $pdf->SetX(10);	
+            $pdf->Cell(0,0,$result['numero_registro'],0,0);
+            $pdf->SetX(24);
+            $pdf->Cell(0,0,$result['nombre'],0,0);
+
+            $pdf->SetX(80);
+            $pdf->Cell(0,0,$result['tipo_paciente'],0,0);
+
+            $pdf->SetX(120);
+            $pdf->Cell(0,0,$result['procedencia'],0,0);
+
+            $xe=10;
+            $pdf->Ln(5);
+            $pdf->SetX($xe);
+            $pdf->Cell(0,0,$result['Estudio']."_________",0,0); 
+        }
+        else
+        {
+            $xe=$xe+35;
+            $pdf->SetX($xe);
+            $pdf->Cell(0,0,$result['Estudio']."_________",0,0); 
+        }
+        $i++;
+        
+        
+    
+}
+
     $pdf->Output();
 ?>
