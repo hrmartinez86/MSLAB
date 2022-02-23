@@ -64,35 +64,7 @@ $fecha = date('d/m/Y');
     </tr>
   </table>
   <br>
-  <form id="Citas" method="post" name="Citas" action="guarda_atencion.php" onsubmit="Valida1()">
-    <div class="container p-3 my-3 bg-primary text-white">
-      <h1>Atenciones</h1>
-    </div>
-    <div class="container p-3 my-3 border">
-      <div class="form-group-lg">
-        <div class="form-group">
-          <input type="text" class="form-control" name="expediente" id="expediente" aria-describedby="helpId" placeholder="Expediente">
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="helpId" placeholder="Nombre del paciente">
-        </div>
-        <div class="form-group">
-          <select class="form-control" name="sexo" id="sexo">
-            <option value="Sexo..." selected></option>
-            <option value="M">Masculino</option>
-            <option value="F">Femenino</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <input type="text" name="edad" id="edad" class="form-control" placeholder="Edad del paciente" aria-describedby="helpId" onChange="cmbioEdad()" >
-        </div>
-        <div class="form-group">
-          <input type="date" name="theDate2" id="Fecha" class="form-control" placeholder="" aria-describedby="helpId" onChange="cmbioEdad()" >
-        </div>
-      </div>
-    </div>
-    
-    
+  <form id="Citas" method="post" name="Citas" action="guarda_atencion.php" onsubmit="Valida1()">    
     <table align="center" border="0" cellspacing="0" cellpadding="10" width="60%">
       <tr>
         <td valign="top">
