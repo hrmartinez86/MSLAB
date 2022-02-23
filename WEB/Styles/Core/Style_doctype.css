@@ -3,7 +3,9 @@
 .selectpicker {
   color: #020c0e;
 }
-
+.selectpicker select option[selected] {
+  color: #eff5f6;
+}
 /* Colors */
 .PageBgColor {
   background-color: #cfdcde;
