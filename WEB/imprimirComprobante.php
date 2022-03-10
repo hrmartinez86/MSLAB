@@ -37,6 +37,7 @@ if ($fp!='') {
     // echo $fp;
 $fe=$_POST['feCuenta'];
 $he=$_POST['heCuenta'];
+$notaEntrega='De lunes a viernes de 6:00 pm a 8:00 pm';
 require('FPDF/fpdf.php');
 define ('FPDF_FONTPATH','FPDF/font/');
 class PDF extends FPDF
@@ -56,7 +57,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
         $this->WriteText('',210,6,'',10,'Arial',false);
         //nota de entraga de resultado
-        $this->WriteText('nota',155,6,'B',12,'Arial',false);
+        $this->WriteText($notaEntrega,155,6,'B',12,'Arial',false);
         $this->WriteText('Folio:'.str_pad($numero,3,"0",STR_PAD_LEFT),155,6,'B',12,'Arial',false);
         if (isset($_POST['fechaIngreso'])) {
             
