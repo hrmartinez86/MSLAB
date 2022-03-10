@@ -26,11 +26,10 @@ protected $y0;      // Ordenada de comienzo de la columna
         $this->WriteText('C.P. 89400 Tel. 2-10-22-98 y 2-15-01-82',$anchoPagina,5,'',$fontSize,$font,true,false);
         $this->WriteText('RFC.SAFG-7200203-IM0 UNE D.G.P. Num. 2530411',$anchoPagina,5,'',$fontSize,$font,true,false);
         
-        
         $diassemana = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
         $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
         $this->WriteText('',200,6,'',8,'Arial',false,false);
-        $this->WriteText($fecha,200,6,'',8,'Arial',false,false);
+        $this->WriteText('Fecha de atención:'.$fecha,150,6,'',8,'Arial',false,false);
         $this->WriteText("No.".$numero,160,3,'B',$fontSize,$font,false,false);
 
         $hoy=utf8_decode($diassemana[date('w',strtotime($fecha))])." ".date('d',strtotime($fecha))." de "
