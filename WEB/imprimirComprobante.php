@@ -47,6 +47,7 @@ protected $y0;      // Ordenada de comienzo de la columna
 
     function encabezado(){
         $notaEntrega='De lunes a viernes de 6:00 pm a 8:00 pm';
+        $notaEntregaSabado='Sábados de 2:00 pm a 3:00 pm';
         $this->WriteText('LABORATORIO SALAS FERNANDEZ',210,5,'B',13,'Arial',true);
         $this->WriteText('QUIMICO RESPONSABLE',210,5,'',10,'Arial',true);
         $this->WriteText('Q.F.B. GERARDO SALAS FERNANDEZ',210,5,'B',10,'Arial',true);
@@ -59,6 +60,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         $this->WriteText('',210,6,'',10,'Arial',false);
         //nota de entraga de resultado
         $this->WriteText($notaEntrega,100,6,'B',12,'Arial',false);
+        $this->WriteText($notaEntregaSabado,100,6,'B',12,'Arial',false);
         $this->WriteText('Folio:'.str_pad($numero,3,"0",STR_PAD_LEFT),155,6,'B',12,'Arial',false);
         if (isset($_POST['fechaIngreso'])) {
             
