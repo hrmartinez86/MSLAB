@@ -57,7 +57,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         $numero=$_POST['numeroCuenta'];
         $diassemana = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
         $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
-        $this->WriteText('',210,6,'',10,'Arial',false);
+        $this->WriteText('',210,2,'',10,'Arial',false);
         //nota de entraga de resultado
         $this->WriteText($notaEntrega,100,6,'B',12,'Arial',false);
         $this->WriteText($notaEntregaSabado,100,6,'B',12,'Arial',false);
