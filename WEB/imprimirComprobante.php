@@ -37,7 +37,7 @@ if ($fp!='') {
     // echo $fp;
 $fe=$_POST['feCuenta'];
 $he=$_POST['heCuenta'];
-$notaEntrega='De lunes a viernes de 6:00 pm a 8:00 pm';
+
 require('FPDF/fpdf.php');
 define ('FPDF_FONTPATH','FPDF/font/');
 class PDF extends FPDF
@@ -46,6 +46,7 @@ protected $col = 0; // Columna actual
 protected $y0;      // Ordenada de comienzo de la columna
 
     function encabezado(){
+        $notaEntrega='De lunes a viernes de 6:00 pm a 8:00 pm';
         $this->WriteText('LABORATORIO SALAS FERNANDEZ',210,5,'B',13,'Arial',true);
         $this->WriteText('QUIMICO RESPONSABLE',210,5,'',10,'Arial',true);
         $this->WriteText('Q.F.B. GERARDO SALAS FERNANDEZ',210,5,'B',10,'Arial',true);
