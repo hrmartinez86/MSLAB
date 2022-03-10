@@ -60,7 +60,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         $this->WriteText('',210,2,'',10,'Arial',false);
         //nota de entraga de resultado
         $this->WriteText($notaEntrega,100,6,'B',12,'Arial',false);
-        $this->WriteText($notaEntregaSabado,100,6,'B',12,'Arial',false);
+        $this->WriteText($notaEntregaSabado,110,6,'B',12,'Arial',false);
         $this->WriteText('Folio:'.str_pad($numero,3,"0",STR_PAD_LEFT),155,6,'B',12,'Arial',false);
         if (isset($_POST['fechaIngreso'])) {
             
