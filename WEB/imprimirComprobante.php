@@ -74,7 +74,7 @@ protected $y0;      // Ordenada de comienzo de la columna
             $xx=130;
         }
         
-        $this->WriteText($hoy,$xx,6,'',10,'Arial',false);
+        $this->WriteText($hoy,$xx,2,'',10,'Arial',false);
 
         
     }
