@@ -30,7 +30,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         $diassemana = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
         $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
         $this->WriteText('',200,6,'',8,'Arial',false,false);
-
+        $this->WriteText($fecha,200,6,'',8,'Arial',false,false);
         $this->WriteText("No.".$numero,160,3,'B',$fontSize,$font,false,false);
 
         $hoy=utf8_decode($diassemana[date('w',strtotime($fecha))])." ".date('d',strtotime($fecha))." de "
