@@ -30,7 +30,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
         $this->WriteText('',200,6,'',8,'Arial',false,false);
         $fecha_atencion=substr($fecha, 0, 10);
-        $fecha_array_atencion = explode($fecha_atencion,'-');
+        $fecha_array_atencion = explode('-',$fecha_atencion);
         var_dump($fecha_atencion);
         $fecha_atencion=$fecha_array_atencion[2].'/'.$fecha_array_atencion[1].'/'.$fecha_array_atencion[0];
         $this->WriteText('Fecha de atención:'.$fecha_atencion,150,6,'',8,'Arial',false,false);
