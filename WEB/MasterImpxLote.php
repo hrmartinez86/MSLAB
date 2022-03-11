@@ -33,7 +33,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         $fecha_array_atencion = explode('-',$fecha_atencion);
         $fecha_atencion=$fecha_array_atencion[2].'/'.$fecha_array_atencion[1].'/'.$fecha_array_atencion[0];
         $this->WriteText('Fecha de atención:'.$fecha_atencion,150,6,'',8,'Arial',false,false);
-        $this->WriteText("No.".$numero,160,3,'B',$fontSize,$font,false,false);
+        $this->WriteText("No.".$numero,160,5,'B',$fontSize,$font,false,false);
 
         $hoy=utf8_decode($diassemana[date('w',strtotime($fecha))])." ".date('d',strtotime($fecha))." de "
         .$meses[date('n',strtotime($fecha))-1]. " del ".date('Y',strtotime($fecha))  ;
