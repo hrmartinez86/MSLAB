@@ -11,7 +11,7 @@
         $fecha=$_POST["fecha"];
         echo $fecha;
         // // Read the JSON file
-        $json = file_get_contents('C:\xampp\htdocs\MSLAB\WEB\ingreso.json');
+        $json = file_get_contents('C:\xampp\htdocs\laboratorio\MSLAB\WEB\ingreso.json');
 
         // // Decode the JSON file
         $json_data = json_decode($json,true);
