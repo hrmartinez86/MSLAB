@@ -157,7 +157,7 @@ $fecha = date('d/m/Y');
 
   <br>
   <div class="container">
-  <table class="Header" border="0" cellspacing="0" cellpadding="0" width="40%">
+  <table class="Header" border="0" cellspacing="0" cellpadding="0" >
     <tr>
       <td class="HeaderLeft"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td>
       <td class="th"><strong>Atenciones</strong></td>
@@ -173,27 +173,36 @@ $fecha = date('d/m/Y');
         <th >Nombre</th>
         <th >Sexo</th>
         <th >Edad</th>
-        <th >Procedencia</th>
-        <th >Médico</th>
-        <th>Telefono</th>
-        <th >Correo</th>
-        <th >Forma de pago</th>
       </tr>
+      
       
     </thead>
     <tbody>
     <tr>
       <td><input type="button" class="" value="+" onclick="genera()"><input type="hidden" id="id" name="id" value="<?php echo $n;?>"></td>
-      <td><input name="nombre" id="nombre" value=""  required></td>          
-              <td><select id="sexo" name="sexo" style="width:100%;" required>
+      <td width="95%"><input size="70" name="nombre" id="nombre" value=""  required ></td>          
+      <td><select id="sexo" name="sexo" style="width:100%;" required>
                   <option value="" selected></option>
                   <option value="M">Masculino</option>
                   <option value="F">Femenino</option>
                   </select>
               </td>
-              <td> <input type="text" name="edad" id="edad" onChange="cmbioEdad()" size="5"><input type="date" id="fechanacimiento" value=""></td>
+              <td> <input type="text" name="edad" id="edad" onChange="cmbioEdad()" size="5"><input type="date" id="fechanacimiento" value=""></td>        
+            </tr>
+  </table>
+  <table class="table table-bordered">
+    <thead><tr>
+        
+        <th >Procedencia</th>
+        <th >Médico</th>
+        <th>Telefono</th>
+        <th >Correo</th>
+        <th >Forma de pago</th>
+      </tr></thead>
+<tbody>
+  <tr>
+  
               <td><input type="text"  required id="procedencia" name="procedencia" style="width:100%; "></td>
-
               <td><select id="doctor" name="doctor" style="width:100%; " required>
                   <?php
                   $sql = "select concat_ws(' ',nombre ,apellidos) as Nombre,llave_doctor from dat_doctores order by Nombre ";
