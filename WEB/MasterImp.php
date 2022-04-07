@@ -233,7 +233,7 @@ protected $y0;      // Ordenada de comienzo de la columna
     {
         $pasa=false;
         $total=$cantidad+$posicionY;
-        if ($total>182) {
+        if ($total>200) {
             $pasa=false;
         }
         else{
