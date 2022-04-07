@@ -233,7 +233,7 @@ protected $y0;      // Ordenada de comienzo de la columna
     {
         $pasa=false;
         $total=$cantidad+$posicionY;
-        if ($total>220) {
+        if ($total>182) {
             $pasa=false;
         }
         else{
@@ -315,7 +315,9 @@ protected $y0;      // Ordenada de comienzo de la columna
 
             for ($i=0; $i <$x ; $i++) { 
                 $examArray=resultados($cod[$i],$idPaciente);
-
+                //evaluacion de la hoja
+                // $this->WriteText($this->GetY(),8,2,'',9,'Arial',false,false);
+                // $this->WriteText(count($examArray),8,2,'',9,'Arial',false,false);
                 //evaluar el tamaño de la hoja
                 if ($this->evaluarHoja(count($examArray),$this->GetY())==false) {
                     $this->AddPage();
