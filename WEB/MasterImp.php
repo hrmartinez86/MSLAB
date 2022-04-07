@@ -295,7 +295,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         }
         $nota=nota($llave);
         if ($nota!=""){
-            $this->WriteText($nota ,$xRes,0,'',11,$font,false,true);
+            $this->WriteText($nota ,$xRes,0,'',7,$font,false,true);
         }
 
         $this->Ln(5);
