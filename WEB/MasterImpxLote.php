@@ -66,13 +66,7 @@ protected $y0;      // Ordenada de comienzo de la columna
 
     function Footer()
     {
-		
-		$this->SetY(-15);
-        $this->WriteText(utf8_encode('Q.F.B. Gerardo Salas Fernández'),140,0,'',8,'Arial',false,false);
-		$this->SetY(-11);
-		$this->WriteText('UNE D.G.P. Num.2530411',145,0,'',8,'Arial',false,false);
-		$this->SetY(-7);
-		$this->WriteText('S.S. 20303',160,0,'',8,'Arial',false,false);
+
     }
 
     function SetCol($col)
