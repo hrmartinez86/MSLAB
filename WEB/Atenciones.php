@@ -202,7 +202,7 @@ $fecha = date('d/m/Y');
 <tbody>
   <tr>
   
-              <td><input type="text"  required id="procedencia" name="procedencia" style="width:100%; "></td>
+              <td width="55%"><input type="text"  required id="procedencia" name="procedencia" style="width:100%; "></td>
               <td><select id="doctor" name="doctor" style="width:100%; " required>
                   <?php
                   $sql = "select concat_ws(' ',nombre ,apellidos) as Nombre,llave_doctor from dat_doctores order by Nombre ";
