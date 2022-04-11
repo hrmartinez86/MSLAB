@@ -57,7 +57,12 @@ function validarExistenciaRango(k) {
   ajax.onreadystatechange = function () {
     if (ajax.readyState == 4) {
       data = ajax.responseText;
-      alert(data);
+      if (data) {
+        alert('existe rango');
+      }
+      else{
+        alert('sin rango');
+      }
     }
   };
 
@@ -65,14 +70,14 @@ function validarExistenciaRango(k) {
 }
 function RangoUpdate(k, t) {
   validarExistenciaRango(k)
-    .then(function () {
-      // Run this when your request was successful
-      console.log('siguiente');
-    })
-    .catch(function (err) {
-      // Run this when promise was rejected via reject()
-      console.log(err);
-    });
+    // .then(function () {
+    //   // Run this when your request was successful
+    //   console.log('siguiente');
+    // })
+    // .catch(function (err) {
+    //   // Run this when promise was rejected via reject()
+    //   console.log(err);
+    // });
   //   if (validarExistenciaRango(k)) {
   //     alert("existe");
   //   } else {
