@@ -57,7 +57,7 @@ function validarExistenciaRango(k,t,s) {
       data = ajax.responseText;
       alert(s);
       if (data) {
-        modificarRango(k,t);
+        modificarRango(k,t,s);
       }
       else{
         alert('sin rango');
@@ -72,13 +72,13 @@ function validarExistenciaRango(k,t,s) {
 function RangoUpdate(k, t,s) {
   validarExistenciaRango(k,t,s);
 }
-function modificarRango(k,t) {
+function modificarRango(k,t,s) {
   switch (t) {
         case 1:
           var resKeyTexto = k + "t";
           var resTexto = document.getElementById(resKeyTexto).value;
           ajax = objetoAjax();
-          var val = "librerias/updateRangoTexto.php?id=" + k + "&rest=" + resTexto;
+          var val = "librerias/updateRangoTexto.php?id=" + k + "&rest=" + resTexto + "&sexo=`" +s + "`";
   
           ajax.open("GET", val);
           ajax.onreadystatechange = function () {
