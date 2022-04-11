@@ -51,14 +51,12 @@ function validarExistenciaRango(k,t) {
   //validar que la prueba tenga el valor de
   ajax = objetoAjax();
   var val = "librerias/busquedaRangoTexto.php?id=" + k;
-  alert(val);
   var llaveFonasa = 0;
   ajax.open("GET", val);
   ajax.onreadystatechange = function () {
     if (ajax.readyState == 4) {
       data = ajax.responseText;
       if (data) {
-        alert('existe rango');
         modificarRango(k,t);
       }
       else{
