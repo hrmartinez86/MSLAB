@@ -50,8 +50,7 @@ function paciente(expediente) {
 function validarExistenciaRango(k,t,s) {
   //validar que la prueba tenga el valor de
   ajax = objetoAjax();
-  var val = "librerias/busquedaRangoTexto.php?id=" + k;
-  var llaveFonasa = 0;
+  var val = "librerias/busquedaRangoTexto.php?id=" + k + "&sexo=" + s;
   ajax.open("GET", val);
   ajax.onreadystatechange = function () {
     if (ajax.readyState == 4) {
