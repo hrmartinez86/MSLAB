@@ -65,9 +65,9 @@ function validarExistenciaRango(k) {
 }
 function RangoUpdate(k, t) {
   validarExistenciaRango(k)
-    .then(function (data) {
+    .then(function () {
       // Run this when your request was successful
-      console.log(data);
+      console.log('siguiente');
     })
     .catch(function (err) {
       // Run this when promise was rejected via reject()
