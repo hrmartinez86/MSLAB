@@ -600,7 +600,7 @@ FROM         lab_relacion_laboratorio_seccion INNER JOIN
                                                           if ($_SESSION['perfil']==5){
                                                             echo '<input size="10" type="text" id="'.$llave.'t"
                                                             value="'.$result["RANGO_TEXTO"].'">';
-                                                            echo  '<input type="button" id="'.$llave.'t" value="Actualizar" onclick="RangoUpdate('.$llave.',1,'".$VL_Sexo."')">';
+                                                            echo  '<input type="button" id="'.$llave.'t" value="Actualizar" onclick="RangoUpdate('.$llave.',1,"'.$VL_Sexo."')">';
                                                           }
                                                           else{
                                                             echo ($result["RANGO_TEXTO"]);
