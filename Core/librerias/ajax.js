@@ -47,7 +47,7 @@ function paciente(expediente) {
   };
   ajax.send(null);
 }
-function validarExistenciaRango(k,t) {
+function validarExistenciaRango(k,t,s) {
   //validar que la prueba tenga el valor de
   ajax = objetoAjax();
   var val = "librerias/busquedaRangoTexto.php?id=" + k;
@@ -56,19 +56,22 @@ function validarExistenciaRango(k,t) {
   ajax.onreadystatechange = function () {
     if (ajax.readyState == 4) {
       data = ajax.responseText;
+      alert(s);
       if (data) {
         modificarRango(k,t);
       }
       else{
         alert('sin rango');
+        //inserta el renglon nuevo.
+
       }
     }
   };
 
   ajax.send();
 }
-function RangoUpdate(k, t) {
-  validarExistenciaRango(k,t);
+function RangoUpdate(k, t,s) {
+  validarExistenciaRango(k,t,s);
 }
 function modificarRango(k,t) {
   switch (t) {
