@@ -615,7 +615,7 @@ FROM         lab_relacion_laboratorio_seccion INNER JOIN
                                                                     value="'.number_format($result["VALOR_DESDE"], $result["DECIMALES"], ".", ".").'">
                                                                     <input size="4" type="text" id="'.$llave2.'h"
                                                                     value="'.number_format($result["VALOR_HASTA"], $result["DECIMALES"], ".", ".").'">';
-                                                              echo  '<input type="button" id="'.$llave2.'b" value="Actualizar" onclick="RangoUpdate('.$llave2.',0,'.$VL_Sexo.')">';
+                                                              echo  '<input type="button" id="'.$llave2.'b" value="Actualizar" onclick="RangoUpdate('.$llave2.',0,"'.$VL_Sexo.'")">';
                                                             }
                                                             else{
                                                               echo (number_format($result["VALOR_DESDE"], $result["DECIMALES"], ".", ".") . " - " . number_format($result["VALOR_HASTA"], $result["DECIMALES"], ".", "."));
