@@ -600,7 +600,7 @@ FROM         lab_relacion_laboratorio_seccion INNER JOIN
                                                           if ($_SESSION['perfil']==5){
                                                             echo '<input size="10" type="text" id="'.$llave.'t"
                                                             value="'.$result["RANGO_TEXTO"].'">';
-                                                            echo  '<input type="button" id="'.$llave.'t" value="Actualizar" onclick="RangoUpdate('.$llave.',1,'.$VL_Sexo.')">';
+                                                            echo  '<input type="button" id="'.$llave.'t" value="Actualizar" onclick="RangoUpdate('.$llave.',1,"'.$VL_Sexo.'")">';
                                                           }
                                                           else{
                                                             echo ($result["RANGO_TEXTO"]);
@@ -755,7 +755,7 @@ FROM         lab_relacion_laboratorio_seccion INNER JOIN
                                                           if ($_SESSION['perfil']==5){
                                                             echo '<input size="10" type="text" id="'.$llave.'t"
                                                             value="'.$result["RANGO_TEXTO"].'">';
-                                                            echo  '<input type="button" id="'.$llave.'t" value="Actualizar" onclick="RangoUpdate('.$llave.',1,'.$VL_Sexo.')">';
+                                                            echo  '<input type="button" id="'.$llave.'t" value="Actualizar" onclick="RangoUpdate('.$llave.',1,"'.$VL_Sexo.'")">';
                                                           }
                                                           else{
                                                             echo ($result["RANGO_TEXTO"]);
@@ -771,7 +771,7 @@ FROM         lab_relacion_laboratorio_seccion INNER JOIN
                                                                     value="'.number_format($result["VALOR_DESDE"], $result["DECIMALES"], ".", ".").'">
                                                                     <input size="4" type="text" id="'.$llave.'h"
                                                                     value="'.number_format($result["VALOR_HASTA"], $result["DECIMALES"], ".", ".").'">';
-                                                              echo  '<input type="button" id="'.$llave.'b" value="Actualizar" onclick="RangoUpdate('.$llave.',0,'.$VL_Sexo.')">';
+                                                              echo  '<input type="button" id="'.$llave.'b" value="Actualizar" onclick="RangoUpdate('.$llave.',0,"'.$VL_Sexo.'")">';
                                                             }
                                                             else{
                                                               echo (number_format($result["VALOR_DESDE"], $result["DECIMALES"], ".", ".") . " - " . number_format($result["VALOR_HASTA"], $result["DECIMALES"], ".", "."));
