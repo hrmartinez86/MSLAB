@@ -47,7 +47,7 @@ function paciente(expediente) {
   };
   ajax.send(null);
 }
-function validarExistenciaRango(k) {
+function validarExistenciaRango(k,t) {
   //validar que la prueba tenga el valor de
   ajax = objetoAjax();
   var val = "librerias/busquedaRangoTexto.php?id=" + k;
@@ -59,6 +59,7 @@ function validarExistenciaRango(k) {
       data = ajax.responseText;
       if (data) {
         alert('existe rango');
+        modificarRango(k,t);
       }
       else{
         alert('sin rango');
@@ -69,68 +70,57 @@ function validarExistenciaRango(k) {
   ajax.send();
 }
 function RangoUpdate(k, t) {
-  validarExistenciaRango(k)
-    // .then(function () {
-    //   // Run this when your request was successful
-    //   console.log('siguiente');
-    // })
-    // .catch(function (err) {
-    //   // Run this when promise was rejected via reject()
-    //   console.log(err);
-    // });
-  //   if (validarExistenciaRango(k)) {
-  //     alert("existe");
-  //   } else {
-  //     alert("no existe");
-  //   }
-  //   switch (t) {
-  //     case 1:
-  //       var resKeyTexto = k + "t";
-  //       var resTexto = document.getElementById(resKeyTexto).value;
-  //       ajax = objetoAjax();
-  //       var val = "librerias/updateRangoTexto.php?id=" + k + "&rest=" + resTexto;
-
-  //       ajax.open("GET", val);
-  //       ajax.onreadystatechange = function () {
-  //         if (ajax.readyState == 4) {
-  //           valor.innerHTML = ajax.responseText;
-  //           alert("Rango actualizado");
-  //         }
-  //       };
-  //       ajax.send(null);
-
-  //       break;
-  //     case 0:
-  //       var resKeyDesde = k + "d";
-  //       var resDesde = document.getElementById(resKeyDesde).value;
-  //       var resKeyHasta = k + "h";
-  //       var resHasta = document.getElementById(resKeyHasta).value;
-
-  //       ajax = objetoAjax();
-  //       var val =
-  //         "librerias/updateRango.php?id=" +
-  //         k +
-  //         "&resd=" +
-  //         resDesde +
-  //         "&resh=" +
-  //         resHasta;
-
-  //       ajax.open("GET", val);
-  //       ajax.onreadystatechange = function () {
-  //         if (ajax.readyState == 4) {
-  //           valor.innerHTML = ajax.responseText;
-  //           alert("Rango actualizado");
-  //         }
-  //       };
-  //       ajax.send(null);
-
-  //       break;
-
-  //     default:
-  //       break;
-  //   }
+  validarExistenciaRango(k,t);
 }
-
+function modificarRango(k,t) {
+  switch (t) {
+        case 1:
+          var resKeyTexto = k + "t";
+          var resTexto = document.getElementById(resKeyTexto).value;
+          ajax = objetoAjax();
+          var val = "librerias/updateRangoTexto.php?id=" + k + "&rest=" + resTexto;
+  
+          ajax.open("GET", val);
+          ajax.onreadystatechange = function () {
+            if (ajax.readyState == 4) {
+              valor.innerHTML = ajax.responseText;
+              alert("Rango actualizado");
+            }
+          };
+          ajax.send(null);
+  
+          break;
+        case 0:
+          var resKeyDesde = k + "d";
+          var resDesde = document.getElementById(resKeyDesde).value;
+          var resKeyHasta = k + "h";
+          var resHasta = document.getElementById(resKeyHasta).value;
+  
+          ajax = objetoAjax();
+          var val =
+            "librerias/updateRango.php?id=" +
+            k +
+            "&resd=" +
+            resDesde +
+            "&resh=" +
+            resHasta;
+  
+          ajax.open("GET", val);
+          ajax.onreadystatechange = function () {
+            if (ajax.readyState == 4) {
+              valor.innerHTML = ajax.responseText;
+              alert("Rango actualizado");
+            }
+          };
+          ajax.send(null);
+  
+          break;
+  
+        default:
+          break;
+      }
+  
+}
 function valor(k, p, f, t, a, b, est) {
   var valor = document.getElementById(k).value;
   ajax = objetoAjax();
