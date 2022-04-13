@@ -111,7 +111,6 @@ $fecha = date('d/m/Y');
   <script type="text/javascript" src="dhtmlgoodies_calendar/dhtmlgoodies_calendar.js?random=20060118"></script>
   <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
   <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/css/bootstrap-select.min.css'>
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
@@ -123,10 +122,25 @@ $fecha = date('d/m/Y');
     <!-- BEGIN Record Citas -->
     <tr>
       <td valign="top">
-        <?php include("Header.html") ?>
+        <?php 
+        include("Header.html"); 
+        $dia=date('d');
+    // $dia=78;
+if ($_SESSION['licencia']=='N'&& $dia<15) {
+    echo '<h1>La licencia de MSLAB esta proxima a vencer</h1>';
+}
+if ($_SESSION['licencia']=='N'&& $dia>15) {
+    echo '<h1>La licencia de MSLAB ya esta vencida</h1>';
+    echo '<script>
+    alert("Licencia MSLAB vencida!!!");
+    window.open("main.php","_self","")
+    </script>'
+;
+} ?>
       </td>
     </tr>
   </table>
+  <p id="demo"></p>
   <br>
   <form id="Citas" method="post" name="Citas" action="guarda_atencion.php" onsubmit="Valida1()">
     <table align="center" border="0" cellspacing="0" cellpadding="10" width="60%">
@@ -318,7 +332,7 @@ $fecha = date('d/m/Y');
           </table>
           <table align="center">
             <tr>
-              <td align="center"><input type="submit" class="btn btn-primary" value='Guardar'></td>
+              <td align="center"><input id="guardar" type="submit" class="btn btn-primary" value='Guardar'></td>
             </tr>
 
            </table>

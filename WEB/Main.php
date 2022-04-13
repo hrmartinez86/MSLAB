@@ -1,3 +1,7 @@
+<?php
+//include_once(RelativePath . "/Barra.php");
+session_start();
+header("Cache-control: private");?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -58,7 +62,16 @@ window.onload = bind_events; //Assign bind_events @1-19F7B649
 <tr>
       <td valign="top">
     <?php 
-include("Header.html")?>
+include("Header.html");
+$dia=date('d');
+
+if ($_SESSION['licencia']=='N'&& $dia<15) {
+    echo '<h1>La licencia de MSLAB esta proxima a vencer</h1>';
+}
+if ($_SESSION['licencia']=='N'&& $dia>15) {
+    echo '<h1>La licencia de MSLAB ya esta vencida</h1>';
+}
+?>
       </td>
 </tr>
  </table>

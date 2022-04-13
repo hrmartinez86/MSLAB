@@ -82,17 +82,27 @@ Description: A wide two-column design suitable for blogs and small websites.
 						//		echo $sql_1 ;
 						$clave = odbc_result($re, "clave");
 						$nivel = odbc_result($re, "usuario");
+
 						$nombre2 = "";
 						$apellidos = "";
 						$conec = odbc_connect($ODBC, "sa", "Demo123.") or die("<h1 align='center'>ERROR EN LA IDENTIFICACION DE USUARIO EN LA BASE DE DATOS FAVOR DE CONSULTAR A SU PROVEEDOR</h1><br> <a href=\"index.php\" title=\"Regresar a la pagina principal\" target=\"_self\"><center>REGRESAR</center></a>");
 
 						$sql_1 = "SELECT * FROM lab_usuarios WHERE     (lab_usuarios.usuario = '" . $usuario . "') AND (lab_usuarios.clave = '" . $password . "')";
 						$re =  odbc_exec($conec, $sql_1) or die("no hay resultados");
+						
 						//$msg = "<a href=\"tabla.php?FI=2009-03-18&ff=2009-03-18\">Bienvenido: " . $CENTRO . "  >></a>";
 						$nivel = odbc_result($re, "usuario");
 						$clave = odbc_result($re, "clave");
 						$perfil = odbc_result($re, "perfil");
 
+						///verifica licencia
+						$mes=date('m');
+						$ano=date('Y');
+						$sql_1="select activo from Licencia where mes=$mes and ano=$ano";
+						
+						$resulta =  odbc_exec($conec, $sql_1) or die("no hay resultados de licencia".odbc_errormsg());
+						$_SESSION['licencia']=odbc_result($resulta, "activo");
+					
 						if ($nivel == '') {
 							$msg = 'Este usuario no pertenece al Centro!!. <a href="index.php">Intentelo de nuevo.</a>';
 						} else {
