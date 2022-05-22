@@ -283,10 +283,7 @@ protected $y0;      // Ordenada de comienzo de la columna
                 // }
                 $this->WriteText($examArray[$i]['Info'],$xRes,$interLine,'',$sizeFont,$font,false,false);
                 
-                //evaluamos si cuenta con un metodo
-                if ($examArray[$i]['metodo']!="") {
-                    $this->WriteText($examArray[$i]['metodo'],$xRT,$interLine,'',$sizeFont,$font,false,false);
-                }
+                
                 if ($examArray[$i]['rt']!="") {
                     $this->WriteText($examArray[$i]['rt'],$xRT,$interLine,'',$sizeFont,$font,false,false);
                 }
@@ -303,6 +300,10 @@ protected $y0;      // Ordenada de comienzo de la columna
                 $this->WriteText($examArray[$i]['Res'],$xResVal,$interLine,'',$sizeFont,$font,false,false);
  
                 $this->Ln($interLinell);
+                //evaluamos si cuenta con un metodo
+                if ($examArray[$i]['metodo']!="") {
+                    $this->WriteText($examArray[$i]['metodo'],$xRT,$interLine,'',$sizeFont,$font,false,false);
+                }
             }
         }
         $metodo=metodo($llave);
