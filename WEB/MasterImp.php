@@ -367,7 +367,7 @@ protected $y0;      // Ordenada de comienzo de la columna
 
 $pdf->SetAuthor('MSLAB');
 //descomponer el array de los estudios
-$pdf->AddPage('P','A4',0);
+$pdf->AddPage('P','A4');
 // $pdf->WriteText($examenes,10,6,'',10,$font,false,false);
 // $examen=explode(",",$examenes);
 $y=$pdf->GetY();
