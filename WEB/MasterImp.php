@@ -363,7 +363,7 @@ protected $y0;      // Ordenada de comienzo de la columna
 //tamaño de hoja normal
 // $pdf = new PDF();
 ///tamaño de hoja distinta
-$pdf=new PDF('P','pt',array(612,1008));
+$pdf = new PDF('P','mm',array(50,20));
 
 $pdf->SetAuthor('MSLAB');
 //descomponer el array de los estudios
