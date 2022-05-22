@@ -360,7 +360,10 @@ protected $y0;      // Ordenada de comienzo de la columna
     }
 }
 
-$pdf = new PDF();
+//tamaño de hoja normal
+// $pdf = new PDF();
+///tamaño de hoja distinta
+$pdf=new PDF('P','pt',array(612,1008));
 
 $pdf->SetAuthor('MSLAB');
 //descomponer el array de los estudios
