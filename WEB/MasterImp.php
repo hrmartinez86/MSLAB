@@ -335,9 +335,9 @@ protected $y0;      // Ordenada de comienzo de la columna
                 $examArray=resultados($cod[$i],$idPaciente);
 
                 //evaluar el tamaño de la hoja
-                if ($this->evaluarHoja(count($examArray),$this->GetY())==false) {
+                // if ($this->evaluarHoja(count($examArray),$this->GetY())==false) {
                     $this->AddPage();
-                }
+                // }
                 //nombre del estudio
                 $this->ChapterTitle($desc[$i],$anchoPagina,$imagen);
                 //pruebas en el estudio
