@@ -304,7 +304,7 @@ protected $y0;      // Ordenada de comienzo de la columna
                 if ($examArray[$i]['metodo']!="") {
                     $metodoCorreccion=utf8_encode($examArray[$i]['metodo']);
                     $this->WriteText($metodoCorreccion,15,$interLine,'',$sizeFont,$font,false,false);
-                    $this->Ln($interLinell);
+                    $this->Ln($interLinell+8);
                 }
                 else{
                     $this->Ln($interLinell+3);
