@@ -303,6 +303,7 @@ protected $y0;      // Ordenada de comienzo de la columna
                 //evaluamos si cuenta con un metodo
                 if ($examArray[$i]['metodo']!="") {
                     $this->WriteText($examArray[$i]['metodo'],$xRT,$interLine,'',$sizeFont,$font,false,false);
+                    $this->Ln($interLinell);
                 }
             }
         }
