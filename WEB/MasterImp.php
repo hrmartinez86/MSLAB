@@ -331,12 +331,14 @@ protected $y0;      // Ordenada de comienzo de la columna
             $desc=explode(",",$examenesDescripcion);
             $x=count($cod);
 
-            for ($i=1; $i <$x ; $i++) { 
+            for ($i=0; $i <$x ; $i++) { 
                 $examArray=resultados($cod[$i],$idPaciente);
 
                 //evaluar el tamaño de la hoja
                 // if ($this->evaluarHoja(count($examArray),$this->GetY())==false) {
+                if ($i>0) {
                     $this->AddPage();
+                } 
                 // }
                 //nombre del estudio
                 $this->ChapterTitle($desc[$i],$anchoPagina,$imagen);
