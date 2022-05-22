@@ -58,7 +58,7 @@
         $link=conectar($ODBC);
         $sql="SISTEMA_RESULTADOS_WEB_EDITXCF @X_IDPACIENTE='".$llave."',@CF='".$idPaciente."'";
         $son=odbc_exec($link,$sql) or die ("error aqui".odbc_errormsg());
-        // echo $sql;
+        echo $sql;
         while($row =odbc_fetch_array($son) )
                     { 
                         $I_Info[]=array('Info'=>$row['DESC_PRU'],
