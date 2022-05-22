@@ -83,19 +83,22 @@ protected $y0;      // Ordenada de comienzo de la columna
     {
         // Go to 1.5 cm from bottom
     $this->SetY(-35);
-    // Select Arial italic 8
-    // $this->SetFont('Arial','',8);
-    // $responsableSanitario=utf8_decode('RESPONSABLE SANITARIO:Q.F.B. José Justiano Sánchez Hernández R.F.C. SAHJ580905EM1 Ced. Prof. No. 871857 U.A.P.');
-    // $direccion=utf8_decode('Av. Lerdo de Tejada No. 19 2do. Piso 202 Secc. 2da. Zacatelco;Tlaxcala Teléfono (246) 497 0588                      E-Mail: lasines@prodigy.net.mx');
-    // $telefono=utf8_decode('Tel. Celular: (246) 116 9861 / (246) 101 0155                                   Urgencias Tel.:(246) 497 2619');
-    // $this->Cell(0,10,$responsableSanitario,0,0,'L');
-    // $y=$this->GetY()+10;
-    // $this->SetLineWidth(1);
-    // $this->Line(10,$y,192,$y);
-    // $this->SetY(-25);
-    // $this->Cell(0,10,$direccion,0,0,'L');   
-    // $this->SetY(-20);
-    // $this->Cell(0,10,$telefono,0,0,'L');   
+    if ($_POST['logos']) {
+        //Select Arial italic 8
+        $this->SetFont('Arial','',8);
+        $responsableSanitario=utf8_decode('RESPONSABLE SANITARIO:Q.F.B. José Justiano Sánchez Hernández R.F.C. SAHJ580905EM1 Ced. Prof. No. 871857 U.A.P.');
+        $direccion=utf8_decode('Av. Lerdo de Tejada No. 19 2do. Piso 202 Secc. 2da. Zacatelco;Tlaxcala Teléfono (246) 497 0588                      E-Mail: lasines@prodigy.net.mx');
+        $telefono=utf8_decode('Tel. Celular: (246) 116 9861 / (246) 101 0155                                   Urgencias Tel.:(246) 497 2619');
+        $this->Cell(0,10,$responsableSanitario,0,0,'L');
+        $y=$this->GetY()+10;
+        $this->SetLineWidth(1);
+        $this->Line(10,$y,192,$y);
+        $this->SetY(-25);
+        $this->Cell(0,10,$direccion,0,0,'L');   
+        $this->SetY(-20);
+        $this->Cell(0,10,$telefono,0,0,'L');   
+    }
+    
     }
 
     function SetCol($col)
