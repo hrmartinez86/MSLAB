@@ -234,7 +234,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         $this->WriteText('',$anchoPagina,2,'',$fontSize,$font,false,false);
         $this->WriteText('EXAMEN',$inicioIMp,0,'B',$fontSize,$font,false,false);
         $this->WriteText('RESULTADOS',80,0,'B',$fontSize,$font,false,false);
-        $this->WriteText('VALOR DE REFERENCIA',140,6,'B',$fontSize,$font,false,false);
+        $this->WriteText('REFERENCIA',140,6,'B',$fontSize,$font,false,false);
         
         $this->Ln(2);
         // Guardar ordenada
