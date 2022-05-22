@@ -361,7 +361,7 @@ protected $y0;      // Ordenada de comienzo de la columna
 }
 
 //tamaño de hoja normal
-// $pdf = new PDF();
+$pdf = new PDF();
 ///tamaño de hoja distinta
 // $pdf = new PDF('P', 'mm', array(100,150));
 
