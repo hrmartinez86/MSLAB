@@ -361,13 +361,23 @@ protected $y0;      // Ordenada de comienzo de la columna
 }
 
 //tamaño de hoja normal
-$pdf = new PDF();
-///tamaño de hoja distinta
-// $pdf = new PDF('P', 'mm', array(100,150));
+if ($_POST['mediaCarta']) {
+    $pdf = new PDF('L','mm',array(200,270));
+}
+else
+{
+    $pdf = new PDF('P','mm','Letter');
+}
+//CARTA
+
+//MEDIA CARTA
+// $pdf = new PDF('L','mm',array(200,270));
 
 $pdf->SetAuthor('MSLAB');
 //descomponer el array de los estudios
-$pdf->AddPage('P','A4');
+$pdf->AddPage();
+// $pdf->WriteText($_POST['mediaCarta'],10,6,'',10,$font,false,false);
+// $pdf->WriteText($_POST['logos'],10,6,'',10,$font,false,false);
 // $pdf->WriteText($examenes,10,6,'',10,$font,false,false);
 // $examen=explode(",",$examenes);
 $y=$pdf->GetY();

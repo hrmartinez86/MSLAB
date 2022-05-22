@@ -172,8 +172,11 @@ where idpaciente='".$idpaciente."' ORDER BY  rlsp.cod_llave,cf.valor_particular 
                 
                 ?>
 			          <tr>
-                <td><div type="hidden" id="resultado"></div></td>
-          <td><input type="submit" value="Imprimir" onclick="imp()"/></td>
+                <td><div type="hidden" id="resultado"></div></td></tr>
+                <tr><td><label for="mediaCarta">Imprimir en hoja media carta</label></td><td><input type="checkbox" name="mediaCarta" id="mediaCarta"></td>
+                <td><label for="logos">Imprimir con logos</label></td><td><input type="checkbox" name="logos" id="logos"></td></tr>
+                <tr><td><input type="submit" value="Imprimir" onclick="imp()"/></td></tr>
+          
           
           </tr>
                 <tr><td><input type="hidden" value="<?php echo $id;?>" name="i" id="idpac"/></td>
