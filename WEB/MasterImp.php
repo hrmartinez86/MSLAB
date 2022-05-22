@@ -363,11 +363,11 @@ protected $y0;      // Ordenada de comienzo de la columna
 //tamaño de hoja normal
 // $pdf = new PDF();
 ///tamaño de hoja distinta
-$pdf = new PDF('P', 'mm', array(100,150));
+// $pdf = new PDF('P', 'mm', array(100,150));
 
 $pdf->SetAuthor('MSLAB');
 //descomponer el array de los estudios
-$pdf->AddPage();
+$pdf->AddPage('P','A4',0);
 // $pdf->WriteText($examenes,10,6,'',10,$font,false,false);
 // $examen=explode(",",$examenes);
 $y=$pdf->GetY();
