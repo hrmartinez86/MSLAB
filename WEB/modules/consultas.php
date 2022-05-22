@@ -66,7 +66,8 @@
                                         'um'=>$row['UNIDADES_MEDIDA'],
                                         'vd'=>$row['VALOR_DESDE'],
                                         'vh'=>$row['VALOR_HASTA'],
-                                        'rt'=>$row['RANGO_TEXTO']);
+                                        'rt'=>$row['RANGO_TEXTO'],
+                                        'metodo'=>$row['METODO']);
                     }
         return $I_Info;	
     }
