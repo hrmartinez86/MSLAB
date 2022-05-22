@@ -302,7 +302,10 @@ protected $y0;      // Ordenada de comienzo de la columna
                 $this->Ln($interLinell);
                 //evaluamos si cuenta con un metodo
                 if ($examArray[$i]['metodo']!="") {
-                    $this->WriteText($examArray[$i]['metodo'],5,$interLine,'',$sizeFont,$font,false,false);
+                    $this->WriteText($examArray[$i]['metodo'],10,$interLine,'',$sizeFont,$font,false,false);
+                    $this->Ln($interLinell);
+                }
+                else{
                     $this->Ln($interLinell);
                 }
             }
