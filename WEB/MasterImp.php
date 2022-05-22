@@ -51,7 +51,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         $fontTitle='Arial';
         $fontSizeTitle=11;
         $font='Arial';
-        $fontSize=8;
+        $fontSize=10;
 
         $this->WriteText("Paciente:",$x1,0,'B',$fontSize,$font,false,false);
         $this->WriteText($nombre,$x1+30,3,'B',$fontSize,$font,false,false);
@@ -208,7 +208,7 @@ protected $y0;      // Ordenada de comienzo de la columna
     function ChapterTitle($label,$anchoPagina,$imagen)
     {
         $font='Arial';
-        $fontSize=9;
+        $fontSize=10;
         $fontTitle=$font;
         $fontSizeTitle=16;
 
@@ -265,7 +265,7 @@ protected $y0;      // Ordenada de comienzo de la columna
             $xRes=20;
         }
         $font='Arial';
-        $sizeFont=8;
+        $sizeFont=10;
         $interLine=0;
         $interLinell=5;
         $xResVal=85;
@@ -299,7 +299,7 @@ protected $y0;      // Ordenada de comienzo de la columna
                 //evaluamos si cuenta con un metodo
                 if ($examArray[$i]['metodo']!="") {
                     $metodoCorreccion=utf8_encode($examArray[$i]['metodo']);
-                    $this->WriteText($metodoCorreccion,15,$interLine,'B',$sizeFont,$font,false,false);
+                    $this->WriteText($metodoCorreccion,15,$interLine,'B',8,$font,false,false);
                     $this->Ln($interLinell+8);
                 }
                 else{
