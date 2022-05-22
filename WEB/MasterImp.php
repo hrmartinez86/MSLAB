@@ -276,16 +276,12 @@ protected $y0;      // Ordenada de comienzo de la columna
         for ($i=0;$i<count($examArray);$i++)
         {
             if($examArray[$i]['Res']!=''){
-                // $linesName=$this->evaluaLen($examArray[$i]['Info'],30);
-                // foreach ($linesName as $line) {
-                //     $this->WriteText($line,$xRes,$interLine,'',$sizeFont,$font,false,false);
-                //     $this->Ln(5);
-                // }
+
                 $this->WriteText($examArray[$i]['Info'],$xRes,$interLine,'',$sizeFont,$font,false,false);
                 
-                
+                ///rangos
                 if ($examArray[$i]['rt']!="") {
-                    $this->WriteText($examArray[$i]['rt'],$xRT,$interLine,'',$sizeFont,$font,false,false);
+                    $this->WriteText($examArray[$i]['rt'],$xRT,$interLine,'B',$sizeFont,$font,false,false);
                 }
                 else
                 {
@@ -303,7 +299,7 @@ protected $y0;      // Ordenada de comienzo de la columna
                 //evaluamos si cuenta con un metodo
                 if ($examArray[$i]['metodo']!="") {
                     $metodoCorreccion=utf8_encode($examArray[$i]['metodo']);
-                    $this->WriteText($metodoCorreccion,15,$interLine,'',$sizeFont,$font,false,false);
+                    $this->WriteText($metodoCorreccion,15,$interLine,'B',$sizeFont,$font,false,false);
                     $this->Ln($interLinell+8);
                 }
                 else{
