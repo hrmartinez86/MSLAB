@@ -239,7 +239,8 @@ protected $y0;      // Ordenada de comienzo de la columna
             $this->WriteText('',$anchoPagina,2,'',$fontSize,$font,false,false);
             $this->WriteText('EXAMEN',$inicioIMp,0,'B',$fontSize,$font,false,false);
             $this->WriteText('RESULTADOS',80,0,'B',$fontSize,$font,false,false);
-            $this->WriteText('REFERENCIA',140,6,'B',$fontSize,$font,false,false);  
+            $this->WriteText('UNIDADES',130,0,'B',$fontSize,$font,false,false);
+            $this->WriteText('REFERENCIA',180,6,'B',$fontSize,$font,false,false);  
         }
         
         $this->Ln(2);
@@ -269,8 +270,8 @@ protected $y0;      // Ordenada de comienzo de la columna
         $interLine=0;
         $interLinell=3;
         $xResVal=85;
-        $xUM=110;
-        $xRT=140;
+        $xUM=130;
+        $xRT=170;
         $xVd=80;
         // $yResultado=$this->GetY();
         // $this->WriteText($yResultado,$xRes+40,$interLine,'B',$sizeFont,$font,false,false);
@@ -292,7 +293,8 @@ protected $y0;      // Ordenada de comienzo de la columna
             if ($examArray[$i]['x']==0) {
                 $xRes=2;
                 $xResVal=85;
-                $xRT=140;
+                $xUM=132;
+                $xRT=180;
                 $xMetodo=4;
             }
             if ($examArray[$i]['x']<>0) {
@@ -326,16 +328,19 @@ protected $y0;      // Ordenada de comienzo de la columna
                 if ($examArray[$i]['rt']!="") {
                     $this->WriteText($examArray[$i]['rt'],$xRT,$interLine,'B',$sizeFont,$font,false,false);
                 }
-                else
-                {
-                    $umV=utf8_encode($examArray[$i]['um']);
-                    
-                    $this->WriteText(number_format($examArray[$i]['vd'],2) ." - ".number_format($examArray[$i]['vh'],2)." " . 
-                    $umV,
-                    $xVd,$interLine,'',$sizeFont,$font,false,false);
-                    
+                if ($examArray[$i]['um']!="") {
+                    $this->WriteText($examArray[$i]['um'],$xUM,$interLine,'B',$sizeFont,$font,false,false);
                 }
                 
+                // else
+                // {
+                //     $umV=utf8_encode($examArray[$i]['um']);
+                    
+                //     $this->WriteText(number_format($examArray[$i]['vd'],2) ." - ".number_format($examArray[$i]['vh'],2)." " . 
+                //     $umV,
+                //     $xVd,$interLine,'',$sizeFont,$font,false,false);
+                    
+                // }
                 $this->WriteText($examArray[$i]['Res'],$xResVal,$interLine,'',$sizeFont,$font,false,false);
  
                 $this->Ln($interLinell);
