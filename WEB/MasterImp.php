@@ -209,13 +209,13 @@ protected $y0;      // Ordenada de comienzo de la columna
         }
     }
 
-    function ChapterTitle($label,$anchoPagina,$imagen)
+    function ChapterTitle($label,$anchoPagina,$imagen,$detalleEstudio)
     {
         $font='Arial';
         $fontSize=10;
         $fontTitle=$font;
         $fontSizeTitle=16;
-
+        
         if ($imagen==TRUE) {
             $inicioIMp=10;
         }
@@ -234,12 +234,13 @@ protected $y0;      // Ordenada de comienzo de la columna
 
         $y1=$this->GetY();
 		// $this->Line($inicioIMp,  $y1,  200, $y1);
-
         ///obtenemos el dato de 
-        $this->WriteText('',$anchoPagina,2,'',$fontSize,$font,false,false);
-        $this->WriteText('EXAMEN',$inicioIMp,0,'B',$fontSize,$font,false,false);
-        $this->WriteText('RESULTADOS',80,0,'B',$fontSize,$font,false,false);
-        $this->WriteText('REFERENCIA',140,6,'B',$fontSize,$font,false,false);
+        if ($detalleEstudio[0]['imprimir_nombre_perfil']=='S') {
+            $this->WriteText('',$anchoPagina,2,'',$fontSize,$font,false,false);
+            $this->WriteText('EXAMEN',$inicioIMp,0,'B',$fontSize,$font,false,false);
+            $this->WriteText('RESULTADOS',80,0,'B',$fontSize,$font,false,false);
+            $this->WriteText('REFERENCIA',140,6,'B',$fontSize,$font,false,false);  
+        }
         
         $this->Ln(2);
         // Guardar ordenada
@@ -384,7 +385,8 @@ protected $y0;      // Ordenada de comienzo de la columna
                 // }
                 //nombre del estudio $desc[$i]
                 //obtenemos el detalle del estudio
-                $this->ChapterTitle($desc[$i],$anchoPagina,$imagen);
+                $detalleEstudio=DetalleEstudios($cod[$i]);
+                $this->ChapterTitle($desc[$i],$anchoPagina,$imagen,$detalleEstudio);
                 //pruebas en el estudio
                 $this->ChapterConten($cod[$i],$examArray,$imagen);
             }

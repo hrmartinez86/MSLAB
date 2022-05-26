@@ -77,6 +77,25 @@
                     }
         return $I_Info;	
     }
+    function DetalleEstudios($codigo)
+    {
+        global $ODBC;
+        $ODBC=$_SESSION["ODBC"];
+        $link=conectar($ODBC);
+        $sql="SELECT * FROM CAJ_CODIGOS_FONASA WHERE CODIGO_FONASA='".$codigo."'";
+        $son=odbc_exec($link,$sql) or die ("error al obtener el degloce del estudio".odbc_errormsg());
+        // echo $sql;
+        while($row =odbc_fetch_array($son) )
+                    { 
+                        $I_Info[]=array('codigo_fonasa'=>$row['codigo_fonasa'],
+                                        'nombre'=>$row['nombre'],
+                                        'descripcion'=>$row['descripcion'],
+                                        'imprimir_nombre_perfil'=>$row['imprimir_nombre_perfil']
+                                    );
+                                        
+                    }
+        return $I_Info;	
+    }
     function nota($llave)
     {
         switch ($llave) {
