@@ -57,7 +57,7 @@
         $ODBC=$_SESSION["ODBC"];
         $link=conectar($ODBC);
         $sql="SISTEMA_RESULTADOS_WEB_EDITXCF @X_IDPACIENTE='".$llave."',@CF='".$idPaciente."'";
-        $son=odbc_exec($link,$sql) or die ("error aqui".odbc_errormsg());
+        $son=odbc_exec($link,$sql) or die ("error aqui kkk".odbc_errormsg());
         // echo $sql;
         while($row =odbc_fetch_array($son) )
                     { 
@@ -67,7 +67,13 @@
                                         'vd'=>$row['VALOR_DESDE'],
                                         'vh'=>$row['VALOR_HASTA'],
                                         'rt'=>$row['RANGO_TEXTO'],
-                                        'metodo'=>$row['METODO']);
+                                        'metodo'=>$row['METODO'],
+                                        'tipo'=>$row['TIPO'],
+                                        'x'=>$row['X'],
+                                        'y'=>$row['Y'],
+                                        'xr'=>$row['XR'],
+                                    );
+                                        
                     }
         return $I_Info;	
     }

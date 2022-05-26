@@ -7,8 +7,7 @@ $examenesDescripcion=$_POST['descripcion_'];
 
 // echo $examenesCodigo;
 $idPaciente=$_POST['i'];
-$imagen=$_POST['imagen'];
-
+// $imagen=$_POST['logos'];
 require('FPDF/fpdf.php');
 require('modules/consultas.php');
 include("librerias/conection.php");
@@ -26,13 +25,13 @@ protected $y0;      // Ordenada de comienzo de la columna
     }
     function encabezado($imagen,$anchoPagina){
         
-        if ($imagen==TRUE) {
-            $this->Image('marco.jpg',0,0,220,0,'','');
-            $x1=10;          
+        if ($_POST['logos']) {
+            $this->Image('.\images\SantaInes.jpg',0,0,220,0,'','');
+            $x1=2;          
         }
         else
         {
-            $x1=20;   
+            $x1=2;   
         }
 
         $x2=200;
@@ -81,6 +80,8 @@ protected $y0;      // Ordenada de comienzo de la columna
 
     function Footer()
     {
+        // $yResultado=$this->GetY();
+        // $this->WriteText($yResultado,40,0,'B',9,'Arial',false,false);
         // Go to 1.5 cm from bottom
     $this->SetY(-35);
     if ($_POST['logos']) {
@@ -234,6 +235,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         $y1=$this->GetY();
 		// $this->Line($inicioIMp,  $y1,  200, $y1);
 
+        ///obtenemos el dato de 
         $this->WriteText('',$anchoPagina,2,'',$fontSize,$font,false,false);
         $this->WriteText('EXAMEN',$inicioIMp,0,'B',$fontSize,$font,false,false);
         $this->WriteText('RESULTADOS',80,0,'B',$fontSize,$font,false,false);
@@ -260,24 +262,61 @@ protected $y0;      // Ordenada de comienzo de la columna
     function ChapterConten($llave,$examArray,$imagen)
     {
         
-        if ($imagen==TRUE) {
-            $xRes=10;
-        }
-        else
-        {
-            $xRes=20;
-        }
+        $xRes=2;
         $font='Arial';
         $sizeFont=10;
         $interLine=0;
-        $interLinell=5;
+        $interLinell=3;
         $xResVal=85;
         $xUM=110;
         $xRT=140;
-        $xVd=140;
+        $xVd=80;
+        // $yResultado=$this->GetY();
+        // $this->WriteText($yResultado,$xRes+40,$interLine,'B',$sizeFont,$font,false,false);
         // var_dump($examArray);
+        $numeroPruebas=count($examArray);
+
+        if ($numeroPruebas<10&&!$_POST['mediaCarta']) {
+            # code...
+            $interLinell=10;
+        }
+
         for ($i=0;$i<count($examArray);$i++)
-        {
+        {   
+            
+            // $this->WriteText(count($examArray),$xRes,$interLine,'B',$sizeFont,$font,false,false);
+            // $yResultado=$this->GetY();
+            // $this->WriteText($yResultado,$xRes+40,$interLine,'B',$sizeFont,$font,false,false);
+            ///EVALUAMOS EL TIPO DE RENGLON
+            if ($examArray[$i]['x']==0) {
+                $xRes=2;
+                $xResVal=85;
+                $xRT=140;
+                $xMetodo=4;
+            }
+            if ($examArray[$i]['x']<>0) {
+                $xRes=+$examArray[$i]['x']-$xVd;
+                $xResVal=+$examArray[$i]['x']-$xVd+80;
+                $xMetodo=+$examArray[$i]['x']-$xVd+4;
+            }
+            if ($examArray[$i]['xr']<>0) {
+                $xResVal=$examArray[$i]['xr'];
+            }
+            if ($examArray[$i]['y']<>0) {
+                $this->SetY($examArray[$i]['y']);
+            }
+            if ($examArray[$i]['tipo']=='S') {
+                ///imprimimos el subtitulo
+                $this->WriteText($examArray[$i]['Info'],$xRes,$interLine,'B',$sizeFont+2,$font,false,false);
+                $this->Ln($interLinell);
+                //evaluamos si cuenta con un metodo
+                if ($examArray[$i]['metodo']!="") {
+                    $metodoCorreccion=utf8_encode($examArray[$i]['metodo']);
+                    $this->WriteText($metodoCorreccion,$xMetodo,$interLine,'B',8,$font,false,false);
+                    $this->Ln($interLinell+2);
+                }
+            }
+            else
             if($examArray[$i]['Res']!=''){
 
                 $this->WriteText($examArray[$i]['Info'],$xRes,$interLine,'',$sizeFont,$font,false,false);
@@ -302,11 +341,11 @@ protected $y0;      // Ordenada de comienzo de la columna
                 //evaluamos si cuenta con un metodo
                 if ($examArray[$i]['metodo']!="") {
                     $metodoCorreccion=utf8_encode($examArray[$i]['metodo']);
-                    $this->WriteText($metodoCorreccion,15,$interLine,'B',8,$font,false,false);
-                    $this->Ln($interLinell+8);
+                    $this->WriteText($metodoCorreccion,4,$interLine,'B',8,$font,false,false);
+                    $this->Ln($interLinell);
                 }
                 else{
-                    $this->Ln($interLinell+3);
+                    $this->Ln($interLinell);
                 }
             }
         }
@@ -318,7 +357,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         if ($nota!=""){
             $this->WriteText($nota ,$xRes,0,'',11,$font,false,true);
         }
-
+        
         $this->Ln(5);
     }
 
@@ -343,7 +382,8 @@ protected $y0;      // Ordenada de comienzo de la columna
                     $this->AddPage();
                 } 
                 // }
-                //nombre del estudio
+                //nombre del estudio $desc[$i]
+                //obtenemos el detalle del estudio
                 $this->ChapterTitle($desc[$i],$anchoPagina,$imagen);
                 //pruebas en el estudio
                 $this->ChapterConten($cod[$i],$examArray,$imagen);
