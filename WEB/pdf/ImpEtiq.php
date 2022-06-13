@@ -22,6 +22,7 @@ $num= $_GET['num'];
 $folios=str_pad($num, 6, "0", STR_PAD_LEFT);
 $folio=$cod.$folios; 
 $folios=$cod.$folios; 
+$numeroDiario=$folios;
 $i=0;
 $curva=$_GET['curva'];
 $opcion=$_GET['option'];
@@ -86,12 +87,12 @@ if($i<=0){
 			       
 		$pdf->AddPage();
              if ($opcion[$t-1]==00) 
-	    {$pdf->Code39(0, 5, $a,$folios,$n,$fecha_ingreso,$proc,$i,$e,$m,$opcion[$t-1]);}
+	    {$pdf->Code39(0, 5, $a,$numeroDiario,$n,$fecha_ingreso,$proc,$i,$e,$m,$opcion[$t-1]);}
              else
              if($opcion[$t-1]==31)
-             {$pdf->Code39(0, 5, $a,$folios,$n,$fecha_ingreso,$proc,$i,$e,$m,$opcion[$t-1]);}
+             {$pdf->Code39(0, 5, $a,$numeroDiario,$n,$fecha_ingreso,$proc,$i,$e,$m,$opcion[$t-1]);}
               else
-            {$pdf->Code39(0, 5, $a,$folios,$n,$fecha_ingreso,$proc,$i,$e,$m,$opcion[$t-1]);}
+            {$pdf->Code39(0, 5, $a,$numeroDiario,$n,$fecha_ingreso,$proc,$i,$e,$m,$opcion[$t-1]);}
 	    $e='';
 		}
 	
