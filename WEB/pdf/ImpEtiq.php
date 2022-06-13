@@ -26,11 +26,14 @@ $i=0;
 $curva=$_GET['curva'];
 $opcion=$_GET['option'];
 $nopciones=count($opcion);
-$sql="SELECT     fecha, hora, numero, numero_registro, rut, usuario_creacion, nombre_usuario, anos, NOMBRE_DOCTOR, FechaTomaMuestra, 
-                      FechaRecepcionMuestra, EstadoTomaMuestra, EstadoRecepcionMuestra, HoraRecepcionMuestra, FECHA_REGISTRO, idpaciente, ori_pac, 
-                      tipo_de_urgencia, ObsTomaMuestra, descripcion, rut_paciente, nombre, apellidos, sexo, telefono, fecha_nacimiento, prevision, contraindicaciones, 
-                      PROCEDENCIA_MUESTRA, folio_host, num_cama
-FROM         SISTEMA_TOMA_MUESTRAS_PACIENTE
+$sql="select df.numero_registro,df.fecha,dp.nombre,dp.apellidos,df.anos,lrp.cod_llave,ccf.codigo_corto,dp.sexo,pm.descripcion as PROCEDENCIA_MUESTRA
+from dat_paciente dp
+INNER JOIN dat_dfipa df on df.rut=dp.rut
+INNER JOIN caj_det_prestaciones cdp on cdp.idpaciente=df.idpaciente 
+INNER JOIN lab_relac_fonasa_perfil lrfp on lrfp.llave_fonasa=cdp.llave_fonasa
+INNER JOIN caj_codigos_fonasa ccf on ccf.llave_fonasa=lrfp.llave_fonasa
+INNER JOIN lab_RLS_perfiles lrp on lrp.llave_perfil=lrfp.llave_perfil
+INNER JOIN procedencia_muestra pm on pm.id=df.procedencia_muestra
 WHERE     (numero = '".$folio."')";
  $query=odbc_exec($conection,$sql);  
     //  echo $sql;  
