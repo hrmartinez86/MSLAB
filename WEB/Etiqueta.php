@@ -21,13 +21,14 @@ $cod=str_pad($cod, 2, "0", STR_PAD_LEFT);
 $num= $_GET['num'];
 $folio=str_pad($num, 6, "0", STR_PAD_LEFT); 
 $folio= $cod.$folio;
-$sql="SELECT FECHA, HORA, NUMERO, NUMERO_REGISTRO, RUT, USUARIO_CREACION, 
-NOMBRE_USUARIO, AnOS, NOMBRE_DOCTOR, FECHATOMAMUESTRA, FECHARECEPCIONMUESTRA,
- ESTADOTOMAMUESTRA, ESTADORECEPCIONMUESTRA, HORARECEPCIONMUESTRA, 
- FECHA_REGISTRO, IDPACIENTE, ORI_PAC, TIPO_DE_URGENCIA, OBSTOMAMUESTRA,
-  DESCRIPCION, RUT_PACIENTE, NOMBRE, APELLIDOS, SEXO, TELEFONO, 
-  FECHA_NACIMIENTO, PREVISION, CONTRAINDICACIONES, PROCEDENCIA_MUESTRA, 
-  FOLIO_HOST, NUM_CAMA FROM SISTEMA_TOMA_MUESTRAS_PACIENTE 
+$sql="select df.numero_registro,df.fecha,dp.nombre,dp.apellidos,df.anos,lrp.cod_llave,ccf.codigo_corto,dp.sexo,pm.descripcion
+from dat_paciente dp
+INNER JOIN dat_dfipa df on df.rut=dp.rut
+INNER JOIN caj_det_prestaciones cdp on cdp.idpaciente=df.idpaciente 
+INNER JOIN lab_relac_fonasa_perfil lrfp on lrfp.llave_fonasa=cdp.llave_fonasa
+INNER JOIN caj_codigos_fonasa ccf on ccf.llave_fonasa=lrfp.llave_fonasa
+INNER JOIN lab_RLS_perfiles lrp on lrp.llave_perfil=lrfp.llave_perfil
+INNER JOIN procedencia_muestra pm on pm.id=df.procedencia_muestra
   WHERE (NUMERO = '".$folio."')";
 echo $sql;
     	
