@@ -52,7 +52,7 @@ while ($result=odbc_fetch_array($query))
 $cont=$_GET['numero'];
 
 $a=$folios;
-$n=$apellidos." ,".$nombre;
+$n=$nombre;
 $pdf = new PDF_Code39('P','mm',array(50,20));
 
 if($i<=0){
@@ -71,7 +71,7 @@ if($i<=0){
 	// echo $sql;
 	while ($result=odbc_fetch_array($query))
 	{
-		$m=$result['GRUPO_MUESTRAS'];
+		$m=$result['COD_MUESTRA'];
 		
 		if ($comp != $result['codigo_fonasa']){		
 			$e=$result['codigo_fonasa'].",".$e;
