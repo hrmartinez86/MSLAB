@@ -153,7 +153,7 @@ $fecha = date('d/m/Y');
 
             <tr class="Controls">
               <td colspan="1"class="th"><label for="Doctor">M&eacute;dico:</label></td>
-              <td colspan="3"><select id="Doctor" name="Doctor" style="width:100%; " required>
+              <td colspan="3"><select class="selectpicker" id="Doctor" name="Doctor" data-live-search="true" style="width:100%; " required>
                   <?php
                   $sql = "select nombre + ' ' + apellidos as Nombre,llave_doctor from dat_doctores  order by Nombre ";
                   $query = odbc_exec($conection, $sql);
