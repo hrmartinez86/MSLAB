@@ -55,6 +55,7 @@ $fecha = date('d/m/Y');
 </head>
 
 <body>
+  <div>
   <table align="center" border="0" cellspacing="0" cellpadding="0">
     <!-- BEGIN Record Citas -->
     <tr>
@@ -162,7 +163,11 @@ $fecha = date('d/m/Y');
                   }
                   ?>
                 </select>
-              </td>
+              <button type="button" class="btn btn-primary" onclick="guardaMedico()" >
+  Agregar medico
+</button></td>
+
+
             </tr>
 
             
@@ -316,6 +321,12 @@ $fecha = date('d/m/Y');
       }
     }
   </script>
+  <!-- Modal -->
+
+
+
+  </div>
+
 </body>
 
 </html>

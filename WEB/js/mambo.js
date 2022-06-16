@@ -7,7 +7,7 @@
  * @ Released under GNU/GPL License : http://www.gnu.org/copyleft/gpl.html
  * @version $Revision: 1.16 $
  */
-function addRow(tableID, codigo, estudio, precio, fecha,fur) {
+function addRow(tableID, codigo, estudio, precio, fecha, fur) {
   // Get a reference to the table
   let tableRef = document.getElementById(tableID);
 
@@ -20,7 +20,7 @@ function addRow(tableID, codigo, estudio, precio, fecha,fur) {
   let newEstudio = newRow.insertCell(2);
   let newPrecio = newRow.insertCell(3);
   let newDate = newRow.insertCell(4);
-  let newFur=newRow.insertCell(5);
+  let newFur = newRow.insertCell(5);
 
   // Append a text node to the cell
   let newCodigoText = document.createTextNode(codigo);
@@ -43,10 +43,9 @@ function addRow(tableID, codigo, estudio, precio, fecha,fur) {
   newPrecio.appendChild(newPrecioText);
   newBtn.appendChild(btn);
   newDate.appendChild(DateText);
-  if (fur==1) {
+  if (fur == 1) {
     newFur.appendChild(DateTextFur);
   }
-  
 }
 /******************************************************************************/
 /* Funcion Choose()		                                                      */
@@ -84,27 +83,33 @@ function Choose() {
   var ano = now.getFullYear();
   var diaActual = now.getDate();
   console.log(diaActual);
-  
+
   var element = document.getElementById("ExamenCatalogo");
-  var textOption=element.options[element.selectedIndex].value;
-  const atributes=textOption.split('-->');
+  var textOption = element.options[element.selectedIndex].value;
+  const atributes = textOption.split("-->");
   console.log(atributes[4]);
-  const diasProceso=parseInt(atributes[4]);
+  const diasProceso = parseInt(atributes[4]);
   fecha = EvaluaFecha(dia, mes, ano, diasProceso, diaActual);
-  addRow("tablaExamen", atributes[1], atributes[0], atributes[2], fecha,atributes[3]);
-  var codigoExamen=document.getElementById("examenes");
-  var nombreExamen=document.getElementById("examenesDescripcion");
-  var totalInput=document.getElementById("precioTotal");
-  var anticipo=document.getElementById("adelanto");
-  var precioTotal=parseInt(atributes[2])+parseInt(totalInput.value);
-  totalInput.value=precioTotal;
-  adelanto.value=precioTotal;
-  codigoExamen.value+=','+atributes[1];
-  nombreExamen.value+=','+atributes[0];
+  addRow(
+    "tablaExamen",
+    atributes[1],
+    atributes[0],
+    atributes[2],
+    fecha,
+    atributes[3]
+  );
+  var codigoExamen = document.getElementById("examenes");
+  var nombreExamen = document.getElementById("examenesDescripcion");
+  var totalInput = document.getElementById("precioTotal");
+  var anticipo = document.getElementById("adelanto");
+  var precioTotal = parseInt(atributes[2]) + parseInt(totalInput.value);
+  totalInput.value = precioTotal;
+  adelanto.value = precioTotal;
+  codigoExamen.value += "," + atributes[1];
+  nombreExamen.value += "," + atributes[0];
   displayTime = "18" + ":" + "00";
   document.getElementById("fechaEntrega").value = fecha;
   document.getElementById("horaEntrega").value = displayTime;
-
 
   //Extrae los recursos seleccionados y los a�ade a la lista
   for (var i = srcLen - 1; i > -1; i--) {
@@ -113,7 +118,7 @@ function Choose() {
       tgt.indexOf("," + srcList.options[i].value + ",") == -1
     ) {
       opt = new Option(srcList.options[i].text, srcList.options[i].value);
-      console.log('jfnfjnfjefjenfje');
+      console.log("jfnfjnfjefjenfje");
       tgtList.options[tgtList.length] = opt;
       tgtList[0].selected = true;
       //obtenemos el precio
@@ -259,7 +264,7 @@ function Valida1() {
   var i = 0;
 
   i = document.Citas.ExamenSeleccionado.length;
-alert(document.Citas.getElementById("urgente"));
+  alert(document.Citas.getElementById("urgente"));
   if (i == 0) {
     document.getElementById("ExamenCatalogo").focus();
     return false;
@@ -432,6 +437,21 @@ function GuardaDoctor() {
   evaluamos_datos();
 }
 
+function GuardaMedico() {
+  let nombre = document.getElementById("nombre").value;
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      // document.getElementById("demo").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "../guardaMedico.php?nombre=" + nombre, true);
+  xhttp.send();
+
+  // window.close();
+  // document.Medico.submit();
+}
+
 function evaluamos_datos() {
   if (document.Citas.Codigo.value == "") {
     alert("Debe Ingresar el Codigo");
@@ -463,6 +483,10 @@ function actualiza_fecha(id, llave) {
     }
   };
   ajax.send(null);
+}
+function guardaMedico() {
+  x = open("../WEB/agregarMedico.php", "", "width=800,height=200");
+  // alert("Medico agregado");
 }
 function EvaluaFecha(d, m, y, a, dd) {
   if (dd != 6) {
