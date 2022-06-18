@@ -237,7 +237,7 @@ $fecha = date('d/m/Y');
                 <select class="selectpicker" style="btn-info" virtualScroll="true" data-live-search="true" id="ExamenCatalogo"  onchange="seleccionaEstudio()">
                   <?php
                   ///estudios
-                  $sql = "select codigo_fonasa,nombre,costo_examen as precio,nivel_1,dias_proceso  from caj_codigos_fonasa where activo='S' AND CODIGO_FONASA NOT LIKE 'ANTV%' order by CODIGO_FONASA ";
+                  $sql = "select codigo_fonasa,nombre,costo_examen as precio,nivel_1,dias_proceso  from caj_codigos_fonasa where activo='S' AND CODIGO_FONASA NOT LIKE 'ANTV%' order by nombre,CODIGO_FONASA ";
                   $query = odbc_exec($conection, $sql);
                   while ($result = odbc_fetch_array($query)) {
                     echo '<option value="' . $result['nombre'] . ' --> ' . $result['codigo_fonasa'] . '-->' . $result['precio'] . '-->' . $result['nivel_1'] . '-->' . $result['dias_proceso'] . '">' . $result['codigo_fonasa'] . ' --> '  . $result['nombre'] .  '</option>';
