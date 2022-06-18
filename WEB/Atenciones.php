@@ -79,10 +79,6 @@ $fecha = date('d/m/Y');
 
           <table cellpadding="0" cellspacing="0" class="Record">
 
-            <tr class="Controls">
-              <td colspan="1" class="th"><label for="expediente">Expediente:</label></td>
-              <td colspan="3"><input name="expediente" id="expediente" value="" style="width:100%;"></td>
-            </tr>
 
             <tr class="Controls">
               <td colspan="1" class="th"><label for="nombre">Nombre del paciente:</label></td>
@@ -163,7 +159,9 @@ $fecha = date('d/m/Y');
                   }
                   ?>
                 </select>
-              <button type="button" class="btn btn-primary" onclick="guardaMedico()" >
+              <button type="button" class="btn btn-danger" id="demo" onclick="habilitaInput()">+</button>
+              <input type="text" id="doctorNombres" disabled onclick="habilitaInput()">
+              <button type="button" id="botonDoctor" class="btn btn-primary" onclick="guardaMedico()" disabled>
   Agregar medico
 </button></td>
 

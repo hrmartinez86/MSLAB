@@ -7,6 +7,13 @@
  * @ Released under GNU/GPL License : http://www.gnu.org/copyleft/gpl.html
  * @version $Revision: 1.16 $
  */
+function habilitaInput() {
+  console.log("habilita");
+  document.getElementById("doctorNombres").disabled = false;
+  document.getElementById("botonDoctor").disabled = false;
+  document.getElementById("doctorNombres").focus();
+}
+
 function addRow(tableID, codigo, estudio, precio, fecha, fur) {
   // Get a reference to the table
   let tableRef = document.getElementById(tableID);
@@ -437,19 +444,17 @@ function GuardaDoctor() {
   evaluamos_datos();
 }
 
-function GuardaMedico() {
-  let nombre = document.getElementById("nombre").value;
+function GuardaMedico(Nombre) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       // document.getElementById("demo").innerHTML = this.responseText;
     }
   };
-  xhttp.open("GET", "../guardaMedico.php?nombre=" + nombre, true);
+  xhttp.open("GET", "../guardaMedico.php?nombre=" + Nombre, true);
   xhttp.send();
 
-  // window.close();
-  // document.Medico.submit();
+  window.close();
 }
 
 function evaluamos_datos() {
@@ -484,9 +489,41 @@ function actualiza_fecha(id, llave) {
   };
   ajax.send(null);
 }
+function refrescaDoctores() {
+  $.ajax({
+    url: "DoctoresCatalogo.php",
+    type: "get",
+    dataType: "json",
+    success: function (response) {
+      var len = response.length;
+      for (var i = 0; i < len; i++) {
+        var llave_doctor = response[i]["llave_doctor"];
+        var nombre = response[i]["nombre"];
+
+        $("#Doctor").append(
+          "<option value='" + llave_doctor + "'>" + nombre + "</option>"
+        );
+        $("#Doctor").selectpicker("refresh");
+      }
+    },
+  });
+}
 function guardaMedico() {
-  x = open("../WEB/agregarMedico.php", "", "width=800,height=200");
-  // alert("Medico agregado");
+  doctorNombre = document.getElementById("doctorNombres").value;
+  if (doctorNombre != "") {
+    GuardaMedico(doctorNombre);
+    console.log("limpia select");
+    var select = document.getElementById("Doctor");
+    var length = select.options.length;
+    for (i = length - 1; i >= 0; i--) {
+      select.options[i].remove(1);
+    }
+  }
+  refrescaDoctores();
+
+  document.getElementById("doctorNombres").disabled = true;
+  document.getElementById("doctorNombres").value = "";
+  document.getElementById("botonDoctor").disabled = true;
 }
 function EvaluaFecha(d, m, y, a, dd) {
   if (dd != 6) {

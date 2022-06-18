@@ -10,6 +10,7 @@ $ver_botones = "";
 $fecha = date("d , M, y,  H:i a");
 include("librerias/conection.php");
 
+
 $ODBC = $_SESSION["ODBC"];
 $conection = conectar($ODBC);
 $fecha = date('d/m/Y');
@@ -72,11 +73,7 @@ $fecha = date('d/m/Y');
     <table height="40" cellpadding="0" cellspacing="0" class="Record">
 
       
-    <tr class="Controls">
-        <td class="th"><label for="codigoMedico">Codigo del medico:</label></td>
-        <td><input name="nombre" id="codigo" value="<?php echo $nombre; ?>" size="40" required></td>
-        <td></td>
-      </tr>  
+   
       <tr class="Controls">
         <td class="th"><label for="nombre">Nombre de medico:</label></td>
         <td><input name="nombre" id="nombre" value="<?php echo $nombre; ?>" size="40" required></td>
