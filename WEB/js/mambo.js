@@ -35,9 +35,9 @@ function validateSchema(msg) {
     var codigos = "";
     var descripciones = "";
     for (var i = 1; i < table.rows.length; i++) {
-      console.log(table.rows[i].cells[1].innerHTML);
-      codigos += ", " + table.rows[i].cells[1].innerHTML;
-      descripciones += ", " + table.rows[i].cells[2].innerHTML;
+      console.log(table.rows[i].cells[2].innerHTML);
+      codigos += ", " + table.rows[i].cells[2].innerHTML;
+      descripciones += ", " + table.rows[i].cells[3].innerHTML;
     }
     console.log(codigos);
     examenes = document.getElementById("examenes");
