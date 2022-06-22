@@ -30,6 +30,21 @@ function validateSchema(msg) {
     if (table.rows.length < 2) {
       return "Favor de ingresar estudios al paciente";
     }
+
+    ///recupera los codigos de los estudios
+    var codigos = "";
+    var descripciones = "";
+    for (var i = 1; i < table.rows.length; i++) {
+      console.log(table.rows[i].cells[1].innerHTML);
+      codigos += ", " + table.rows[i].cells[1].innerHTML;
+      descripciones += ", " + table.rows[i].cells[2].innerHTML;
+    }
+    console.log(codigos);
+    examenes = document.getElementById("examenes");
+    examenesDescripcion = document.getElementById("examenesDescripcion");
+
+    examenes.value = codigos;
+    examenesDescripcion.value = descripciones;
     return "S";
   } catch (error) {
     console.log(error);
@@ -43,7 +58,7 @@ function guardaAtencion() {
     document.getElementById("Citas").submit();
     console.log("exito");
   } else {
-    console.log(schemavalidate);
+    alert(schemavalidate);
   }
 }
 function habilitaInput() {

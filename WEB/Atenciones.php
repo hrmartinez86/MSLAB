@@ -272,7 +272,7 @@ $fecha = date('d/m/Y');
 
               </table>
               </td>
-                <input required type="text" id="examenes" name="examenes" value="" /><input required type="hidden" id="examenesDescripcion" name="examenesDescripcion">
+                <input required type="hidden" id="examenes" name="examenes" value="" /><input required type="hidden" id="examenesDescripcion" name="examenesDescripcion">
               
             </tr>
 
