@@ -17,10 +17,10 @@ function myFunction(x) {
   alert("Row index is: " + x.rowIndex);
 }
 
-function addRow(tableID, codigo, estudio, precio, fecha, fur) {
+function addRow(tableID, codigo, estudio, precio, fecha, fur, precioTotal) {
   // Get a reference to the table
   let tableRef = document.getElementById(tableID);
-
+  console.log(precioTotal);
   // Insert a row at the end of the table
   let newRow = tableRef.insertRow(-1);
 
@@ -64,12 +64,21 @@ function addRow(tableID, codigo, estudio, precio, fecha, fur) {
             );
             if (confirmAction) {
               // alert("Action successfully executed");
-              // document.getElementById(tableID).deleteRow(rIndex);
               console.log("Row : " + rIndex + " , Cell : " + cIndex);
               console.log(
                 document.getElementById(tableID).rows[rIndex].cells[3].innerHTML
               );
               console.log(document.getElementById(codigo).value);
+              resta = document.getElementById(codigo).value;
+              var totalInput = document.getElementById("precioTotal");
+              console.log(totalInput.value);
+              precioTotal = totalInput.value - resta;
+              var anticipoInput = document.getElementById("adelanto");
+              totalInput.value = precioTotal;
+              anticipoInput.value = precioTotal;
+              document.getElementById(tableID).deleteRow(rIndex);
+
+              console.log(precioTotal);
             }
           }
         };
@@ -141,15 +150,6 @@ function Choose() {
   console.log(atributes[4]);
   const diasProceso = parseInt(atributes[4]);
   fecha = EvaluaFecha(dia, mes, ano, diasProceso, diaActual);
-  // agrega el estudio
-  addRow(
-    "tablaExamen",
-    atributes[1],
-    atributes[0],
-    atributes[2],
-    fecha,
-    atributes[3]
-  );
   var codigoExamen = document.getElementById("examenes");
   var nombreExamen = document.getElementById("examenesDescripcion");
   var totalInput = document.getElementById("precioTotal");
@@ -157,12 +157,23 @@ function Choose() {
   var precioTotal = parseInt(atributes[2]) + parseInt(totalInput.value);
   totalInput.value = precioTotal;
   adelanto.value = precioTotal;
+
+  // agrega el estudio
+  addRow(
+    "tablaExamen",
+    atributes[1],
+    atributes[0],
+    atributes[2],
+    fecha,
+    atributes[3],
+    precioTotal
+  );
   codigoExamen.value += "," + atributes[1];
   nombreExamen.value += "," + atributes[0];
   displayTime = "18" + ":" + "00";
   console.log(fecha);
-  document.getElementById("fechaEntrega").value = fecha;
-  document.getElementById("horaEntrega").value = displayTime;
+  // document.getElementById("fechaEntrega").value = fecha;
+  // document.getElementById("horaEntrega").value = displayTime;
 
   //Extrae los recursos seleccionados y los a�ade a la lista
   for (var i = srcLen - 1; i > -1; i--) {
