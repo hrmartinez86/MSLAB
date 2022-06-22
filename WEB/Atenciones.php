@@ -272,14 +272,14 @@ $fecha = date('d/m/Y');
 
               </table>
               </td>
-                <input required type="hidden" id="examenes" name="examenes" value="" /><input required type="hidden" id="examenesDescripcion" name="examenesDescripcion">
+                <input required type="text" id="examenes" name="examenes" value="" /><input required type="hidden" id="examenesDescripcion" name="examenesDescripcion">
               
             </tr>
 
           </table>
           <table align="center">
             <tr>
-              <td align="center"><input type="submit" class="btn btn-primary" value='Guardar'></td>
+              <td align="center"><input type="button" class="btn btn-primary" value='Guardar' onclick="guardaAtencion()"></td>
             </tr>
 
            </table>

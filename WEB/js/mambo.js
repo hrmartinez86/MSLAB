@@ -7,6 +7,45 @@
  * @ Released under GNU/GPL License : http://www.gnu.org/copyleft/gpl.html
  * @version $Revision: 1.16 $
  */
+function validateSchema(msg) {
+  try {
+    ///verifica el nombre de paciente
+    nombre = document.getElementById("nombre").value;
+    if (nombre == "") {
+      return "Favor de ingresar el nombre del paciente";
+    }
+    ///verifica el sexo de paciente
+    sexo = document.getElementById("Sexo").value;
+    if (sexo == "") {
+      return "Favor de ingresar el sexo del paciente";
+    }
+    ///verifica el sexo de paciente
+    fechaNacimiento = document.getElementById("Fecha").value;
+    if (fechaNacimiento == "") {
+      return "Favor de ingresar la fecha de nacimiento";
+    }
+    ///verifica que existan estudios en la orden
+    var table = document.getElementById("tablaExamen");
+    console.log(table.rows.length);
+    if (table.rows.length < 2) {
+      return "Favor de ingresar estudios al paciente";
+    }
+    return "S";
+  } catch (error) {
+    console.log(error);
+    return "N";
+  }
+}
+function guardaAtencion() {
+  let schemavalidate;
+  schemavalidate = validateSchema();
+  if (schemavalidate == "S") {
+    document.getElementById("Citas").submit();
+    console.log("exito");
+  } else {
+    console.log(schemavalidate);
+  }
+}
 function habilitaInput() {
   console.log("habilita");
   document.getElementById("doctorNombres").disabled = false;
