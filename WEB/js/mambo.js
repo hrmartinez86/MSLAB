@@ -88,7 +88,23 @@ function ActualizaPrecioEstudio(llave, valor) {
 
   window.close();
 }
-
+function calculoPrecios() {
+  table = document.getElementById("tablaExamen");
+  totalcuenta = 0;
+  // table rows
+  for (var i = 1; i < table.rows.length; i++) {
+    codigo = table.rows[i].cells[2].innerHTML;
+    precio = document.getElementById(codigo).value;
+    console.log(precio);
+    totalcuenta = parseInt(totalcuenta) + parseInt(precio);
+    console.log(
+      table.rows[i].cells[3].innerHTML + table.rows[i].cells[4].innerHTML
+    );
+  }
+  console.log("total:" + totalcuenta);
+  document.getElementById("precioTotal").value = totalcuenta;
+  document.getElementById("adelanto").value = totalcuenta;
+}
 function addRow(tableID, codigo, estudio, precio, fecha, fur, precioTotal) {
   // Get a reference to the table
   let tableRef = document.getElementById(tableID);
@@ -205,6 +221,7 @@ function addRow(tableID, codigo, estudio, precio, fecha, fur, precioTotal) {
               precioModificar = document.getElementById(codigo).value;
               //update de precio
               ActualizaPrecioEstudio(codigo, precioModificar);
+              calculoPrecios();
             }
           }
         };
