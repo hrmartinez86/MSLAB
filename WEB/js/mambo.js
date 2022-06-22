@@ -459,7 +459,8 @@ function cambia() {
       document.getElementById("CitasCURPR").value;
   }
 }
-function Valida(e) {
+function Valida() {
+  console.log("enter");
   tecla = document.all ? e.keyCode : e.which;
   if (tecla == 13) {
     buscarEstudio();
