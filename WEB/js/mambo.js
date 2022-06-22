@@ -13,6 +13,9 @@ function habilitaInput() {
   document.getElementById("botonDoctor").disabled = false;
   document.getElementById("doctorNombres").focus();
 }
+function myFunction(x) {
+  alert("Row index is: " + x.rowIndex);
+}
 
 function addRow(tableID, codigo, estudio, precio, fecha, fur) {
   // Get a reference to the table
@@ -34,8 +37,49 @@ function addRow(tableID, codigo, estudio, precio, fecha, fur) {
   let newEstudioText = document.createTextNode(estudio);
   let newPrecioText = document.createElement("input");
   newPrecioText.value = precio;
-  newPrecioText.disabled = true;
+  newPrecioText.disabled = false;
+  newPrecioText.id = codigo;
+
   let btn = document.createElement("button");
+  btn.type = "button";
+  btn.name = "estudioCodigo";
+  btn.onclick = function () {
+    // alert("Row index is: ");
+    // document.getElementById(tableID).deleteRow(1);
+    var table = document.getElementById(tableID),
+      rIndex,
+      cIndex;
+
+    // table rows
+    for (var i = 1; i < table.rows.length; i++) {
+      // row cells
+      for (var j = 0; j < table.rows[i].cells.length; j++) {
+        table.rows[i].cells[j].onclick = function () {
+          rIndex = this.parentElement.rowIndex;
+          cIndex = this.cellIndex + 1;
+          //borramos el renglon
+          if (cIndex === 1) {
+            let confirmAction = confirm(
+              "Desea eliminar el estudio " + estudio + "?"
+            );
+            if (confirmAction) {
+              // alert("Action successfully executed");
+              // document.getElementById(tableID).deleteRow(rIndex);
+              console.log("Row : " + rIndex + " , Cell : " + cIndex);
+              console.log(
+                document.getElementById(tableID).rows[rIndex].cells[3].innerHTML
+              );
+              console.log(document.getElementById(codigo).value);
+            }
+          }
+        };
+      }
+    }
+    // pregunta si desea eliminar el renglon
+    console.log();
+    return false;
+  };
+
   let DateText = document.createElement("input");
   DateText.type = "date";
   DateText.value = fecha;
@@ -97,6 +141,7 @@ function Choose() {
   console.log(atributes[4]);
   const diasProceso = parseInt(atributes[4]);
   fecha = EvaluaFecha(dia, mes, ano, diasProceso, diaActual);
+  // agrega el estudio
   addRow(
     "tablaExamen",
     atributes[1],
@@ -115,11 +160,13 @@ function Choose() {
   codigoExamen.value += "," + atributes[1];
   nombreExamen.value += "," + atributes[0];
   displayTime = "18" + ":" + "00";
+  console.log(fecha);
   document.getElementById("fechaEntrega").value = fecha;
   document.getElementById("horaEntrega").value = displayTime;
 
   //Extrae los recursos seleccionados y los a�ade a la lista
   for (var i = srcLen - 1; i > -1; i--) {
+    console.log("no ma");
     if (
       srcList.options[i].selected &&
       tgt.indexOf("," + srcList.options[i].value + ",") == -1
