@@ -70,6 +70,24 @@ function habilitaInput() {
 function myFunction(x) {
   alert("Row index is: " + x.rowIndex);
 }
+function ActualizaPrecioEstudio(llave, valor) {
+  var xhttp = new XMLHttpRequest();
+  console.log("http" + llave + "=" + valor);
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      // document.getElementById("demo").innerHTML = this.responseText;
+      console.log("completado!!!");
+    }
+  };
+  xhttp.open(
+    "GET",
+    "../guardaPrecio.php?llave=" + llave + "&precio=" + valor,
+    true
+  );
+  xhttp.send();
+
+  window.close();
+}
 
 function addRow(tableID, codigo, estudio, precio, fecha, fur, precioTotal) {
   // Get a reference to the table
@@ -80,12 +98,12 @@ function addRow(tableID, codigo, estudio, precio, fecha, fur, precioTotal) {
 
   // Insert a cell in the row at index
   let newBtn = newRow.insertCell(0);
-  let newCodigo = newRow.insertCell(1);
-  let newEstudio = newRow.insertCell(2);
-  let newPrecio = newRow.insertCell(3);
-  let newDate = newRow.insertCell(4);
-  let newFur = newRow.insertCell(5);
-
+  let newBtnPrecio = newRow.insertCell(1);
+  let newCodigo = newRow.insertCell(2);
+  let newEstudio = newRow.insertCell(3);
+  let newPrecio = newRow.insertCell(4);
+  let newDate = newRow.insertCell(5);
+  let newFur = newRow.insertCell(6);
   // Append a text node to the cell
   let newCodigoText = document.createTextNode(codigo);
   let newEstudioText = document.createTextNode(estudio);
@@ -148,14 +166,62 @@ function addRow(tableID, codigo, estudio, precio, fecha, fur, precioTotal) {
   DateText.value = fecha;
   btn.innerHTML = "-";
   btn.title = "Eliminar estudio";
-  let DateTextFur = document.createElement("input");
-  DateTextFur.type = "date";
-  DateTextFur.value = fecha;
+
+  let btnPrecio = document.createElement("button");
+  btnPrecio.type = "button";
+  btnPrecio.name = "estudioCodigo";
+  btnPrecio.onclick = function () {
+    console.log("cambio de precio");
+    var table = document.getElementById(tableID),
+      rIndex,
+      cIndex;
+
+    // table rows
+    for (var i = 1; i < table.rows.length; i++) {
+      // row cells
+      for (var j = 0; j < table.rows[i].cells.length; j++) {
+        table.rows[i].cells[j].onclick = function () {
+          rIndex = this.parentElement.rowIndex;
+          cIndex = this.cellIndex + 1;
+          // cambiamos el precio
+          console.log(cIndex);
+          if (cIndex === 2) {
+            let confirmAction = confirm(
+              "Desea realizar el cambio de precio de " + estudio + "?"
+            );
+            if (confirmAction) {
+              // alert("Action successfully executed");
+              console.log("Row : " + rIndex + " , Cell : " + cIndex);
+              console.log(
+                document.getElementById(tableID).rows[rIndex].cells[3]
+                  .innerHTML +
+                  document.getElementById(tableID).rows[rIndex].cells[2]
+                    .innerHTML +
+                  document.getElementById(tableID).rows[rIndex].cells[4]
+                    .innerHTML
+              );
+              console.log(codigo);
+              console.log(document.getElementById(codigo).value);
+              precioModificar = document.getElementById(codigo).value;
+              //update de precio
+              ActualizaPrecioEstudio(codigo, precioModificar);
+            }
+          }
+        };
+      }
+    }
+    // pregunta si desea eliminar el renglon
+    console.log();
+    return false;
+  };
+  btnPrecio.innerHTML = "$";
+  btnPrecio.title = "Cambiar el precio del estudio";
 
   newCodigo.appendChild(newCodigoText);
   newEstudio.appendChild(newEstudioText);
   newPrecio.appendChild(newPrecioText);
   newBtn.appendChild(btn);
+  newBtnPrecio.appendChild(btnPrecio);
   newDate.appendChild(DateText);
   if (fur == 1) {
     newFur.appendChild(DateTextFur);
