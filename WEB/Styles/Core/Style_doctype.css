@@ -1269,6 +1269,11 @@ table tr td strong {
   font-size: 80%;
   font-weight: bold;
 }
+.a {
+  font-family: Verdana;
+  font-size: 100%;
+  font-weight: bold;
+}
 
 html > body .th {
   font-size: 100%;
