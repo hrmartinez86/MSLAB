@@ -180,6 +180,11 @@ function addRow(tableID, codigo, estudio, precio, fecha, fur, precioTotal) {
   let DateText = document.createElement("input");
   DateText.type = "date";
   DateText.value = fecha;
+  
+  let DateTextFur = document.createElement("input");
+  DateText.type = "date";
+  DateText.value = fecha;
+
   btn.innerHTML = "-";
   btn.title = "Eliminar estudio";
 
