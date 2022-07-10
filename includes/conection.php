@@ -2,12 +2,17 @@
 
 function conectar()
 {
-$conection = odbc_connect("laboratorio", "sa", "Demo123.") or die ("<h1 align='center'>ERROR EN LA IDENTIFICACION DE USUARIO EN LA ASE DE DATOS FAVOR DE CONSULTAR A SU PROVEEDOR</h1><br> <a href=\"index.php\" title=\"Regresar a la pagina principal\" target=\"_self\"><center>REGRESAR</center></a>");
+    $serverName = "localhost"; //serverName\instanceName
+    $connectionInfo = array( "Database"=>"laboratorio", "UID"=>"sa", "PWD"=>"Demo123.");
+    $conn = sqlsrv_connect( $serverName, $connectionInfo);
+    if( $conn ) {
+        echo "Connection established.<br />";
+   }else{
+        echo "Connection could not be established.<br />";
+        die( print_r( sqlsrv_errors(), true));
+   }
 return $conection;
 }
-
-
-
 
 
 ?>
