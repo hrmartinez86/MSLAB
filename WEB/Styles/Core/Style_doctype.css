@@ -194,12 +194,12 @@ td {
 }
 
 input, textarea, select {
-	font-family: Verdana; font-size: 80%;
+	font-family: Verdana; font-size: 100%;
 	font-size: 100%;
 }
 
 html>body input, html>body select, html>body textarea {
-	font-family: Verdana; font-size: 80%;
+	font-family: Verdana; font-size: 100%;
 	font-size: inherit;
 }
 
