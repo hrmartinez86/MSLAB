@@ -237,20 +237,22 @@ $fecha = date('d/m/Y');
                 <select class="selectpicker" style="btn-info" virtualScroll="true" data-live-search="true" id="ExamenCatalogo"  onchange="seleccionaEstudio()">
                   <?php
                   ///estudios
-                  $sql = "select codigo_fonasa,nombre,costo_examen as precio,nivel_1,dias_proceso  from caj_codigos_fonasa where activo='S' AND CODIGO_FONASA NOT LIKE 'ANTV%' order by nombre,CODIGO_FONASA ";
+                  $sql = "select codigo_fonasa,nombre,costo_examen as precio,nivel_1,dias_proceso  from caj_codigos_fonasa where activo='S' AND CODIGO_FONASA NOT LIKE 'ANTV%' order by nombre ";
                   $query = odbc_exec($conection, $sql);
                   while ($result = odbc_fetch_array($query)) {
                     ///anterior
                     // echo '<option value="' . $result['nombre'] . ' --> ' . $result['codigo_fonasa'] . '-->' . $result['precio'] . '-->' . $result['nivel_1'] . '-->' . $result['dias_proceso'] . '">' . $result['codigo_fonasa'] . ' --> '  . $result['nombre'] .  '</option>';
-                    echo '<option value="' . $result['nombre'] . ' --> ' . $result['codigo_fonasa'] . '-->' . $result['precio'] . '-->' . $result['nivel_1'] . '-->' . $result['dias_proceso'] . '">' . $result['codigo_fonasa'] . ' --> '  . $result['nombre'] .  '</option>';
+                    echo '<option value="' . $result['nombre'] . ' --> ' . $result['codigo_fonasa'] . '-->' . $result['precio'] . '-->' . $result['nivel_1'] . '-->' . $result['dias_proceso'] . '">'
+                     .  $result['nombre'] .  '</option>';
                   }
                   //agrupaciones
-                  $sql = "select codigo,descripcion,precio from agrupaciones where activo='S' order by id ";
+                  $sql = "select codigo,descripcion,precio from agrupaciones where activo='S' order by nombre ";
                   $query = odbc_exec($conection, $sql);
                   while ($result = odbc_fetch_array($query)) {
                     ///anterior
                     // echo '<option value="' . $result['codigo'] . '-">' . $result['descripcion'] . ' --> ' . $result['codigo'] . ' -->' . $result['precio'] . '</option>';
-                    echo '<option value="' . $result['nombre'] . ' --> ' . $result['codigo_fonasa'] . '-->' . $result['precio'] . '-->' . $result['nivel_1'] . '-->' . $result['dias_proceso'] . '">' . $result['codigo_fonasa'] . ' --> '  . $result['nombre'] .  '</option>';
+                    echo '<option value="' . $result['nombre'] . ' --> ' . $result['codigo_fonasa'] . '-->' . $result['precio'] . '-->' . $result['nivel_1'] . '-->' . $result['dias_proceso'] . '">' 
+                    . $result['nombre'] .  '</option>';
                   }
                   ?>
                 </select>
