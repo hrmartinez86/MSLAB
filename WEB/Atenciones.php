@@ -270,6 +270,7 @@ $fecha = date('d/m/Y');
               <table id="tablaExamen">
                 <tr>
                   <th></th>
+                  <th></th>
                   <th>Codigo</th>
                   <th>Estudio</th>
                   <th>Precio</th>
