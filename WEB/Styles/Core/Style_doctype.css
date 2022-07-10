@@ -193,7 +193,7 @@ td {
   font-size: 80%;
 }
 
-/*input, textarea, select {
+input, textarea, select {
 	font-family: Verdana; font-size: 80%;
 	font-size: 100%;
 }
@@ -201,7 +201,7 @@ td {
 html>body input, html>body select, html>body textarea {
 	font-family: Verdana; font-size: 80%;
 	font-size: inherit;
-}*/
+}
 
 /* END Common */
 
