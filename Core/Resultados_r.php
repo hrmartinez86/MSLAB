@@ -293,7 +293,8 @@ $db_conn = conectar($ODBC);
               </table>
 
               <td><input type="image" src="imagenes/validar.jpg" width="121" height="27" name="validar" onClick="validarres_r('<?php echo $_GET['id']; ?>')"> </td>
-
+              
+              <td><input type="image" src="imagenes/calculadora.jpeg" width="121" height="27" name="validar" onClick="validarres_r('<?php echo $_GET['id']; ?>')"> </td>
               <td><input type="image" src="imagenes/desvalidar.jpg" width="121" height="27" name="validar" onClick="desvalidarres_r('<?php echo $_GET['id']; ?>')"> </td>
             </tr>
             <tr>
