@@ -523,7 +523,7 @@ $db_conn = conectar($ODBC);
                                                   </TBODY>
                                                 </TABLE>
                                               </TD>
-                                              <TD background=Menu_archivos/fwebhosting.jpeg rowSpan=3 vAlign=top>&nbsp;</TD>
+                                              <!-- <TD background=Menu_archivos/fwebhosting.jpeg rowSpan=3 vAlign=top>&nbsp;</TD> -->
                                             </TR>
                                             <TR>
                                               <TD height=115 vAlign=top width="90%"><IMG height=12 src="Imagenes/Transparente.gif" width=20>
