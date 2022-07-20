@@ -28,7 +28,7 @@ $db_conn = conectar($ODBC);
   <META content="text/html; UTF-8" http-equiv=Content-Type>
   <META content="MSHTML 5.00.2314.1000" name=GENERATOR>
   <meta http-equiv="imagetoolbar" content="no">
-  <link rel="stylesheet" type="text/css" href="../WEB/Styles/Core/Style_doctype.css">
+  <!-- <link rel="stylesheet" type="text/css" href="../WEB/Styles/Core/Style_doctype.css"> -->
   <!-- <!#E3E3E3> -->
   <!-- <style type="text/css">
 .Estilo3 {font-family: "Times New Roman", Times, serif}
