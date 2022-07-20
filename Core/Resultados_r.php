@@ -28,7 +28,8 @@ $db_conn = conectar($ODBC);
   <META content="text/html; UTF-8" http-equiv=Content-Type>
   <META content="MSHTML 5.00.2314.1000" name=GENERATOR>
   <meta http-equiv="imagetoolbar" content="no">
-
+  <link rel="stylesheet" type="text/css" href="../WEB/Styles/Core/Style_doctype.css">
+  <!-- <!#E3E3E3> -->
   <!-- <style type="text/css">
 .Estilo3 {font-family: "Times New Roman", Times, serif}
     <!--
@@ -292,8 +293,7 @@ $db_conn = conectar($ODBC);
               </table>
 
               <td><input type="image" src="imagenes/validar.jpg" width="121" height="27" name="validar" onClick="validarres_r('<?php echo $_GET['id']; ?>')"> </td>
-              
-              <td><input type="image" src="imagenes/calculadora.jpeg" width="121" height="27" name="validar" onClick="validarres_r('<?php echo $_GET['id']; ?>')"> </td>
+
               <td><input type="image" src="imagenes/desvalidar.jpg" width="121" height="27" name="validar" onClick="desvalidarres_r('<?php echo $_GET['id']; ?>')"> </td>
             </tr>
             <tr>
