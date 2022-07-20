@@ -70,9 +70,9 @@ $db_conn = conectar($ODBC);
       <!--      <td valign="top">-->
       <table class="Header" border="0" cellspacing="0" cellpadding="0" width="30">
         <tr>
-          <td class="HeaderLeft"><img border="0" alt="" src="WEB/Styles/Core/Images/Spacer.gif"></td>
+          <td class="HeaderLeft"><img border="0" alt="" src="../WEB/Styles/Core/Images/Spacer.gif"></td>
           <td class="th"><strong>Folio:</strong></td>
-          <td class="HeaderRight"><img border="0" alt="" src="WEB/Styles/Core/Images/Spacer.gif"></td>
+          <td class="HeaderRight"><img border="0" alt="" src="../WEB/Styles/Core/Images/Spacer.gif"></td>
           <td><input type="hidden" name="tipo" id="tipo" size="4" value="<?php echo $_GET['t']; ?>"></td>
         </tr>
 
