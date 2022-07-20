@@ -197,9 +197,9 @@ $db_conn = conectar($ODBC);
       <td valign="top">
         <table class="Header" border="0" cellspacing="0" cellpadding="0">
           <tr>
-            <td class="HeaderLeft"><img border="0" alt="" src="WEB/Styles/Core/Images/Spacer.gif"></td>
+            <td class="HeaderLeft"><img border="0" alt="" src="../WEB/Styles/Core/Images/Spacer.gif"></td>
             <td class="th"><strong>Secci&oacute;n:</strong></td>
-            <td class="HeaderRight"><img border="0" alt="" src="WEB/Styles/Core/Images/Spacer.gif"></td>
+            <td class="HeaderRight"><img border="0" alt="" src="../WEB/Styles/Core/Images/Spacer.gif"></td>
           </tr>
 
         </table>
