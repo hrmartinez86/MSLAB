@@ -72,7 +72,8 @@ if($i<=0){
 	// echo $sql;
 	while ($result=odbc_fetch_array($query))
 	{
-		$m=$result['COD_MUESTRA'];
+		$m=$result['MUESTRA'];
+		// $m=$result['COD_MUESTRA'];
 		
 		if ($comp != $result['codigo_fonasa']){		
 			$e=$result['codigo_fonasa'].",".$e;
