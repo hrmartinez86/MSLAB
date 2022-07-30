@@ -26,19 +26,19 @@ function cambiaEstudio() {
   console.log(cod_llave);
   // obtenemos por ajax los estudios
   $.ajax({
-    url: "EstudiosXseccion.php?cod_llave="+cod_llave,
+    url: "DoctoresCatalogo.php",
     type: "get",
     dataType: "json",
     success: function (response) {
       var len = response.length;
       for (var i = 0; i < len; i++) {
-        var llave_perfil = response[i]["llave_perfil"];
+        var llave_doctor = response[i]["llave_doctor"];
         var nombre = response[i]["nombre"];
 
-        $("#estudios").append(
-          "<option value='" + llave_perfil + "'>" + nombre + "</option>"
+        $("#Doctor").append(
+          "<option value='" + llave_doctor + "'>" + nombre + "</option>"
         );
-        $("#estudios").selectpicker("refresh");
+        $("#Doctor").selectpicker("refresh");
       }
     },
   });
