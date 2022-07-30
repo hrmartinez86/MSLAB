@@ -19,7 +19,9 @@
 /* Realiza la funcion inversa a Choose()							          */
 /* No recibe ningun parametro.			                                      */
 /******************************************************************************/
-
+function cambiaEstudio() {
+  alert('cha');
+}
 function Valida(e) {
   tecla = document.all ? e.keyCode : e.which;
   console.log(tecla);

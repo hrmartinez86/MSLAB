@@ -80,7 +80,7 @@ $fecha=date('d/m/Y');
           
           <tr class="Controls">
             <td class="th"><label for="seccion">Sección:</label></td> 
-            <td><select name="seccion" id="seccion"><?php
+            <td><select name="seccion" id="seccion" onchange="cambiaEstudio()" ><?php
                   $sql = "select cod_llave,descripcion from lab_relacion_laboratorio_seccion";
                   $query = odbc_exec($conection, $sql);
                   while ($result = odbc_fetch_array($query)) {
