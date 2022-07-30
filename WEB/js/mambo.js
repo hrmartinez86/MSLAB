@@ -683,7 +683,7 @@ function cambiaEstudio() {
         $("#estudios").append(
           "<option value='" + llave_doctor + "'>" + nombre + "</option>"
         );
-        $("#estudios").selectpicker("refresh");
+        // $("#estudios").selectpicker("refresh");
       }
     },
   });
