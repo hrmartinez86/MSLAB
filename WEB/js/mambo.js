@@ -675,6 +675,7 @@ function cambiaEstudio() {
     dataType: "json",
     success: function (response) {
       var len = response.length;
+      console.log(len);
       for (var i = 0; i < len; i++) {
         var llave_fonasa = response[i]["llave_fonasa"];
         var nombre = response[i]["nombre"];
