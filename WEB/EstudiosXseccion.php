@@ -8,9 +8,7 @@
 
     $conection = conectar($ODBC);
 
-    $sql="SELECT lrp.llave_perfil as llave_doctor,ccf.nombre from caj_codigos_fonasa  ccf INNER JOIN lab_relac_fonasa_perfil lrfp ON ccf.llave_fonasa=lrfp.llave_fonasa
-    INNER JOIN lab_RLS_perfiles lrp on lrfp.llave_perfil=lrp.llave_perfil
-    where cod_llave='HEMHEM'";
+    $sql="select llave_fonasa as llave_doctor,nombre from caj_codigos_fonasa";
     $query_result=odbc_exec($conection,$sql) or 
                 die ("ERROR : No se puede ejecutar la consulta.");
                 while($result=odbc_fetch_array($query_result))
