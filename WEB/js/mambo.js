@@ -676,14 +676,14 @@ function cambiaEstudio() {
     success: function (response) {
       var len = response.length;
       for (var i = 0; i < len; i++) {
-        var llave_doctor = response[i]["llave_doctor"];
+        var llave_fonasa = response[i]["llave_fonasa"];
         var nombre = response[i]["nombre"];
-        console.log('LLAVE_DOCTOR',llave_doctor);
+        console.log('llave_fonasa',llave_fonasa);
         console.log('NOMBRE',nombre);
         $("#estudios").append(
-          "<option value='" + llave_doctor + "'>" + nombre + "</option>"
+          "<option value='" + llave_fonasa + "'>" + nombre + "</option>"
         );
-        // $("#estudios").selectpicker("refresh");
+        // $("#estudios").selectpicker("refresh")s;
       }
     },
   });
