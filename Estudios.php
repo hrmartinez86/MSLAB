@@ -62,32 +62,7 @@ $fecha=date('d/m/Y');
 </td>
 </tr>
  </table>
-<!--<br></br>
-<form id="Atenciones" method="post" name="Atenciones" action="atencionesxcita.php">
-    <table border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td valign="top">
-        <table class="Header" border="0" cellspacing="0" cellpadding="0">
-          <tr>
-            <td class="HeaderLeft"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td> 
-            <td class="th"><strong>N&uacute;mero de Cita</strong></td> 
-            <td class="HeaderRight"><img border="0" alt="" src="Styles/Core/Images/Spacer.gif"></td>
-          </tr>
-        </table>
- 
-        <table height="10" cellpadding="0" cellspacing="0" class="Record">
-          
-          <tr class="Controls">
-             
-             <td><input align="middle" name="Cit" id="Cit" class="Controls" onChange="Citas('librerias/citas.php')" value="" ><div id="Citasn"></div></td> 
-            <td><input  name="num" id="num" class="Controls" onChange="numero('librerias/citas.php')" value="" ><div id="numrocita"></div></td>
-           
-          </tr>
-          </table>
-          
-          </table>
-</form>
-<br></br>-->
+
 <br></br>
 <form id="Citas" method="post" name="Citas" action="guarda_d.php">
     <table align="center" border="0" cellspacing="0" cellpadding="0">
@@ -104,8 +79,8 @@ $fecha=date('d/m/Y');
           <table align="center" width="40" height="200" cellpadding="0" cellspacing="0" class="Record">
           
           <tr class="Controls">
-            <td class="th"><label for="CitasNombres">Codigo:</label></td> 
-            <td><input name="codigo" id="Codigo" value="" size="70"></td>
+            <td class="th"><label for="CitasNombres">Sección:</label></td> 
+            <td><select name="seccion" id="seccion"></select></td>
             <td></td>
           </tr>
           <tr class="Controls">
