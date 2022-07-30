@@ -7,6 +7,9 @@
  * @ Released under GNU/GPL License : http://www.gnu.org/copyleft/gpl.html
  * @version $Revision: 1.16 $
  */
+function cambiaEstudio() {
+  alert('cha');
+}
 function validateSchema(msg) {
   try {
     ///verifica el nombre de paciente
