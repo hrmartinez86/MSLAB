@@ -706,9 +706,15 @@ function cambiaEstudio() {
       console.log(response);
       var len = response.target.response.length;
       console.log(len);
-      //	valor.innerHTML = ajax.responseText
-      //        alert('Fecha de entrega actualizada');
-      // divResultado.innerHTML = ajax.responseText;
+      for (var i = 0; i < len; i++) {
+        var llave_perfil = response[i]["llave"];
+        var nombre = response[i]["nombre"];
+
+        $("#estudios").append(
+          "<option value='" + llave_perfil + "'>" + nombre + "</option>"
+        );
+        $("#estudios").selectpicker("refresh");
+      }
     }
   };
   ajax.send(null);
