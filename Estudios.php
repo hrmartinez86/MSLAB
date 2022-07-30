@@ -90,8 +90,8 @@ $fecha=date('d/m/Y');
             <td></td>
           </tr>
           <tr class="Controls">
-            <td class="th"><label for="estudios">Nombres:</label></td> 
-            <td><select name="estudios" id="estudios"></select>></td>
+            <td class="th"><label for="estudios">Estudio:</label></td> 
+            <td><select name="estudios" id="estudios"></select></td>
             <td></td>
           </tr>
  
