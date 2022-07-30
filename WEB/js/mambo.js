@@ -670,7 +670,7 @@ function cambiaEstudio() {
   // obyenemos el cod_llave de la seccion
   cod_llave=document.getElementById('seccion').value;
   $.ajax({
-    url: "DoctoresCatalogo.php",
+    url: "EstudiosXseccion.php",
     type: "get",
     dataType: "json",
     success: function (response) {
