@@ -20,7 +20,7 @@
 /* No recibe ningun parametro.			                                      */
 /******************************************************************************/
 function cambiaEstudio() {
-  console.log('cha');
+  console.log('Llenamos los datos de los estudios de la seccion');
 }
 function Valida(e) {
   tecla = document.all ? e.keyCode : e.which;
