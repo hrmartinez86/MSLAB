@@ -707,8 +707,8 @@ function cambiaEstudio() {
       var len = response.target.response.length;
       console.log(len);
       for (var i = 0; i < len; i++) {
-        var llave_perfil = response[i]["llave_perfil"];
-        var nombre = response[i]["nombre"];
+        var llave_perfil = response.target.response[i]["llave_perfil"];
+        var nombre = response.target.response[i]["nombre"];
 
         $("#estudios").append(
           "<option value='" + llave_perfil + "'>" + nombre + "</option>"
