@@ -709,8 +709,7 @@ function cambiaEstudio() {
       console.log(len);
       for (var i = 0; i < len; i++) {
         console.log(response.target.response);
-        const estudios=estudioArray.join(',');
-        console.log(estudios);
+        console.log(estudioArray[1]);
         var llave_perfil = response.target.response[i]["llave_perfil"];
         var nombre = response.target.response[i]["nombre"];
         console.log(llave_perfil);
