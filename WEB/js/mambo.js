@@ -704,11 +704,12 @@ function cambiaEstudio() {
   ajax.onreadystatechange = function (response) {
     if (ajax.readyState == 4) {
       console.log(response);
-      var len = response.target.response.length;
+      var estudioArray=response.target.response
+      var len = estudioArray.length;
       console.log(len);
       for (var i = 0; i < len; i++) {
         console.log(response.target.response);
-        const estudios=response.target.response.join(',');
+        const estudios=estudioArray.join(',');
         console.log(estudios);
         var llave_perfil = response.target.response[i]["llave_perfil"];
         var nombre = response.target.response[i]["nombre"];
