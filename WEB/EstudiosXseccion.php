@@ -8,7 +8,7 @@
 
     $conection = conectar($ODBC);
 
-    $sql="select llave_fonsa,nombre from caj_codigos_fonasa";
+    $sql="select llave_fonasa,nombre from caj_codigos_fonasa";
     $query_result=odbc_exec($conection,$sql) or 
                 die ("ERROR : No se puede ejecutar la consulta.");
                 while($result=odbc_fetch_array($query_result))
