@@ -18,9 +18,9 @@
                 while($result=odbc_fetch_array($query_result))
     {	
                 $x=$x+1;
-                $llave_perfil=$result["llave"]; 
+                $llave=$result["llave"]; 
                 $nombre=$result["nombre"];  	
-                // $estudios[] = array("llave_perfil" => $llave_perfil, "nombre" => $nombre);
+                $estudios[] = array("llave_perfil" => $llave, "nombre" => $nombre);
     }	
-    echo json_encode($nombre);
+    echo json_encode($estudios);
 ?>
