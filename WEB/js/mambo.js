@@ -704,7 +704,7 @@ function cambiaEstudio() {
   ajax.onreadystatechange = function (response) {
     if (ajax.readyState == 4) {
       console.log(response);
-      var len = response.length;
+      var len = response.currentTarget.response.length;
       console.log(len);
       //	valor.innerHTML = ajax.responseText
       //        alert('Fecha de entrega actualizada');
