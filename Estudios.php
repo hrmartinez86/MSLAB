@@ -79,7 +79,7 @@ $fecha=date('d/m/Y');
           <table align="center" width="40" height="200" cellpadding="0" cellspacing="0" class="Record">
           
           <tr class="Controls">
-            <td class="th"><label for="CitasNombres">Sección:</label></td> 
+            <td class="th"><label for="seccion">Sección:</label></td> 
             <td><select name="seccion" id="seccion"><?php
                   $sql = "select cod_llave,descripcion from lab_relacion_laboratorio_seccion";
                   $query = odbc_exec($conection, $sql);
@@ -90,8 +90,8 @@ $fecha=date('d/m/Y');
             <td></td>
           </tr>
           <tr class="Controls">
-            <td class="th"><label for="CitasNombres">Nombres:</label></td> 
-            <td><input name="nombre" id="CitasNombres" value="" size="70"></td>
+            <td class="th"><label for="estudios">Nombres:</label></td> 
+            <td><select name="estudios" id="estudios"></select>></td>
             <td></td>
           </tr>
  
