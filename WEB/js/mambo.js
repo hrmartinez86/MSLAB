@@ -670,24 +670,23 @@ function cambiaEstudio() {
   // obyenemos el cod_llave de la seccion
   cod_llave=document.getElementById('seccion').value;
   $.ajax({
-    url: "EstudiosXseccion.php",
+    url: "DoctoresCatalogo.php",
     type: "get",
     dataType: "json",
     success: function (response) {
       var len = response.length;
       for (var i = 0; i < len; i++) {
-        var llave_perfil = response[i]["llave_perfil"];
+        var llave_doctor = response[i]["llave_doctor"];
         var nombre = response[i]["nombre"];
-        console.log('llave_perfil',llave_perfil);
-        console.log('nombre',nombre);
+        console.log('LLAVE_DOCTOR',llave_doctor);
+        console.log('NOMBRE',nombre);
         $("#estudios").append(
-          "<option value='" + llave_perfil + "'>" + nombre + "</option>"
+          "<option value='" + llave_doctor + "'>" + nombre + "</option>"
         );
         $("#estudios").selectpicker("refresh");
       }
     },
   });
-
 }
 function refrescaDoctores() {
   $.ajax({

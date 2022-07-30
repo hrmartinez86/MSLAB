@@ -8,18 +8,14 @@
 
     $conection = conectar($ODBC);
 
-    $x=0;
-    $sql="SELECT lrp.llave_perfil as llave,ccf.nombre as nombre from caj_codigos_fonasa  ccf INNER JOIN lab_relac_fonasa_perfil lrfp ON ccf.llave_fonasa=lrfp.llave_fonasa
-    INNER JOIN lab_RLS_perfiles lrp on lrfp.llave_perfil=lrp.llave_perfil
-    where cod_llave='QUIQUI'";
+    $sql="select llave_doctor,nombre from dat_doctores";
     $query_result=odbc_exec($conection,$sql) or 
                 die ("ERROR : No se puede ejecutar la consulta.");
                 while($result=odbc_fetch_array($query_result))
     {	
-                $x=$x+1;
-                $llave=$result["llave"]; 
+                $llave_doctor=$result["llave_doctor"]; 
                 $nombre=$result["nombre"];  	
-                $estudios[] = array("llave_perfil" => $llave, "nombre" => $nombre);
+                $medico_arr[] = array("llave_doctor" => $llave_doctor, "nombre" => $nombre);
     }	
-    echo $estudios;
+    echo json_encode($medico_arr);
 ?>
