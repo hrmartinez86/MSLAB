@@ -22,7 +22,7 @@
 function cambiaEstudio() {
   console.log('Llenamos los datos de los estudios de la seccion');
   // obyenemos el cod_llave de la seccion
-  cod_llave=document.getElementById('seccion');
+  cod_llave=document.getElementById('seccion').value;
   console.log(cod_llave);
 }
 function Valida(e) {
