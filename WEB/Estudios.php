@@ -27,6 +27,7 @@ $fecha=date('d/m/Y');
 <script language="javascript" type="text/javascript" src="librerias/ajax.js"></script>
 <script language="javascript" type="text/javascript" src="js/mambo.js"></script>
 <!-- <script language="javascript" type="text/javascript" src="../WEB/js/mambo.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <meta content="text/html; charset=windows-1252" http-equiv="content-type">
 <title>**Gestión de estudios**</title>
 <style type="text/css">
