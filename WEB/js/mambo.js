@@ -708,6 +708,7 @@ function refrescaDoctores() {
         var llave_doctor = response[i]["llave_doctor"];
         var nombre = response[i]["nombre"];
         console.log('LLAVE_DOCTOR',llave_doctor);
+        console.log('NOMBRE',nombre);
         $("#Doctor").append(
           "<option value='" + llave_doctor + "'>" + nombre + "</option>"
         );
