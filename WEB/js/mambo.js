@@ -697,39 +697,21 @@ function cambiaEstudio() {
   cod_llave=document.getElementById('seccion').value;
   console.log(cod_llave);
   // obtenemos por ajax los estudios
-  // ajax = objetoAjax();
-  // val = "EstudiosXseccion.php?cod_llave=" + cod_llave ;
+  ajax = objetoAjax();
+  val = "EstudiosXseccion.php?cod_llave=" + cod_llave ;
 
-  // ajax.open("GET", val);
-  // ajax.onreadystatechange = function (response) {
-  //   if (ajax.readyState == 4) {
-  //     console.log(response);
-  //     var len = response.length;
-  //     console.log(len);
-  //     //	valor.innerHTML = ajax.responseText
-  //     //        alert('Fecha de entrega actualizada');
-  //     // divResultado.innerHTML = ajax.responseText;
-  //   }
-  // };
-  // ajax.send(null);
-  $.ajax({
-    url: "EstudiosXseccion.php",
-    type: "get",
-    dataType: "json",
-    success: function (response) {
+  ajax.open("GET", val);
+  ajax.onreadystatechange = function (response) {
+    if (ajax.readyState == 4) {
+      console.log(response);
       var len = response.length;
       console.log(len);
-      // for (var i = 0; i < len; i++) {
-      //   var llave_doctor = response[i]["llave_doctor"];
-      //   var nombre = response[i]["nombre"];
-
-      //   $("#Doctor").append(
-      //     "<option value='" + llave_doctor + "'>" + nombre + "</option>"
-      //   );
-      //   $("#Doctor").selectpicker("refresh");
-      // }
-    },
-  });
+      //	valor.innerHTML = ajax.responseText
+      //        alert('Fecha de entrega actualizada');
+      // divResultado.innerHTML = ajax.responseText;
+    }
+  };
+  ajax.send(null);
 }
 function refrescaDoctores() {
   $.ajax({
