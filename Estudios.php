@@ -84,9 +84,7 @@ $fecha=date('d/m/Y');
             $query = odbc_exec($conection, $sql);
             while ($result = odbc_fetch_array($query)) {
               ///anterior
-              // echo '<option value="' . $result['nombre'] . ' --> ' . $result['codigo_fonasa'] . '-->' . $result['precio'] . '-->' . $result['nivel_1'] . '-->' . $result['dias_proceso'] . '">' . $result['codigo_fonasa'] . ' --> '  . $result['nombre'] .  '</option>';
-              echo '<option value="' . $result['cod_llave'] . '">'
-               .  $result['descripcion'] .  '</option>';
+              echo '<option value="' . $result['cod_llave'] . '">' . $result['descripcion'] . '</option>';
             } ?></select></td>
             <td></td>
           </tr>
