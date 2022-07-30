@@ -24,6 +24,24 @@ function cambiaEstudio() {
   // obyenemos el cod_llave de la seccion
   cod_llave=document.getElementById('seccion').value;
   console.log(cod_llave);
+  // obtenemos por ajax los estudios
+  $.ajax({
+    url: "EstudiosXseccion.php?cod_llave="+cod_llave,
+    type: "get",
+    dataType: "json",
+    success: function (response) {
+      var len = response.length;
+      for (var i = 0; i < len; i++) {
+        var llave_perfil = response[i]["llave_perfil"];
+        var nombre = response[i]["nombre"];
+
+        $("#estudios").append(
+          "<option value='" + llave_perfil + "'>" + nombre + "</option>"
+        );
+        $("#estudios").selectpicker("refresh");
+      }
+    },
+  });
 }
 function Valida(e) {
   tecla = document.all ? e.keyCode : e.which;
