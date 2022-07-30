@@ -713,7 +713,7 @@ function cambiaEstudio() {
         document.getElementById('estudios').append(
           "<option value='" + llave_perfil + "'>" + nombre + "</option>"
         );
-        document.getElementById('estudios').selectpicker("refresh");
+        
       }
     }
   };
