@@ -19,29 +19,42 @@
 /* Realiza la funcion inversa a Choose()							          */
 /* No recibe ningun parametro.			                                      */
 /******************************************************************************/
+function objetoAjax() {
+  var xmlhttp = false;
+  try {
+    xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+  } catch (e) {
+    try {
+      xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    } catch (E) {
+      xmlhttp = false;
+    }
+  }
+
+  if (!xmlhttp && typeof XMLHttpRequest != "undefined") {
+    xmlhttp = new XMLHttpRequest();
+  }
+  return xmlhttp;
+}
 function cambiaEstudio() {
   console.log('Llenamos los datos de los estudios de la seccion');
   // obyenemos el cod_llave de la seccion
   cod_llave=document.getElementById('seccion').value;
   console.log(cod_llave);
   // obtenemos por ajax los estudios
-  $.ajax({
-    url: "DoctoresCatalogo.php",
-    type: "get",
-    dataType: "json",
-    success: function (response) {
-      var len = response.length;
-      for (var i = 0; i < len; i++) {
-        var llave_doctor = response[i]["llave_doctor"];
-        var nombre = response[i]["nombre"];
+  ajax = objetoAjax();
+  val = "EstudiosXseccion.php?cod_llave=" + cod_llave ;
 
-        $("#Doctor").append(
-          "<option value='" + llave_doctor + "'>" + nombre + "</option>"
-        );
-        $("#Doctor").selectpicker("refresh");
-      }
-    },
-  });
+  ajax.open("GET", val);
+  ajax.onreadystatechange = function () {
+    if (ajax.readyState == 4) {
+      console.log(response);
+      //	valor.innerHTML = ajax.responseText
+      //        alert('Fecha de entrega actualizada');
+      // divResultado.innerHTML = ajax.responseText;
+    }
+  };
+  ajax.send(null);
 }
 function Valida(e) {
   tecla = document.all ? e.keyCode : e.which;
