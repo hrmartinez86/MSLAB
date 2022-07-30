@@ -20,7 +20,7 @@
                 $x=$x+1;
                 $llave=$result["llave"]; 
                 $nombre=$result["nombre"];  	
-                $estudios[] = array("llave_perfil" => 'jiji', "nombre" => 'kuui');
+                $estudios[] = array("llave_perfil" => $llave, "nombre" => $nombre);
     }	
     echo $estudios;
 ?>
