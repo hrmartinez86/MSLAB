@@ -36,46 +36,7 @@ function objetoAjax() {
   }
   return xmlhttp;
 }
-function cambiaEstudio() {
-  console.log('Llenamos los datos de los estudios de la seccion');
-  // obyenemos el cod_llave de la seccion
-  cod_llave=document.getElementById('seccion').value;
-  console.log(cod_llave);
-  // obtenemos por ajax los estudios
-  // ajax = objetoAjax();
-  // val = "EstudiosXseccion.php?cod_llave=" + cod_llave ;
 
-  // ajax.open("GET", val);
-  // ajax.onreadystatechange = function (response) {
-  //   if (ajax.readyState == 4) {
-  //     console.log(response);
-  //     var len = response.length;
-  //     console.log(len);
-  //     //	valor.innerHTML = ajax.responseText
-  //     //        alert('Fecha de entrega actualizada');
-  //     // divResultado.innerHTML = ajax.responseText;
-  //   }
-  // };
-  // ajax.send(null);
-  $.ajax({
-    url: "EstudiosXseccion.php",
-    type: "get",
-    dataType: "json",
-    success: function (response) {
-      var len = response.length;
-      console.log(len);
-      // for (var i = 0; i < len; i++) {
-      //   var llave_doctor = response[i]["llave_doctor"];
-      //   var nombre = response[i]["nombre"];
-
-      //   $("#Doctor").append(
-      //     "<option value='" + llave_doctor + "'>" + nombre + "</option>"
-      //   );
-      //   $("#Doctor").selectpicker("refresh");
-      // }
-    },
-  });
-}
 function Valida(e) {
   tecla = document.all ? e.keyCode : e.which;
   console.log(tecla);
