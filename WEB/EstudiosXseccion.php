@@ -20,7 +20,7 @@
                 $x=$x+1;
                 $llave_perfil=$result["llave"]; 
                 $nombre=$result["nombre"];  	
-                $estudios[] = array("llave_perfil" => $llave_perfil, "nombre" => $nombre);
+                // $estudios[] = array("llave_perfil" => $llave_perfil, "nombre" => $nombre);
     }	
     echo json_encode($nombre);
 ?>
