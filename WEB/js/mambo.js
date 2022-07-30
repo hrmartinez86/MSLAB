@@ -710,6 +710,8 @@ function cambiaEstudio() {
         console.log(response.target.response);
         var llave_perfil = response.target.response[i]["llave_perfil"];
         var nombre = response.target.response[i]["nombre"];
+        console.log(llave_perfil);
+        console.log(nombre);
         document.getElementById('estudios').append(
           "<option value='" + llave_perfil + "'>" + nombre + "</option>"
         );
