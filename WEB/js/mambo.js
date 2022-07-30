@@ -713,7 +713,7 @@ function cambiaEstudio() {
         console.log(llave_perfil);
         console.log(nombre);
         document.getElementById('estudios').append(
-          "<option value='" + llave_perfil + "'>" + nombre + "</option>"
+          "<option value='perro'>kkoko</option>"
         );
         
       }
