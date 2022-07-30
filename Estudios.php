@@ -80,7 +80,14 @@ $fecha=date('d/m/Y');
           
           <tr class="Controls">
             <td class="th"><label for="CitasNombres">Sección:</label></td> 
-            <td><select name="seccion" id="seccion"></select></td>
+            <td><select name="seccion" id="seccion"><?php $sql="select cod_llave,descripcion from lab_relacion_laboratorio_seccion";
+            $query = odbc_exec($conection, $sql);
+            while ($result = odbc_fetch_array($query)) {
+              ///anterior
+              // echo '<option value="' . $result['nombre'] . ' --> ' . $result['codigo_fonasa'] . '-->' . $result['precio'] . '-->' . $result['nivel_1'] . '-->' . $result['dias_proceso'] . '">' . $result['codigo_fonasa'] . ' --> '  . $result['nombre'] .  '</option>';
+              echo '<option value="' . $result['cod_llave'] . '">'
+               .  $result['descripcion'] .  '</option>';
+            } ?></select></td>
             <td></td>
           </tr>
           <tr class="Controls">
