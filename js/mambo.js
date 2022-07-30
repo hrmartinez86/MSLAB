@@ -21,6 +21,9 @@
 /******************************************************************************/
 function cambiaEstudio() {
   console.log('Llenamos los datos de los estudios de la seccion');
+  // obyenemos el cod_llave de la seccion
+  cod_llave=document.getElementById('seccion');
+  console.log(cod_llave);
 }
 function Valida(e) {
   tecla = document.all ? e.keyCode : e.which;
