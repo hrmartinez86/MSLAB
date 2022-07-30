@@ -664,13 +664,36 @@ function actualiza_fecha(id, llave) {
   };
   ajax.send(null);
 }
+function removeOptions(selectElement) {
+  var i,
+    L = selectElement.options.length - 1;
+  for (i = L; i >= 0; i--) {
+    selectElement.remove(i);
+  }
+}
+
+// using the function:
 function cambiaEstudio() {
+  removeOptions(document.getElementById("estudios"));
   console.log("Llenamos los datos de los estudios de la seccion");
   // obyenemos el cod_llave de la seccion
   cod_llave = document.getElementById("seccion").value;
-  var sql = "select llave_doctor as codigo,nombre from dat_doctores";
+  // el sql solo devuelve codigo y nombre ---definir la llave como la leyenda codigo
+  // var sql =
+  //   "select codigo_fonasa as codigo,nombre as nombre from caj_codigos_fonasa";
+  var sql = "select codigo,descripcion as nombre from lab_tipos_de_muestra";
+
+  // ok
+  // var sql = "select llave_doctor as codigo,nombre from dat_doctores";
+
+  // ok
+  // var sql =
+  //   "select id as codigo,descripcion as nombre from procedencia_muestra";
+
+  // var sql =
+  //   "SELECT lrp.llave_perfil as codigo,ccf.nombre from caj_codigos_fonasa  ccf INNER JOIN lab_relac_fonasa_perfil lrfp ON ccf.llave_fonasa=lrfp.llave_fonasa INNER JOIN lab_RLS_perfiles lrp on lrfp.llave_perfil=lrp.llave_perfil where cod_llave='HEMHEM'";
   $.ajax({
-    url: "EstudiosXseccion.php?sql=" + sql,
+    url: "CatalogoCodigoNombre.php?sql=" + sql,
     type: "get",
     dataType: "json",
     success: function (response) {
