@@ -710,10 +710,10 @@ function cambiaEstudio() {
         var llave_perfil = response.target.response[i]["llave_perfil"];
         var nombre = response.target.response[i]["nombre"];
 
-        $("#estudios").append(
+        document.getElementById('estudios').append(
           "<option value='" + llave_perfil + "'>" + nombre + "</option>"
         );
-        $("#estudios").selectpicker("refresh");
+        document.getElementById('estudios').selectpicker("refresh");
       }
     }
   };
