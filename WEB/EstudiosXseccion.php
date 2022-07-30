@@ -8,7 +8,8 @@
 
     $conection = conectar($ODBC);
 
-    $sql="select llave_doctor as codigo,nombre from dat_doctores";
+    $sql=$_GET['sql'];
+    
     $query_result=odbc_exec($conection,$sql) or 
                 die ("ERROR : No se puede ejecutar la consulta.");
                 while($result=odbc_fetch_array($query_result))

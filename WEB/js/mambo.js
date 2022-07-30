@@ -668,8 +668,9 @@ function cambiaEstudio() {
   console.log("Llenamos los datos de los estudios de la seccion");
   // obyenemos el cod_llave de la seccion
   cod_llave = document.getElementById("seccion").value;
+  var sql = "select llave_doctor as codigo,nombre from dat_doctores";
   $.ajax({
-    url: "EstudiosXseccion.php",
+    url: "EstudiosXseccion.php?sql=" + sql,
     type: "get",
     dataType: "json",
     success: function (response) {
