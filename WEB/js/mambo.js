@@ -1,4 +1,3 @@
-
 function validateSchema(msg) {
   try {
     ///verifica el nombre de paciente
@@ -172,7 +171,7 @@ function addRow(tableID, codigo, estudio, precio, fecha, fur, precioTotal) {
   let DateText = document.createElement("input");
   DateText.type = "date";
   DateText.value = fecha;
-  
+
   let DateTextFur = document.createElement("input");
   DateText.type = "date";
   DateText.value = fecha;
@@ -666,24 +665,24 @@ function actualiza_fecha(id, llave) {
   ajax.send(null);
 }
 function cambiaEstudio() {
-  console.log('Llenamos los datos de los estudios de la seccion');
+  console.log("Llenamos los datos de los estudios de la seccion");
   // obyenemos el cod_llave de la seccion
-  cod_llave=document.getElementById('seccion').value;
+  cod_llave = document.getElementById("seccion").value;
   $.ajax({
     url: "EstudiosXseccion.php",
     type: "get",
     dataType: "json",
     success: function (response) {
       var len = response.length;
-      console.log('Respuesta del json');
+      console.log("Respuesta del json");
       console.log(len);
       for (var i = 0; i < len; i++) {
-        var llave_fonasa = response[i]["llave_fonasa"];
+        var codigo = response[i]["codigo"];
         var nombre = response[i]["nombre"];
-        console.log('llave_fonasa',llave_fonasa);
-        console.log('NOMBRE',nombre);
+        console.log("codigo", codigo);
+        console.log("NOMBRE", nombre);
         $("#estudios").append(
-          "<option value='" + llave_fonasa + "'>" + nombre + "</option>"
+          "<option value='" + codigo + "'>" + nombre + "</option>"
         );
         // $("#estudios").selectpicker("refresh")s;
       }
@@ -700,8 +699,8 @@ function refrescaDoctores() {
       for (var i = 0; i < len; i++) {
         var llave_doctor = response[i]["llave_doctor"];
         var nombre = response[i]["nombre"];
-        console.log('LLAVE_DOCTOR',llave_doctor);
-        console.log('NOMBRE',nombre);
+        console.log("LLAVE_DOCTOR", llave_doctor);
+        console.log("NOMBRE", nombre);
         $("#Doctor").append(
           "<option value='" + llave_doctor + "'>" + nombre + "</option>"
         );

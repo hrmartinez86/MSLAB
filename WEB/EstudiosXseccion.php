@@ -8,14 +8,14 @@
 
     $conection = conectar($ODBC);
 
-    $sql="select nombre as llave_fonasa,nombre from caj_codigos_fonasa";
+    $sql="select llave_doctor as codigo,nombre from dat_doctores";
     $query_result=odbc_exec($conection,$sql) or 
                 die ("ERROR : No se puede ejecutar la consulta.");
                 while($result=odbc_fetch_array($query_result))
     {	
-                $llave_fonasa=$result["llave_fonasa"]; 
+                $codigo=$result["codigo"]; 
                 $nombre=$result["nombre"];  	
-                $estudios[] = array("llave_fonasa" => $llave_fonasa, "nombre" => $nombre);
+                $catalogo[] = array("codigo" => $codigo, "nombre" => $nombre);
     }	
-    echo json_encode($estudios);
+    echo json_encode($catalogo);
 ?>
