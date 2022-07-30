@@ -46,9 +46,9 @@ function cambiaEstudio() {
   val = "EstudiosXseccion.php?cod_llave=" + cod_llave ;
 
   ajax.open("GET", val);
-  ajax.onreadystatechange = function () {
+  ajax.onreadystatechange = function (response) {
     if (ajax.readyState == 4) {
-      console.log('finalizado');
+      console.log(response);
       //	valor.innerHTML = ajax.responseText
       //        alert('Fecha de entrega actualizada');
       // divResultado.innerHTML = ajax.responseText;
