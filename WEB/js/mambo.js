@@ -669,33 +669,25 @@ function cambiaEstudio() {
   console.log('Llenamos los datos de los estudios de la seccion');
   // obyenemos el cod_llave de la seccion
   cod_llave=document.getElementById('seccion').value;
-  console.log(cod_llave);
-  // obtenemos por ajax los estudios
-  ajax = objetoAjax();
-  val = "EstudiosXseccion.php?cod_llave=" + cod_llave ;
-
-  ajax.open("GET", val);
-  ajax.onreadystatechange = function (response) {
-    if (ajax.readyState == 4) {
-      console.log(response);
-      var estudioArray=response.target.response
-      var len = estudioArray.length;
-      console.log(len);
+  $.ajax({
+    url: "EstudiosXseccion.php",
+    type: "get",
+    dataType: "json",
+    success: function (response) {
+      var len = response.length;
       for (var i = 0; i < len; i++) {
-        console.log(response.target.response);
-        console.log(estudioArray[i]);
-        var llave_perfil = response.target.response[i]["llave_perfil"];
-        var nombre = response.target.response[i]["nombre"];
-        console.log(llave_perfil);
-        console.log(nombre);
-        document.getElementById('estudios').append(
-          "<option value='perro'>kkoko</option>"
+        var llave_perfil = response[i]["llave_perfil"];
+        var nombre = response[i]["nombre"];
+        console.log('llave_perfil',llave_perfil);
+        console.log('nombre',nombre);
+        $("#estudios").append(
+          "<option value='" + llave_perfil + "'>" + nombre + "</option>"
         );
-        
+        $("#estudios").selectpicker("refresh");
       }
-    }
-  };
-  ajax.send(null);
+    },
+  });
+
 }
 function refrescaDoctores() {
   $.ajax({

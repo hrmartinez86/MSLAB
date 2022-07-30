@@ -8,7 +8,6 @@
 
     $conection = conectar($ODBC);
 
-    $cod_llave=$_GET['cod_llave'];
     $x=0;
     $sql="SELECT lrp.llave_perfil as llave,ccf.nombre as nombre from caj_codigos_fonasa  ccf INNER JOIN lab_relac_fonasa_perfil lrfp ON ccf.llave_fonasa=lrfp.llave_fonasa
     INNER JOIN lab_RLS_perfiles lrp on lrfp.llave_perfil=lrp.llave_perfil
