@@ -709,7 +709,7 @@ function cambiaEstudio() {
       console.log(len);
       for (var i = 0; i < len; i++) {
         console.log(response.target.response);
-        console.log(estudioArray[1]);
+        console.log(estudioArray[i]);
         var llave_perfil = response.target.response[i]["llave_perfil"];
         var nombre = response.target.response[i]["nombre"];
         console.log(llave_perfil);
