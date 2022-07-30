@@ -21,5 +21,5 @@
                 $nombre=$result["nombre"];  	
                 $estudios[] = array("llave_perfil" => $llave_perfil, "nombre" => $nombre);
     }	
-    echo json_encode($sql);
+    echo json_encode($estudios);
 ?>
