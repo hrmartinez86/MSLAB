@@ -1,12 +1,3 @@
-/*
- * Content code
- * @package Mambo Open Source
- * @Copyright (C) 2000 - 2003 Miro International Pty Ltd
- * @ All rights reserved
- * @ Mambo Open Source is Free Software
- * @ Released under GNU/GPL License : http://www.gnu.org/copyleft/gpl.html
- * @version $Revision: 1.16 $
- */
 
 function validateSchema(msg) {
   try {
@@ -250,11 +241,6 @@ function addRow(tableID, codigo, estudio, precio, fecha, fur, precioTotal) {
     newFur.appendChild(DateTextFur);
   }
 }
-/******************************************************************************/
-/* Funcion Choose()		                                                      */
-/* Escribe de un listbox a otro un determinado option con su value.           */
-/* No recibe ningun parametro.			                                      */
-/******************************************************************************/
 function seleccionaEstudio() {
   mySelect = document.getElementById("ExamenCatalogo");
   Choose();
@@ -340,11 +326,6 @@ function Choose() {
   }
 }
 
-/******************************************************************************/
-/* Funcion unChoose()	                                                      */
-/* Realiza la funcion inversa a Choose()							          */
-/* No recibe ningun parametro.			                                      */
-/******************************************************************************/
 function unChoose() {
   var srcList = document.Citas.ExamenSeleccionado;
   var srcLen = document.Citas.ExamenSeleccionado.length;
@@ -407,12 +388,6 @@ function buscarEstudio() {
   }
 }
 
-/******************************************************************************/
-/* Funcion Assemble()		                                                  */
-/* Junta en un campo hidden de un formulario html los valores seleccionados   */
-/* en un select multiple.                                                     */
-/* No recibe ningun parametro.			                                      */
-/******************************************************************************/
 function Assemble() {
   var temp = new Array();
   var temp2 = new Array();
@@ -642,7 +617,6 @@ function imp() {
 }
 
 function GuardaDoctor() {
-  //    alert('hola');
   evaluamos_datos();
 }
 
@@ -733,7 +707,7 @@ function refrescaDoctores() {
       for (var i = 0; i < len; i++) {
         var llave_doctor = response[i]["llave_doctor"];
         var nombre = response[i]["nombre"];
-
+        console.log('LLAVE_DOCTOR',llave_doctor);
         $("#Doctor").append(
           "<option value='" + llave_doctor + "'>" + nombre + "</option>"
         );
