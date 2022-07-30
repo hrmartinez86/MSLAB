@@ -48,7 +48,7 @@ function cambiaEstudio() {
   ajax.open("GET", val);
   ajax.onreadystatechange = function () {
     if (ajax.readyState == 4) {
-      console.log(response);
+      console.log('finalizado');
       //	valor.innerHTML = ajax.responseText
       //        alert('Fecha de entrega actualizada');
       // divResultado.innerHTML = ajax.responseText;
