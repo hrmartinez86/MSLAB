@@ -681,10 +681,12 @@ function cambiaEstudio() {
   // el sql solo devuelve codigo y nombre ---definir la llave como la leyenda codigo
   // var sql =
   //   "select codigo_fonasa as codigo,nombre as nombre from caj_codigos_fonasa";
-  var sql = "select codigo,descripcion as nombre from lab_tipos_de_muestra";
+  // var sql = "select codigo,descripcion as nombre from lab_tipos_de_muestra";
 
   // ok
   // var sql = "select llave_doctor as codigo,nombre from dat_doctores";
+  // var sql = "select codigo,descripcion as nombre from lab_pruebas";
+  // var sql = "select rut as codigo, nombre from dat_paciente";
 
   // ok
   // var sql =
