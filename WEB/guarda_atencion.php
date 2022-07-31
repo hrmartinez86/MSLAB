@@ -573,7 +573,7 @@ WHERE     (id = " . $CitasProcedencia . ")";
       </tr>
       <tr>
         <td>
-          <input type="text" id="examenesCuenta" name="examenesCuenta" value="<?php  echo  $examenesTotal;?>">
+          <input type="hidden" id="examenesCuenta" name="examenesCuenta" value="<?php  echo  $examenesTotal;?>">
         </td>
       </tr>
       <tr>
