@@ -45,16 +45,16 @@ protected $col = 0; // Columna actual
 protected $y0;      // Ordenada de comienzo de la columna
 
     function encabezado(){
-        $this->WriteText('LABORATORIO .',210,5,'B',13,'Arial',true);
-        $this->WriteText('QUIMICO RESPONSABLE',210,5,'',10,'Arial',true);
-        $this->WriteText('Q.F.B.  .',210,5,'B',10,'Arial',true);
-        $this->WriteText('Direccion del laboratorio',210,5,'',10,'Arial',true);
-        $this->WriteText('C.P. 00000 Tel. 00000000000',210,5,'',10,'Arial',true);
-        $this->WriteText('',210,5,'',10,'Arial',true);
+        $this->WriteText('LABORATORIO CLINICO SANTA INES.',210,5,'B',13,'Arial',true);
+        // $this->WriteText('QUIMICO RESPONSABLE',210,5,'',10,'Arial',true);
+        // $this->WriteText('Q.F.B.  .',210,5,'B',10,'Arial',true);
+        $this->WriteText('De Exquitla, Tercera Cerrada Carretera Tlaxcala Puebla 23, Barrio de Exquitla, De Exquitla, Tlax.',210,5,'',10,'Arial',true);
+        $this->WriteText('C.P. 90740 Tel. 52 2464970588',210,5,'',10,'Arial',true);
+        // $this->WriteText('',210,5,'',10,'Arial',true);
         $numero=$_POST['numeroCuenta'];
         $diassemana = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
         $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
-        $this->WriteText('',210,6,'',10,'Arial',false);
+        // $this->WriteText('',210,6,'',10,'Arial',false);
         $this->WriteText('Folio:'.str_pad($numero,3,"0",STR_PAD_LEFT),155,6,'B',12,'Arial',false);
         if (isset($_POST['fechaIngreso'])) {
             
@@ -78,7 +78,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         
         // echo $numero;
         $this->encabezado();
-        $this->Image('http://chart.googleapis.com/chart?chs=100x100&cht=qr&chl=SoyUnDios&.png',20,20,20,20);
+        // $this->Image('http://chart.googleapis.com/chart?chs=100x100&cht=qr&chl=SoyUnDios&.png',20,20,20,20);
         // $this->Image('images/QR.jpEg',10,5,40,0,'JPEG');
         // Guardar ordenada
         $this->y0 = $this->GetY();
@@ -152,9 +152,8 @@ protected $y0;      // Ordenada de comienzo de la columna
         $this->Ln(8);
         
         foreach($examenes as $x => $x_value) {
-            
-            $this->WriteText($x_value ,10,8,'B',12,'Arial',false);
-
+            //// se pone como limite de cadena 40 caracteres
+            $this->WriteText(substr($x_value, 0, 40) ,10,8,'',10,'Arial',false);
         }
         
     }
