@@ -345,15 +345,25 @@ function calculaResultado(llave, idpaciente, formula) {
   //   let restultado = 0;
   switch (operacion) {
     case 0:
-      resultado = variables[1] + variables[2];
-      console.log(resultado);
+      console.log(variables[1]);
+      console.log(variables[2]);
+      //   console.log(document.getElementById(variables[1]).value);
+      resultado = parseFloat(variables[1]) + parseFloat(variables[2]);
       break;
+
     case 1:
-      resultado = variables[1] - variables[2];
+      console.log(variables[1]);
+      console.log(variables[2]);
+      //   console.log(document.getElementById(variables[1]).value);
+      resultado = parseFloat(variables[1]) - parseFloat(variables[2]);
       break;
     case 2:
-      resultado = variables[1] * variables[2];
+      console.log(variables[1]);
+      console.log(variables[2]);
+      //   console.log(document.getElementById(variables[1]).value);
+      resultado = parseFloat(variables[1]) * parseFloat(variables[2]);
       break;
+
     case 3:
       console.log(variables[1]);
       console.log(variables[2]);
