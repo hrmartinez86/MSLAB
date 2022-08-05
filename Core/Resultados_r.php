@@ -590,6 +590,10 @@ $db_conn = conectar($ODBC);
                                                       <input type="checkbox" width="12" height="12" name="des" <?php if ($result["ESTADO"] == 'P' || $result["ESTADO"] == ' ' || $result["ESTADO"] == '' || $result["ESTADO"] == 'T') {
                                                                                                                   echo "disabled";
                                                                                                                 } ?>>
+                                                      <!-- boton calculo -->
+                                                      <input type="button" width="12" height="12" name="calculo" onclick="calculaResultado('<?php echo $llave2; ?>','<?php echo $paciente; ?>','<?php echo $result["VECTOR"];?>')" <?php if ($result["TIPO"] != 'V' ) {
+                                                                                                                  echo "hidden";
+                                                                                                                } ?>>
                                                     </td>
                                                     <td bgcolor=#5c7ec3 height=25 align=center valign=middle width="20%">
                                                       <font color=#ffffff face="Verdana, Arial, Helvetica, sans-serif" size=1>
@@ -742,6 +746,10 @@ $db_conn = conectar($ODBC);
                                                       <input type="checkbox" width="12" height="12" name="des2" <?php if ($result["ESTADO"] == ' ' || $result["ESTADO"] == '' || $result["ESTADO"] == 'T') {
                                                                                                                   echo "disabled";
                                                                                                                 } ?>>
+                                                      <!-- boton calculo -->
+                                                      <input type="button" width="12" height="12" name="calculo" onclick="calculaResultado()" <?php if ($result["TIPO"] != 'V' ) {
+                                                                                                                  echo "hidden";
+                                                                                                                } ?>
                                                     </td>
 
                                                     <td bgcolor=#5c7ec3 height=25 align=center valign=middle width="20%">
@@ -800,6 +808,7 @@ $db_conn = conectar($ODBC);
                                                           echo ("&nbsp;");
                                                         }
                                                         ?>
+                                                
                                                         <input name="estado2" type="hidden" align="middle" value="<?php echo ($result["ESTADO"]); ?>">
                                                       </font>
                                                     </td>
