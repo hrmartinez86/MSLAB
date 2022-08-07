@@ -45,17 +45,19 @@ protected $col = 0; // Columna actual
 protected $y0;      // Ordenada de comienzo de la columna
 
     function encabezado(){
-        $this->WriteText('LABORATORIO CLINICO SANTA INES.',210,5,'B',13,'Arial',true);
+        $centroPagina=310;
+        $extremoDerecho=200;
+        $this->WriteText('LABORATORIO CLINICO SANTA INES.',$centroPagina,5,'B',13,'Arial',true);
         // $this->WriteText('QUIMICO RESPONSABLE',210,5,'',10,'Arial',true);
         // $this->WriteText('Q.F.B.  .',210,5,'B',10,'Arial',true);
-        $this->WriteText('De Exquitla, Tercera Cerrada Carretera Tlaxcala Puebla 23, Barrio de Exquitla, De Exquitla, Tlax.',210,5,'',10,'Arial',true);
-        $this->WriteText('C.P. 90740 Tel. 52 2464970588',210,5,'',10,'Arial',true);
+        $this->WriteText('De Exquitla, Tercera Cerrada Carretera Tlaxcala Puebla 23, Barrio de Exquitla, De Exquitla, Tlax.',$centroPagina,5,'',10,'Arial',true);
+        $this->WriteText('C.P. 90740 Tel. 52 2464970588',$centroPagina,5,'',10,'Arial',true);
         // $this->WriteText('',210,5,'',10,'Arial',true);
         $numero=$_POST['numeroCuenta'];
         $diassemana = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
         $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
         // $this->WriteText('',210,6,'',10,'Arial',false);
-        $this->WriteText('Folio:'.str_pad($numero,3,"0",STR_PAD_LEFT),155,6,'B',12,'Arial',false);
+        $this->WriteText('Folio:'.str_pad($numero,3,"0",STR_PAD_LEFT),$extremoDerecho,6,'B',12,'Arial',false);
         if (isset($_POST['fechaIngreso'])) {
             
             $hoy=date("d/m/Y",strtotime($_POST['fechaIngreso']));   
@@ -68,7 +70,7 @@ protected $y0;      // Ordenada de comienzo de la columna
             $xx=130;
         }
         
-        $this->WriteText($hoy,$xx,6,'',10,'Arial',false);
+        $this->WriteText($hoy,$extremoDerecho,6,'',10,'Arial',false);
 
         
     }
@@ -172,15 +174,16 @@ protected $y0;      // Ordenada de comienzo de la columna
         if (isset($_POST['feCuenta'])) {
             $fe=date("d/m/Y",strtotime($_POST['feCuenta'])); 
         }
-        $this->WriteText('Fecha Ingreso:'.$hoy ,130,8,'B',10,'Arial',false);
-        $this->WriteText('Fecha Entrega:'.$fe ,130,8,'B',10,'Arial',false);
+        $extremoDerecho=200;
+        $this->WriteText('Fecha Ingreso:'.$hoy ,$extremoDerecho,8,'B',10,'Arial',false);
+        $this->WriteText('Fecha Entrega:'.$fe ,$extremoDerecho,8,'B',10,'Arial',false);
         if ($fp!='') {
-            $this->WriteText('Forma de pago:'.$fp ,130,8,'B',10,'Arial',false);
+            $this->WriteText('Forma de pago:'.$fp ,$extremoDerecho,8,'B',10,'Arial',false);
         }
-        $this->WriteText($nota ,130,8,'B',18,'Arial',false);
-        $this->WriteText("Total    :".$total ,135,8,'',10,'Arial',false);
-        $this->WriteText("Anticipo :".$adelanto ,135,8,'',10,'Arial',false);
-        $this->WriteText("Restante :".$pendiente ,135,8,'',10,'Arial',false);
+        $this->WriteText($nota ,$extremoDerecho,8,'B',18,'Arial',false);
+        $this->WriteText("Total    :".$total ,$extremoDerecho,8,'B',15,'Arial',false);
+        $this->WriteText("Anticipo :".$adelanto ,$extremoDerecho,8,'B',13,'Arial',false);
+        $this->WriteText("Restante :".$pendiente ,$extremoDerecho,8,'B',13,'Arial',false);
     }
 
     function PrintChapter($title, $examenes,$nota,$total,$adelanto,$pendiente,$y,$fp,$fe,$he)
@@ -194,15 +197,11 @@ protected $y0;      // Ordenada de comienzo de la columna
         
     }
 }
-$pdf = new PDF();
+$pdf = new PDF('L','mm',array(200,270));
 //tamaño media carta
 $pdf->SetAuthor('MSLAB');
 $pdf->AddPage();
 $pdf->PrintChapter($nombre,$examenes,$nota,$total,$adelanto,$pendiente,70,$fp,$fe,$he);
-$pdf->SetY(160);
-// $pdf->Image('images/logo_laboratorio.jpeg',10,160,40,0,'JPEG');
-$pdf->encabezado();
-$pdf->PrintChapter($nombre,$examenes,$nota,$total,$adelanto,$pendiente,222,$fp,$fe,$he);
 $pdf->SetY(160);
 $pdf->Output();
 ?>
