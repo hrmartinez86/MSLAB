@@ -301,10 +301,18 @@ function calculaResultado(llave, idpaciente, formula) {
   }
   let resultado = 0;
   if (operaciones.length > 1) {
-    resultado = calculoRes(variables[1], operaciones[0], variables[2]);
-    resultado = calculoRes(resultado, operaciones[1], variables[3]);
+    resultado = calculoRes(
+      parseFloat(variables[1]),
+      operaciones[0],
+      parseFloat(variables[2])
+    );
+    resultado = calculoRes(resultado, operaciones[1], parseFloat(variables[3]));
   } else {
-    resultado = calculoRes(variables[1], operaciones[0], variables[2]);
+    resultado = calculoRes(
+      parseFloat(variables[1]),
+      operaciones[0],
+      parseFloat(variables[2])
+    );
   }
   document.getElementById(llave).value = resultado.toFixed(1);
 }
@@ -313,6 +321,7 @@ function calculoRes(variable1, operador, variable2) {
   switch (operador) {
     case 0:
       resultado = variable1 + variable2;
+      console.log(resultado);
       break;
     case 1:
       resultado = variable1 - variable2;
