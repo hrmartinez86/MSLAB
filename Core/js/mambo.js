@@ -261,120 +261,71 @@ function imprimeComprobante(id) {
 }
 
 function calculaResultado(llave, idpaciente, formula) {
-  console.log("Calculo del resultado");
-  console.log("llave", llave);
-  console.log("idpaciente", idpaciente);
-  console.log("formula", formula);
-
   //   explorar el contenido de la formula
   let codigo = false;
   let calculo = "";
   let numerovariables = 1;
   let variables = [];
+  let operaciones = [];
+  let numeroOperaciones = 0;
   let operacion = 0;
-  //   const str = "[349][/][n2.14]";
-
   const matches = formula.match(/\[.+?\]/g);
-  console.log(matches.length);
   for (let index = 0; index < matches.length; index++) {
     const element = matches[index];
     let end = element.replace("[", "");
     end = end.replace("]", "");
-    console.log(end);
     if (end.startsWith("n")) {
-      console.log("es un umero");
       variables[numerovariables] = end.substring(1);
       numerovariables += 1;
     } else {
       if (end == "+" || end == "-" || end == "*" || end == "/") {
         if (end == "+") {
-          operacion = 0;
+          operaciones[numeroOperaciones] = 0;
         }
         if (end == "-") {
-          operacion = 1;
+          operaciones[numeroOperaciones] = 1;
         }
         if (end == "*") {
-          operacion = 2;
+          operaciones[numeroOperaciones] = 2;
         }
         if (end == "/") {
-          operacion = 3;
+          operaciones[numeroOperaciones] = 3;
         }
+        numeroOperaciones += 1;
       } else {
         //   es una prueba
         variables[numerovariables] = document.getElementById(end).value;
         numerovariables += 1;
       }
     }
-
-    console.log(element);
   }
-
-  //newStr now contains 'StringIWant'
-  //   for (var i = 0; i < formula.length; i++) {
-  //     if (codigo && formula.charAt(i) != ")") {
-  //       calculo += formula.charAt(i);
-  //     }
-  //     if (formula.charAt(i) === "(") {
-  //       codigo = true;
-  //     }
-  //     if (formula.charAt(i) === ")") {
-  //       codigo = false;
-  //       variables[numerovariables] = calculo;
-  //       calculo = "";
-  //       numerovariables += 1;
-  //     }
-
-  //     if (formula.charAt(i) === "+") {
-  //       operacion = 0;
-  //     }
-  //     if (formula.charAt(i) === "-") {
-  //       operacion = 1;
-  //     }
-  //     if (formula.charAt(i) === "*") {
-  //       operacion = 2;
-  //     }
-  //     if (formula.charAt(i) === "/") {
-  //       operacion = 3;
-  //     }
-  //     console.log(formula.charAt(i));
-  //   }
-  //   console.log("numero variables", numerovariables);
-  //   console.log("variable 1", variables[1]);
-  //   console.log("variable 2", variables[2]);
-  //   console.log("operacion", operacion);
-  //   let restultado = 0;
-  switch (operacion) {
+  let resultado = 0;
+  if (operaciones.length > 1) {
+    resultado = calculoRes(variables[1], operaciones[0], variables[2]);
+    resultado = calculoRes(resultado, operaciones[1], variables[3]);
+  } else {
+    resultado = calculoRes(variables[1], operaciones[0], variables[2]);
+  }
+  document.getElementById(llave).value = resultado.toFixed(1);
+}
+function calculoRes(variable1, operador, variable2) {
+  let resultado = 0;
+  switch (operador) {
     case 0:
-      console.log(variables[1]);
-      console.log(variables[2]);
-      //   console.log(document.getElementById(variables[1]).value);
-      resultado = parseFloat(variables[1]) + parseFloat(variables[2]);
+      resultado = variable1 + variable2;
       break;
-
     case 1:
-      console.log(variables[1]);
-      console.log(variables[2]);
-      //   console.log(document.getElementById(variables[1]).value);
-      resultado = parseFloat(variables[1]) - parseFloat(variables[2]);
+      resultado = variable1 - variable2;
       break;
     case 2:
-      console.log(variables[1]);
-      console.log(variables[2]);
-      //   console.log(document.getElementById(variables[1]).value);
-      resultado = parseFloat(variables[1]) * parseFloat(variables[2]);
+      resultado = variable1 * variable2;
+      break;
+    case 3:
+      resultado = variable1 / variable2;
       break;
 
-    case 3:
-      console.log(variables[1]);
-      console.log(variables[2]);
-      //   console.log(document.getElementById(variables[1]).value);
-      resultado = parseFloat(variables[1]) / parseFloat(variables[2]);
-      break;
     default:
-      resultado = 0;
       break;
   }
-  console.log(resultado);
-  // cambio de resultado
-  document.getElementById(llave).value = resultado.toFixed(2);
+  return resultado;
 }
