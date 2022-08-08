@@ -96,6 +96,19 @@ function calculoPrecios() {
   document.getElementById("precioTotal").value = totalcuenta;
   document.getElementById("adelanto").value = totalcuenta;
 }
+function verificaPrecios(tableId) {
+  ///Metodo para sumar los precios de los estudios
+  var table = document.getElementById(tableId);
+  let consumoTotal = 0;
+  //revisa el precio de cada estudio
+  for (let index = 1; index < table.rows.length; index++) {
+    let precioEstudio = 0;
+    precioEstudio = parseFloat(table.rows[index].cells[4].childNodes[0].value);
+    consumoTotal += precioEstudio;
+  }
+  var totalInput = document.getElementById("precioTotal");
+  totalInput.value = consumoTotal;
+}
 function addRow(tableID, codigo, estudio, precio, fecha, fur, precioTotal) {
   // Get a reference to the table
   let tableRef = document.getElementById(tableID);
@@ -116,6 +129,7 @@ function addRow(tableID, codigo, estudio, precio, fecha, fur, precioTotal) {
   let newEstudioText = document.createTextNode(estudio);
   let newPrecioText = document.createElement("input");
   newPrecioText.value = precio;
+  newPrecioText.setAttribute("onchange", "verificaPrecios('tablaExamen')");
   newPrecioText.disabled = false;
   newPrecioText.id = codigo;
 
@@ -305,13 +319,11 @@ function Choose() {
 
   //Extrae los recursos seleccionados y los a�ade a la lista
   for (var i = srcLen - 1; i > -1; i--) {
-    console.log("no ma");
     if (
       srcList.options[i].selected &&
       tgt.indexOf("," + srcList.options[i].value + ",") == -1
     ) {
       opt = new Option(srcList.options[i].text, srcList.options[i].value);
-      console.log("jfnfjnfjefjenfje");
       tgtList.options[tgtList.length] = opt;
       tgtList[0].selected = true;
       //obtenemos el precio
