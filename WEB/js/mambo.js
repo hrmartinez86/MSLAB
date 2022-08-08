@@ -816,3 +816,68 @@ function zfill(number, width) {
     }
   }
 }
+
+function ageCalculator() {
+  //collect input from HTML form and convert into date format
+  var userinput = document.getElementById("Fecha").value;
+  var dob = new Date(userinput);
+
+  //check user provide input or not
+  if (userinput == null || userinput == "") {
+    document.getElementById("message").innerHTML = "**Choose a date please!";
+    return false;
+  }
+
+  //execute if the user entered a date
+  else {
+    //extract the year, month, and date from user date input
+    var dobYear = dob.getYear();
+    var dobMonth = dob.getMonth();
+    var dobDate = dob.getDate();
+
+    //get the current date from the system
+    var now = new Date();
+    //extract the year, month, and date from current date
+    var currentYear = now.getYear();
+    var currentMonth = now.getMonth();
+    var currentDate = now.getDate();
+
+    //declare a variable to collect the age in year, month, and days
+    var age = {};
+
+    //get years
+    yearAge = currentYear - dobYear;
+
+    //get months
+    if (currentMonth >= dobMonth)
+      //get months when current month is greater
+      var monthAge = currentMonth - dobMonth;
+    else {
+      yearAge--;
+      var monthAge = 12 + currentMonth - dobMonth;
+    }
+
+    //get days
+    if (currentDate >= dobDate)
+      //get days when the current date is greater
+      var dateAge = currentDate - dobDate;
+    else {
+      monthAge--;
+      var dateAge = 31 + currentDate - dobDate;
+
+      if (monthAge < 0) {
+        monthAge = 11;
+        yearAge--;
+      }
+    }
+    //group the age in a single variable
+    age = {
+      years: yearAge,
+      months: monthAge,
+      days: dateAge,
+    };
+    document.getElementById("anos").value = age.years;
+    document.getElementById("meses").value = age.months;
+    document.getElementById("dias").value = age.days;
+  }
+}

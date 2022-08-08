@@ -94,16 +94,16 @@ $fecha = date('d/m/Y');
 
                 </select></td>
             </tr>
+            <tr class="Controls">
+              <td colspan="1"class="th"><label for="Fecha">Fecha de nacimiento:</label></td>
+              <td colspan="3"><input required style="width:50%; " type="date" id="Fecha" value="<?php echo $fecha; ?>" name="theDate2" onblur="ageCalculator()"></td>
+            </tr>
 
             <tr class="Controls">
               <td colspan="1" class="th"><label for="edad">Edad:</label></td>
-              <td colspan="3"> <input type="text" id="edad" onChange="cmbioEdad()" >Años</td>
+              <td colspan="3"> <input type="text" id="anos" onChange="cmbioEdad()" >Años <input type="text" id="meses" onChange="cmbioEdad()" >Meses <input type="text" id="dias" onChange="cmbioEdad()" >Dias</td>
             </tr>
 
-            <tr class="Controls">
-              <td colspan="1"class="th"><label for="Fecha">Fecha de nacimiento:</label></td>
-              <td colspan="3"><input required style="width:50%; " type="date" id="Fecha" value="<?php echo $fecha; ?>" name="theDate2"></td>
-            </tr>
 
             <tr class="Controls">
               <td colspan="1" class="th"><label for="CitasProcedencia">Procedencia:</label></td>

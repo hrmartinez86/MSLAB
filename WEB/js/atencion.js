@@ -1,19 +1,19 @@
 function cmbioEdad() {
-    var edad=document.getElementById('edad').value;
+  var edad = document.getElementById("anos").value;
 
-    var date = new Date();
+  var date = new Date();
 
-    var dd = (date.getDate() < 10 ? '0' : '') + date.getDate();
+  var dd = (date.getDate() < 10 ? "0" : "") + date.getDate();
 
-    var MM = ((date.getMonth() + 1) < 10 ? '0' : '') + (date.getMonth() + 1);
+  var MM = (date.getMonth() + 1 < 10 ? "0" : "") + (date.getMonth() + 1);
 
-    var yyyy = date.getFullYear()-edad;
+  var yyyy = date.getFullYear() - edad;
 
-    document.getElementById('Fecha').value=yyyy + "-" + MM + "-" + dd;
+  document.getElementById("Fecha").value = yyyy + "-" + MM + "-" + dd;
 }
 
-function ComprobanteAtencion(){
-    form=document.getElementById('ComprobanteAtencion');
-    form.target='_blank';
-    form.submit();
+function ComprobanteAtencion() {
+  form = document.getElementById("ComprobanteAtencion");
+  form.target = "_blank";
+  form.submit();
 }
