@@ -96,6 +96,28 @@
                     }
         return $I_Info;	
     }
+    function detallePiePagina($codigo)
+    {
+        // echo "<script> console.log('".$codigo."');</script>";
+        global $ODBC;
+        $ODBC=$_SESSION["ODBC"];
+        $link=conectar($ODBC);
+        $sql="SELECT pp.responsable_sanitario,pp.direccion,pp.telefono1,pp.telefono2  from  dat_dfipa dd INNER JOIN procedencia_muestra pm on pm.id=dd.procedencia_muestra
+        INNER join pie_pagina pp on pp.id=pm.id_pie
+        where idpaciente='".$codigo."'";
+        $son=odbc_exec($link,$sql) or die ("error al obtener el degloce del estudio".odbc_errormsg());
+        // // echo $sql;
+        while($row =odbc_fetch_array($son) )
+                    { 
+                        $I_Info[]=array('responsable_sanitario'=>$row['responsable_sanitario'],
+                                        'direccion'=>$row['direccion'],
+                                        'telefono1'=>$row['telefono1'],
+                                        'telefono2'=>$row['telefono2']
+                                    );
+                                        
+                    }
+        return $I_Info;	
+    }
     function nota($llave)
     {
         switch ($llave) {

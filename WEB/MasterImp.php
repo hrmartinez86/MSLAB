@@ -80,16 +80,17 @@ protected $y0;      // Ordenada de comienzo de la columna
 
     function Footer()
     {
-        // $yResultado=$this->GetY();
-        // $this->WriteText($yResultado,40,0,'B',9,'Arial',false,false);
-        // Go to 1.5 cm from bottom
     $this->SetY(-35);
+
+    // evalua si se va a imprimir el pie de pagina
     if ($_POST['logos']) {
-        //Select Arial italic 8
+        //recuperamos el footer del paciente
+        $idPaciente=$_POST['i'];
+        $piePagina=detallePiePagina($idPaciente);
         $this->SetFont('Arial','',8);
-        $responsableSanitario=utf8_decode('RESPONSABLE SANITARIO:Q.F.B. José Justiano Sánchez Hernández R.F.C. SAHJ580905EM1 Ced. Prof. No. 871857 U.A.P.');
-        $direccion=utf8_decode('Av. Lerdo de Tejada No. 19 2do. Piso 202 Secc. 2da. Zacatelco;Tlaxcala Teléfono (246) 497 0588                      E-Mail: lasines@prodigy.net.mx');
-        $telefono=utf8_decode('Tel. Celular: (246) 116 9861 / (246) 101 0155                                   Urgencias Tel.:(246) 497 2619');
+        $responsableSanitario=$piePagina[0]['responsable_sanitario'];
+        $direccion=$piePagina[0]['direccion'];
+        $telefono=$piePagina[0]['telefono1'];
         $this->Cell(0,10,$responsableSanitario,0,0,'L');
         $y=$this->GetY()+10;
         $this->SetLineWidth(1);
