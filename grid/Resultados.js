@@ -18,25 +18,11 @@
  * @private
  */
 function onCellClick(oGrid, oCell) {
-	
-	 //'\nItem number is ' + oGrid.getCellValueString(oGrid.getCellByRow(
-	// oGrid.getRowByCell(oCell), 0))+
-	 //'\nItem number is ' + oGrid.getCellValueString(oGrid.getCellByRow(
-	 //oGrid.getRowByCell(oCell), 1))+
-	 //'\nItem number is ' + oGrid.getCellValueString(oGrid.getCellByRow(
-	 //oGrid.getRowByCell(oCell), 2))+
-	//'\nItem number is ' + oGrid.getCellValueString(oGrid.getCellByRow(
-	// oGrid.getRowByCell(oCell), 3))+
-	// '\nItem number is ' + oGrid.getCellValueString(oGrid.getCellByRow(
-	// oGrid.getRowByCell(oCell), 4))+
-	// '\nItem number is ' + oGrid.getCellValueString(oGrid.getCellByRow(
-	// oGrid.getRowByCell(oCell), 5))+
-	// '\nItem number is ' + oGrid.getCellValueString(oGrid.getCellByRow(
-	// oGrid.getRowByCell(oCell), 6))
-//        alert("hola");
-	 window.open("xFolioR.php?folio="+oGrid.getCellValueString(oGrid.getCellByRow(oGrid.getRowByCell(oCell), 0)),"_self","");
-	//alert	(" 
-	//alert(	"");
+  console.log(
+    "idpaciente:",
+    oGrid.getCellValueString(oGrid.getCellByRow(oGrid.getRowByCell(oCell), 0))
+  );
+  //  window.open("xFolioR.php?folio="+oGrid.getCellValueString(oGrid.getCellByRow(oGrid.getRowByCell(oCell), 0)),"_self","");
 }
 
 /**
@@ -45,10 +31,14 @@ function onCellClick(oGrid, oCell) {
  * @private
  */
 function onCellRightClick(oGrid, oCell) {
-	alert('Right mouse button\nRow id is ' + oGrid.getCellRowId(oCell) +
-	 '\nCell id is ' + oGrid.getCellId(oCell) +
-	 '\nItem number is ' + oGrid.getCellValueString(oGrid.getCellByRow(
-	 oGrid.getRowByCell(oCell), 0)));
+  alert(
+    "Right mouse button\nRow id is " +
+      oGrid.getCellRowId(oCell) +
+      "\nCell id is " +
+      oGrid.getCellId(oCell) +
+      "\nItem number is " +
+      oGrid.getCellValueString(oGrid.getCellByRow(oGrid.getRowByCell(oCell), 0))
+  );
 }
 
 /**
@@ -57,9 +47,13 @@ function onCellRightClick(oGrid, oCell) {
  * @private
  */
 function onRowClick(oGrid, oRow) {
-	alert('Left mouse button\nRow id is ' + oGrid.getRowId(oRow) +
-	 '\nItem number is ' + oGrid.getCellValueString(oGrid.getCellByRow(oRow, 0)));
-};
+  alert(
+    "Left mouse button\nRow id is " +
+      oGrid.getRowId(oRow) +
+      "\nItem number is " +
+      oGrid.getCellValueString(oGrid.getCellByRow(oRow, 0))
+  );
+}
 
 /**
  * Passed to grid through callbackRowOnRightClick config option and called when
@@ -67,9 +61,13 @@ function onRowClick(oGrid, oRow) {
  * @private
  */
 function onRowRightClick(oGrid, oRow) {
-	alert('Right mouse button\nRow id is ' + oGrid.getRowId(oRow) +
-	 '\nItem number is ' + oGrid.getCellValueString(oGrid.getCellByRow(oRow, 0)));
-};
+  alert(
+    "Right mouse button\nRow id is " +
+      oGrid.getRowId(oRow) +
+      "\nItem number is " +
+      oGrid.getCellValueString(oGrid.getCellByRow(oRow, 0))
+  );
+}
 
 /**
  * Converts number of milliseconds since January 1, 1970, 00:00:00.000 into
@@ -77,23 +75,23 @@ function onRowRightClick(oGrid, oRow) {
  * @private
  */
 function fromTimestamp(iTimestamp) {
-	var oDate = new Date(Math.round(iTimestamp));
-	var sMonth = oDate.getMonth() + 1;
-	if (sMonth < 10) {
-		sMonth = '0' + sMonth;
-	}
-	var sDay = oDate.getDate();
-	if (sDay < 10) {
-		sDay = '0' + sDay;
-	}
-	var sYear = oDate.getYear();
-	if (sYear < 1900) {
-		sYear += 1900;
-	}
-	sYear += '';
-	sYear = sYear.substr(2);
-	return sMonth + '/' + sDay + '/' + sYear;
-};
+  var oDate = new Date(Math.round(iTimestamp));
+  var sMonth = oDate.getMonth() + 1;
+  if (sMonth < 10) {
+    sMonth = "0" + sMonth;
+  }
+  var sDay = oDate.getDate();
+  if (sDay < 10) {
+    sDay = "0" + sDay;
+  }
+  var sYear = oDate.getYear();
+  if (sYear < 1900) {
+    sYear += 1900;
+  }
+  sYear += "";
+  sYear = sYear.substr(2);
+  return sMonth + "/" + sDay + "/" + sYear;
+}
 
 /**
  * Holds ids of the fields used for sliders. Gives ability to change them
@@ -101,8 +99,8 @@ function fromTimestamp(iTimestamp) {
  * @private
  */
 var oSliderFields = {
-	rangeOfDates: 1,
-	rangeOfMinutes: 5
+  rangeOfDates: 1,
+  rangeOfMinutes: 5,
 };
 
 /**
@@ -111,9 +109,9 @@ var oSliderFields = {
  * @private
  */
 function onRangeOfDatesChange(iMinValue, iMaxValue) {
-	// Display scale
-	document.getElementById('rangeOfDates').innerHTML =
-	 fromTimestamp(iMinValue) + ' - ' + fromTimestamp(iMaxValue);
+  // Display scale
+  document.getElementById("rangeOfDates").innerHTML =
+    fromTimestamp(iMinValue) + " - " + fromTimestamp(iMaxValue);
 }
 
 /**
@@ -122,16 +120,16 @@ function onRangeOfDatesChange(iMinValue, iMaxValue) {
  * @private
  */
 function onRangeOfDatesDrag(iMinValue, iMaxValue) {
-	if (typeof oGrid == 'undefined') {
-		oGrid = objGrid;
-	}
-	onRangeOfDatesChange(iMinValue, iMaxValue);
-	// Limit range of items
-	oGrid.limitRange({
-		column: oSliderFields.rangeOfDates,
-		min: iMinValue,
-		max: iMaxValue
-	});
+  if (typeof oGrid == "undefined") {
+    oGrid = objGrid;
+  }
+  onRangeOfDatesChange(iMinValue, iMaxValue);
+  // Limit range of items
+  oGrid.limitRange({
+    column: oSliderFields.rangeOfDates,
+    min: iMinValue,
+    max: iMaxValue,
+  });
 }
 
 /**
@@ -140,11 +138,11 @@ function onRangeOfDatesDrag(iMinValue, iMaxValue) {
  * @private
  */
 function onRangeOfMinutesChange(iMinValue, iMaxValue) {
-	iMinValue = Math.round(iMinValue);
-	iMaxValue = Math.round(iMaxValue);
-	// Display scale
-	document.getElementById('rangeOfMinutes').innerHTML =
-	 iMinValue + ' - ' + iMaxValue;
+  iMinValue = Math.round(iMinValue);
+  iMaxValue = Math.round(iMaxValue);
+  // Display scale
+  document.getElementById("rangeOfMinutes").innerHTML =
+    iMinValue + " - " + iMaxValue;
 }
 
 /**
@@ -153,16 +151,16 @@ function onRangeOfMinutesChange(iMinValue, iMaxValue) {
  * @private
  */
 function onRangeOfMinutesDrag(iMinValue, iMaxValue) {
-	if (typeof oGrid == 'undefined') {
-		oGrid = objGrid;
-	}
-	onRangeOfMinutesChange(iMinValue, iMaxValue);
-	// Limit range of items
-	oGrid.limitRange({
-		column: oSliderFields.rangeOfMinutes,
-		minValue: iMinValue,
-		maxValue: iMaxValue
-	});
+  if (typeof oGrid == "undefined") {
+    oGrid = objGrid;
+  }
+  onRangeOfMinutesChange(iMinValue, iMaxValue);
+  // Limit range of items
+  oGrid.limitRange({
+    column: oSliderFields.rangeOfMinutes,
+    minValue: iMinValue,
+    maxValue: iMaxValue,
+  });
 }
 
 /**
@@ -184,54 +182,56 @@ var oMinuteSlider;
  * @private
  */
 function onGridInit() {
-	// Get range of dates
-	var oDateRange = this.getColumnRange({column: oSliderFields.rangeOfDates});
-	if (oDateRange) {
-		document.getElementById('rangeOfDates').innerHTML = 
-			fromTimestamp(oDateRange.min) + ' - ' + fromTimestamp(oDateRange.max);
-		if (oDateSlider) {
-			// Update slider
-			oDateSlider.reset(oDateRange.min, oDateRange.max);
-		} else {
-			// Draw items slider
-			oDateSlider = new Zapatec.Slider({
-				div: 'rangeOfDatesScale', 
-				length: 99,
-				dual: true, 
-				orientation: 'H',
-				step: 1,
-				range : [oDateRange.min, oDateRange.max],
-				eventListeners: {
-					'onChange': onRangeOfDatesChange,
-					'newPosition': onRangeOfDatesDrag
-				}
-			});
-		}
-	}
-	// Get range of minutes
-	var oMinuteRange = this.getColumnRange({column: oSliderFields.rangeOfMinutes});
-	if (oMinuteRange) {
-		document.getElementById('rangeOfMinutes').innerHTML = 
-		 oMinuteRange.min + ' - ' + oMinuteRange.max;
-		if (oMinuteSlider) {
-			// Update slider
-			oMinuteSlider.reset(oMinuteRange.min, oMinuteRange.max);
-		} else {
-			// Draw minutes slider
-			oMinuteSlider = new Zapatec.Slider({
-				div: 'rangeOfMinutesScale', 
-				length: 99,
-				dual: true, 
-				orientation: 'H',
-				step: 1,
-				range : [oMinuteRange.min, oMinuteRange.max],
-				eventListeners: {
-					'onChange': onRangeOfMinutesChange,
-					'newPosition': onRangeOfMinutesDrag
-				}
-			});
-		}
-	}
+  // Get range of dates
+  var oDateRange = this.getColumnRange({ column: oSliderFields.rangeOfDates });
+  if (oDateRange) {
+    document.getElementById("rangeOfDates").innerHTML =
+      fromTimestamp(oDateRange.min) + " - " + fromTimestamp(oDateRange.max);
+    if (oDateSlider) {
+      // Update slider
+      oDateSlider.reset(oDateRange.min, oDateRange.max);
+    } else {
+      // Draw items slider
+      oDateSlider = new Zapatec.Slider({
+        div: "rangeOfDatesScale",
+        length: 99,
+        dual: true,
+        orientation: "H",
+        step: 1,
+        range: [oDateRange.min, oDateRange.max],
+        eventListeners: {
+          onChange: onRangeOfDatesChange,
+          newPosition: onRangeOfDatesDrag,
+        },
+      });
+    }
+  }
+  // Get range of minutes
+  var oMinuteRange = this.getColumnRange({
+    column: oSliderFields.rangeOfMinutes,
+  });
+  if (oMinuteRange) {
+    document.getElementById("rangeOfMinutes").innerHTML =
+      oMinuteRange.min + " - " + oMinuteRange.max;
+    if (oMinuteSlider) {
+      // Update slider
+      oMinuteSlider.reset(oMinuteRange.min, oMinuteRange.max);
+    } else {
+      // Draw minutes slider
+      oMinuteSlider = new Zapatec.Slider({
+        div: "rangeOfMinutesScale",
+        length: 99,
+        dual: true,
+        orientation: "H",
+        step: 1,
+        range: [oMinuteRange.min, oMinuteRange.max],
+        eventListeners: {
+          onChange: onRangeOfMinutesChange,
+          newPosition: onRangeOfMinutesDrag,
+        },
+      });
+    }
+  }
 }
 
 /**
@@ -240,15 +240,15 @@ function onGridInit() {
  * @private
  */
 function onGridMovedColumn(oMove) {
-	// Fix sliders using special static method of the grid
-	oSliderFields.rangeOfDates = Zapatec.Grid.getNewColumnNumber({
-		fieldId: oSliderFields.rangeOfDates,
-		move: oMove
-	});
-	oSliderFields.rangeOfMinutes = Zapatec.Grid.getNewColumnNumber({
-		fieldId: oSliderFields.rangeOfMinutes,
-		move: oMove
-	});
+  // Fix sliders using special static method of the grid
+  oSliderFields.rangeOfDates = Zapatec.Grid.getNewColumnNumber({
+    fieldId: oSliderFields.rangeOfDates,
+    move: oMove,
+  });
+  oSliderFields.rangeOfMinutes = Zapatec.Grid.getNewColumnNumber({
+    fieldId: oSliderFields.rangeOfMinutes,
+    move: oMove,
+  });
 }
 
 /**
@@ -256,21 +256,21 @@ function onGridMovedColumn(oMove) {
  * @private
  */
 function filter(oForm) {
-	if (typeof oGrid == 'undefined') {
-		oGrid = objGrid;
-	}
-	if (oGrid) {
-		if (oForm.isRegExp.checked) {
-			oGrid.setFilter({
-				regexp: oForm.textFilter.value
-			});
-		} else {
-			oGrid.setFilter({
-				text: oForm.textFilter.value
-			});
-		}
-	}
-	return false;
+  if (typeof oGrid == "undefined") {
+    oGrid = objGrid;
+  }
+  if (oGrid) {
+    if (oForm.isRegExp.checked) {
+      oGrid.setFilter({
+        regexp: oForm.textFilter.value,
+      });
+    } else {
+      oGrid.setFilter({
+        text: oForm.textFilter.value,
+      });
+    }
+  }
+  return false;
 }
 
 /**
@@ -278,23 +278,23 @@ function filter(oForm) {
  * @private
  */
 function resetControls(oForm) {
-	if (typeof oGrid == 'undefined') {
-		oGrid = objGrid;
-	}
-	// Reset form
-	oForm.textFilter.value = '';
-	// Reset all sliders
-	var aWidgets = Zapatec.Widget.all;
-	var iWidgets = aWidgets.length;
-	var oWidget;
-	for (var iWidget = 0; iWidget < iWidgets; iWidget++) {
-		oWidget = aWidgets[iWidget];
-		if (oWidget.constructor == Zapatec.Slider) {
-			oWidget.setPos(oWidget.config.range[0], oWidget.config.range[1]);
-		}
-	}
-	// Reset filters
-	if (oGrid) {
-		oGrid.resetFilters();
-	}
+  if (typeof oGrid == "undefined") {
+    oGrid = objGrid;
+  }
+  // Reset form
+  oForm.textFilter.value = "";
+  // Reset all sliders
+  var aWidgets = Zapatec.Widget.all;
+  var iWidgets = aWidgets.length;
+  var oWidget;
+  for (var iWidget = 0; iWidget < iWidgets; iWidget++) {
+    oWidget = aWidgets[iWidget];
+    if (oWidget.constructor == Zapatec.Slider) {
+      oWidget.setPos(oWidget.config.range[0], oWidget.config.range[1]);
+    }
+  }
+  // Reset filters
+  if (oGrid) {
+    oGrid.resetFilters();
+  }
 }

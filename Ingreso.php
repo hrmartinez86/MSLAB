@@ -28,7 +28,7 @@ if(isset($_GET['FI']) and isset($_GET['ff']))
 
 	<!-- Custom includes -->	
 <script type="text/javascript" src="grid/src/zpgrid.js"></script>
-<script type="text/javascript" src="grid/demor.js"></script>
+<script type="text/javascript" src="grid/Resultados.js"></script>
 
 	<!-- ALL demos need these css -->
 	<link rel="SHORTCUT ICON" href="icon.png">
@@ -150,6 +150,8 @@ $varsql="otro";
 				                       
 					echo
 					'<tr>
+
+						<td width="idpaciente" class="zpGridTypeInt">idpaciente</td>
 						<td width="*" class="zpGridTypeInt">Folio</td>
 						<td width="60" class="zpGridTypeDate">Fecha</td>
 						<td width="46" class="zpGridTypeTime">Nombre</td>
@@ -162,6 +164,7 @@ $varsql="otro";
 					</tr>';					
 				
 					$result=odbc_exec($conection,$sql);
+					
 					$i=0;
 					while($rows=odbc_fetch_array($result))
 					{
@@ -177,6 +180,7 @@ $varsql="otro";
 					 	echo 
 						'
 							<tr background-color: yellow;>
+							<td>'.str_pad($rows['idpaciente'],10,"0",STR_PAD_LEFT).'</td>
 							<td>'.str_pad($rows['numero_registro'],3,"0",STR_PAD_LEFT).'</td>
 							<td>'.$creacion.'</td>
 							<td>'.$rows['Nombre'].'</td>
