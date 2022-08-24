@@ -60,8 +60,6 @@ protected $y0;      // Ordenada de comienzo de la columna
         $this->WriteText($sexo,$x1+30,3,'B',$fontSize,$font,false,false);
         $this->WriteText("Fecha:",$x1,0,'B',$fontSize,$font,false,false);
         $this->WriteText($fecha,$x1+30,3,'B',$fontSize,$font,false,false);
-        $this->WriteText("Expediente:",$x1,0,'B',$fontSize,$font,false,false);
-        $this->WriteText($expediente,$x1+30,3,'B',$fontSize,$font,false,false);
         $this->WriteText("Doctor:",$x1,0,'B',$fontSize,$font,false,false);	
         $this->WriteText($doctor,$x1+30,3,'B',$fontSize,$font,false,false);
         $this->WriteText('Procedencia:',$x1,0,'B',$fontSize,$font,false,false);
