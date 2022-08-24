@@ -121,7 +121,7 @@ protected $y0;      // Ordenada de comienzo de la columna
             $this->SetX($wth);
         }
         if ($mul) {
-            $this->MultiCell(0,4.5,utf8_decode($text),0,'J',0);
+            $this->MultiCell(0,4.5,$text,0,'J',0);
         }
         else
         {   
@@ -142,14 +142,14 @@ protected $y0;      // Ordenada de comienzo de la columna
                         $this->Ln(4);
                         }
                         $this->setX(80);
-                        $this->Cell(0, 0, utf8_decode($texto), 0, 0);
+                        $this->Cell(0, 0,$texto, 0, 0);
                         $texto='';
                     }
                 }
             }
             else
             {
-                $this->Cell(0,0,utf8_decode($text),0,0);
+                $this->Cell(0,0,$text,0,0);
             }
             
         }
