@@ -51,7 +51,7 @@ protected $y0;      // Ordenada de comienzo de la columna
         // $this->WriteText('QUIMICO RESPONSABLE',210,5,'',10,'Arial',true);
         // $this->WriteText('Q.F.B.  .',210,5,'B',10,'Arial',true);
         $this->WriteText('Av. Lerdo de Tejada No. 19 2do. Piso 202 Secc. 2da. Zacatelco;',$centroPagina,5,'',10,'Arial',true);
-        $this->WriteText('Tlaxcala Teléfono (246) 497 0588 E-Mail: lasines@prodigy.net.mx',$centroPagina,5,'',10,'Arial',true);
+        $this->WriteText(utf8_decode('Tlaxcala Teléfono (246) 497 0588 E-Mail: lasines@prodigy.net.mx'),$centroPagina,5,'',10,'Arial',true);
         // $this->WriteText('',210,5,'',10,'Arial',true);
         $numero=$_POST['numeroCuenta'];
         $diassemana = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
