@@ -49,7 +49,8 @@ if ($fp!='') {
                         $idPaciente=$_POST['idPaciente'];
                         $centroPagina=310;
                         $extremoDerecho=200;
-                        $this->WriteText('LABORATORIO CLINICO SANTA INES.',$centroPagina,5,'B',13,'Arial',true);
+                        // $this->WriteText('LABORATORIO CLINICO SANTA INES.',$centroPagina,5,'B',13,'Arial',true);
+                        $this->WriteText($idPaciente,$centroPagina,5,'B',13,'Arial',true);
                         // $this->WriteText('QUIMICO RESPONSABLE',210,5,'',10,'Arial',true);
                         // $this->WriteText('Q.F.B.  .',210,5,'B',10,'Arial',true);
                         // $encabezado=detallePiePagina($idPaciente);
