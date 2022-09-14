@@ -52,7 +52,7 @@ if ($fp!='') {
                         $this->WriteText('LABORATORIO CLINICO SANTA INES.',$centroPagina,5,'B',13,'Arial',true);
                         // $this->WriteText('QUIMICO RESPONSABLE',210,5,'',10,'Arial',true);
                         // $this->WriteText('Q.F.B.  .',210,5,'B',10,'Arial',true);
-                        $encabezado=detallePiePagina($idPaciente);
+                        // $encabezado=detallePiePagina($idPaciente);
                         $this->WriteText('Av. Lerdo de Tejada No. 19 2do. Piso 202 Secc. 2da. Zacatelco;',$centroPagina,5,'',10,'Arial',true);
                         $this->WriteText(utf8_decode('Tlaxcala Teléfono (246) 497 0588 E-Mail: lasines@prodigy.net.mx'),$centroPagina,5,'',10,'Arial',true);
                         // $this->WriteText('',210,5,'',10,'Arial',true);
