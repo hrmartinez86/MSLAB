@@ -19,7 +19,7 @@ $pendiente=$_POST['pendienteCuenta'];
 $total=$_POST['totalCuenta'];
 $adelanto=$_POST['adelantoCuenta'];
 $fp=$_POST['fpCuenta'];
-$idPaciente=$_POST['idpaciente'];
+$idPaciente=$_POST['idPaciente'];
 if ($fp!='') {
 
     switch ($fp) {
