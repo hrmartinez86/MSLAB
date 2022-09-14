@@ -98,7 +98,7 @@
     }
     function detallePiePagina($codigo)
     {
-        // echo "<script> console.log('".$codigo."');</script>";
+        echo "<script> console.log('".$codigo."');</script>";
         global $ODBC;
         $ODBC=$_SESSION["ODBC"];
         $link=conectar($ODBC);
