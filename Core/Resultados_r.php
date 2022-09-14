@@ -876,7 +876,7 @@ $db_conn = conectar($ODBC);
       </tr>
       <tr>
         <td>
-          <input type="text" id="idpaciente" name="idPaciente" value="<?php echo 'pkkoko';?>">
+          <input type="text" id="idpaciente" name="idPaciente" value="<?php echo $VL_Buscar;?>">
         </td>
       </tr>
       <tr>
