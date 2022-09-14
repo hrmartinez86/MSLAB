@@ -313,7 +313,8 @@ protected $y0;      // Ordenada de comienzo de la columna
                 $this->Ln($interLinell);
                 //evaluamos si cuenta con un metodo
                 if ($examArray[$i]['metodo']!="") {
-                    $metodoCorreccion=utf8_encode($examArray[$i]['metodo']);
+                    // $metodoCorreccion=utf8_encode($examArray[$i]['metodo']);
+                    $metodoCorreccion=$examArray[$i]['metodo'];
                     $this->WriteText($metodoCorreccion,$xMetodo,$interLine,'B',8,$font,false,false);
                     $this->Ln($interLinell+2);
                 }
