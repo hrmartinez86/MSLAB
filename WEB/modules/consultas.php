@@ -106,7 +106,7 @@
         INNER join pie_pagina pp on pp.id=pm.id_pie
         where idpaciente='".$codigo."'";
         $son=odbc_exec($link,$sql) or die ("error al obtener el degloce del estudio".odbc_errormsg());
-        echo $sql;
+        // echo $sql;
         while($row =odbc_fetch_array($son) )
                     { 
                         $I_Info[]=array('responsable_sanitario'=>$row['responsable_sanitario'],
