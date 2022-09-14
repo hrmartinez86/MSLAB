@@ -876,6 +876,11 @@ $db_conn = conectar($ODBC);
       </tr>
       <tr>
         <td>
+          <input type="text" id="idpaciente" name="idPaciente" value="<?php echo $idpac;?>">
+        </td>
+      </tr>
+      <tr>
+        <td>
           <input type="hidden" id="notaCuenta"  name="notaCuenta" value="<?php echo $cuentaEstado;?>">
         </td>
       </tr>
