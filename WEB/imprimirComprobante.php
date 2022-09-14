@@ -1,5 +1,6 @@
 <?php
 session_start();
+require('modules/consultas.php');
 $nombre=$_POST['nombrePaciente'];
 $examenes_=$_POST['examenesCuenta'];
 $examenes=explode(",",$examenes_);
@@ -18,6 +19,7 @@ $pendiente=$_POST['pendienteCuenta'];
 $total=$_POST['totalCuenta'];
 $adelanto=$_POST['adelantoCuenta'];
 $fp=$_POST['fpCuenta'];
+$idPaciente=$_POST['idpaciente'];
 if ($fp!='') {
 
     switch ($fp) {
