@@ -1,6 +1,7 @@
 <?php
 session_start();
 require('modules/consultas.php');
+include("librerias/conection.php");
 $nombre=$_POST['nombrePaciente'];
 $examenes_=$_POST['examenesCuenta'];
 $examenes=explode(",",$examenes_);
@@ -49,13 +50,18 @@ if ($fp!='') {
                         $idPaciente=$_POST['idPaciente'];
                         $centroPagina=310;
                         $extremoDerecho=200;
-                        $this->WriteText('LABORATORIO CLINICO SANTA INES.',$centroPagina,5,'B',13,'Arial',true);
+                        ////rescatamos los encabezados////
+                        $piePagina=detallePiePagina($idPaciente);
+                        $responsableSanitario=$piePagina[0]['responsable_sanitario'];
+                        $direccion=$piePagina[0]['direccion'];
+                        $telefono=$piePagina[0]['telefono1'];
+                        $this->WriteText('LABORATORIO nnn CLINICO SANTA INES.',$centroPagina,5,'B',13,'Arial',true);
                         // $this->WriteText($idPaciente,$centroPagina,5,'B',13,'Arial',true);
                         // $this->WriteText('QUIMICO RESPONSABLE',210,5,'',10,'Arial',true);
                         // $this->WriteText('Q.F.B.  .',210,5,'B',10,'Arial',true);
-                        $encabezado=detallePiePagina($idPaciente);
-                        $this->WriteText('Av. Lerdo de Tejada No. 19 2do. Piso 202 Secc. 2da. Zacatelco;',$centroPagina,5,'',10,'Arial',true);
-                        $this->WriteText(utf8_decode('Tlaxcala Teléfono (246) 497 0588 E-Mail: lasines@prodigy.net.mx'),$centroPagina,5,'',10,'Arial',true);
+                        $this->WriteText($responsableSanitario,$centroPagina,5,'',10,'Arial',true);
+                        $this->WriteText($direccion,$centroPagina,5,'',10,'Arial',true);
+                        $this->WriteText(utf8_decode($telefono),$centroPagina,5,'',10,'Arial',true);
                         // $this->WriteText('',210,5,'',10,'Arial',true);
                         $numero=$_POST['numeroCuenta'];
                         $diassemana = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
