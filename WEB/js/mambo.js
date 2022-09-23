@@ -684,6 +684,10 @@ function removeOptions(selectElement) {
   }
 }
 
+function despliegaDetalle() {
+  let llave_fonasa = document.getElementById("ExamenCatalogo").value;
+  console.log("llave_fonasa", llave_fonasa);
+}
 // using the function:
 function cambiaEstudio() {
   removeOptions(document.getElementById("estudios"));
