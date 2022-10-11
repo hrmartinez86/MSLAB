@@ -684,8 +684,13 @@ function removeOptions(selectElement) {
   }
 }
 
-function despliegaDetalle() {
+async function despliegaDetalle() {
   let llave_fonasa = document.getElementById("ExamenCatalogo").value;
+  // const data = await EstudioDetalle_Estudio(llave_fonasa);
+  EstudioDetalle_Estudio(llave_fonasa).then((data) => {
+    console.info("Response:", data);
+  });
+  // console.log("data:::::", data);
   console.log("llave_fonasa", llave_fonasa);
 }
 // using the function:
@@ -730,6 +735,40 @@ function cambiaEstudio() {
       }
     },
   });
+}
+async function EstudioDetalle_Estudio(param) {
+  let result;
+  console.log("param", param);
+  try {
+    result = await $.ajax({
+      url: "EstudiosDetalleCatalogo.php",
+      type: "POST",
+      cache: "true",
+      data: { llave_fonasa: param },
+    });
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+  // await $.ajax({
+  //   url: "EstudiosDetalleCatalogo.php",
+  //   type: "get",
+  //   dataType: "json",
+  //   cache: "false",
+  //   success: function (response) {
+  //     var len = response.length;
+  //     for (var i = 0; i < len; i++) {
+  //       var llave_doctor = response[i]["llave_doctor"];
+  //       var nombre = response[i]["nombre"];
+  //       console.log("LLAVE_DOCTOR", llave_doctor);
+  //       console.log("NOMBRE", nombre);
+  //       $("#Doctor").append(
+  //         "<option value='" + llave_doctor + "'>" + nombre + "</option>"
+  //       );
+  //       $("#Doctor").selectpicker("refresh");
+  //     }
+  //   },
+  // });
 }
 function refrescaDoctores() {
   $.ajax({
