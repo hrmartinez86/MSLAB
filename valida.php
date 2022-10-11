@@ -3,18 +3,6 @@
 $fecha = date("d , M, y,  H:i a");
 ?>
 
-<!--
-
-Design by Free CSS Templates
-http://www.freecsstemplates.org
-Released for free under a Creative Commons Attribution 2.5 License
-
-Title      : Puzzled
-Version    : 1.0
-Released   : 20080706
-Description: A wide two-column design suitable for blogs and small websites.
-
--->
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
@@ -55,11 +43,6 @@ Description: A wide two-column design suitable for blogs and small websites.
 				<div class="entry">
 					<p style="text-align:center;">
 						<?php
-						@session_start();
-						@session_destroy();
-						@session_start();
-						@header("Cache-control: private");
-
 						include("librerias/conection.php");
 						$conection = conectar();
 						$fecha = date("Y-m-d");
@@ -67,39 +50,14 @@ Description: A wide two-column design suitable for blogs and small websites.
 						//	$centro= $_POST['centro'];
 						$usuario = $_POST['usuario'];
 						$password = $_POST['password'];
-
 						//Aqui es donde valida el usuario
-
-
-						//$sql_1="select * from procedencia_muestra where descripcion='".$login."' and codigo='".$password."' and id=".$id;
-						//		$sql_1= "SELECT lab_procedencia.ODBC as ODBC ,descripcion,codigo FROM lab_procedencia WHERE     (lab_procedencia.descripcion = '" .$centro. "')";
-						//		$re =  odbc_exec($conection,$sql_1) or die ("no hay resultados");
-						$ODBC = "laboratorio";
-						$empresa = 1;
-						$nombre = "laboratorio";
 						$sql_1 = "SELECT * FROM lab_usuarios WHERE     (lab_usuarios.usuario = '" . $usuario . "') AND (lab_usuarios.clave = '" . $password . "')";
-						$re =  odbc_exec($conection, $sql_1) or die("no hay resultados");
-						//		echo $sql_1 ;
-						$clave = odbc_result($re, "clave");
-						$nivel = odbc_result($re, "usuario");
-						$nombre2 = "";
-						$apellidos = "";
-						$conec = odbc_connect($ODBC, "sa", "Demo123.") or die("<h1 align='center'>ERROR EN LA IDENTIFICACION DE USUARIO EN LA BASE DE DATOS FAVOR DE CONSULTAR A SU PROVEEDOR</h1><br> <a href=\"index.php\" title=\"Regresar a la pagina principal\" target=\"_self\"><center>REGRESAR</center></a>");
-
-						$sql_1 = "SELECT * FROM lab_usuarios WHERE     (lab_usuarios.usuario = '" . $usuario . "') AND (lab_usuarios.clave = '" . $password . "')";
-						$re =  odbc_exec($conec, $sql_1) or die("no hay resultados");
-						//$msg = "<a href=\"tabla.php?FI=2009-03-18&ff=2009-03-18\">Bienvenido: " . $CENTRO . "  >></a>";
-						$nivel = odbc_result($re, "usuario");
-						$clave = odbc_result($re, "clave");
-						$perfil = odbc_result($re, "perfil");
-
-						if ($nivel == '') {
-							$msg = 'Este usuario no pertenece al Centro!!. <a href="index.php">Intentelo de nuevo.</a>';
-						} else {
-							$msg = "entra";
-						}
-
-						echo $nivel . $nombre;
+						echo $sql_1 ;
+						$data = $conection->query($sql_1)->fetchAll();
+						// and somewhere later:
+						foreach ($data as $row) {
+							$clave=$row['clave'];
+						}		
 
 						if ($password == $clave) {
 
@@ -114,6 +72,7 @@ Description: A wide two-column design suitable for blogs and small websites.
 							$_SESSION['empresa'] = $empresa;
 							$_SESSION['perfil']=$perfil;
 							//$_SESSION['usuario']=$nombreU;        
+							$msg = "entra";
 						} elseif ($login == "" && $password == "") {
 							$msg = "Sesion Cerrada!!. <a href=\"index.php\">Regresar.</a>";
 						} else {
@@ -121,33 +80,7 @@ Description: A wide two-column design suitable for blogs and small websites.
 
 							$msg = 'Datos erroneos, por favor intentelo nuevamente!!. <a href="index.php">Intentelo de nuevo.</a>';
 						}
-						//echo $centro;
-						//if ($centro==''){$msg = 'Datos erroneos, por favor intentelo nuevamente!!. <a href="index.php">Intentelo de nuevo.</a>';}
-						// $carpeta = "XML/".$nombre."/";
-
-						// if($carpeta<>"XML//" or $carpeta<>"")
-						// {
-						// eliminar_recursivo_contenido_de_directorio( $carpeta ) ;
-						// }	
-						// //función que elimina recursivamente todo el contenido de un directorio dado 
-						// function eliminar_recursivo_contenido_de_directorio( $carpeta ){ 
-						// @$directorio = opendir($carpeta); 
-						// while ($archivo = @readdir($directorio)){ 
-						// if( $archivo !='.' && $archivo !='..' ){ 
-						// //si es un directorio, volvemos a llamar a la función para que elimine el contenido del mismo 
-						// if ( is_dir( $carpeta.$archivo ) ) eliminar_recursivo_contenido_de_directorio( $carpeta.$archivo ); 
-						// //si no es un directorio, lo borramos 
-						// @unlink($carpeta.$archivo); 
-						// } 
-						// } 
-						// @closedir($directorio); 
-						// } 
-
-						/**********************************************************************************************************************************************************/
-						?>
-
-
-						<?php
+						
 						if ($msg == "entra") {
 							echo '
 <p align="center"><img src="images/espera.gif" width="48" height="48" /></p>
@@ -163,7 +96,6 @@ Description: A wide two-column design suitable for blogs and small websites.
 							echo $msg;
 						}
 
-						//echo $msg;
 						?>
 
 

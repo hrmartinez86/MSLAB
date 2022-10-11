@@ -7,7 +7,7 @@ function conectar()
 // <br>
 // <p>".odbc_errormsg()."</p>");
 // return $conection;
-$host='192.168.56.1';
+$host='localhost';
 $dbName='laboratorio';
 $username='sa';
 $password='Demo123.';
